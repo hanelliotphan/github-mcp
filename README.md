@@ -6,12 +6,13 @@ An MCP server for GitHub operations using TypeScript. Below are the available to
 - `github_create_org_repo`
 - `github_delete_repo`
 - `github_get_repo`
+- `github_update_repo`
 
 ## Prerequisites
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with permission for the operations you use: **read** repository metadata (`github_get_repo`), **create**, and/or **delete** repositories. **Read** needs access to the repo (public repos work without auth for metadata; private repos need `repo` or appropriate fine-grained repository read access). Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need matching permissions per operation. Org policies may block deletes (403) even when creation is allowed.
+- A GitHub token with permission for the operations you use: **read** (`github_get_repo`), **update** (`github_update_repo`), **create**, and/or **delete** repositories. **Update** requires permission to change repo settings (often **admin** on the repo; classic PATs typically need `repo` scope). **Read** needs access to the repo (public repos work without auth for metadata; private repos need `repo` or appropriate fine-grained repository read access). Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need matching permissions per operation. Org policies may block deletes (403) even when creation is allowed.
 
 ## Setup
 
@@ -110,6 +111,29 @@ Fetches repository metadata via `GET /repos/{owner}/{repo}`. Works for both **us
 #### Output
 
 On success: `success`, `repo` (normalized fields such as `full_name`, `description`, `default_branch`, counts, `topics`, `owner`, `license`, `permissions` when returned by the API), and `request_id`. On failure: structured `error` (including `not_found` for 404).
+
+### `github_update_repo`
+
+Updates repository settings with `PATCH /repos/{owner}/{repo}`. Same endpoint for user- or org-owned repos. See [GitHub REST: Update a repository](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#update-a-repository).
+
+Only parameters you pass are sent in the PATCH body (omit fields you do not want to change). `owner` and `name` identify the repository; use **`new_name`** to rename (maps to API body `name`).
+
+**Not supported in this tool:** `security_and_analysis`, `custom_properties`, and repository **topics** (topics use [Replace all repository topics](https://docs.github.com/en/rest/repos/repos#replace-all-repository-topics)).
+
+#### Inputs (all optional except `owner`, `name`)
+
+- `owner` (required), `name` (required) — target repo
+- `dry_run` (optional, default `false`) — if `true`, returns `planned_request` only (`repo` is null)
+- `new_name`, `description`, `homepage`, `private`, `visibility` (`public` \| `private`)
+- `has_issues`, `has_projects`, `has_wiki`, `is_template`, `default_branch`
+- Merge settings: `allow_squash_merge`, `allow_merge_commit`, `allow_rebase_merge`, `allow_auto_merge`, `delete_branch_on_merge`, `allow_update_branch`
+- `squash_merge_commit_title` (`PR_TITLE` \| `COMMIT_OR_PR_TITLE`), `squash_merge_commit_message` (`PR_BODY` \| `COMMIT_MESSAGES` \| `BLANK`)
+- `merge_commit_title` (`PR_TITLE` \| `MERGE_MESSAGE`), `merge_commit_message` (`PR_BODY` \| `PR_TITLE` \| `BLANK`)
+- `archived`, `allow_forking`, `web_commit_signoff_required`
+
+#### Output
+
+On success: normalized `repo` after update and `request_id`. On `dry_run`: `repo` is null and `planned_request` shows the PATCH payload. On failure: structured `error`.
 
 ## MCP Client Config (using `.env` only)
 

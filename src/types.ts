@@ -91,3 +91,15 @@ export type GetRepoSuccess = {
 };
 
 export type GetRepoFailure = CreateRepoFailure;
+
+export type UpdateRepoSuccess = {
+    success: true;
+    message: string;
+    /** Full metadata after update; null when `dry_run` is true. */
+    repo: RepoInfo | null;
+    request_id: string | null;
+    dry_run?: boolean;
+    planned_request?: Record<string, unknown>;
+};
+
+export type UpdateRepoFailure = CreateRepoFailure;

@@ -4,7 +4,9 @@ import type {
     DeleteRepoFailure,
     DeleteRepoSuccess,
     GetRepoFailure,
-    GetRepoSuccess
+    GetRepoSuccess,
+    UpdateRepoFailure,
+    UpdateRepoSuccess
 } from "../types.js";
 
 export function textAndData(
@@ -15,6 +17,8 @@ export function textAndData(
         | DeleteRepoFailure
         | GetRepoSuccess
         | GetRepoFailure
+        | UpdateRepoSuccess
+        | UpdateRepoFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
