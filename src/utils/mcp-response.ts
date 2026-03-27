@@ -1,6 +1,13 @@
-import type { CreateRepoFailure, CreateRepoSuccess } from "../types.js";
+import type {
+    CreateRepoFailure,
+    CreateRepoSuccess,
+    DeleteRepoFailure,
+    DeleteRepoSuccess
+} from "../types.js";
 
-export function textAndData(payload: CreateRepoSuccess | CreateRepoFailure) {
+export function textAndData(
+    payload: CreateRepoSuccess | CreateRepoFailure | DeleteRepoSuccess | DeleteRepoFailure
+) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

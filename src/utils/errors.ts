@@ -34,7 +34,7 @@ export function mapGitHubError(error: unknown): ErrorEnvelope {
             status_code: status,
             error_type: "permission_error",
             message: "GitHub permission denied.",
-            hint: "Ensure token has permission to create repositories.",
+            hint: "Ensure token has required scopes (e.g. delete_repo for deletion) and access to this resource.",
             retryable: false
         };
     }

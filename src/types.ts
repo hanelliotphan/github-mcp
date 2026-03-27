@@ -35,3 +35,17 @@ export type CreateRepoFailure = {
     error: ErrorEnvelope;
     request_id: string | null;
 };
+
+export type DeleteRepoSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+    dry_run?: boolean;
+    planned_request?: Record<string, unknown>;
+};
+
+/** Same shape as create-repo failures; reused for all tools. */
+export type DeleteRepoFailure = CreateRepoFailure;

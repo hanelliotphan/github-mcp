@@ -4,12 +4,13 @@ An MCP server for GitHub operations using TypeScript. Below are the available to
 
 - `github_create_personal_repo`
 - `github_create_org_repo`
+- `github_delete_repo`
 
 ## Prerequisites
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with permission to **create repositories** (personal and/or org, depending on which tools you use). For org repos, the token needs access to create repositories in that organization (classic PAT: `repo` scope or organization SSO authorization when required; fine-grained: org + repository creation permission for that org).
+- A GitHub token with permission for the operations you use: **create** and/or **delete** repositories. Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need delete permission for that repository. Org policies may block deletes (403) even when creation is allowed.
 
 ## Setup
 
@@ -80,6 +81,21 @@ Creates a repository under a GitHub **organization** (`org/name`).
 #### Output
 
 Same shape as `github_create_personal_repo` (success payload with `repo`, or structured `error`).
+
+### `github_delete_repo`
+
+Deletes a repository. **Same API for personal and org repos:** `owner` is the user or organization login, `name` is the repo name (`DELETE /repos/{owner}/{repo}`).
+
+#### Inputs
+
+- `owner` (required) — user or organization login
+- `name` (required) — repository name (not `full_name`)
+- `dry_run` (optional, default `false`) — if `true`, only returns a preview; no deletion
+- `confirm` (optional, default `false`) — must be `true` for a real delete when `dry_run` is `false`
+
+#### Output
+
+On success: `success`, `owner`, `repo`, `full_name`, `request_id`. On failure: structured `error`. **This operation is irreversible** once confirmed.
 
 ## MCP Client Config (using `.env` only)
 
