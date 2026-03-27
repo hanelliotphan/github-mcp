@@ -5,12 +5,13 @@ An MCP server for GitHub operations using TypeScript. Below are the available to
 - `github_create_personal_repo`
 - `github_create_org_repo`
 - `github_delete_repo`
+- `github_get_repo`
 
 ## Prerequisites
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with permission for the operations you use: **create** and/or **delete** repositories. Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need delete permission for that repository. Org policies may block deletes (403) even when creation is allowed.
+- A GitHub token with permission for the operations you use: **read** repository metadata (`github_get_repo`), **create**, and/or **delete** repositories. **Read** needs access to the repo (public repos work without auth for metadata; private repos need `repo` or appropriate fine-grained repository read access). Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need matching permissions per operation. Org policies may block deletes (403) even when creation is allowed.
 
 ## Setup
 
@@ -96,6 +97,19 @@ Deletes a repository. **Same API for personal and org repos:** `owner` is the us
 #### Output
 
 On success: `success`, `owner`, `repo`, `full_name`, `request_id`. On failure: structured `error`. **This operation is irreversible** once confirmed.
+
+### `github_get_repo`
+
+Fetches repository metadata via `GET /repos/{owner}/{repo}`. Works for both **user-owned** and **organization-owned** repositories (same endpoint; `owner` is the user or org login).
+
+#### Inputs
+
+- `owner` (required)
+- `name` (required) — repository name
+
+#### Output
+
+On success: `success`, `repo` (normalized fields such as `full_name`, `description`, `default_branch`, counts, `topics`, `owner`, `license`, `permissions` when returned by the API), and `request_id`. On failure: structured `error` (including `not_found` for 404).
 
 ## MCP Client Config (using `.env` only)
 

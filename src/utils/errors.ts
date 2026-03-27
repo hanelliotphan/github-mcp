@@ -39,6 +39,16 @@ export function mapGitHubError(error: unknown): ErrorEnvelope {
         };
     }
 
+    if (status === 404) {
+        return {
+            status_code: status,
+            error_type: "not_found",
+            message: "Resource not found or not accessible.",
+            hint: "Check owner and repository name, and that this token may access the repository (private repos need appropriate scope).",
+            retryable: false
+        };
+    }
+
     if (status === 422) {
         return {
             status_code: status,
