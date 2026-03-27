@@ -111,3 +111,9 @@ Do not include an `env` block in MCP client configs for this project.
   }
 }
 ```
+
+## Dedications
+
+I dedicate this project to my 16-year-old self, my mother, PVNA, and those that have imprinted in my heart for me to keep going to this point.
+
+Many thanks to Cursor for helping a lot with this project as well.
