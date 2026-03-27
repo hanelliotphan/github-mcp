@@ -1,0 +1,25 @@
+{
+    "name": "mcp-github-ts",
+    "version": "0.1.0",
+    "private": true,
+    "description": "TypeScript MCP server for GitHub operations",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "start": "node dist/index.js",
+        "dev": "tsx src/index.ts",
+        "check": "tsc --noEmit -p tsconfig.json"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.17.4",
+        "@octokit/rest": "^22.0.0",
+        "dotenv": "^17.2.3",
+        "zod": "^4.1.12"
+    },
+    "devDependencies": {
+        "@types/node": "^24.6.0",
+        "tsx": "^4.20.6",
+        "typescript": "^5.9.3"
+    }
+}

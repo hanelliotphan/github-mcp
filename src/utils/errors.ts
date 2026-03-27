@@ -1,0 +1,82 @@
+import type { ErrorEnvelope } from "../types.js";
+
+export function getRequestId(value: unknown): string | null {
+    if (typeof value === "string") {
+        return value;
+    }
+    if (Array.isArray(value) && value.length > 0 && typeof value[0] === "string") {
+        return value[0];
+    }
+    return null;
+}
+
+export function mapGitHubError(error: unknown): ErrorEnvelope {
+    // Convert provider-specific errors into one consistent response shape.
+    const maybe = error as {
+        status?: number;
+        message?: string;
+    };
+    const status = maybe.status ?? 500;
+    const message = maybe.message ?? "Unknown error";
+
+    if (status === 401) {
+        return {
+            status_code: status,
+            error_type: "auth_error",
+            message: "GitHub authentication failed.",
+            hint: "Check GITHUB_TOKEN validity and permissions.",
+            retryable: false
+        };
+    }
+
+    if (status === 403) {
+        return {
+            status_code: status,
+            error_type: "permission_error",
+            message: "GitHub permission denied.",
+            hint: "Ensure token has permission to create repositories.",
+            retryable: false
+        };
+    }
+
+    if (status === 422) {
+        return {
+            status_code: status,
+            error_type: "validation_error",
+            message: "Request validation failed.",
+            hint: "Check input fields and constraints, then try again.",
+            retryable: false
+        };
+    }
+
+    if (
+        status === 429 ||
+        /secondary rate limit/i.test(message) ||
+        /rate limit/i.test(message)
+    ) {
+        return {
+            status_code: status,
+            error_type: "rate_limit_error",
+            message: "GitHub rate limit reached.",
+            hint: "Retry later with exponential backoff.",
+            retryable: true
+        };
+    }
+
+    if (status >= 500) {
+        return {
+            status_code: status,
+            error_type: "github_api_error",
+            message: "GitHub API returned a server error.",
+            hint: "Retry after a short delay.",
+            retryable: true
+        };
+    }
+
+    return {
+        status_code: status,
+        error_type: "unknown_error",
+        message,
+        retryable: false
+    };
+}
