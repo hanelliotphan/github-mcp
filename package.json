@@ -1,6 +1,6 @@
 {
-    "name": "mcp-github-ts",
-    "version": "0.1.0",
+    "name": "github-mcp",
+    "version": "0.1.1",
     "private": true,
     "description": "TypeScript MCP server for GitHub operations",
     "type": "module",

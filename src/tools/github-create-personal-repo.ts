@@ -9,10 +9,13 @@ import { textAndData } from "../utils/mcp-response.js";
 // Enforce repository naming constraints before API calls.
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
-export function registerGithubCreateRepoTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubCreatePersonalRepoTool(
+    server: McpServer,
+    octokit: Octokit
+): void {
     server.tool(
-        "github_create_repo",
-        "Create a GitHub repository for the authenticated user",
+        "github_create_personal_repo",
+        "Create a GitHub repository under the authenticated user's personal account (not an organization).",
         {
             name: z
                 .string()

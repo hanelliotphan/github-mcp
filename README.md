@@ -2,7 +2,7 @@
 
 An MCP server for GitHub operations using TypeScript. Below are the available tools:
 
-- `github_create_repo`
+- `github_create_personal_repo`
 
 ## Prerequisites
 
@@ -39,9 +39,9 @@ npm run dev
 
 ## Tools
 
-### `github_create_repo`
+### `github_create_personal_repo`
 
-Creates a repository for the authenticated user.
+Creates a repository under the authenticated user's personal GitHub account (not an organization).
 
 #### Inputs
 
@@ -71,7 +71,7 @@ Do not include an `env` block in MCP client configs for this project.
 ```json
 {
   "mcpServers": {
-    "github-ts": {
+    "github-mcp": {
       "command": "node",
       "args": ["<your_home_directory>/github-mcp/dist/index.js"]
     }
@@ -84,11 +84,10 @@ Do not include an `env` block in MCP client configs for this project.
 ```json
 {
   "mcpServers": {
-    "github-ts": {
+    "github-mcp": {
       "command": "node",
       "args": ["<your_home_directory>/github-mcp/dist/index.js"]
     }
   }
 }
 ```
-
