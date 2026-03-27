@@ -3,12 +3,13 @@
 An MCP server for GitHub operations using TypeScript. Below are the available tools:
 
 - `github_create_personal_repo`
+- `github_create_org_repo`
 
 ## Prerequisites
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with repository creation permissions
+- A GitHub token with permission to **create repositories** (personal and/or org, depending on which tools you use). For org repos, the token needs access to create repositories in that organization (classic PAT: `repo` scope or organization SSO authorization when required; fine-grained: org + repository creation permission for that org).
 
 ## Setup
 
@@ -60,6 +61,25 @@ Returns structured JSON with:
 - success/failure status
 - created repository metadata on success
 - normalized error envelope on failure
+
+### `github_create_org_repo`
+
+Creates a repository under a GitHub **organization** (`org/name`).
+
+#### Inputs
+
+- `org` (required) — organization login, e.g. `acme-corp`
+- `name` (required)
+- `description` (optional)
+- `private` (optional, default `false`)
+- `auto_init` (optional, default `true`)
+- `gitignore_template` (optional)
+- `license_template` (optional)
+- `dry_run` (optional, default `false`)
+
+#### Output
+
+Same shape as `github_create_personal_repo` (success payload with `repo`, or structured `error`).
 
 ## MCP Client Config (using `.env` only)
 
