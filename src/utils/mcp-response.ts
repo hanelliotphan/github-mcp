@@ -5,6 +5,8 @@ import type {
     DeleteRepoSuccess,
     GetRepoFailure,
     GetRepoSuccess,
+    ListRepoActivitiesFailure,
+    ListRepoActivitiesSuccess,
     UpdateRepoFailure,
     UpdateRepoSuccess
 } from "../types.js";
@@ -17,6 +19,8 @@ export function textAndData(
         | DeleteRepoFailure
         | GetRepoSuccess
         | GetRepoFailure
+        | ListRepoActivitiesSuccess
+        | ListRepoActivitiesFailure
         | UpdateRepoSuccess
         | UpdateRepoFailure
 ) {

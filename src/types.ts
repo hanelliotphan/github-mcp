@@ -1,3 +1,5 @@
+import type { GitHubLinkPagination } from "./utils/parse-github-link-header.js";
+
 export type ErrorType =
     | "auth_error"
     | "permission_error"
@@ -103,3 +105,30 @@ export type UpdateRepoSuccess = {
 };
 
 export type UpdateRepoFailure = CreateRepoFailure;
+
+/** One entry from GET /repos/{owner}/{repo}/activity. */
+export type RepoActivityItem = {
+    id: number;
+    node_id: string;
+    before: string;
+    after: string;
+    ref: string;
+    timestamp: string;
+    activity_type: string;
+    actor: {
+        login: string;
+        id?: number;
+        type?: string | null;
+    } | null;
+};
+
+export type ListRepoActivitiesSuccess = {
+    success: true;
+    message: string;
+    activities: RepoActivityItem[];
+    /** Parsed from the response `Link` header; pass `next.after` / `next.before` (etc.) as tool args. */
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListRepoActivitiesFailure = CreateRepoFailure;
