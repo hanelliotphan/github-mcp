@@ -422,6 +422,19 @@ export type ListRepoTopicsSuccess = {
 
 export type ListRepoTopicsFailure = CreateRepoFailure;
 
+/** PUT /repos/{owner}/{repo}/topics — replace the full set of repository topics (empty array clears). */
+export type ReplaceRepoTopicsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    names: string[];
+    request_id: string | null;
+};
+
+export type ReplaceRepoTopicsFailure = CreateRepoFailure;
+
 /** POST /repos/{owner}/{repo}/dispatches — create a repository_dispatch event (204 No Content). */
 export type CreateRepoDispatchSuccess = {
     success: true;

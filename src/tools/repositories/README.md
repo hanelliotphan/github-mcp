@@ -17,6 +17,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_list_repo_tags`](README.md#github_list_repo_tags)
 - [`github_list_repo_teams`](README.md#github_list_repo_teams)
 - [`github_list_repo_topics`](README.md#github_list_repo_topics)
+- [`github_replace_repo_topics`](README.md#github_replace_repo_topics)
 - [`github_create_repo_dispatch`](README.md#github_create_repo_dispatch)
 - [`github_check_immutable_releases`](README.md#github_check_immutable_releases)
 - [`github_enable_immutable_releases`](README.md#github_enable_immutable_releases)
@@ -216,6 +217,19 @@ Returns [all repository topics](https://docs.github.com/en/rest/repos/repos?apiV
 #### Output
 
 On success: `names` (topic strings for this page), `pagination` (from the `Link` header when more pages exist), and `request_id`. If there are no topics on this page, `names` is an empty array. On failure: structured `error` (e.g. **404** if the repository is not found or not accessible).
+
+### `github_replace_repo_topics`
+
+Replaces [all repository topics](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#replace-all-repository-topics) via `PUT /repos/{owner}/{repo}/topics` with body `names` (full replacement; pass `[]` to clear). At most **20** topic names (GitHub limit). Requires write access; classic personal access tokens need the **`repo`** scope.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `names` (required) — array of topic strings (empty array clears all topics)
+
+#### Output
+
+On success (200): `owner`, `repo`, `full_name`, `names` (as returned by GitHub, typically lowercase), and `request_id`. On failure: structured `error` (e.g. **404** if the repository is not found, **422** for validation).
 
 ### `github_create_repo_dispatch`
 
