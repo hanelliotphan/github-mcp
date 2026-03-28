@@ -410,6 +410,18 @@ export type ListRepoTeamsSuccess = {
 
 export type ListRepoTeamsFailure = CreateRepoFailure;
 
+/** GET /repos/{owner}/{repo}/topics — topic names for the repository. */
+export type ListRepoTopicsSuccess = {
+    success: true;
+    message: string;
+    names: string[];
+    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListRepoTopicsFailure = CreateRepoFailure;
+
 /** POST /repos/{owner}/{repo}/dispatches — create a repository_dispatch event (204 No Content). */
 export type CreateRepoDispatchSuccess = {
     success: true;

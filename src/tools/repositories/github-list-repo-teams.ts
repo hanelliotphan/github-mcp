@@ -11,8 +11,8 @@ const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
-/** Default when `per_page` is omitted; matches GitHub’s default for this endpoint. */
-const DEFAULT_TEAMS_PER_PAGE = 30 as const;
+/** Default when `per_page` is omitted (MCP default; GitHub’s API default is 30). */
+const DEFAULT_TEAMS_PER_PAGE = 100 as const;
 
 function normalizeTeam(row: {
     id: number;
@@ -89,7 +89,7 @@ export function registerGithubListRepoTeamsTool(server: McpServer, octokit: Octo
             "Teams must be visible to the authenticated user. For a public repository, " +
             "a team appears only if it explicitly added that repo. " +
             "Classic tokens: public_repo or repo for public repos; repo for private. " +
-            "Use `per_page` (1–100, default 30 when omitted) and `page`. " +
+            "Use `per_page` (1–100, default 100 when omitted) and `page`. " +
             "When more pages exist, the response includes `pagination` from the `Link` header.",
         {
             owner: z

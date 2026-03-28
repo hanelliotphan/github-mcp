@@ -23,6 +23,7 @@ import { registerGithubListRepoActivitiesTool } from "./tools/repositories/githu
 import { registerGithubListRepoLanguagesTool } from "./tools/repositories/github-list-repo-languages.js";
 import { registerGithubListRepoTagsTool } from "./tools/repositories/github-list-repo-tags.js";
 import { registerGithubListRepoTeamsTool } from "./tools/repositories/github-list-repo-teams.js";
+import { registerGithubListRepoTopicsTool } from "./tools/repositories/github-list-repo-topics.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
 
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -50,6 +51,7 @@ registerGithubListRepoActivitiesTool(server, octokit);
 registerGithubListRepoLanguagesTool(server, octokit);
 registerGithubListRepoTagsTool(server, octokit);
 registerGithubListRepoTeamsTool(server, octokit);
+registerGithubListRepoTopicsTool(server, octokit);
 registerGithubUpdateRepoTool(server, octokit);
 registerGithubCreateRepoDispatchTool(server, octokit);
 
