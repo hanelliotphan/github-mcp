@@ -6,16 +6,12 @@ import type {
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess
 } from "../../types.js";
-import { getRequestId, mapGitHubError } from "../../utils/errors.js";
+import { getRequestId, isHttpStatus, mapGitHubError } from "../../utils/errors.js";
 import { textAndData } from "../../utils/mcp-response.js";
 
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
-
-function isHttp404(error: unknown): boolean {
-    return typeof error === "object" && error !== null && (error as { status?: number }).status === 404;
-}
 
 export function registerGithubCheckDependabotSecurityUpdatesTool(server: McpServer, octokit: Octokit): void {
     server.tool(
@@ -61,7 +57,7 @@ export function registerGithubCheckDependabotSecurityUpdatesTool(server: McpServ
                     ]
                 );
 
-                if (isHttp404(error)) {
+                if (isHttpStatus(error, 404)) {
                     const notEnabledPayload: CheckDependabotSecurityUpdatesSuccess = {
                         success: true,
                         message:

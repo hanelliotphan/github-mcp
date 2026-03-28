@@ -262,6 +262,30 @@ export type EnablePrivateVulnerabilityReportingSuccess =
 
 export type EnablePrivateVulnerabilityReportingFailure = CreateRepoFailure;
 
+/** DELETE /repos/{owner}/{repo}/private-vulnerability-reporting */
+export type DisablePrivateVulnerabilityReportingSuccess =
+    | {
+          success: true;
+          outcome: "disabled";
+          message: string;
+          owner: string;
+          repo: string;
+          full_name: string;
+          request_id: string | null;
+      }
+    | {
+          success: true;
+          outcome: "not_available";
+          message: string;
+          owner: string;
+          repo: string;
+          full_name: string;
+          /** GitHub returned 404; disable is not exposed for this repo (e.g. visibility or policy). */
+          request_id: string | null;
+      };
+
+export type DisablePrivateVulnerabilityReportingFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/codeowners/errors. */
 export type CodeownersErrorItem = {
     line: number;

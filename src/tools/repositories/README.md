@@ -28,6 +28,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_check_dependabot_security_updates`](README.md#github_check_dependabot_security_updates)
 - [`github_check_private_vulnerability_reporting`](README.md#github_check_private_vulnerability_reporting)
 - [`github_enable_private_vulnerability_reporting`](README.md#github_enable_private_vulnerability_reporting)
+- [`github_disable_private_vulnerability_reporting`](README.md#github_disable_private_vulnerability_reporting)
 - [`github_enable_vulnerability_alerts`](README.md#github_enable_vulnerability_alerts)
 - [`github_enable_dependabot_security_updates`](README.md#github_enable_dependabot_security_updates)
 - [`github_disable_dependabot_security_updates`](README.md#github_disable_dependabot_security_updates)
@@ -270,6 +271,18 @@ Enables [private vulnerability reporting](https://docs.github.com/en/rest/repos/
 #### Output
 
 On HTTP **204**: `success: true`, `outcome: "enabled"`, `owner`, `repo`, `full_name`, `request_id`. On HTTP **404**: `success: true`, `outcome: "not_available"` (GitHub did not apply enable via this endpoint—**a private repository is one possible cause**, with plan, org policy, or feature exposure; check **Settings → Security**). Other errors: structured `error` (for example **422**).
+
+### `github_disable_private_vulnerability_reporting`
+
+Disables [private vulnerability reporting](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#disable-private-vulnerability-reporting-for-a-repository) via `DELETE /repos/{owner}/{repo}/private-vulnerability-reporting`. Requires **admin** access on the repository.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+
+#### Output
+
+On HTTP **204**: `success: true`, `outcome: "disabled"`, `owner`, `repo`, `full_name`, `request_id`. On HTTP **404**: `success: true`, `outcome: "not_available"` (GitHub did not apply disable via this endpoint—**a private repository is one possible cause**, with plan, org policy, or feature exposure; check **Settings → Security**). Other errors: structured `error` (for example **422**).
 
 ### `github_enable_vulnerability_alerts`
 

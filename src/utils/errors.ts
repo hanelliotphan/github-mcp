@@ -1,5 +1,24 @@
 import type { ErrorEnvelope } from "../types.js";
 
+/** HTTP status from Octokit RequestError or similar (`status` or `response.status`). */
+export function getHttpStatus(error: unknown): number | undefined {
+    if (typeof error !== "object" || error === null) {
+        return undefined;
+    }
+    const e = error as { status?: unknown; response?: { status?: unknown } };
+    if (typeof e.status === "number" && !Number.isNaN(e.status)) {
+        return e.status;
+    }
+    if (typeof e.response?.status === "number" && !Number.isNaN(e.response.status)) {
+        return e.response.status;
+    }
+    return undefined;
+}
+
+export function isHttpStatus(error: unknown, code: number): boolean {
+    return getHttpStatus(error) === code;
+}
+
 export function getRequestId(value: unknown): string | null {
     if (typeof value === "string") {
         return value;
@@ -16,7 +35,7 @@ export function mapGitHubError(error: unknown): ErrorEnvelope {
         status?: number;
         message?: string;
     };
-    const status = maybe.status ?? 500;
+    const status = getHttpStatus(error) ?? 500;
     const message = maybe.message ?? "Unknown error";
 
     if (status === 401) {
