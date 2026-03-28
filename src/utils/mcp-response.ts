@@ -1,6 +1,8 @@
 import type {
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess,
+    CheckImmutableReleasesFailure,
+    CheckImmutableReleasesSuccess,
     CreateRepoDispatchFailure,
     CreateRepoDispatchSuccess,
     CreateRepoFailure,
@@ -29,6 +31,8 @@ export function textAndData(
     payload:
         | CheckDependabotSecurityUpdatesSuccess
         | CheckDependabotSecurityUpdatesFailure
+        | CheckImmutableReleasesSuccess
+        | CheckImmutableReleasesFailure
         | EnableDependabotSecurityUpdatesSuccess
         | EnableDependabotSecurityUpdatesFailure
         | DisableDependabotSecurityUpdatesSuccess

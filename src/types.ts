@@ -146,6 +146,19 @@ export type CheckDependabotSecurityUpdatesSuccess = {
 
 export type CheckDependabotSecurityUpdatesFailure = CreateRepoFailure;
 
+/** GET /repos/{owner}/{repo}/immutable-releases */
+export type CheckImmutableReleasesSuccess = {
+    success: true;
+    message: string;
+    /** From API body when status is 200; false when GitHub returns 404 (not enabled for the repo). */
+    enabled: boolean;
+    /** From API when enabled is true; false when immutable releases are off or on 404. */
+    enforced_by_owner: boolean;
+    request_id: string | null;
+};
+
+export type CheckImmutableReleasesFailure = CreateRepoFailure;
+
 /** PUT /repos/{owner}/{repo}/automated-security-fixes — enable Dependabot security updates (204 No Content). */
 export type EnableDependabotSecurityUpdatesSuccess = {
     success: true;
