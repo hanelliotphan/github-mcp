@@ -16,6 +16,8 @@ import type {
     DisableImmutableReleasesSuccess,
     EnableDependabotSecurityUpdatesFailure,
     EnableDependabotSecurityUpdatesSuccess,
+    EnablePrivateVulnerabilityReportingFailure,
+    EnablePrivateVulnerabilityReportingSuccess,
     EnableVulnerabilityAlertsFailure,
     EnableVulnerabilityAlertsSuccess,
     CreateRepoSuccess,
@@ -51,6 +53,8 @@ export function textAndData(
         | EnableDependabotSecurityUpdatesFailure
         | DisableDependabotSecurityUpdatesSuccess
         | DisableDependabotSecurityUpdatesFailure
+        | EnablePrivateVulnerabilityReportingSuccess
+        | EnablePrivateVulnerabilityReportingFailure
         | EnableVulnerabilityAlertsSuccess
         | EnableVulnerabilityAlertsFailure
         | CreateRepoDispatchSuccess

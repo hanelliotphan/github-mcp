@@ -9,6 +9,7 @@ import { registerGithubEnableImmutableReleasesTool } from "./tools/repositories/
 import { registerGithubDisableImmutableReleasesTool } from "./tools/repositories/github-disable-immutable-releases.js";
 import { registerGithubDisableDependabotSecurityUpdatesTool } from "./tools/repositories/github-disable-dependabot-security-updates.js";
 import { registerGithubEnableDependabotSecurityUpdatesTool } from "./tools/repositories/github-enable-dependabot-security-updates.js";
+import { registerGithubEnablePrivateVulnerabilityReportingTool } from "./tools/repositories/github-enable-private-vulnerability-reporting.js";
 import { registerGithubEnableVulnerabilityAlertsTool } from "./tools/repositories/github-enable-vulnerability-alerts.js";
 import { registerGithubCreateOrgRepoTool } from "./tools/repositories/github-create-org-repo.js";
 import { registerGithubCreatePersonalRepoTool } from "./tools/repositories/github-create-personal-repo.js";
@@ -35,6 +36,7 @@ registerGithubCheckImmutableReleasesTool(server, octokit);
 registerGithubEnableImmutableReleasesTool(server, octokit);
 registerGithubDisableImmutableReleasesTool(server, octokit);
 registerGithubEnableVulnerabilityAlertsTool(server, octokit);
+registerGithubEnablePrivateVulnerabilityReportingTool(server, octokit);
 registerGithubEnableDependabotSecurityUpdatesTool(server, octokit);
 registerGithubDisableDependabotSecurityUpdatesTool(server, octokit);
 registerGithubGetRepoTool(server, octokit);

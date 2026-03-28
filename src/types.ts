@@ -238,6 +238,30 @@ export type EnableVulnerabilityAlertsSuccess = {
 
 export type EnableVulnerabilityAlertsFailure = CreateRepoFailure;
 
+/** PUT /repos/{owner}/{repo}/private-vulnerability-reporting */
+export type EnablePrivateVulnerabilityReportingSuccess =
+    | {
+          success: true;
+          outcome: "enabled";
+          message: string;
+          owner: string;
+          repo: string;
+          full_name: string;
+          request_id: string | null;
+      }
+    | {
+          success: true;
+          outcome: "not_available";
+          message: string;
+          owner: string;
+          repo: string;
+          full_name: string;
+          /** GitHub returned 404; enable is not exposed for this repo (e.g. visibility or policy). */
+          request_id: string | null;
+      };
+
+export type EnablePrivateVulnerabilityReportingFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/codeowners/errors. */
 export type CodeownersErrorItem = {
     line: number;
