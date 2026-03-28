@@ -181,3 +181,23 @@ export type EnableVulnerabilityAlertsSuccess = {
 };
 
 export type EnableVulnerabilityAlertsFailure = CreateRepoFailure;
+
+/** One entry from GET /repos/{owner}/{repo}/codeowners/errors. */
+export type CodeownersErrorItem = {
+    line: number;
+    column: number;
+    source: string | null;
+    kind: string;
+    suggestion: string | null;
+    message: string;
+    path: string;
+};
+
+export type ListCodeownersErrorsSuccess = {
+    success: true;
+    message: string;
+    errors: CodeownersErrorItem[];
+    request_id: string | null;
+};
+
+export type ListCodeownersErrorsFailure = CreateRepoFailure;

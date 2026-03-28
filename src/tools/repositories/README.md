@@ -13,6 +13,10 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
 
+**CODEOWNERS**
+
+- [`github_list_codeowners_errors`](README.md#github_list_codeowners_errors)
+
 **Dependency alerts & Dependabot security updates**
 
 - [`github_check_dependabot_security_updates`](README.md#github_check_dependabot_security_updates)
@@ -132,6 +136,19 @@ Lists repository activity history via [List repository activities](https://docs.
 #### Output
 
 On success: `activities` (normalized rows), `pagination` (`next` / `prev` / `first` / `last` cursor objects parsed from the `Link` header, or `null`), and `request_id`. On failure: structured `error`.
+
+### `github_list_codeowners_errors`
+
+Lists syntax errors in the repository [CODEOWNERS](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) file via [List CODEOWNERS errors](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-codeowners-errors) (`GET /repos/{owner}/{repo}/codeowners/errors`).
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `ref` (optional): branch, tag, or commit; defaults to the repository default branch
+
+#### Output
+
+On success: `errors` (array of `line`, `column`, `source`, `kind`, `suggestion`, `message`, `path`), and `request_id`. On failure: structured `error` (e.g. **404** if the CODEOWNERS file is not found for the given ref).
 
 ### `github_check_dependabot_security_updates`
 

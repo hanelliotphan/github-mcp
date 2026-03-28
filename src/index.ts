@@ -10,6 +10,7 @@ import { registerGithubCreateOrgRepoTool } from "./tools/repositories/github-cre
 import { registerGithubCreatePersonalRepoTool } from "./tools/repositories/github-create-personal-repo.js";
 import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete-repo.js";
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
+import { registerGithubListCodeownersErrorsTool } from "./tools/repositories/github-list-codeowners-errors.js";
 import { registerGithubListRepoActivitiesTool } from "./tools/repositories/github-list-repo-activities.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
 
@@ -26,6 +27,7 @@ registerGithubEnableVulnerabilityAlertsTool(server, octokit);
 registerGithubEnableDependabotSecurityUpdatesTool(server, octokit);
 registerGithubDisableDependabotSecurityUpdatesTool(server, octokit);
 registerGithubGetRepoTool(server, octokit);
+registerGithubListCodeownersErrorsTool(server, octokit);
 registerGithubListRepoActivitiesTool(server, octokit);
 registerGithubUpdateRepoTool(server, octokit);
 

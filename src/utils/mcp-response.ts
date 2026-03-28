@@ -13,6 +13,8 @@ import type {
     DeleteRepoSuccess,
     GetRepoFailure,
     GetRepoSuccess,
+    ListCodeownersErrorsFailure,
+    ListCodeownersErrorsSuccess,
     ListRepoActivitiesFailure,
     ListRepoActivitiesSuccess,
     UpdateRepoFailure,
@@ -35,6 +37,8 @@ export function textAndData(
         | DeleteRepoFailure
         | GetRepoSuccess
         | GetRepoFailure
+        | ListCodeownersErrorsSuccess
+        | ListCodeownersErrorsFailure
         | ListRepoActivitiesSuccess
         | ListRepoActivitiesFailure
         | UpdateRepoSuccess

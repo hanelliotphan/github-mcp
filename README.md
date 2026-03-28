@@ -48,6 +48,7 @@ Implementations live in `src/tools/repositories/`. For each tool’s parameters,
 - `github_get_repo`
 - `github_update_repo`
 - `github_list_repo_activities`
+- `github_list_codeowners_errors`
 
 **Dependency alerts & Dependabot security updates**
 
