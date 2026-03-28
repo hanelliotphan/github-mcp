@@ -15,6 +15,8 @@ import type {
     GetRepoSuccess,
     ListCodeownersErrorsFailure,
     ListCodeownersErrorsSuccess,
+    ListRepoContributorsFailure,
+    ListRepoContributorsSuccess,
     ListRepoActivitiesFailure,
     ListRepoActivitiesSuccess,
     UpdateRepoFailure,
@@ -39,6 +41,8 @@ export function textAndData(
         | GetRepoFailure
         | ListCodeownersErrorsSuccess
         | ListCodeownersErrorsFailure
+        | ListRepoContributorsSuccess
+        | ListRepoContributorsFailure
         | ListRepoActivitiesSuccess
         | ListRepoActivitiesFailure
         | UpdateRepoSuccess

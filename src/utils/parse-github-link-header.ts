@@ -66,3 +66,63 @@ export function getLinkHeaderFromResponse(headers: {
     const h = headers as Record<string, string | undefined>;
     return h.link ?? h.Link;
 }
+
+/** `page` / `per_page` from a Link URL (page-number pagination, e.g. list contributors). */
+export type GitHubPageLinkRef = {
+    page: number;
+    per_page: number | null;
+};
+
+export type GitHubPageLinkPagination = {
+    next: GitHubPageLinkRef | null;
+    prev: GitHubPageLinkRef | null;
+    first: GitHubPageLinkRef | null;
+    last: GitHubPageLinkRef | null;
+};
+
+function pageRefFromHref(href: string): GitHubPageLinkRef | null {
+    try {
+        const u = new URL(href);
+        const pageRaw = u.searchParams.get("page");
+        if (pageRaw == null || pageRaw === "") {
+            return null;
+        }
+        const page = parseInt(pageRaw, 10);
+        if (Number.isNaN(page)) {
+            return null;
+        }
+        const perPageRaw = u.searchParams.get("per_page");
+        let per_page: number | null = null;
+        if (perPageRaw != null && perPageRaw !== "") {
+            const pp = parseInt(perPageRaw, 10);
+            per_page = Number.isNaN(pp) ? null : pp;
+        }
+        return { page, per_page };
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Parses GitHub `Link` header for endpoints that use `page` / `per_page` query params.
+ * @see https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api
+ */
+export function parseGitHubPageLinkPagination(linkHeader: string | undefined): GitHubPageLinkPagination | null {
+    if (linkHeader == null || linkHeader === "") {
+        return null;
+    }
+    const rels = parseRelations(linkHeader);
+    const nextUrl = rels.get("next");
+    const prevUrl = rels.get("prev");
+    const firstUrl = rels.get("first");
+    const lastUrl = rels.get("last");
+    if (!nextUrl && !prevUrl && !firstUrl && !lastUrl) {
+        return null;
+    }
+    return {
+        next: nextUrl ? pageRefFromHref(nextUrl) : null,
+        prev: prevUrl ? pageRefFromHref(prevUrl) : null,
+        first: firstUrl ? pageRefFromHref(firstUrl) : null,
+        last: lastUrl ? pageRefFromHref(lastUrl) : null
+    };
+}

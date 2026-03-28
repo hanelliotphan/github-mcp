@@ -6,7 +6,7 @@ An MCP server for GitHub operations using TypeScript.
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with permission for the operations you use: **read** (`github_get_repo`, listing activities), **update** (`github_update_repo`), **create**, and/or **delete** repositories. **Update** requires permission to change repo settings (often **admin** on the repo; classic PATs typically need `repo` scope). **Read** needs access to the repo (public repos work without auth for metadata; private repos need `repo` or appropriate fine-grained repository read access). Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need matching permissions per operation. Org policies may block deletes (403) even when creation is allowed.
+- A GitHub token with permission for the operations you use: **read** (`github_get_repo`, listing activities and contributors), **update** (`github_update_repo`), **create**, and/or **delete** repositories. **Update** requires permission to change repo settings (often **admin** on the repo; classic PATs typically need `repo` scope). **Read** needs access to the repo (public repos work without auth for metadata; private repos need `repo` or appropriate fine-grained repository read access). Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need matching permissions per operation. Org policies may block deletes (403) even when creation is allowed.
 - **Security / Dependabot tools** (`github_check_dependabot_security_updates`, enable/disable automated security fixes, `github_enable_vulnerability_alerts`) require **admin** access on the repository (and appropriate token scopes). Enabling Dependabot security updates may return **422** until **vulnerability alerts** are enabled first—call `github_enable_vulnerability_alerts`, then `github_enable_dependabot_security_updates`. See [REST API endpoints for repositories](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10).
 
 ## Setup
@@ -48,6 +48,7 @@ Implementations live in `src/tools/repositories/`. For each tool’s parameters,
 - `github_get_repo`
 - `github_update_repo`
 - `github_list_repo_activities`
+- `github_list_repo_contributors`
 - `github_list_codeowners_errors`
 
 **Dependency alerts & Dependabot security updates**

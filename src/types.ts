@@ -1,4 +1,4 @@
-import type { GitHubLinkPagination } from "./utils/parse-github-link-header.js";
+import type { GitHubLinkPagination, GitHubPageLinkPagination } from "./utils/parse-github-link-header.js";
 
 export type ErrorType =
     | "auth_error"
@@ -201,3 +201,26 @@ export type ListCodeownersErrorsSuccess = {
 };
 
 export type ListCodeownersErrorsFailure = CreateRepoFailure;
+
+/** One entry from GET /repos/{owner}/{repo}/contributors. */
+export type RepoContributorItem = {
+    login: string | null;
+    id: number | null;
+    contributions: number;
+    html_url: string | null;
+    avatar_url: string | null;
+    type: string | null;
+    name: string | null;
+    email: string | null;
+};
+
+export type ListRepoContributorsSuccess = {
+    success: true;
+    message: string;
+    contributors: RepoContributorItem[];
+    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListRepoContributorsFailure = CreateRepoFailure;

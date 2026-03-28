@@ -12,6 +12,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_get_repo`](README.md#github_get_repo)
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
+- [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
 
 **CODEOWNERS**
 
@@ -136,6 +137,21 @@ Lists repository activity history via [List repository activities](https://docs.
 #### Output
 
 On success: `activities` (normalized rows), `pagination` (`next` / `prev` / `first` / `last` cursor objects parsed from the `Link` header, or `null`), and `request_id`. On failure: structured `error`.
+
+### `github_list_repo_contributors`
+
+Lists people who have contributed to the repository via [List repository contributors](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repository-contributors) (`GET /repos/{owner}/{repo}/contributors`). Results are ordered by commit count (descending). Contributor data may be cached by GitHub (see API docs).
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `include_anonymous` (optional): if `true`, sends GitHub’s `anon=1` to include anonymous contributors
+- `per_page` (optional): 1–100; when omitted, the tool sends **100** (applied in the handler so defaults work reliably with MCP clients)
+- `page` (optional): page number for pagination
+
+#### Output
+
+On success: `contributors` (normalized rows: `login`, `id`, `contributions`, `html_url`, `avatar_url`, `type`, `name`, `email`), `pagination` (`next` / `prev` / `first` / `last` with `page` and `per_page` parsed from the `Link` header when present, or `null`), and `request_id`. Follow `pagination.next` (same `page` / `per_page` args on the next call) until `pagination` is null or the page is short. If the repository is empty, GitHub may respond with **204**; the tool returns success with an empty `contributors` array and `pagination: null`. On failure: structured `error`.
 
 ### `github_list_codeowners_errors`
 
