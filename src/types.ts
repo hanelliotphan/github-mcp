@@ -171,6 +171,18 @@ export type EnableImmutableReleasesSuccess = {
 
 export type EnableImmutableReleasesFailure = CreateRepoFailure;
 
+/** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
+export type DisableImmutableReleasesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type DisableImmutableReleasesFailure = CreateRepoFailure;
+
 /** PUT /repos/{owner}/{repo}/automated-security-fixes — enable Dependabot security updates (204 No Content). */
 export type EnableDependabotSecurityUpdatesSuccess = {
     success: true;

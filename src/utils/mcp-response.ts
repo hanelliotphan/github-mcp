@@ -10,6 +10,8 @@ import type {
     CreateRepoFailure,
     DisableDependabotSecurityUpdatesFailure,
     DisableDependabotSecurityUpdatesSuccess,
+    DisableImmutableReleasesFailure,
+    DisableImmutableReleasesSuccess,
     EnableDependabotSecurityUpdatesFailure,
     EnableDependabotSecurityUpdatesSuccess,
     EnableVulnerabilityAlertsFailure,
@@ -37,6 +39,8 @@ export function textAndData(
         | CheckImmutableReleasesFailure
         | EnableImmutableReleasesSuccess
         | EnableImmutableReleasesFailure
+        | DisableImmutableReleasesSuccess
+        | DisableImmutableReleasesFailure
         | EnableDependabotSecurityUpdatesSuccess
         | EnableDependabotSecurityUpdatesFailure
         | DisableDependabotSecurityUpdatesSuccess
