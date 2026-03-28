@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { Octokit } from "@octokit/rest";
 import { getRequiredEnv } from "./config/env.js";
 import { registerGithubCheckDependabotSecurityUpdatesTool } from "./tools/repositories/github-check-dependabot-security-updates.js";
+import { registerGithubCheckPrivateVulnerabilityReportingTool } from "./tools/repositories/github-check-private-vulnerability-reporting.js";
 import { registerGithubCheckImmutableReleasesTool } from "./tools/repositories/github-check-immutable-releases.js";
 import { registerGithubEnableImmutableReleasesTool } from "./tools/repositories/github-enable-immutable-releases.js";
 import { registerGithubDisableImmutableReleasesTool } from "./tools/repositories/github-disable-immutable-releases.js";
@@ -29,6 +30,7 @@ registerGithubCreatePersonalRepoTool(server, octokit);
 registerGithubCreateOrgRepoTool(server, octokit);
 registerGithubDeleteRepoTool(server, octokit);
 registerGithubCheckDependabotSecurityUpdatesTool(server, octokit);
+registerGithubCheckPrivateVulnerabilityReportingTool(server, octokit);
 registerGithubCheckImmutableReleasesTool(server, octokit);
 registerGithubEnableImmutableReleasesTool(server, octokit);
 registerGithubDisableImmutableReleasesTool(server, octokit);

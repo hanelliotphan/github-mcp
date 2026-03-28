@@ -6,8 +6,33 @@ An MCP server for GitHub operations using TypeScript.
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with permission for the operations you use: **read** (`github_get_repo`, listing activities, contributors, and languages), **immutable releases** (`github_check_immutable_releases` requires **admin read**; `github_enable_immutable_releases` and `github_disable_immutable_releases` require **admin** per GitHub), **update** (`github_update_repo`), **create**, **repository dispatch** (`github_create_repo_dispatch`; classic PATs need **`repo`** scope), and/or **delete** repositories. **Update** requires permission to change repo settings (often **admin** on the repo; classic PATs typically need `repo` scope). **Read** needs access to the repo (public repos work without auth for metadata; private repos need `repo` or appropriate fine-grained repository read access). Creation needs appropriate repo/org access; deletion typically needs **admin** on the repo and classic PATs need the **`delete_repo`** scope ([GitHub docs](https://docs.github.com/en/rest/repos/repos#delete-a-repository)). Fine-grained PATs need matching permissions per operation. Org policies may block deletes (403) even when creation is allowed.
-- **Security / Dependabot tools** (`github_check_dependabot_security_updates`, enable/disable automated security fixes, `github_enable_vulnerability_alerts`) require **admin** access on the repository (and appropriate token scopes). Enabling Dependabot security updates may return **422** until **vulnerability alerts** are enabled first—call `github_enable_vulnerability_alerts`, then `github_enable_dependabot_security_updates`. See [REST API endpoints for repositories](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10).
+- A GitHub token with access appropriate for what you run. Labels below match the wording used in GitHub **Settings** (classic scope checkboxes, collaborator **Role** options, fine-grained **Repository permissions** access dropdowns, and account/org permissions). See [src/tools/repositories/README.md](src/tools/repositories/README.md) for which tool needs which access.
+
+#### Repository → Settings → Collaborators and teams → Role
+
+These are the options in the **Role** dropdown when you add a collaborator or change a person’s access ([repository roles](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)):
+
+- Read
+- Admin
+
+#### User → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic)
+
+These are the scope rows with checkboxes; the line after each scope name is the description GitHub shows next to that checkbox ([scopes](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)):
+
+- **`repo`** — Full control of private repositories
+- **`delete_repo`** — Delete repositories
+
+#### Fine-grained personal access token → Permissions → Repository permissions
+
+Each row is a **Repository permission** name with an **Access** dropdown. Values below match the dropdown options in the token form ([fine-grained permissions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)):
+
+- **Metadata** — Read-only
+- **Contents** — Read-only
+- **Administration** — read and write
+
+#### Fine-grained personal access token → Permissions → Account permissions or Organization permissions
+
+- **Create repositories**
 
 ## Setup
 
@@ -38,30 +63,7 @@ npm run dev
 
 ## Tools
 
-Implementations live in `src/tools/repositories/`. For each tool’s parameters, response shape, and links to GitHub REST docs, see **[src/tools/repositories/README.md](src/tools/repositories/README.md)**.
-
-**Repositories**
-
-- `github_create_personal_repo`
-- `github_create_org_repo`
-- `github_delete_repo`
-- `github_get_repo`
-- `github_update_repo`
-- `github_list_repo_activities`
-- `github_list_repo_contributors`
-- `github_list_repo_languages`
-- `github_create_repo_dispatch`
-- `github_check_immutable_releases`
-- `github_enable_immutable_releases`
-- `github_disable_immutable_releases`
-- `github_list_codeowners_errors`
-
-**Dependency alerts & Dependabot security updates**
-
-- `github_check_dependabot_security_updates`
-- `github_enable_vulnerability_alerts`
-- `github_enable_dependabot_security_updates`
-- `github_disable_dependabot_security_updates`
+Implementations live in `src/tools/repositories/`. For the tool catalog, parameters, response shapes, and links to GitHub REST docs, see **[src/tools/repositories/README.md](src/tools/repositories/README.md)**.
 
 ## MCP Client Config (using `.env` only)
 

@@ -26,6 +26,7 @@ TypeScript tool implementations in this folder are registered from the server en
 **Dependency alerts & Dependabot security updates**
 
 - [`github_check_dependabot_security_updates`](README.md#github_check_dependabot_security_updates)
+- [`github_check_private_vulnerability_reporting`](README.md#github_check_private_vulnerability_reporting)
 - [`github_enable_vulnerability_alerts`](README.md#github_enable_vulnerability_alerts)
 - [`github_enable_dependabot_security_updates`](README.md#github_enable_dependabot_security_updates)
 - [`github_disable_dependabot_security_updates`](README.md#github_disable_dependabot_security_updates)
@@ -244,6 +245,18 @@ Checks whether Dependabot security updates are configured via [Check if Dependab
 #### Output
 
 On success (HTTP 200): `enabled`, `paused`, `request_id`. If GitHub returns **404** (feature not enabled for the repo), the tool still returns **success** with `enabled: false`, `paused: false`. On other errors: structured `error`.
+
+### `github_check_private_vulnerability_reporting`
+
+Checks whether [private vulnerability reporting](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#check-if-private-vulnerability-reporting-is-enabled-for-a-repository) is enabled (`GET /repos/{owner}/{repo}/private-vulnerability-reporting`). Requires **admin read** access on the repository.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+
+#### Output
+
+On HTTP **200**: `success: true`, `outcome: "retrieved"`, `enabled`, `request_id`. On HTTP **404**: `success: true`, `outcome: "not_available"` (GitHub did not return a body for this endpoint—**a private repository is one possible cause**, along with plan, org policy, or feature exposure—not the same as disabled; check **Settings → Security** in the web UI). Other errors: structured `error` (for example **422**).
 
 ### `github_enable_vulnerability_alerts`
 

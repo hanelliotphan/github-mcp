@@ -146,6 +146,25 @@ export type CheckDependabotSecurityUpdatesSuccess = {
 
 export type CheckDependabotSecurityUpdatesFailure = CreateRepoFailure;
 
+/** GET /repos/{owner}/{repo}/private-vulnerability-reporting */
+export type CheckPrivateVulnerabilityReportingSuccess =
+    | {
+          success: true;
+          outcome: "retrieved";
+          message: string;
+          enabled: boolean;
+          request_id: string | null;
+      }
+    | {
+          success: true;
+          outcome: "not_available";
+          message: string;
+          /** GitHub returned 404; this endpoint did not return a body (e.g. private repo, plan, or policy—not the same as enabled: false). */
+          request_id: string | null;
+      };
+
+export type CheckPrivateVulnerabilityReportingFailure = CreateRepoFailure;
+
 /** GET /repos/{owner}/{repo}/immutable-releases */
 export type CheckImmutableReleasesSuccess = {
     success: true;

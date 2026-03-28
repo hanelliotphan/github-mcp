@@ -1,6 +1,8 @@
 import type {
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess,
+    CheckPrivateVulnerabilityReportingFailure,
+    CheckPrivateVulnerabilityReportingSuccess,
     CheckImmutableReleasesFailure,
     CheckImmutableReleasesSuccess,
     EnableImmutableReleasesFailure,
@@ -37,6 +39,8 @@ export function textAndData(
     payload:
         | CheckDependabotSecurityUpdatesSuccess
         | CheckDependabotSecurityUpdatesFailure
+        | CheckPrivateVulnerabilityReportingSuccess
+        | CheckPrivateVulnerabilityReportingFailure
         | CheckImmutableReleasesSuccess
         | CheckImmutableReleasesFailure
         | EnableImmutableReleasesSuccess
