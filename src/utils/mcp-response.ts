@@ -3,6 +3,8 @@ import type {
     CheckDependabotSecurityUpdatesSuccess,
     CheckImmutableReleasesFailure,
     CheckImmutableReleasesSuccess,
+    EnableImmutableReleasesFailure,
+    EnableImmutableReleasesSuccess,
     CreateRepoDispatchFailure,
     CreateRepoDispatchSuccess,
     CreateRepoFailure,
@@ -33,6 +35,8 @@ export function textAndData(
         | CheckDependabotSecurityUpdatesFailure
         | CheckImmutableReleasesSuccess
         | CheckImmutableReleasesFailure
+        | EnableImmutableReleasesSuccess
+        | EnableImmutableReleasesFailure
         | EnableDependabotSecurityUpdatesSuccess
         | EnableDependabotSecurityUpdatesFailure
         | DisableDependabotSecurityUpdatesSuccess

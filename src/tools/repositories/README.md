@@ -15,6 +15,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
 - [`github_create_repo_dispatch`](README.md#github_create_repo_dispatch)
 - [`github_check_immutable_releases`](README.md#github_check_immutable_releases)
+- [`github_enable_immutable_releases`](README.md#github_enable_immutable_releases)
 
 **CODEOWNERS**
 
@@ -180,6 +181,18 @@ Checks whether [immutable releases](https://docs.github.com/en/rest/repos/repos?
 #### Output
 
 On success (HTTP 200): `enabled`, `enforced_by_owner`, `request_id`. If GitHub returns **404** (immutable releases not enabled for this repo), the tool still returns **success** with `enabled: false` and `enforced_by_owner: false`. On other errors: structured `error`.
+
+### `github_enable_immutable_releases`
+
+Enables [immutable releases](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#enable-immutable-releases) via `PUT /repos/{owner}/{repo}/immutable-releases`. Requires **admin** access. Future releases published after enabling become immutable per GitHub’s rules; GitHub may return **409 Conflict** in some situations.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+
+#### Output
+
+On success (204): `owner`, `repo`, `full_name`, `request_id`. On failure: structured `error`.
 
 ### `github_list_codeowners_errors`
 
