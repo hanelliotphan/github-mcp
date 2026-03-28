@@ -262,6 +262,23 @@ export type ListRepoContributorsSuccess = {
 
 export type ListRepoContributorsFailure = CreateRepoFailure;
 
+/** One row from GET /repos/{owner}/{repo}/languages (bytes of code per language). */
+export type RepoLanguageItem = {
+    language: string;
+    bytes: number;
+};
+
+export type ListRepoLanguagesSuccess = {
+    success: true;
+    message: string;
+    /** Languages sorted by byte count (descending). */
+    languages: RepoLanguageItem[];
+    total_bytes: number;
+    request_id: string | null;
+};
+
+export type ListRepoLanguagesFailure = CreateRepoFailure;
+
 /** POST /repos/{owner}/{repo}/dispatches — create a repository_dispatch event (204 No Content). */
 export type CreateRepoDispatchSuccess = {
     success: true;

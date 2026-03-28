@@ -13,6 +13,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
 - [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
+- [`github_list_repo_languages`](README.md#github_list_repo_languages)
 - [`github_create_repo_dispatch`](README.md#github_create_repo_dispatch)
 - [`github_check_immutable_releases`](README.md#github_check_immutable_releases)
 - [`github_enable_immutable_releases`](README.md#github_enable_immutable_releases)
@@ -156,6 +157,18 @@ Lists people who have contributed to the repository via [List repository contrib
 #### Output
 
 On success: `contributors` (normalized rows: `login`, `id`, `contributions`, `html_url`, `avatar_url`, `type`, `name`, `email`), `pagination` (`next` / `prev` / `first` / `last` with `page` and `per_page` parsed from the `Link` header when present, or `null`), and `request_id`. Follow `pagination.next` (same `page` / `per_page` args on the next call) until `pagination` is null or the page is short. If the repository is empty, GitHub may respond with **204**; the tool returns success with an empty `contributors` array and `pagination: null`. On failure: structured `error`.
+
+### `github_list_repo_languages`
+
+Lists languages used in the repository via [List repository languages](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repository-languages) (`GET /repos/{owner}/{repo}/languages`). Each language’s value is the number of **bytes** of code in that language (not lines). Requires read access to the repo.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+
+#### Output
+
+On success: `languages` (rows of `language` and `bytes`, sorted by bytes descending), `total_bytes` (sum of all language bytes), and `request_id`. If the repository has no detectable languages, the API returns an empty object; the tool returns an empty `languages` array and `total_bytes: 0`. On failure: structured `error`.
 
 ### `github_create_repo_dispatch`
 
