@@ -2,10 +2,10 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
-import type { UpdateRepoFailure, UpdateRepoSuccess } from "../types.js";
-import { getRequestId, mapGitHubError } from "../utils/errors.js";
-import { textAndData } from "../utils/mcp-response.js";
-import { normalizeRepo } from "../utils/repo-normalize.js";
+import type { UpdateRepoFailure, UpdateRepoSuccess } from "../../types.js";
+import { getRequestId, mapGitHubError } from "../../utils/errors.js";
+import { textAndData } from "../../utils/mcp-response.js";
+import { normalizeRepo } from "../../utils/repo-normalize.js";
 
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 

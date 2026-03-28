@@ -6,10 +6,10 @@ import type {
     ListRepoActivitiesFailure,
     ListRepoActivitiesSuccess,
     RepoActivityItem
-} from "../types.js";
-import { getRequestId, mapGitHubError } from "../utils/errors.js";
-import { textAndData } from "../utils/mcp-response.js";
-import { getLinkHeaderFromResponse, parseGitHubLinkPagination } from "../utils/parse-github-link-header.js";
+} from "../../types.js";
+import { getRequestId, mapGitHubError } from "../../utils/errors.js";
+import { textAndData } from "../../utils/mcp-response.js";
+import { getLinkHeaderFromResponse, parseGitHubLinkPagination } from "../../utils/parse-github-link-header.js";
 
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 

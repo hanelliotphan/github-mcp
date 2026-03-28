@@ -5,9 +5,9 @@ import { z } from "zod";
 import type {
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess
-} from "../types.js";
-import { getRequestId, mapGitHubError } from "../utils/errors.js";
-import { textAndData } from "../utils/mcp-response.js";
+} from "../../types.js";
+import { getRequestId, mapGitHubError } from "../../utils/errors.js";
+import { textAndData } from "../../utils/mcp-response.js";
 
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 

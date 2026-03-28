@@ -2,21 +2,26 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
-import type { CreateRepoFailure, CreateRepoSuccess } from "../types.js";
-import { getRequestId, mapGitHubError } from "../utils/errors.js";
-import { textAndData } from "../utils/mcp-response.js";
+import type { CreateRepoFailure, CreateRepoSuccess } from "../../types.js";
+import { getRequestId, mapGitHubError } from "../../utils/errors.js";
+import { textAndData } from "../../utils/mcp-response.js";
 
-// Enforce repository naming constraints before API calls.
+// Same rules as personal-repo tool (GitHub repo name constraints).
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
-export function registerGithubCreatePersonalRepoTool(
-    server: McpServer,
-    octokit: Octokit
-): void {
+// Organization login: alphanumeric, single internal hyphens, 1–39 chars (GitHub-style).
+const orgLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
+
+export function registerGithubCreateOrgRepoTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_create_personal_repo",
-        "Create a GitHub repository under the authenticated user's personal account (not an organization).",
+        "github_create_org_repo",
+        "Create a GitHub repository inside an organization. Requires a token with permission to create repositories in that org.",
         {
+            org: z
+                .string()
+                .min(1)
+                .max(39)
+                .regex(orgLoginRegex, "org must be a valid organization login (1–39 chars, alphanumeric and hyphens)"),
             name: z
                 .string()
                 .min(1)
@@ -33,8 +38,8 @@ export function registerGithubCreatePersonalRepoTool(
             dry_run: z.boolean().optional().default(false)
         },
         async (input) => {
-            // Build one canonical payload used by both dry-run and live execution.
             const requestPayload = {
+                org: input.org,
                 name: input.name,
                 description: input.description,
                 private: input.private ?? false,
@@ -44,7 +49,6 @@ export function registerGithubCreatePersonalRepoTool(
             };
 
             if (input.dry_run) {
-                // Validate and preview request without creating a repository.
                 const dryRunResponse: CreateRepoSuccess = {
                     success: true,
                     message: "Dry run successful. Repository was not created.",
@@ -57,8 +61,11 @@ export function registerGithubCreatePersonalRepoTool(
             }
 
             try {
-                // Live path: create repository for the authenticated GitHub user.
-                const response = await octokit.rest.repos.createForAuthenticatedUser(requestPayload);
+                const { org, ...body } = requestPayload;
+                const response = await octokit.rest.repos.createInOrg({
+                    org,
+                    ...body
+                });
                 const requestId = getRequestId(response.headers["x-github-request-id"]);
 
                 const successPayload: CreateRepoSuccess = {
@@ -76,7 +83,6 @@ export function registerGithubCreatePersonalRepoTool(
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                // Never leak raw exceptions; return normalized, structured failures.
                 const failurePayload: CreateRepoFailure = {
                     success: false,
                     error: mapGitHubError(error),
