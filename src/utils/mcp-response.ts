@@ -1,4 +1,6 @@
 import type {
+    CheckDependabotSecurityUpdatesFailure,
+    CheckDependabotSecurityUpdatesSuccess,
     CreateRepoFailure,
     CreateRepoSuccess,
     DeleteRepoFailure,
@@ -13,6 +15,8 @@ import type {
 
 export function textAndData(
     payload:
+        | CheckDependabotSecurityUpdatesSuccess
+        | CheckDependabotSecurityUpdatesFailure
         | CreateRepoSuccess
         | CreateRepoFailure
         | DeleteRepoSuccess

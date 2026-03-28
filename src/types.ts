@@ -132,3 +132,16 @@ export type ListRepoActivitiesSuccess = {
 };
 
 export type ListRepoActivitiesFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/automated-security-fixes (Dependabot security updates). */
+export type CheckDependabotSecurityUpdatesSuccess = {
+    success: true;
+    message: string;
+    /** From API body when status is 200; false when GitHub returns 404 (updates not enabled for the repo). */
+    enabled: boolean;
+    /** From API when enabled; false when not enabled or on 404. */
+    paused: boolean;
+    request_id: string | null;
+};
+
+export type CheckDependabotSecurityUpdatesFailure = CreateRepoFailure;
