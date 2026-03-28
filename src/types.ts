@@ -145,3 +145,27 @@ export type CheckDependabotSecurityUpdatesSuccess = {
 };
 
 export type CheckDependabotSecurityUpdatesFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/automated-security-fixes — enable Dependabot security updates (204 No Content). */
+export type EnableDependabotSecurityUpdatesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type EnableDependabotSecurityUpdatesFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/vulnerability-alerts — enables dependency alerts and the dependency graph (204 No Content). Often required before automated security fixes. */
+export type EnableVulnerabilityAlertsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type EnableVulnerabilityAlertsFailure = CreateRepoFailure;
