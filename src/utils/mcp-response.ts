@@ -35,6 +35,8 @@ import type {
     ListRepoActivitiesSuccess,
     ListRepoLanguagesFailure,
     ListRepoLanguagesSuccess,
+    ListRepoTagsFailure,
+    ListRepoTagsSuccess,
     UpdateRepoFailure,
     UpdateRepoSuccess
 } from "../types.js";
@@ -77,6 +79,8 @@ export function textAndData(
         | ListRepoActivitiesFailure
         | ListRepoLanguagesSuccess
         | ListRepoLanguagesFailure
+        | ListRepoTagsSuccess
+        | ListRepoTagsFailure
         | UpdateRepoSuccess
         | UpdateRepoFailure
 ) {

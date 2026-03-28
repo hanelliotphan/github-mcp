@@ -14,6 +14,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
 - [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
 - [`github_list_repo_languages`](README.md#github_list_repo_languages)
+- [`github_list_repo_tags`](README.md#github_list_repo_tags)
 - [`github_create_repo_dispatch`](README.md#github_create_repo_dispatch)
 - [`github_check_immutable_releases`](README.md#github_check_immutable_releases)
 - [`github_enable_immutable_releases`](README.md#github_enable_immutable_releases)
@@ -172,6 +173,20 @@ Lists languages used in the repository via [List repository languages](https://d
 #### Output
 
 On success: `languages` (rows of `language` and `bytes`, sorted by bytes descending), `total_bytes` (sum of all language bytes), and `request_id`. If the repository has no detectable languages, the API returns an empty object; the tool returns an empty `languages` array and `total_bytes: 0`. On failure: structured `error`.
+
+### `github_list_repo_tags`
+
+Lists [repository tags](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repository-tags) via `GET /repos/{owner}/{repo}/tags`. Requires read access to the repository.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `per_page` (optional, 1–100; default **30** when omitted, matching GitHub’s default)
+- `page` (optional, default 1)
+
+#### Output
+
+On success: `tags` (each with `name`, `commit_sha`, `commit_url`, `zipball_url`, `tarball_url`, `node_id`), `pagination` (from the `Link` header when more pages exist—use `next.page` / `next.per_page` to fetch the rest), and `request_id`. If there are no tags, `tags` is an empty array. On failure: structured `error`.
 
 ### `github_create_repo_dispatch`
 

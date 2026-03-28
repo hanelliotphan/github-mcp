@@ -346,6 +346,27 @@ export type ListRepoLanguagesSuccess = {
 
 export type ListRepoLanguagesFailure = CreateRepoFailure;
 
+/** One entry from GET /repos/{owner}/{repo}/tags. */
+export type RepoTagItem = {
+    name: string;
+    commit_sha: string;
+    commit_url: string;
+    zipball_url: string;
+    tarball_url: string;
+    node_id: string;
+};
+
+export type ListRepoTagsSuccess = {
+    success: true;
+    message: string;
+    tags: RepoTagItem[];
+    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListRepoTagsFailure = CreateRepoFailure;
+
 /** POST /repos/{owner}/{repo}/dispatches — create a repository_dispatch event (204 No Content). */
 export type CreateRepoDispatchSuccess = {
     success: true;
