@@ -158,6 +158,18 @@ export type EnableDependabotSecurityUpdatesSuccess = {
 
 export type EnableDependabotSecurityUpdatesFailure = CreateRepoFailure;
 
+/** DELETE /repos/{owner}/{repo}/automated-security-fixes — disable Dependabot security updates (204 No Content). */
+export type DisableDependabotSecurityUpdatesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type DisableDependabotSecurityUpdatesFailure = CreateRepoFailure;
+
 /** PUT /repos/{owner}/{repo}/vulnerability-alerts — enables dependency alerts and the dependency graph (204 No Content). Often required before automated security fixes. */
 export type EnableVulnerabilityAlertsSuccess = {
     success: true;
