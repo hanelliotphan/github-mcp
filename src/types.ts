@@ -106,6 +106,22 @@ export type UpdateRepoSuccess = {
 
 export type UpdateRepoFailure = CreateRepoFailure;
 
+export type TransferRepoSuccess = {
+    success: true;
+    message: string;
+    /** Destination login passed in the request. */
+    new_owner: string;
+    /** Repository payload from the 202 response; null when `dry_run` is true. */
+    repo: RepoInfo | null;
+    /** HTTP status from GitHub (202 on success); null on dry run. */
+    http_status: number | null;
+    request_id: string | null;
+    dry_run?: boolean;
+    planned_request?: Record<string, unknown>;
+};
+
+export type TransferRepoFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/activity. */
 export type RepoActivityItem = {
     id: number;

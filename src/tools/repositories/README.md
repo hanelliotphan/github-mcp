@@ -11,6 +11,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_delete_repo`](README.md#github_delete_repo)
 - [`github_get_repo`](README.md#github_get_repo)
 - [`github_update_repo`](README.md#github_update_repo)
+- [`github_transfer_repo`](README.md#github_transfer_repo)
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
 - [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
 - [`github_list_repo_languages`](README.md#github_list_repo_languages)
@@ -130,6 +131,23 @@ Only parameters you pass are sent in the PATCH body (omit fields you do not want
 #### Output
 
 On success: normalized `repo` after update and `request_id`. On `dry_run`: `repo` is null and `planned_request` shows the PATCH payload. On failure: structured `error`.
+
+### `github_transfer_repo`
+
+Transfers a repository to another user or organization via [Transfer a repository](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#transfer-a-repository) (`POST /repos/{owner}/{repo}/transfer`). GitHub responds with **202 Accepted**; the payload may still reflect the previous owner until the transfer finishes, and **personal** repositories may require the new owner to accept the transfer.
+
+#### Inputs
+
+- `owner` (required), `name` (required) — source repository
+- `new_owner` (required) — destination user or organization login
+- `new_name` (optional) — rename as part of the transfer
+- `team_ids` (optional) — numeric team IDs to grant access (organization-owned targets only)
+- `dry_run` (optional, default `false`) — preview the request body only
+- `confirm` (optional, default `false`) — must be `true` to perform a live transfer when `dry_run` is `false`
+
+#### Output
+
+On success: `success`, `new_owner`, normalized `repo` from the API response, `http_status` (typically `202`), and `request_id`. On `dry_run`: `repo` and `http_status` are null and `planned_request` describes the call. On failure: structured `error`.
 
 ### `github_list_repo_activities`
 
