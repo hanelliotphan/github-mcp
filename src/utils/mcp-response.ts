@@ -1,6 +1,8 @@
 import type {
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess,
+    CreateRepoDispatchFailure,
+    CreateRepoDispatchSuccess,
     CreateRepoFailure,
     DisableDependabotSecurityUpdatesFailure,
     DisableDependabotSecurityUpdatesSuccess,
@@ -33,6 +35,8 @@ export function textAndData(
         | DisableDependabotSecurityUpdatesFailure
         | EnableVulnerabilityAlertsSuccess
         | EnableVulnerabilityAlertsFailure
+        | CreateRepoDispatchSuccess
+        | CreateRepoDispatchFailure
         | CreateRepoSuccess
         | CreateRepoFailure
         | DeleteRepoSuccess

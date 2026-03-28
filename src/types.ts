@@ -224,3 +224,16 @@ export type ListRepoContributorsSuccess = {
 };
 
 export type ListRepoContributorsFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/dispatches — create a repository_dispatch event (204 No Content). */
+export type CreateRepoDispatchSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    event_type: string;
+    request_id: string | null;
+};
+
+export type CreateRepoDispatchFailure = CreateRepoFailure;

@@ -8,6 +8,7 @@ import { registerGithubEnableDependabotSecurityUpdatesTool } from "./tools/repos
 import { registerGithubEnableVulnerabilityAlertsTool } from "./tools/repositories/github-enable-vulnerability-alerts.js";
 import { registerGithubCreateOrgRepoTool } from "./tools/repositories/github-create-org-repo.js";
 import { registerGithubCreatePersonalRepoTool } from "./tools/repositories/github-create-personal-repo.js";
+import { registerGithubCreateRepoDispatchTool } from "./tools/repositories/github-create-repo-dispatch.js";
 import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete-repo.js";
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
 import { registerGithubListCodeownersErrorsTool } from "./tools/repositories/github-list-codeowners-errors.js";
@@ -32,6 +33,7 @@ registerGithubListCodeownersErrorsTool(server, octokit);
 registerGithubListRepoContributorsTool(server, octokit);
 registerGithubListRepoActivitiesTool(server, octokit);
 registerGithubUpdateRepoTool(server, octokit);
+registerGithubCreateRepoDispatchTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

@@ -13,6 +13,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
 - [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
+- [`github_create_repo_dispatch`](README.md#github_create_repo_dispatch)
 
 **CODEOWNERS**
 
@@ -152,6 +153,20 @@ Lists people who have contributed to the repository via [List repository contrib
 #### Output
 
 On success: `contributors` (normalized rows: `login`, `id`, `contributions`, `html_url`, `avatar_url`, `type`, `name`, `email`), `pagination` (`next` / `prev` / `first` / `last` with `page` and `per_page` parsed from the `Link` header when present, or `null`), and `request_id`. Follow `pagination.next` (same `page` / `per_page` args on the next call) until `pagination` is null or the page is short. If the repository is empty, GitHub may respond with **204**; the tool returns success with an empty `contributors` array and `pagination: null`. On failure: structured `error`.
+
+### `github_create_repo_dispatch`
+
+Creates a [repository dispatch](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-a-repository-dispatch-event) event (`POST /repos/{owner}/{repo}/dispatches`). Use this to trigger `repository_dispatch` webhooks and GitHub Actions workflows that listen for your `event_type`. Classic personal access tokens need the **`repo`** scope; fine-grained tokens need contents or appropriate repository permissions per GitHub’s requirements.
+
+#### Inputs
+
+- `owner` (required), `name` (required) — target repository
+- `event_type` (required) — custom event name (100 characters or fewer); must match what your workflow listens for under `on: repository_dispatch`
+- `client_payload` (optional) — JSON object passed to the workflow; at most **10** top-level properties and total serialized size under **64KB** (GitHub limits; the tool validates before calling the API)
+
+#### Output
+
+On success (204): `owner`, `repo`, `full_name`, `event_type`, `request_id`. On failure: structured `error` (e.g. **404** if the repo is missing, **422** for invalid body from GitHub).
 
 ### `github_list_codeowners_errors`
 
