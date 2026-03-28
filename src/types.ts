@@ -367,6 +367,49 @@ export type ListRepoTagsSuccess = {
 
 export type ListRepoTagsFailure = CreateRepoFailure;
 
+/** One entry from GET /repos/{owner}/{repo}/teams. */
+export type RepoTeamItem = {
+    id: number;
+    node_id: string;
+    name: string;
+    slug: string;
+    description: string | null;
+    privacy: string | null;
+    notification_setting: string | null;
+    permission: string;
+    permissions: {
+        pull: boolean;
+        triage: boolean;
+        push: boolean;
+        maintain: boolean;
+        admin: boolean;
+    };
+    url: string;
+    html_url: string;
+    members_url: string;
+    repositories_url: string;
+    type: string;
+    organization_id: number | null;
+    enterprise_id: number | null;
+    parent: {
+        id: number;
+        slug: string;
+        name: string;
+        html_url: string;
+    } | null;
+};
+
+export type ListRepoTeamsSuccess = {
+    success: true;
+    message: string;
+    teams: RepoTeamItem[];
+    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListRepoTeamsFailure = CreateRepoFailure;
+
 /** POST /repos/{owner}/{repo}/dispatches — create a repository_dispatch event (204 No Content). */
 export type CreateRepoDispatchSuccess = {
     success: true;

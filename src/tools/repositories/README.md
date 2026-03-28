@@ -15,6 +15,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
 - [`github_list_repo_languages`](README.md#github_list_repo_languages)
 - [`github_list_repo_tags`](README.md#github_list_repo_tags)
+- [`github_list_repo_teams`](README.md#github_list_repo_teams)
 - [`github_create_repo_dispatch`](README.md#github_create_repo_dispatch)
 - [`github_check_immutable_releases`](README.md#github_check_immutable_releases)
 - [`github_enable_immutable_releases`](README.md#github_enable_immutable_releases)
@@ -187,6 +188,20 @@ Lists [repository tags](https://docs.github.com/en/rest/repos/repos?apiVersion=2
 #### Output
 
 On success: `tags` (each with `name`, `commit_sha`, `commit_url`, `zipball_url`, `tarball_url`, `node_id`), `pagination` (from the `Link` header when more pages exist—use `next.page` / `next.per_page` to fetch the rest), and `request_id`. If there are no tags, `tags` is an empty array. On failure: structured `error`.
+
+### `github_list_repo_teams`
+
+Lists [repository teams](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repository-teams) via `GET /repos/{owner}/{repo}/teams`. Lists teams that have access to the repo and are visible to the authenticated user. For a **public** repository, a team is listed only if it **explicitly** added that repository. Classic personal access tokens need **`public_repo`** or **`repo`** for a public repo, and **`repo`** for a private repo (per GitHub).
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `per_page` (optional, 1–100; default **30** when omitted)
+- `page` (optional, default 1)
+
+#### Output
+
+On success: `teams` (each with `id`, `name`, `slug`, `permission`, `permissions`, `html_url`, `parent` when present, and related fields), `pagination` (from the `Link` header when more pages exist), and `request_id`. If no teams match, `teams` is an empty array. On failure: structured `error` (e.g. **404** if the repository is not found or not accessible).
 
 ### `github_create_repo_dispatch`
 
