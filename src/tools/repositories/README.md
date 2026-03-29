@@ -14,6 +14,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_create_repo_from_template`](README.md#github_create_repo_from_template)
 - [`github_delete_repo`](README.md#github_delete_repo)
 - [`github_get_repo`](README.md#github_get_repo)
+- [`github_get_repo_content`](README.md#github_get_repo_content)
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_transfer_repo`](README.md#github_transfer_repo)
@@ -179,6 +180,21 @@ Fetches repository metadata via `GET /repos/{owner}/{repo}`. Works for both **us
 #### Output
 
 On success: `success`, `repo` (normalized fields such as `full_name`, `description`, `default_branch`, counts, `topics`, `owner`, `license`, `permissions` when returned by the API), and `request_id`. On failure: structured `error` (including `not_found` for 404).
+
+### `github_get_repo_content`
+
+Fetches a file, directory listing, symlink, or submodule via [Get repository content](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#get-repository-content) (`GET /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** read access (or **`repo`** scope for classic tokens). Omit **`path`** or use an empty string for the **repository root**.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `path` (optional) — file or directory path within the repo; default is root (`""`)
+- `ref` (optional) — branch, tag, or commit SHA; defaults to the repository’s default branch
+- `decode_content` (optional, default `false`) — when `true`, file responses include **`decoded_content`**: UTF-8 text decoded from GitHub’s base64 `content` (whitespace in the base64 string is stripped first). Set to `null` when decoding was requested but the response is not a base64 file body (e.g. symlink, submodule, or missing `content`). Binary files are still decoded to a string and may contain replacement characters; use the raw `content` field if you need lossless base64.
+
+#### Output
+
+On success: **`decode_content`** echoes whether UTF-8 decoding was applied (the tool accepts boolean or string forms of the request argument, e.g. `true` or `"true"`). **`data`** is either an **array** of directory entries (GitHub returns at most **1,000** per directory; use the [Git Trees API](https://docs.github.com/en/rest/git/trees) for more) or a **single object** for a file (base64 `content` when applicable), symlink, or submodule. When **`decode_content`** is `true`, file objects also include **`decoded_content`** as described above. On failure: structured `error`. See GitHub’s docs for file size limits (e.g. files **> 100 MB** are not supported on this endpoint).
 
 ### `github_list_repo_autolinks`
 

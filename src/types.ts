@@ -98,6 +98,61 @@ export type GetRepoSuccess = {
 
 export type GetRepoFailure = CreateRepoFailure;
 
+/** One row in a directory listing from GET /repos/{owner}/{repo}/contents/{path}. */
+export type RepoContentListEntry = {
+    type: string;
+    size: number;
+    name: string;
+    path: string;
+    sha: string;
+    url: string;
+    git_url: string | null;
+    html_url: string | null;
+    download_url: string | null;
+    _links: { git: string | null; html: string | null; self: string };
+};
+
+/**
+ * Single file, symlink, or submodule from GET /repos/{owner}/{repo}/contents/{path}.
+ * Files include base64 `content` when size ≤ 1 MB and default JSON media type is used.
+ */
+export type RepoContentBlob = {
+    type: string;
+    size: number;
+    name: string;
+    path: string;
+    sha: string;
+    url: string;
+    git_url: string | null;
+    html_url: string | null;
+    download_url: string | null;
+    encoding?: string;
+    content?: string;
+    /**
+     * When the tool is called with `decode_content: true`: UTF-8 string decoded from base64 `content`.
+     * `null` when decoding was requested but the payload is not a base64 file body (e.g. missing `content`, `encoding` not `base64`, or symlink/submodule).
+     */
+    decoded_content?: string | null;
+    target?: string;
+    submodule_git_url?: string;
+    _links: { git: string | null; html: string | null; self: string };
+};
+
+export type GetRepoContentSuccess = {
+    success: true;
+    message: string;
+    /** Echo of whether UTF-8 decoding from base64 was applied (after normalizing the request value). */
+    decode_content: boolean;
+    /**
+     * Directory: array of entries (GitHub caps directory listings at 1,000 items—use Git Trees API beyond that).
+     * File/symlink/submodule: a single object.
+     */
+    data: RepoContentListEntry[] | RepoContentBlob;
+    request_id: string | null;
+};
+
+export type GetRepoContentFailure = CreateRepoFailure;
+
 export type UpdateRepoSuccess = {
     success: true;
     message: string;

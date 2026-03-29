@@ -23,6 +23,7 @@ import { registerGithubListRepoAutolinksTool } from "./tools/repositories/autoli
 import { registerGithubCreateRepoDispatchTool } from "./tools/repositories/github-create-repo-dispatch.js";
 import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete-repo.js";
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
+import { registerGithubGetRepoContentTool } from "./tools/repositories/contents/github-get-repo-content.js";
 import { registerGithubListCodeownersErrorsTool } from "./tools/repositories/github-list-codeowners-errors.js";
 import { registerGithubListRepoContributorsTool } from "./tools/repositories/github-list-repo-contributors.js";
 import { registerGithubListRepoActivitiesTool } from "./tools/repositories/github-list-repo-activities.js";
@@ -61,6 +62,7 @@ registerGithubDisablePrivateVulnerabilityReportingTool(server, octokit);
 registerGithubEnableDependabotSecurityUpdatesTool(server, octokit);
 registerGithubDisableDependabotSecurityUpdatesTool(server, octokit);
 registerGithubGetRepoTool(server, octokit);
+registerGithubGetRepoContentTool(server, octokit);
 registerGithubListRepoAutolinksTool(server, octokit);
 registerGithubListCodeownersErrorsTool(server, octokit);
 registerGithubListRepoContributorsTool(server, octokit);

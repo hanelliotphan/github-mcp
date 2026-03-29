@@ -1,0 +1,38 @@
+{
+  "name": "github_get_repo_content",
+  "description": "Get the contents of a file or directory in a repository (GET /repos/{owner}/{repo}/contents/{path}). Omit path or use an empty string for the repository root. Optional ref is a branch, tag, or commit SHA (defaults to the default branch). Directory listings are limited to 1,000 entries; for more, use the Git Trees API. Files above 1 MB may omit base64 content in JSON responses—see GitHub REST docs for repository contents. Set decode_content to true to add decoded_content (UTF-8 text from base64) on file responses; binary files may not round-trip cleanly as UTF-8.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "path": {
+        "type": "string",
+        "maxLength": 4096
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "decode_content": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
