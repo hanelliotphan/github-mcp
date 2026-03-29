@@ -27,6 +27,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_list_repo_topics`](README.md#github_list_repo_topics)
 - [`github_replace_repo_topics`](README.md#github_replace_repo_topics)
 - [`github_create_repo_dispatch`](README.md#github_create_repo_dispatch)
+- [`github_create_repo_attestation`](README.md#github_create_repo_attestation)
 - [`github_check_immutable_releases`](README.md#github_check_immutable_releases)
 - [`github_enable_immutable_releases`](README.md#github_enable_immutable_releases)
 - [`github_disable_immutable_releases`](README.md#github_disable_immutable_releases)
@@ -387,6 +388,24 @@ Creates a [repository dispatch](https://docs.github.com/en/rest/repos/repos?apiV
 #### Output
 
 On success (204): `owner`, `repo`, `full_name`, `event_type`, `request_id`. On failure: structured `error` (e.g. **404** if the repo is missing, **422** for invalid body from GitHub).
+
+### `github_create_repo_attestation`
+
+Creates an [artifact attestation](https://docs.github.com/en/rest/repos/attestations?apiVersion=2026-03-10#create-an-attestation) via `POST /repos/{owner}/{repo}/attestations`. The request body is a **Sigstore bundle** (`bundle`: `mediaType`, `verificationMaterial`, `dsseEnvelope`, and any other fields required by the [bundle format](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto)). Implementation: `src/tools/repositories/attestations/github-create-repo-attestation.ts`.
+
+The caller must supply a valid bundle (typically from the [attest](https://github.com/actions/attest) action or compatible tooling). Requires **write** access to the repository; fine-grained tokens need **`attestations:write`**.
+
+#### Inputs
+
+- `owner` (required), `name` (required) — target repository
+- `bundle` (required) — one of:
+  - a **JSON object** for the Sigstore bundle (same as before), or
+  - a **string** of JSON (the full bundle serialized as a single string), or
+  - a **string** filesystem path (absolute or relative to the MCP server process) to a `.json` file containing the bundle; the file is read on the machine running `github-mcp`
+
+#### Output
+
+On success (**201**): `owner`, `repo`, `full_name`, `attestation_id` (when GitHub returns an `id` in the response body), and `request_id`. On failure: structured `error` (e.g. **403**, **422**).
 
 ### `github_check_immutable_releases`
 

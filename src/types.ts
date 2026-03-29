@@ -645,3 +645,17 @@ export type CreateRepoDispatchSuccess = {
 };
 
 export type CreateRepoDispatchFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/attestations — store a Sigstore artifact attestation. */
+export type CreateRepoAttestationSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Attestation id from GitHub when returned (201). */
+    attestation_id: number | null;
+    request_id: string | null;
+};
+
+export type CreateRepoAttestationFailure = CreateRepoFailure;
