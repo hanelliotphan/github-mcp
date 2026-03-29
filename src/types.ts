@@ -433,6 +433,24 @@ export type ListRepoLanguagesSuccess = {
 
 export type ListRepoLanguagesFailure = CreateRepoFailure;
 
+/** One entry from GET /repos/{owner}/{repo}/autolinks. */
+export type RepoAutolinkItem = {
+    id: number;
+    key_prefix: string;
+    url_template: string;
+    is_alphanumeric: boolean;
+    updated_at: string | null;
+};
+
+export type ListRepoAutolinksSuccess = {
+    success: true;
+    message: string;
+    autolinks: RepoAutolinkItem[];
+    request_id: string | null;
+};
+
+export type ListRepoAutolinksFailure = CreateRepoFailure;
+
 /** One row from GET /repositories (list public repositories). */
 export type PublicRepoListItem = {
     id: number;

@@ -65,6 +65,8 @@ npm run dev
 
 Implementations live in `src/tools/repositories/`. For the tool catalog, parameters, response shapes, and links to GitHub REST docs, see **[src/tools/repositories/README.md](src/tools/repositories/README.md)**.
 
+Static MCP tool descriptors (JSON: tool name, description, argument schema) are checked in under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. These mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
+
 ## MCP Client Config (using `.env` only)
 
 This server reads `GITHUB_TOKEN` from `<your_home_directory>/github-mcp/.env`.

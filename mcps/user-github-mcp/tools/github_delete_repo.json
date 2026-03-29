@@ -1,0 +1,34 @@
+{
+  "name": "github_delete_repo",
+  "description": "Permanently delete a GitHub repository. Uses DELETE /repos/{owner}/{repo} (same call for personal or org owners). Requires admin access and delete_repo scope for classic PATs. Live deletes require confirm: true unless dry_run is true.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "dry_run": {
+        "default": false,
+        "type": "boolean"
+      },
+      "confirm": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

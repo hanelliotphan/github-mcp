@@ -1,0 +1,60 @@
+{
+  "name": "github_create_repo_attestation",
+  "description": "Create an artifact attestation for a repository (POST /repos/{owner}/{repo}/attestations). Sends a Sigstore bundle as JSON. `bundle` may be an object, a JSON string of the bundle, or a path to a JSON file (read locally by the server). Requires repo write access; fine-grained tokens need attestations:write. Attestations are normally produced by the GitHub attest action or compatible tooling—see GitHub docs.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "bundle": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "mediaType": {
+                "type": "string"
+              },
+              "verificationMaterial": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "dsseEnvelope": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              }
+            },
+            "additionalProperties": {}
+          },
+          {
+            "type": "string",
+            "minLength": 1,
+            "description": "Sigstore bundle as a JSON string, or an absolute/relative path to a .json file containing the bundle (read on the machine running the MCP server)."
+          }
+        ],
+        "description": "Sigstore bundle: object, JSON string, or path to a .json file containing mediaType, verificationMaterial, dsseEnvelope, …"
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "bundle"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

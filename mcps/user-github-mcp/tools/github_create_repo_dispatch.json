@@ -1,0 +1,40 @@
+{
+  "name": "github_create_repo_dispatch",
+  "description": "Create a repository dispatch event (POST /repos/{owner}/{repo}/dispatches). Triggers the repository_dispatch webhook / workflows for the given event_type. Optional client_payload is JSON (max 10 top-level keys, under 64KB). Classic PATs need the repo scope.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "event_type": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "description": "Custom event name for repository_dispatch (100 characters or fewer)."
+      },
+      "client_payload": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string"
+        },
+        "additionalProperties": {}
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "event_type"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

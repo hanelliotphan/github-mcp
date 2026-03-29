@@ -1,0 +1,24 @@
+{
+  "name": "github_list_public_repos",
+  "description": "List all public repositories on GitHub in creation order (GET /repositories). Pagination uses the `since` query parameter (repository id cursor), not page/per_page. The response includes `since`, `pages_fetched`, and `pagination` from the `Link` header—pass `next.since` on the next call when `pagination.next` is set. Set `all_pages` to follow `next` links up to `max_pages` (default **100**); if `truncated` is true, continue with `pagination.next.since` or increase `max_pages`.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "since": {
+        "description": "Only return repositories with an id greater than this value. Omit for the first page.",
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

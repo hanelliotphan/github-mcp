@@ -1,0 +1,109 @@
+{
+  "name": "github_create_personal_repo",
+  "description": "Create a GitHub repository under the authenticated user's personal account (POST /user/repos). Supports the GitHub API body fields for repo features, merge settings, and `is_template`. `team_id` is not accepted here (use org repository creation for team grants).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 350
+      },
+      "homepage": {
+        "type": "string",
+        "maxLength": 2048
+      },
+      "private": {
+        "default": false,
+        "type": "boolean"
+      },
+      "has_issues": {
+        "type": "boolean"
+      },
+      "has_projects": {
+        "type": "boolean"
+      },
+      "has_wiki": {
+        "type": "boolean"
+      },
+      "has_discussions": {
+        "type": "boolean"
+      },
+      "auto_init": {
+        "default": true,
+        "type": "boolean"
+      },
+      "gitignore_template": {
+        "type": "string"
+      },
+      "license_template": {
+        "type": "string"
+      },
+      "allow_squash_merge": {
+        "type": "boolean"
+      },
+      "allow_merge_commit": {
+        "type": "boolean"
+      },
+      "allow_rebase_merge": {
+        "type": "boolean"
+      },
+      "allow_auto_merge": {
+        "type": "boolean"
+      },
+      "delete_branch_on_merge": {
+        "type": "boolean"
+      },
+      "squash_merge_commit_title": {
+        "type": "string",
+        "enum": [
+          "PR_TITLE",
+          "COMMIT_OR_PR_TITLE"
+        ]
+      },
+      "squash_merge_commit_message": {
+        "type": "string",
+        "enum": [
+          "PR_BODY",
+          "COMMIT_MESSAGES",
+          "BLANK"
+        ]
+      },
+      "merge_commit_title": {
+        "type": "string",
+        "enum": [
+          "PR_TITLE",
+          "MERGE_MESSAGE"
+        ]
+      },
+      "merge_commit_message": {
+        "type": "string",
+        "enum": [
+          "PR_BODY",
+          "PR_TITLE",
+          "BLANK"
+        ]
+      },
+      "has_downloads": {
+        "type": "boolean"
+      },
+      "is_template": {
+        "default": false,
+        "type": "boolean"
+      },
+      "dry_run": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

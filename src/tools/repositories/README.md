@@ -14,6 +14,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_create_repo_from_template`](README.md#github_create_repo_from_template)
 - [`github_delete_repo`](README.md#github_delete_repo)
 - [`github_get_repo`](README.md#github_get_repo)
+- [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_transfer_repo`](README.md#github_transfer_repo)
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
@@ -178,6 +179,18 @@ Fetches repository metadata via `GET /repos/{owner}/{repo}`. Works for both **us
 #### Output
 
 On success: `success`, `repo` (normalized fields such as `full_name`, `description`, `default_branch`, counts, `topics`, `owner`, `license`, `permissions` when returned by the API), and `request_id`. On failure: structured `error` (including `not_found` for 404).
+
+### `github_list_repo_autolinks`
+
+Lists [all autolinks](https://docs.github.com/en/rest/repos/autolinks?apiVersion=2026-03-10#get-all-autolinks-of-a-repository) configured for a repository via `GET /repos/{owner}/{repo}/autolinks`. GitHub only exposes autolink configuration to **repository administrators**; other callers may see **403** or **404**. GitHub Apps need repository administration with read or write access. This endpoint returns the full list in one response (no `per_page` pagination).
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+
+#### Output
+
+On success: `autolinks` (each row has `id`, `key_prefix`, `url_template`, `is_alphanumeric`, `updated_at`), and `request_id`. On failure: structured `error`.
 
 ### `github_update_repo`
 

@@ -1,0 +1,153 @@
+{
+  "name": "github_create_org_repo",
+  "description": "Create a GitHub repository in an organization (POST /orgs/{org}/repos). Supports the GitHub API body fields including `visibility`, `team_id`, `custom_properties`, merge settings, and `is_template`. `use_squash_pr_title_as_default` is deprecated by GitHub in favor of `squash_merge_commit_title`.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 350
+      },
+      "homepage": {
+        "type": "string",
+        "maxLength": 2048
+      },
+      "private": {
+        "default": false,
+        "type": "boolean"
+      },
+      "visibility": {
+        "type": "string",
+        "enum": [
+          "public",
+          "private"
+        ]
+      },
+      "has_issues": {
+        "type": "boolean"
+      },
+      "has_projects": {
+        "type": "boolean"
+      },
+      "has_wiki": {
+        "type": "boolean"
+      },
+      "has_discussions": {
+        "type": "boolean"
+      },
+      "auto_init": {
+        "default": true,
+        "type": "boolean"
+      },
+      "gitignore_template": {
+        "type": "string"
+      },
+      "license_template": {
+        "type": "string"
+      },
+      "team_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0,
+        "maximum": 9007199254740991
+      },
+      "allow_squash_merge": {
+        "type": "boolean"
+      },
+      "allow_merge_commit": {
+        "type": "boolean"
+      },
+      "allow_rebase_merge": {
+        "type": "boolean"
+      },
+      "allow_auto_merge": {
+        "type": "boolean"
+      },
+      "delete_branch_on_merge": {
+        "type": "boolean"
+      },
+      "use_squash_pr_title_as_default": {
+        "type": "boolean"
+      },
+      "squash_merge_commit_title": {
+        "type": "string",
+        "enum": [
+          "PR_TITLE",
+          "COMMIT_OR_PR_TITLE"
+        ]
+      },
+      "squash_merge_commit_message": {
+        "type": "string",
+        "enum": [
+          "PR_BODY",
+          "COMMIT_MESSAGES",
+          "BLANK"
+        ]
+      },
+      "merge_commit_title": {
+        "type": "string",
+        "enum": [
+          "PR_TITLE",
+          "MERGE_MESSAGE"
+        ]
+      },
+      "merge_commit_message": {
+        "type": "string",
+        "enum": [
+          "PR_BODY",
+          "PR_TITLE",
+          "BLANK"
+        ]
+      },
+      "has_downloads": {
+        "type": "boolean"
+      },
+      "is_template": {
+        "default": false,
+        "type": "boolean"
+      },
+      "custom_properties": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string"
+        },
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "dry_run": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "org",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

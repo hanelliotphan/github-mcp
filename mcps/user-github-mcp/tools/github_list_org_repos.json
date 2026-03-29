@@ -1,0 +1,64 @@
+{
+  "name": "github_list_org_repos",
+  "description": "List repositories for a GitHub organization (GET /orgs/{org}/repos). Requires a token with access to the org; private repos appear only for appropriate scopes and membership. Use `type` to filter (`all`, `public`, `private`, `forks`, `sources`, `member`). Manual pagination: pass `page` / `per_page` (default per page **100**); the response includes `page`, `per_page`, `pages_fetched`, and `pagination` from the `Link` header—call again with `pagination.next.page` (and `per_page`) when `pagination.next` is set. Or set `all_pages` to true to follow `next` links automatically up to `max_pages` (default **100**); if `truncated` is true, more pages exist—continue with another call using `pagination.next` or raise `max_pages`.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "all",
+          "public",
+          "private",
+          "forks",
+          "sources",
+          "member"
+        ]
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "created",
+          "updated",
+          "pushed",
+          "full_name"
+        ]
+      },
+      "direction": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 9007199254740991
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

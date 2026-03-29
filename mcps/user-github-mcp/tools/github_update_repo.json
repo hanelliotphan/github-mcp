@@ -1,0 +1,142 @@
+{
+  "name": "github_update_repo",
+  "description": "Update repository settings via PATCH /repos/{owner}/{repo} ([GitHub REST](https://docs.github.com/en/rest/repos/repos#update-a-repository)). Only include fields you want to change. `owner` and `name` identify the repo; use `new_name` to rename. Topics and security_and_analysis require other endpoints and are not included here.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "dry_run": {
+        "default": false,
+        "type": "boolean"
+      },
+      "new_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "description": {
+        "anyOf": [
+          {
+            "type": "string",
+            "maxLength": 65000
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "homepage": {
+        "anyOf": [
+          {
+            "type": "string",
+            "maxLength": 2000
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "private": {
+        "type": "boolean"
+      },
+      "visibility": {
+        "type": "string",
+        "enum": [
+          "public",
+          "private"
+        ]
+      },
+      "has_issues": {
+        "type": "boolean"
+      },
+      "has_projects": {
+        "type": "boolean"
+      },
+      "has_wiki": {
+        "type": "boolean"
+      },
+      "is_template": {
+        "type": "boolean"
+      },
+      "default_branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "allow_squash_merge": {
+        "type": "boolean"
+      },
+      "allow_merge_commit": {
+        "type": "boolean"
+      },
+      "allow_rebase_merge": {
+        "type": "boolean"
+      },
+      "allow_auto_merge": {
+        "type": "boolean"
+      },
+      "delete_branch_on_merge": {
+        "type": "boolean"
+      },
+      "allow_update_branch": {
+        "type": "boolean"
+      },
+      "squash_merge_commit_title": {
+        "type": "string",
+        "enum": [
+          "PR_TITLE",
+          "COMMIT_OR_PR_TITLE"
+        ]
+      },
+      "squash_merge_commit_message": {
+        "type": "string",
+        "enum": [
+          "PR_BODY",
+          "COMMIT_MESSAGES",
+          "BLANK"
+        ]
+      },
+      "merge_commit_title": {
+        "type": "string",
+        "enum": [
+          "PR_TITLE",
+          "MERGE_MESSAGE"
+        ]
+      },
+      "merge_commit_message": {
+        "type": "string",
+        "enum": [
+          "PR_BODY",
+          "PR_TITLE",
+          "BLANK"
+        ]
+      },
+      "archived": {
+        "type": "boolean"
+      },
+      "allow_forking": {
+        "type": "boolean"
+      },
+      "web_commit_signoff_required": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

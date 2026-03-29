@@ -1,0 +1,56 @@
+{
+  "name": "github_create_repo_from_template",
+  "description": "Create a new repository from a template repository (POST /repos/{template_owner}/{template_repo}/generate). The template must exist and `is_template` must be true (verify with GET /repos/{owner}/{repo}). Classic PATs need `public_repo` or `repo` for a public template; `repo` for a private template. See [Create a repository using a template](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-a-repository-using-a-template).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "template_owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "template_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "owner": {
+        "description": "Account or organization that will own the new repository. Omit to create under the authenticated user.",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 350
+      },
+      "include_all_branches": {
+        "default": false,
+        "type": "boolean"
+      },
+      "private": {
+        "default": false,
+        "type": "boolean"
+      },
+      "dry_run": {
+        "default": false,
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "template_owner",
+      "template_name",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

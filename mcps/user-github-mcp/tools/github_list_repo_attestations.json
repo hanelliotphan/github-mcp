@@ -1,0 +1,57 @@
+{
+  "name": "github_list_repo_attestations",
+  "description": "List artifact attestations for a repository and subject digest (GET /repos/{owner}/{repo}/attestations/{subject_digest}). GitHub requires the subject’s SHA256 digest (`sha256:…`). Uses cursor pagination (`after` / `before` from the `Link` header). Set `all_pages` to follow `next` up to `max_pages` (default **100**). Fine-grained tokens need **attestations:read**. `per_page` defaults to **100** when omitted (GitHub max **100**).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "subject_digest": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^sha256:[a-fA-F0-9]{64}$",
+        "description": "Attestation subject SHA256 digest: sha256:HEX_DIGEST"
+      },
+      "predicate_type": {
+        "description": "Optional filter: provenance, sbom, release, or a custom predicate type string (GitHub API).",
+        "type": "string",
+        "minLength": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "before": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "subject_digest"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

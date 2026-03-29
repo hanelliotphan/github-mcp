@@ -1,0 +1,74 @@
+{
+  "name": "github_list_authenticated_user_repos",
+  "description": "List repositories the authenticated user has explicit access to (GET /user/repos): owned repos, collaborations, and org repos. Supports filters (`visibility`, `affiliation`, `type`), sort, `since`/`before` updated-time bounds, and `page` / `per_page`. Do not use `type` together with `visibility` or `affiliation` (GitHub returns 422). Responses include `page`, `per_page`, `pages_fetched`, and `pagination` from the `Link` header. Set `all_pages` to follow `next` links from page 1 up to `max_pages` (default **100**); if `truncated` is true, continue with `pagination.next` or increase `max_pages`.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "visibility": {
+        "type": "string",
+        "enum": [
+          "all",
+          "public",
+          "private"
+        ]
+      },
+      "affiliation": {
+        "type": "string",
+        "minLength": 1
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "all",
+          "owner",
+          "public",
+          "private",
+          "member"
+        ]
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "created",
+          "updated",
+          "pushed",
+          "full_name"
+        ]
+      },
+      "direction": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 9007199254740991
+      },
+      "since": {
+        "type": "string",
+        "minLength": 1
+      },
+      "before": {
+        "type": "string",
+        "minLength": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
