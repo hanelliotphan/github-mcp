@@ -2,11 +2,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
-import type {
-    CreateOrUpdateFileContentsFailure,
-    CreateOrUpdateFileContentsSuccess,
-    FileCommitApiResult
-} from "../../../types.js";
+import type { DeleteFileFailure, DeleteFileSuccess, FileCommitApiResult } from "../../../types.js";
 import { getRequestId, mapGitHubError } from "../../../utils/errors.js";
 import { textAndData } from "../../../utils/mcp-response.js";
 
@@ -14,21 +10,14 @@ const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
-const identityFields = {
+/** Delete endpoint uses name + email only (no `date` in GitHub schema). */
+const deleteIdentityFields = {
     name: z.string().min(1).max(200),
-    email: z.string().min(3).max(320),
-    date: z.string().max(64).optional()
+    email: z.string().min(3).max(320)
 };
 
 function normalizePath(path: string): string {
     return path.replace(/^\/+/, "").trim();
-}
-
-function toApiBase64Content(content: string, alreadyBase64: boolean): string {
-    if (alreadyBase64) {
-        return content.replace(/\s/g, "");
-    }
-    return Buffer.from(content, "utf8").toString("base64");
 }
 
 function normalizeFileCommit(data: unknown): FileCommitApiResult {
@@ -44,14 +33,13 @@ function normalizeFileCommit(data: unknown): FileCommitApiResult {
     return { content, commit };
 }
 
-export function registerGithubCreateOrUpdateFileContentsTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubDeleteFileTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_create_or_update_file_contents",
-        "Create a new file or update an existing file (PUT /repos/{owner}/{repo}/contents/{path}). " +
-            "Body `content` must be Base64 in the GitHub API; pass plain UTF-8 text by default, or set content_is_base64 true if you already supply Base64. " +
-            "Provide `sha` from the current file blob when replacing an existing file (e.g. from github_get_repo_content). " +
-            "Classic tokens need `repo` scope; modifying `.github/workflows` also requires `workflow` scope. " +
-            "Do not run this and github_delete_file concurrently for the same path. See GitHub REST docs for repository contents.",
+        "github_delete_file",
+        "Delete a file in a repository (DELETE /repos/{owner}/{repo}/contents/{path}). " +
+            "Requires the file blob `sha` (e.g. from github_get_repo_content). " +
+            "Classic tokens need `repo` scope; deleting under `.github/workflows` also requires `workflow` scope. " +
+            "Do not run this and github_create_or_update_file_contents concurrently for the same path. See GitHub REST docs for repository contents.",
         {
             owner: z
                 .string()
@@ -75,23 +63,18 @@ export function registerGithubCreateOrUpdateFileContentsTool(server: McpServer, 
                 .transform((p) => normalizePath(p))
                 .refine((p) => p.length > 0, { message: "path cannot be empty" }),
             message: z.string().min(1).max(65536),
-            content: z.string().min(1),
-            content_is_base64: z.boolean().optional(),
-            sha: z.string().min(1).max(255).optional(),
+            sha: z.string().min(1).max(255),
             branch: z.string().min(1).max(255).optional(),
-            committer: z.object(identityFields).optional(),
-            author: z.object(identityFields).optional()
+            committer: z.object(deleteIdentityFields).optional(),
+            author: z.object(deleteIdentityFields).optional()
         },
         async (input) => {
             try {
-                const content = toApiBase64Content(input.content, input.content_is_base64 === true);
-
-                const response = await octokit.rest.repos.createOrUpdateFileContents({
+                const response = await octokit.rest.repos.deleteFile({
                     owner: input.owner,
                     repo: input.name,
                     path: input.path,
                     message: input.message,
-                    content,
                     sha: input.sha,
                     branch: input.branch,
                     committer: input.committer,
@@ -99,20 +82,16 @@ export function registerGithubCreateOrUpdateFileContentsTool(server: McpServer, 
                 });
 
                 const requestId = getRequestId(response.headers["x-github-request-id"]);
-                const httpStatus = response.status;
-                const successPayload: CreateOrUpdateFileContentsSuccess = {
+                const successPayload: DeleteFileSuccess = {
                     success: true,
-                    message:
-                        httpStatus === 201
-                            ? "File created successfully."
-                            : "File updated successfully.",
-                    http_status: httpStatus,
+                    message: "File deleted successfully.",
+                    http_status: response.status,
                     result: normalizeFileCommit(response.data),
                     request_id: requestId
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: CreateOrUpdateFileContentsFailure = {
+                const failurePayload: DeleteFileFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(

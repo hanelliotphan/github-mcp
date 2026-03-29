@@ -170,6 +170,17 @@ export type CreateOrUpdateFileContentsSuccess = {
 
 export type CreateOrUpdateFileContentsFailure = CreateRepoFailure;
 
+export type DeleteFileSuccess = {
+    success: true;
+    message: string;
+    /** Typically 200 on success (per GitHub). */
+    http_status: number;
+    result: FileCommitApiResult;
+    request_id: string | null;
+};
+
+export type DeleteFileFailure = CreateRepoFailure;
+
 export type UpdateRepoSuccess = {
     success: true;
     message: string;

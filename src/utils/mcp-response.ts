@@ -31,6 +31,8 @@ import type {
     EnableVulnerabilityAlertsFailure,
     EnableVulnerabilityAlertsSuccess,
     CreateRepoSuccess,
+    DeleteFileFailure,
+    DeleteFileSuccess,
     DeleteRepoFailure,
     DeleteRepoSuccess,
     GetRepoFailure,
@@ -107,6 +109,8 @@ export function textAndData(
         | CreateRepoFailure
         | DeleteRepoSuccess
         | DeleteRepoFailure
+        | DeleteFileSuccess
+        | DeleteFileFailure
         | GetRepoSuccess
         | GetRepoFailure
         | GetRepoContentSuccess

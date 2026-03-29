@@ -16,6 +16,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_get_repo`](README.md#github_get_repo)
 - [`github_get_repo_content`](README.md#github_get_repo_content)
 - [`github_create_or_update_file_contents`](README.md#github_create_or_update_file_contents)
+- [`github_delete_file`](README.md#github_delete_file)
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_transfer_repo`](README.md#github_transfer_repo)
@@ -199,7 +200,7 @@ On success: **`decode_content`** echoes whether UTF-8 decoding was applied (the 
 
 ### `github_create_or_update_file_contents`
 
-Creates or updates a single file via [Create or update file contents](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#create-or-update-file-contents) (`PUT /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** write access (classic token: **`repo`**; editing `.github/workflows/**` also needs **`workflow`**). Do not use this tool in parallel with delete-file on the same path.
+Creates or updates a single file via [Create or update file contents](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#create-or-update-file-contents) (`PUT /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** write access (classic token: **`repo`**; editing `.github/workflows/**` also needs **`workflow`**). Do not use this tool in parallel with `github_delete_file` on the same path.
 
 #### Inputs
 
@@ -216,6 +217,24 @@ Creates or updates a single file via [Create or update file contents](https://do
 #### Output
 
 On success: `http_status` (**201** create, **200** update), `result` with `content` and `commit` objects from GitHub, and `request_id`. On failure: structured `error` (e.g. **409** conflict, **422** validation).
+
+### `github_delete_file`
+
+Deletes a file via [Delete a file](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#delete-a-file) (`DELETE /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** write access (classic: **`repo`**; paths under `.github/workflows` also need **`workflow`**). **`sha`** is required (current blob SHA, e.g. from `github_get_repo_content`). Do not use this and `github_create_or_update_file_contents` concurrently on the same path.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `path` (required) — file path in the repository (leading slashes are stripped)
+- `message` (required) — commit message
+- `sha` (required) — blob SHA of the file being deleted
+- `branch` (optional)
+- `committer` (optional) — `{ name, email }`
+- `author` (optional) — `{ name, email }`
+
+#### Output
+
+On success: `http_status`, `result` (`content` and `commit` from GitHub), and `request_id`. On failure: structured `error`.
 
 ### `github_list_repo_autolinks`
 
