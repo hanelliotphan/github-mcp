@@ -1,4 +1,8 @@
-import type { GitHubLinkPagination, GitHubPageLinkPagination } from "./utils/parse-github-link-header.js";
+import type {
+    GitHubLinkPagination,
+    GitHubPageLinkPagination,
+    GitHubSinceLinkPagination
+} from "./utils/parse-github-link-header.js";
 
 export type ErrorType =
     | "auth_error"
@@ -384,6 +388,33 @@ export type ListRepoLanguagesSuccess = {
 };
 
 export type ListRepoLanguagesFailure = CreateRepoFailure;
+
+/** One row from GET /repositories (list public repositories). */
+export type PublicRepoListItem = {
+    id: number;
+    name: string;
+    full_name: string;
+    owner_login: string;
+    private: boolean;
+    html_url: string;
+    description: string | null;
+    fork: boolean;
+    default_branch: string | null;
+    created_at: string | null;
+    updated_at: string | null;
+    pushed_at: string | null;
+};
+
+export type ListPublicReposSuccess = {
+    success: true;
+    message: string;
+    repositories: PublicRepoListItem[];
+    /** Parsed from the response `Link` header; use `next.since` for the following request when present. */
+    pagination: GitHubSinceLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListPublicReposFailure = CreateRepoFailure;
 
 /** One entry from GET /repos/{owner}/{repo}/tags. */
 export type RepoTagItem = {

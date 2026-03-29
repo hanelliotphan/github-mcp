@@ -16,6 +16,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_list_repo_activities`](README.md#github_list_repo_activities)
 - [`github_list_repo_contributors`](README.md#github_list_repo_contributors)
 - [`github_list_repo_languages`](README.md#github_list_repo_languages)
+- [`github_list_public_repos`](README.md#github_list_public_repos)
 - [`github_list_repo_tags`](README.md#github_list_repo_tags)
 - [`github_list_repo_teams`](README.md#github_list_repo_teams)
 - [`github_list_repo_topics`](README.md#github_list_repo_topics)
@@ -215,6 +216,18 @@ Lists languages used in the repository via [List repository languages](https://d
 #### Output
 
 On success: `languages` (rows of `language` and `bytes`, sorted by bytes descending), `total_bytes` (sum of all language bytes), and `request_id`. If the repository has no detectable languages, the API returns an empty object; the tool returns an empty `languages` array and `total_bytes: 0`. On failure: structured `error`.
+
+### `github_list_public_repos`
+
+Lists [public repositories](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-public-repositories) globally via `GET /repositories` (all public repos in the order they were created). This is **not** scoped to a user or organization. GitHub paginates this endpoint with the **`since`** query parameter (only return repositories with an **id** greater than this value), not `page` / `per_page`; use the response **`pagination`** field (from the `Link` header) and pass **`next.since`** on the next call when present.
+
+#### Inputs
+
+- `since` (optional) — non-negative integer repository id cursor; omit for the first page.
+
+#### Output
+
+On success: `repositories` (each with `id`, `name`, `full_name`, `owner_login`, `private`, `html_url`, `description`, `fork`, `default_branch`, timestamps), `pagination` when GitHub returns a `Link` header (`next.since` for the following request), and `request_id`. On failure: structured `error` (e.g. **422** if the endpoint is rate-limited or validation fails).
 
 ### `github_list_repo_tags`
 

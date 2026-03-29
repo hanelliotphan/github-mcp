@@ -126,3 +126,56 @@ export function parseGitHubPageLinkPagination(linkHeader: string | undefined): G
         last: lastUrl ? pageRefFromHref(lastUrl) : null
     };
 }
+
+/** `since` (repository id cursor) from a Link URL — used by `GET /repositories` pagination. */
+export type GitHubSinceLinkRef = {
+    since: number;
+};
+
+export type GitHubSinceLinkPagination = {
+    next: GitHubSinceLinkRef | null;
+    prev: GitHubSinceLinkRef | null;
+    first: GitHubSinceLinkRef | null;
+    last: GitHubSinceLinkRef | null;
+};
+
+function sinceRefFromHref(href: string): GitHubSinceLinkRef | null {
+    try {
+        const u = new URL(href);
+        const sinceRaw = u.searchParams.get("since");
+        if (sinceRaw == null || sinceRaw === "") {
+            return null;
+        }
+        const since = parseInt(sinceRaw, 10);
+        if (Number.isNaN(since)) {
+            return null;
+        }
+        return { since };
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Parses GitHub `Link` header for `GET /repositories` (public repo list), which paginates with `since`, not `page` / `per_page`.
+ * @see https://docs.github.com/en/rest/repos/repos#list-public-repositories
+ */
+export function parseGitHubSinceLinkPagination(linkHeader: string | undefined): GitHubSinceLinkPagination | null {
+    if (linkHeader == null || linkHeader === "") {
+        return null;
+    }
+    const rels = parseRelations(linkHeader);
+    const nextUrl = rels.get("next");
+    const prevUrl = rels.get("prev");
+    const firstUrl = rels.get("first");
+    const lastUrl = rels.get("last");
+    if (!nextUrl && !prevUrl && !firstUrl && !lastUrl) {
+        return null;
+    }
+    return {
+        next: nextUrl ? sinceRefFromHref(nextUrl) : null,
+        prev: prevUrl ? sinceRefFromHref(prevUrl) : null,
+        first: firstUrl ? sinceRefFromHref(firstUrl) : null,
+        last: lastUrl ? sinceRefFromHref(lastUrl) : null
+    };
+}
