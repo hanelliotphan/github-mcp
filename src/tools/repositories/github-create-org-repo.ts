@@ -35,6 +35,7 @@ export function registerGithubCreateOrgRepoTool(server: McpServer, octokit: Octo
             auto_init: z.boolean().optional().default(true),
             gitignore_template: z.string().optional(),
             license_template: z.string().optional(),
+            is_template: z.boolean().optional().default(false),
             dry_run: z.boolean().optional().default(false)
         },
         async (input) => {
@@ -45,7 +46,8 @@ export function registerGithubCreateOrgRepoTool(server: McpServer, octokit: Octo
                 private: input.private ?? false,
                 auto_init: input.auto_init ?? true,
                 gitignore_template: input.gitignore_template,
-                license_template: input.license_template
+                license_template: input.license_template,
+                is_template: input.is_template ?? false
             };
 
             if (input.dry_run) {

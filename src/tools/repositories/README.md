@@ -8,6 +8,7 @@ TypeScript tool implementations in this folder are registered from the server en
 
 - [`github_create_personal_repo`](README.md#github_create_personal_repo)
 - [`github_create_org_repo`](README.md#github_create_org_repo)
+- [`github_create_repo_from_template`](README.md#github_create_repo_from_template)
 - [`github_delete_repo`](README.md#github_delete_repo)
 - [`github_get_repo`](README.md#github_get_repo)
 - [`github_update_repo`](README.md#github_update_repo)
@@ -77,6 +78,24 @@ Creates a repository under a GitHub **organization** (`org/name`).
 - `auto_init` (optional, default `true`)
 - `gitignore_template` (optional)
 - `license_template` (optional)
+- `dry_run` (optional, default `false`)
+
+#### Output
+
+Same shape as `github_create_personal_repo` (success payload with `repo`, or structured `error`).
+
+### `github_create_repo_from_template`
+
+Creates a new repository from a [repository template](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-a-repository-using-a-template) (`POST /repos/{template_owner}/{template_repo}/generate`). The source repository must have `is_template: true` (confirm with `github_get_repo`). Classic personal access tokens need **`public_repo`** or **`repo`** to generate a public repository from a public template, and **`repo`** for a private repository or private template.
+
+#### Inputs
+
+- `template_owner` (required), `template_name` (required) — template repository (`template_owner/template_name`)
+- `name` (required) — name of the **new** repository
+- `owner` (optional) — user or organization that will own the new repo; omit to create under the authenticated user
+- `description` (optional)
+- `include_all_branches` (optional, default `false`) — include all branches from the template, not only the default branch
+- `private` (optional, default `false`)
 - `dry_run` (optional, default `false`)
 
 #### Output

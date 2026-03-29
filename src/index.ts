@@ -16,6 +16,7 @@ import { registerGithubDisableVulnerabilityAlertsTool } from "./tools/repositori
 import { registerGithubEnableVulnerabilityAlertsTool } from "./tools/repositories/github-enable-vulnerability-alerts.js";
 import { registerGithubCreateOrgRepoTool } from "./tools/repositories/github-create-org-repo.js";
 import { registerGithubCreatePersonalRepoTool } from "./tools/repositories/github-create-personal-repo.js";
+import { registerGithubCreateRepoFromTemplateTool } from "./tools/repositories/github-create-repo-from-template.js";
 import { registerGithubCreateRepoDispatchTool } from "./tools/repositories/github-create-repo-dispatch.js";
 import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete-repo.js";
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
@@ -37,6 +38,7 @@ const server = new McpServer({ name: "github-mcp", version: "1.0.0" });
 // Register all MCP tools here; each tool implementation lives in its own file.
 registerGithubCreatePersonalRepoTool(server, octokit);
 registerGithubCreateOrgRepoTool(server, octokit);
+registerGithubCreateRepoFromTemplateTool(server, octokit);
 registerGithubDeleteRepoTool(server, octokit);
 registerGithubCheckDependabotSecurityUpdatesTool(server, octokit);
 registerGithubCheckPrivateVulnerabilityReportingTool(server, octokit);
