@@ -1,0 +1,74 @@
+{
+  "name": "github_create_or_update_file_contents",
+  "description": "Create a new file or update an existing file (PUT /repos/{owner}/{repo}/contents/{path}). Body content must be Base64 in the GitHub API; pass plain UTF-8 text by default, or set content_is_base64 true if you already supply Base64. Provide sha from the current file blob when replacing an existing file (e.g. from github_get_repo_content). Classic tokens need repo scope; modifying .github/workflows also requires workflow scope. Do not run this and delete-file concurrently for the same path. See GitHub REST docs for repository contents.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "path": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "message": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 65536
+      },
+      "content": {
+        "type": "string",
+        "minLength": 1
+      },
+      "content_is_base64": {
+        "type": "boolean"
+      },
+      "sha": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "committer": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "email": { "type": "string", "minLength": 3, "maxLength": 320 },
+          "date": { "type": "string", "maxLength": 64 }
+        },
+        "required": ["name", "email"]
+      },
+      "author": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "email": { "type": "string", "minLength": 3, "maxLength": 320 },
+          "date": { "type": "string", "maxLength": 64 }
+        },
+        "required": ["name", "email"]
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "path",
+      "message",
+      "content"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

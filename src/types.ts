@@ -153,6 +153,23 @@ export type GetRepoContentSuccess = {
 
 export type GetRepoContentFailure = CreateRepoFailure;
 
+/** Payload shape from PUT /repos/{owner}/{repo}/contents/{path} (`file-commit`). */
+export type FileCommitApiResult = {
+    content: Record<string, unknown> | null;
+    commit: Record<string, unknown>;
+};
+
+export type CreateOrUpdateFileContentsSuccess = {
+    success: true;
+    message: string;
+    /** 201 when the file was created, 200 when updated (per GitHub). */
+    http_status: number;
+    result: FileCommitApiResult;
+    request_id: string | null;
+};
+
+export type CreateOrUpdateFileContentsFailure = CreateRepoFailure;
+
 export type UpdateRepoSuccess = {
     success: true;
     message: string;

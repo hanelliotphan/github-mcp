@@ -15,6 +15,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_delete_repo`](README.md#github_delete_repo)
 - [`github_get_repo`](README.md#github_get_repo)
 - [`github_get_repo_content`](README.md#github_get_repo_content)
+- [`github_create_or_update_file_contents`](README.md#github_create_or_update_file_contents)
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_transfer_repo`](README.md#github_transfer_repo)
@@ -195,6 +196,26 @@ Fetches a file, directory listing, symlink, or submodule via [Get repository con
 #### Output
 
 On success: **`decode_content`** echoes whether UTF-8 decoding was applied (the tool accepts boolean or string forms of the request argument, e.g. `true` or `"true"`). **`data`** is either an **array** of directory entries (GitHub returns at most **1,000** per directory; use the [Git Trees API](https://docs.github.com/en/rest/git/trees) for more) or a **single object** for a file (base64 `content` when applicable), symlink, or submodule. When **`decode_content`** is `true`, file objects also include **`decoded_content`** as described above. On failure: structured `error`. See GitHub’s docs for file size limits (e.g. files **> 100 MB** are not supported on this endpoint).
+
+### `github_create_or_update_file_contents`
+
+Creates or updates a single file via [Create or update file contents](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#create-or-update-file-contents) (`PUT /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** write access (classic token: **`repo`**; editing `.github/workflows/**` also needs **`workflow`**). Do not use this tool in parallel with delete-file on the same path.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `path` (required) — file path in the repository (leading slashes are stripped)
+- `message` (required) — commit message
+- `content` (required) — file body as UTF-8 text by default
+- `content_is_base64` (optional, default `false`) — if `true`, `content` is treated as already Base64-encoded (whitespace stripped before sending)
+- `sha` (optional) — **required when replacing an existing file**: current blob SHA (e.g. from `github_get_repo_content` on that path)
+- `branch` (optional) — branch to commit on; default is the repository default branch
+- `committer` (optional) — `{ name, email, date? }` (if present, `name` and `email` are required)
+- `author` (optional) — same shape as `committer`
+
+#### Output
+
+On success: `http_status` (**201** create, **200** update), `result` with `content` and `commit` objects from GitHub, and `request_id`. On failure: structured `error` (e.g. **409** conflict, **422** validation).
 
 ### `github_list_repo_autolinks`
 
