@@ -23,6 +23,7 @@ import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.
 import { registerGithubListCodeownersErrorsTool } from "./tools/repositories/github-list-codeowners-errors.js";
 import { registerGithubListRepoContributorsTool } from "./tools/repositories/github-list-repo-contributors.js";
 import { registerGithubListRepoActivitiesTool } from "./tools/repositories/github-list-repo-activities.js";
+import { registerGithubListAuthenticatedUserReposTool } from "./tools/repositories/github-list-authenticated-user-repos.js";
 import { registerGithubListPublicReposTool } from "./tools/repositories/github-list-public-repos.js";
 import { registerGithubListRepoLanguagesTool } from "./tools/repositories/github-list-repo-languages.js";
 import { registerGithubListRepoTagsTool } from "./tools/repositories/github-list-repo-tags.js";
@@ -57,6 +58,7 @@ registerGithubGetRepoTool(server, octokit);
 registerGithubListCodeownersErrorsTool(server, octokit);
 registerGithubListRepoContributorsTool(server, octokit);
 registerGithubListRepoActivitiesTool(server, octokit);
+registerGithubListAuthenticatedUserReposTool(server, octokit);
 registerGithubListPublicReposTool(server, octokit);
 registerGithubListRepoLanguagesTool(server, octokit);
 registerGithubListRepoTagsTool(server, octokit);

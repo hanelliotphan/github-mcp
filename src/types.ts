@@ -416,6 +416,41 @@ export type ListPublicReposSuccess = {
 
 export type ListPublicReposFailure = CreateRepoFailure;
 
+/** One row from GET /user/repos (repositories the authenticated user can access). */
+export type AuthenticatedUserRepoListItem = {
+    id: number;
+    name: string;
+    full_name: string;
+    owner_login: string;
+    private: boolean;
+    visibility: string | null;
+    html_url: string;
+    description: string | null;
+    fork: boolean;
+    default_branch: string | null;
+    created_at: string | null;
+    updated_at: string | null;
+    pushed_at: string | null;
+    permissions: {
+        admin: boolean;
+        maintain: boolean;
+        push: boolean;
+        triage: boolean;
+        pull: boolean;
+    } | null;
+};
+
+export type ListAuthenticatedUserReposSuccess = {
+    success: true;
+    message: string;
+    repositories: AuthenticatedUserRepoListItem[];
+    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListAuthenticatedUserReposFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/tags. */
 export type RepoTagItem = {
     name: string;
