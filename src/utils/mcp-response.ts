@@ -49,6 +49,8 @@ import type {
     ListRepoTeamsSuccess,
     ListRepoTopicsFailure,
     ListRepoTopicsSuccess,
+    ListUserReposFailure,
+    ListUserReposSuccess,
     ReplaceRepoTopicsFailure,
     ReplaceRepoTopicsSuccess,
     TransferRepoFailure,
@@ -109,6 +111,8 @@ export function textAndData(
         | ListRepoTeamsFailure
         | ListRepoTopicsSuccess
         | ListRepoTopicsFailure
+        | ListUserReposSuccess
+        | ListUserReposFailure
         | ReplaceRepoTopicsSuccess
         | ReplaceRepoTopicsFailure
         | TransferRepoSuccess

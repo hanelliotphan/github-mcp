@@ -416,6 +416,19 @@ export type ListPublicReposSuccess = {
 
 export type ListPublicReposFailure = CreateRepoFailure;
 
+/** GET /users/{username}/repos — public repositories for a user (see GitHub `type` filter). */
+export type ListUserReposSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    repositories: PublicRepoListItem[];
+    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+};
+
+export type ListUserReposFailure = CreateRepoFailure;
+
 /** One row from GET /user/repos (repositories the authenticated user can access). */
 export type AuthenticatedUserRepoListItem = {
     id: number;

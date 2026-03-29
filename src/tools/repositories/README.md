@@ -18,6 +18,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_list_repo_languages`](README.md#github_list_repo_languages)
 - [`github_list_public_repos`](README.md#github_list_public_repos)
 - [`github_list_authenticated_user_repos`](README.md#github_list_authenticated_user_repos)
+- [`github_list_user_repos`](README.md#github_list_user_repos)
 - [`github_list_repo_tags`](README.md#github_list_repo_tags)
 - [`github_list_repo_teams`](README.md#github_list_repo_teams)
 - [`github_list_repo_topics`](README.md#github_list_repo_topics)
@@ -267,6 +268,23 @@ Lists [repositories for the authenticated user](https://docs.github.com/en/rest/
 #### Output
 
 On success: `repositories` (each with `id`, `name`, `full_name`, `owner_login`, `private`, `visibility`, `html_url`, `description`, `fork`, `default_branch`, timestamps, and `permissions` when returned by the API), `pagination` when the `Link` header is present, and `request_id`. On failure: structured `error` (e.g. **401**, **422** for invalid parameter combinations).
+
+### `github_list_user_repos`
+
+Lists [repositories for a user](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repositories-for-a-user) via `GET /users/{username}/repos`. This endpoint lists **public** repositories for the given username by default (`type` defaults to `owner` on GitHub); use `type` to include `member` or `all` where applicable. Pagination uses `page` / `per_page` (default **100** per page when `per_page` is omitted in this tool); `pagination` in the response reflects the `Link` header when more pages exist.
+
+#### Inputs
+
+- `username` (required) — GitHub login (1–39 characters)
+- `type` (optional) — `all` \| `owner` \| `member`
+- `sort` (optional) — `created` \| `updated` \| `pushed` \| `full_name`
+- `direction` (optional) — `asc` \| `desc`
+- `per_page` (optional, 1–100; default **100** when omitted)
+- `page` (optional, default 1)
+
+#### Output
+
+On success: `username`, `repositories` (same minimal fields as `github_list_public_repos`: `id`, `name`, `full_name`, `owner_login`, `private`, `html_url`, `description`, `fork`, `default_branch`, timestamps), `pagination` when the `Link` header is present, and `request_id`. On failure: structured `error`.
 
 ### `github_list_repo_tags`
 

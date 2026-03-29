@@ -29,6 +29,7 @@ import { registerGithubListRepoLanguagesTool } from "./tools/repositories/github
 import { registerGithubListRepoTagsTool } from "./tools/repositories/github-list-repo-tags.js";
 import { registerGithubListRepoTeamsTool } from "./tools/repositories/github-list-repo-teams.js";
 import { registerGithubListRepoTopicsTool } from "./tools/repositories/github-list-repo-topics.js";
+import { registerGithubListUserReposTool } from "./tools/repositories/github-list-user-repos.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -64,6 +65,7 @@ registerGithubListRepoLanguagesTool(server, octokit);
 registerGithubListRepoTagsTool(server, octokit);
 registerGithubListRepoTeamsTool(server, octokit);
 registerGithubListRepoTopicsTool(server, octokit);
+registerGithubListUserReposTool(server, octokit);
 registerGithubReplaceRepoTopicsTool(server, octokit);
 registerGithubTransferRepoTool(server, octokit);
 registerGithubUpdateRepoTool(server, octokit);
