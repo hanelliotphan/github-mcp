@@ -36,6 +36,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_disable_private_vulnerability_reporting`](README.md#github_disable_private_vulnerability_reporting)
 - [`github_check_vulnerability_alerts`](README.md#github_check_vulnerability_alerts)
 - [`github_enable_vulnerability_alerts`](README.md#github_enable_vulnerability_alerts)
+- [`github_disable_vulnerability_alerts`](README.md#github_disable_vulnerability_alerts)
 - [`github_enable_dependabot_security_updates`](README.md#github_enable_dependabot_security_updates)
 - [`github_disable_dependabot_security_updates`](README.md#github_disable_dependabot_security_updates)
 
@@ -376,6 +377,18 @@ On HTTP **204**: `success: true`, `enabled: true`, `request_id`. On HTTP **404**
 ### `github_enable_vulnerability_alerts`
 
 Enables dependency vulnerability alerts and the dependency graph via [Enable vulnerability alerts](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#enable-vulnerability-alerts) (`PUT /repos/{owner}/{repo}/vulnerability-alerts`). Requires **admin** access. Use this before `github_enable_dependabot_security_updates` when the API reports that vulnerability alerts must be enabled first.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+
+#### Output
+
+On success (204): `owner`, `repo`, `full_name`, `request_id`. On failure: structured `error`.
+
+### `github_disable_vulnerability_alerts`
+
+Disables dependency vulnerability alerts and the dependency graph via [Disable vulnerability alerts](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#disable-vulnerability-alerts) (`DELETE /repos/{owner}/{repo}/vulnerability-alerts`). Requires **admin** access.
 
 #### Inputs
 

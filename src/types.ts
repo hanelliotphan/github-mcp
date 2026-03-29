@@ -265,6 +265,18 @@ export type EnableVulnerabilityAlertsSuccess = {
 
 export type EnableVulnerabilityAlertsFailure = CreateRepoFailure;
 
+/** DELETE /repos/{owner}/{repo}/vulnerability-alerts — disables dependency alerts and the dependency graph (204 No Content). */
+export type DisableVulnerabilityAlertsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type DisableVulnerabilityAlertsFailure = CreateRepoFailure;
+
 /** PUT /repos/{owner}/{repo}/private-vulnerability-reporting */
 export type EnablePrivateVulnerabilityReportingSuccess =
     | {
