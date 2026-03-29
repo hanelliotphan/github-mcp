@@ -2,12 +2,15 @@
 
 TypeScript tool implementations in this folder are registered from the server entrypoint (`src/index.ts`). Each tool wraps a [GitHub REST repositories API](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10) call (or related endpoint). Responses use a shared shape: **success** payloads include `request_id` when GitHub returns `x-github-request-id`; failures use a structured **error** envelope.
 
+**List tools with pagination** (org/user/authenticated repos, public repo feed, tags, teams, topics, contributors, activities) return `pages_fetched` and echo the effective cursor (`page` / `per_page`, or `since`, or `per_page` plus cursor `pagination`). Set **`all_pages`: `true`** to follow GitHub `Link: rel="next"` automatically up to **`max_pages`** (default **100**, max **500**). If **`truncated`** is `true`, raise `max_pages` or call again using **`pagination.next`**. Shared helpers live in `src/utils/github-paginate-all.ts`.
+
 ## Contents
 
 **Repositories**
 
 - [`github_create_personal_repo`](README.md#github_create_personal_repo)
 - [`github_create_org_repo`](README.md#github_create_org_repo)
+- [`github_list_org_repos`](README.md#github_list_org_repos)
 - [`github_create_repo_from_template`](README.md#github_create_repo_from_template)
 - [`github_delete_repo`](README.md#github_delete_repo)
 - [`github_get_repo`](README.md#github_get_repo)
@@ -105,6 +108,29 @@ Creates a repository under a GitHub **organization** via [Create an organization
 
 Same shape as `github_create_personal_repo` (success payload with `repo`, or structured `error`).
 
+### `github_list_org_repos`
+
+Lists [repositories for an organization](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-organization-repositories) via `GET /orgs/{org}/repos`. Which repositories you see depends on your token and org role (private repos need appropriate access).
+
+**Manual pagination:** pass `page` / `per_page` (default **100** when `per_page` is omitted). The response always includes `page`, `per_page`, and `pages_fetched` (`1` for a single request). When more pages exist, `pagination` is parsed from the `Link` header—call again with `pagination.next.page` and the same `per_page` (and other filters) until `pagination.next` is absent.
+
+**Fetch all pages in one tool call:** set `all_pages` to `true` to follow `next` links from page **1** until exhausted, up to `max_pages` (default **100** list requests, max **500**). On success with everything fetched, `pagination` is `null` and `pages_fetched` is the number of requests. If `truncated` is `true`, the cap was hit while more pages remained—use `pagination.next` on a follow-up call or increase `max_pages`.
+
+#### Inputs
+
+- `org` (required) — organization login
+- `type` (optional) — `all` \| `public` \| `private` \| `forks` \| `sources` \| `member`
+- `sort` (optional) — `created` \| `updated` \| `pushed` \| `full_name`
+- `direction` (optional) — `asc` \| `desc`
+- `per_page` (optional, 1–100; default **100** when omitted)
+- `page` (optional, default 1) — ignored when `all_pages` is `true` (always starts at page 1)
+- `all_pages` (optional, default `false`) — merge every page until done or `max_pages`
+- `max_pages` (optional, 1–500; default **100**) — only applies when `all_pages` is `true`
+
+#### Output
+
+On success: `org`, `repositories` (same minimal fields as `github_list_user_repos`), `page`, `per_page`, `pages_fetched`, `pagination` (unless a full `all_pages` run completed), optional `truncated`, and `request_id`. On failure: structured `error` (e.g. **404** if the organization is not found).
+
 ### `github_create_repo_from_template`
 
 Creates a new repository from a [repository template](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-a-repository-using-a-template) (`POST /repos/{template_owner}/{template_repo}/generate`). The source repository must have `is_template: true` (confirm with `github_get_repo`). Classic personal access tokens need **`public_repo`** or **`repo`** to generate a public repository from a public template, and **`repo`** for a private repository or private template.
@@ -193,22 +219,23 @@ On success: `success`, `new_owner`, normalized `repo` from the API response, `ht
 
 ### `github_list_repo_activities`
 
-Lists repository activity history via [List repository activities](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repository-activities) (`GET /repos/{owner}/{repo}/activity`).
+Lists repository activity history via [List repository activities](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repository-activities) (`GET /repos/{owner}/{repo}/activity`). Cursor pagination (`after` / `before`). **`per_page` defaults to 100** when omitted (aligned with other list tools).
 
 #### Inputs
 
 - `owner` (required), `name` (required)
 - `direction` (optional): `asc` \| `desc`
-- `per_page` (optional): 1–100
+- `per_page` (optional): 1–100 (default **100** when omitted)
 - `before`, `after` (optional): cursor strings from the previous response’s `pagination` / `Link` header
 - `ref` (optional): Git reference (branch name or `refs/heads/...`)
 - `actor` (optional): GitHub login filter
 - `time_period` (optional): `day` \| `week` \| `month` \| `quarter` \| `year`
 - `activity_type` (optional): `push` \| `force_push` \| `branch_creation` \| `branch_deletion` \| `pr_merge` \| `merge_queue_merge`
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `activities` (normalized rows), `pagination` (`next` / `prev` / `first` / `last` cursor objects parsed from the `Link` header, or `null`), and `request_id`. On failure: structured `error`.
+On success: `activities`, `per_page`, `pages_fetched`, `pagination` (or `null` after a full `all_pages` run), optional `truncated`, and `request_id`. On failure: structured `error`.
 
 ### `github_list_repo_contributors`
 
@@ -220,10 +247,11 @@ Lists people who have contributed to the repository via [List repository contrib
 - `include_anonymous` (optional): if `true`, sends GitHub’s `anon=1` to include anonymous contributors
 - `per_page` (optional): 1–100; when omitted, the tool sends **100** (applied in the handler so defaults work reliably with MCP clients)
 - `page` (optional): page number for pagination
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `contributors` (normalized rows: `login`, `id`, `contributions`, `html_url`, `avatar_url`, `type`, `name`, `email`), `pagination` (`next` / `prev` / `first` / `last` with `page` and `per_page` parsed from the `Link` header when present, or `null`), and `request_id`. Follow `pagination.next` (same `page` / `per_page` args on the next call) until `pagination` is null or the page is short. If the repository is empty, GitHub may respond with **204**; the tool returns success with an empty `contributors` array and `pagination: null`. On failure: structured `error`.
+On success: `contributors`, `page`, `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. If the repository is empty, GitHub may respond with **204**; the tool returns success with an empty `contributors` array, `page` / `per_page` / `pages_fetched`, and `pagination: null`. On failure: structured `error`.
 
 ### `github_list_repo_languages`
 
@@ -239,19 +267,20 @@ On success: `languages` (rows of `language` and `bytes`, sorted by bytes descend
 
 ### `github_list_public_repos`
 
-Lists [public repositories](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-public-repositories) globally via `GET /repositories` (all public repos in the order they were created). This is **not** scoped to a user or organization. GitHub paginates this endpoint with the **`since`** query parameter (only return repositories with an **id** greater than this value), not `page` / `per_page`; use the response **`pagination`** field (from the `Link` header) and pass **`next.since`** on the next call when present.
+Lists [public repositories](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-public-repositories) globally via `GET /repositories` (all public repos in the order they were created). This is **not** scoped to a user or organization. GitHub paginates with the **`since`** repository id cursor (not `page` / `per_page`).
 
 #### Inputs
 
-- `since` (optional) — non-negative integer repository id cursor; omit for the first page.
+- `since` (optional) — non-negative integer repository id cursor; omit for the first page
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `repositories` (each with `id`, `name`, `full_name`, `owner_login`, `private`, `html_url`, `description`, `fork`, `default_branch`, timestamps), `pagination` when GitHub returns a `Link` header (`next.since` for the following request), and `request_id`. On failure: structured `error` (e.g. **422** if the endpoint is rate-limited or validation fails).
+On success: `repositories`, `since` (cursor used on the last request, or `null`), `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. On failure: structured `error` (e.g. **422** if the endpoint is rate-limited or validation fails).
 
 ### `github_list_authenticated_user_repos`
 
-Lists [repositories for the authenticated user](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repositories-for-the-authenticated-user) via `GET /user/repos`: repos you own, collaborate on, and can access through organization membership. Requires a valid token (**401** if unauthenticated). Pagination uses `page` / `per_page` (default **100** per page when `per_page` is omitted in this tool); `pagination` in the response reflects the `Link` header when more pages exist.
+Lists [repositories for the authenticated user](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repositories-for-the-authenticated-user) via `GET /user/repos`: repos you own, collaborate on, and can access through organization membership. Requires a valid token (**401** if unauthenticated). Pagination uses `page` / `per_page` (default **100** when `per_page` is omitted).
 
 #### Inputs
 
@@ -261,17 +290,18 @@ Lists [repositories for the authenticated user](https://docs.github.com/en/rest/
 - `sort` (optional) — `created` \| `updated` \| `pushed` \| `full_name`
 - `direction` (optional) — `asc` \| `desc`
 - `per_page` (optional, 1–100; default **100** when omitted)
-- `page` (optional, default 1)
+- `page` (optional, default 1) — ignored when `all_pages` is `true` (starts at page 1)
 - `since` (optional) — ISO 8601 timestamp; only repos **updated** after this time
 - `before` (optional) — ISO 8601 timestamp; only repos **updated** before this time
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `repositories` (each with `id`, `name`, `full_name`, `owner_login`, `private`, `visibility`, `html_url`, `description`, `fork`, `default_branch`, timestamps, and `permissions` when returned by the API), `pagination` when the `Link` header is present, and `request_id`. On failure: structured `error` (e.g. **401**, **422** for invalid parameter combinations).
+On success: `repositories`, `page`, `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. On failure: structured `error` (e.g. **401**, **422** for invalid parameter combinations).
 
 ### `github_list_user_repos`
 
-Lists [repositories for a user](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repositories-for-a-user) via `GET /users/{username}/repos`. This endpoint lists **public** repositories for the given username by default (`type` defaults to `owner` on GitHub); use `type` to include `member` or `all` where applicable. Pagination uses `page` / `per_page` (default **100** per page when `per_page` is omitted in this tool); `pagination` in the response reflects the `Link` header when more pages exist.
+Lists [repositories for a user](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#list-repositories-for-a-user) via `GET /users/{username}/repos`. This endpoint lists **public** repositories for the given username by default (`type` defaults to `owner` on GitHub); use `type` to include `member` or `all` where applicable. Pagination uses `page` / `per_page` (default **100** when `per_page` is omitted).
 
 #### Inputs
 
@@ -280,11 +310,12 @@ Lists [repositories for a user](https://docs.github.com/en/rest/repos/repos?apiV
 - `sort` (optional) — `created` \| `updated` \| `pushed` \| `full_name`
 - `direction` (optional) — `asc` \| `desc`
 - `per_page` (optional, 1–100; default **100** when omitted)
-- `page` (optional, default 1)
+- `page` (optional, default 1) — ignored when `all_pages` is `true`
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `username`, `repositories` (same minimal fields as `github_list_public_repos`: `id`, `name`, `full_name`, `owner_login`, `private`, `html_url`, `description`, `fork`, `default_branch`, timestamps), `pagination` when the `Link` header is present, and `request_id`. On failure: structured `error`.
+On success: `username`, `repositories`, `page`, `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. On failure: structured `error`.
 
 ### `github_list_repo_tags`
 
@@ -295,10 +326,11 @@ Lists [repository tags](https://docs.github.com/en/rest/repos/repos?apiVersion=2
 - `owner` (required), `name` (required)
 - `per_page` (optional, 1–100; default **100** when omitted)
 - `page` (optional, default 1)
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `tags` (each with `name`, `commit_sha`, `commit_url`, `zipball_url`, `tarball_url`, `node_id`), `pagination` (from the `Link` header when more pages exist—use `next.page` / `next.per_page` to fetch the rest), and `request_id`. If there are no tags, `tags` is an empty array. On failure: structured `error`.
+On success: `tags`, `page`, `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. If there are no tags, `tags` is an empty array. On failure: structured `error`.
 
 ### `github_list_repo_teams`
 
@@ -309,23 +341,25 @@ Lists [repository teams](https://docs.github.com/en/rest/repos/repos?apiVersion=
 - `owner` (required), `name` (required)
 - `per_page` (optional, 1–100; default **100** when omitted)
 - `page` (optional, default 1)
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `teams` (each with `id`, `name`, `slug`, `permission`, `permissions`, `html_url`, `parent` when present, and related fields), `pagination` (from the `Link` header when more pages exist), and `request_id`. If no teams match, `teams` is an empty array. On failure: structured `error` (e.g. **404** if the repository is not found or not accessible).
+On success: `teams`, `page`, `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. If no teams match, `teams` is an empty array. On failure: structured `error` (e.g. **404** if the repository is not found or not accessible).
 
 ### `github_list_repo_topics`
 
-Returns [all repository topics](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#get-all-repository-topics) for a page via `GET /repos/{owner}/{repo}/topics` (`names` array). Supports pagination with `per_page` (1–100; default **100** when omitted) and `page`. Classic personal access tokens need **`public_repo`** or **`repo`** for public repositories and **`repo`** for private repositories (per GitHub).
+Returns [all repository topics](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#get-all-repository-topics) for a page via `GET /repos/{owner}/{repo}/topics` (`names` array). With `all_pages`, topic names from each page are **concatenated** into one `names` array. Classic personal access tokens need **`public_repo`** or **`repo`** for public repositories and **`repo`** for private repositories (per GitHub).
 
 #### Inputs
 
 - `owner` (required), `name` (required)
-- `per_page` (optional), `page` (optional)
+- `per_page` (optional, 1–100; default **100** when omitted), `page` (optional, default 1)
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
 
 #### Output
 
-On success: `names` (topic strings for this page), `pagination` (from the `Link` header when more pages exist), and `request_id`. If there are no topics on this page, `names` is an empty array. On failure: structured `error` (e.g. **404** if the repository is not found or not accessible).
+On success: `names`, `page`, `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. On failure: structured `error` (e.g. **404** if the repository is not found or not accessible).
 
 ### `github_replace_repo_topics`
 

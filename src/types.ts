@@ -146,9 +146,16 @@ export type ListRepoActivitiesSuccess = {
     success: true;
     message: string;
     activities: RepoActivityItem[];
-    /** Parsed from the response `Link` header; pass `next.after` / `next.before` (etc.) as tool args. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.after` / `next.before` to continue.
+     */
     pagination: GitHubLinkPagination | null;
     request_id: string | null;
+    /** Effective `per_page` for this call (default **100** when omitted). */
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListRepoActivitiesFailure = CreateRepoFailure;
@@ -365,9 +372,16 @@ export type ListRepoContributorsSuccess = {
     success: true;
     message: string;
     contributors: RepoContributorItem[];
-    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
     pagination: GitHubPageLinkPagination | null;
     request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListRepoContributorsFailure = CreateRepoFailure;
@@ -409,9 +423,16 @@ export type ListPublicReposSuccess = {
     success: true;
     message: string;
     repositories: PublicRepoListItem[];
-    /** Parsed from the response `Link` header; use `next.since` for the following request when present. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.since` to continue.
+     */
     pagination: GitHubSinceLinkPagination | null;
     request_id: string | null;
+    /** `since` query sent on the last request (`null` if omitted). */
+    since: number | null;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListPublicReposFailure = CreateRepoFailure;
@@ -422,12 +443,43 @@ export type ListUserReposSuccess = {
     message: string;
     username: string;
     repositories: PublicRepoListItem[];
-    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
     pagination: GitHubPageLinkPagination | null;
     request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListUserReposFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/repos — repositories for an organization (visibility depends on token and membership). */
+export type ListOrgReposSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    repositories: PublicRepoListItem[];
+    /**
+     * Parsed from the last response `Link` header. For a single-page request, use `next` for the following call.
+     * When `all_pages` completed fully, this is `null`. When `truncated` is true, `next` points at the page to fetch next.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    /** `page` query used for the last GitHub request in this call. */
+    page: number;
+    /** `per_page` used for GitHub requests in this call. */
+    per_page: number;
+    /** How many list requests were made (`1` unless `all_pages` is true). */
+    pages_fetched: number;
+    /** True when `all_pages` stopped because `max_pages` was reached while more pages remained. */
+    truncated?: boolean;
+};
+
+export type ListOrgReposFailure = CreateRepoFailure;
 
 /** One row from GET /user/repos (repositories the authenticated user can access). */
 export type AuthenticatedUserRepoListItem = {
@@ -457,9 +509,16 @@ export type ListAuthenticatedUserReposSuccess = {
     success: true;
     message: string;
     repositories: AuthenticatedUserRepoListItem[];
-    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
     pagination: GitHubPageLinkPagination | null;
     request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListAuthenticatedUserReposFailure = CreateRepoFailure;
@@ -478,9 +537,16 @@ export type ListRepoTagsSuccess = {
     success: true;
     message: string;
     tags: RepoTagItem[];
-    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
     pagination: GitHubPageLinkPagination | null;
     request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListRepoTagsFailure = CreateRepoFailure;
@@ -521,9 +587,16 @@ export type ListRepoTeamsSuccess = {
     success: true;
     message: string;
     teams: RepoTeamItem[];
-    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
     pagination: GitHubPageLinkPagination | null;
     request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListRepoTeamsFailure = CreateRepoFailure;
@@ -533,9 +606,16 @@ export type ListRepoTopicsSuccess = {
     success: true;
     message: string;
     names: string[];
-    /** Parsed from the response `Link` header; use `next.page` / `next.per_page` for the following request when present. */
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
     pagination: GitHubPageLinkPagination | null;
     request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
 };
 
 export type ListRepoTopicsFailure = CreateRepoFailure;

@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import type { ListRepoTeamsFailure, ListRepoTeamsSuccess, RepoTeamItem } from "../../types.js";
 import { getRequestId, mapGitHubError } from "../../utils/errors.js";
+import { DEFAULT_MAX_ALL_PAGES, fetchAllPageLinkPages } from "../../utils/github-paginate-all.js";
 import { textAndData } from "../../utils/mcp-response.js";
 import { getLinkHeaderFromResponse, parseGitHubPageLinkPagination } from "../../utils/parse-github-link-header.js";
 
@@ -89,8 +90,8 @@ export function registerGithubListRepoTeamsTool(server: McpServer, octokit: Octo
             "Teams must be visible to the authenticated user. For a public repository, " +
             "a team appears only if it explicitly added that repo. " +
             "Classic tokens: public_repo or repo for public repos; repo for private. " +
-            "Use `per_page` (1–100, default 100 when omitted) and `page`. " +
-            "When more pages exist, the response includes `pagination` from the `Link` header.",
+            "Use `per_page` (1–100, default 100 when omitted) and `page`; responses include `page`, `per_page`, `pages_fetched`, and `pagination`. " +
+            "Set `all_pages` to follow `next` links up to `max_pages` (default **100**); if `truncated` is true, continue with `pagination.next` or increase `max_pages`.",
         {
             owner: z
                 .string()
@@ -109,16 +110,59 @@ export function registerGithubListRepoTeamsTool(server: McpServer, octokit: Octo
                     "name must be 1-100 chars and contain only letters, numbers, '.', '_' or '-'"
                 ),
             per_page: z.number().int().min(1).max(100).optional(),
-            page: z.number().int().min(1).optional()
+            page: z.number().int().min(1).optional(),
+            all_pages: z.boolean().optional(),
+            max_pages: z.number().int().min(1).max(500).optional()
         },
         async (input) => {
             try {
                 const perPage = input.per_page ?? DEFAULT_TEAMS_PER_PAGE;
+                if (input.all_pages === true) {
+                    const maxPages = input.max_pages ?? DEFAULT_MAX_ALL_PAGES;
+                    const result = await fetchAllPageLinkPages({
+                        perPage,
+                        maxPages,
+                        fetchPage: async (page, pp) => {
+                            const response = await octokit.rest.repos.listTeams({
+                                owner: input.owner,
+                                repo: input.name,
+                                per_page: pp,
+                                page
+                            });
+                            return {
+                                rows: Array.isArray(response.data) ? response.data : [],
+                                linkHeader: getLinkHeaderFromResponse(
+                                    response.headers as { link?: string; Link?: string }
+                                ),
+                                requestId: getRequestId(response.headers["x-github-request-id"])
+                            };
+                        }
+                    });
+                    const teams = result.rows.map((row) => normalizeTeam(row as never));
+                    const successPayload: ListRepoTeamsSuccess = {
+                        success: true,
+                        message: result.truncated
+                            ? `Repository teams partially listed (${result.pagesFetched} pages, ${teams.length} teams); more pages exist.`
+                            : result.pagesFetched > 1
+                              ? `Repository teams retrieved successfully (${result.pagesFetched} pages, ${teams.length} teams).`
+                              : "Repository teams retrieved successfully.",
+                        teams,
+                        pagination: result.responsePagination,
+                        request_id: result.lastRequestId,
+                        page: result.lastPage,
+                        per_page: perPage,
+                        pages_fetched: result.pagesFetched,
+                        truncated: result.truncated || undefined
+                    };
+                    return textAndData(successPayload);
+                }
+
+                const page = input.page ?? 1;
                 const response = await octokit.rest.repos.listTeams({
                     owner: input.owner,
                     repo: input.name,
                     per_page: perPage,
-                    page: input.page
+                    page
                 });
                 const requestId = getRequestId(response.headers["x-github-request-id"]);
                 const linkHeader = getLinkHeaderFromResponse(
@@ -130,7 +174,10 @@ export function registerGithubListRepoTeamsTool(server: McpServer, octokit: Octo
                     message: "Repository teams retrieved successfully.",
                     pagination: parseGitHubPageLinkPagination(linkHeader),
                     teams: rows.map((row) => normalizeTeam(row as never)),
-                    request_id: requestId
+                    request_id: requestId,
+                    page,
+                    per_page: perPage,
+                    pages_fetched: 1
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {

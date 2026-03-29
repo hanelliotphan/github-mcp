@@ -41,6 +41,8 @@ import type {
     ListRepoLanguagesSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
+    ListOrgReposFailure,
+    ListOrgReposSuccess,
     ListPublicReposFailure,
     ListPublicReposSuccess,
     ListRepoTagsFailure,
@@ -103,6 +105,8 @@ export function textAndData(
         | ListRepoLanguagesFailure
         | ListAuthenticatedUserReposSuccess
         | ListAuthenticatedUserReposFailure
+        | ListOrgReposSuccess
+        | ListOrgReposFailure
         | ListPublicReposSuccess
         | ListPublicReposFailure
         | ListRepoTagsSuccess

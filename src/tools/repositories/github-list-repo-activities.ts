@@ -8,12 +8,16 @@ import type {
     RepoActivityItem
 } from "../../types.js";
 import { getRequestId, mapGitHubError } from "../../utils/errors.js";
+import { DEFAULT_MAX_ALL_PAGES, fetchAllCursorLinkPages } from "../../utils/github-paginate-all.js";
 import { textAndData } from "../../utils/mcp-response.js";
 import { getLinkHeaderFromResponse, parseGitHubLinkPagination } from "../../utils/parse-github-link-header.js";
 
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
+
+/** Default `per_page` when omitted (GitHub’s API default is 30; aligned with other list tools). */
+const DEFAULT_ACTIVITY_PER_PAGE = 100 as const;
 
 function normalizeActivityItem(row: {
     id: number;
@@ -47,7 +51,10 @@ function normalizeActivityItem(row: {
 export function registerGithubListRepoActivitiesTool(server: McpServer, octokit: Octokit): void {
     server.tool(
         "github_list_repo_activities",
-        "List activity history for a repository (GET /repos/{owner}/{repo}/activity). Same for user- or org-owned repos. Response includes `pagination` (next/prev/first/last cursors) parsed from the Link header when present; repeat calls with `after` / `before` from `pagination.next` etc.",
+        "List activity history for a repository (GET /repos/{owner}/{repo}/activity). Same for user- or org-owned repos. " +
+            "Uses cursor pagination (`after` / `before` from the `Link` header). Responses include `per_page`, `pages_fetched`, and `pagination`. " +
+            "Set `all_pages` to follow `next` cursors up to `max_pages` (default **100**); if `truncated` is true, continue with `pagination.next.after` / `before` or increase `max_pages`. " +
+            "`per_page` defaults to **100** when omitted.",
         {
             owner: z
                 .string()
@@ -81,32 +88,15 @@ export function registerGithubListRepoActivitiesTool(server: McpServer, octokit:
                     "pr_merge",
                     "merge_queue_merge"
                 ])
-                .optional()
+                .optional(),
+            all_pages: z.boolean().optional(),
+            max_pages: z.number().int().min(1).max(500).optional()
         },
         async (input) => {
             try {
-                const response = await octokit.rest.repos.listActivities({
-                    owner: input.owner,
-                    repo: input.name,
-                    direction: input.direction,
-                    per_page: input.per_page,
-                    before: input.before,
-                    after: input.after,
-                    ref: input.ref,
-                    actor: input.actor,
-                    time_period: input.time_period,
-                    activity_type: input.activity_type
-                });
-                const requestId = getRequestId(response.headers["x-github-request-id"]);
-                const linkHeader = getLinkHeaderFromResponse(
-                    response.headers as { link?: string; Link?: string }
-                );
-
-                const successPayload: ListRepoActivitiesSuccess = {
-                    success: true,
-                    message: "Repository activities retrieved successfully.",
-                    pagination: parseGitHubLinkPagination(linkHeader),
-                    activities: response.data.map((row) =>
+                const perPage = input.per_page ?? DEFAULT_ACTIVITY_PER_PAGE;
+                const mapActivities = (rows: unknown[]) =>
+                    rows.map((row) =>
                         normalizeActivityItem(
                             row as {
                                 id: number;
@@ -119,8 +109,68 @@ export function registerGithubListRepoActivitiesTool(server: McpServer, octokit:
                                 actor: { login?: string; id?: number; type?: string | null } | null;
                             }
                         )
-                    ),
-                    request_id: requestId
+                    );
+
+                const listActivities = async (cursors: { after?: string; before?: string }) => {
+                    const response = await octokit.rest.repos.listActivities({
+                        owner: input.owner,
+                        repo: input.name,
+                        direction: input.direction,
+                        per_page: perPage,
+                        before: cursors.before,
+                        after: cursors.after,
+                        ref: input.ref,
+                        actor: input.actor,
+                        time_period: input.time_period,
+                        activity_type: input.activity_type
+                    });
+                    return {
+                        rows: Array.isArray(response.data) ? response.data : [],
+                        linkHeader: getLinkHeaderFromResponse(
+                            response.headers as { link?: string; Link?: string }
+                        ),
+                        requestId: getRequestId(response.headers["x-github-request-id"])
+                    };
+                };
+
+                if (input.all_pages === true) {
+                    const maxPages = input.max_pages ?? DEFAULT_MAX_ALL_PAGES;
+                    const result = await fetchAllCursorLinkPages({
+                        maxPages,
+                        initialAfter: input.after,
+                        initialBefore: input.before,
+                        fetchChunk: listActivities
+                    });
+                    const activities = mapActivities(result.rows);
+                    const successPayload: ListRepoActivitiesSuccess = {
+                        success: true,
+                        message: result.truncated
+                            ? `Repository activities partially listed (${result.pagesFetched} pages, ${activities.length} items); more pages exist.`
+                            : result.pagesFetched > 1
+                              ? `Repository activities retrieved successfully (${result.pagesFetched} pages, ${activities.length} items).`
+                              : "Repository activities retrieved successfully.",
+                        activities,
+                        pagination: result.responsePagination,
+                        request_id: result.lastRequestId,
+                        per_page: perPage,
+                        pages_fetched: result.pagesFetched,
+                        truncated: result.truncated || undefined
+                    };
+                    return textAndData(successPayload);
+                }
+
+                const { rows, linkHeader, requestId } = await listActivities({
+                    after: input.after,
+                    before: input.before
+                });
+                const successPayload: ListRepoActivitiesSuccess = {
+                    success: true,
+                    message: "Repository activities retrieved successfully.",
+                    pagination: parseGitHubLinkPagination(linkHeader),
+                    activities: mapActivities(rows),
+                    request_id: requestId,
+                    per_page: perPage,
+                    pages_fetched: 1
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {

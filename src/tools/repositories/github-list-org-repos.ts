@@ -2,7 +2,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
-import type { ListUserReposFailure, ListUserReposSuccess, PublicRepoListItem } from "../../types.js";
+import type { ListOrgReposFailure, ListOrgReposSuccess, PublicRepoListItem } from "../../types.js";
 import { getRequestId, mapGitHubError } from "../../utils/errors.js";
 import { DEFAULT_MAX_ALL_PAGES, fetchAllPageLinkPages } from "../../utils/github-paginate-all.js";
 import { textAndData } from "../../utils/mcp-response.js";
@@ -11,7 +11,8 @@ import { getLinkHeaderFromResponse, parseGitHubPageLinkPagination } from "../../
 /** Default when `per_page` is omitted (MCP default; GitHub’s API default is 30). */
 const DEFAULT_PER_PAGE = 100 as const;
 
-const usernameRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
+// Organization login: same as `github_create_org_repo`.
+const orgLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
 function normalizeRepoRow(row: {
     id: number;
@@ -43,7 +44,7 @@ function normalizeRepoRow(row: {
     };
 }
 
-function mapRows(rows: unknown[]): PublicRepoListItem[] {
+function mapOrgRepoRows(rows: unknown[]): PublicRepoListItem[] {
     return rows.map((row) =>
         normalizeRepoRow(
             row as {
@@ -64,22 +65,23 @@ function mapRows(rows: unknown[]): PublicRepoListItem[] {
     );
 }
 
-export function registerGithubListUserReposTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubListOrgReposTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_list_user_repos",
-        "List repositories for a GitHub user (GET /users/{username}/repos). Returns repositories visible for this endpoint (primarily public); " +
-            "use `type` to narrow to `owner`, `member`, or `all`. Manual pagination: `page` / `per_page` (default **100**), plus `page`, `per_page`, `pages_fetched`, and `pagination` in the response. " +
-            "Set `all_pages` to follow `next` links up to `max_pages` (default **100**); if `truncated` is true, continue with `pagination.next` or increase `max_pages`.",
+        "github_list_org_repos",
+        "List repositories for a GitHub organization (GET /orgs/{org}/repos). Requires a token with access to the org; " +
+            "private repos appear only for appropriate scopes and membership. Use `type` to filter (`all`, `public`, `private`, `forks`, `sources`, `member`). " +
+            "Manual pagination: pass `page` / `per_page` (default per page **100**); the response includes `page`, `per_page`, `pages_fetched`, and `pagination` from the `Link` header—call again with `pagination.next.page` (and `per_page`) when `pagination.next` is set. " +
+            "Or set `all_pages` to true to follow `next` links automatically up to `max_pages` (default **100**); if `truncated` is true, more pages exist—continue with another call using `pagination.next` or raise `max_pages`.",
         {
-            username: z
+            org: z
                 .string()
                 .min(1)
                 .max(39)
                 .regex(
-                    usernameRegex,
-                    "username must be a valid GitHub login (1–39 chars, alphanumeric and hyphens)"
+                    orgLoginRegex,
+                    "org must be a valid organization login (1–39 chars, alphanumeric and hyphens)"
                 ),
-            type: z.enum(["all", "owner", "member"]).optional(),
+            type: z.enum(["all", "public", "private", "forks", "sources", "member"]).optional(),
             sort: z.enum(["created", "updated", "pushed", "full_name"]).optional(),
             direction: z.enum(["asc", "desc"]).optional(),
             per_page: z.number().int().min(1).max(100).optional(),
@@ -90,14 +92,16 @@ export function registerGithubListUserReposTool(server: McpServer, octokit: Octo
         async (input) => {
             try {
                 const perPage = input.per_page ?? DEFAULT_PER_PAGE;
-                if (input.all_pages === true) {
+                const allPages = input.all_pages === true;
+
+                if (allPages) {
                     const maxPages = input.max_pages ?? DEFAULT_MAX_ALL_PAGES;
                     const result = await fetchAllPageLinkPages({
                         perPage,
                         maxPages,
                         fetchPage: async (page, pp) => {
-                            const response = await octokit.rest.repos.listForUser({
-                                username: input.username,
+                            const response = await octokit.rest.repos.listForOrg({
+                                org: input.org,
                                 type: input.type,
                                 sort: input.sort,
                                 direction: input.direction,
@@ -113,15 +117,15 @@ export function registerGithubListUserReposTool(server: McpServer, octokit: Octo
                             };
                         }
                     });
-                    const repositories = mapRows(result.rows);
-                    const successPayload: ListUserReposSuccess = {
+                    const repositories = mapOrgRepoRows(result.rows);
+                    const successPayload: ListOrgReposSuccess = {
                         success: true,
                         message: result.truncated
-                            ? `User repositories partially listed (${result.pagesFetched} pages, ${repositories.length} repos); more pages exist.`
+                            ? `Organization repositories partially listed (${result.pagesFetched} pages, ${repositories.length} repositories); more pages exist. Increase max_pages or continue with pagination.next.`
                             : result.pagesFetched > 1
-                              ? `User repositories listed successfully (${result.pagesFetched} pages, ${repositories.length} repos).`
-                              : "User repositories listed successfully.",
-                        username: input.username,
+                              ? `Organization repositories listed successfully (${result.pagesFetched} pages, ${repositories.length} repositories).`
+                              : "Organization repositories listed successfully.",
+                        org: input.org,
                         repositories,
                         pagination: result.responsePagination,
                         request_id: result.lastRequestId,
@@ -134,8 +138,8 @@ export function registerGithubListUserReposTool(server: McpServer, octokit: Octo
                 }
 
                 const page = input.page ?? 1;
-                const response = await octokit.rest.repos.listForUser({
-                    username: input.username,
+                const response = await octokit.rest.repos.listForOrg({
+                    org: input.org,
                     type: input.type,
                     sort: input.sort,
                     direction: input.direction,
@@ -147,12 +151,12 @@ export function registerGithubListUserReposTool(server: McpServer, octokit: Octo
                     response.headers as { link?: string; Link?: string }
                 );
                 const rows = Array.isArray(response.data) ? response.data : [];
-                const successPayload: ListUserReposSuccess = {
+                const successPayload: ListOrgReposSuccess = {
                     success: true,
-                    message: "User repositories listed successfully.",
-                    username: input.username,
+                    message: "Organization repositories listed successfully.",
+                    org: input.org,
                     pagination: parseGitHubPageLinkPagination(linkHeader),
-                    repositories: mapRows(rows),
+                    repositories: mapOrgRepoRows(rows),
                     request_id: requestId,
                     page,
                     per_page: perPage,
@@ -160,7 +164,7 @@ export function registerGithubListUserReposTool(server: McpServer, octokit: Octo
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: ListUserReposFailure = {
+                const failurePayload: ListOrgReposFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(
