@@ -47,17 +47,25 @@ TypeScript tool implementations in this folder are registered from the server en
 
 ### `github_create_personal_repo`
 
-Creates a repository under the authenticated user's personal GitHub account (not an organization).
+Creates a repository under the authenticated user's personal GitHub account via [Create a repository for the authenticated user](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-a-repository-for-the-authenticated-user) (`POST /user/repos`). Boolean fields other than `private`, `auto_init`, and `is_template` are **omitted** when not provided so GitHub applies its defaults.
 
 #### Inputs
 
 - `name` (required)
 - `description` (optional)
+- `homepage` (optional)
 - `private` (optional, default `false`)
+- `has_issues`, `has_projects`, `has_wiki`, `has_discussions` (optional booleans)
 - `auto_init` (optional, default `true`)
 - `gitignore_template` (optional)
 - `license_template` (optional)
+- Merge settings (optional booleans): `allow_squash_merge`, `allow_merge_commit`, `allow_rebase_merge`, `allow_auto_merge`, `delete_branch_on_merge`
+- Merge message defaults (optional, GitHub enums): `squash_merge_commit_title` (`PR_TITLE` \| `COMMIT_OR_PR_TITLE`), `squash_merge_commit_message` (`PR_BODY` \| `COMMIT_MESSAGES` \| `BLANK`), `merge_commit_title` (`PR_TITLE` \| `MERGE_MESSAGE`), `merge_commit_message` (`PR_BODY` \| `PR_TITLE` \| `BLANK`)
+- `has_downloads` (optional boolean)
+- `is_template` (optional, default `false`) — [template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository)
 - `dry_run` (optional, default `false`)
+
+**Not supported:** `team_id` (GitHub only honors it for [organization repository creation](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-an-organization-repository); use `github_create_org_repo`). This tool does not send `custom_properties` (organization/custom-properties workflows).
 
 #### Output
 
@@ -69,17 +77,27 @@ Returns structured JSON with:
 
 ### `github_create_org_repo`
 
-Creates a repository under a GitHub **organization** (`org/name`).
+Creates a repository under a GitHub **organization** via [Create an organization repository](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#create-an-organization-repository) (`POST /orgs/{org}/repos`). Optional booleans other than `private`, `auto_init`, and `is_template` are **omitted** when not provided so GitHub applies its defaults.
 
 #### Inputs
 
 - `org` (required) — organization login, e.g. `acme-corp`
 - `name` (required)
 - `description` (optional)
+- `homepage` (optional)
 - `private` (optional, default `false`)
+- `visibility` (optional) — `public` \| `private` (see GitHub docs when combining with `private`)
+- `has_issues`, `has_projects`, `has_wiki`, `has_discussions` (optional booleans)
 - `auto_init` (optional, default `true`)
 - `gitignore_template` (optional)
 - `license_template` (optional)
+- `team_id` (optional, positive integer) — grant a team access to the new repository
+- Merge settings (optional booleans): `allow_squash_merge`, `allow_merge_commit`, `allow_rebase_merge`, `allow_auto_merge`, `delete_branch_on_merge`
+- `use_squash_pr_title_as_default` (optional boolean, **deprecated** by GitHub; prefer `squash_merge_commit_title`)
+- Merge message defaults (optional, GitHub enums): `squash_merge_commit_title`, `squash_merge_commit_message`, `merge_commit_title`, `merge_commit_message` (same values as `github_create_personal_repo`)
+- `has_downloads` (optional boolean)
+- `is_template` (optional, default `false`) — [template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository)
+- `custom_properties` (optional object) — string keys; values must be string, number, boolean, or `null` (per org [custom properties](https://docs.github.com/en/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization))
 - `dry_run` (optional, default `false`)
 
 #### Output
