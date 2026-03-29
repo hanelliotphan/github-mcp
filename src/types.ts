@@ -242,6 +242,17 @@ export type DisableDependabotSecurityUpdatesSuccess = {
 
 export type DisableDependabotSecurityUpdatesFailure = CreateRepoFailure;
 
+/** GET /repos/{owner}/{repo}/vulnerability-alerts — GitHub returns 204 when alerts are enabled; 404 when they are not (per docs). */
+export type CheckVulnerabilityAlertsSuccess = {
+    success: true;
+    message: string;
+    /** True when GitHub returns HTTP 204; false when GitHub returns 404 (dependency alerts not enabled for the repository). */
+    enabled: boolean;
+    request_id: string | null;
+};
+
+export type CheckVulnerabilityAlertsFailure = CreateRepoFailure;
+
 /** PUT /repos/{owner}/{repo}/vulnerability-alerts — enables dependency alerts and the dependency graph (204 No Content). Often required before automated security fixes. */
 export type EnableVulnerabilityAlertsSuccess = {
     success: true;

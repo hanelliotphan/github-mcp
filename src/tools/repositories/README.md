@@ -34,6 +34,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_check_private_vulnerability_reporting`](README.md#github_check_private_vulnerability_reporting)
 - [`github_enable_private_vulnerability_reporting`](README.md#github_enable_private_vulnerability_reporting)
 - [`github_disable_private_vulnerability_reporting`](README.md#github_disable_private_vulnerability_reporting)
+- [`github_check_vulnerability_alerts`](README.md#github_check_vulnerability_alerts)
 - [`github_enable_vulnerability_alerts`](README.md#github_enable_vulnerability_alerts)
 - [`github_enable_dependabot_security_updates`](README.md#github_enable_dependabot_security_updates)
 - [`github_disable_dependabot_security_updates`](README.md#github_disable_dependabot_security_updates)
@@ -359,6 +360,18 @@ Disables [private vulnerability reporting](https://docs.github.com/en/rest/repos
 #### Output
 
 On HTTP **204**: `success: true`, `outcome: "disabled"`, `owner`, `repo`, `full_name`, `request_id`. On HTTP **404**: `success: true`, `outcome: "not_available"` (GitHub did not apply disable via this endpoint—**a private repository is one possible cause**, with plan, org policy, or feature exposure; check **Settings → Security**). Other errors: structured `error` (for example **422**).
+
+### `github_check_vulnerability_alerts`
+
+Checks whether [dependency vulnerability alerts](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10#check-if-vulnerability-alerts-are-enabled-for-a-repository) are enabled (`GET /repos/{owner}/{repo}/vulnerability-alerts`). Requires **admin read** access on the repository.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+
+#### Output
+
+On HTTP **204**: `success: true`, `enabled: true`, `request_id`. On HTTP **404** (alerts not enabled, per GitHub): `success: true`, `enabled: false`, `request_id`. Other errors: structured `error`. Note: a **404** from GitHub is documented as “not enabled”; it can also occur if the repository is missing or inaccessible—use `github_get_repo` if you need to distinguish.
 
 ### `github_enable_vulnerability_alerts`
 
