@@ -160,6 +160,36 @@ export type ListRepoActivitiesSuccess = {
 
 export type ListRepoActivitiesFailure = CreateRepoFailure;
 
+/** One entry from GET /repos/{owner}/{repo}/attestations/{subject_digest}. */
+export type RepoAttestationListItem = {
+    repository_id: number | null;
+    bundle_url: string | null;
+    initiator: string | null;
+    /** Sigstore bundle when returned in the list payload. */
+    bundle: Record<string, unknown> | null;
+};
+
+/** GET /repos/{owner}/{repo}/attestations/{subject_digest} — list attestations for a subject digest. */
+export type ListRepoAttestationsSuccess = {
+    success: true;
+    message: string;
+    /** Subject digest used for this request. */
+    subject_digest: string;
+    attestations: RepoAttestationListItem[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.after` / `next.before` to continue.
+     */
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    /** Effective `per_page` for this call (default **100** when omitted, GitHub max **100**). */
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoAttestationsFailure = CreateRepoFailure;
+
 /** GET /repos/{owner}/{repo}/automated-security-fixes (Dependabot security updates). */
 export type CheckDependabotSecurityUpdatesSuccess = {
     success: true;

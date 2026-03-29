@@ -8,7 +8,7 @@ import { DEFAULT_MAX_ALL_PAGES, fetchAllPageLinkPages } from "../../utils/github
 import { textAndData } from "../../utils/mcp-response.js";
 import { getLinkHeaderFromResponse, parseGitHubPageLinkPagination } from "../../utils/parse-github-link-header.js";
 
-/** Default when `per_page` is omitted (MCP default; GitHub’s API default is 30). */
+/** Default when `per_page` is omitted (**100**; aligned with other MCP list tools). */
 const DEFAULT_PER_PAGE = 100 as const;
 
 const usernameRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;

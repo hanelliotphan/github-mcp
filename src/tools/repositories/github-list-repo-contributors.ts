@@ -16,7 +16,7 @@ const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
-/** Default when `per_page` is omitted; set explicitly because MCP clients may not apply Zod defaults. */
+/** Default when `per_page` is omitted (**100**; aligned with other MCP list tools). */
 const DEFAULT_CONTRIBUTORS_PER_PAGE = 100 as const;
 
 function normalizeContributor(row: {

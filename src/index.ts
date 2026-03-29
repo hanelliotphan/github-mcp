@@ -18,6 +18,7 @@ import { registerGithubCreateOrgRepoTool } from "./tools/repositories/github-cre
 import { registerGithubCreatePersonalRepoTool } from "./tools/repositories/github-create-personal-repo.js";
 import { registerGithubCreateRepoFromTemplateTool } from "./tools/repositories/github-create-repo-from-template.js";
 import { registerGithubCreateRepoAttestationTool } from "./tools/repositories/attestations/github-create-repo-attestation.js";
+import { registerGithubListRepoAttestationsTool } from "./tools/repositories/attestations/github-list-repo-attestations.js";
 import { registerGithubCreateRepoDispatchTool } from "./tools/repositories/github-create-repo-dispatch.js";
 import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete-repo.js";
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
@@ -74,6 +75,7 @@ registerGithubTransferRepoTool(server, octokit);
 registerGithubUpdateRepoTool(server, octokit);
 registerGithubCreateRepoDispatchTool(server, octokit);
 registerGithubCreateRepoAttestationTool(server, octokit);
+registerGithubListRepoAttestationsTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

@@ -16,7 +16,7 @@ const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
-/** Default `per_page` when omitted (GitHub’s API default is 30; aligned with other list tools). */
+/** Default `per_page` when omitted (**100**; aligned with other MCP list tools). */
 const DEFAULT_ACTIVITY_PER_PAGE = 100 as const;
 
 function normalizeActivityItem(row: {

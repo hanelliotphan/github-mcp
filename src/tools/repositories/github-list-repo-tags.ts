@@ -12,7 +12,7 @@ const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
-/** Default when `per_page` is omitted (MCP default; GitHub’s API default is 30). */
+/** Default when `per_page` is omitted (**100**; aligned with other MCP list tools). */
 const DEFAULT_TAGS_PER_PAGE = 100 as const;
 
 function normalizeTag(row: {
