@@ -1,0 +1,38 @@
+{
+  "name": "github_create_repo_fork",
+  "description": "Create a fork of a repository for the authenticated user (POST /repos/{owner}/{repo}/forks). GitHub returns HTTP 202; fork creation is asynchronous. Optional organization forks into that org; fork_name sets the new repo name; default_branch_only forks only the default branch. Classic tokens need repo scope. See GitHub REST docs for repository forks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "organization": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "fork_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "default_branch_only": {
+        "type": "boolean"
+      }
+    },
+    "required": ["owner", "name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

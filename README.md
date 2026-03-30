@@ -69,7 +69,7 @@ Implementations live in `src/tools/repositories/`. Documentation is split for re
 - **[Contents](src/tools/repositories/contents/README.md)** — repository files, READMEs, create/update/delete file contents, tar/zip archive download URLs.
 - **[Autolinks](src/tools/repositories/autolinks/README.md)** — repository autolinks.
 - **[Custom properties](src/tools/repositories/custom-properties/README.md)** — get, create, and update organization custom property values on repositories.
-- **[Forks](src/tools/repositories/forks/README.md)** — list repository forks.
+- **[Forks](src/tools/repositories/forks/README.md)** — list and create repository forks.
 - **[Attestations](src/tools/repositories/attestations/README.md)** — artifact attestations.
 
 Static MCP tool descriptors (JSON: tool name, description, argument schema) are checked in under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. These mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.

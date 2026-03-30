@@ -13,7 +13,7 @@ Documentation for tools whose implementations live in subfolders:
 - **[`contents/`](contents/README.md)** — file and directory content, READMEs, create/update/delete files, tar/zip archive download URLs (`github_get_repo_content`, `github_get_repo_readme`, `github_get_repo_readme_in_directory`, `github_create_update_file_contents`, `github_delete_file`, `github_download_repo_archive_tar`, `github_download_repo_archive_zip`).
 - **[`autolinks/`](autolinks/README.md)** — `github_list_repo_autolinks`.
 - **[`custom-properties/`](custom-properties/README.md)** — `github_get_repo_custom_property_values`, `github_create_update_repo_custom_property_values`.
-- **[`forks/`](forks/README.md)** — `github_list_repo_forks`.
+- **[`forks/`](forks/README.md)** — `github_list_repo_forks`, `github_create_repo_fork`.
 - **[`attestations/`](attestations/README.md)** — `github_create_repo_attestation`, `github_list_repo_attestations`.
 
 **Repositories** (implementations in this directory)

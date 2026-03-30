@@ -770,6 +770,17 @@ export type RepoForkItem = {
     pushed_at: string | null;
 };
 
+/** Success from POST /repos/{owner}/{repo}/forks — GitHub returns HTTP 202 Accepted. */
+export type CreateRepoForkSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    repo: RepoInfo;
+    request_id: string | null;
+};
+
+export type CreateRepoForkFailure = CreateRepoFailure;
+
 export type ListRepoForksSuccess = {
     success: true;
     message: string;

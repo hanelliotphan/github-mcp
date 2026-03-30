@@ -7,6 +7,24 @@ Tool implementations in this folder wrap [GitHub REST repository forks](https://
 ## Tools
 
 - [`github_list_repo_forks`](README.md#github_list_repo_forks)
+- [`github_create_repo_fork`](README.md#github_create_repo_fork)
+
+---
+
+### `github_create_repo_fork`
+
+Creates a fork via [Create a fork](https://docs.github.com/en/rest/repos/forks?apiVersion=2026-03-10#create-a-fork) (`POST /repos/{owner}/{repo}/forks`). The authenticated user receives the fork (or the target **organization** when set). GitHub responds with **HTTP 202 Accepted** and creates the fork **asynchronously**—wait briefly before cloning or relying on git objects.
+
+#### Inputs
+
+- `owner` (required), `name` (required) — source repository
+- `organization` (optional) — fork into this organization (requires appropriate org permission)
+- `fork_name` (optional) — name for the new repository (omit to keep the same name as the source)
+- `default_branch_only` (optional) — when true, fork only the default branch
+
+#### Output
+
+On success: **`http_status`** (typically `202`), normalized **`repo`** metadata, **`request_id`**. On failure: structured **`error`**.
 
 ---
 
