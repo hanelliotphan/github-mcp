@@ -1,0 +1,40 @@
+{
+  "name": "github_get_repo_readme_in_directory",
+  "description": "Get the README from a repository directory (GET /repos/{owner}/{repo}/readme/{dir}). GitHub searches for a README under that path per the API docs. Optional ref is a branch, tag, or commit SHA (defaults to the default branch). Set decode_content to true to add decoded_content (UTF-8 from base64). See GitHub REST docs for repository README in a directory and custom media types (raw, HTML).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "dir": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "decode_content": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "dir"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

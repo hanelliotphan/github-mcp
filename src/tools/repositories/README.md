@@ -16,6 +16,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_get_repo`](README.md#github_get_repo)
 - [`github_get_repo_content`](README.md#github_get_repo_content)
 - [`github_get_repo_readme`](README.md#github_get_repo_readme)
+- [`github_get_repo_readme_in_directory`](README.md#github_get_repo_readme_in_directory)
 - [`github_create_or_update_file_contents`](README.md#github_create_or_update_file_contents)
 - [`github_delete_file`](README.md#github_delete_file)
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
@@ -212,6 +213,21 @@ Fetches the repository’s preferred README via [Get a repository README](https:
 #### Output
 
 On success: **`decode_content`**, **`data`** (README file metadata and `content` / optional `decoded_content`), and **`request_id`**. On failure: structured `error` (e.g. **404** if no README is found).
+
+### `github_get_repo_readme_in_directory`
+
+Fetches a README under a directory via [Get a repository README for a directory](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#get-a-repository-readme-for-a-directory) (`GET /repos/{owner}/{repo}/readme/{dir}`). The **`dir`** path is where GitHub looks for README files (per GitHub’s search rules). Same **`decode_content`** / **`data`** shape as `github_get_repo_readme`.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `dir` (required) — directory path within the repo (leading slashes are stripped; must not be empty)
+- `ref` (optional) — branch, tag, or commit SHA
+- `decode_content` (optional, default `false`)
+
+#### Output
+
+Same as `github_get_repo_readme`: **`decode_content`**, **`data`**, **`request_id`**, or structured **`error`** (e.g. **404**).
 
 ### `github_create_or_update_file_contents`
 
