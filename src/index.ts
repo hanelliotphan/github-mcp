@@ -25,7 +25,7 @@ import { registerGithubGetRepoCustomPropertyValuesTool } from "./tools/repositor
 import { registerGithubCreateRepoDispatchTool } from "./tools/repositories/github-create-repo-dispatch.js";
 import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete-repo.js";
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
-import { registerGithubCreateOrUpdateFileContentsTool } from "./tools/repositories/contents/github-create-or-update-file-contents.js";
+import { registerGithubCreateUpdateFileContentsTool } from "./tools/repositories/contents/github-create-update-file-contents.js";
 import { registerGithubDeleteFileTool } from "./tools/repositories/contents/github-delete-file.js";
 import { registerGithubDownloadRepoArchiveTarTool } from "./tools/repositories/contents/github-download-repo-archive-tar.js";
 import { registerGithubDownloadRepoArchiveZipTool } from "./tools/repositories/contents/github-download-repo-archive-zip.js";
@@ -73,7 +73,7 @@ registerGithubGetRepoTool(server, octokit);
 registerGithubGetRepoContentTool(server, octokit);
 registerGithubGetRepoReadmeTool(server, octokit);
 registerGithubGetRepoReadmeInDirectoryTool(server, octokit);
-registerGithubCreateOrUpdateFileContentsTool(server, octokit);
+registerGithubCreateUpdateFileContentsTool(server, octokit);
 registerGithubDeleteFileTool(server, octokit);
 registerGithubDownloadRepoArchiveTarTool(server, octokit);
 registerGithubDownloadRepoArchiveZipTool(server, octokit);

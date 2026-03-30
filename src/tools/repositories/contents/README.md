@@ -7,7 +7,7 @@ Tool implementations in this folder wrap [GitHub REST repository contents](https
 - [`github_get_repo_content`](README.md#github_get_repo_content)
 - [`github_get_repo_readme`](README.md#github_get_repo_readme)
 - [`github_get_repo_readme_in_directory`](README.md#github_get_repo_readme_in_directory)
-- [`github_create_or_update_file_contents`](README.md#github_create_or_update_file_contents)
+- [`github_create_update_file_contents`](README.md#github_create_update_file_contents)
 - [`github_delete_file`](README.md#github_delete_file)
 - [`github_download_repo_archive_tar`](README.md#github_download_repo_archive_tar)
 - [`github_download_repo_archive_zip`](README.md#github_download_repo_archive_zip)
@@ -58,7 +58,7 @@ Fetches a README under a directory via [Get a repository README for a directory]
 
 Same as `github_get_repo_readme`: **`decode_content`**, **`data`**, **`request_id`**, or structured **`error`** (e.g. **404**).
 
-### `github_create_or_update_file_contents`
+### `github_create_update_file_contents`
 
 Creates or updates a single file via [Create or update file contents](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#create-or-update-file-contents) (`PUT /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** write access (classic token: **`repo`**; editing `.github/workflows/**` also needs **`workflow`**). Do not use this tool in parallel with `github_delete_file` on the same path.
 
@@ -80,7 +80,7 @@ On success: `http_status` (**201** create, **200** update), `result` with `conte
 
 ### `github_delete_file`
 
-Deletes a file via [Delete a file](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#delete-a-file) (`DELETE /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** write access (classic: **`repo`**; paths under `.github/workflows` also need **`workflow`**). **`sha`** is required (current blob SHA, e.g. from `github_get_repo_content`). Do not use this and `github_create_or_update_file_contents` concurrently on the same path.
+Deletes a file via [Delete a file](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#delete-a-file) (`DELETE /repos/{owner}/{repo}/contents/{path}`). Requires **Contents** write access (classic: **`repo`**; paths under `.github/workflows` also need **`workflow`**). **`sha`** is required (current blob SHA, e.g. from `github_get_repo_content`). Do not use this and `github_create_update_file_contents` concurrently on the same path.
 
 #### Inputs
 

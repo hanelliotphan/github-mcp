@@ -3,8 +3,8 @@ import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
 import type {
-    CreateOrUpdateFileContentsFailure,
-    CreateOrUpdateFileContentsSuccess,
+    CreateUpdateFileContentsFailure,
+    CreateUpdateFileContentsSuccess,
     FileCommitApiResult
 } from "../../../types.js";
 import { getRequestId, mapGitHubError } from "../../../utils/errors.js";
@@ -44,9 +44,9 @@ function normalizeFileCommit(data: unknown): FileCommitApiResult {
     return { content, commit };
 }
 
-export function registerGithubCreateOrUpdateFileContentsTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubCreateUpdateFileContentsTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_create_or_update_file_contents",
+        "github_create_update_file_contents",
         "Create a new file or update an existing file (PUT /repos/{owner}/{repo}/contents/{path}). " +
             "Body `content` must be Base64 in the GitHub API; pass plain UTF-8 text by default, or set content_is_base64 true if you already supply Base64. " +
             "Provide `sha` from the current file blob when replacing an existing file (e.g. from github_get_repo_content). " +
@@ -100,7 +100,7 @@ export function registerGithubCreateOrUpdateFileContentsTool(server: McpServer, 
 
                 const requestId = getRequestId(response.headers["x-github-request-id"]);
                 const httpStatus = response.status;
-                const successPayload: CreateOrUpdateFileContentsSuccess = {
+                const successPayload: CreateUpdateFileContentsSuccess = {
                     success: true,
                     message:
                         httpStatus === 201
@@ -112,7 +112,7 @@ export function registerGithubCreateOrUpdateFileContentsTool(server: McpServer, 
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: CreateOrUpdateFileContentsFailure = {
+                const failurePayload: CreateUpdateFileContentsFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(

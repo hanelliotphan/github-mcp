@@ -9,8 +9,8 @@ import type {
     CheckImmutableReleasesSuccess,
     EnableImmutableReleasesFailure,
     EnableImmutableReleasesSuccess,
-    CreateOrUpdateFileContentsFailure,
-    CreateOrUpdateFileContentsSuccess,
+    CreateUpdateFileContentsFailure,
+    CreateUpdateFileContentsSuccess,
     CreateRepoAttestationFailure,
     CreateRepoAttestationSuccess,
     CreateRepoDispatchFailure,
@@ -109,8 +109,8 @@ export function textAndData(
         | EnableVulnerabilityAlertsFailure
         | DisableVulnerabilityAlertsSuccess
         | DisableVulnerabilityAlertsFailure
-        | CreateOrUpdateFileContentsSuccess
-        | CreateOrUpdateFileContentsFailure
+        | CreateUpdateFileContentsSuccess
+        | CreateUpdateFileContentsFailure
         | CreateRepoAttestationSuccess
         | CreateRepoAttestationFailure
         | CreateRepoDispatchSuccess

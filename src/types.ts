@@ -200,7 +200,7 @@ export type FileCommitApiResult = {
     commit: Record<string, unknown>;
 };
 
-export type CreateOrUpdateFileContentsSuccess = {
+export type CreateUpdateFileContentsSuccess = {
     success: true;
     message: string;
     /** 201 when the file was created, 200 when updated (per GitHub). */
@@ -209,7 +209,7 @@ export type CreateOrUpdateFileContentsSuccess = {
     request_id: string | null;
 };
 
-export type CreateOrUpdateFileContentsFailure = CreateRepoFailure;
+export type CreateUpdateFileContentsFailure = CreateRepoFailure;
 
 export type DeleteFileSuccess = {
     success: true;

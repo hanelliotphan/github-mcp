@@ -1,5 +1,5 @@
 {
-  "name": "github_create_or_update_file_contents",
+  "name": "github_create_update_file_contents",
   "description": "Create a new file or update an existing file (PUT /repos/{owner}/{repo}/contents/{path}). Body content must be Base64 in the GitHub API; pass plain UTF-8 text by default, or set content_is_base64 true if you already supply Base64. Provide sha from the current file blob when replacing an existing file (e.g. from github_get_repo_content). Classic tokens need repo scope; modifying .github/workflows also requires workflow scope. Do not run this and github_delete_file concurrently for the same path. See GitHub REST docs for repository contents.",
   "arguments": {
     "type": "object",

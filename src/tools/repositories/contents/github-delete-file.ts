@@ -39,7 +39,7 @@ export function registerGithubDeleteFileTool(server: McpServer, octokit: Octokit
         "Delete a file in a repository (DELETE /repos/{owner}/{repo}/contents/{path}). " +
             "Requires the file blob `sha` (e.g. from github_get_repo_content). " +
             "Classic tokens need `repo` scope; deleting under `.github/workflows` also requires `workflow` scope. " +
-            "Do not run this and github_create_or_update_file_contents concurrently for the same path. See GitHub REST docs for repository contents.",
+            "Do not run this and github_create_update_file_contents concurrently for the same path. See GitHub REST docs for repository contents.",
         {
             owner: z
                 .string()
