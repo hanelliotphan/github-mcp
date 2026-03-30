@@ -575,6 +575,21 @@ export type ListRepoAutolinksSuccess = {
 
 export type ListRepoAutolinksFailure = CreateRepoFailure;
 
+/** One row from GET /repos/{owner}/{repo}/properties/values. */
+export type RepoCustomPropertyValue = {
+    property_name: string;
+    value: string | string[] | null;
+};
+
+export type GetRepoCustomPropertyValuesSuccess = {
+    success: true;
+    message: string;
+    property_values: RepoCustomPropertyValue[];
+    request_id: string | null;
+};
+
+export type GetRepoCustomPropertyValuesFailure = CreateRepoFailure;
+
 /** One row from GET /repositories (list public repositories). */
 export type PublicRepoListItem = {
     id: number;

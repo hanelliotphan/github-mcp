@@ -20,6 +20,7 @@ import { registerGithubCreateRepoFromTemplateTool } from "./tools/repositories/g
 import { registerGithubCreateRepoAttestationTool } from "./tools/repositories/attestations/github-create-repo-attestation.js";
 import { registerGithubListRepoAttestationsTool } from "./tools/repositories/attestations/github-list-repo-attestations.js";
 import { registerGithubListRepoAutolinksTool } from "./tools/repositories/autolinks/github-list-repo-autolinks.js";
+import { registerGithubGetRepoCustomPropertyValuesTool } from "./tools/repositories/custom-properties/github-get-repo-custom-property-values.js";
 import { registerGithubCreateRepoDispatchTool } from "./tools/repositories/github-create-repo-dispatch.js";
 import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete-repo.js";
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
@@ -76,6 +77,7 @@ registerGithubDeleteFileTool(server, octokit);
 registerGithubDownloadRepoArchiveTarTool(server, octokit);
 registerGithubDownloadRepoArchiveZipTool(server, octokit);
 registerGithubListRepoAutolinksTool(server, octokit);
+registerGithubGetRepoCustomPropertyValuesTool(server, octokit);
 registerGithubListCodeownersErrorsTool(server, octokit);
 registerGithubListRepoContributorsTool(server, octokit);
 registerGithubListRepoActivitiesTool(server, octokit);

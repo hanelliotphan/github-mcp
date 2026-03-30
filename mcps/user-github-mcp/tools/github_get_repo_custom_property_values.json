@@ -1,0 +1,26 @@
+{
+  "name": "github_get_repo_custom_property_values",
+  "description": "Get all custom property values set for a repository (GET /repos/{owner}/{repo}/properties/values). Returns organization-assigned custom properties for org-owned repos. Users with read access to the repository can call this endpoint. See GitHub REST docs for repository custom properties.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

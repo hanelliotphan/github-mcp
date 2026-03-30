@@ -45,6 +45,8 @@ import type {
     GetRepoContentSuccess,
     GetRepoReadmeFailure,
     GetRepoReadmeSuccess,
+    GetRepoCustomPropertyValuesFailure,
+    GetRepoCustomPropertyValuesSuccess,
     ListCodeownersErrorsFailure,
     ListCodeownersErrorsSuccess,
     ListRepoContributorsFailure,
@@ -127,6 +129,8 @@ export function textAndData(
         | GetRepoContentFailure
         | GetRepoReadmeSuccess
         | GetRepoReadmeFailure
+        | GetRepoCustomPropertyValuesSuccess
+        | GetRepoCustomPropertyValuesFailure
         | ListCodeownersErrorsSuccess
         | ListCodeownersErrorsFailure
         | ListRepoContributorsSuccess
