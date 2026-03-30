@@ -25,6 +25,7 @@ import { registerGithubDeleteRepoTool } from "./tools/repositories/github-delete
 import { registerGithubGetRepoTool } from "./tools/repositories/github-get-repo.js";
 import { registerGithubCreateOrUpdateFileContentsTool } from "./tools/repositories/contents/github-create-or-update-file-contents.js";
 import { registerGithubDeleteFileTool } from "./tools/repositories/contents/github-delete-file.js";
+import { registerGithubDownloadRepoTarballArchiveTool } from "./tools/repositories/contents/github-download-repo-tarball-archive.js";
 import { registerGithubGetRepoContentTool } from "./tools/repositories/contents/github-get-repo-content.js";
 import { registerGithubGetRepoReadmeTool } from "./tools/repositories/contents/github-get-repo-readme.js";
 import { registerGithubGetRepoReadmeInDirectoryTool } from "./tools/repositories/contents/github-get-repo-readme-in-directory.js";
@@ -71,6 +72,7 @@ registerGithubGetRepoReadmeTool(server, octokit);
 registerGithubGetRepoReadmeInDirectoryTool(server, octokit);
 registerGithubCreateOrUpdateFileContentsTool(server, octokit);
 registerGithubDeleteFileTool(server, octokit);
+registerGithubDownloadRepoTarballArchiveTool(server, octokit);
 registerGithubListRepoAutolinksTool(server, octokit);
 registerGithubListCodeownersErrorsTool(server, octokit);
 registerGithubListRepoContributorsTool(server, octokit);

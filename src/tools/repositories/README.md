@@ -19,6 +19,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_get_repo_readme_in_directory`](README.md#github_get_repo_readme_in_directory)
 - [`github_create_or_update_file_contents`](README.md#github_create_or_update_file_contents)
 - [`github_delete_file`](README.md#github_delete_file)
+- [`github_download_repo_tarball_archive`](README.md#github_download_repo_tarball_archive)
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
 - [`github_update_repo`](README.md#github_update_repo)
 - [`github_transfer_repo`](README.md#github_transfer_repo)
@@ -266,6 +267,19 @@ Deletes a file via [Delete a file](https://docs.github.com/en/rest/repos/content
 #### Output
 
 On success: `http_status`, `result` (`content` and `commit` from GitHub), and `request_id`. On failure: structured `error`.
+
+### `github_download_repo_tarball_archive`
+
+Resolves a **temporary download URL** for a repository **tar.gz** archive via [Download a repository archive (tar)](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#download-a-repository-archive-tar) (`GET /repos/{owner}/{repo}/tarball/{ref}`). GitHub answers with **HTTP 302** and a **`Location`** header pointing at the archive (e.g. on `codeload.github.com`). This tool uses **`redirect: manual`** so it returns **`archive_download_url`** without streaming the tarball through MCP. Requires read access to the repo; for **private** repos, the URL expires after a short time (per GitHub).
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `ref` (required) — branch, tag, or commit SHA to archive
+
+#### Output
+
+On success: **`http_status`** (**302**), **`archive_download_url`** (the `Location` URL), echo **`ref`**, and **`request_id`**. On failure: structured **`error`** (e.g. **404** if the repo or ref is missing). If the API response is not a 302 with `Location`, the tool returns an **`unknown_error`**-style payload describing the unexpected status.
 
 ### `github_list_repo_autolinks`
 

@@ -164,6 +164,21 @@ export type GetRepoReadmeSuccess = {
 
 export type GetRepoReadmeFailure = CreateRepoFailure;
 
+/** Response from GET /repos/{owner}/{repo}/tarball/{ref} (302 redirect to tarball; URL returned, not file bytes). */
+export type DownloadRepoTarballArchiveSuccess = {
+    success: true;
+    message: string;
+    /** GitHub returns 302 Found with a Location URL to the .tar.gz archive. */
+    http_status: number;
+    /** Value of the Location header: temporary URL to download the archive (e.g. with curl -L). */
+    archive_download_url: string;
+    /** Echo of the ref used in the request (branch, tag, or commit SHA). */
+    ref: string;
+    request_id: string | null;
+};
+
+export type DownloadRepoTarballArchiveFailure = CreateRepoFailure;
+
 /** Payload shape from PUT /repos/{owner}/{repo}/contents/{path} (`file-commit`). */
 export type FileCommitApiResult = {
     content: Record<string, unknown> | null;
