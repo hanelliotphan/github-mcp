@@ -61,6 +61,8 @@ import type {
     ListRepoLanguagesSuccess,
     ListRepoAutolinksFailure,
     ListRepoAutolinksSuccess,
+    ListRepoForksFailure,
+    ListRepoForksSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
     ListOrgReposFailure,
@@ -147,6 +149,8 @@ export function textAndData(
         | ListRepoLanguagesFailure
         | ListRepoAutolinksSuccess
         | ListRepoAutolinksFailure
+        | ListRepoForksSuccess
+        | ListRepoForksFailure
         | ListAuthenticatedUserReposSuccess
         | ListAuthenticatedUserReposFailure
         | ListOrgReposSuccess

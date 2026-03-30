@@ -750,6 +750,46 @@ export type ListRepoTagsSuccess = {
 
 export type ListRepoTagsFailure = CreateRepoFailure;
 
+/** One fork from GET /repos/{owner}/{repo}/forks (minimal repository fields). */
+export type RepoForkItem = {
+    id: number;
+    name: string;
+    full_name: string;
+    owner_login: string;
+    private: boolean;
+    html_url: string;
+    description: string | null;
+    fork: boolean;
+    default_branch: string | null;
+    stargazers_count: number;
+    watchers_count: number;
+    forks_count: number;
+    open_issues_count: number;
+    created_at: string | null;
+    updated_at: string | null;
+    pushed_at: string | null;
+};
+
+export type ListRepoForksSuccess = {
+    success: true;
+    message: string;
+    forks: RepoForkItem[];
+    /** Effective sort order (`newest` when omitted). */
+    sort: string;
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoForksFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;
