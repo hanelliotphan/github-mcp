@@ -801,6 +801,43 @@ export type ListRepoForksSuccess = {
 
 export type ListRepoForksFailure = CreateRepoFailure;
 
+/** One ruleset evaluation row from GET /repos/{owner}/{repo}/rulesets/rule-suites (REST name: rule suite). */
+export type RepoRuleSuiteItem = {
+    id: number;
+    actor_id?: number;
+    actor_name?: string;
+    before_sha?: string;
+    after_sha?: string;
+    ref?: string;
+    repository_id?: number;
+    repository_name?: string;
+    pushed_at?: string;
+    result?: "pass" | "fail" | "bypass";
+    evaluation_result?: "pass" | "fail" | "bypass";
+};
+
+export type ListRepoRuleSuitesSuccess = {
+    success: true;
+    message: string;
+    rule_suites: RepoRuleSuiteItem[];
+    /** Effective `time_period` (`day` when omitted). */
+    time_period: "hour" | "day" | "week" | "month";
+    /** Effective `rule_suite_result` (`all` when omitted). */
+    rule_suite_result: "pass" | "fail" | "bypass" | "all";
+    /** Requested ref filter, if any. */
+    ref?: string;
+    /** Requested actor filter, if any. */
+    actor_name?: string;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoRuleSuitesFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

@@ -65,6 +65,8 @@ import type {
     CreateRepoForkSuccess,
     ListRepoForksFailure,
     ListRepoForksSuccess,
+    ListRepoRuleSuitesFailure,
+    ListRepoRuleSuitesSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
     ListOrgReposFailure,
@@ -155,6 +157,8 @@ export function textAndData(
         | CreateRepoForkFailure
         | ListRepoForksSuccess
         | ListRepoForksFailure
+        | ListRepoRuleSuitesSuccess
+        | ListRepoRuleSuitesFailure
         | ListAuthenticatedUserReposSuccess
         | ListAuthenticatedUserReposFailure
         | ListOrgReposSuccess
