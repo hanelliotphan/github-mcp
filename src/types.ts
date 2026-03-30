@@ -153,6 +153,17 @@ export type GetRepoContentSuccess = {
 
 export type GetRepoContentFailure = CreateRepoFailure;
 
+/** Response from GET /repos/{owner}/{repo}/readme (preferred README file metadata and base64 body). */
+export type GetRepoReadmeSuccess = {
+    success: true;
+    message: string;
+    decode_content: boolean;
+    data: RepoContentBlob;
+    request_id: string | null;
+};
+
+export type GetRepoReadmeFailure = CreateRepoFailure;
+
 /** Payload shape from PUT /repos/{owner}/{repo}/contents/{path} (`file-commit`). */
 export type FileCommitApiResult = {
     content: Record<string, unknown> | null;

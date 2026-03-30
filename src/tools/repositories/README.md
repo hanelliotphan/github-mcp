@@ -15,6 +15,7 @@ TypeScript tool implementations in this folder are registered from the server en
 - [`github_delete_repo`](README.md#github_delete_repo)
 - [`github_get_repo`](README.md#github_get_repo)
 - [`github_get_repo_content`](README.md#github_get_repo_content)
+- [`github_get_repo_readme`](README.md#github_get_repo_readme)
 - [`github_create_or_update_file_contents`](README.md#github_create_or_update_file_contents)
 - [`github_delete_file`](README.md#github_delete_file)
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
@@ -197,6 +198,20 @@ Fetches a file, directory listing, symlink, or submodule via [Get repository con
 #### Output
 
 On success: **`decode_content`** echoes whether UTF-8 decoding was applied (the tool accepts boolean or string forms of the request argument, e.g. `true` or `"true"`). **`data`** is either an **array** of directory entries (GitHub returns at most **1,000** per directory; use the [Git Trees API](https://docs.github.com/en/rest/git/trees) for more) or a **single object** for a file (base64 `content` when applicable), symlink, or submodule. When **`decode_content`** is `true`, file objects also include **`decoded_content`** as described above. On failure: structured `error`. See GitHub’s docs for file size limits (e.g. files **> 100 MB** are not supported on this endpoint).
+
+### `github_get_repo_readme`
+
+Fetches the repository’s preferred README via [Get a repository README](https://docs.github.com/en/rest/repos/contents?apiVersion=2026-03-10#get-a-repository-readme) (`GET /repos/{owner}/{repo}/readme`). GitHub picks the README from the root or standard locations per the docs. Requires read access to the repo. Same **`decode_content`** behavior as `github_get_repo_content` for the file payload (`data` is always a single file object).
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `ref` (optional) — branch, tag, or commit SHA; defaults to the repository’s default branch
+- `decode_content` (optional, default `false`) — when `true`, adds **`decoded_content`** (UTF-8 from base64 `content`) on the file object
+
+#### Output
+
+On success: **`decode_content`**, **`data`** (README file metadata and `content` / optional `decoded_content`), and **`request_id`**. On failure: structured `error` (e.g. **404** if no README is found).
 
 ### `github_create_or_update_file_contents`
 
