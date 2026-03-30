@@ -6,7 +6,7 @@ An MCP server for GitHub operations using TypeScript.
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with access appropriate for what you run. Labels below match the wording used in GitHub **Settings** (classic scope checkboxes, collaborator **Role** options, fine-grained **Repository permissions** access dropdowns, and account/org permissions). See [src/tools/repositories/README.md](src/tools/repositories/README.md) for which tool needs which access.
+- A GitHub token with access appropriate for what you run. Labels below match the wording used in GitHub **Settings** (classic scope checkboxes, collaborator **Role** options, fine-grained **Repository permissions** access dropdowns, and account/org permissions). See [src/tools/repositories/README.md](src/tools/repositories/README.md) and the READMEs under [`contents/`](src/tools/repositories/contents/README.md), [`autolinks/`](src/tools/repositories/autolinks/README.md), and [`attestations/`](src/tools/repositories/attestations/README.md) for which tool needs which access.
 
 #### Repository → Settings → Collaborators and teams → Role
 
@@ -63,7 +63,12 @@ npm run dev
 
 ## Tools
 
-Implementations live in `src/tools/repositories/`. For the tool catalog, parameters, response shapes, and links to GitHub REST docs, see **[src/tools/repositories/README.md](src/tools/repositories/README.md)**.
+Implementations live in `src/tools/repositories/`. Documentation is split for readability:
+
+- **[Repository tools overview](src/tools/repositories/README.md)** — tools registered from the top level of `repositories/` (create/delete/update repo, lists, settings, dispatch, dependency alerts, CODEOWNERS, etc.), plus the shared response conventions.
+- **[Contents](src/tools/repositories/contents/README.md)** — repository files, READMEs, create/update/delete file contents, tar/zip archive download URLs.
+- **[Autolinks](src/tools/repositories/autolinks/README.md)** — repository autolinks.
+- **[Attestations](src/tools/repositories/attestations/README.md)** — artifact attestations.
 
 Static MCP tool descriptors (JSON: tool name, description, argument schema) are checked in under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. These mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
 
