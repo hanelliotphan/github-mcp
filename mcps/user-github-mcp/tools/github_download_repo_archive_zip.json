@@ -1,6 +1,6 @@
 {
-  "name": "github_download_repo_archive_tarball",
-  "description": "Get a temporary download URL for a repository source archive as tar.gz (GET /repos/{owner}/{repo}/tarball/{ref}). GitHub returns HTTP 302 with a Location URL; this tool returns that URL without downloading the archive. Use a branch, tag, or commit SHA for ref. For private repositories, these links expire after a few minutes.",
+  "name": "github_download_repo_archive_zip",
+  "description": "Get a temporary download URL for a repository source archive as zip (GET /repos/{owner}/{repo}/zipball/{ref}). GitHub returns HTTP 302 with a Location URL; this tool returns that URL without downloading the archive. Use a branch, tag, or commit SHA for ref. For private repositories, these links expire after a few minutes. If the repository is empty, following the redirect may return 404.",
   "arguments": {
     "type": "object",
     "properties": {
@@ -20,7 +20,7 @@
         "type": "string",
         "minLength": 1,
         "maxLength": 255,
-        "description": "Branch, tag, or commit SHA to archive (required path segment for the tarball endpoint)."
+        "description": "Branch, tag, or commit SHA to archive (required path segment for the zipball endpoint)."
       }
     },
     "required": [

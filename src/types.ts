@@ -164,8 +164,8 @@ export type GetRepoReadmeSuccess = {
 
 export type GetRepoReadmeFailure = CreateRepoFailure;
 
-/** Response from GET /repos/{owner}/{repo}/tarball/{ref} (302 redirect to tarball; URL returned, not file bytes). */
-export type DownloadRepoArchiveTarballSuccess = {
+/** Response from GET /repos/{owner}/{repo}/tarball/{ref} (302 redirect to tar.gz archive; URL returned, not file bytes). */
+export type DownloadRepoArchiveTarSuccess = {
     success: true;
     message: string;
     /** GitHub returns 302 Found with a Location URL to the .tar.gz archive. */
@@ -177,7 +177,22 @@ export type DownloadRepoArchiveTarballSuccess = {
     request_id: string | null;
 };
 
-export type DownloadRepoArchiveTarballFailure = CreateRepoFailure;
+export type DownloadRepoArchiveTarFailure = CreateRepoFailure;
+
+/** Response from GET /repos/{owner}/{repo}/zipball/{ref} (302 redirect to zip; URL returned, not file bytes). */
+export type DownloadRepoArchiveZipSuccess = {
+    success: true;
+    message: string;
+    /** GitHub returns 302 Found with a Location URL to the .zip archive. */
+    http_status: number;
+    /** Value of the Location header: temporary URL to download the archive (e.g. with curl -L). */
+    archive_download_url: string;
+    /** Echo of the ref used in the request (branch, tag, or commit SHA). */
+    ref: string;
+    request_id: string | null;
+};
+
+export type DownloadRepoArchiveZipFailure = CreateRepoFailure;
 
 /** Payload shape from PUT /repos/{owner}/{repo}/contents/{path} (`file-commit`). */
 export type FileCommitApiResult = {

@@ -3,8 +3,8 @@ import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
 import type {
-    DownloadRepoArchiveTarballFailure,
-    DownloadRepoArchiveTarballSuccess,
+    DownloadRepoArchiveTarFailure,
+    DownloadRepoArchiveTarSuccess,
     ErrorEnvelope
 } from "../../../types.js";
 import { getRequestId, mapGitHubError } from "../../../utils/errors.js";
@@ -29,15 +29,15 @@ function unexpectedRedirectError(status: number): ErrorEnvelope {
     return {
         status_code: status,
         error_type: "unknown_error",
-        message: `Expected HTTP 302 with a Location header for the tarball redirect; got status ${status}.`,
+        message: `Expected HTTP 302 with a Location header for the tar archive redirect; got status ${status}.`,
         hint: "If this persists, GitHub may have changed the archive API. You can also try GET /repos/{owner}/{repo}/tarball/{ref} with redirect: manual.",
         retryable: false
     };
 }
 
-export function registerGithubDownloadRepoArchiveTarballTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubDownloadRepoArchiveTarTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_download_repo_archive_tarball",
+        "github_download_repo_archive_tar",
         "Get a temporary download URL for a repository source archive as a tar.gz (GET /repos/{owner}/{repo}/tarball/{ref}). " +
             "GitHub responds with HTTP 302 and a Location URL—this tool returns that URL without downloading the archive. " +
             "Use a branch, tag, or commit SHA for ref. For private repositories, these links expire after a few minutes.",
@@ -62,7 +62,7 @@ export function registerGithubDownloadRepoArchiveTarballTool(server: McpServer, 
                 .string()
                 .min(1)
                 .max(255)
-                .describe("Branch, tag, or commit SHA to archive (required path segment for the tarball endpoint).")
+                .describe("Branch, tag, or commit SHA to archive (required path segment for the tarball API path).")
         },
         async (input) => {
             try {
@@ -77,7 +77,7 @@ export function registerGithubDownloadRepoArchiveTarballTool(server: McpServer, 
                 const archiveDownloadUrl = headerLocation(headers);
 
                 if (response.status !== 302 || !archiveDownloadUrl) {
-                    const failurePayload: DownloadRepoArchiveTarballFailure = {
+                    const failurePayload: DownloadRepoArchiveTarFailure = {
                         success: false,
                         error: unexpectedRedirectError(response.status),
                         request_id: requestId
@@ -85,9 +85,9 @@ export function registerGithubDownloadRepoArchiveTarballTool(server: McpServer, 
                     return textAndData(failurePayload);
                 }
 
-                const successPayload: DownloadRepoArchiveTarballSuccess = {
+                const successPayload: DownloadRepoArchiveTarSuccess = {
                     success: true,
-                    message: "Tarball redirect URL retrieved successfully. Follow the URL with GET (e.g. curl -L) to download; private-repo URLs expire quickly.",
+                    message: "Tar archive redirect URL retrieved successfully. Follow the URL with GET (e.g. curl -L) to download; private-repo URLs expire quickly.",
                     http_status: response.status,
                     archive_download_url: archiveDownloadUrl,
                     ref: input.ref,
@@ -95,7 +95,7 @@ export function registerGithubDownloadRepoArchiveTarballTool(server: McpServer, 
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: DownloadRepoArchiveTarballFailure = {
+                const failurePayload: DownloadRepoArchiveTarFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(
