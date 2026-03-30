@@ -1,0 +1,46 @@
+{
+  "name": "github_create_update_repo_custom_property_values",
+  "description": "Create or update custom property values for a repository (PATCH /repos/{owner}/{repo}/properties/values). Send one or more { property_name, value } entries; use value null to unset. Requires repository admin or the fine-grained 'edit custom property values' permission. Properties must be defined by the owning organization. See GitHub REST docs for repository custom properties.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "properties": {
+        "type": "array",
+        "minItems": 1,
+        "description": "At least one custom property update. value may be a string, array of strings, or null to unset.",
+        "items": {
+          "type": "object",
+          "required": ["property_name", "value"],
+          "properties": {
+            "property_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            },
+            "value": {
+              "oneOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } },
+                { "type": "null" }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "required": ["owner", "name", "properties"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

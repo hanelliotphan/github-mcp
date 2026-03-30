@@ -590,6 +590,18 @@ export type GetRepoCustomPropertyValuesSuccess = {
 
 export type GetRepoCustomPropertyValuesFailure = CreateRepoFailure;
 
+/** Response from PATCH /repos/{owner}/{repo}/properties/values (typically HTTP 204). */
+export type CreateUpdateRepoCustomPropertyValuesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    /** Echo of the property updates sent in the request body. */
+    properties: RepoCustomPropertyValue[];
+    request_id: string | null;
+};
+
+export type CreateUpdateRepoCustomPropertyValuesFailure = CreateRepoFailure;
+
 /** One row from GET /repositories (list public repositories). */
 export type PublicRepoListItem = {
     id: number;

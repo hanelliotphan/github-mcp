@@ -15,6 +15,8 @@ import type {
     CreateRepoAttestationSuccess,
     CreateRepoDispatchFailure,
     CreateRepoDispatchSuccess,
+    CreateUpdateRepoCustomPropertyValuesFailure,
+    CreateUpdateRepoCustomPropertyValuesSuccess,
     CreateRepoFailure,
     DisableDependabotSecurityUpdatesFailure,
     DisableDependabotSecurityUpdatesSuccess,
@@ -113,6 +115,8 @@ export function textAndData(
         | CreateRepoAttestationFailure
         | CreateRepoDispatchSuccess
         | CreateRepoDispatchFailure
+        | CreateUpdateRepoCustomPropertyValuesSuccess
+        | CreateUpdateRepoCustomPropertyValuesFailure
         | CreateRepoSuccess
         | CreateRepoFailure
         | DeleteRepoSuccess

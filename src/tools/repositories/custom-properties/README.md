@@ -5,6 +5,7 @@ Tool implementations in this folder wrap [GitHub REST repository custom properti
 ## Tools
 
 - [`github_get_repo_custom_property_values`](README.md#github_get_repo_custom_property_values)
+- [`github_create_update_repo_custom_property_values`](README.md#github_create_update_repo_custom_property_values)
 
 ---
 
@@ -19,3 +20,16 @@ Lists custom property names and values assigned to a repository via [Get all cus
 #### Output
 
 On success: **`property_values`** — array of `{ property_name, value }` where **`value`** is a string, array of strings, or `null` per GitHub’s schema — plus **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**).
+
+### `github_create_update_repo_custom_property_values`
+
+Sets or clears custom property values via [Create or update custom property values for a repository](https://docs.github.com/en/rest/repos/custom-properties?apiVersion=2026-03-10#create-or-update-custom-property-values-for-a-repository) (`PATCH /repos/{owner}/{repo}/properties/values`). **`value`** may be a string, string array, or **`null`** to unset that property on the repo. Requires **repository admin** or the repository-level **edit custom property values** fine-grained permission; property definitions must already exist on the **owning organization**.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `properties` (required) — non-empty array of `{ property_name, value }`
+
+#### Output
+
+On success: **`http_status`** (typically **204**), echo **`properties`**, and **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**).
