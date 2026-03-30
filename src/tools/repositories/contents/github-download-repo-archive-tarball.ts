@@ -3,8 +3,8 @@ import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
 import type {
-    DownloadRepoTarballArchiveFailure,
-    DownloadRepoTarballArchiveSuccess,
+    DownloadRepoArchiveTarballFailure,
+    DownloadRepoArchiveTarballSuccess,
     ErrorEnvelope
 } from "../../../types.js";
 import { getRequestId, mapGitHubError } from "../../../utils/errors.js";
@@ -35,9 +35,9 @@ function unexpectedRedirectError(status: number): ErrorEnvelope {
     };
 }
 
-export function registerGithubDownloadRepoTarballArchiveTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubDownloadRepoArchiveTarballTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_download_repo_tarball_archive",
+        "github_download_repo_archive_tarball",
         "Get a temporary download URL for a repository source archive as a tar.gz (GET /repos/{owner}/{repo}/tarball/{ref}). " +
             "GitHub responds with HTTP 302 and a Location URL—this tool returns that URL without downloading the archive. " +
             "Use a branch, tag, or commit SHA for ref. For private repositories, these links expire after a few minutes.",
@@ -77,7 +77,7 @@ export function registerGithubDownloadRepoTarballArchiveTool(server: McpServer, 
                 const archiveDownloadUrl = headerLocation(headers);
 
                 if (response.status !== 302 || !archiveDownloadUrl) {
-                    const failurePayload: DownloadRepoTarballArchiveFailure = {
+                    const failurePayload: DownloadRepoArchiveTarballFailure = {
                         success: false,
                         error: unexpectedRedirectError(response.status),
                         request_id: requestId
@@ -85,7 +85,7 @@ export function registerGithubDownloadRepoTarballArchiveTool(server: McpServer, 
                     return textAndData(failurePayload);
                 }
 
-                const successPayload: DownloadRepoTarballArchiveSuccess = {
+                const successPayload: DownloadRepoArchiveTarballSuccess = {
                     success: true,
                     message: "Tarball redirect URL retrieved successfully. Follow the URL with GET (e.g. curl -L) to download; private-repo URLs expire quickly.",
                     http_status: response.status,
@@ -95,7 +95,7 @@ export function registerGithubDownloadRepoTarballArchiveTool(server: McpServer, 
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: DownloadRepoTarballArchiveFailure = {
+                const failurePayload: DownloadRepoArchiveTarballFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(

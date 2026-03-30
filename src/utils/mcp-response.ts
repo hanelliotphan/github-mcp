@@ -33,8 +33,8 @@ import type {
     CreateRepoSuccess,
     DeleteFileFailure,
     DeleteFileSuccess,
-    DownloadRepoTarballArchiveFailure,
-    DownloadRepoTarballArchiveSuccess,
+    DownloadRepoArchiveTarballFailure,
+    DownloadRepoArchiveTarballSuccess,
     DeleteRepoFailure,
     DeleteRepoSuccess,
     GetRepoFailure,
@@ -115,8 +115,8 @@ export function textAndData(
         | DeleteRepoFailure
         | DeleteFileSuccess
         | DeleteFileFailure
-        | DownloadRepoTarballArchiveSuccess
-        | DownloadRepoTarballArchiveFailure
+        | DownloadRepoArchiveTarballSuccess
+        | DownloadRepoArchiveTarballFailure
         | GetRepoSuccess
         | GetRepoFailure
         | GetRepoContentSuccess

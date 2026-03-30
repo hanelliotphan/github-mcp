@@ -165,7 +165,7 @@ export type GetRepoReadmeSuccess = {
 export type GetRepoReadmeFailure = CreateRepoFailure;
 
 /** Response from GET /repos/{owner}/{repo}/tarball/{ref} (302 redirect to tarball; URL returned, not file bytes). */
-export type DownloadRepoTarballArchiveSuccess = {
+export type DownloadRepoArchiveTarballSuccess = {
     success: true;
     message: string;
     /** GitHub returns 302 Found with a Location URL to the .tar.gz archive. */
@@ -177,7 +177,7 @@ export type DownloadRepoTarballArchiveSuccess = {
     request_id: string | null;
 };
 
-export type DownloadRepoTarballArchiveFailure = CreateRepoFailure;
+export type DownloadRepoArchiveTarballFailure = CreateRepoFailure;
 
 /** Payload shape from PUT /repos/{owner}/{repo}/contents/{path} (`file-commit`). */
 export type FileCommitApiResult = {

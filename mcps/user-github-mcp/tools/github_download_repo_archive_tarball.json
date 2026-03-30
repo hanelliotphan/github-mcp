@@ -1,5 +1,5 @@
 {
-  "name": "github_download_repo_tarball_archive",
+  "name": "github_download_repo_archive_tarball",
   "description": "Get a temporary download URL for a repository source archive as tar.gz (GET /repos/{owner}/{repo}/tarball/{ref}). GitHub returns HTTP 302 with a Location URL; this tool returns that URL without downloading the archive. Use a branch, tag, or commit SHA for ref. For private repositories, these links expire after a few minutes.",
   "arguments": {
     "type": "object",
