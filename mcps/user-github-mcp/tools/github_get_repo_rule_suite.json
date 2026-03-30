@@ -1,0 +1,27 @@
+{
+  "name": "github_get_repo_rule_suite",
+  "description": "Get one ruleset evaluation suite by ID (GET /repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}). Includes rule_evaluations per-rule results. Use id from github_list_repo_rule_suites as rule_suite_id. Requires ruleset insights access. See GitHub REST docs for repository rule suites.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "rule_suite_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "rule_suite_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

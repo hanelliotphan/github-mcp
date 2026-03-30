@@ -9,6 +9,22 @@ Tool implementations wrap [GitHub REST: repository rule suites](https://docs.git
 ## Tools
 
 - [`github_list_repo_rule_suites`](README.md#github_list_repo_rule_suites)
+- [`github_get_repo_rule_suite`](README.md#github_get_repo_rule_suite)
+
+---
+
+### `github_get_repo_rule_suite`
+
+Fetches one evaluation suite by ID via [Get a repository rule suite](https://docs.github.com/en/rest/repos/rule-suites?apiVersion=2026-03-10#get-a-repository-rule-suite) (`GET /repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}`). The response includes **`rule_evaluations`** (per-rule results). Use **`id`** from `github_list_repo_rule_suites` as **`rule_suite_id`**.
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `rule_suite_id` (required) — integer ID of the suite
+
+#### Output
+
+On success: **`rule_suite`** (summary fields plus **`rule_evaluations`**), **`request_id`**. On failure: structured **`error`**.
 
 ---
 

@@ -816,6 +816,44 @@ export type RepoRuleSuiteItem = {
     evaluation_result?: "pass" | "fail" | "bypass";
 };
 
+/** One rule evaluation inside GET /repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}. */
+export type RepoRuleEvaluationItem = {
+    rule_source?: {
+        type?: string;
+        id?: number | null;
+        name?: string | null;
+    };
+    enforcement?: "active" | "evaluate" | "deleted ruleset";
+    result?: "pass" | "fail";
+    rule_type?: string;
+    details?: string | null;
+};
+
+/** Full rule suite from GET /repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id} (includes per-rule rows). */
+export type RepoRuleSuiteDetail = {
+    id: number;
+    actor_id?: number | null;
+    actor_name?: string | null;
+    before_sha?: string;
+    after_sha?: string;
+    ref?: string;
+    repository_id?: number;
+    repository_name?: string;
+    pushed_at?: string;
+    result?: "pass" | "fail" | "bypass";
+    evaluation_result?: "pass" | "fail" | "bypass" | null;
+    rule_evaluations: RepoRuleEvaluationItem[];
+};
+
+export type GetRepoRuleSuiteSuccess = {
+    success: true;
+    message: string;
+    rule_suite: RepoRuleSuiteDetail;
+    request_id: string | null;
+};
+
+export type GetRepoRuleSuiteFailure = CreateRepoFailure;
+
 export type ListRepoRuleSuitesSuccess = {
     success: true;
     message: string;
