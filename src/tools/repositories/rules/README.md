@@ -1,6 +1,6 @@
 # Repository rules MCP tools
 
-This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **listing, getting, creating, updating, and deleting** repository rulesets, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
+This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **listing, getting, creating, updating, and deleting** repository rulesets, **ruleset version history** (audit of ruleset changes), and related reads. **Ruleset evaluation / rule insight runs** (rule suites) live under [`rule-suites/`](../rule-suites/README.md)—that is separate from **ruleset history**.
 
 Tools are registered from `src/index.ts`. Responses follow shared conventions: **success** payloads include `request_id` when GitHub returns `x-github-request-id`; failures use a structured **error** envelope (see the parent [../README.md](../README.md)).
 
@@ -11,6 +11,7 @@ Tools are registered from `src/index.ts`. Responses follow shared conventions: *
 - [`github_get_repo_branch_rules`](README.md#github_get_repo_branch_rules)
 - [`github_list_repo_rulesets`](README.md#github_list_repo_rulesets)
 - [`github_get_repo_ruleset`](README.md#github_get_repo_ruleset)
+- [`github_get_repo_ruleset_history`](README.md#github_get_repo_ruleset_history)
 - [`github_create_repo_ruleset`](README.md#github_create_repo_ruleset)
 - [`github_update_repo_ruleset`](README.md#github_update_repo_ruleset)
 - [`github_delete_repo_ruleset`](README.md#github_delete_repo_ruleset)
@@ -67,6 +68,23 @@ Fetches one ruleset by ID via [Get a repository ruleset](https://docs.github.com
 #### Output
 
 On success: **`http_status`** (**200**), **`ruleset`**, echoed **`includes_parents`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_repo_ruleset_history`
+
+Lists **version history** for one ruleset via [Get repository ruleset history](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10#get-repository-ruleset-history) (`GET /repos/{owner}/{repo}/rulesets/{ruleset_id}/history`). Each row includes **`version_id`**, **`actor`** (who changed it), and **`updated_at`**.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`ruleset_id`** (required)
+- `per_page` (optional) — 1–100; default **100** when omitted
+- `page` (optional)
+- `all_pages` (optional), `max_pages` (optional)
+
+#### Output
+
+On success: echoed **`ruleset_id`**, **`versions`** (array), **`pagination`**, **`request_id`**, **`page`**, **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`**.
 
 ---
 

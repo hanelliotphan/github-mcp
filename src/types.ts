@@ -965,6 +965,24 @@ export type DeleteRepoRulesetSuccess = {
 
 export type DeleteRepoRulesetFailure = CreateRepoFailure;
 
+/** One version row from GET /repos/{owner}/{repo}/rulesets/{ruleset_id}/history (`version_id`, `actor`, `updated_at`, …). */
+export type RepoRulesetHistoryVersionItem = Record<string, unknown>;
+
+export type GetRepoRulesetHistorySuccess = {
+    success: true;
+    message: string;
+    ruleset_id: number;
+    versions: RepoRulesetHistoryVersionItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetRepoRulesetHistoryFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

@@ -44,6 +44,7 @@ import { registerGithubCreateRepoRulesetTool } from "./tools/repositories/rules/
 import { registerGithubDeleteRepoRulesetTool } from "./tools/repositories/rules/github-delete-repo-ruleset.js";
 import { registerGithubGetRepoBranchRulesTool } from "./tools/repositories/rules/github-get-repo-branch-rules.js";
 import { registerGithubGetRepoRulesetTool } from "./tools/repositories/rules/github-get-repo-ruleset.js";
+import { registerGithubGetRepoRulesetHistoryTool } from "./tools/repositories/rules/github-get-repo-ruleset-history.js";
 import { registerGithubListRepoRulesetsTool } from "./tools/repositories/rules/github-list-repo-rulesets.js";
 import { registerGithubUpdateRepoRulesetTool } from "./tools/repositories/rules/github-update-repo-ruleset.js";
 import { registerGithubGetRepoRuleSuiteTool } from "./tools/repositories/rule-suites/github-get-repo-rule-suite.js";
@@ -102,6 +103,7 @@ registerGithubGetRepoRuleSuiteTool(server, octokit);
 registerGithubGetRepoBranchRulesTool(server, octokit);
 registerGithubListRepoRulesetsTool(server, octokit);
 registerGithubGetRepoRulesetTool(server, octokit);
+registerGithubGetRepoRulesetHistoryTool(server, octokit);
 registerGithubCreateRepoRulesetTool(server, octokit);
 registerGithubUpdateRepoRulesetTool(server, octokit);
 registerGithubDeleteRepoRulesetTool(server, octokit);

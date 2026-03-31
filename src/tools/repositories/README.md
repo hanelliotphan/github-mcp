@@ -14,7 +14,7 @@ Documentation for tools whose implementations live in subfolders:
 - **[`autolinks/`](autolinks/README.md)** — `github_list_repo_autolinks`.
 - **[`custom-properties/`](custom-properties/README.md)** — `github_get_repo_custom_property_values`, `github_create_update_repo_custom_property_values`.
 - **[`forks/`](forks/README.md)** — `github_list_repo_forks`, `github_create_repo_fork`.
-- **[`rules/`](rules/README.md)** — `github_get_repo_branch_rules`, `github_list_repo_rulesets`, `github_get_repo_ruleset`, `github_create_repo_ruleset`, `github_update_repo_ruleset`, `github_delete_repo_ruleset`.
+- **[`rules/`](rules/README.md)** — `github_get_repo_branch_rules`, `github_list_repo_rulesets`, `github_get_repo_ruleset`, `github_get_repo_ruleset_history`, `github_create_repo_ruleset`, `github_update_repo_ruleset`, `github_delete_repo_ruleset`.
 - **[`rule-suites/`](rule-suites/README.md)** — `github_list_repo_rule_suites`, `github_get_repo_rule_suite` (ruleset evaluation history, not ruleset definitions).
 - **[`attestations/`](attestations/README.md)** — `github_create_repo_attestation`, `github_list_repo_attestations`.
 
