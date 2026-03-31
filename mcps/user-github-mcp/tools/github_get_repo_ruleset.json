@@ -1,0 +1,30 @@
+{
+  "name": "github_get_repo_ruleset",
+  "description": "Get one repository ruleset by ID (GET /repos/{owner}/{repo}/rulesets/{ruleset_id}). Use id from github_list_repo_rulesets. Optional includes_parents (default true). bypass_actors only with write access. See GitHub REST docs for repository rules.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "ruleset_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "includes_parents": {
+        "type": "boolean"
+      }
+    },
+    "required": ["owner", "name", "ruleset_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

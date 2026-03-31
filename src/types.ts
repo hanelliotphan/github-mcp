@@ -927,6 +927,19 @@ export type CreateRepoRulesetSuccess = {
 
 export type CreateRepoRulesetFailure = CreateRepoFailure;
 
+/** Success from GET /repos/{owner}/{repo}/rulesets/{ruleset_id} — HTTP 200. */
+export type GetRepoRulesetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    ruleset: RepoRulesetListItem;
+    /** Effective `includes_parents` (`true` when omitted; matches GitHub API default). */
+    includes_parents: boolean;
+    request_id: string | null;
+};
+
+export type GetRepoRulesetFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;
