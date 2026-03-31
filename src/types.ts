@@ -983,6 +983,23 @@ export type GetRepoRulesetHistorySuccess = {
 
 export type GetRepoRulesetHistoryFailure = CreateRepoFailure;
 
+/** Body from GET .../rulesets/{ruleset_id}/history/{version_id} — ruleset version fields plus `state` (ruleset snapshot). */
+export type RepoRulesetVersionWithState = Record<string, unknown>;
+
+/** Success from GET /repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id} — HTTP 200. */
+export type GetRepoRulesetVersionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    ruleset_id: number;
+    version_id: number;
+    /** Full API object: `version_id`, `actor`, `updated_at`, `state`, etc. */
+    version: RepoRulesetVersionWithState;
+    request_id: string | null;
+};
+
+export type GetRepoRulesetVersionFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

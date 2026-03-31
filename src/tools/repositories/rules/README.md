@@ -12,6 +12,7 @@ Tools are registered from `src/index.ts`. Responses follow shared conventions: *
 - [`github_list_repo_rulesets`](README.md#github_list_repo_rulesets)
 - [`github_get_repo_ruleset`](README.md#github_get_repo_ruleset)
 - [`github_get_repo_ruleset_history`](README.md#github_get_repo_ruleset_history)
+- [`github_get_repo_ruleset_version`](README.md#github_get_repo_ruleset_version)
 - [`github_create_repo_ruleset`](README.md#github_create_repo_ruleset)
 - [`github_update_repo_ruleset`](README.md#github_update_repo_ruleset)
 - [`github_delete_repo_ruleset`](README.md#github_delete_repo_ruleset)
@@ -85,6 +86,20 @@ Lists **version history** for one ruleset via [Get repository ruleset history](h
 #### Output
 
 On success: echoed **`ruleset_id`**, **`versions`** (array), **`pagination`**, **`request_id`**, **`page`**, **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_repo_ruleset_version`
+
+Fetches one **historical snapshot** via [Get repository ruleset version](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10#get-repository-ruleset-version) (`GET /repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}`). The JSON includes **`version_id`**, **`actor`**, **`updated_at`**, and **`state`** (the ruleset definition at that revision).
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`ruleset_id`** (required), **`version_id`** (required) — use **`version_id`** from a row in `github_get_repo_ruleset_history`
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`ruleset_id`** and **`version_id`**, **`version`** (full API object), **`request_id`**. On failure: structured **`error`** (e.g. **404**).
 
 ---
 

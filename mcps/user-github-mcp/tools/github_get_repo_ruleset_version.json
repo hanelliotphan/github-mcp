@@ -1,0 +1,31 @@
+{
+  "name": "github_get_repo_ruleset_version",
+  "description": "Get one historical ruleset snapshot (GET /repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}). Returns version_id, actor, updated_at, and state (ruleset definition at that version). Use version_id from github_get_repo_ruleset_history. See GitHub REST repository rules.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "ruleset_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "version_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "ruleset_id", "version_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
