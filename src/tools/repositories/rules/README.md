@@ -1,6 +1,6 @@
 # Repository rules MCP tools
 
-This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **ruleset definitions** for the repo, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
+This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **listing and creating** repository rulesets, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
 
 Tools are registered from `src/index.ts`. Responses follow shared conventions: **success** payloads include `request_id` when GitHub returns `x-github-request-id`; failures use a structured **error** envelope (see the parent [../README.md](../README.md)).
 
@@ -10,6 +10,7 @@ Tools are registered from `src/index.ts`. Responses follow shared conventions: *
 
 - [`github_get_repo_branch_rules`](README.md#github_get_repo_branch_rules)
 - [`github_list_repo_rulesets`](README.md#github_list_repo_rulesets)
+- [`github_create_repo_ruleset`](README.md#github_create_repo_ruleset)
 
 ---
 
@@ -47,3 +48,21 @@ Lists **rulesets** for the repository via [Get all repository rulesets](https://
 #### Output
 
 On success: **`rulesets`**, echoed **`includes_parents`** (effective value), optional **`targets`**, **`pagination`**, **`request_id`**, **`page`**, **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`**.
+
+---
+
+### `github_create_repo_ruleset`
+
+Creates a ruleset via [Create a repository ruleset](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10#create-a-repository-ruleset) (`POST /repos/{owner}/{repo}/rulesets`). Requires permission to manage repository rules (typically **Admin** on the repo).
+
+#### Inputs
+
+- `owner` (required), `name` (required) — repository
+- **`ruleset`** (required) — object with:
+  - **`name`** (required), **`enforcement`** (required): `disabled` \| `active` \| `evaluate`
+  - **`target`** (optional): `branch` \| `tag` \| `push` (GitHub default `branch`)
+  - **`bypass_actors`**, **`conditions`**, **`rules`** (optional) — same shapes as the GitHub API; additional properties are allowed on **`ruleset`** for forward compatibility
+
+#### Output
+
+On success: **`http_status`** (**201**), **`ruleset`** (created object), **`request_id`**. On failure: structured **`error`** (including validation **422** from GitHub).

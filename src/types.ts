@@ -916,6 +916,17 @@ export type ListRepoRulesetsSuccess = {
 
 export type ListRepoRulesetsFailure = CreateRepoFailure;
 
+/** Success from POST /repos/{owner}/{repo}/rulesets — GitHub returns HTTP 201. */
+export type CreateRepoRulesetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    ruleset: RepoRulesetListItem;
+    request_id: string | null;
+};
+
+export type CreateRepoRulesetFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

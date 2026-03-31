@@ -67,6 +67,8 @@ import type {
     ListRepoAutolinksSuccess,
     CreateRepoForkFailure,
     CreateRepoForkSuccess,
+    CreateRepoRulesetFailure,
+    CreateRepoRulesetSuccess,
     ListRepoForksFailure,
     ListRepoForksSuccess,
     ListRepoRuleSuitesFailure,
@@ -165,6 +167,8 @@ export function textAndData(
         | ListRepoAutolinksFailure
         | CreateRepoForkSuccess
         | CreateRepoForkFailure
+        | CreateRepoRulesetSuccess
+        | CreateRepoRulesetFailure
         | ListRepoForksSuccess
         | ListRepoForksFailure
         | ListRepoRuleSuitesSuccess

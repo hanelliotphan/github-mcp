@@ -1,0 +1,57 @@
+{
+  "name": "github_create_repo_ruleset",
+  "description": "Create a repository ruleset (POST /repos/{owner}/{repo}/rulesets). Pass ruleset with name and enforcement (disabled, active, evaluate); optional target, bypass_actors, conditions, rules per GitHub REST docs. Requires admin/rules write. Returns 201 with ruleset body. See GitHub REST repository rules.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "ruleset": {
+        "type": "object",
+        "required": ["name", "enforcement"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "enforcement": {
+            "type": "string",
+            "enum": ["disabled", "active", "evaluate"]
+          },
+          "target": {
+            "type": "string",
+            "enum": ["branch", "tag", "push"]
+          },
+          "bypass_actors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "conditions": {
+            "type": "object"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "required": ["owner", "name", "ruleset"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
