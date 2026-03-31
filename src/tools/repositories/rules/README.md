@@ -1,6 +1,6 @@
 # Repository rules MCP tools
 
-This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **listing, getting, creating, and updating** repository rulesets, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
+This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **listing, getting, creating, updating, and deleting** repository rulesets, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
 
 Tools are registered from `src/index.ts`. Responses follow shared conventions: **success** payloads include `request_id` when GitHub returns `x-github-request-id`; failures use a structured **error** envelope (see the parent [../README.md](../README.md)).
 
@@ -13,6 +13,7 @@ Tools are registered from `src/index.ts`. Responses follow shared conventions: *
 - [`github_get_repo_ruleset`](README.md#github_get_repo_ruleset)
 - [`github_create_repo_ruleset`](README.md#github_create_repo_ruleset)
 - [`github_update_repo_ruleset`](README.md#github_update_repo_ruleset)
+- [`github_delete_repo_ruleset`](README.md#github_delete_repo_ruleset)
 
 ---
 
@@ -99,3 +100,17 @@ Updates a ruleset via [Update a repository ruleset](https://docs.github.com/en/r
 #### Output
 
 On success: **`http_status`** (**200**), **`ruleset`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).
+
+---
+
+### `github_delete_repo_ruleset`
+
+Deletes a ruleset via [Delete a repository ruleset](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10#delete-a-repository-ruleset) (`DELETE /repos/{owner}/{repo}/rulesets/{ruleset_id}`). Requires permission to manage repository rules.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`ruleset_id`** (required)
+
+#### Output
+
+On success: **`http_status`** (**204**), echoed **`owner`**, **`repo`**, **`full_name`**, **`ruleset_id`**, **`request_id`**. On failure: structured **`error`** (e.g. **404** if the ruleset or repo is missing).

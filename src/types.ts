@@ -951,6 +951,20 @@ export type UpdateRepoRulesetSuccess = {
 
 export type UpdateRepoRulesetFailure = CreateRepoFailure;
 
+/** Success from DELETE /repos/{owner}/{repo}/rulesets/{ruleset_id} — HTTP 204 No Content. */
+export type DeleteRepoRulesetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    ruleset_id: number;
+    request_id: string | null;
+};
+
+export type DeleteRepoRulesetFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

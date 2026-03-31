@@ -1,0 +1,27 @@
+{
+  "name": "github_delete_repo_ruleset",
+  "description": "Delete a repository ruleset (DELETE /repos/{owner}/{repo}/rulesets/{ruleset_id}). Use ruleset_id from github_list_repo_rulesets. Requires rules admin access. Returns HTTP 204 with no body on success. See GitHub REST repository rules.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "ruleset_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "ruleset_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
