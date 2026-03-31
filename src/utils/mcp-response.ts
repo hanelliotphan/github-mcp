@@ -71,6 +71,8 @@ import type {
     ListRepoForksSuccess,
     ListRepoRuleSuitesFailure,
     ListRepoRuleSuitesSuccess,
+    ListRepoRulesetsFailure,
+    ListRepoRulesetsSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
     ListOrgReposFailure,
@@ -167,6 +169,8 @@ export function textAndData(
         | ListRepoForksFailure
         | ListRepoRuleSuitesSuccess
         | ListRepoRuleSuitesFailure
+        | ListRepoRulesetsSuccess
+        | ListRepoRulesetsFailure
         | ListAuthenticatedUserReposSuccess
         | ListAuthenticatedUserReposFailure
         | ListOrgReposSuccess

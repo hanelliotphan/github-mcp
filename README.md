@@ -70,7 +70,7 @@ Implementations live in `src/tools/repositories/`. Documentation is split for re
 - **[Autolinks](src/tools/repositories/autolinks/README.md)** — repository autolinks.
 - **[Custom properties](src/tools/repositories/custom-properties/README.md)** — get, create, and update organization custom property values on repositories.
 - **[Forks](src/tools/repositories/forks/README.md)** — list and create repository forks.
-- **[Rules](src/tools/repositories/rules/README.md)** — active rules that apply to a branch name.
+- **[Rules](src/tools/repositories/rules/README.md)** — branch rules and repository rulesets list.
 - **[Rule suites](src/tools/repositories/rule-suites/README.md)** — ruleset evaluation history.
 - **[Attestations](src/tools/repositories/attestations/README.md)** — artifact attestations.
 

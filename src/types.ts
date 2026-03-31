@@ -895,6 +895,27 @@ export type GetRepoBranchRulesSuccess = {
 
 export type GetRepoBranchRulesFailure = CreateRepoFailure;
 
+/** One ruleset from GET /repos/{owner}/{repo}/rulesets (full ruleset object; `bypass_actors` may be omitted without write access). */
+export type RepoRulesetListItem = Record<string, unknown>;
+
+export type ListRepoRulesetsSuccess = {
+    success: true;
+    message: string;
+    rulesets: RepoRulesetListItem[];
+    /** Effective `includes_parents` (`true` when omitted; matches GitHub API default). */
+    includes_parents: boolean;
+    /** Requested comma-separated `targets` filter, if any. */
+    targets?: string;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoRulesetsFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

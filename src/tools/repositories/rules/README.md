@@ -1,6 +1,6 @@
-# Repository branch rules MCP tools
+# Repository rules MCP tools
 
-This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10)—**which rules apply to a given branch name**—not ruleset CRUD or evaluation history (see [`rule-suites/`](../rule-suites/README.md) for the latter; rulesets list/get live on other endpoints).
+This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **ruleset definitions** for the repo, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
 
 Tools are registered from `src/index.ts`. Responses follow shared conventions: **success** payloads include `request_id` when GitHub returns `x-github-request-id`; failures use a structured **error** envelope (see the parent [../README.md](../README.md)).
 
@@ -9,6 +9,7 @@ Tools are registered from `src/index.ts`. Responses follow shared conventions: *
 ## Tools
 
 - [`github_get_repo_branch_rules`](README.md#github_get_repo_branch_rules)
+- [`github_list_repo_rulesets`](README.md#github_list_repo_rulesets)
 
 ---
 
@@ -27,3 +28,22 @@ Returns active rules that would apply to a branch via [Get rules for a branch](h
 #### Output
 
 On success: **`branch`**, **`rules`** (array of rule objects; shape depends on each rule’s `type`), **`pagination`**, **`request_id`**, **`page`**, **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`**.
+
+---
+
+### `github_list_repo_rulesets`
+
+Lists **rulesets** for the repository via [Get all repository rulesets](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10#get-all-repository-rulesets) (`GET /repos/{owner}/{repo}/rulesets`). Responses include ruleset metadata, `conditions`, `rules`, etc. The **`bypass_actors`** field is only returned when the authenticated user has **write** access to that ruleset ([GitHub note](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10#get-a-repository-ruleset)).
+
+#### Inputs
+
+- `owner` (required), `name` (required)
+- `includes_parents` (optional) — when **`true`** (default if omitted, matching the API), include rulesets from parent org/enterprise that apply to this repo; set **`false`** to exclude them
+- `targets` (optional) — comma-separated filter, e.g. `branch`, `tag`, `push`
+- `per_page` (optional) — 1–100; default **100** when omitted
+- `page` (optional)
+- `all_pages` (optional), `max_pages` (optional)
+
+#### Output
+
+On success: **`rulesets`**, echoed **`includes_parents`** (effective value), optional **`targets`**, **`pagination`**, **`request_id`**, **`page`**, **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`**.
