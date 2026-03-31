@@ -1,0 +1,61 @@
+{
+  "name": "github_update_repo_ruleset",
+  "description": "Update a repository ruleset (PUT /repos/{owner}/{repo}/rulesets/{ruleset_id}). Pass ruleset with at least one field (name, enforcement, target, bypass_actors, conditions, rules, or other API keys). Requires rules admin access. Returns 200. See GitHub REST repository rules.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "ruleset_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "ruleset": {
+        "type": "object",
+        "minProperties": 1,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "enforcement": {
+            "type": "string",
+            "enum": ["disabled", "active", "evaluate"]
+          },
+          "target": {
+            "type": "string",
+            "enum": ["branch", "tag", "push"]
+          },
+          "bypass_actors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "conditions": {
+            "type": "object"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "required": ["owner", "name", "ruleset_id", "ruleset"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

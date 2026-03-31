@@ -940,6 +940,17 @@ export type GetRepoRulesetSuccess = {
 
 export type GetRepoRulesetFailure = CreateRepoFailure;
 
+/** Success from PUT /repos/{owner}/{repo}/rulesets/{ruleset_id} — HTTP 200. */
+export type UpdateRepoRulesetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    ruleset: RepoRulesetListItem;
+    request_id: string | null;
+};
+
+export type UpdateRepoRulesetFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

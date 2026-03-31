@@ -1,6 +1,6 @@
 # Repository rules MCP tools
 
-This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **listing, getting, and creating** repository rulesets, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
+This folder implements tools for [GitHub REST: repository rules](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10): **branch-level active rules**, **listing, getting, creating, and updating** repository rulesets, and related reads. **Ruleset evaluation history** (rule suites) lives under [`rule-suites/`](../rule-suites/README.md).
 
 Tools are registered from `src/index.ts`. Responses follow shared conventions: **success** payloads include `request_id` when GitHub returns `x-github-request-id`; failures use a structured **error** envelope (see the parent [../README.md](../README.md)).
 
@@ -12,6 +12,7 @@ Tools are registered from `src/index.ts`. Responses follow shared conventions: *
 - [`github_list_repo_rulesets`](README.md#github_list_repo_rulesets)
 - [`github_get_repo_ruleset`](README.md#github_get_repo_ruleset)
 - [`github_create_repo_ruleset`](README.md#github_create_repo_ruleset)
+- [`github_update_repo_ruleset`](README.md#github_update_repo_ruleset)
 
 ---
 
@@ -83,3 +84,18 @@ Creates a ruleset via [Create a repository ruleset](https://docs.github.com/en/r
 #### Output
 
 On success: **`http_status`** (**201**), **`ruleset`** (created object), **`request_id`**. On failure: structured **`error`** (including validation **422** from GitHub).
+
+---
+
+### `github_update_repo_ruleset`
+
+Updates a ruleset via [Update a repository ruleset](https://docs.github.com/en/rest/repos/rules?apiVersion=2026-03-10#update-a-repository-ruleset) (`PUT /repos/{owner}/{repo}/rulesets/{ruleset_id}`). Send at least one field in **`ruleset`** (same shapes as create; all keys optional individually, but the body must not be empty). Requires permission to manage repository rules.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`ruleset_id`** (required)
+- **`ruleset`** (required) — partial update: any of `name`, `enforcement`, `target`, `bypass_actors`, `conditions`, `rules`, plus extra properties allowed via passthrough
+
+#### Output
+
+On success: **`http_status`** (**200**), **`ruleset`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).
