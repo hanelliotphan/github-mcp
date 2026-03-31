@@ -876,6 +876,25 @@ export type ListRepoRuleSuitesSuccess = {
 
 export type ListRepoRuleSuitesFailure = CreateRepoFailure;
 
+/** One active rule from GET /repos/{owner}/{repo}/rules/branches/{branch}; fields vary by `type`. */
+export type RepoBranchRuleDetailed = Record<string, unknown>;
+
+export type GetRepoBranchRulesSuccess = {
+    success: true;
+    message: string;
+    /** Branch name sent to the API (the branch does not need to exist). */
+    branch: string;
+    rules: RepoBranchRuleDetailed[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetRepoBranchRulesFailure = CreateRepoFailure;
+
 /** One entry from GET /repos/{owner}/{repo}/teams. */
 export type RepoTeamItem = {
     id: number;

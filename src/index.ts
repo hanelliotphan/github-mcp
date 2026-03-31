@@ -40,6 +40,7 @@ import { registerGithubListOrgReposTool } from "./tools/repositories/github-list
 import { registerGithubListPublicReposTool } from "./tools/repositories/github-list-public-repos.js";
 import { registerGithubCreateRepoForkTool } from "./tools/repositories/forks/github-create-repo-fork.js";
 import { registerGithubListRepoForksTool } from "./tools/repositories/forks/github-list-repo-forks.js";
+import { registerGithubGetRepoBranchRulesTool } from "./tools/repositories/rules/github-get-repo-branch-rules.js";
 import { registerGithubGetRepoRuleSuiteTool } from "./tools/repositories/rule-suites/github-get-repo-rule-suite.js";
 import { registerGithubListRepoRuleSuitesTool } from "./tools/repositories/rule-suites/github-list-repo-rule-suites.js";
 import { registerGithubListRepoLanguagesTool } from "./tools/repositories/github-list-repo-languages.js";
@@ -93,6 +94,7 @@ registerGithubListRepoLanguagesTool(server, octokit);
 registerGithubListRepoForksTool(server, octokit);
 registerGithubListRepoRuleSuitesTool(server, octokit);
 registerGithubGetRepoRuleSuiteTool(server, octokit);
+registerGithubGetRepoBranchRulesTool(server, octokit);
 registerGithubCreateRepoForkTool(server, octokit);
 registerGithubListRepoTagsTool(server, octokit);
 registerGithubListRepoTeamsTool(server, octokit);

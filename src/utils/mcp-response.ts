@@ -45,6 +45,8 @@ import type {
     GetRepoSuccess,
     GetRepoContentFailure,
     GetRepoContentSuccess,
+    GetRepoBranchRulesFailure,
+    GetRepoBranchRulesSuccess,
     GetRepoReadmeFailure,
     GetRepoReadmeSuccess,
     GetRepoRuleSuiteFailure,
@@ -139,6 +141,8 @@ export function textAndData(
         | GetRepoFailure
         | GetRepoContentSuccess
         | GetRepoContentFailure
+        | GetRepoBranchRulesSuccess
+        | GetRepoBranchRulesFailure
         | GetRepoReadmeSuccess
         | GetRepoReadmeFailure
         | GetRepoRuleSuiteSuccess

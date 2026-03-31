@@ -6,7 +6,7 @@ An MCP server for GitHub operations using TypeScript.
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with access appropriate for what you run. Labels below match the wording used in GitHub **Settings** (classic scope checkboxes, collaborator **Role** options, fine-grained **Repository permissions** access dropdowns, and account/org permissions). See [src/tools/repositories/README.md](src/tools/repositories/README.md) and the READMEs under [`contents/`](src/tools/repositories/contents/README.md), [`autolinks/`](src/tools/repositories/autolinks/README.md), [`custom-properties/`](src/tools/repositories/custom-properties/README.md), [`forks/`](src/tools/repositories/forks/README.md), and [`attestations/`](src/tools/repositories/attestations/README.md) for which tool needs which access.
+- A GitHub token with access appropriate for what you run. Labels below match the wording used in GitHub **Settings** (classic scope checkboxes, collaborator **Role** options, fine-grained **Repository permissions** access dropdowns, and account/org permissions). See [src/tools/repositories/README.md](src/tools/repositories/README.md) and the READMEs under [`contents/`](src/tools/repositories/contents/README.md), [`autolinks/`](src/tools/repositories/autolinks/README.md), [`custom-properties/`](src/tools/repositories/custom-properties/README.md), [`forks/`](src/tools/repositories/forks/README.md), [`rules/`](src/tools/repositories/rules/README.md), [`rule-suites/`](src/tools/repositories/rule-suites/README.md), and [`attestations/`](src/tools/repositories/attestations/README.md) for which tool needs which access.
 
 #### Repository → Settings → Collaborators and teams → Role
 
@@ -70,6 +70,8 @@ Implementations live in `src/tools/repositories/`. Documentation is split for re
 - **[Autolinks](src/tools/repositories/autolinks/README.md)** — repository autolinks.
 - **[Custom properties](src/tools/repositories/custom-properties/README.md)** — get, create, and update organization custom property values on repositories.
 - **[Forks](src/tools/repositories/forks/README.md)** — list and create repository forks.
+- **[Rules](src/tools/repositories/rules/README.md)** — active rules that apply to a branch name.
+- **[Rule suites](src/tools/repositories/rule-suites/README.md)** — ruleset evaluation history.
 - **[Attestations](src/tools/repositories/attestations/README.md)** — artifact attestations.
 
 Static MCP tool descriptors (JSON: tool name, description, argument schema) are checked in under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. These mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
