@@ -916,6 +916,23 @@ export type ListRepoRulesetsSuccess = {
 
 export type ListRepoRulesetsFailure = CreateRepoFailure;
 
+/** One webhook from GET /repos/{owner}/{repo}/hooks. */
+export type RepoWebhookItem = Record<string, unknown>;
+
+export type ListRepoWebhooksSuccess = {
+    success: true;
+    message: string;
+    webhooks: RepoWebhookItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoWebhooksFailure = CreateRepoFailure;
+
 /** Success from POST /repos/{owner}/{repo}/rulesets — GitHub returns HTTP 201. */
 export type CreateRepoRulesetSuccess = {
     success: true;

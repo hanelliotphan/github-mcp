@@ -2,9 +2,9 @@
 
 TypeScript tool implementations in this folder are registered from the server entrypoint (`src/index.ts`). Each tool wraps a [GitHub REST repositories API](https://docs.github.com/en/rest/repos/repos?apiVersion=2026-03-10) call (or related endpoint). Responses use a shared shape: **success** payloads include `request_id` when GitHub returns `x-github-request-id`; failures use a structured **error** envelope.
 
-Tools whose code lives in subfolders are documented in **[`contents/README.md`](contents/README.md)** (files, READMEs, archives), **[`autolinks/README.md`](autolinks/README.md)**, **[`custom-properties/README.md`](custom-properties/README.md)**, **[`forks/README.md`](forks/README.md)**, **[`rules/README.md`](rules/README.md)**, **[`rule-suites/README.md`](rule-suites/README.md)**, and **[`attestations/README.md`](attestations/README.md)**.
+Tools whose code lives in subfolders are documented in **[`contents/README.md`](contents/README.md)** (files, READMEs, archives), **[`autolinks/README.md`](autolinks/README.md)**, **[`custom-properties/README.md`](custom-properties/README.md)**, **[`forks/README.md`](forks/README.md)**, **[`rules/README.md`](rules/README.md)**, **[`rule-suites/README.md`](rule-suites/README.md)**, **[`webhooks/README.md`](webhooks/README.md)**, and **[`attestations/README.md`](attestations/README.md)**.
 
-**List tools with pagination** (org/user/authenticated repos, public repo feed, tags, branch rules, rulesets, teams, topics, contributors, activities, **repository attestations** by subject digest) return `pages_fetched` and echo the effective cursor (`page` / `per_page`, or `since`, or `per_page` plus cursor `pagination`). Set **`all_pages`: `true`** to follow GitHub `Link: rel="next"` automatically up to **`max_pages`** (default **100**, max **500**). If **`truncated`** is `true`, raise `max_pages` or call again using **`pagination.next`**. Shared helpers live in `src/utils/github-paginate-all.ts`.
+**List tools with pagination** (org/user/authenticated repos, public repo feed, tags, branch rules, rulesets, repository webhooks, teams, topics, contributors, activities, **repository attestations** by subject digest) return `pages_fetched` and echo the effective cursor (`page` / `per_page`, or `since`, or `per_page` plus cursor `pagination`). Set **`all_pages`: `true`** to follow GitHub `Link: rel="next"` automatically up to **`max_pages`** (default **100**, max **500**). If **`truncated`** is `true`, raise `max_pages` or call again using **`pagination.next`**. Shared helpers live in `src/utils/github-paginate-all.ts`.
 
 ## Tool index
 
@@ -16,6 +16,7 @@ Documentation for tools whose implementations live in subfolders:
 - **[`forks/`](forks/README.md)** — `github_list_repo_forks`, `github_create_repo_fork`.
 - **[`rules/`](rules/README.md)** — `github_get_repo_branch_rules`, `github_list_repo_rulesets`, `github_get_repo_ruleset`, `github_get_repo_ruleset_history`, `github_get_repo_ruleset_version`, `github_create_repo_ruleset`, `github_update_repo_ruleset`, `github_delete_repo_ruleset`.
 - **[`rule-suites/`](rule-suites/README.md)** — `github_list_repo_rule_suites`, `github_get_repo_rule_suite` (ruleset evaluation history, not ruleset definitions).
+- **[`webhooks/`](webhooks/README.md)** — `github_list_repo_webhooks`.
 - **[`attestations/`](attestations/README.md)** — `github_create_repo_attestation`, `github_list_repo_attestations`.
 
 **Repositories** (implementations in this directory)
