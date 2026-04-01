@@ -5,6 +5,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 ## Tools
 
 - [`github_list_repo_webhooks`](README.md#github_list_repo_webhooks)
+- [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
 
 ---
 
@@ -26,3 +27,22 @@ On success: **`webhooks`**, **`pagination`**, **`request_id`**, **`page`**, **`p
 #### Access
 
 Classic personal access tokens need **`read:repo_hook`** or **`repo`**. Fine-grained tokens need **Administration** read access (or as required by GitHub for this endpoint).
+
+---
+
+### `github_create_repo_webhook`
+
+Creates a webhook via [Create a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#create-a-repository-webhook) (`POST /repos/{owner}/{repo}/hooks`). Pass **`webhook`** with **`config.url`** (required). **`name`** must be **`web`** when set (GitHub’s only value). Optional **`events`** (GitHub defaults to **`push`** if omitted), **`active`** (default **true**), and **`config`** fields: **`content_type`** (`json` or `form`), **`secret`**, **`insecure_ssl`**.
+
+#### Inputs
+
+- `owner` (required), `name` (required) — repository
+- **`webhook`** (required) — `config` (at least `url`), optional `name`, `events`, `active`; additional top-level properties are forwarded when supported by the API
+
+#### Output
+
+On success: **`http_status`** (**201**), **`webhook`** (created hook object), **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**).
+
+#### Access
+
+Classic tokens need **`write:repo_hook`** or **`repo`**. Fine-grained tokens need **Administration** write access (or as required by GitHub).

@@ -1,0 +1,63 @@
+{
+  "name": "github_create_repo_webhook",
+  "description": "Create a repository webhook (POST /repos/{owner}/{repo}/hooks). Pass webhook with config.url (required), optional config.content_type json or form, secret, insecure_ssl; optional events array, active, name (must be web). Classic tokens need write:repo_hook or repo. Returns 201. See GitHub REST repository webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "webhook": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": ["web"]
+          },
+          "config": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "content_type": {
+                "type": "string",
+                "enum": ["json", "form"]
+              },
+              "secret": {
+                "type": "string"
+              },
+              "insecure_ssl": {}
+            },
+            "required": ["url"],
+            "additionalProperties": true
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": ["config"],
+        "additionalProperties": true
+      }
+    },
+    "required": ["owner", "name", "webhook"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
