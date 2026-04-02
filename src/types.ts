@@ -944,6 +944,18 @@ export type CreateRepoWebhookSuccess = {
 
 export type CreateRepoWebhookFailure = CreateRepoFailure;
 
+/** Success from GET /repos/{owner}/{repo}/hooks/{hook_id} — HTTP 200. */
+export type GetRepoWebhookSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    hook_id: number;
+    webhook: RepoWebhookItem;
+    request_id: string | null;
+};
+
+export type GetRepoWebhookFailure = CreateRepoFailure;
+
 /** Success from POST /repos/{owner}/{repo}/rulesets — GitHub returns HTTP 201. */
 export type CreateRepoRulesetSuccess = {
     success: true;

@@ -5,6 +5,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 ## Tools
 
 - [`github_list_repo_webhooks`](README.md#github_list_repo_webhooks)
+- [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
 
 ---
@@ -27,6 +28,24 @@ On success: **`webhooks`**, **`pagination`**, **`request_id`**, **`page`**, **`p
 #### Access
 
 Classic personal access tokens need **`read:repo_hook`** or **`repo`**. Fine-grained tokens need **Administration** read access (or as required by GitHub for this endpoint).
+
+---
+
+### `github_get_repo_webhook`
+
+Fetches one webhook via [Get a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#get-a-repository-webhook) (`GET /repos/{owner}/{repo}/hooks/{hook_id}`). Use **`hook_id`** from `github_list_repo_webhooks` (field **`id`**) or from the **`X-GitHub-Hook-ID`** header on a delivery.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required)
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`hook_id`**, **`webhook`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**).
+
+#### Access
+
+Same as list: classic **`read:repo_hook`** or **`repo`**; fine-grained **Administration** read (or as GitHub requires).
 
 ---
 
