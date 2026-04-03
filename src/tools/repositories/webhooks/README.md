@@ -8,6 +8,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
 - [`github_update_repo_webhook`](README.md#github_update_repo_webhook)
+- [`github_delete_repo_webhook`](README.md#github_delete_repo_webhook)
 
 ---
 
@@ -81,6 +82,24 @@ Updates a webhook via [Update a repository webhook](https://docs.github.com/en/r
 #### Output
 
 On success: **`http_status`** (**200**), echoed **`hook_id`**, **`webhook`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).
+
+#### Access
+
+Classic **`write:repo_hook`** or **`repo`**; fine-grained **Administration** write (or as GitHub requires).
+
+---
+
+### `github_delete_repo_webhook`
+
+Deletes a webhook via [Delete a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#delete-a-repository-webhook) (`DELETE /repos/{owner}/{repo}/hooks/{hook_id}`). The authenticated user must be a **repository owner** or have **admin** access.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required)
+
+#### Output
+
+On success: **`http_status`** (**204**), echoed **`owner`**, **`repo`**, **`full_name`**, **`hook_id`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**).
 
 #### Access
 

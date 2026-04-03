@@ -968,6 +968,20 @@ export type UpdateRepoWebhookSuccess = {
 
 export type UpdateRepoWebhookFailure = CreateRepoFailure;
 
+/** Success from DELETE /repos/{owner}/{repo}/hooks/{hook_id} — HTTP 204 No Content. */
+export type DeleteRepoWebhookSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    hook_id: number;
+    request_id: string | null;
+};
+
+export type DeleteRepoWebhookFailure = CreateRepoFailure;
+
 /** Success from POST /repos/{owner}/{repo}/rulesets — GitHub returns HTTP 201. */
 export type CreateRepoRulesetSuccess = {
     success: true;

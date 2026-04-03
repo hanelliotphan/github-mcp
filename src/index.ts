@@ -56,6 +56,7 @@ import { registerGithubListRepoTeamsTool } from "./tools/repositories/github-lis
 import { registerGithubListRepoTopicsTool } from "./tools/repositories/github-list-repo-topics.js";
 import { registerGithubListUserReposTool } from "./tools/repositories/github-list-user-repos.js";
 import { registerGithubCreateRepoWebhookTool } from "./tools/repositories/webhooks/github-create-repo-webhook.js";
+import { registerGithubDeleteRepoWebhookTool } from "./tools/repositories/webhooks/github-delete-repo-webhook.js";
 import { registerGithubGetRepoWebhookTool } from "./tools/repositories/webhooks/github-get-repo-webhook.js";
 import { registerGithubListRepoWebhooksTool } from "./tools/repositories/webhooks/github-list-repo-webhooks.js";
 import { registerGithubUpdateRepoWebhookTool } from "./tools/repositories/webhooks/github-update-repo-webhook.js";
@@ -128,6 +129,7 @@ registerGithubListRepoWebhooksTool(server, octokit);
 registerGithubGetRepoWebhookTool(server, octokit);
 registerGithubCreateRepoWebhookTool(server, octokit);
 registerGithubUpdateRepoWebhookTool(server, octokit);
+registerGithubDeleteRepoWebhookTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();
