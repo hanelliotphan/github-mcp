@@ -956,6 +956,21 @@ export type GetRepoWebhookSuccess = {
 
 export type GetRepoWebhookFailure = CreateRepoFailure;
 
+/** Config object from GET /repos/{owner}/{repo}/hooks/{hook_id}/config (`url`, `content_type`, `secret`, `insecure_ssl`, …). */
+export type RepoWebhookConfigItem = Record<string, unknown>;
+
+/** Success from GET /repos/{owner}/{repo}/hooks/{hook_id}/config — HTTP 200. */
+export type GetRepoWebhookConfigSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    hook_id: number;
+    config: RepoWebhookConfigItem;
+    request_id: string | null;
+};
+
+export type GetRepoWebhookConfigFailure = CreateRepoFailure;
+
 /** Success from PATCH /repos/{owner}/{repo}/hooks/{hook_id} — HTTP 200. */
 export type UpdateRepoWebhookSuccess = {
     success: true;

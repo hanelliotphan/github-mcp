@@ -6,6 +6,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 
 - [`github_list_repo_webhooks`](README.md#github_list_repo_webhooks)
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
+- [`github_get_repo_webhook_config`](README.md#github_get_repo_webhook_config)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
 - [`github_update_repo_webhook`](README.md#github_update_repo_webhook)
 - [`github_delete_repo_webhook`](README.md#github_delete_repo_webhook)
@@ -48,6 +49,24 @@ On success: **`http_status`** (**200**), echoed **`hook_id`**, **`webhook`**, **
 #### Access
 
 Same as list: classic **`read:repo_hook`** or **`repo`**; fine-grained **Administration** read (or as GitHub requires).
+
+---
+
+### `github_get_repo_webhook_config`
+
+Returns only the webhook **config** via [Get a webhook configuration for a repository](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#get-a-webhook-configuration-for-a-repository) (`GET /repos/{owner}/{repo}/hooks/{hook_id}/config`): typically **`url`**, **`content_type`**, **`secret`**, **`insecure_ssl`**. For **`events`**, **`active`**, and delivery metadata, use **`github_get_repo_webhook`**.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required)
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`hook_id`**, **`config`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Classic **`read:repo_hook`** or **`repo`**; fine-grained **Administration** read (or as GitHub requires).
 
 ---
 

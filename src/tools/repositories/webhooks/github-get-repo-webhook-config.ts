@@ -2,7 +2,11 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
-import type { GetRepoWebhookFailure, GetRepoWebhookSuccess, RepoWebhookItem } from "../../../types.js";
+import type {
+    GetRepoWebhookConfigFailure,
+    GetRepoWebhookConfigSuccess,
+    RepoWebhookConfigItem
+} from "../../../types.js";
 import { getRequestId, mapGitHubError } from "../../../utils/errors.js";
 import { textAndData } from "../../../utils/mcp-response.js";
 
@@ -10,18 +14,18 @@ const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
-function toPlainWebhook(data: unknown): RepoWebhookItem {
-    return JSON.parse(JSON.stringify(data)) as RepoWebhookItem;
+function toPlainConfig(data: unknown): RepoWebhookConfigItem {
+    return JSON.parse(JSON.stringify(data)) as RepoWebhookConfigItem;
 }
 
-export function registerGithubGetRepoWebhookTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetRepoWebhookConfigTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_repo_webhook",
-        "Get one repository webhook by ID (GET /repos/{owner}/{repo}/hooks/{hook_id}). " +
-            "Use **`hook_id`** from `github_list_repo_webhooks` or the **`X-GitHub-Hook-ID`** header on a delivery. " +
-            "For only **`config`** (URL, content type, secret, SSL), use **`github_get_repo_webhook_config`. " +
-            "Requires **`read:repo_hook`** or **`repo`** for classic tokens. " +
-            "See [Get a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#get-a-repository-webhook).",
+        "github_get_repo_webhook_config",
+        "Get webhook **configuration** only for a repository (GET /repos/{owner}/{repo}/hooks/{hook_id}/config). " +
+            "Returns **`url`**, **`content_type`**, **`secret`**, **`insecure_ssl`** (not the full hook with `events` / `active`—use `github_get_repo_webhook` for that). " +
+            "Use **`hook_id`** from `github_list_repo_webhooks`. " +
+            "Classic tokens need **`read:repo_hook`** or **`repo`**. " +
+            "See [Get a webhook configuration for a repository](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#get-a-webhook-configuration-for-a-repository).",
         {
             owner: z
                 .string()
@@ -43,24 +47,24 @@ export function registerGithubGetRepoWebhookTool(server: McpServer, octokit: Oct
         },
         async (input) => {
             try {
-                const response = await octokit.rest.repos.getWebhook({
+                const response = await octokit.rest.repos.getWebhookConfigForRepo({
                     owner: input.owner,
                     repo: input.name,
                     hook_id: input.hook_id
                 });
                 const requestId = getRequestId(response.headers["x-github-request-id"]);
 
-                const successPayload: GetRepoWebhookSuccess = {
+                const successPayload: GetRepoWebhookConfigSuccess = {
                     success: true,
-                    message: "Webhook retrieved successfully.",
+                    message: "Webhook configuration retrieved successfully.",
                     http_status: response.status,
                     hook_id: input.hook_id,
-                    webhook: toPlainWebhook(response.data),
+                    config: toPlainConfig(response.data),
                     request_id: requestId
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: GetRepoWebhookFailure = {
+                const failurePayload: GetRepoWebhookConfigFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(

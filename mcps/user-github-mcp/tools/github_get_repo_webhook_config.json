@@ -1,0 +1,27 @@
+{
+  "name": "github_get_repo_webhook_config",
+  "description": "Get webhook configuration only (GET /repos/{owner}/{repo}/hooks/{hook_id}/config): url, content_type, secret, insecure_ssl. For events and active, use github_get_repo_webhook. hook_id from github_list_repo_webhooks. Classic tokens need read:repo_hook or repo. See GitHub REST repository webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "hook_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
