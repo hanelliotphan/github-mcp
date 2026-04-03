@@ -7,6 +7,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 - [`github_list_repo_webhooks`](README.md#github_list_repo_webhooks)
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
+- [`github_update_repo_webhook`](README.md#github_update_repo_webhook)
 
 ---
 
@@ -65,3 +66,22 @@ On success: **`http_status`** (**201**), **`webhook`** (created hook object), **
 #### Access
 
 Classic tokens need **`write:repo_hook`** or **`repo`**. Fine-grained tokens need **Administration** write access (or as required by GitHub).
+
+---
+
+### `github_update_repo_webhook`
+
+Updates a webhook via [Update a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#update-a-repository-webhook) (`PATCH /repos/{owner}/{repo}/hooks/{hook_id}`). Pass **`webhook`** with at least one field: **`config`** (partial), **`events`** (replaces the entire event list), **`add_events`**, **`remove_events`**, **`active`**. If a **`secret`** was previously configured, send the same secret, a new secret, or GitHub removes it. Extra keys are forwarded when supported.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required)
+- **`webhook`** (required) — non-empty patch object
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`hook_id`**, **`webhook`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).
+
+#### Access
+
+Classic **`write:repo_hook`** or **`repo`**; fine-grained **Administration** write (or as GitHub requires).

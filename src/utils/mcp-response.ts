@@ -109,6 +109,8 @@ import type {
     TransferRepoSuccess,
     UpdateRepoRulesetFailure,
     UpdateRepoRulesetSuccess,
+    UpdateRepoWebhookFailure,
+    UpdateRepoWebhookSuccess,
     UpdateRepoFailure,
     UpdateRepoSuccess
 } from "../types.js";
@@ -225,6 +227,8 @@ export function textAndData(
         | TransferRepoFailure
         | UpdateRepoRulesetSuccess
         | UpdateRepoRulesetFailure
+        | UpdateRepoWebhookSuccess
+        | UpdateRepoWebhookFailure
         | UpdateRepoSuccess
         | UpdateRepoFailure
 ) {
