@@ -971,6 +971,18 @@ export type GetRepoWebhookConfigSuccess = {
 
 export type GetRepoWebhookConfigFailure = CreateRepoFailure;
 
+/** Success from PATCH /repos/{owner}/{repo}/hooks/{hook_id}/config — HTTP 200. */
+export type UpdateRepoWebhookConfigSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    hook_id: number;
+    config: RepoWebhookConfigItem;
+    request_id: string | null;
+};
+
+export type UpdateRepoWebhookConfigFailure = CreateRepoFailure;
+
 /** Success from PATCH /repos/{owner}/{repo}/hooks/{hook_id} — HTTP 200. */
 export type UpdateRepoWebhookSuccess = {
     success: true;

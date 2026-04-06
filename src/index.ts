@@ -60,6 +60,7 @@ import { registerGithubDeleteRepoWebhookTool } from "./tools/repositories/webhoo
 import { registerGithubGetRepoWebhookConfigTool } from "./tools/repositories/webhooks/github-get-repo-webhook-config.js";
 import { registerGithubGetRepoWebhookTool } from "./tools/repositories/webhooks/github-get-repo-webhook.js";
 import { registerGithubListRepoWebhooksTool } from "./tools/repositories/webhooks/github-list-repo-webhooks.js";
+import { registerGithubUpdateRepoWebhookConfigTool } from "./tools/repositories/webhooks/github-update-repo-webhook-config.js";
 import { registerGithubUpdateRepoWebhookTool } from "./tools/repositories/webhooks/github-update-repo-webhook.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
@@ -130,6 +131,7 @@ registerGithubListRepoWebhooksTool(server, octokit);
 registerGithubGetRepoWebhookTool(server, octokit);
 registerGithubGetRepoWebhookConfigTool(server, octokit);
 registerGithubCreateRepoWebhookTool(server, octokit);
+registerGithubUpdateRepoWebhookConfigTool(server, octokit);
 registerGithubUpdateRepoWebhookTool(server, octokit);
 registerGithubDeleteRepoWebhookTool(server, octokit);
 

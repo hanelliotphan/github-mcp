@@ -1,0 +1,46 @@
+{
+  "name": "github_update_repo_webhook_config",
+  "description": "Update webhook configuration only (PATCH /repos/{owner}/{repo}/hooks/{hook_id}/config). Pass config with at least one of url, content_type, secret, insecure_ssl. Does not change events or active (use github_update_repo_webhook). Classic tokens need write:repo_hook or repo. Returns 200. See GitHub REST repository webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "config": {
+        "type": "object",
+        "minProperties": 1,
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_type": {
+            "type": "string",
+            "enum": ["json", "form"]
+          },
+          "secret": {
+            "type": "string"
+          },
+          "insecure_ssl": {}
+        },
+        "additionalProperties": true
+      }
+    },
+    "required": ["owner", "name", "hook_id", "config"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

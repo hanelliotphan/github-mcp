@@ -113,6 +113,8 @@ import type {
     TransferRepoSuccess,
     UpdateRepoRulesetFailure,
     UpdateRepoRulesetSuccess,
+    UpdateRepoWebhookConfigFailure,
+    UpdateRepoWebhookConfigSuccess,
     UpdateRepoWebhookFailure,
     UpdateRepoWebhookSuccess,
     UpdateRepoFailure,
@@ -237,6 +239,8 @@ export function textAndData(
         | UpdateRepoRulesetFailure
         | UpdateRepoWebhookSuccess
         | UpdateRepoWebhookFailure
+        | UpdateRepoWebhookConfigSuccess
+        | UpdateRepoWebhookConfigFailure
         | UpdateRepoSuccess
         | UpdateRepoFailure
 ) {

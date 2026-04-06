@@ -8,6 +8,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_get_repo_webhook_config`](README.md#github_get_repo_webhook_config)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
+- [`github_update_repo_webhook_config`](README.md#github_update_repo_webhook_config)
 - [`github_update_repo_webhook`](README.md#github_update_repo_webhook)
 - [`github_delete_repo_webhook`](README.md#github_delete_repo_webhook)
 
@@ -67,6 +68,25 @@ On success: **`http_status`** (**200**), echoed **`hook_id`**, **`config`**, **`
 #### Access
 
 Classic **`read:repo_hook`** or **`repo`**; fine-grained **Administration** read (or as GitHub requires).
+
+---
+
+### `github_update_repo_webhook_config`
+
+Patches only the webhook **config** via [Update a webhook configuration for a repository](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#update-a-webhook-configuration-for-a-repository) (`PATCH /repos/{owner}/{repo}/hooks/{hook_id}/config`). Pass **`config`** with at least one of **`url`**, **`content_type`**, **`secret`**, **`insecure_ssl`**. To change **`events`** or **`active`**, use **`github_update_repo_webhook`**.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required)
+- **`config`** (required) — non-empty object of config fields to set
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`hook_id`**, **`config`** (updated object), **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Classic **`write:repo_hook`** or **`repo`**; fine-grained **Administration** write (or as GitHub requires).
 
 ---
 
