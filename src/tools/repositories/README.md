@@ -16,7 +16,7 @@ Documentation for tools whose implementations live in subfolders:
 - **[`forks/`](forks/README.md)** — `github_list_repo_forks`, `github_create_repo_fork`.
 - **[`rules/`](rules/README.md)** — `github_get_repo_branch_rules`, `github_list_repo_rulesets`, `github_get_repo_ruleset`, `github_get_repo_ruleset_history`, `github_get_repo_ruleset_version`, `github_create_repo_ruleset`, `github_update_repo_ruleset`, `github_delete_repo_ruleset`.
 - **[`rule-suites/`](rule-suites/README.md)** — `github_list_repo_rule_suites`, `github_get_repo_rule_suite` (ruleset evaluation history, not ruleset definitions).
-- **[`webhooks/`](webhooks/README.md)** — `github_list_repo_webhooks`, `github_list_repo_webhook_deliveries`, `github_get_repo_webhook_delivery`, `github_redeliver_repo_webhook_delivery`, `github_ping_repo_webhook`, `github_get_repo_webhook`, `github_get_repo_webhook_config`, `github_create_repo_webhook`, `github_update_repo_webhook_config`, `github_update_repo_webhook`, `github_delete_repo_webhook`.
+- **[`webhooks/`](webhooks/README.md)** — `github_list_repo_webhooks`, `github_list_repo_webhook_deliveries`, `github_get_repo_webhook_delivery`, `github_redeliver_repo_webhook_delivery`, `github_ping_repo_webhook`, `github_test_push_repo_webhook`, `github_get_repo_webhook`, `github_get_repo_webhook_config`, `github_create_repo_webhook`, `github_update_repo_webhook_config`, `github_update_repo_webhook`, `github_delete_repo_webhook`.
 - **[`attestations/`](attestations/README.md)** — `github_create_repo_attestation`, `github_list_repo_attestations`.
 
 **Repositories** (implementations in this directory)

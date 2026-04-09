@@ -9,6 +9,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 - [`github_get_repo_webhook_delivery`](README.md#github_get_repo_webhook_delivery)
 - [`github_redeliver_repo_webhook_delivery`](README.md#github_redeliver_repo_webhook_delivery)
 - [`github_ping_repo_webhook`](README.md#github_ping_repo_webhook)
+- [`github_test_push_repo_webhook`](README.md#github_test_push_repo_webhook)
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_get_repo_webhook_config`](README.md#github_get_repo_webhook_config)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
@@ -100,6 +101,24 @@ Classic **`write:repo_hook`** or **`repo`**; fine-grained **Administration** wri
 ### `github_ping_repo_webhook`
 
 Sends a ping via [Ping a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#ping-a-repository-webhook) (`POST /repos/{owner}/{repo}/hooks/{hook_id}/pings`). GitHub dispatches a [`ping` event](https://docs.github.com/webhooks/#ping-event) to the hook’s URL. Success is **204** No Content.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required)
+
+#### Output
+
+On success: **`http_status`** (**204**), echoed **`hook_id`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**).
+
+#### Access
+
+Classic **`write:repo_hook`** or **`repo`**; fine-grained **Administration** write (or as GitHub requires).
+
+---
+
+### `github_test_push_repo_webhook`
+
+Triggers [Test the push repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#test-the-push-repository-webhook) (`POST /repos/{owner}/{repo}/hooks/{hook_id}/tests`). If the hook includes **`push`** in **`events`**, GitHub sends a test delivery for the latest push; if not, the response is still **204** but no POST is sent to the endpoint.
 
 #### Inputs
 

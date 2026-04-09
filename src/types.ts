@@ -989,6 +989,17 @@ export type PingRepoWebhookSuccess = {
 
 export type PingRepoWebhookFailure = CreateRepoFailure;
 
+/** Success from POST /repos/{owner}/{repo}/hooks/{hook_id}/tests — HTTP 204 No Content (no POST to URL if hook lacks `push`). */
+export type TestPushRepoWebhookSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    hook_id: number;
+    request_id: string | null;
+};
+
+export type TestPushRepoWebhookFailure = CreateRepoFailure;
+
 /** Success from POST /repos/{owner}/{repo}/hooks — GitHub returns HTTP 201. */
 export type CreateRepoWebhookSuccess = {
     success: true;
