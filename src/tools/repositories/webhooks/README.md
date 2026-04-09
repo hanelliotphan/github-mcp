@@ -7,6 +7,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 - [`github_list_repo_webhooks`](README.md#github_list_repo_webhooks)
 - [`github_list_repo_webhook_deliveries`](README.md#github_list_repo_webhook_deliveries)
 - [`github_get_repo_webhook_delivery`](README.md#github_get_repo_webhook_delivery)
+- [`github_redeliver_repo_webhook_delivery`](README.md#github_redeliver_repo_webhook_delivery)
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_get_repo_webhook_config`](README.md#github_get_repo_webhook_config)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
@@ -74,6 +75,24 @@ On success: **`http_status`** (**200**), echoed **`hook_id`** and **`delivery_id
 #### Access
 
 Same as list webhooks: classic **`read:repo_hook`** or **`repo`**; fine-grained **Administration** read (or as GitHub requires).
+
+---
+
+### `github_redeliver_repo_webhook_delivery`
+
+Queues a redelivery via [Redeliver a delivery for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#redeliver-a-delivery-for-a-repository-webhook) (`POST /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts`). GitHub typically responds with **202** Accepted.
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required), **`delivery_id`** (required)
+
+#### Output
+
+On success: **`http_status`** (typically **202**), echoed **`hook_id`** and **`delivery_id`**, **`request_id`**. On failure: structured **`error`** (e.g. **400**, **422**).
+
+#### Access
+
+Classic **`write:repo_hook`** or **`repo`**; fine-grained **Administration** write (or as GitHub requires).
 
 ---
 

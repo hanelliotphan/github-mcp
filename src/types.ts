@@ -966,6 +966,18 @@ export type GetRepoWebhookDeliverySuccess = {
 
 export type GetRepoWebhookDeliveryFailure = CreateRepoFailure;
 
+/** Success from POST /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts — typically HTTP 202 Accepted. */
+export type RedeliverRepoWebhookDeliverySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    hook_id: number;
+    delivery_id: number;
+    request_id: string | null;
+};
+
+export type RedeliverRepoWebhookDeliveryFailure = CreateRepoFailure;
+
 /** Success from POST /repos/{owner}/{repo}/hooks — GitHub returns HTTP 201. */
 export type CreateRepoWebhookSuccess = {
     success: true;
