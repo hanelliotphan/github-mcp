@@ -6,6 +6,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 
 - [`github_list_repo_webhooks`](README.md#github_list_repo_webhooks)
 - [`github_list_repo_webhook_deliveries`](README.md#github_list_repo_webhook_deliveries)
+- [`github_get_repo_webhook_delivery`](README.md#github_get_repo_webhook_delivery)
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_get_repo_webhook_config`](README.md#github_get_repo_webhook_config)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
@@ -38,7 +39,7 @@ Classic personal access tokens need **`read:repo_hook`** or **`repo`**. Fine-gra
 
 ### `github_list_repo_webhook_deliveries`
 
-Lists delivery attempts via [List deliveries for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#list-deliveries-for-a-repository-webhook) (`GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries`). Each row is a **simple webhook delivery** (e.g. **`id`**, **`guid`**, **`delivered_at`**, **`status_code`**, **`event`**).
+Lists delivery attempts via [List deliveries for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#list-deliveries-for-a-repository-webhook) (`GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries`). Each row is a **simple webhook delivery** (e.g. **`id`**, **`guid`**, **`delivered_at`**, **`status_code`**, **`event`**). For the **full** delivery (request/response bodies when present), call **`github_get_repo_webhook_delivery`** with **`delivery_id`** = **`id`**.
 
 #### Inputs
 
@@ -51,6 +52,24 @@ Lists delivery attempts via [List deliveries for a repository webhook](https://d
 #### Output
 
 On success: **`deliveries`**, **`pagination`** (cursor-style `next` / `prev` / …), **`request_id`**, echoed **`hook_id`**, **`cursor`** (input used for this request’s first page), **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`** (e.g. **400**, **422**).
+
+#### Access
+
+Same as list webhooks: classic **`read:repo_hook`** or **`repo`**; fine-grained **Administration** read (or as GitHub requires).
+
+---
+
+### `github_get_repo_webhook_delivery`
+
+Fetches one delivery via [Get a delivery for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#get-a-delivery-for-a-repository-webhook) (`GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}`). Returns the **full** `hook-delivery` object (including **`request`** / **`response`** payloads when GitHub includes them).
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required), **`delivery_id`** (required) — use **`delivery_id`** from `github_list_repo_webhook_deliveries` (field **`id`**)
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`hook_id`** and **`delivery_id`**, **`delivery`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**).
 
 #### Access
 
