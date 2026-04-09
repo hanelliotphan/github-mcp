@@ -5,6 +5,7 @@ Tools for [GitHub REST: repository webhooks](https://docs.github.com/en/rest/rep
 ## Tools
 
 - [`github_list_repo_webhooks`](README.md#github_list_repo_webhooks)
+- [`github_list_repo_webhook_deliveries`](README.md#github_list_repo_webhook_deliveries)
 - [`github_get_repo_webhook`](README.md#github_get_repo_webhook)
 - [`github_get_repo_webhook_config`](README.md#github_get_repo_webhook_config)
 - [`github_create_repo_webhook`](README.md#github_create_repo_webhook)
@@ -32,6 +33,28 @@ On success: **`webhooks`**, **`pagination`**, **`request_id`**, **`page`**, **`p
 #### Access
 
 Classic personal access tokens need **`read:repo_hook`** or **`repo`**. Fine-grained tokens need **Administration** read access (or as required by GitHub for this endpoint).
+
+---
+
+### `github_list_repo_webhook_deliveries`
+
+Lists delivery attempts via [List deliveries for a repository webhook](https://docs.github.com/en/rest/repos/webhooks?apiVersion=2026-03-10#list-deliveries-for-a-repository-webhook) (`GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries`). Each row is a **simple webhook delivery** (e.g. **`id`**, **`guid`**, **`delivered_at`**, **`status_code`**, **`event`**).
+
+#### Inputs
+
+- `owner` (required), `name` (required), **`hook_id`** (required)
+- `per_page` (optional) — 1–100; default **100** when omitted (GitHub’s REST default is **30**)
+- `cursor` (optional) — for the next page; use **`pagination.next.cursor`** from a prior response (or from `Link` headers)
+- `status` (optional) — **`success`** or **`failure`** (filters by HTTP status code range per GitHub)
+- `all_pages` (optional), `max_pages` (optional) — follow `rel="next"` until done or cap
+
+#### Output
+
+On success: **`deliveries`**, **`pagination`** (cursor-style `next` / `prev` / …), **`request_id`**, echoed **`hook_id`**, **`cursor`** (input used for this request’s first page), **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`** (e.g. **400**, **422**).
+
+#### Access
+
+Same as list webhooks: classic **`read:repo_hook`** or **`repo`**; fine-grained **Administration** read (or as GitHub requires).
 
 ---
 

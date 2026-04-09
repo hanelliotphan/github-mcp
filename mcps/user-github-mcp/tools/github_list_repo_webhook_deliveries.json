@@ -1,0 +1,48 @@
+{
+  "name": "github_list_repo_webhook_deliveries",
+  "description": "List deliveries for a repository webhook (GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries). Cursor pagination: per_page 1-100 default 100, cursor, optional status success|failure, all_pages and max_pages. Classic tokens need read:repo_hook or repo. See GitHub REST repository webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "cursor": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["success", "failure"]
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": ["owner", "name", "hook_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

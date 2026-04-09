@@ -179,3 +179,61 @@ export function parseGitHubSinceLinkPagination(linkHeader: string | undefined): 
         last: lastUrl ? sinceRefFromHref(lastUrl) : null
     };
 }
+
+/** `cursor` / `per_page` from a Link URL — used by repository webhook deliveries list. */
+export type GitHubCursorQueryLinkRef = {
+    cursor: string | null;
+    per_page: number | null;
+};
+
+export type GitHubCursorQueryLinkPagination = {
+    next: GitHubCursorQueryLinkRef | null;
+    prev: GitHubCursorQueryLinkRef | null;
+    first: GitHubCursorQueryLinkRef | null;
+    last: GitHubCursorQueryLinkRef | null;
+};
+
+function cursorQueryRefFromHref(href: string): GitHubCursorQueryLinkRef | null {
+    try {
+        const u = new URL(href);
+        const cursor = u.searchParams.get("cursor");
+        const perPageRaw = u.searchParams.get("per_page");
+        let per_page: number | null = null;
+        if (perPageRaw != null && perPageRaw !== "") {
+            const pp = parseInt(perPageRaw, 10);
+            per_page = Number.isNaN(pp) ? null : pp;
+        }
+        return {
+            cursor: cursor && cursor.length > 0 ? cursor : null,
+            per_page
+        };
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Parses GitHub `Link` header for endpoints that paginate with the `cursor` query param (e.g. list webhook deliveries).
+ * @see https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api
+ */
+export function parseGitHubCursorQueryLinkPagination(
+    linkHeader: string | undefined
+): GitHubCursorQueryLinkPagination | null {
+    if (linkHeader == null || linkHeader === "") {
+        return null;
+    }
+    const rels = parseRelations(linkHeader);
+    const nextUrl = rels.get("next");
+    const prevUrl = rels.get("prev");
+    const firstUrl = rels.get("first");
+    const lastUrl = rels.get("last");
+    if (!nextUrl && !prevUrl && !firstUrl && !lastUrl) {
+        return null;
+    }
+    return {
+        next: nextUrl ? cursorQueryRefFromHref(nextUrl) : null,
+        prev: prevUrl ? cursorQueryRefFromHref(prevUrl) : null,
+        first: firstUrl ? cursorQueryRefFromHref(firstUrl) : null,
+        last: lastUrl ? cursorQueryRefFromHref(lastUrl) : null
+    };
+}

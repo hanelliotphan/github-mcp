@@ -91,6 +91,8 @@ import type {
     ListRepoRuleSuitesSuccess,
     ListRepoRulesetsFailure,
     ListRepoRulesetsSuccess,
+    ListRepoWebhookDeliveriesFailure,
+    ListRepoWebhookDeliveriesSuccess,
     ListRepoWebhooksFailure,
     ListRepoWebhooksSuccess,
     ListAuthenticatedUserReposFailure,
@@ -215,6 +217,8 @@ export function textAndData(
         | ListRepoRuleSuitesFailure
         | ListRepoRulesetsSuccess
         | ListRepoRulesetsFailure
+        | ListRepoWebhookDeliveriesSuccess
+        | ListRepoWebhookDeliveriesFailure
         | ListRepoWebhooksSuccess
         | ListRepoWebhooksFailure
         | ListAuthenticatedUserReposSuccess

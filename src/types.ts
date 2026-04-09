@@ -1,4 +1,5 @@
 import type {
+    GitHubCursorQueryLinkPagination,
     GitHubLinkPagination,
     GitHubPageLinkPagination,
     GitHubSinceLinkPagination
@@ -932,6 +933,25 @@ export type ListRepoWebhooksSuccess = {
 };
 
 export type ListRepoWebhooksFailure = CreateRepoFailure;
+
+/** One delivery from GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries (summary fields). */
+export type RepoWebhookDeliveryItem = Record<string, unknown>;
+
+export type ListRepoWebhookDeliveriesSuccess = {
+    success: true;
+    message: string;
+    hook_id: number;
+    deliveries: RepoWebhookDeliveryItem[];
+    pagination: GitHubCursorQueryLinkPagination | null;
+    request_id: string | null;
+    /** `cursor` query used for the first page in this response (omit on first page). */
+    cursor: string | undefined;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoWebhookDeliveriesFailure = CreateRepoFailure;
 
 /** Success from POST /repos/{owner}/{repo}/hooks — GitHub returns HTTP 201. */
 export type CreateRepoWebhookSuccess = {

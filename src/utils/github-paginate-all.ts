@@ -1,9 +1,11 @@
 import type {
+    GitHubCursorQueryLinkPagination,
     GitHubLinkPagination,
     GitHubPageLinkPagination,
     GitHubSinceLinkPagination
 } from "./parse-github-link-header.js";
 import {
+    parseGitHubCursorQueryLinkPagination,
     parseGitHubLinkPagination,
     parseGitHubPageLinkPagination,
     parseGitHubSinceLinkPagination
@@ -171,6 +173,60 @@ export async function fetchAllCursorLinkPages<T>(options: {
     return {
         rows: aggregated,
         pagesFetched,
+        lastRequestId,
+        truncated,
+        responsePagination: truncated ? lastPagination : null
+    };
+}
+
+/**
+ * Follow `Link` headers that use the `cursor` query param (e.g. list repository webhook deliveries).
+ */
+export async function fetchAllCursorQueryLinkPages<T>(options: {
+    perPage: number;
+    maxPages: number;
+    initialCursor: string | undefined;
+    fetchChunk: (cursor: string | undefined) => Promise<PaginateChunkResult<T>>;
+}): Promise<{
+    rows: T[];
+    pagesFetched: number;
+    /** `cursor` query passed on the last request in this run. */
+    lastCursorUsed: string | undefined;
+    lastRequestId: string | null;
+    truncated: boolean;
+    /** `null` when every page was fetched; when `truncated`, includes `next` for follow-up. */
+    responsePagination: GitHubCursorQueryLinkPagination | null;
+}> {
+    let cursor: string | undefined = options.initialCursor;
+    const aggregated: T[] = [];
+    let pagesFetched = 0;
+    let lastRequestId: string | null = null;
+    let lastPagination: GitHubCursorQueryLinkPagination | null = null;
+
+    while (pagesFetched < options.maxPages) {
+        const { rows, linkHeader, requestId } = await options.fetchChunk(cursor);
+        lastRequestId = requestId;
+        lastPagination = parseGitHubCursorQueryLinkPagination(linkHeader);
+        aggregated.push(...rows);
+        pagesFetched++;
+        const nextCursor = lastPagination?.next?.cursor;
+        if (rows.length === 0 || nextCursor == null || nextCursor === "") {
+            return {
+                rows: aggregated,
+                pagesFetched,
+                lastCursorUsed: cursor,
+                lastRequestId,
+                truncated: false,
+                responsePagination: null
+            };
+        }
+        cursor = nextCursor;
+    }
+    const truncated = lastPagination?.next != null && lastPagination.next.cursor != null;
+    return {
+        rows: aggregated,
+        pagesFetched,
+        lastCursorUsed: cursor,
         lastRequestId,
         truncated,
         responsePagination: truncated ? lastPagination : null
