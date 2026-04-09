@@ -62,6 +62,7 @@ import { registerGithubGetRepoWebhookDeliveryTool } from "./tools/repositories/w
 import { registerGithubGetRepoWebhookTool } from "./tools/repositories/webhooks/github-get-repo-webhook.js";
 import { registerGithubListRepoWebhookDeliveriesTool } from "./tools/repositories/webhooks/github-list-repo-webhook-deliveries.js";
 import { registerGithubListRepoWebhooksTool } from "./tools/repositories/webhooks/github-list-repo-webhooks.js";
+import { registerGithubPingRepoWebhookTool } from "./tools/repositories/webhooks/github-ping-repo-webhook.js";
 import { registerGithubRedeliverRepoWebhookDeliveryTool } from "./tools/repositories/webhooks/github-redeliver-repo-webhook-delivery.js";
 import { registerGithubUpdateRepoWebhookConfigTool } from "./tools/repositories/webhooks/github-update-repo-webhook-config.js";
 import { registerGithubUpdateRepoWebhookTool } from "./tools/repositories/webhooks/github-update-repo-webhook.js";
@@ -134,6 +135,7 @@ registerGithubListRepoWebhooksTool(server, octokit);
 registerGithubListRepoWebhookDeliveriesTool(server, octokit);
 registerGithubGetRepoWebhookDeliveryTool(server, octokit);
 registerGithubRedeliverRepoWebhookDeliveryTool(server, octokit);
+registerGithubPingRepoWebhookTool(server, octokit);
 registerGithubGetRepoWebhookTool(server, octokit);
 registerGithubGetRepoWebhookConfigTool(server, octokit);
 registerGithubCreateRepoWebhookTool(server, octokit);

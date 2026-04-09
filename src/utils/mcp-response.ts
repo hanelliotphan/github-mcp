@@ -67,6 +67,8 @@ import type {
     GetRepoWebhookDeliverySuccess,
     RedeliverRepoWebhookDeliveryFailure,
     RedeliverRepoWebhookDeliverySuccess,
+    PingRepoWebhookFailure,
+    PingRepoWebhookSuccess,
     GetRepoWebhookFailure,
     GetRepoWebhookSuccess,
     GetRepoCustomPropertyValuesFailure,
@@ -197,6 +199,8 @@ export function textAndData(
         | GetRepoWebhookDeliveryFailure
         | RedeliverRepoWebhookDeliverySuccess
         | RedeliverRepoWebhookDeliveryFailure
+        | PingRepoWebhookSuccess
+        | PingRepoWebhookFailure
         | GetRepoWebhookConfigSuccess
         | GetRepoWebhookConfigFailure
         | GetRepoCustomPropertyValuesSuccess

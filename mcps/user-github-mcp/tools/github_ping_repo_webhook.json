@@ -1,0 +1,27 @@
+{
+  "name": "github_ping_repo_webhook",
+  "description": "Ping a repository webhook (POST /repos/{owner}/{repo}/hooks/{hook_id}/pings). Sends a ping event to the hook URL. Success is HTTP 204. hook_id from github_list_repo_webhooks. Classic tokens need write:repo_hook or repo. See GitHub REST repository webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "hook_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

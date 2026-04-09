@@ -978,6 +978,17 @@ export type RedeliverRepoWebhookDeliverySuccess = {
 
 export type RedeliverRepoWebhookDeliveryFailure = CreateRepoFailure;
 
+/** Success from POST /repos/{owner}/{repo}/hooks/{hook_id}/pings — HTTP 204 No Content. */
+export type PingRepoWebhookSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    hook_id: number;
+    request_id: string | null;
+};
+
+export type PingRepoWebhookFailure = CreateRepoFailure;
+
 /** Success from POST /repos/{owner}/{repo}/hooks — GitHub returns HTTP 201. */
 export type CreateRepoWebhookSuccess = {
     success: true;
