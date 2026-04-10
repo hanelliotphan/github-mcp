@@ -10,7 +10,7 @@ Tools whose code lives in subfolders are documented in **[`contents/README.md`](
 
 Documentation for tools whose implementations live in subfolders:
 
-- **[`organizations/`](../organizations/README.md)** — `github_list_organizations`.
+- **[`organizations/`](../organizations/README.md)** — `github_list_organizations`, `github_get_org`.
 - **[`contents/`](contents/README.md)** — file and directory content, READMEs, create/update/delete files, tar/zip archive download URLs (`github_get_repo_content`, `github_get_repo_readme`, `github_get_repo_readme_in_directory`, `github_create_update_file_contents`, `github_delete_file`, `github_download_repo_archive_tar`, `github_download_repo_archive_zip`).
 - **[`autolinks/`](autolinks/README.md)** — `github_list_repo_autolinks`.
 - **[`custom-properties/`](custom-properties/README.md)** — `github_get_repo_custom_property_values`, `github_create_update_repo_custom_property_values`.

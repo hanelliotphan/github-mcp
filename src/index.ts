@@ -36,6 +36,7 @@ import { registerGithubListCodeownersErrorsTool } from "./tools/repositories/git
 import { registerGithubListRepoContributorsTool } from "./tools/repositories/github-list-repo-contributors.js";
 import { registerGithubListRepoActivitiesTool } from "./tools/repositories/github-list-repo-activities.js";
 import { registerGithubListAuthenticatedUserReposTool } from "./tools/repositories/github-list-authenticated-user-repos.js";
+import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgReposTool } from "./tools/repositories/github-list-org-repos.js";
 import { registerGithubListPublicReposTool } from "./tools/repositories/github-list-public-repos.js";
@@ -80,6 +81,7 @@ const server = new McpServer({ name: "github-mcp", version: "1.0.0" });
 registerGithubCreatePersonalRepoTool(server, octokit);
 registerGithubCreateOrgRepoTool(server, octokit);
 registerGithubListOrganizationsTool(server, octokit);
+registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgReposTool(server, octokit);
 registerGithubCreateRepoFromTemplateTool(server, octokit);
 registerGithubDeleteRepoTool(server, octokit);

@@ -659,6 +659,22 @@ export type ListOrganizationsSuccess = {
 
 export type ListOrganizationsFailure = CreateRepoFailure;
 
+/** Organization object from GET /orgs/{org} (fields depend on token/scopes). */
+export type OrganizationDetailItem = Record<string, unknown>;
+
+/** Success from GET /orgs/{org} — HTTP 200. */
+export type GetOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    /** Echoed organization login from the request. */
+    org: string;
+    organization: OrganizationDetailItem;
+    request_id: string | null;
+};
+
+export type GetOrgFailure = CreateRepoFailure;
+
 /** GET /users/{username}/repos — public repositories for a user (see GitHub `type` filter). */
 export type ListUserReposSuccess = {
     success: true;

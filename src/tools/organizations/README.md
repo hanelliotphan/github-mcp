@@ -5,6 +5,21 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
+- [`github_get_org`](README.md#github_get_org)
+
+---
+
+### `github_get_org`
+
+Fetches one organization via [Get an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#get-an-organization) (`GET /orgs/{org}`). The JSON includes at least public profile fields; **sensitive or owner-only fields** depend on the token (classic: e.g. **`admin:org`** for full org details per GitHub; fine-grained: org permissions as documented).
+
+#### Inputs
+
+- **`org`** (required) — organization login (not case sensitive)
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`org`**, **`organization`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**).
 
 ---
 

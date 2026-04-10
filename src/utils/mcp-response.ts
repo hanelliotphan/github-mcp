@@ -45,6 +45,8 @@ import type {
     DownloadRepoArchiveZipSuccess,
     DeleteRepoFailure,
     DeleteRepoSuccess,
+    GetOrgFailure,
+    GetOrgSuccess,
     GetRepoFailure,
     GetRepoSuccess,
     GetRepoContentFailure,
@@ -181,6 +183,8 @@ export function textAndData(
         | DownloadRepoArchiveTarFailure
         | DownloadRepoArchiveZipSuccess
         | DownloadRepoArchiveZipFailure
+        | GetOrgSuccess
+        | GetOrgFailure
         | GetRepoSuccess
         | GetRepoFailure
         | GetRepoContentSuccess
