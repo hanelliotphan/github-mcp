@@ -1,0 +1,22 @@
+{
+  "name": "github_update_org",
+  "description": "Update an organization (PATCH /orgs/{org}). patch object with one or more fields: description, company, email, blog, member repo policies, etc. Requires org owner; classic tokens need admin:org or repo. See GitHub REST orgs.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "patch": {
+        "type": "object",
+        "minProperties": 1,
+        "additionalProperties": true
+      }
+    },
+    "required": ["org", "patch"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

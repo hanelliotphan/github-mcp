@@ -6,6 +6,22 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 
 - [`github_list_organizations`](README.md#github_list_organizations)
 - [`github_get_org`](README.md#github_get_org)
+- [`github_update_org`](README.md#github_update_org)
+
+---
+
+### `github_update_org`
+
+Updates an organization via [Update an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#update-an-organization) (`PATCH /orgs/{org}`). Send a non-empty **`patch`** object; only include keys you want to change. Validated keys include **`billing_email`**, **`company`**, **`email`**, **`twitter_username`**, **`location`**, **`name`**, **`description`** (max 160 chars, nullable), **`blog`**, project flags, **`default_repository_permission`**, member repository-creation and Pages settings, **`web_commit_signoff_required`**, deploy keys flag, and deprecated “new repository” security toggles (GitHub recommends code security configurations instead). Additional properties are forwarded when the API accepts them.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`patch`** (required) — non-empty object of fields to set
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`org`**, updated **`organization`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **409**, **422**).
 
 ---
 

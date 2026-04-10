@@ -675,6 +675,18 @@ export type GetOrgSuccess = {
 
 export type GetOrgFailure = CreateRepoFailure;
 
+/** Success from PATCH /orgs/{org} — HTTP 200. */
+export type UpdateOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    organization: OrganizationDetailItem;
+    request_id: string | null;
+};
+
+export type UpdateOrgFailure = CreateRepoFailure;
+
 /** GET /users/{username}/repos — public repositories for a user (see GitHub `type` filter). */
 export type ListUserReposSuccess = {
     success: true;

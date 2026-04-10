@@ -125,6 +125,8 @@ import type {
     ReplaceRepoTopicsSuccess,
     TransferRepoFailure,
     TransferRepoSuccess,
+    UpdateOrgFailure,
+    UpdateOrgSuccess,
     UpdateRepoRulesetFailure,
     UpdateRepoRulesetSuccess,
     UpdateRepoWebhookConfigFailure,
@@ -263,6 +265,8 @@ export function textAndData(
         | ReplaceRepoTopicsFailure
         | TransferRepoSuccess
         | TransferRepoFailure
+        | UpdateOrgSuccess
+        | UpdateOrgFailure
         | UpdateRepoRulesetSuccess
         | UpdateRepoRulesetFailure
         | UpdateRepoWebhookSuccess
