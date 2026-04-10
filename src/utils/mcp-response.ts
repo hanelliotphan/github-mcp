@@ -105,6 +105,8 @@ import type {
     ListRepoWebhooksSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
+    ListOrganizationsFailure,
+    ListOrganizationsSuccess,
     ListOrgReposFailure,
     ListOrgReposSuccess,
     ListPublicReposFailure,
@@ -239,6 +241,8 @@ export function textAndData(
         | ListRepoWebhooksFailure
         | ListAuthenticatedUserReposSuccess
         | ListAuthenticatedUserReposFailure
+        | ListOrganizationsSuccess
+        | ListOrganizationsFailure
         | ListOrgReposSuccess
         | ListOrgReposFailure
         | ListPublicReposSuccess

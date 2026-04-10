@@ -637,6 +637,28 @@ export type ListPublicReposSuccess = {
 
 export type ListPublicReposFailure = CreateRepoFailure;
 
+/** One row from GET /organizations (organization simple). */
+export type OrganizationSimpleListItem = Record<string, unknown>;
+
+export type ListOrganizationsSuccess = {
+    success: true;
+    message: string;
+    organizations: OrganizationSimpleListItem[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.since` to continue.
+     */
+    pagination: GitHubSinceLinkPagination | null;
+    request_id: string | null;
+    /** `since` query sent on the last request (`null` if omitted). */
+    since: number | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrganizationsFailure = CreateRepoFailure;
+
 /** GET /users/{username}/repos — public repositories for a user (see GitHub `type` filter). */
 export type ListUserReposSuccess = {
     success: true;

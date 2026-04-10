@@ -6,7 +6,7 @@ An MCP server for GitHub operations using TypeScript.
 
 - Node.js 20+
 - npm 10+
-- A GitHub token with access appropriate for what you run. Labels below match the wording used in GitHub **Settings** (classic scope checkboxes, collaborator **Role** options, fine-grained **Repository permissions** access dropdowns, and account/org permissions). See [src/tools/repositories/README.md](src/tools/repositories/README.md) and the READMEs under [`contents/`](src/tools/repositories/contents/README.md), [`autolinks/`](src/tools/repositories/autolinks/README.md), [`custom-properties/`](src/tools/repositories/custom-properties/README.md), [`forks/`](src/tools/repositories/forks/README.md), [`rules/`](src/tools/repositories/rules/README.md), [`rule-suites/`](src/tools/repositories/rule-suites/README.md), [`webhooks/`](src/tools/repositories/webhooks/README.md), and [`attestations/`](src/tools/repositories/attestations/README.md) for which tool needs which access.
+- A GitHub token with access appropriate for what you run. Labels below match the wording used in GitHub **Settings** (classic scope checkboxes, collaborator **Role** options, fine-grained **Repository permissions** access dropdowns, and account/org permissions). See [src/tools/repositories/README.md](src/tools/repositories/README.md), [src/tools/organizations/README.md](src/tools/organizations/README.md), and the READMEs under [`contents/`](src/tools/repositories/contents/README.md), [`autolinks/`](src/tools/repositories/autolinks/README.md), [`custom-properties/`](src/tools/repositories/custom-properties/README.md), [`forks/`](src/tools/repositories/forks/README.md), [`rules/`](src/tools/repositories/rules/README.md), [`rule-suites/`](src/tools/repositories/rule-suites/README.md), [`webhooks/`](src/tools/repositories/webhooks/README.md), and [`attestations/`](src/tools/repositories/attestations/README.md) for which tool needs which access.
 
 #### Repository → Settings → Collaborators and teams → Role
 
@@ -63,8 +63,9 @@ npm run dev
 
 ## Tools
 
-Implementations live in `src/tools/repositories/`. Documentation is split for readability:
+Implementations live under `src/tools/` (`repositories/`, `organizations/`, and nested feature folders). Documentation is split for readability:
 
+- **[Organization tools](src/tools/organizations/README.md)** — global organization listing (`GET /organizations`).
 - **[Repository tools overview](src/tools/repositories/README.md)** — tools registered from the top level of `repositories/` (create/delete/update repo, lists, settings, dispatch, dependency alerts, CODEOWNERS, etc.), plus the shared response conventions.
 - **[Contents](src/tools/repositories/contents/README.md)** — repository files, READMEs, create/update/delete file contents, tar/zip archive download URLs.
 - **[Autolinks](src/tools/repositories/autolinks/README.md)** — repository autolinks.
@@ -74,7 +75,7 @@ Implementations live in `src/tools/repositories/`. Documentation is split for re
 - **[Rule suites](src/tools/repositories/rule-suites/README.md)** — ruleset evaluation history.
 - **[Attestations](src/tools/repositories/attestations/README.md)** — artifact attestations.
 
-Static MCP tool descriptors (JSON: tool name, description, argument schema) are checked in under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. These mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
+Static MCP tool descriptors (JSON: tool name, description, argument schema) live under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/) in the **same subfolders as** `src/tools` (e.g. `tools/repositories/webhooks/`, `tools/organizations/`), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. They mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
 
 ## MCP Client Config (using `.env` only)
 
