@@ -7,6 +7,25 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 - [`github_list_organizations`](README.md#github_list_organizations)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_update_org`](README.md#github_update_org)
+- [`github_delete_org`](README.md#github_delete_org)
+
+---
+
+### `github_delete_org`
+
+Deletes an organization via [Delete an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#delete-an-organization) (`DELETE /orgs/{org}`). This **deletes all repositories** in the org; the login cannot be reused for **90 days**. Read GitHub’s [Terms of Service](https://docs.github.com/site-policy/github-terms/github-terms-of-service) first.
+
+**Guards:** set **`confirm`: `true`** to perform the delete, or **`dry_run`: `true`** to validate arguments without calling the API. If neither is set, the tool returns a **400** validation error (same pattern as `github_delete_repo`).
+
+#### Inputs
+
+- **`org`** (required)
+- **`dry_run`** (optional, default `false`)
+- **`confirm`** (optional, default `false`)
+
+#### Output
+
+On success: echoed **`org`**, **`request_id`**, and typically **`http_status`** **202** (omitted on dry run). On failure: structured **`error`** (e.g. **403**, **404**, **451**).
 
 ---
 

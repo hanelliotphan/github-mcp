@@ -35,6 +35,8 @@ import type {
     CreateRepoSuccess,
     DeleteFileFailure,
     DeleteFileSuccess,
+    DeleteOrgFailure,
+    DeleteOrgSuccess,
     DeleteRepoRulesetFailure,
     DeleteRepoRulesetSuccess,
     DeleteRepoWebhookFailure,
@@ -177,6 +179,8 @@ export function textAndData(
         | DeleteRepoFailure
         | DeleteFileSuccess
         | DeleteFileFailure
+        | DeleteOrgSuccess
+        | DeleteOrgFailure
         | DeleteRepoRulesetSuccess
         | DeleteRepoRulesetFailure
         | DeleteRepoWebhookSuccess

@@ -1,0 +1,25 @@
+{
+  "name": "github_delete_org",
+  "description": "Delete an organization (DELETE /orgs/{org}); removes org and all repos. Requires confirm true or dry_run true. Typically HTTP 202. Destructive; see GitHub ToS. Classic admin:org. See GitHub REST orgs.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "dry_run": {
+        "type": "boolean",
+        "default": false
+      },
+      "confirm": {
+        "type": "boolean",
+        "default": false
+      }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

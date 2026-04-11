@@ -36,6 +36,7 @@ import { registerGithubListCodeownersErrorsTool } from "./tools/repositories/git
 import { registerGithubListRepoContributorsTool } from "./tools/repositories/github-list-repo-contributors.js";
 import { registerGithubListRepoActivitiesTool } from "./tools/repositories/github-list-repo-activities.js";
 import { registerGithubListAuthenticatedUserReposTool } from "./tools/repositories/github-list-authenticated-user-repos.js";
+import { registerGithubDeleteOrgTool } from "./tools/organizations/github-delete-org.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubUpdateOrgTool } from "./tools/organizations/github-update-org.js";
@@ -84,6 +85,7 @@ registerGithubCreateOrgRepoTool(server, octokit);
 registerGithubListOrganizationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubUpdateOrgTool(server, octokit);
+registerGithubDeleteOrgTool(server, octokit);
 registerGithubListOrgReposTool(server, octokit);
 registerGithubCreateRepoFromTemplateTool(server, octokit);
 registerGithubDeleteRepoTool(server, octokit);

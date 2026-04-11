@@ -687,6 +687,20 @@ export type UpdateOrgSuccess = {
 
 export type UpdateOrgFailure = CreateRepoFailure;
 
+/** Success from DELETE /orgs/{org} — typically HTTP 202 Accepted. */
+export type DeleteOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    request_id: string | null;
+    /** Present when GitHub returned a response (omit on dry run). */
+    http_status?: number;
+    dry_run?: boolean;
+    planned_request?: { org: string };
+};
+
+export type DeleteOrgFailure = CreateRepoFailure;
+
 /** GET /users/{username}/repos — public repositories for a user (see GitHub `type` filter). */
 export type ListUserReposSuccess = {
     success: true;
