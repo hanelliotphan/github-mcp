@@ -5,6 +5,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
+- [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_update_org`](README.md#github_update_org)
 - [`github_delete_org`](README.md#github_delete_org)
@@ -73,3 +74,22 @@ GitHub paginates with the **`since`** organization id cursor (like `github_list_
 #### Output
 
 On success: `organizations`, `since` (cursor used on the last request, or `null`), `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. On failure: structured `error`.
+
+---
+
+### `github_list_org_app_installations`
+
+Lists GitHub App installations via [List app installations for an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-app-installations-for-an-organization) (`GET /orgs/{org}/installations`). GitHub’s **`total_count`** includes installations on repositories in the organization. Callers must be **organization owners**; classic and fine-grained token requirements are documented on the endpoint page.
+
+Pagination uses **`page`** and **`per_page`** (1–100; default **100** when omitted; GitHub’s REST default is **30**).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- `page` (optional, default **1**)
+- `per_page` (optional, 1–100; default **100** when omitted)
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
+
+#### Output
+
+On success: **`org`**, **`total_count`**, **`installations`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (e.g. **403** when not an owner).

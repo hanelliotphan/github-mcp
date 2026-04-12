@@ -111,6 +111,8 @@ import type {
     ListAuthenticatedUserReposSuccess,
     ListOrganizationsFailure,
     ListOrganizationsSuccess,
+    ListOrgAppInstallationsFailure,
+    ListOrgAppInstallationsSuccess,
     ListOrgReposFailure,
     ListOrgReposSuccess,
     ListPublicReposFailure,
@@ -253,6 +255,8 @@ export function textAndData(
         | ListAuthenticatedUserReposFailure
         | ListOrganizationsSuccess
         | ListOrganizationsFailure
+        | ListOrgAppInstallationsSuccess
+        | ListOrgAppInstallationsFailure
         | ListOrgReposSuccess
         | ListOrgReposFailure
         | ListPublicReposSuccess

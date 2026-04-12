@@ -659,6 +659,30 @@ export type ListOrganizationsSuccess = {
 
 export type ListOrganizationsFailure = CreateRepoFailure;
 
+/** One installation from GET /orgs/{org}/installations. */
+export type OrgAppInstallationItem = Record<string, unknown>;
+
+export type ListOrgAppInstallationsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    /** Total count reported by GitHub (includes apps installed on org repositories). */
+    total_count: number;
+    installations: OrgAppInstallationItem[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgAppInstallationsFailure = CreateRepoFailure;
+
 /** Organization object from GET /orgs/{org} (fields depend on token/scopes). */
 export type OrganizationDetailItem = Record<string, unknown>;
 
