@@ -65,7 +65,7 @@ npm run dev
 
 Implementations live under `src/tools/` (`repositories/`, `organizations/`, and nested feature folders). Documentation is split for readability:
 
-- **[Organization tools](src/tools/organizations/README.md)** — list organizations (`GET /organizations`), list org GitHub App installations (`GET /orgs/{org}/installations`), get, update, and delete an org (`GET` / `PATCH` / `DELETE /orgs/{org}`; delete is guarded with `confirm` / `dry_run`).
+- **[Organization tools](src/tools/organizations/README.md)** — list organizations (`GET /organizations`), list org GitHub App installations (`GET /orgs/{org}/installations`), get org immutable releases settings (`GET /orgs/{org}/settings/immutable-releases`), get, update, and delete an org (`GET` / `PATCH` / `DELETE /orgs/{org}`; delete is guarded with `confirm` / `dry_run`).
 - **[Repository tools overview](src/tools/repositories/README.md)** — tools registered from the top level of `repositories/` (create/delete/update repo, lists, settings, dispatch, dependency alerts, CODEOWNERS, etc.), plus the shared response conventions.
 - **[Contents](src/tools/repositories/contents/README.md)** — repository files, READMEs, create/update/delete file contents, tar/zip archive download URLs.
 - **[Autolinks](src/tools/repositories/autolinks/README.md)** — repository autolinks.

@@ -7,6 +7,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 - [`github_list_organizations`](README.md#github_list_organizations)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
+- [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
 - [`github_update_org`](README.md#github_update_org)
 - [`github_delete_org`](README.md#github_delete_org)
 
@@ -56,6 +57,20 @@ Fetches one organization via [Get an organization](https://docs.github.com/en/re
 #### Output
 
 On success: **`http_status`** (**200**), echoed **`org`**, **`organization`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**).
+
+---
+
+### `github_get_org_immutable_releases_settings`
+
+Reads the org-wide immutable releases policy via [Get immutable releases settings for an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#get-immutable-releases-settings-for-an-organization) (`GET /orgs/{org}/settings/immutable-releases`). OAuth and classic personal access tokens typically need **`admin:org`** per GitHub.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+
+#### Output
+
+On success: **`http_status`** (**200**), **`enforced_repositories`** (`all`, `none`, or `selected`), **`selected_repositories_url`** (often present when enforcement is `selected`), echoed **`org`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**).
 
 ---
 

@@ -1,0 +1,17 @@
+{
+  "name": "github_get_org_immutable_releases_settings",
+  "description": "Get organization immutable releases policy (GET /orgs/{org}/settings/immutable-releases). Returns enforced_repositories (all, none, selected) and selected_repositories_url. Classic PATs typically need admin:org. org is organization login (1-39 chars).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

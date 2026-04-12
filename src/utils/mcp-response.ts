@@ -48,6 +48,8 @@ import type {
     DeleteRepoFailure,
     DeleteRepoSuccess,
     GetOrgFailure,
+    GetOrgImmutableReleasesSettingsFailure,
+    GetOrgImmutableReleasesSettingsSuccess,
     GetOrgSuccess,
     GetRepoFailure,
     GetRepoSuccess,
@@ -193,6 +195,8 @@ export function textAndData(
         | DownloadRepoArchiveZipFailure
         | GetOrgSuccess
         | GetOrgFailure
+        | GetOrgImmutableReleasesSettingsSuccess
+        | GetOrgImmutableReleasesSettingsFailure
         | GetRepoSuccess
         | GetRepoFailure
         | GetRepoContentSuccess

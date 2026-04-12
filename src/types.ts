@@ -699,6 +699,20 @@ export type GetOrgSuccess = {
 
 export type GetOrgFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/settings/immutable-releases — HTTP 200. */
+export type GetOrgImmutableReleasesSettingsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** GitHub: `all`, `none`, or `selected`. */
+    enforced_repositories: string;
+    selected_repositories_url: string | null;
+    request_id: string | null;
+};
+
+export type GetOrgImmutableReleasesSettingsFailure = CreateRepoFailure;
+
 /** Success from PATCH /orgs/{org} — HTTP 200. */
 export type UpdateOrgSuccess = {
     success: true;
