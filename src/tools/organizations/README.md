@@ -8,6 +8,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
+- [`github_set_org_immutable_releases_settings`](README.md#github_set_org_immutable_releases_settings)
 - [`github_update_org`](README.md#github_update_org)
 - [`github_delete_org`](README.md#github_delete_org)
 
@@ -71,6 +72,22 @@ Reads the org-wide immutable releases policy via [Get immutable releases setting
 #### Output
 
 On success: **`http_status`** (**200**), **`enforced_repositories`** (`all`, `none`, or `selected`), **`selected_repositories_url`** (often present when enforcement is `selected`), echoed **`org`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**).
+
+---
+
+### `github_set_org_immutable_releases_settings`
+
+Updates the org-wide immutable releases policy via [Set immutable releases settings for an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#set-immutable-releases-settings-for-an-organization) (`PUT /orgs/{org}/settings/immutable-releases`). Success is typically **`http_status`** **204** (no response body). OAuth and classic personal access tokens typically need **`admin:org`** per GitHub.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`enforced_repositories`** (required) — `all`, `none`, or `selected`
+- **`selected_repository_ids`** (optional) — numeric repository ids; **only** when **`enforced_repositories`** is **`selected`**. Omit when switching to `all` or `none`, or when only changing policy mode.
+
+#### Output
+
+On success: **`http_status`**, echoed **`org`**, **`enforced_repositories`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **422**). If **`selected_repository_ids`** is sent while **`enforced_repositories`** is not **`selected`**, the tool returns a **400** validation error without calling GitHub.
 
 ---
 

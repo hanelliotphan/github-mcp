@@ -713,6 +713,18 @@ export type GetOrgImmutableReleasesSettingsSuccess = {
 
 export type GetOrgImmutableReleasesSettingsFailure = CreateRepoFailure;
 
+/** PUT /orgs/{org}/settings/immutable-releases — typically HTTP 204 No Content. */
+export type SetOrgImmutableReleasesSettingsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    enforced_repositories: string;
+    request_id: string | null;
+};
+
+export type SetOrgImmutableReleasesSettingsFailure = CreateRepoFailure;
+
 /** Success from PATCH /orgs/{org} — HTTP 200. */
 export type UpdateOrgSuccess = {
     success: true;

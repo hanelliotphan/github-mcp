@@ -1,0 +1,28 @@
+{
+  "name": "github_set_org_immutable_releases_settings",
+  "description": "Set organization immutable releases policy (PUT /orgs/{org}/settings/immutable-releases). enforced_repositories: all, none, or selected. Optional selected_repository_ids (repo numeric ids) only when enforced_repositories is selected. Returns 204 on success. Classic PATs typically need admin:org.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "enforced_repositories": {
+        "type": "string",
+        "enum": ["all", "none", "selected"]
+      },
+      "selected_repository_ids": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "required": ["org", "enforced_repositories"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -129,6 +129,8 @@ import type {
     ListUserReposSuccess,
     ReplaceRepoTopicsFailure,
     ReplaceRepoTopicsSuccess,
+    SetOrgImmutableReleasesSettingsFailure,
+    SetOrgImmutableReleasesSettingsSuccess,
     TransferRepoFailure,
     TransferRepoSuccess,
     UpdateOrgFailure,
@@ -275,6 +277,8 @@ export function textAndData(
         | ListUserReposFailure
         | ReplaceRepoTopicsSuccess
         | ReplaceRepoTopicsFailure
+        | SetOrgImmutableReleasesSettingsSuccess
+        | SetOrgImmutableReleasesSettingsFailure
         | TransferRepoSuccess
         | TransferRepoFailure
         | UpdateOrgSuccess
