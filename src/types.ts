@@ -683,6 +683,29 @@ export type ListOrgAppInstallationsSuccess = {
 
 export type ListOrgAppInstallationsFailure = CreateRepoFailure;
 
+/** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
+export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
+
+export type ListOrgReposWithImmutableReleasesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    repositories: OrgImmutableReleasesRepositoryItem[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgReposWithImmutableReleasesFailure = CreateRepoFailure;
+
 /** Organization object from GET /orgs/{org} (fields depend on token/scopes). */
 export type OrganizationDetailItem = Record<string, unknown>;
 

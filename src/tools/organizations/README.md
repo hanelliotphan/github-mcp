@@ -9,6 +9,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 - [`github_get_org`](README.md#github_get_org)
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
 - [`github_set_org_immutable_releases_settings`](README.md#github_set_org_immutable_releases_settings)
+- [`github_list_org_repos_with_immutable_releases`](README.md#github_list_org_repos_with_immutable_releases)
 - [`github_update_org`](README.md#github_update_org)
 - [`github_delete_org`](README.md#github_delete_org)
 
@@ -88,6 +89,25 @@ Updates the org-wide immutable releases policy via [Set immutable releases setti
 #### Output
 
 On success: **`http_status`**, echoed **`org`**, **`enforced_repositories`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **422**). If **`selected_repository_ids`** is sent while **`enforced_repositories`** is not **`selected`**, the tool returns a **400** validation error without calling GitHub.
+
+---
+
+### `github_list_org_repos_with_immutable_releases`
+
+Lists repositories under **selected** immutable-releases enforcement via [List selected repositories for immutable releases enforcement](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-selected-repositories-for-immutable-releases-enforcement) (`GET /orgs/{org}/settings/immutable-releases/repositories`). Meaningful when **`enforced_repositories`** is **`selected`** on the org policy (`github_get_org_immutable_releases_settings`). OAuth and classic personal access tokens typically need **`admin:org`** per GitHub.
+
+Pagination uses **`page`** and **`per_page`** (1–100; default **100** when omitted; GitHub’s REST default is **30**).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- `page` (optional, default **1**)
+- `per_page` (optional, 1–100; default **100** when omitted)
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
+
+#### Output
+
+On success: **`org`**, **`total_count`**, **`repositories`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`**.
 
 ---
 

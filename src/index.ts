@@ -41,6 +41,7 @@ import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.j
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
 import { registerGithubSetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-set-org-immutable-releases-settings.js";
 import { registerGithubListOrgAppInstallationsTool } from "./tools/organizations/github-list-org-app-installations.js";
+import { registerGithubListOrgReposWithImmutableReleasesTool } from "./tools/organizations/github-list-org-repos-with-immutable-releases.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubUpdateOrgTool } from "./tools/organizations/github-update-org.js";
 import { registerGithubListOrgReposTool } from "./tools/repositories/github-list-org-repos.js";
@@ -90,6 +91,7 @@ registerGithubListOrgAppInstallationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubGetOrgImmutableReleasesSettingsTool(server, octokit);
 registerGithubSetOrgImmutableReleasesSettingsTool(server, octokit);
+registerGithubListOrgReposWithImmutableReleasesTool(server, octokit);
 registerGithubUpdateOrgTool(server, octokit);
 registerGithubDeleteOrgTool(server, octokit);
 registerGithubListOrgReposTool(server, octokit);
