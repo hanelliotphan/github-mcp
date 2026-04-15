@@ -3,8 +3,8 @@ import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
 import type {
-    ListOrgReposWithImmutableReleasesFailure,
-    ListOrgReposWithImmutableReleasesSuccess,
+    ListImmutableReleasesForOrgReposFailure,
+    ListImmutableReleasesForOrgReposSuccess,
     OrgImmutableReleasesRepositoryItem
 } from "../../types.js";
 import { getRequestId, mapGitHubError } from "../../utils/errors.js";
@@ -31,9 +31,9 @@ function toPlainRepositories(rows: unknown[]): OrgImmutableReleasesRepositoryIte
     return rows.map((row) => JSON.parse(JSON.stringify(row)) as OrgImmutableReleasesRepositoryItem);
 }
 
-export function registerGithubListOrgReposWithImmutableReleasesTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubListImmutableReleasesForOrgReposTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_list_org_repos_with_immutable_releases",
+        "github_list_immutable_releases_for_org_repos",
         "List repositories selected for organization immutable releases enforcement (GET /orgs/{org}/settings/immutable-releases/repositories). " +
             "Only applies when org policy uses **`selected`** (see `github_get_org_immutable_releases_settings`). " +
             "OAuth and classic personal access tokens typically need **`admin:org`** per GitHub. " +
@@ -84,7 +84,7 @@ export function registerGithubListOrgReposWithImmutableReleasesTool(server: McpS
                         }
                     });
                     const repositories = toPlainRepositories(result.rows);
-                    const successPayload: ListOrgReposWithImmutableReleasesSuccess = {
+                    const successPayload: ListImmutableReleasesForOrgReposSuccess = {
                         success: true,
                         message: result.truncated
                             ? `Repositories partially listed (${result.pagesFetched} pages, ${repositories.length} rows); more pages exist.`
@@ -115,7 +115,7 @@ export function registerGithubListOrgReposWithImmutableReleasesTool(server: McpS
                     response.headers as { link?: string; Link?: string }
                 );
                 const parsed = parseRepositoriesBody(response.data);
-                const successPayload: ListOrgReposWithImmutableReleasesSuccess = {
+                const successPayload: ListImmutableReleasesForOrgReposSuccess = {
                     success: true,
                     message: "Immutable releases enforcement repositories listed successfully.",
                     org: input.org,
@@ -129,7 +129,7 @@ export function registerGithubListOrgReposWithImmutableReleasesTool(server: McpS
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: ListOrgReposWithImmutableReleasesFailure = {
+                const failurePayload: ListImmutableReleasesForOrgReposFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(

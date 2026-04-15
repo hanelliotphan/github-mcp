@@ -686,7 +686,7 @@ export type ListOrgAppInstallationsFailure = CreateRepoFailure;
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
-export type ListOrgReposWithImmutableReleasesSuccess = {
+export type ListImmutableReleasesForOrgReposSuccess = {
     success: true;
     message: string;
     org: string;
@@ -704,7 +704,7 @@ export type ListOrgReposWithImmutableReleasesSuccess = {
     truncated?: boolean;
 };
 
-export type ListOrgReposWithImmutableReleasesFailure = CreateRepoFailure;
+export type ListImmutableReleasesForOrgReposFailure = CreateRepoFailure;
 
 /** Organization object from GET /orgs/{org} (fields depend on token/scopes). */
 export type OrganizationDetailItem = Record<string, unknown>;
@@ -747,6 +747,19 @@ export type SetOrgImmutableReleasesSettingsSuccess = {
 };
 
 export type SetOrgImmutableReleasesSettingsFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/settings/immutable-releases/repositories — typically HTTP 204 No Content. */
+export type SetImmutableReleasesForOrgReposSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Repository ids sent to GitHub (full replacement for the selected set). */
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+
+export type SetImmutableReleasesForOrgReposFailure = CreateRepoFailure;
 
 /** Success from PATCH /orgs/{org} — HTTP 200. */
 export type UpdateOrgSuccess = {

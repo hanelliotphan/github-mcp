@@ -115,8 +115,8 @@ import type {
     ListOrganizationsSuccess,
     ListOrgAppInstallationsFailure,
     ListOrgAppInstallationsSuccess,
-    ListOrgReposWithImmutableReleasesFailure,
-    ListOrgReposWithImmutableReleasesSuccess,
+    ListImmutableReleasesForOrgReposFailure,
+    ListImmutableReleasesForOrgReposSuccess,
     ListOrgReposFailure,
     ListOrgReposSuccess,
     ListPublicReposFailure,
@@ -131,6 +131,8 @@ import type {
     ListUserReposSuccess,
     ReplaceRepoTopicsFailure,
     ReplaceRepoTopicsSuccess,
+    SetImmutableReleasesForOrgReposFailure,
+    SetImmutableReleasesForOrgReposSuccess,
     SetOrgImmutableReleasesSettingsFailure,
     SetOrgImmutableReleasesSettingsSuccess,
     TransferRepoFailure,
@@ -265,8 +267,8 @@ export function textAndData(
         | ListOrganizationsFailure
         | ListOrgAppInstallationsSuccess
         | ListOrgAppInstallationsFailure
-        | ListOrgReposWithImmutableReleasesSuccess
-        | ListOrgReposWithImmutableReleasesFailure
+        | ListImmutableReleasesForOrgReposSuccess
+        | ListImmutableReleasesForOrgReposFailure
         | ListOrgReposSuccess
         | ListOrgReposFailure
         | ListPublicReposSuccess
@@ -281,6 +283,8 @@ export function textAndData(
         | ListUserReposFailure
         | ReplaceRepoTopicsSuccess
         | ReplaceRepoTopicsFailure
+        | SetImmutableReleasesForOrgReposSuccess
+        | SetImmutableReleasesForOrgReposFailure
         | SetOrgImmutableReleasesSettingsSuccess
         | SetOrgImmutableReleasesSettingsFailure
         | TransferRepoSuccess

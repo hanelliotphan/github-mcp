@@ -1,5 +1,5 @@
 {
-  "name": "github_list_org_repos_with_immutable_releases",
+  "name": "github_list_immutable_releases_for_org_repos",
   "description": "List repositories selected for org immutable releases enforcement (GET /orgs/{org}/settings/immutable-releases/repositories). Use when org policy is selected. Pagination: page, per_page 1-100 default 100; all_pages and max_pages. Classic PATs typically need admin:org.",
   "arguments": {
     "type": "object",

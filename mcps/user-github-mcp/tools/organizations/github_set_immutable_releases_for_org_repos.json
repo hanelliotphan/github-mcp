@@ -1,0 +1,24 @@
+{
+  "name": "github_set_immutable_releases_for_org_repos",
+  "description": "Replace org repos selected for immutable releases enforcement (PUT /orgs/{org}/settings/immutable-releases/repositories). Requires enforced_repositories=selected on the org. selected_repository_ids is required (array of numeric repo ids; use [] to clear). Returns 204 on success. Classic PATs typically need admin:org.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "selected_repository_ids": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "required": ["org", "selected_repository_ids"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

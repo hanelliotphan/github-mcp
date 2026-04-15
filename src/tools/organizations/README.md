@@ -9,7 +9,8 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 - [`github_get_org`](README.md#github_get_org)
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
 - [`github_set_org_immutable_releases_settings`](README.md#github_set_org_immutable_releases_settings)
-- [`github_list_org_repos_with_immutable_releases`](README.md#github_list_org_repos_with_immutable_releases)
+- [`github_list_immutable_releases_for_org_repos`](README.md#github_list_immutable_releases_for_org_repos)
+- [`github_set_immutable_releases_for_org_repos`](README.md#github_set_immutable_releases_for_org_repos)
 - [`github_update_org`](README.md#github_update_org)
 - [`github_delete_org`](README.md#github_delete_org)
 
@@ -92,7 +93,7 @@ On success: **`http_status`**, echoed **`org`**, **`enforced_repositories`**, **
 
 ---
 
-### `github_list_org_repos_with_immutable_releases`
+### `github_list_immutable_releases_for_org_repos`
 
 Lists repositories under **selected** immutable-releases enforcement via [List selected repositories for immutable releases enforcement](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-selected-repositories-for-immutable-releases-enforcement) (`GET /orgs/{org}/settings/immutable-releases/repositories`). Meaningful when **`enforced_repositories`** is **`selected`** on the org policy (`github_get_org_immutable_releases_settings`). OAuth and classic personal access tokens typically need **`admin:org`** per GitHub.
 
@@ -108,6 +109,21 @@ Pagination uses **`page`** and **`per_page`** (1–100; default **100** when omi
 #### Output
 
 On success: **`org`**, **`total_count`**, **`repositories`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_set_immutable_releases_for_org_repos`
+
+Replaces the full set of repositories under **selected** enforcement via [Set selected repositories for immutable releases enforcement](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#set-selected-repositories-for-immutable-releases-enforcement) (`PUT /orgs/{org}/settings/immutable-releases/repositories`). The org must already use **`enforced_repositories`: `selected`** (`github_set_org_immutable_releases_settings`). OAuth and classic personal access tokens typically need **`admin:org`** per GitHub.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`selected_repository_ids`** (required) — array of numeric repository ids GitHub should enforce; pass **`[]`** to clear the selection
+
+#### Output
+
+On success: **`http_status`** (typically **204**), echoed **`org`**, echoed **`selected_repository_ids`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **422** when the org policy is not `selected`).
 
 ---
 
