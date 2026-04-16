@@ -916,6 +916,22 @@ export type GetTimeStatsSuccess = {
 
 export type GetTimeStatsFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/insights/api/time-stats/users/{user_id} — HTTP 200 (same array shape as org time-stats). */
+export type GetTimeStatsByUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    user_id: string;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    timestamp_increment: string;
+    time_stats: TimeStatRow[];
+    request_id: string | null;
+};
+
+export type GetTimeStatsByUserFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/settings/immutable-releases — HTTP 200. */
 export type GetOrgImmutableReleasesSettingsSuccess = {
     success: true;
