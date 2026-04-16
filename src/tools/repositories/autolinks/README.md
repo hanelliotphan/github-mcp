@@ -7,6 +7,7 @@ Tool implementations in this folder wrap the [GitHub REST repository autolinks A
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
 - [`github_create_repo_autolink`](README.md#github_create_repo_autolink)
 - [`github_get_repo_autolink`](README.md#github_get_repo_autolink)
+- [`github_delete_repo_autolink`](README.md#github_delete_repo_autolink)
 
 ---
 
@@ -53,3 +54,18 @@ Fetches [one autolink by id](https://docs.github.com/en/rest/repos/autolinks?api
 #### Output
 
 On success: **`http_status`** (**200**), echoed **`owner`**, **`name`**, **`autolink_id`**, **`autolink`** (same fields as list rows), **`request_id`**. On failure: structured **`error`** (**404** if not found or not visible per GitHub).
+
+---
+
+### `github_delete_repo_autolink`
+
+Removes [one autolink by id](https://docs.github.com/en/rest/repos/autolinks?apiVersion=2026-03-10#delete-an-autolink-reference-from-a-repository) via `DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`. GitHub returns **204** with no body on success.
+
+#### Inputs
+
+- **`owner`**, **`name`** (required) — repository coordinates
+- **`autolink_id`** (required) — numeric autolink id to delete
+
+#### Output
+
+On success: **`http_status`** (**204**), echoed **`owner`**, **`name`**, **`full_name`**, **`autolink_id`**, **`request_id`**. On failure: structured **`error`** (**404** when missing or not visible per GitHub).

@@ -641,6 +641,20 @@ export type GetRepoAutolinkSuccess = {
 
 export type GetRepoAutolinkFailure = CreateRepoFailure;
 
+/** Success from DELETE /repos/{owner}/{repo}/autolinks/{autolink_id} — HTTP 204. */
+export type DeleteRepoAutolinkSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    full_name: string;
+    autolink_id: number;
+    request_id: string | null;
+};
+
+export type DeleteRepoAutolinkFailure = CreateRepoFailure;
+
 /** One row from GET /repos/{owner}/{repo}/properties/values. */
 export type RepoCustomPropertyValue = {
     property_name: string;
