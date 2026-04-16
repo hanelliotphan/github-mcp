@@ -15,6 +15,8 @@ import type {
     EnableOrDisableOrgSecurityFeatureSuccess,
     CreateUpdateFileContentsFailure,
     CreateUpdateFileContentsSuccess,
+    CreateOrgArtifactDeploymentRecordFailure,
+    CreateOrgArtifactDeploymentRecordSuccess,
     CreateRepoAttestationFailure,
     CreateRepoAttestationSuccess,
     CreateRepoAutolinkFailure,
@@ -217,6 +219,8 @@ export function textAndData(
         | DisableVulnerabilityAlertsFailure
         | CreateUpdateFileContentsSuccess
         | CreateUpdateFileContentsFailure
+        | CreateOrgArtifactDeploymentRecordSuccess
+        | CreateOrgArtifactDeploymentRecordFailure
         | CreateRepoAttestationSuccess
         | CreateRepoAttestationFailure
         | CreateRepoAutolinkSuccess

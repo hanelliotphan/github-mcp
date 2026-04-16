@@ -398,6 +398,22 @@ export type EnableOrDisableOrgSecurityFeatureSuccess = {
 
 export type EnableOrDisableOrgSecurityFeatureFailure = CreateRepoFailure;
 
+/** One row in `deployment_records` from org artifact metadata deployment APIs. */
+export type ArtifactDeploymentRecordRow = Record<string, unknown>;
+
+/** POST /orgs/{org}/artifacts/metadata/deployment-record — HTTP 200. */
+export type CreateOrgArtifactDeploymentRecordSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    deployment_records: ArtifactDeploymentRecordRow[];
+    request_id: string | null;
+};
+
+export type CreateOrgArtifactDeploymentRecordFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;

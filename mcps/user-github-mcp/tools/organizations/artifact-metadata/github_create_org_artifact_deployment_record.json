@@ -1,0 +1,48 @@
+{
+  "name": "github_create_org_artifact_deployment_record",
+  "description": "POST /orgs/{org}/artifacts/metadata/deployment-record — create or update an org artifact deployment record (name, digest, status deployed|decommissioned, logical_environment, deployment_name; optional version, physical_environment, cluster, tags, runtime_risks, github_repository, return_records). HTTP 200. See GitHub REST org artifact metadata.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": { "type": "string", "minLength": 1 },
+      "digest": { "type": "string", "minLength": 1 },
+      "status": { "type": "string", "enum": ["deployed", "decommissioned"] },
+      "logical_environment": { "type": "string", "minLength": 1 },
+      "deployment_name": { "type": "string", "minLength": 1 },
+      "version": { "type": "string", "minLength": 1 },
+      "physical_environment": { "type": "string", "minLength": 1 },
+      "cluster": { "type": "string", "minLength": 1 },
+      "tags": { "type": "object", "additionalProperties": { "type": "string" } },
+      "runtime_risks": {
+        "type": "array",
+        "maxItems": 20,
+        "items": {
+          "type": "string",
+          "enum": [
+            "critical-resource",
+            "internet-exposed",
+            "lateral-movement",
+            "sensitive-data"
+          ]
+        }
+      },
+      "github_repository": { "type": "string", "minLength": 1 },
+      "return_records": { "type": "boolean" }
+    },
+    "required": [
+      "org",
+      "name",
+      "digest",
+      "status",
+      "logical_environment",
+      "deployment_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

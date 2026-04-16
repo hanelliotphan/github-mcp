@@ -4,6 +4,8 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 
 Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/api/...`) live in [`api-insights/`](api-insights/).
 
+**[Artifact metadata](artifact-metadata/README.md)** tools (`/orgs/{org}/artifacts/...`) live in [`artifact-metadata/`](artifact-metadata/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -16,6 +18,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_immutable_releases_for_org_repos`](README.md#github_list_immutable_releases_for_org_repos)
 - [`github_enable_immutable_releases_for_org_repo`](README.md#github_enable_immutable_releases_for_org_repo)
 - [`github_enable_or_disable_org_security_feature`](README.md#github_enable_or_disable_org_security_feature)
+- [`github_create_org_artifact_deployment_record`](artifact-metadata/README.md#github_create_org_artifact_deployment_record)
 - [`github_disable_immutable_releases_for_org_repo`](README.md#github_disable_immutable_releases_for_org_repo)
 - [`github_set_immutable_releases_for_org_repos`](README.md#github_set_immutable_releases_for_org_repos)
 - [`github_update_org`](README.md#github_update_org)
