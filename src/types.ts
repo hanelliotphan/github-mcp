@@ -396,6 +396,18 @@ export type DisableImmutableReleasesSuccess = {
 
 export type DisableImmutableReleasesFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/settings/immutable-releases/repositories/{repository_id} — remove repo from selected enforcement (204). */
+export type DisableImmutableReleasesForOrgRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type DisableImmutableReleasesForOrgRepoFailure = CreateRepoFailure;
+
 /** PUT /repos/{owner}/{repo}/automated-security-fixes — enable Dependabot security updates (204 No Content). */
 export type EnableDependabotSecurityUpdatesSuccess = {
     success: true;

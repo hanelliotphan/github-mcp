@@ -39,6 +39,7 @@ import { registerGithubListAuthenticatedUserReposTool } from "./tools/repositori
 import { registerGithubDeleteOrgTool } from "./tools/organizations/github-delete-org.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
+import { registerGithubDisableImmutableReleasesForOrgRepoTool } from "./tools/organizations/github-disable-immutable-releases-for-org-repo.js";
 import { registerGithubEnableImmutableReleasesForOrgRepoTool } from "./tools/organizations/github-enable-immutable-releases-for-org-repo.js";
 import { registerGithubListImmutableReleasesForOrgReposTool } from "./tools/organizations/github-list-immutable-releases-for-org-repos.js";
 import { registerGithubListOrgAppInstallationsTool } from "./tools/organizations/github-list-org-app-installations.js";
@@ -95,6 +96,7 @@ registerGithubGetOrgImmutableReleasesSettingsTool(server, octokit);
 registerGithubSetOrgImmutableReleasesSettingsTool(server, octokit);
 registerGithubListImmutableReleasesForOrgReposTool(server, octokit);
 registerGithubEnableImmutableReleasesForOrgRepoTool(server, octokit);
+registerGithubDisableImmutableReleasesForOrgRepoTool(server, octokit);
 registerGithubSetImmutableReleasesForOrgReposTool(server, octokit);
 registerGithubUpdateOrgTool(server, octokit);
 registerGithubDeleteOrgTool(server, octokit);
