@@ -18,7 +18,7 @@ Wrappers for [REST API endpoints for API Insights](https://docs.github.com/en/re
 
 ### `github_get_org_route_stats_by_actor`
 
-See tool description in [`github-get-route-stats-by-actor.ts`](github-get-route-stats-by-actor.ts) and [Get route stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-route-stats-by-actor).
+See tool description in [`github-get-org-route-stats-by-actor.ts`](github-get-org-route-stats-by-actor.ts) and [Get route stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-route-stats-by-actor).
 
 ---
 
