@@ -5,6 +5,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
+- [`github_list_orgs_for_authenticated_user`](README.md#github_list_orgs_for_authenticated_user)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
@@ -194,6 +195,24 @@ GitHub paginates with the **`since`** organization id cursor (like `github_list_
 #### Output
 
 On success: `organizations`, `since` (cursor used on the last request, or `null`), `per_page`, `pages_fetched`, `pagination`, optional `truncated`, and `request_id`. On failure: structured `error`.
+
+---
+
+### `github_list_orgs_for_authenticated_user`
+
+Lists organizations for the authenticated user via [List organizations for the authenticated user](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-organizations-for-the-authenticated-user) (`GET /user/orgs`). Returns the same **simple** organization shape as **`github_list_organizations`**, but only orgs your authorization can operate on (not the global public catalog).
+
+Classic OAuth and PATs need at least **`user`** or **`read:org`**; insufficient scope yields **403**. Fine-grained tokens may receive **200** with an **empty** list per GitHub.
+
+#### Inputs
+
+- `page` (optional, default **1**)
+- `per_page` (optional, 1–100; default **100** when omitted; GitHub’s REST default is **30**)
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
+
+#### Output
+
+On success: **`organizations`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (e.g. **401**, **403**).
 
 ---
 

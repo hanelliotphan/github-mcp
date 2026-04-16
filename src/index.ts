@@ -45,6 +45,7 @@ import { registerGithubEnableOrDisableOrgSecurityFeatureTool } from "./tools/org
 import { registerGithubListImmutableReleasesForOrgReposTool } from "./tools/organizations/github-list-immutable-releases-for-org-repos.js";
 import { registerGithubListOrgAppInstallationsTool } from "./tools/organizations/github-list-org-app-installations.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
+import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
 import { registerGithubSetImmutableReleasesForOrgReposTool } from "./tools/organizations/github-set-immutable-releases-for-org-repos.js";
 import { registerGithubSetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-set-org-immutable-releases-settings.js";
 import { registerGithubUpdateOrgTool } from "./tools/organizations/github-update-org.js";
@@ -91,6 +92,7 @@ const server = new McpServer({ name: "github-mcp", version: "1.0.0" });
 registerGithubCreatePersonalRepoTool(server, octokit);
 registerGithubCreateOrgRepoTool(server, octokit);
 registerGithubListOrganizationsTool(server, octokit);
+registerGithubListOrgsForAuthenticatedUserTool(server, octokit);
 registerGithubListOrgAppInstallationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubGetOrgImmutableReleasesSettingsTool(server, octokit);
