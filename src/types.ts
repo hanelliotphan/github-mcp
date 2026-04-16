@@ -827,6 +827,33 @@ export type GetRouteStatsByActorSuccess = {
 
 export type GetRouteStatsByActorFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/insights/api/user-stats/{user_id}. */
+export type UserStatRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/insights/api/user-stats/{user_id} — HTTP 200. */
+export type GetUserStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    user_id: string;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    user_stats: UserStatRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetUserStatsFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/insights/api/subject-stats. */
 export type SubjectStatRow = Record<string, unknown>;
 

@@ -73,6 +73,8 @@ import type {
     GetTimeStatsByUserSuccess,
     GetTimeStatsFailure,
     GetTimeStatsSuccess,
+    GetUserStatsFailure,
+    GetUserStatsSuccess,
     GetRepoFailure,
     GetRepoSuccess,
     GetRepoContentFailure,
@@ -251,6 +253,8 @@ export function textAndData(
         | GetTimeStatsByUserFailure
         | GetTimeStatsSuccess
         | GetTimeStatsFailure
+        | GetUserStatsSuccess
+        | GetUserStatsFailure
         | GetRepoSuccess
         | GetRepoFailure
         | GetRepoContentSuccess

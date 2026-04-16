@@ -12,6 +12,7 @@ Wrappers for [REST API endpoints for API Insights](https://docs.github.com/en/re
 - [`github_get_time_stats`](README.md#github_get_time_stats)
 - [`github_get_time_stats_by_actor`](README.md#github_get_time_stats_by_actor)
 - [`github_get_time_stats_by_user`](README.md#github_get_time_stats_by_user)
+- [`github_get_user_stats`](README.md#github_get_user_stats)
 
 ---
 
@@ -144,3 +145,25 @@ Calls [Get time stats by user](https://docs.github.com/en/rest/orgs/api-insights
 #### Output
 
 On success: **`http_status`**, echoed **`org`**, **`user_id`**, **`min_timestamp`**, **`max_timestamp`** (or `null`), **`timestamp_increment`**, **`time_stats`** (array), **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_user_stats`
+
+Calls [Get user stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-user-stats) (`GET /orgs/{org}/insights/api/user-stats/{user_id}`). Returns rows per **actor** (access path) with **`actor_type`**, **`actor_name`**, **`actor_id`**, **`integration_id`**, **`oauth_application_id`**, and request count fields per GitHub’s schema.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`user_id`** (required) — numeric GitHub user id (string or positive integer; echoed back as a string)
+- **`min_timestamp`** (required) — ISO 8601 lower bound
+- **`max_timestamp`** (optional) — ISO 8601 upper bound
+- **`actor_name_substring`** (optional) — case-insensitive filter on actor name
+- **`direction`** (optional) — `asc` or `desc`
+- **`sort`** (optional) — array of sort field names (max 20 entries)
+- **`page`** (optional, default **1**), **`per_page`** (optional, 1–100; default **100** when omitted)
+- **`all_pages`** (optional), **`max_pages`** (optional, 1–500; default **100** with `all_pages`)
+
+#### Output
+
+On success: **`http_status`**, echoed **`org`**, **`user_id`**, **`min_timestamp`**, **`max_timestamp`** (or `null`), **`user_stats`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`**.
