@@ -10,6 +10,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
 - [`github_set_org_immutable_releases_settings`](README.md#github_set_org_immutable_releases_settings)
 - [`github_list_immutable_releases_for_org_repos`](README.md#github_list_immutable_releases_for_org_repos)
+- [`github_enable_immutable_releases_for_org_repo`](README.md#github_enable_immutable_releases_for_org_repo)
 - [`github_set_immutable_releases_for_org_repos`](README.md#github_set_immutable_releases_for_org_repos)
 - [`github_update_org`](README.md#github_update_org)
 - [`github_delete_org`](README.md#github_delete_org)
@@ -109,6 +110,21 @@ Pagination uses **`page`** and **`per_page`** (1–100; default **100** when omi
 #### Output
 
 On success: **`org`**, **`total_count`**, **`repositories`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_enable_immutable_releases_for_org_repo`
+
+Adds a single repository to the **selected** enforcement list via [Enable a selected repository for immutable releases in an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#enable-a-selected-repository-for-immutable-releases-in-an-organization) (`PUT /orgs/{org}/settings/immutable-releases/repositories/{repository_id}`). The org must use **`enforced_repositories`: `selected`**. For replacing the entire list, use **`github_set_immutable_releases_for_org_repos`**. OAuth and classic personal access tokens typically need **`admin:org`** per GitHub.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`repository_id`** (required) — numeric GitHub repository id (not the repo name)
+
+#### Output
+
+On success: **`http_status`** (typically **204**), echoed **`org`**, **`repository_id`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **422**).
 
 ---
 

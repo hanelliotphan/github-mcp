@@ -372,6 +372,18 @@ export type EnableImmutableReleasesSuccess = {
 
 export type EnableImmutableReleasesFailure = CreateRepoFailure;
 
+/** PUT /orgs/{org}/settings/immutable-releases/repositories/{repository_id} — add repo to selected enforcement (204). */
+export type EnableImmutableReleasesForOrgRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type EnableImmutableReleasesForOrgRepoFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;

@@ -8,6 +8,8 @@ import type {
     CheckImmutableReleasesFailure,
     CheckImmutableReleasesSuccess,
     EnableImmutableReleasesFailure,
+    EnableImmutableReleasesForOrgRepoFailure,
+    EnableImmutableReleasesForOrgRepoSuccess,
     EnableImmutableReleasesSuccess,
     CreateUpdateFileContentsFailure,
     CreateUpdateFileContentsSuccess,
@@ -161,6 +163,8 @@ export function textAndData(
         | CheckImmutableReleasesFailure
         | EnableImmutableReleasesSuccess
         | EnableImmutableReleasesFailure
+        | EnableImmutableReleasesForOrgRepoSuccess
+        | EnableImmutableReleasesForOrgRepoFailure
         | DisableImmutableReleasesSuccess
         | DisableImmutableReleasesFailure
         | EnableDependabotSecurityUpdatesSuccess
