@@ -1,0 +1,22 @@
+{
+  "name": "github_get_summary_stats_by_user",
+  "description": "GET /orgs/{org}/insights/api/summary-stats/users/{user_id} — summary API request totals for one user in the org. Same body as summary-stats. Requires min_timestamp (ISO 8601); optional max_timestamp. API Insights required.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "user_id": {
+        "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "integer", "minimum": 1 }]
+      },
+      "min_timestamp": { "type": "string", "minLength": 1 },
+      "max_timestamp": { "type": "string", "minLength": 1 }
+    },
+    "required": ["org", "user_id", "min_timestamp"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

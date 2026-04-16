@@ -867,6 +867,21 @@ export type GetSummaryStatsSuccess = {
 
 export type GetSummaryStatsFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/insights/api/summary-stats/users/{user_id} — HTTP 200 (same body shape as org summary stats). */
+export type GetSummaryStatsByUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    user_id: string;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    summary_stats: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetSummaryStatsByUserFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/settings/immutable-releases — HTTP 200. */
 export type GetOrgImmutableReleasesSettingsSuccess = {
     success: true;
