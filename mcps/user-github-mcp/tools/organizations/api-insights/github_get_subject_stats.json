@@ -1,0 +1,26 @@
+{
+  "name": "github_get_subject_stats",
+  "description": "GET /orgs/{org}/insights/api/subject-stats — API Insights subjects (users/GitHub Apps) with request stats. Requires min_timestamp (ISO 8601). Optional max_timestamp, subject_name_substring, sort, direction, page/per_page, all_pages.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "min_timestamp": { "type": "string", "minLength": 1 },
+      "max_timestamp": { "type": "string", "minLength": 1 },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "direction": { "type": "string", "enum": ["asc", "desc"] },
+      "sort": { "type": "array", "items": { "type": "string", "minLength": 1 }, "maxItems": 20 },
+      "subject_name_substring": { "type": "string", "minLength": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org", "min_timestamp"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -59,6 +59,8 @@ import type {
     GetOrgSuccess,
     GetRouteStatsByActorFailure,
     GetRouteStatsByActorSuccess,
+    GetSubjectStatsFailure,
+    GetSubjectStatsSuccess,
     GetRepoFailure,
     GetRepoSuccess,
     GetRepoContentFailure,
@@ -223,6 +225,8 @@ export function textAndData(
         | GetOrgImmutableReleasesSettingsFailure
         | GetRouteStatsByActorSuccess
         | GetRouteStatsByActorFailure
+        | GetSubjectStatsSuccess
+        | GetSubjectStatsFailure
         | GetRepoSuccess
         | GetRepoFailure
         | GetRepoContentSuccess

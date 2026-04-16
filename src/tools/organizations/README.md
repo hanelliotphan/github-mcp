@@ -2,6 +2,8 @@
 
 Implementations in this folder wrap [GitHub REST organizations](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10) endpoints. They are registered from `src/index.ts`. Success payloads follow the shared MCP shape (`request_id`, etc.); failures use the structured **error** envelope.
 
+Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/api/...`) live in [`api-insights/`](api-insights/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)

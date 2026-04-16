@@ -827,6 +827,32 @@ export type GetRouteStatsByActorSuccess = {
 
 export type GetRouteStatsByActorFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/insights/api/subject-stats. */
+export type SubjectStatRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/insights/api/subject-stats — HTTP 200. */
+export type GetSubjectStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    subject_stats: SubjectStatRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetSubjectStatsFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/settings/immutable-releases — HTTP 200. */
 export type GetOrgImmutableReleasesSettingsSuccess = {
     success: true;
