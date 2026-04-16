@@ -7,6 +7,7 @@ Wrappers for [REST API endpoints for API Insights](https://docs.github.com/en/re
 - [`github_get_route_stats_by_actor`](README.md#github_get_route_stats_by_actor)
 - [`github_get_subject_stats`](README.md#github_get_subject_stats)
 - [`github_get_summary_stats`](README.md#github_get_summary_stats)
+- [`github_get_summary_stats_by_actor`](README.md#github_get_summary_stats_by_actor)
 - [`github_get_summary_stats_by_user`](README.md#github_get_summary_stats_by_user)
 
 ---
@@ -51,6 +52,24 @@ Calls [Get summary stats](https://docs.github.com/en/rest/orgs/api-insights?apiV
 #### Output
 
 On success: **`http_status`**, echoed **`org`**, **`min_timestamp`**, **`max_timestamp`** (or `null`), **`summary_stats`** (object), **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_summary_stats_by_actor`
+
+Calls [Get summary stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-summary-stats-by-actor) (`GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}`). Response body matches org-wide [Get summary stats](#github_get_summary_stats).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`actor_type`** (required) — `installation`, `classic_pat`, `fine_grained_pat`, `oauth_app`, or `github_app_user_to_server`
+- **`actor_id`** (required) — numeric actor id (e.g. installation id when **`actor_type`** is **`installation`**)
+- **`min_timestamp`** (required) — ISO 8601 lower bound
+- **`max_timestamp`** (optional) — ISO 8601 upper bound
+
+#### Output
+
+On success: **`http_status`**, echoed **`org`**, **`actor_type`**, **`actor_id`**, **`min_timestamp`**, **`max_timestamp`** (or `null`), **`summary_stats`**, **`request_id`**. On failure: structured **`error`**.
 
 ---
 

@@ -1,0 +1,30 @@
+{
+  "name": "github_get_summary_stats_by_actor",
+  "description": "GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id} — summary API request totals for one actor. Same body as summary-stats. Requires min_timestamp (ISO 8601); optional max_timestamp. API Insights required.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "actor_type": {
+        "type": "string",
+        "enum": [
+          "installation",
+          "classic_pat",
+          "fine_grained_pat",
+          "oauth_app",
+          "github_app_user_to_server"
+        ]
+      },
+      "actor_id": { "type": "integer", "minimum": 1 },
+      "min_timestamp": { "type": "string", "minLength": 1 },
+      "max_timestamp": { "type": "string", "minLength": 1 }
+    },
+    "required": ["org", "actor_type", "actor_id", "min_timestamp"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
