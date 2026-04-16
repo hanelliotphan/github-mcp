@@ -20,6 +20,7 @@ import { registerGithubCreateRepoFromTemplateTool } from "./tools/repositories/g
 import { registerGithubCreateRepoAttestationTool } from "./tools/repositories/attestations/github-create-repo-attestation.js";
 import { registerGithubListRepoAttestationsTool } from "./tools/repositories/attestations/github-list-repo-attestations.js";
 import { registerGithubCreateRepoAutolinkTool } from "./tools/repositories/autolinks/github-create-repo-autolink.js";
+import { registerGithubGetRepoAutolinkTool } from "./tools/repositories/autolinks/github-get-repo-autolink.js";
 import { registerGithubListRepoAutolinksTool } from "./tools/repositories/autolinks/github-list-repo-autolinks.js";
 import { registerGithubCreateUpdateRepoCustomPropertyValuesTool } from "./tools/repositories/custom-properties/github-create-update-repo-custom-property-values.js";
 import { registerGithubGetRepoCustomPropertyValuesTool } from "./tools/repositories/custom-properties/github-get-repo-custom-property-values.js";
@@ -150,6 +151,7 @@ registerGithubDownloadRepoArchiveTarTool(server, octokit);
 registerGithubDownloadRepoArchiveZipTool(server, octokit);
 registerGithubListRepoAutolinksTool(server, octokit);
 registerGithubCreateRepoAutolinkTool(server, octokit);
+registerGithubGetRepoAutolinkTool(server, octokit);
 registerGithubGetRepoCustomPropertyValuesTool(server, octokit);
 registerGithubCreateUpdateRepoCustomPropertyValuesTool(server, octokit);
 registerGithubListCodeownersErrorsTool(server, octokit);

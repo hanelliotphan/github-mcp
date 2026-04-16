@@ -627,6 +627,20 @@ export type CreateRepoAutolinkSuccess = {
 
 export type CreateRepoAutolinkFailure = CreateRepoFailure;
 
+/** Success from GET /repos/{owner}/{repo}/autolinks/{autolink_id} — HTTP 200. */
+export type GetRepoAutolinkSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    autolink_id: number;
+    autolink: RepoAutolinkItem;
+    request_id: string | null;
+};
+
+export type GetRepoAutolinkFailure = CreateRepoFailure;
+
 /** One row from GET /repos/{owner}/{repo}/properties/values. */
 export type RepoCustomPropertyValue = {
     property_name: string;

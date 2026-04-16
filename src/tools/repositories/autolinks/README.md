@@ -6,6 +6,7 @@ Tool implementations in this folder wrap the [GitHub REST repository autolinks A
 
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
 - [`github_create_repo_autolink`](README.md#github_create_repo_autolink)
+- [`github_get_repo_autolink`](README.md#github_get_repo_autolink)
 
 ---
 
@@ -37,3 +38,18 @@ Creates [an autolink reference](https://docs.github.com/en/rest/repos/autolinks?
 #### Output
 
 On success: **`http_status`** (**201**), echoed **`owner`** / **`name`**, **`autolink`** (created row: `id`, `key_prefix`, `url_template`, `is_alphanumeric`, `updated_at`), **`request_id`**. On failure: structured **`error`** (including **422** for validation / abuse per GitHub).
+
+---
+
+### `github_get_repo_autolink`
+
+Fetches [one autolink by id](https://docs.github.com/en/rest/repos/autolinks?apiVersion=2026-03-10#get-an-autolink-reference-of-a-repository) via `GET /repos/{owner}/{repo}/autolinks/{autolink_id}`. Response body matches [create autolink](#github_create_repo_autolink) (**200**).
+
+#### Inputs
+
+- **`owner`**, **`name`** (required) — repository coordinates
+- **`autolink_id`** (required) — numeric autolink id
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`owner`**, **`name`**, **`autolink_id`**, **`autolink`** (same fields as list rows), **`request_id`**. On failure: structured **`error`** (**404** if not found or not visible per GitHub).

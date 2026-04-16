@@ -1,0 +1,24 @@
+{
+  "name": "github_get_repo_autolink",
+  "description": "GET /repos/{owner}/{repo}/autolinks/{autolink_id} — fetch one autolink by id. Admin-only visibility per GitHub. Success HTTP 200. See GitHub REST repository autolinks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "autolink_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["owner", "name", "autolink_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

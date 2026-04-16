@@ -79,6 +79,8 @@ import type {
     GetUserStatsSuccess,
     GetRepoFailure,
     GetRepoSuccess,
+    GetRepoAutolinkFailure,
+    GetRepoAutolinkSuccess,
     GetRepoContentFailure,
     GetRepoContentSuccess,
     GetRepoBranchRulesFailure,
@@ -261,6 +263,8 @@ export function textAndData(
         | GetUserStatsFailure
         | GetRepoSuccess
         | GetRepoFailure
+        | GetRepoAutolinkSuccess
+        | GetRepoAutolinkFailure
         | GetRepoContentSuccess
         | GetRepoContentFailure
         | GetRepoBranchRulesSuccess
