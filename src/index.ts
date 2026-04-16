@@ -37,6 +37,7 @@ import { registerGithubListRepoContributorsTool } from "./tools/repositories/git
 import { registerGithubListRepoActivitiesTool } from "./tools/repositories/github-list-repo-activities.js";
 import { registerGithubListAuthenticatedUserReposTool } from "./tools/repositories/github-list-authenticated-user-repos.js";
 import { registerGithubDeleteOrgTool } from "./tools/organizations/github-delete-org.js";
+import { registerGithubGetRouteStatsByActorTool } from "./tools/organizations/api-insights/github-get-route-stats-by-actor.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
 import { registerGithubDisableImmutableReleasesForOrgRepoTool } from "./tools/organizations/github-disable-immutable-releases-for-org-repo.js";
@@ -97,6 +98,7 @@ registerGithubListOrgsForAuthenticatedUserTool(server, octokit);
 registerGithubListOrgsForUserTool(server, octokit);
 registerGithubListOrgAppInstallationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
+registerGithubGetRouteStatsByActorTool(server, octokit);
 registerGithubGetOrgImmutableReleasesSettingsTool(server, octokit);
 registerGithubSetOrgImmutableReleasesSettingsTool(server, octokit);
 registerGithubListImmutableReleasesForOrgReposTool(server, octokit);

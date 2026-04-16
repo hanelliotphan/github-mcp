@@ -799,6 +799,34 @@ export type GetOrgSuccess = {
 
 export type GetOrgFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}. */
+export type RouteStatsByActorRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id} — HTTP 200. */
+export type GetRouteStatsByActorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    actor_type: string;
+    actor_id: number;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    route_stats: RouteStatsByActorRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetRouteStatsByActorFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/settings/immutable-releases — HTTP 200. */
 export type GetOrgImmutableReleasesSettingsSuccess = {
     success: true;
