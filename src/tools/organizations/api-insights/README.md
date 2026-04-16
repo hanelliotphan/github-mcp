@@ -6,6 +6,7 @@ Wrappers for [REST API endpoints for API Insights](https://docs.github.com/en/re
 
 - [`github_get_route_stats_by_actor`](README.md#github_get_route_stats_by_actor)
 - [`github_get_subject_stats`](README.md#github_get_subject_stats)
+- [`github_get_summary_stats`](README.md#github_get_summary_stats)
 
 ---
 
@@ -33,3 +34,19 @@ Calls [Get subject stats](https://docs.github.com/en/rest/orgs/api-insights?apiV
 #### Output
 
 On success: **`http_status`**, echoed **`org`**, **`min_timestamp`**, **`max_timestamp`** (or `null`), **`subject_stats`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_summary_stats`
+
+Calls [Get summary stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-summary-stats) (`GET /orgs/{org}/insights/api/summary-stats`). Returns a single object with organization-wide totals (per GitHub, at least **`total_request_count`** and **`rate_limited_request_count`**). No `page` / `per_page` on this endpoint.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`min_timestamp`** (required) — ISO 8601 lower bound
+- **`max_timestamp`** (optional) — ISO 8601 upper bound
+
+#### Output
+
+On success: **`http_status`**, echoed **`org`**, **`min_timestamp`**, **`max_timestamp`** (or `null`), **`summary_stats`** (object), **`request_id`**. On failure: structured **`error`**.

@@ -853,6 +853,20 @@ export type GetSubjectStatsSuccess = {
 
 export type GetSubjectStatsFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/insights/api/summary-stats — HTTP 200 (object: total_request_count, rate_limited_request_count, …). */
+export type GetSummaryStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    summary_stats: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetSummaryStatsFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/settings/immutable-releases — HTTP 200. */
 export type GetOrgImmutableReleasesSettingsSuccess = {
     success: true;

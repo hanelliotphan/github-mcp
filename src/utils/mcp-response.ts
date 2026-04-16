@@ -61,6 +61,8 @@ import type {
     GetRouteStatsByActorSuccess,
     GetSubjectStatsFailure,
     GetSubjectStatsSuccess,
+    GetSummaryStatsFailure,
+    GetSummaryStatsSuccess,
     GetRepoFailure,
     GetRepoSuccess,
     GetRepoContentFailure,
@@ -227,6 +229,8 @@ export function textAndData(
         | GetRouteStatsByActorFailure
         | GetSubjectStatsSuccess
         | GetSubjectStatsFailure
+        | GetSummaryStatsSuccess
+        | GetSummaryStatsFailure
         | GetRepoSuccess
         | GetRepoFailure
         | GetRepoContentSuccess
