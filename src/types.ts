@@ -898,6 +898,24 @@ export type GetSummaryStatsByActorSuccess = {
 
 export type GetSummaryStatsByActorFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/insights/api/time-stats. */
+export type TimeStatRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/insights/api/time-stats — HTTP 200 (array of time buckets). */
+export type GetTimeStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    timestamp_increment: string;
+    time_stats: TimeStatRow[];
+    request_id: string | null;
+};
+
+export type GetTimeStatsFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/settings/immutable-releases — HTTP 200. */
 export type GetOrgImmutableReleasesSettingsSuccess = {
     success: true;
