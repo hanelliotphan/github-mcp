@@ -27,9 +27,9 @@ function toPlainTimeStatRows(data: unknown): TimeStatRow[] {
     return data.map((row) => JSON.parse(JSON.stringify(row)) as TimeStatRow);
 }
 
-export function registerGithubGetTimeStatsByActorTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgTimeStatsByActorTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_time_stats_by_actor",
+        "github_get_org_time_stats_by_actor",
         "Get API request counts **over time** for one **actor** in an organization (GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}). " +
             "Same row shape as org-wide [time stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-time-stats) (**`timestamp`**, **`total_request_count`**, **`rate_limited_request_count`**, …). " +
             "**`actor_type`** and **`actor_id`** identify the actor (e.g. GitHub App **installation** id). " +

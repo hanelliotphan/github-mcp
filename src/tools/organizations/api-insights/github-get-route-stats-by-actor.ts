@@ -59,9 +59,9 @@ async function routeStatsByActorRequest(
     });
 }
 
-export function registerGithubGetRouteStatsByActorTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgRouteStatsByActorTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_route_stats_by_actor",
+        "github_get_org_route_stats_by_actor",
         "Get API request counts for an **actor** in an organization, broken down by **HTTP route** (GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}). " +
             "Requires **API Insights** for the org and appropriate permissions (see GitHub). " +
             "**`min_timestamp`** is required (ISO 8601, e.g. `2025-01-01T00:00:00Z`); **`max_timestamp`** is optional (GitHub defaults per docs). " +

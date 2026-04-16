@@ -12,9 +12,9 @@ function toPlainSummaryStats(data: unknown): Record<string, unknown> {
     return JSON.parse(JSON.stringify(data)) as Record<string, unknown>;
 }
 
-export function registerGithubGetSummaryStatsTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgSummaryStatsTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_summary_stats",
+        "github_get_org_summary_stats",
         "Get organization-wide API request **summary** totals for a time window (GET /orgs/{org}/insights/api/summary-stats). " +
             "The JSON body typically includes **`total_request_count`** and **`rate_limited_request_count`** (see GitHub). " +
             "Requires **API Insights** for the org. **`min_timestamp`** is required (ISO 8601); **`max_timestamp`** is optional. " +

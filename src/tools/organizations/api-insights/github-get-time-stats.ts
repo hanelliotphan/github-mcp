@@ -15,9 +15,9 @@ function toPlainTimeStatRows(data: unknown): TimeStatRow[] {
     return data.map((row) => JSON.parse(JSON.stringify(row)) as TimeStatRow);
 }
 
-export function registerGithubGetTimeStatsTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgTimeStatsTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_time_stats",
+        "github_get_org_time_stats",
         "Get org-wide API request counts **over time** in buckets (GET /orgs/{org}/insights/api/time-stats). " +
             "Each row includes **`timestamp`**, **`total_request_count`**, **`rate_limited_request_count`** (see GitHub). " +
             "Requires **API Insights**. **`min_timestamp`** and **`timestamp_increment`** are required (increment examples: **`5m`**, **`10m`**, **`1h`** per GitHub). " +

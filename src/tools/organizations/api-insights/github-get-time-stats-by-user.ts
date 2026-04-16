@@ -19,9 +19,9 @@ function toPlainTimeStatRows(data: unknown): TimeStatRow[] {
     return data.map((row) => JSON.parse(JSON.stringify(row)) as TimeStatRow);
 }
 
-export function registerGithubGetTimeStatsByUserTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgTimeStatsByUserTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_time_stats_by_user",
+        "github_get_org_time_stats_by_user",
         "Get API request counts **over time** for one **user** in an organization (GET /orgs/{org}/insights/api/time-stats/users/{user_id}). " +
             "Same row shape as org-wide [time stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-time-stats) (**`timestamp`**, **`total_request_count`**, **`rate_limited_request_count`**, …). " +
             "**`user_id`** is the numeric GitHub user id (path segment; string or positive integer). " +

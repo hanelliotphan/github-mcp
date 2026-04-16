@@ -4,25 +4,25 @@ Wrappers for [REST API endpoints for API Insights](https://docs.github.com/en/re
 
 ## Tools
 
-- [`github_get_route_stats_by_actor`](README.md#github_get_route_stats_by_actor)
-- [`github_get_subject_stats`](README.md#github_get_subject_stats)
-- [`github_get_summary_stats`](README.md#github_get_summary_stats)
-- [`github_get_summary_stats_by_actor`](README.md#github_get_summary_stats_by_actor)
-- [`github_get_summary_stats_by_user`](README.md#github_get_summary_stats_by_user)
-- [`github_get_time_stats`](README.md#github_get_time_stats)
-- [`github_get_time_stats_by_actor`](README.md#github_get_time_stats_by_actor)
-- [`github_get_time_stats_by_user`](README.md#github_get_time_stats_by_user)
-- [`github_get_user_stats`](README.md#github_get_user_stats)
+- [`github_get_org_route_stats_by_actor`](README.md#github_get_org_route_stats_by_actor)
+- [`github_get_org_subject_stats`](README.md#github_get_org_subject_stats)
+- [`github_get_org_summary_stats`](README.md#github_get_org_summary_stats)
+- [`github_get_org_summary_stats_by_actor`](README.md#github_get_org_summary_stats_by_actor)
+- [`github_get_org_summary_stats_by_user`](README.md#github_get_org_summary_stats_by_user)
+- [`github_get_org_time_stats`](README.md#github_get_org_time_stats)
+- [`github_get_org_time_stats_by_actor`](README.md#github_get_org_time_stats_by_actor)
+- [`github_get_org_time_stats_by_user`](README.md#github_get_org_time_stats_by_user)
+- [`github_get_org_user_stats`](README.md#github_get_org_user_stats)
 
 ---
 
-### `github_get_route_stats_by_actor`
+### `github_get_org_route_stats_by_actor`
 
 See tool description in [`github-get-route-stats-by-actor.ts`](github-get-route-stats-by-actor.ts) and [Get route stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-route-stats-by-actor).
 
 ---
 
-### `github_get_subject_stats`
+### `github_get_org_subject_stats`
 
 Calls [Get subject stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-subject-stats) (`GET /orgs/{org}/insights/api/subject-stats`). Returns subjects (users and GitHub Apps) with **`subject_type`**, **`subject_name`**, **`subject_id`**, and request count fields per GitHub’s schema.
 
@@ -43,7 +43,7 @@ On success: **`http_status`**, echoed **`org`**, **`min_timestamp`**, **`max_tim
 
 ---
 
-### `github_get_summary_stats`
+### `github_get_org_summary_stats`
 
 Calls [Get summary stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-summary-stats) (`GET /orgs/{org}/insights/api/summary-stats`). Returns a single object with organization-wide totals (per GitHub, at least **`total_request_count`** and **`rate_limited_request_count`**). No `page` / `per_page` on this endpoint.
 
@@ -59,9 +59,9 @@ On success: **`http_status`**, echoed **`org`**, **`min_timestamp`**, **`max_tim
 
 ---
 
-### `github_get_summary_stats_by_actor`
+### `github_get_org_summary_stats_by_actor`
 
-Calls [Get summary stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-summary-stats-by-actor) (`GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}`). Response body matches org-wide [Get summary stats](#github_get_summary_stats).
+Calls [Get summary stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-summary-stats-by-actor) (`GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}`). Response body matches org-wide [Get summary stats](#github_get_org_summary_stats).
 
 #### Inputs
 
@@ -77,9 +77,9 @@ On success: **`http_status`**, echoed **`org`**, **`actor_type`**, **`actor_id`*
 
 ---
 
-### `github_get_summary_stats_by_user`
+### `github_get_org_summary_stats_by_user`
 
-Calls [Get summary stats by user](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-summary-stats-by-user) (`GET /orgs/{org}/insights/api/summary-stats/users/{user_id}`). Response body matches org-wide [Get summary stats](#github_get_summary_stats) (`total_request_count`, `rate_limited_request_count`, …).
+Calls [Get summary stats by user](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-summary-stats-by-user) (`GET /orgs/{org}/insights/api/summary-stats/users/{user_id}`). Response body matches org-wide [Get summary stats](#github_get_org_summary_stats) (`total_request_count`, `rate_limited_request_count`, …).
 
 #### Inputs
 
@@ -94,7 +94,7 @@ On success: **`http_status`**, echoed **`org`**, **`user_id`**, **`min_timestamp
 
 ---
 
-### `github_get_time_stats`
+### `github_get_org_time_stats`
 
 Calls [Get time stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-time-stats) (`GET /orgs/{org}/insights/api/time-stats`). Returns an array of time buckets with **`timestamp`**, **`total_request_count`**, **`rate_limited_request_count`** per GitHub’s schema.
 
@@ -111,9 +111,9 @@ On success: **`http_status`**, echoed **`org`**, **`min_timestamp`**, **`max_tim
 
 ---
 
-### `github_get_time_stats_by_actor`
+### `github_get_org_time_stats_by_actor`
 
-Calls [Get time stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-time-stats-by-actor) (`GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}`). Response rows match org-wide [Get time stats](#github_get_time_stats).
+Calls [Get time stats by actor](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-time-stats-by-actor) (`GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}`). Response rows match org-wide [Get time stats](#github_get_org_time_stats).
 
 #### Inputs
 
@@ -130,9 +130,9 @@ On success: **`http_status`**, echoed **`org`**, **`actor_type`**, **`actor_id`*
 
 ---
 
-### `github_get_time_stats_by_user`
+### `github_get_org_time_stats_by_user`
 
-Calls [Get time stats by user](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-time-stats-by-user) (`GET /orgs/{org}/insights/api/time-stats/users/{user_id}`). Response rows match org-wide [Get time stats](#github_get_time_stats).
+Calls [Get time stats by user](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-time-stats-by-user) (`GET /orgs/{org}/insights/api/time-stats/users/{user_id}`). Response rows match org-wide [Get time stats](#github_get_org_time_stats).
 
 #### Inputs
 
@@ -148,7 +148,7 @@ On success: **`http_status`**, echoed **`org`**, **`user_id`**, **`min_timestamp
 
 ---
 
-### `github_get_user_stats`
+### `github_get_org_user_stats`
 
 Calls [Get user stats](https://docs.github.com/en/rest/orgs/api-insights?apiVersion=2026-03-10#get-user-stats) (`GET /orgs/{org}/insights/api/user-stats/{user_id}`). Returns rows per **actor** (access path) with **`actor_type`**, **`actor_name`**, **`actor_id`**, **`integration_id`**, **`oauth_application_id`**, and request count fields per GitHub’s schema.
 

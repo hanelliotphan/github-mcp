@@ -1,6 +1,6 @@
 {
-  "name": "github_get_summary_stats_by_actor",
-  "description": "GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id} — summary API request totals for one actor. Same body as summary-stats. Requires min_timestamp (ISO 8601); optional max_timestamp. API Insights required.",
+  "name": "github_get_org_time_stats_by_actor",
+  "description": "GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id} — one actor's API request counts over time (timestamp buckets). Same rows as org time-stats. Requires min_timestamp (ISO 8601), timestamp_increment (e.g. 5m, 10m, 1h), actor_type, and actor_id; optional max_timestamp. API Insights required.",
   "arguments": {
     "type": "object",
     "properties": {
@@ -22,9 +22,10 @@
       },
       "actor_id": { "type": "integer", "minimum": 1 },
       "min_timestamp": { "type": "string", "minLength": 1 },
-      "max_timestamp": { "type": "string", "minLength": 1 }
+      "max_timestamp": { "type": "string", "minLength": 1 },
+      "timestamp_increment": { "type": "string", "minLength": 1 }
     },
-    "required": ["org", "actor_type", "actor_id", "min_timestamp"],
+    "required": ["org", "actor_type", "actor_id", "min_timestamp", "timestamp_increment"],
     "$schema": "http://json-schema.org/draft-07/schema#"
   }
 }

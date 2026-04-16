@@ -1,5 +1,5 @@
 {
-  "name": "github_get_user_stats",
+  "name": "github_get_org_user_stats",
   "description": "GET /orgs/{org}/insights/api/user-stats/{user_id} — API Insights: one user's API usage broken down by actor (installation, PAT, OAuth app, etc.). Requires min_timestamp (ISO 8601); optional max_timestamp, actor_name_substring, direction, sort, pagination, all_pages.",
   "arguments": {
     "type": "object",

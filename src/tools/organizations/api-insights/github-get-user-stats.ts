@@ -45,9 +45,9 @@ async function userStatsRequest(
     });
 }
 
-export function registerGithubGetUserStatsTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgUserStatsTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_user_stats",
+        "github_get_org_user_stats",
         "Get API usage for one **user** in an organization, broken down by **access type / actor** (GET /orgs/{org}/insights/api/user-stats/{user_id}). " +
             "Each row includes **`actor_type`**, **`actor_name`**, **`actor_id`**, request counts, and timestamps per GitHub. " +
             "Requires **API Insights**. **`min_timestamp`** is required (ISO 8601); **`max_timestamp`** is optional. " +

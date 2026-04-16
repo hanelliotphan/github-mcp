@@ -1,5 +1,5 @@
 {
-  "name": "github_get_time_stats",
+  "name": "github_get_org_time_stats",
   "description": "GET /orgs/{org}/insights/api/time-stats — org-wide API request counts over time (timestamp buckets). Requires min_timestamp (ISO 8601) and timestamp_increment (e.g. 5m, 10m, 1h); optional max_timestamp. API Insights required.",
   "arguments": {
     "type": "object",

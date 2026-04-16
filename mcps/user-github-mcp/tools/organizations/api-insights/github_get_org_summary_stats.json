@@ -1,5 +1,5 @@
 {
-  "name": "github_get_summary_stats",
+  "name": "github_get_org_summary_stats",
   "description": "GET /orgs/{org}/insights/api/summary-stats — org-wide API request totals (total_request_count, rate_limited_request_count). Requires min_timestamp (ISO 8601); optional max_timestamp. API Insights required.",
   "arguments": {
     "type": "object",

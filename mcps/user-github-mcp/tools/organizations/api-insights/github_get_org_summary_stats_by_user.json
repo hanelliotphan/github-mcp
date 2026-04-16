@@ -1,5 +1,5 @@
 {
-  "name": "github_get_summary_stats_by_user",
+  "name": "github_get_org_summary_stats_by_user",
   "description": "GET /orgs/{org}/insights/api/summary-stats/users/{user_id} — summary API request totals for one user in the org. Same body as summary-stats. Requires min_timestamp (ISO 8601); optional max_timestamp. API Insights required.",
   "arguments": {
     "type": "object",

@@ -15,9 +15,9 @@ function toPlainSummaryStats(data: unknown): Record<string, unknown> {
     return JSON.parse(JSON.stringify(data)) as Record<string, unknown>;
 }
 
-export function registerGithubGetSummaryStatsByUserTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgSummaryStatsByUserTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_summary_stats_by_user",
+        "github_get_org_summary_stats_by_user",
         "Get API request **summary** totals for one **user** in an organization (GET /orgs/{org}/insights/api/summary-stats/users/{user_id}). " +
             "Same response shape as org-wide summary stats (**`total_request_count`**, **`rate_limited_request_count`**, …). " +
             "**`user_id`** is the numeric GitHub user id (as in the REST path; pass a string or digits only). " +

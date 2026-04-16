@@ -49,9 +49,9 @@ async function subjectStatsRequest(
     });
 }
 
-export function registerGithubGetSubjectStatsTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgSubjectStatsTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_subject_stats",
+        "github_get_org_subject_stats",
         "List API usage **subjects** (users and GitHub Apps) in an organization for a time window (GET /orgs/{org}/insights/api/subject-stats). " +
             "Each row includes **`subject_type`**, **`subject_name`**, **`subject_id`**, and request counts. " +
             "Requires **API Insights** for the org (see GitHub). **`min_timestamp`** is required (ISO 8601); **`max_timestamp`** is optional. " +

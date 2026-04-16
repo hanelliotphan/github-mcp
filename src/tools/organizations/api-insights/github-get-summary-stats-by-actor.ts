@@ -23,9 +23,9 @@ function toPlainSummaryStats(data: unknown): Record<string, unknown> {
     return JSON.parse(JSON.stringify(data)) as Record<string, unknown>;
 }
 
-export function registerGithubGetSummaryStatsByActorTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgSummaryStatsByActorTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_summary_stats_by_actor",
+        "github_get_org_summary_stats_by_actor",
         "Get API request **summary** totals for one **actor** in an organization (GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}). " +
             "Same response shape as org-wide summary stats (**`total_request_count`**, **`rate_limited_request_count`**, …). " +
             "**`actor_type`** and **`actor_id`** identify the actor (e.g. GitHub App **installation** id). " +

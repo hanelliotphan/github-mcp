@@ -1,5 +1,5 @@
 {
-  "name": "github_get_time_stats_by_user",
+  "name": "github_get_org_time_stats_by_user",
   "description": "GET /orgs/{org}/insights/api/time-stats/users/{user_id} — one user's API request counts over time (timestamp buckets). Same rows as org time-stats. Requires min_timestamp (ISO 8601), timestamp_increment (e.g. 5m, 10m, 1h), and user_id; optional max_timestamp. API Insights required.",
   "arguments": {
     "type": "object",
