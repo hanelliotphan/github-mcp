@@ -1,0 +1,34 @@
+{
+  "name": "github_list_orgs_for_user",
+  "description": "GET /users/{username}/orgs — public org memberships for a user (simple org objects). Not private memberships; use github_list_orgs_for_authenticated_user for the token user. Page/per_page; optional all_pages.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": ["username"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

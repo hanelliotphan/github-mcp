@@ -716,6 +716,26 @@ export type ListOrgsForAuthenticatedUserSuccess = {
 
 export type ListOrgsForAuthenticatedUserFailure = CreateRepoFailure;
 
+/** GET /users/{username}/orgs — public org memberships for a user (simple org rows; page/per_page pagination). */
+export type ListOrgsForUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    organizations: OrganizationSimpleListItem[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgsForUserFailure = CreateRepoFailure;
+
 /** One installation from GET /orgs/{org}/installations. */
 export type OrgAppInstallationItem = Record<string, unknown>;
 

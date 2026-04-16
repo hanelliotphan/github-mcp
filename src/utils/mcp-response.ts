@@ -123,6 +123,8 @@ import type {
     ListOrgAppInstallationsSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
+    ListOrgsForUserFailure,
+    ListOrgsForUserSuccess,
     ListImmutableReleasesForOrgReposFailure,
     ListImmutableReleasesForOrgReposSuccess,
     ListOrgReposFailure,
@@ -283,6 +285,8 @@ export function textAndData(
         | ListOrgAppInstallationsFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
+        | ListOrgsForUserSuccess
+        | ListOrgsForUserFailure
         | ListImmutableReleasesForOrgReposSuccess
         | ListImmutableReleasesForOrgReposFailure
         | ListOrgReposSuccess

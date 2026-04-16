@@ -6,6 +6,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 
 - [`github_list_organizations`](README.md#github_list_organizations)
 - [`github_list_orgs_for_authenticated_user`](README.md#github_list_orgs_for_authenticated_user)
+- [`github_list_orgs_for_user`](README.md#github_list_orgs_for_user)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
@@ -213,6 +214,23 @@ Classic OAuth and PATs need at least **`user`** or **`read:org`**; insufficient 
 #### Output
 
 On success: **`organizations`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (e.g. **401**, **403**).
+
+---
+
+### `github_list_orgs_for_user`
+
+Lists [public organization memberships](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-organizations-for-a-user) for a user account (`GET /users/{username}/orgs`). Returns the same **simple** organization shape as **`github_list_organizations`**. **Private** memberships are never included; for the authenticated user’s orgs (including private), use **`github_list_orgs_for_authenticated_user`**.
+
+#### Inputs
+
+- **`username`** (required) — GitHub user login (handle)
+- `page` (optional, default **1**)
+- `per_page` (optional, 1–100; default **100** when omitted; GitHub’s REST default is **30**)
+- `all_pages` (optional), `max_pages` (optional, 1–500; default **100** with `all_pages`)
+
+#### Output
+
+On success: echoed **`username`**, **`organizations`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (e.g. **404** if the user does not exist).
 
 ---
 
