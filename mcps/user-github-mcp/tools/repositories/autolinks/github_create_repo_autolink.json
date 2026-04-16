@@ -1,0 +1,30 @@
+{
+  "name": "github_create_repo_autolink",
+  "description": "POST /repos/{owner}/{repo}/autolinks — create an autolink (key_prefix + url_template with required <num> placeholder; optional is_alphanumeric). Requires repo admin. Success HTTP 201. See GitHub REST repository autolinks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "key_prefix": { "type": "string", "minLength": 1 },
+      "url_template": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Must include literal <num> placeholder per GitHub."
+      },
+      "is_alphanumeric": { "type": "boolean" }
+    },
+    "required": ["owner", "name", "key_prefix", "url_template"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

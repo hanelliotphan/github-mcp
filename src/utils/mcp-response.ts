@@ -17,6 +17,8 @@ import type {
     CreateUpdateFileContentsSuccess,
     CreateRepoAttestationFailure,
     CreateRepoAttestationSuccess,
+    CreateRepoAutolinkFailure,
+    CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
     CreateRepoDispatchSuccess,
     CreateUpdateRepoCustomPropertyValuesFailure,
@@ -213,6 +215,8 @@ export function textAndData(
         | CreateUpdateFileContentsFailure
         | CreateRepoAttestationSuccess
         | CreateRepoAttestationFailure
+        | CreateRepoAutolinkSuccess
+        | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
         | CreateRepoDispatchFailure
         | CreateUpdateRepoCustomPropertyValuesSuccess

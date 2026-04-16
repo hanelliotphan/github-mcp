@@ -12,7 +12,7 @@ Documentation for tools whose implementations live in subfolders:
 
 - **[`organizations/`](../organizations/README.md)** — `github_list_organizations`, `github_list_org_app_installations`, `github_get_org`, `github_get_org_immutable_releases_settings`, `github_set_org_immutable_releases_settings`, `github_list_immutable_releases_for_org_repos`, `github_enable_immutable_releases_for_org_repo`, `github_disable_immutable_releases_for_org_repo`, `github_set_immutable_releases_for_org_repos`, `github_update_org`, `github_delete_org`.
 - **[`contents/`](contents/README.md)** — file and directory content, READMEs, create/update/delete files, tar/zip archive download URLs (`github_get_repo_content`, `github_get_repo_readme`, `github_get_repo_readme_in_directory`, `github_create_update_file_contents`, `github_delete_file`, `github_download_repo_archive_tar`, `github_download_repo_archive_zip`).
-- **[`autolinks/`](autolinks/README.md)** — `github_list_repo_autolinks`.
+- **[`autolinks/`](autolinks/README.md)** — `github_list_repo_autolinks`, `github_create_repo_autolink`.
 - **[`custom-properties/`](custom-properties/README.md)** — `github_get_repo_custom_property_values`, `github_create_update_repo_custom_property_values`.
 - **[`forks/`](forks/README.md)** — `github_list_repo_forks`, `github_create_repo_fork`.
 - **[`rules/`](rules/README.md)** — `github_get_repo_branch_rules`, `github_list_repo_rulesets`, `github_get_repo_ruleset`, `github_get_repo_ruleset_history`, `github_get_repo_ruleset_version`, `github_create_repo_ruleset`, `github_update_repo_ruleset`, `github_delete_repo_ruleset`.

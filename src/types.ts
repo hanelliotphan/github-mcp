@@ -614,6 +614,19 @@ export type ListRepoAutolinksSuccess = {
 
 export type ListRepoAutolinksFailure = CreateRepoFailure;
 
+/** Success from POST /repos/{owner}/{repo}/autolinks — HTTP 201. */
+export type CreateRepoAutolinkSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    autolink: RepoAutolinkItem;
+    request_id: string | null;
+};
+
+export type CreateRepoAutolinkFailure = CreateRepoFailure;
+
 /** One row from GET /repos/{owner}/{repo}/properties/values. */
 export type RepoCustomPropertyValue = {
     property_name: string;

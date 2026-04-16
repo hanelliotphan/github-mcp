@@ -5,6 +5,7 @@ Tool implementations in this folder wrap the [GitHub REST repository autolinks A
 ## Tools
 
 - [`github_list_repo_autolinks`](README.md#github_list_repo_autolinks)
+- [`github_create_repo_autolink`](README.md#github_create_repo_autolink)
 
 ---
 
@@ -19,3 +20,20 @@ Lists [all autolinks](https://docs.github.com/en/rest/repos/autolinks?apiVersion
 #### Output
 
 On success: `autolinks` (each row has `id`, `key_prefix`, `url_template`, `is_alphanumeric`, `updated_at`), and `request_id`. On failure: structured `error`.
+
+---
+
+### `github_create_repo_autolink`
+
+Creates [an autolink reference](https://docs.github.com/en/rest/repos/autolinks?apiVersion=2026-03-10#create-an-autolink-reference-for-a-repository) via `POST /repos/{owner}/{repo}/autolinks`. Body fields match GitHub: **`key_prefix`**, **`url_template`** (must contain the literal **`<num>`**), optional **`is_alphanumeric`** (default **true** on GitHub).
+
+#### Inputs
+
+- **`owner`**, **`name`** (required) — repository coordinates (same as other repo tools)
+- **`key_prefix`** (required) — prefix that triggers the link
+- **`url_template`** (required) — URL with **`<num>`** for the matched reference
+- **`is_alphanumeric`** (optional) — widen or narrow what **`<num>`** matches
+
+#### Output
+
+On success: **`http_status`** (**201**), echoed **`owner`** / **`name`**, **`autolink`** (created row: `id`, `key_prefix`, `url_template`, `is_alphanumeric`, `updated_at`), **`request_id`**. On failure: structured **`error`** (including **422** for validation / abuse per GitHub).
