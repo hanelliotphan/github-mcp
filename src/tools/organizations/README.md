@@ -11,6 +11,7 @@ Implementations in this folder wrap [GitHub REST organizations](https://docs.git
 - [`github_set_org_immutable_releases_settings`](README.md#github_set_org_immutable_releases_settings)
 - [`github_list_immutable_releases_for_org_repos`](README.md#github_list_immutable_releases_for_org_repos)
 - [`github_enable_immutable_releases_for_org_repo`](README.md#github_enable_immutable_releases_for_org_repo)
+- [`github_enable_or_disable_org_security_feature`](README.md#github_enable_or_disable_org_security_feature)
 - [`github_disable_immutable_releases_for_org_repo`](README.md#github_disable_immutable_releases_for_org_repo)
 - [`github_set_immutable_releases_for_org_repos`](README.md#github_set_immutable_releases_for_org_repos)
 - [`github_update_org`](README.md#github_update_org)
@@ -126,6 +127,25 @@ Adds a single repository to the **selected** enforcement list via [Enable a sele
 #### Output
 
 On success: **`http_status`** (typically **204**), echoed **`org`**, **`repository_id`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **422**).
+
+---
+
+### `github_enable_or_disable_org_security_feature`
+
+Calls [Enable or disable a security feature for an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#enable-or-disable-a-security-feature-for-an-organization) (`POST /orgs/{org}/{security_product}/{enablement}`) to start enabling or disabling one security product across **all eligible** repositories. GitHub’s docs describe this endpoint as **closing down** in favor of [**code security configurations**](https://docs.github.com/en/code-security/code-security-overview); prefer those for new defaults.
+
+Caller must be an **organization owner** or a member of a team with the **security manager** role. Classic PATs typically need **`admin:org`**, **`write:org`**, or **`repo`** per GitHub.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`security_product`** (required) — one of: `dependency_graph`, `dependabot_alerts`, `dependabot_security_updates`, `advanced_security`, `code_scanning_default_setup`, `secret_scanning`, `secret_scanning_push_protection`
+- **`enablement`** (required) — `enable_all` or `disable_all`
+- **`query_suite`** (optional) — `default` or `extended`; **only** when **`security_product`** is **`code_scanning_default_setup`**. Otherwise omit (sending it returns a **400** validation error without calling GitHub).
+
+#### Output
+
+On success: **`http_status`** (typically **204**), echoed **`org`**, **`security_product`**, **`enablement`**, optional echoed **`query_suite`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **422** when enablement is blocked or in progress).
 
 ---
 

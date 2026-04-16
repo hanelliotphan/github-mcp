@@ -1,0 +1,37 @@
+{
+  "name": "github_enable_or_disable_org_security_feature",
+  "description": "POST /orgs/{org}/{security_product}/{enablement} — enable or disable a security product for all eligible org repos. GitHub is closing this down in favor of code security configurations. Success typically 204. Optional query_suite (default|extended) only for code_scanning_default_setup.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "security_product": {
+        "type": "string",
+        "enum": [
+          "dependency_graph",
+          "dependabot_alerts",
+          "dependabot_security_updates",
+          "advanced_security",
+          "code_scanning_default_setup",
+          "secret_scanning",
+          "secret_scanning_push_protection"
+        ]
+      },
+      "enablement": {
+        "type": "string",
+        "enum": ["enable_all", "disable_all"]
+      },
+      "query_suite": {
+        "type": "string",
+        "enum": ["default", "extended"]
+      }
+    },
+    "required": ["org", "security_product", "enablement"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

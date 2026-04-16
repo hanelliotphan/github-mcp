@@ -384,6 +384,20 @@ export type EnableImmutableReleasesForOrgRepoSuccess = {
 
 export type EnableImmutableReleasesForOrgRepoFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/{security_product}/{enablement} — org-wide security product enablement (typically 204). */
+export type EnableOrDisableOrgSecurityFeatureSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    security_product: string;
+    enablement: string;
+    query_suite?: string;
+    request_id: string | null;
+};
+
+export type EnableOrDisableOrgSecurityFeatureFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;

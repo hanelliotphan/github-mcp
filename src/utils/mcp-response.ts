@@ -11,6 +11,8 @@ import type {
     EnableImmutableReleasesForOrgRepoFailure,
     EnableImmutableReleasesForOrgRepoSuccess,
     EnableImmutableReleasesSuccess,
+    EnableOrDisableOrgSecurityFeatureFailure,
+    EnableOrDisableOrgSecurityFeatureSuccess,
     CreateUpdateFileContentsFailure,
     CreateUpdateFileContentsSuccess,
     CreateRepoAttestationFailure,
@@ -167,6 +169,8 @@ export function textAndData(
         | EnableImmutableReleasesFailure
         | EnableImmutableReleasesForOrgRepoSuccess
         | EnableImmutableReleasesForOrgRepoFailure
+        | EnableOrDisableOrgSecurityFeatureSuccess
+        | EnableOrDisableOrgSecurityFeatureFailure
         | DisableImmutableReleasesSuccess
         | DisableImmutableReleasesFailure
         | DisableImmutableReleasesForOrgRepoSuccess
