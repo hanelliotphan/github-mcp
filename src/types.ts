@@ -916,6 +916,23 @@ export type GetTimeStatsSuccess = {
 
 export type GetTimeStatsFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id} — HTTP 200 (same array shape as org time-stats). */
+export type GetTimeStatsByActorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    actor_type: string;
+    actor_id: number;
+    min_timestamp: string;
+    max_timestamp: string | null;
+    timestamp_increment: string;
+    time_stats: TimeStatRow[];
+    request_id: string | null;
+};
+
+export type GetTimeStatsByActorFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/insights/api/time-stats/users/{user_id} — HTTP 200 (same array shape as org time-stats). */
 export type GetTimeStatsByUserSuccess = {
     success: true;

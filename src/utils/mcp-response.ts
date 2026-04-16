@@ -67,6 +67,8 @@ import type {
     GetSummaryStatsByUserSuccess,
     GetSummaryStatsFailure,
     GetSummaryStatsSuccess,
+    GetTimeStatsByActorFailure,
+    GetTimeStatsByActorSuccess,
     GetTimeStatsByUserFailure,
     GetTimeStatsByUserSuccess,
     GetTimeStatsFailure,
@@ -243,6 +245,8 @@ export function textAndData(
         | GetSummaryStatsByUserFailure
         | GetSummaryStatsSuccess
         | GetSummaryStatsFailure
+        | GetTimeStatsByActorSuccess
+        | GetTimeStatsByActorFailure
         | GetTimeStatsByUserSuccess
         | GetTimeStatsByUserFailure
         | GetTimeStatsSuccess

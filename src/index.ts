@@ -43,6 +43,7 @@ import { registerGithubGetSummaryStatsTool } from "./tools/organizations/api-ins
 import { registerGithubGetSummaryStatsByActorTool } from "./tools/organizations/api-insights/github-get-summary-stats-by-actor.js";
 import { registerGithubGetSummaryStatsByUserTool } from "./tools/organizations/api-insights/github-get-summary-stats-by-user.js";
 import { registerGithubGetTimeStatsTool } from "./tools/organizations/api-insights/github-get-time-stats.js";
+import { registerGithubGetTimeStatsByActorTool } from "./tools/organizations/api-insights/github-get-time-stats-by-actor.js";
 import { registerGithubGetTimeStatsByUserTool } from "./tools/organizations/api-insights/github-get-time-stats-by-user.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
@@ -110,6 +111,7 @@ registerGithubGetSummaryStatsTool(server, octokit);
 registerGithubGetSummaryStatsByActorTool(server, octokit);
 registerGithubGetSummaryStatsByUserTool(server, octokit);
 registerGithubGetTimeStatsTool(server, octokit);
+registerGithubGetTimeStatsByActorTool(server, octokit);
 registerGithubGetTimeStatsByUserTool(server, octokit);
 registerGithubGetOrgImmutableReleasesSettingsTool(server, octokit);
 registerGithubSetOrgImmutableReleasesSettingsTool(server, octokit);
