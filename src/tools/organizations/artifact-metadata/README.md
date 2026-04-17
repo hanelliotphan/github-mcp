@@ -5,6 +5,7 @@ Wrappers for [REST API endpoints for artifact metadata](https://docs.github.com/
 ## Tools
 
 - [`github_create_org_artifact_deployment_record`](README.md#github_create_org_artifact_deployment_record)
+- [`github_set_org_cluster_deployment_records`](README.md#github_set_org_cluster_deployment_records)
 
 ---
 
@@ -29,3 +30,22 @@ Calls [Create an artifact deployment record](https://docs.github.com/en/rest/org
 #### Output
 
 On success: **`http_status`** (**200**), echoed **`org`**, **`total_count`**, **`deployment_records`** (array of objects), **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
+
+---
+
+### `github_set_org_cluster_deployment_records`
+
+Calls [Set cluster deployment records](https://docs.github.com/en/rest/orgs/artifact-metadata?apiVersion=2026-03-10#set-cluster-deployment-records) (`POST /orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}`). Sends **`logical_environment`**, optional **`physical_environment`**, and a **`deployments`** array (each row: **`name`**, **`digest`**, **`deployment_name`**, plus optional **`version`**, **`status`**, **`github_repository`**, **`tags`**, **`runtime_risks`**). Response shape matches [create deployment record](#github_create_org_artifact_deployment_record).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`cluster`** (required) — cluster path segment
+- **`logical_environment`** (required) — deployment stage
+- **`physical_environment`** (optional)
+- **`deployments`** (required, non-empty) — deployment objects (**`deployment_name`** unique within the array)
+- **`return_records`** (optional) — GitHub default **true**
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`org`**, **`cluster`**, **`total_count`**, **`deployment_records`**, **`request_id`**. On failure: structured **`error`**.

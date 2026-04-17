@@ -169,6 +169,8 @@ import type {
     ReplaceRepoTopicsSuccess,
     SetImmutableReleasesForOrgReposFailure,
     SetImmutableReleasesForOrgReposSuccess,
+    SetOrgClusterDeploymentRecordsFailure,
+    SetOrgClusterDeploymentRecordsSuccess,
     SetOrgImmutableReleasesSettingsFailure,
     SetOrgImmutableReleasesSettingsSuccess,
     TransferRepoFailure,
@@ -357,6 +359,8 @@ export function textAndData(
         | ReplaceRepoTopicsFailure
         | SetImmutableReleasesForOrgReposSuccess
         | SetImmutableReleasesForOrgReposFailure
+        | SetOrgClusterDeploymentRecordsSuccess
+        | SetOrgClusterDeploymentRecordsFailure
         | SetOrgImmutableReleasesSettingsSuccess
         | SetOrgImmutableReleasesSettingsFailure
         | TransferRepoSuccess
