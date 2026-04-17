@@ -55,6 +55,7 @@ import { registerGithubDisableImmutableReleasesForOrgRepoTool } from "./tools/or
 import { registerGithubEnableImmutableReleasesForOrgRepoTool } from "./tools/organizations/github-enable-immutable-releases-for-org-repo.js";
 import { registerGithubCreateOrgArtifactDeploymentRecordTool } from "./tools/organizations/artifact-metadata/github-create-org-artifact-deployment-record.js";
 import { registerGithubCreateOrgMetadataStorageRecordTool } from "./tools/organizations/artifact-metadata/github-create-org-metadata-storage-record.js";
+import { registerGithubListOrgArtifactDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-list-org-artifact-deployment-records.js";
 import { registerGithubSetOrgClusterDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-set-org-cluster-deployment-records.js";
 import { registerGithubEnableOrDisableOrgSecurityFeatureTool } from "./tools/organizations/github-enable-or-disable-org-security-feature.js";
 import { registerGithubListImmutableReleasesForOrgReposTool } from "./tools/organizations/github-list-immutable-releases-for-org-repos.js";
@@ -128,6 +129,7 @@ registerGithubEnableImmutableReleasesForOrgRepoTool(server, octokit);
 registerGithubEnableOrDisableOrgSecurityFeatureTool(server, octokit);
 registerGithubCreateOrgArtifactDeploymentRecordTool(server, octokit);
 registerGithubCreateOrgMetadataStorageRecordTool(server, octokit);
+registerGithubListOrgArtifactDeploymentRecordsTool(server, octokit);
 registerGithubSetOrgClusterDeploymentRecordsTool(server, octokit);
 registerGithubDisableImmutableReleasesForOrgRepoTool(server, octokit);
 registerGithubSetImmutableReleasesForOrgReposTool(server, octokit);

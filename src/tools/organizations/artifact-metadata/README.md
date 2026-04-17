@@ -5,6 +5,7 @@ Wrappers for [REST API endpoints for artifact metadata](https://docs.github.com/
 ## Tools
 
 - [`github_create_org_artifact_deployment_record`](README.md#github_create_org_artifact_deployment_record)
+- [`github_list_org_artifact_deployment_records`](README.md#github_list_org_artifact_deployment_records)
 - [`github_create_org_metadata_storage_record`](README.md#github_create_org_metadata_storage_record)
 - [`github_set_org_cluster_deployment_records`](README.md#github_set_org_cluster_deployment_records)
 
@@ -31,6 +32,21 @@ Calls [Create an artifact deployment record](https://docs.github.com/en/rest/org
 #### Output
 
 On success: **`http_status`** (**200**), echoed **`org`**, **`total_count`**, **`deployment_records`** (array of objects), **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
+
+---
+
+### `github_list_org_artifact_deployment_records`
+
+Calls [List artifact deployment records](https://docs.github.com/en/rest/orgs/artifact-metadata?apiVersion=2026-03-10#list-artifact-deployment-records) (`GET /orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`subject_digest`** (required) — subject digest, typically `sha256:` plus 64 hex characters per GitHub
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`org`**, **`subject_digest`**, **`total_count`**, **`deployment_records`**, **`request_id`**. On failure: structured **`error`**.
 
 ---
 

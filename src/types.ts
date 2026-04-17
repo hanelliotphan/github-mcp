@@ -444,6 +444,20 @@ export type SetOrgClusterDeploymentRecordsSuccess = {
 
 export type SetOrgClusterDeploymentRecordsFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records — HTTP 200. */
+export type ListOrgArtifactDeploymentRecordsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    subject_digest: string;
+    total_count: number;
+    deployment_records: ArtifactDeploymentRecordRow[];
+    request_id: string | null;
+};
+
+export type ListOrgArtifactDeploymentRecordsFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;
