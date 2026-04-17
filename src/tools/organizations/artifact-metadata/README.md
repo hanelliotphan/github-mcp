@@ -5,6 +5,7 @@ Wrappers for [REST API endpoints for artifact metadata](https://docs.github.com/
 ## Tools
 
 - [`github_create_org_artifact_deployment_record`](README.md#github_create_org_artifact_deployment_record)
+- [`github_create_org_metadata_storage_record`](README.md#github_create_org_metadata_storage_record)
 - [`github_set_org_cluster_deployment_records`](README.md#github_set_org_cluster_deployment_records)
 
 ---
@@ -30,6 +31,27 @@ Calls [Create an artifact deployment record](https://docs.github.com/en/rest/org
 #### Output
 
 On success: **`http_status`** (**200**), echoed **`org`**, **`total_count`**, **`deployment_records`** (array of objects), **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
+
+---
+
+### `github_create_org_metadata_storage_record`
+
+Calls [Create artifact metadata storage record](https://docs.github.com/en/rest/orgs/artifact-metadata?apiVersion=2026-03-10#create-artifact-metadata-storage-record) (`POST /orgs/{org}/artifacts/metadata/storage-record`). Registers where a digest is stored in a registry.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`name`** (required) — subject name
+- **`digest`** (required) — digest (`algorithm:hex-encoded-digest`)
+- **`registry_url`** (required) — registry base URL
+- **`version`**, **`artifact_url`**, **`path`**, **`repository`** (optional)
+- **`status`** (optional) — `active`, `eol`, or `deleted` (GitHub default **active**)
+- **`github_repository`** (optional) — repo name in the org when no provenance attestation supplies it
+- **`return_records`** (optional) — GitHub default **true**
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`org`**, **`total_count`**, **`storage_records`**, **`request_id`**. On failure: structured **`error`**.
 
 ---
 

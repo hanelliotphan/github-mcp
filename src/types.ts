@@ -414,6 +414,22 @@ export type CreateOrgArtifactDeploymentRecordSuccess = {
 
 export type CreateOrgArtifactDeploymentRecordFailure = CreateRepoFailure;
 
+/** One row in `storage_records` from POST /orgs/{org}/artifacts/metadata/storage-record. */
+export type OrgMetadataStorageRecordRow = Record<string, unknown>;
+
+/** POST /orgs/{org}/artifacts/metadata/storage-record — HTTP 200. */
+export type CreateOrgMetadataStorageRecordSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    storage_records: OrgMetadataStorageRecordRow[];
+    request_id: string | null;
+};
+
+export type CreateOrgMetadataStorageRecordFailure = CreateRepoFailure;
+
 /** POST /orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster} — HTTP 200 (same body shape as single deployment record create). */
 export type SetOrgClusterDeploymentRecordsSuccess = {
     success: true;

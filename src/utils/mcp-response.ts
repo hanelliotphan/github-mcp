@@ -17,6 +17,8 @@ import type {
     CreateUpdateFileContentsSuccess,
     CreateOrgArtifactDeploymentRecordFailure,
     CreateOrgArtifactDeploymentRecordSuccess,
+    CreateOrgMetadataStorageRecordFailure,
+    CreateOrgMetadataStorageRecordSuccess,
     CreateRepoAttestationFailure,
     CreateRepoAttestationSuccess,
     CreateRepoAutolinkFailure,
@@ -223,6 +225,8 @@ export function textAndData(
         | CreateUpdateFileContentsFailure
         | CreateOrgArtifactDeploymentRecordSuccess
         | CreateOrgArtifactDeploymentRecordFailure
+        | CreateOrgMetadataStorageRecordSuccess
+        | CreateOrgMetadataStorageRecordFailure
         | CreateRepoAttestationSuccess
         | CreateRepoAttestationFailure
         | CreateRepoAutolinkSuccess
