@@ -151,6 +151,8 @@ import type {
     ListOrgAppInstallationsSuccess,
     ListOrgArtifactDeploymentRecordsFailure,
     ListOrgArtifactDeploymentRecordsSuccess,
+    ListOrgMetadataStorageRecordsFailure,
+    ListOrgMetadataStorageRecordsSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -345,6 +347,8 @@ export function textAndData(
         | ListOrgAppInstallationsFailure
         | ListOrgArtifactDeploymentRecordsSuccess
         | ListOrgArtifactDeploymentRecordsFailure
+        | ListOrgMetadataStorageRecordsSuccess
+        | ListOrgMetadataStorageRecordsFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

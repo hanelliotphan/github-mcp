@@ -458,6 +458,20 @@ export type ListOrgArtifactDeploymentRecordsSuccess = {
 
 export type ListOrgArtifactDeploymentRecordsFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/artifacts/{subject_digest}/metadata/storage-records — HTTP 200. */
+export type ListOrgMetadataStorageRecordsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    subject_digest: string;
+    total_count: number;
+    storage_records: OrgMetadataStorageRecordRow[];
+    request_id: string | null;
+};
+
+export type ListOrgMetadataStorageRecordsFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;

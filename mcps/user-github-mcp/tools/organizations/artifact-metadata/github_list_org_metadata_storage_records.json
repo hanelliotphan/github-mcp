@@ -1,0 +1,18 @@
+{
+  "name": "github_list_org_metadata_storage_records",
+  "description": "GET /orgs/{org}/artifacts/{subject_digest}/metadata/storage-records — list storage records for a subject digest (filtered by repo read access; fine-grained tokens may need content:read). HTTP 200 returns total_count and storage_records. See GitHub REST org artifact metadata.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "subject_digest": { "type": "string", "minLength": 1 }
+    },
+    "required": ["org", "subject_digest"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

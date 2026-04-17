@@ -7,6 +7,7 @@ Wrappers for [REST API endpoints for artifact metadata](https://docs.github.com/
 - [`github_create_org_artifact_deployment_record`](README.md#github_create_org_artifact_deployment_record)
 - [`github_list_org_artifact_deployment_records`](README.md#github_list_org_artifact_deployment_records)
 - [`github_create_org_metadata_storage_record`](README.md#github_create_org_metadata_storage_record)
+- [`github_list_org_metadata_storage_records`](README.md#github_list_org_metadata_storage_records)
 - [`github_set_org_cluster_deployment_records`](README.md#github_set_org_cluster_deployment_records)
 
 ---
@@ -68,6 +69,21 @@ Calls [Create artifact metadata storage record](https://docs.github.com/en/rest/
 #### Output
 
 On success: **`http_status`** (**200**), echoed **`org`**, **`total_count`**, **`storage_records`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_list_org_metadata_storage_records`
+
+Calls [List artifact storage records](https://docs.github.com/en/rest/orgs/artifact-metadata?apiVersion=2026-03-10#list-artifact-storage-records) (`GET /orgs/{org}/artifacts/{subject_digest}/metadata/storage-records`). Rows are filtered by repository visibility and token permissions (fine-grained tokens may require **content:read** per GitHub).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`subject_digest`** (required) — attestation subject digest, typically `sha256:` plus 64 hex characters per GitHub
+
+#### Output
+
+On success: **`http_status`** (**200**), echoed **`org`**, **`subject_digest`**, **`total_count`**, **`storage_records`**, **`request_id`**. On failure: structured **`error`**.
 
 ---
 

@@ -56,6 +56,7 @@ import { registerGithubEnableImmutableReleasesForOrgRepoTool } from "./tools/org
 import { registerGithubCreateOrgArtifactDeploymentRecordTool } from "./tools/organizations/artifact-metadata/github-create-org-artifact-deployment-record.js";
 import { registerGithubCreateOrgMetadataStorageRecordTool } from "./tools/organizations/artifact-metadata/github-create-org-metadata-storage-record.js";
 import { registerGithubListOrgArtifactDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-list-org-artifact-deployment-records.js";
+import { registerGithubListOrgMetadataStorageRecordsTool } from "./tools/organizations/artifact-metadata/github-list-org-metadata-storage-records.js";
 import { registerGithubSetOrgClusterDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-set-org-cluster-deployment-records.js";
 import { registerGithubEnableOrDisableOrgSecurityFeatureTool } from "./tools/organizations/github-enable-or-disable-org-security-feature.js";
 import { registerGithubListImmutableReleasesForOrgReposTool } from "./tools/organizations/github-list-immutable-releases-for-org-repos.js";
@@ -102,7 +103,10 @@ import { registerGithubTransferRepoTool } from "./tools/repositories/github-tran
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
 
 const token = getRequiredEnv("GITHUB_TOKEN");
-const octokit = new Octokit({ auth: token });
+const octokit = new Octokit({
+    auth: token,
+    headers: { "X-GitHub-Api-Version": "2026-03-10" }
+});
 const server = new McpServer({ name: "github-mcp", version: "1.0.0" });
 
 // Register all MCP tools here; each tool implementation lives in its own file.
@@ -130,6 +134,7 @@ registerGithubEnableOrDisableOrgSecurityFeatureTool(server, octokit);
 registerGithubCreateOrgArtifactDeploymentRecordTool(server, octokit);
 registerGithubCreateOrgMetadataStorageRecordTool(server, octokit);
 registerGithubListOrgArtifactDeploymentRecordsTool(server, octokit);
+registerGithubListOrgMetadataStorageRecordsTool(server, octokit);
 registerGithubSetOrgClusterDeploymentRecordsTool(server, octokit);
 registerGithubDisableImmutableReleasesForOrgRepoTool(server, octokit);
 registerGithubSetImmutableReleasesForOrgReposTool(server, octokit);
