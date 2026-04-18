@@ -1,4 +1,6 @@
 import type {
+    BulkListOrgAttestationsFailure,
+    BulkListOrgAttestationsSuccess,
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess,
     CheckPrivateVulnerabilityReportingFailure,
@@ -195,6 +197,8 @@ import type {
 
 export function textAndData(
     payload:
+        | BulkListOrgAttestationsSuccess
+        | BulkListOrgAttestationsFailure
         | CheckDependabotSecurityUpdatesSuccess
         | CheckDependabotSecurityUpdatesFailure
         | CheckPrivateVulnerabilityReportingSuccess

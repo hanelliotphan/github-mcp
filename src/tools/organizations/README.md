@@ -6,6 +6,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Artifact metadata](artifact-metadata/README.md)** tools (`/orgs/{org}/artifacts/...`) live in [`artifact-metadata/`](artifact-metadata/).
 
+**[Organization artifact attestations](artifact-attestations/README.md)** tools (`/orgs/{org}/attestations/...`) live in [`artifact-attestations/`](artifact-attestations/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -23,6 +25,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_create_org_metadata_storage_record`](artifact-metadata/README.md#github_create_org_metadata_storage_record)
 - [`github_list_org_metadata_storage_records`](artifact-metadata/README.md#github_list_org_metadata_storage_records)
 - [`github_set_org_cluster_deployment_records`](artifact-metadata/README.md#github_set_org_cluster_deployment_records)
+- [`github_list_org_attestations_bulk_subject_digests`](artifact-attestations/README.md#github_list_org_attestations_bulk_subject_digests)
 - [`github_disable_immutable_releases_for_org_repo`](README.md#github_disable_immutable_releases_for_org_repo)
 - [`github_set_immutable_releases_for_org_repos`](README.md#github_set_immutable_releases_for_org_repos)
 - [`github_update_org`](README.md#github_update_org)

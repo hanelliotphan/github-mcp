@@ -472,6 +472,19 @@ export type ListOrgMetadataStorageRecordsSuccess = {
 
 export type ListOrgMetadataStorageRecordsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/attestations/bulk-list — HTTP 200. */
+export type BulkListOrgAttestationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    attestations_subject_digests: Record<string, unknown>;
+    page_info: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type BulkListOrgAttestationsFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;
