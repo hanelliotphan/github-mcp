@@ -5,6 +5,7 @@ Tool implementations wrap [REST API endpoints for org artifact attestations](htt
 ## Tools
 
 - [`github_list_org_attestations_bulk_subject_digests`](README.md#github_list_org_attestations_bulk_subject_digests)
+- [`github_delete_org_attestations_bulk`](README.md#github_delete_org_attestations_bulk)
 
 ---
 
@@ -25,3 +26,18 @@ Calls [List attestations by bulk subject digests](https://docs.github.com/en/res
 On success (**200**): **`org`**, **`attestations_subject_digests`** (map of digest → attestations or null), **`page_info`** (`has_next`, `has_previous`, `next`, `previous` when present), **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 Attestations should be **cryptographically verified** for security; see GitHub’s [artifact attestations](https://docs.github.com/en/rest/orgs/attestations?apiVersion=2026-03-10#list-attestations-by-bulk-subject-digests) documentation and `gh attestation verify`.
+
+---
+
+### `github_delete_org_attestations_bulk`
+
+Calls [Delete attestations in bulk](https://docs.github.com/en/rest/orgs/attestations?apiVersion=2026-03-10#delete-attestations-in-bulk) (`POST /orgs/{org}/attestations/delete-request`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`subject_digests`** (required, non-empty, max **100** entries) — subject digests whose attestations should be removed
+
+#### Output
+
+On success (**200**): **`org`**, **`http_status`**, **`request_id`**, and **`response_data`** (parsed JSON body when GitHub returns one, otherwise **null**). On failure: structured **`error`** (e.g. **404**).

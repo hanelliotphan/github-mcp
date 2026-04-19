@@ -485,6 +485,18 @@ export type BulkListOrgAttestationsSuccess = {
 
 export type BulkListOrgAttestationsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/attestations/delete-request — HTTP 200 (body often empty). */
+export type DeleteOrgAttestationsBulkSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    request_id: string | null;
+    response_data: Record<string, unknown> | null;
+};
+
+export type DeleteOrgAttestationsBulkFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;
