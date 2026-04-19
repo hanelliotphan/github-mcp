@@ -1,6 +1,6 @@
 {
   "name": "github_list_org_attestations_bulk_subject_digests",
-  "description": "POST /orgs/{org}/attestations/bulk-list — list attestations for multiple subject digests. Requires subject_digests[]; optional predicate_type (provenance, sbom, release, or custom), per_page (1–100), before, after cursors. Filtered by repo read access; fine-grained tokens need attestations:read. HTTP 200. See GitHub REST org attestations.",
+  "description": "POST /orgs/{org}/attestations/bulk-list — list attestations for multiple subject digests. Requires subject_digests[]; optional predicate_type (provenance, sbom, release, or custom), per_page (1–100, default 100 when omitted), before, after cursors. Filtered by repo read access; fine-grained tokens need attestations:read. HTTP 200. See GitHub REST org attestations.",
   "arguments": {
     "type": "object",
     "properties": {

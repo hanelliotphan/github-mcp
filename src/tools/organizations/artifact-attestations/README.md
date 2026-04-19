@@ -4,9 +4,27 @@ Tool implementations wrap [REST API endpoints for org artifact attestations](htt
 
 ## Tools
 
+- [`github_list_org_attestation_repos`](README.md#github_list_org_attestation_repos)
 - [`github_list_org_attestations_bulk_subject_digests`](README.md#github_list_org_attestations_bulk_subject_digests)
 - [`github_delete_org_attestation_by_subject_digest`](README.md#github_delete_org_attestation_by_subject_digest)
 - [`github_delete_org_attestations_bulk`](README.md#github_delete_org_attestations_bulk)
+
+---
+
+### `github_list_org_attestation_repos`
+
+Calls [List attestation repositories](https://docs.github.com/en/rest/orgs/attestations?apiVersion=2026-03-10#list-attestation-repositories) (`GET /orgs/{org}/attestations/repositories`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`predicate_type`** (optional) — `provenance`, `sbom`, `release`, or a custom predicate type string
+- **`per_page`** (optional) — **1–100**; default **100** when omitted (MCP default; GitHub REST default is **30**)
+- **`before`**, **`after`** (optional) — cursor pagination from `Link` headers
+
+#### Output
+
+On success (**200**): **`org`**, **`repositories`** (array of objects with **`id`**, **`name`** per GitHub), **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 ---
 
@@ -19,7 +37,7 @@ Calls [List attestations by bulk subject digests](https://docs.github.com/en/res
 - **`org`** (required) — organization login
 - **`subject_digests`** (required, non-empty, max **100** entries) — subject digest strings (e.g. `sha256:…` per GitHub)
 - **`predicate_type`** (optional) — `provenance`, `sbom`, `release`, or a custom predicate type string
-- **`per_page`** (optional) — **1–100** (GitHub default **30**)
+- **`per_page`** (optional) — **1–100**; default **100** when omitted (MCP default; GitHub REST default is **30**)
 - **`before`**, **`after`** (optional) — cursor pagination from `Link` headers
 
 #### Output

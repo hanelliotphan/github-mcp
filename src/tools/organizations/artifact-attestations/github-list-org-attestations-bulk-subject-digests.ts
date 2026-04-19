@@ -8,6 +8,9 @@ import { textAndData } from "../../../utils/mcp-response.js";
 
 const orgLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
+/** Default `per_page` when omitted (**100**; GitHub’s REST default is **30**). */
+const DEFAULT_PER_PAGE = 100 as const;
+
 function toPlainBulkAttestationsResponse(data: unknown): {
     attestations_subject_digests: Record<string, unknown>;
     page_info: Record<string, unknown>;
@@ -31,7 +34,7 @@ export function registerGithubListOrgAttestationsBulkSubjectDigestsTool(server: 
         "github_list_org_attestations_bulk_subject_digests",
         "List **artifact attestations** for many subject digests in an organization (POST /orgs/{org}/attestations/bulk-list). " +
             "Body requires **`subject_digests`**; optional **`predicate_type`** (e.g. provenance, sbom, release, or custom). " +
-            "Query cursors **`per_page`** (max **100**, GitHub default **30**), **`before`**, **`after`**. " +
+            "Query cursors **`per_page`** (1–100, default **100** when omitted), **`before`**, **`after`**. " +
             "Results are filtered by repo read access; fine-grained tokens need **attestations:read**. " +
             "Verify bundles cryptographically in production (see GitHub guidance). " +
             "See [List attestations by bulk subject digests](https://docs.github.com/en/rest/orgs/attestations?apiVersion=2026-03-10#list-attestations-by-bulk-subject-digests).",
@@ -54,7 +57,13 @@ export function registerGithubListOrgAttestationsBulkSubjectDigestsTool(server: 
                 .min(1)
                 .optional()
                 .describe("Optional filter: provenance, sbom, release, or a custom predicate type."),
-            per_page: z.number().int().min(1).max(100).optional(),
+            per_page: z
+                .number()
+                .int()
+                .min(1)
+                .max(100)
+                .optional()
+                .describe("Results per page; defaults to 100 when omitted (MCP default; GitHub REST default is 30)."),
             before: z.string().min(1).optional(),
             after: z.string().min(1).optional()
         },
@@ -66,9 +75,7 @@ export function registerGithubListOrgAttestationsBulkSubjectDigestsTool(server: 
             if (input.predicate_type !== undefined) {
                 params.predicate_type = input.predicate_type;
             }
-            if (input.per_page !== undefined) {
-                params.per_page = input.per_page;
-            }
+            params.per_page = input.per_page ?? DEFAULT_PER_PAGE;
             if (input.before !== undefined) {
                 params.before = input.before;
             }

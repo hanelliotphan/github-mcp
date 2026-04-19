@@ -1,0 +1,21 @@
+{
+  "name": "github_list_org_attestation_repos",
+  "description": "GET /orgs/{org}/attestations/repositories — org repos with at least one attested artifact (id, name per row). Optional predicate_type, per_page (1–100, default 100 when omitted), before, after. HTTP 200. See GitHub REST org attestations.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "predicate_type": { "type": "string", "minLength": 1 },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "before": { "type": "string", "minLength": 1 },
+      "after": { "type": "string", "minLength": 1 }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

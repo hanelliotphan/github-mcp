@@ -458,6 +458,21 @@ export type ListOrgArtifactDeploymentRecordsSuccess = {
 
 export type ListOrgArtifactDeploymentRecordsFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/attestations/repositories. */
+export type OrgAttestationRepositoryRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/attestations/repositories — HTTP 200. */
+export type ListOrgAttestationReposSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    repositories: OrgAttestationRepositoryRow[];
+    request_id: string | null;
+};
+
+export type ListOrgAttestationReposFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/artifacts/{subject_digest}/metadata/storage-records — HTTP 200. */
 export type ListOrgMetadataStorageRecordsSuccess = {
     success: true;
