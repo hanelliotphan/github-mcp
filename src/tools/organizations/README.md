@@ -27,6 +27,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_set_org_cluster_deployment_records`](artifact-metadata/README.md#github_set_org_cluster_deployment_records)
 - [`github_list_org_attestation_repos`](artifact-attestations/README.md#github_list_org_attestation_repos)
 - [`github_list_org_attestations_bulk_subject_digests`](artifact-attestations/README.md#github_list_org_attestations_bulk_subject_digests)
+- [`github_delete_org_attestation_by_id`](artifact-attestations/README.md#github_delete_org_attestation_by_id)
 - [`github_delete_org_attestation_by_subject_digest`](artifact-attestations/README.md#github_delete_org_attestation_by_subject_digest)
 - [`github_delete_org_attestations_bulk`](artifact-attestations/README.md#github_delete_org_attestations_bulk)
 - [`github_disable_immutable_releases_for_org_repo`](README.md#github_disable_immutable_releases_for_org_repo)

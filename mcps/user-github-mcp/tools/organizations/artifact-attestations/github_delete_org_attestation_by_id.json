@@ -1,0 +1,18 @@
+{
+  "name": "github_delete_org_attestation_by_id",
+  "description": "DELETE /orgs/{org}/attestations/{attestation_id} — delete one attestation by integer id. Success 200 or 204; 403/404 on failure. See GitHub REST org attestations.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "attestation_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["org", "attestation_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
