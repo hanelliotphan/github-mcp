@@ -49,6 +49,8 @@ import type {
     CreateRepoSuccess,
     DeleteFileFailure,
     DeleteFileSuccess,
+    DeleteOrgAttestationBySubjectDigestFailure,
+    DeleteOrgAttestationBySubjectDigestSuccess,
     DeleteOrgAttestationsBulkFailure,
     DeleteOrgAttestationsBulkSuccess,
     DeleteOrgFailure,
@@ -251,6 +253,8 @@ export function textAndData(
         | DeleteRepoFailure
         | DeleteFileSuccess
         | DeleteFileFailure
+        | DeleteOrgAttestationBySubjectDigestSuccess
+        | DeleteOrgAttestationBySubjectDigestFailure
         | DeleteOrgAttestationsBulkSuccess
         | DeleteOrgAttestationsBulkFailure
         | DeleteOrgSuccess

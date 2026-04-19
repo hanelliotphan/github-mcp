@@ -57,6 +57,7 @@ import { registerGithubCreateOrgArtifactDeploymentRecordTool } from "./tools/org
 import { registerGithubCreateOrgMetadataStorageRecordTool } from "./tools/organizations/artifact-metadata/github-create-org-metadata-storage-record.js";
 import { registerGithubListOrgArtifactDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-list-org-artifact-deployment-records.js";
 import { registerGithubListOrgMetadataStorageRecordsTool } from "./tools/organizations/artifact-metadata/github-list-org-metadata-storage-records.js";
+import { registerGithubDeleteOrgAttestationBySubjectDigestTool } from "./tools/organizations/artifact-attestations/github-delete-org-attestation-by-subject-digest.js";
 import { registerGithubDeleteOrgAttestationsBulkTool } from "./tools/organizations/artifact-attestations/github-delete-org-attestations-bulk.js";
 import { registerGithubListOrgAttestationsBulkSubjectDigestsTool } from "./tools/organizations/artifact-attestations/github-list-org-attestations-bulk-subject-digests.js";
 import { registerGithubSetOrgClusterDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-set-org-cluster-deployment-records.js";
@@ -138,6 +139,7 @@ registerGithubCreateOrgMetadataStorageRecordTool(server, octokit);
 registerGithubListOrgArtifactDeploymentRecordsTool(server, octokit);
 registerGithubListOrgMetadataStorageRecordsTool(server, octokit);
 registerGithubListOrgAttestationsBulkSubjectDigestsTool(server, octokit);
+registerGithubDeleteOrgAttestationBySubjectDigestTool(server, octokit);
 registerGithubDeleteOrgAttestationsBulkTool(server, octokit);
 registerGithubSetOrgClusterDeploymentRecordsTool(server, octokit);
 registerGithubDisableImmutableReleasesForOrgRepoTool(server, octokit);

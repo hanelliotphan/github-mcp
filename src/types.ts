@@ -485,6 +485,19 @@ export type BulkListOrgAttestationsSuccess = {
 
 export type BulkListOrgAttestationsFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/attestations/digest/{subject_digest} — HTTP 200 or 204. */
+export type DeleteOrgAttestationBySubjectDigestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    subject_digest: string;
+    request_id: string | null;
+    response_data: Record<string, unknown> | null;
+};
+
+export type DeleteOrgAttestationBySubjectDigestFailure = CreateRepoFailure;
+
 /** POST /orgs/{org}/attestations/delete-request — HTTP 200 (body often empty). */
 export type DeleteOrgAttestationsBulkSuccess = {
     success: true;
