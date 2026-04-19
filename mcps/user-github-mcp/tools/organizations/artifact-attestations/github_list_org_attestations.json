@@ -1,0 +1,47 @@
+{
+  "name": "github_list_org_attestations",
+  "description": "GET /orgs/{org}/attestations/{subject_digest} — list org-scoped attestations for sha256:… digest. Cursor pagination (after/before from Link). all_pages + max_pages. per_page defaults to 100 when omitted. attestations:read for fine-grained tokens. See GitHub REST org attestations.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "subject_digest": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^sha256:[a-fA-F0-9]{64}$",
+        "description": "Attestation subject SHA256 digest: sha256:HEX_DIGEST"
+      },
+      "predicate_type": {
+        "description": "Optional filter: provenance, sbom, release, or a custom predicate type string (GitHub API).",
+        "type": "string",
+        "minLength": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "before": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": ["org", "subject_digest"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

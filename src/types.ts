@@ -473,6 +473,28 @@ export type ListOrgAttestationReposSuccess = {
 
 export type ListOrgAttestationReposFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/attestations/{subject_digest} — list attestations for a subject digest (org-owned repos). */
+export type ListOrgAttestationsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    /** Subject digest used for this request. */
+    subject_digest: string;
+    attestations: RepoAttestationListItem[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.after` / `next.before` to continue.
+     */
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    /** Effective `per_page` for this call (default **100** when omitted, GitHub max **100**). */
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgAttestationsFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/artifacts/{subject_digest}/metadata/storage-records — HTTP 200. */
 export type ListOrgMetadataStorageRecordsSuccess = {
     success: true;

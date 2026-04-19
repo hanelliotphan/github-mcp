@@ -5,6 +5,7 @@ Tool implementations wrap [REST API endpoints for org artifact attestations](htt
 ## Tools
 
 - [`github_list_org_attestation_repos`](README.md#github_list_org_attestation_repos)
+- [`github_list_org_attestations`](README.md#github_list_org_attestations)
 - [`github_list_org_attestations_bulk_subject_digests`](README.md#github_list_org_attestations_bulk_subject_digests)
 - [`github_delete_org_attestation_by_id`](README.md#github_delete_org_attestation_by_id)
 - [`github_delete_org_attestation_by_subject_digest`](README.md#github_delete_org_attestation_by_subject_digest)
@@ -26,6 +27,28 @@ Calls [List attestation repositories](https://docs.github.com/en/rest/orgs/attes
 #### Output
 
 On success (**200**): **`org`**, **`repositories`** (array of objects with **`id`**, **`name`** per GitHub), **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_list_org_attestations`
+
+Calls [List attestations](https://docs.github.com/en/rest/orgs/attestations?apiVersion=2026-03-10#list-attestations) (`GET /orgs/{org}/attestations/{subject_digest}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`subject_digest`** (required) — `sha256:` + 64 hex characters (GitHub REST)
+- **`predicate_type`** (optional) — `provenance`, `sbom`, `release`, or a custom predicate type string
+- **`per_page`** (optional) — **1–100**; default **100** when omitted (MCP default; GitHub REST default is **30**)
+- **`before`**, **`after`** (optional) — cursor pagination from `Link` headers
+- **`all_pages`** (optional) — when true, follow `next` up to **`max_pages`** (default **100**)
+- **`max_pages`** (optional) — cap for `all_pages` (**1–500**)
+
+#### Output
+
+On success (**200**): **`org`**, **`subject_digest`**, **`attestations`** (normalized rows: **`repository_id`**, **`bundle_url`**, **`initiator`**, **`bundle`**), **`pagination`**, **`request_id`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**. On failure: structured **`error`**.
+
+Results are filtered by repository read access; fine-grained tokens need **attestations:read**. Verify bundles cryptographically in production.
 
 ---
 
