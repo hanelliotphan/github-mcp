@@ -1,0 +1,23 @@
+{
+  "name": "github_check_org_blocked_user",
+  "description": "GET /orgs/{org}/blocks/{username} — 204 if blocked; tool returns blocked:false on 404 (not blocked, spam, or missing admin:org). admin:org required for reliable results.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org", "username"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

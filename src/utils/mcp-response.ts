@@ -1,4 +1,6 @@
 import type {
+    BlockOrgUserFailure,
+    BlockOrgUserSuccess,
     BulkListOrgAttestationsFailure,
     BulkListOrgAttestationsSuccess,
     CheckDependabotSecurityUpdatesFailure,
@@ -9,6 +11,8 @@ import type {
     CheckVulnerabilityAlertsSuccess,
     CheckImmutableReleasesFailure,
     CheckImmutableReleasesSuccess,
+    CheckOrgBlockedUserFailure,
+    CheckOrgBlockedUserSuccess,
     EnableImmutableReleasesFailure,
     EnableImmutableReleasesForOrgRepoFailure,
     EnableImmutableReleasesForOrgRepoSuccess,
@@ -163,6 +167,8 @@ import type {
     ListOrgAttestationReposSuccess,
     ListOrgAttestationsFailure,
     ListOrgAttestationsSuccess,
+    ListOrgBlockedUsersFailure,
+    ListOrgBlockedUsersSuccess,
     ListOrgMetadataStorageRecordsFailure,
     ListOrgMetadataStorageRecordsSuccess,
     ListOrgsForAuthenticatedUserFailure,
@@ -193,6 +199,8 @@ import type {
     SetOrgImmutableReleasesSettingsSuccess,
     TransferRepoFailure,
     TransferRepoSuccess,
+    UnblockOrgUserFailure,
+    UnblockOrgUserSuccess,
     UpdateOrgFailure,
     UpdateOrgSuccess,
     UpdateRepoRulesetFailure,
@@ -209,6 +217,8 @@ export function textAndData(
     payload:
         | BulkListOrgAttestationsSuccess
         | BulkListOrgAttestationsFailure
+        | BlockOrgUserSuccess
+        | BlockOrgUserFailure
         | CheckDependabotSecurityUpdatesSuccess
         | CheckDependabotSecurityUpdatesFailure
         | CheckPrivateVulnerabilityReportingSuccess
@@ -217,6 +227,8 @@ export function textAndData(
         | CheckVulnerabilityAlertsFailure
         | CheckImmutableReleasesSuccess
         | CheckImmutableReleasesFailure
+        | CheckOrgBlockedUserSuccess
+        | CheckOrgBlockedUserFailure
         | EnableImmutableReleasesSuccess
         | EnableImmutableReleasesFailure
         | EnableImmutableReleasesForOrgRepoSuccess
@@ -371,6 +383,8 @@ export function textAndData(
         | ListOrgAttestationReposFailure
         | ListOrgAttestationsSuccess
         | ListOrgAttestationsFailure
+        | ListOrgBlockedUsersSuccess
+        | ListOrgBlockedUsersFailure
         | ListOrgMetadataStorageRecordsSuccess
         | ListOrgMetadataStorageRecordsFailure
         | ListOrgsForAuthenticatedUserSuccess
@@ -401,6 +415,8 @@ export function textAndData(
         | SetOrgImmutableReleasesSettingsFailure
         | TransferRepoSuccess
         | TransferRepoFailure
+        | UnblockOrgUserSuccess
+        | UnblockOrgUserFailure
         | UpdateOrgSuccess
         | UpdateOrgFailure
         | UpdateRepoRulesetSuccess

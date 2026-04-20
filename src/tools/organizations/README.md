@@ -8,6 +8,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Organization artifact attestations](artifact-attestations/README.md)** tools (`/orgs/{org}/attestations/...`) live in [`artifact-attestations/`](artifact-attestations/).
 
+**[Blocking users](blocking-users/README.md)** tools (`/orgs/{org}/blocks`, `/orgs/{org}/blocks/{username}`) live in [`blocking-users/`](blocking-users/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -31,6 +33,10 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_delete_org_attestation_by_id`](artifact-attestations/README.md#github_delete_org_attestation_by_id)
 - [`github_delete_org_attestation_by_subject_digest`](artifact-attestations/README.md#github_delete_org_attestation_by_subject_digest)
 - [`github_delete_org_attestations_bulk`](artifact-attestations/README.md#github_delete_org_attestations_bulk)
+- [`github_list_org_blocked_users`](blocking-users/README.md#github_list_org_blocked_users)
+- [`github_check_org_blocked_user`](blocking-users/README.md#github_check_org_blocked_user)
+- [`github_block_org_user`](blocking-users/README.md#github_block_org_user)
+- [`github_unblock_org_user`](blocking-users/README.md#github_unblock_org_user)
 - [`github_disable_immutable_releases_for_org_repo`](README.md#github_disable_immutable_releases_for_org_repo)
 - [`github_set_immutable_releases_for_org_repos`](README.md#github_set_immutable_releases_for_org_repos)
 - [`github_update_org`](README.md#github_update_org)

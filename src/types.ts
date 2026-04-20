@@ -560,6 +560,68 @@ export type DeleteOrgAttestationsBulkSuccess = {
 
 export type DeleteOrgAttestationsBulkFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/blocks (Simple User per GitHub). */
+export type OrgBlockedUserRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/blocks — HTTP 200. */
+export type ListOrgBlockedUsersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    blocked_users: OrgBlockedUserRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgBlockedUsersFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/blocks/{username} — GitHub returns 204 when blocked; 404 when not (or without admin:org). */
+export type CheckOrgBlockedUserSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    username: string;
+    /** True when GitHub returned **204** (user is blocked). */
+    blocked: boolean;
+    http_status: number;
+    request_id: string | null;
+};
+
+export type CheckOrgBlockedUserFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/blocks/{username} — HTTP 204 on success. */
+export type BlockOrgUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    request_id: string | null;
+};
+
+export type BlockOrgUserFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/blocks/{username} — HTTP 204 on success. */
+export type UnblockOrgUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    request_id: string | null;
+};
+
+export type UnblockOrgUserFailure = CreateRepoFailure;
+
 /** DELETE /repos/{owner}/{repo}/immutable-releases — disable immutable releases (204 No Content). */
 export type DisableImmutableReleasesSuccess = {
     success: true;
