@@ -1,0 +1,57 @@
+{
+  "name": "github_create_update_org_custom_properties",
+  "description": "PATCH /orgs/{org}/properties/schema — batch create/update org custom property definitions (properties[] with property_name, value_type, …). Returns full definitions list HTTP 200. custom_properties_org_definitions_manager or org admin. See GitHub REST org custom properties.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "properties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": ["property_name", "value_type"],
+          "additionalProperties": false,
+          "properties": {
+            "property_name": { "type": "string", "minLength": 1, "maxLength": 255 },
+            "value_type": {
+              "type": "string",
+              "enum": ["string", "single_select", "multi_select", "true_false", "url"]
+            },
+            "url": { "type": "string" },
+            "source_type": { "type": "string", "enum": ["organization", "enterprise"] },
+            "required": { "type": "boolean" },
+            "default_value": {
+              "oneOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } },
+                { "type": "null" }
+              ]
+            },
+            "description": { "type": ["string", "null"] },
+            "allowed_values": {
+              "oneOf": [
+                { "type": "array", "items": { "type": "string" }, "maxItems": 200 },
+                { "type": "null" }
+              ]
+            },
+            "values_editable_by": {
+              "oneOf": [
+                { "type": "string", "enum": ["org_actors", "org_and_repo_actors"] },
+                { "type": "null" }
+              ]
+            },
+            "require_explicit_values": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "required": ["org", "properties"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

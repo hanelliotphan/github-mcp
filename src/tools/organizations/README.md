@@ -10,7 +10,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Blocking users](blocking-users/README.md)** tools (`/orgs/{org}/blocks`, `/orgs/{org}/blocks/{username}`) live in [`blocking-users/`](blocking-users/).
 
-**[Organization custom properties (schema)](custom-properties/README.md)** tools (`/orgs/{org}/properties/schema`, …) live in [`custom-properties/`](custom-properties/).
+**[Organization custom properties](custom-properties/README.md)** tools (`GET` / `PATCH /orgs/{org}/properties/schema`, …) live in [`custom-properties/`](custom-properties/).
 
 ## Tools
 
@@ -19,7 +19,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_orgs_for_user`](README.md#github_list_orgs_for_user)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
-- [`github_get_org_custom_properties_schema`](custom-properties/README.md#github_get_org_custom_properties_schema)
+- [`github_get_org_custom_properties`](custom-properties/README.md#github_get_org_custom_properties)
+- [`github_create_update_org_custom_properties`](custom-properties/README.md#github_create_update_org_custom_properties)
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
 - [`github_set_org_immutable_releases_settings`](README.md#github_set_org_immutable_releases_settings)
 - [`github_list_immutable_releases_for_org_repos`](README.md#github_list_immutable_releases_for_org_repos)

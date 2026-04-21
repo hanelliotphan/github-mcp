@@ -1,5 +1,5 @@
 {
-  "name": "github_get_org_custom_properties_schema",
+  "name": "github_get_org_custom_properties",
   "description": "GET /orgs/{org}/properties/schema — all org custom property definitions (property_name, value_type, required, default_value, …). Members may read. HTTP 200. See GitHub REST org custom properties.",
   "arguments": {
     "type": "object",

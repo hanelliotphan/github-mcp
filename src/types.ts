@@ -1065,19 +1065,19 @@ export type GetOrgSuccess = {
 export type GetOrgFailure = CreateRepoFailure;
 
 /** One organization custom property from GET /orgs/{org}/properties/schema. */
-export type OrgCustomPropertySchemaRow = Record<string, unknown>;
+export type OrgCustomPropertyRow = Record<string, unknown>;
 
 /** GET /orgs/{org}/properties/schema — HTTP 200. */
-export type GetOrgCustomPropertiesSchemaSuccess = {
+export type GetOrgCustomPropertiesSuccess = {
     success: true;
     message: string;
     http_status: number;
     org: string;
-    properties: OrgCustomPropertySchemaRow[];
+    properties: OrgCustomPropertyRow[];
     request_id: string | null;
 };
 
-export type GetOrgCustomPropertiesSchemaFailure = CreateRepoFailure;
+export type GetOrgCustomPropertiesFailure = CreateRepoFailure;
 
 /** One row from GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}. */
 export type RouteStatsByActorRow = Record<string, unknown>;

@@ -73,8 +73,8 @@ import type {
     DownloadRepoArchiveZipSuccess,
     DeleteRepoFailure,
     DeleteRepoSuccess,
-    GetOrgCustomPropertiesSchemaFailure,
-    GetOrgCustomPropertiesSchemaSuccess,
+    GetOrgCustomPropertiesFailure,
+    GetOrgCustomPropertiesSuccess,
     GetOrgFailure,
     GetOrgImmutableReleasesSettingsFailure,
     GetOrgImmutableReleasesSettingsSuccess,
@@ -293,8 +293,8 @@ export function textAndData(
         | DownloadRepoArchiveZipFailure
         | GetOrgSuccess
         | GetOrgFailure
-        | GetOrgCustomPropertiesSchemaSuccess
-        | GetOrgCustomPropertiesSchemaFailure
+        | GetOrgCustomPropertiesSuccess
+        | GetOrgCustomPropertiesFailure
         | GetOrgImmutableReleasesSettingsSuccess
         | GetOrgImmutableReleasesSettingsFailure
         | GetRouteStatsByActorSuccess

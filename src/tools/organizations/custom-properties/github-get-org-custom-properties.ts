@@ -3,28 +3,28 @@ import type { Octokit } from "@octokit/rest";
 import { z } from "zod";
 
 import type {
-    GetOrgCustomPropertiesSchemaFailure,
-    GetOrgCustomPropertiesSchemaSuccess,
-    OrgCustomPropertySchemaRow
+    GetOrgCustomPropertiesFailure,
+    GetOrgCustomPropertiesSuccess,
+    OrgCustomPropertyRow
 } from "../../../types.js";
 import { getRequestId, mapGitHubError } from "../../../utils/errors.js";
 import { textAndData } from "../../../utils/mcp-response.js";
 
 const orgLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 
-function toPlainPropertyRows(data: unknown): OrgCustomPropertySchemaRow[] {
+function toPlainPropertyRows(data: unknown): OrgCustomPropertyRow[] {
     if (!Array.isArray(data)) {
         return [];
     }
-    return (data as unknown[]).map((row) => JSON.parse(JSON.stringify(row)) as OrgCustomPropertySchemaRow);
+    return (data as unknown[]).map((row) => JSON.parse(JSON.stringify(row)) as OrgCustomPropertyRow);
 }
 
-export function registerGithubGetOrgCustomPropertiesSchemaTool(server: McpServer, octokit: Octokit): void {
+export function registerGithubGetOrgCustomPropertiesTool(server: McpServer, octokit: Octokit): void {
     server.tool(
-        "github_get_org_custom_properties_schema",
+        "github_get_org_custom_properties",
         "Get **all custom property definitions** for an organization (GET /orgs/{org}/properties/schema). " +
             "Each item includes **`property_name`**, **`value_type`**, optional **`required`**, **`default_value`**, **`description`**, **`allowed_values`**, etc., per GitHub. " +
-            "Organization **members** can read the schema; **403** / **404** when forbidden or not found. " +
+            "Organization **members** can read definitions; **403** / **404** when forbidden or not found. " +
             "See [Get all custom properties for an organization](https://docs.github.com/en/rest/orgs/custom-properties?apiVersion=2026-03-10#get-all-custom-properties-for-an-organization).",
         {
             org: z
@@ -43,9 +43,9 @@ export function registerGithubGetOrgCustomPropertiesSchemaTool(server: McpServer
                 });
                 const requestId = getRequestId(response.headers["x-github-request-id"]);
                 const properties = toPlainPropertyRows(response.data);
-                const successPayload: GetOrgCustomPropertiesSchemaSuccess = {
+                const successPayload: GetOrgCustomPropertiesSuccess = {
                     success: true,
-                    message: "Organization custom property schema retrieved successfully.",
+                    message: "Organization custom property definitions retrieved successfully.",
                     http_status: response.status,
                     org: input.org,
                     properties,
@@ -53,7 +53,7 @@ export function registerGithubGetOrgCustomPropertiesSchemaTool(server: McpServer
                 };
                 return textAndData(successPayload);
             } catch (error: unknown) {
-                const failurePayload: GetOrgCustomPropertiesSchemaFailure = {
+                const failurePayload: GetOrgCustomPropertiesFailure = {
                     success: false,
                     error: mapGitHubError(error),
                     request_id: getRequestId(
