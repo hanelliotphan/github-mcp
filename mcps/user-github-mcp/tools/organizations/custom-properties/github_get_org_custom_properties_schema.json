@@ -1,0 +1,17 @@
+{
+  "name": "github_get_org_custom_properties_schema",
+  "description": "GET /orgs/{org}/properties/schema — all org custom property definitions (property_name, value_type, required, default_value, …). Members may read. HTTP 200. See GitHub REST org custom properties.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

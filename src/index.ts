@@ -49,6 +49,7 @@ import { registerGithubGetOrgTimeStatsTool } from "./tools/organizations/api-ins
 import { registerGithubGetOrgTimeStatsByActorTool } from "./tools/organizations/api-insights/github-get-org-time-stats-by-actor.js";
 import { registerGithubGetOrgTimeStatsByUserTool } from "./tools/organizations/api-insights/github-get-org-time-stats-by-user.js";
 import { registerGithubGetOrgUserStatsTool } from "./tools/organizations/api-insights/github-get-org-user-stats.js";
+import { registerGithubGetOrgCustomPropertiesSchemaTool } from "./tools/organizations/custom-properties/github-get-org-custom-properties-schema.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
 import { registerGithubDisableImmutableReleasesForOrgRepoTool } from "./tools/organizations/github-disable-immutable-releases-for-org-repo.js";
@@ -127,6 +128,7 @@ registerGithubListOrgsForAuthenticatedUserTool(server, octokit);
 registerGithubListOrgsForUserTool(server, octokit);
 registerGithubListOrgAppInstallationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
+registerGithubGetOrgCustomPropertiesSchemaTool(server, octokit);
 registerGithubGetOrgRouteStatsByActorTool(server, octokit);
 registerGithubGetOrgSubjectStatsTool(server, octokit);
 registerGithubGetOrgSummaryStatsTool(server, octokit);

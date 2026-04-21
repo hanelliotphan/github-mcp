@@ -1064,6 +1064,21 @@ export type GetOrgSuccess = {
 
 export type GetOrgFailure = CreateRepoFailure;
 
+/** One organization custom property from GET /orgs/{org}/properties/schema. */
+export type OrgCustomPropertySchemaRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/properties/schema — HTTP 200. */
+export type GetOrgCustomPropertiesSchemaSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    properties: OrgCustomPropertySchemaRow[];
+    request_id: string | null;
+};
+
+export type GetOrgCustomPropertiesSchemaFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}. */
 export type RouteStatsByActorRow = Record<string, unknown>;
 
