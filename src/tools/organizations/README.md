@@ -20,6 +20,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_get_org_custom_properties`](custom-properties/README.md#github_get_org_custom_properties)
+- [`github_get_org_custom_property`](custom-properties/README.md#github_get_org_custom_property)
 - [`github_create_update_org_custom_properties`](custom-properties/README.md#github_create_update_org_custom_properties)
 - [`github_get_org_immutable_releases_settings`](README.md#github_get_org_immutable_releases_settings)
 - [`github_set_org_immutable_releases_settings`](README.md#github_set_org_immutable_releases_settings)

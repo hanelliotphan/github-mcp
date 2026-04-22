@@ -7,6 +7,7 @@ Repository-scoped custom property value tools live under [`repositories/custom-p
 ## Tools
 
 - [`github_get_org_custom_properties`](README.md#github_get_org_custom_properties)
+- [`github_get_org_custom_property`](README.md#github_get_org_custom_property)
 - [`github_create_update_org_custom_properties`](README.md#github_create_update_org_custom_properties)
 
 ---
@@ -24,6 +25,21 @@ Calls [Get all custom properties for an organization](https://docs.github.com/en
 On success (**200**): **`org`**, **`properties`** (array of organization custom property objects: **`property_name`**, **`value_type`**, optional **`required`**, **`default_value`**, **`description`**, **`allowed_values`**, **`values_editable_by`**, **`require_explicit_values`**, **`source_type`**, **`url`**, … per GitHub), **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
 
 Organization **members** can read definitions.
+
+---
+
+### `github_get_org_custom_property`
+
+Calls [Get a custom property for an organization](https://docs.github.com/en/rest/orgs/custom-properties?apiVersion=2026-03-10#get-a-custom-property-for-an-organization) (`GET /orgs/{org}/properties/schema/{custom_property_name}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`custom_property_name`** (required) — property name (GitHub path segment)
+
+#### Output
+
+On success (**200**): **`org`**, **`custom_property_name`**, **`property`** (single definition object), **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
 
 ---
 

@@ -50,6 +50,7 @@ import { registerGithubGetOrgTimeStatsByActorTool } from "./tools/organizations/
 import { registerGithubGetOrgTimeStatsByUserTool } from "./tools/organizations/api-insights/github-get-org-time-stats-by-user.js";
 import { registerGithubGetOrgUserStatsTool } from "./tools/organizations/api-insights/github-get-org-user-stats.js";
 import { registerGithubCreateUpdateOrgCustomPropertiesTool } from "./tools/organizations/custom-properties/github-create-update-org-custom-properties.js";
+import { registerGithubGetOrgCustomPropertyTool } from "./tools/organizations/custom-properties/github-get-org-custom-property.js";
 import { registerGithubGetOrgCustomPropertiesTool } from "./tools/organizations/custom-properties/github-get-org-custom-properties.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
@@ -130,6 +131,7 @@ registerGithubListOrgsForUserTool(server, octokit);
 registerGithubListOrgAppInstallationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubGetOrgCustomPropertiesTool(server, octokit);
+registerGithubGetOrgCustomPropertyTool(server, octokit);
 registerGithubCreateUpdateOrgCustomPropertiesTool(server, octokit);
 registerGithubGetOrgRouteStatsByActorTool(server, octokit);
 registerGithubGetOrgSubjectStatsTool(server, octokit);

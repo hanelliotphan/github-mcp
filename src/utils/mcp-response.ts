@@ -75,6 +75,8 @@ import type {
     DeleteRepoSuccess,
     GetOrgCustomPropertiesFailure,
     GetOrgCustomPropertiesSuccess,
+    GetOrgCustomPropertyFailure,
+    GetOrgCustomPropertySuccess,
     GetOrgFailure,
     GetOrgImmutableReleasesSettingsFailure,
     GetOrgImmutableReleasesSettingsSuccess,
@@ -295,6 +297,8 @@ export function textAndData(
         | GetOrgFailure
         | GetOrgCustomPropertiesSuccess
         | GetOrgCustomPropertiesFailure
+        | GetOrgCustomPropertySuccess
+        | GetOrgCustomPropertyFailure
         | GetOrgImmutableReleasesSettingsSuccess
         | GetOrgImmutableReleasesSettingsFailure
         | GetRouteStatsByActorSuccess
