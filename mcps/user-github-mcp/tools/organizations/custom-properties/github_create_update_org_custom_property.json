@@ -1,0 +1,49 @@
+{
+  "name": "github_create_update_org_custom_property",
+  "description": "PUT /orgs/{org}/properties/schema/{custom_property_name} — create or update one org custom property definition (value_type required; optional required, default_value, description, allowed_values, values_editable_by, require_explicit_values). HTTP 200. custom_properties_org_definitions_manager or org admin. See GitHub REST org custom properties.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "custom_property_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255,
+        "description": "Custom property name (URL path segment; GitHub custom_property_name)."
+      },
+      "value_type": {
+        "type": "string",
+        "enum": ["string", "single_select", "multi_select", "true_false", "url"]
+      },
+      "required": { "type": "boolean" },
+      "default_value": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "array", "items": { "type": "string" } },
+          { "type": "null" }
+        ]
+      },
+      "description": { "type": ["string", "null"] },
+      "allowed_values": {
+        "oneOf": [
+          { "type": "array", "items": { "type": "string" }, "maxItems": 200 },
+          { "type": "null" }
+        ]
+      },
+      "values_editable_by": {
+        "oneOf": [
+          { "type": "string", "enum": ["org_actors", "org_and_repo_actors"] },
+          { "type": "null" }
+        ]
+      },
+      "require_explicit_values": { "type": "boolean" }
+    },
+    "required": ["org", "custom_property_name", "value_type"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
