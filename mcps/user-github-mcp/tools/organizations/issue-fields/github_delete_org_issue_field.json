@@ -1,0 +1,22 @@
+{
+  "name": "github_delete_org_issue_field",
+  "description": "DELETE /orgs/{org}/issue-fields/{issue_field_id} — remove an org issue field. HTTP 204 on success. Org admin; classic PAT admin:org. See GitHub REST org issue fields.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "issue_field_id": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Numeric id of the issue field to delete."
+      }
+    },
+    "required": ["org", "issue_field_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

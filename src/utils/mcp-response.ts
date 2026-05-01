@@ -65,6 +65,8 @@ import type {
     DeleteOrgAttestationsBulkSuccess,
     DeleteOrgCustomPropertyFailure,
     DeleteOrgCustomPropertySuccess,
+    DeleteOrgIssueFieldFailure,
+    DeleteOrgIssueFieldSuccess,
     DeleteOrgFailure,
     DeleteOrgSuccess,
     DeleteRepoRulesetFailure,
@@ -301,6 +303,8 @@ export function textAndData(
         | DeleteOrgFailure
         | DeleteOrgCustomPropertySuccess
         | DeleteOrgCustomPropertyFailure
+        | DeleteOrgIssueFieldSuccess
+        | DeleteOrgIssueFieldFailure
         | DeleteRepoRulesetSuccess
         | DeleteRepoRulesetFailure
         | DeleteRepoWebhookSuccess

@@ -625,6 +625,19 @@ export type UpdateOrgIssueFieldSuccess = {
 
 export type UpdateOrgIssueFieldFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/issue-fields/{issue_field_id} — HTTP 204 No Content. */
+export type DeleteOrgIssueFieldSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Echoed path parameter. */
+    issue_field_id: number;
+    request_id: string | null;
+};
+
+export type DeleteOrgIssueFieldFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/blocks/{username} — GitHub returns 204 when blocked; 404 when not (or without admin:org). */
 export type CheckOrgBlockedUserSuccess = {
     success: true;
