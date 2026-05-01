@@ -21,6 +21,8 @@ import type {
     EnableOrDisableOrgSecurityFeatureSuccess,
     CreateUpdateFileContentsFailure,
     CreateUpdateFileContentsSuccess,
+    CreateUpdateOrgCustomPropertyValuesFailure,
+    CreateUpdateOrgCustomPropertyValuesSuccess,
     CreateOrgArtifactDeploymentRecordFailure,
     CreateOrgArtifactDeploymentRecordSuccess,
     CreateOrgMetadataStorageRecordFailure,
@@ -273,6 +275,8 @@ export function textAndData(
         | CreateRepoDispatchFailure
         | CreateUpdateRepoCustomPropertyValuesSuccess
         | CreateUpdateRepoCustomPropertyValuesFailure
+        | CreateUpdateOrgCustomPropertyValuesSuccess
+        | CreateUpdateOrgCustomPropertyValuesFailure
         | CreateRepoSuccess
         | CreateRepoFailure
         | DeleteRepoSuccess

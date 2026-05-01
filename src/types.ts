@@ -1137,6 +1137,21 @@ export type GetOrgCustomPropertyValuesSuccess = {
 
 export type GetOrgCustomPropertyValuesFailure = CreateRepoFailure;
 
+/** PATCH /orgs/{org}/properties/values — typically HTTP 204 No Content. */
+export type CreateUpdateOrgCustomPropertyValuesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Echo of repository short names from the request (GitHub allows up to 30 per call). */
+    repository_names: string[];
+    /** Echo of the property updates sent in the request body. */
+    properties: RepoCustomPropertyValue[];
+    request_id: string | null;
+};
+
+export type CreateUpdateOrgCustomPropertyValuesFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}. */
 export type RouteStatsByActorRow = Record<string, unknown>;
 

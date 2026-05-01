@@ -12,6 +12,7 @@ Repository-scoped custom property value tools live under [`repositories/custom-p
 - [`github_create_update_org_custom_properties`](README.md#github_create_update_org_custom_properties)
 - [`github_delete_org_custom_property`](README.md#github_delete_org_custom_property)
 - [`github_list_org_custom_property_values`](README.md#github_list_org_custom_property_values)
+- [`github_create_update_org_custom_property_values`](README.md#github_create_update_org_custom_property_values)
 
 ---
 
@@ -96,6 +97,24 @@ Calls [List custom property values for organization repositories](https://docs.g
 On success (**200**): **`org`**, **`repository_query`** (echo or null), **`repositories`** (each with **`repository_id`**, **`repository_name`**, **`repository_full_name`**, **`properties`** as `{ property_name, value }` list), **`http_status`**, **`pagination`** (from `Link` header), **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
 
 Organization **members** can read.
+
+---
+
+### `github_create_update_org_custom_property_values`
+
+Calls [Create or update custom property values for organization repositories](https://docs.github.com/en/rest/orgs/custom-properties?apiVersion=2026-03-10#create-or-update-custom-property-values-for-organization-repositories) (`PATCH /orgs/{org}/properties/values`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`repository_names`** (required, 1–30 items) — short repo names under the org (not `owner/repo`); GitHub applies the same **`properties`** to each repo
+- **`properties`** (required, non-empty) — `{ property_name, value }` entries; **`value`** is a string, string array, or **`null`** to unset on those repos
+
+#### Output
+
+On success (**204** No Content typical): **`org`**, echoed **`repository_names`** and **`properties`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, **422**, etc.).
+
+Requires org admin or fine-grained **`custom_properties_org_values_editor`**.
 
 ---
 
