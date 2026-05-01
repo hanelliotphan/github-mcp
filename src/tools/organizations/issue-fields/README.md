@@ -6,6 +6,7 @@ Tool implementations wrap [REST API endpoints for organization issue fields](htt
 
 - [`github_list_org_issue_fields`](README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](README.md#github_create_org_issue_field)
+- [`github_update_org_issue_field`](README.md#github_update_org_issue_field)
 
 ---
 
@@ -41,5 +42,24 @@ Calls [Create issue field for an organization](https://docs.github.com/en/rest/o
 #### Output
 
 On success (**200**): **`org`**, **`issue_field`** (created field object), **`http_status`**, **`request_id`**. On failure: structured **`error`** (**404**, **422**, etc.).
+
+Requires **org admin**; classic tokens need **`admin:org`**.
+
+---
+
+### `github_update_org_issue_field`
+
+Calls [Update issue field for an organization](https://docs.github.com/en/rest/orgs/issue-fields?apiVersion=2026-03-10#update-issue-field-for-an-organization) (`PATCH /orgs/{org}/issue-fields/{issue_field_id}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`issue_field_id`** (required) — numeric field id (from list/create)
+- At least one of **`name`**, **`description`**, **`visibility`**, **`options`**
+- **`options`** (optional) — for **`single_select`** fields only; **replaces** the full option set. Each item: **`name`**, **`color`**, **`priority`**; optional **`id`** (existing option to keep/update); optional **`description`**
+
+#### Output
+
+On success (**200**): **`org`**, **`issue_field_id`**, **`issue_field`** (updated object), **`http_status`**, **`request_id`**. On failure: structured **`error`** (**404**, **422**, etc.).
 
 Requires **org admin**; classic tokens need **`admin:org`**.

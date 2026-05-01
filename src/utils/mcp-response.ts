@@ -215,6 +215,8 @@ import type {
     TransferRepoSuccess,
     UnblockOrgUserFailure,
     UnblockOrgUserSuccess,
+    UpdateOrgIssueFieldFailure,
+    UpdateOrgIssueFieldSuccess,
     UpdateOrgFailure,
     UpdateOrgSuccess,
     UpdateRepoRulesetFailure,
@@ -445,6 +447,8 @@ export function textAndData(
         | TransferRepoFailure
         | UnblockOrgUserSuccess
         | UnblockOrgUserFailure
+        | UpdateOrgIssueFieldSuccess
+        | UpdateOrgIssueFieldFailure
         | UpdateOrgSuccess
         | UpdateOrgFailure
         | UpdateRepoRulesetSuccess
