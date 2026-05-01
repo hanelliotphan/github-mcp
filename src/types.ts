@@ -599,6 +599,18 @@ export type ListOrgIssueFieldsSuccess = {
 
 export type ListOrgIssueFieldsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/issue-fields — HTTP 200. */
+export type CreateOrgIssueFieldSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    issue_field: OrgIssueFieldRow;
+    request_id: string | null;
+};
+
+export type CreateOrgIssueFieldFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/blocks/{username} — GitHub returns 204 when blocked; 404 when not (or without admin:org). */
 export type CheckOrgBlockedUserSuccess = {
     success: true;

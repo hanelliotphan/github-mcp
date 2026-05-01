@@ -25,6 +25,8 @@ import type {
     CreateUpdateOrgCustomPropertyValuesSuccess,
     CreateOrgArtifactDeploymentRecordFailure,
     CreateOrgArtifactDeploymentRecordSuccess,
+    CreateOrgIssueFieldFailure,
+    CreateOrgIssueFieldSuccess,
     CreateOrgMetadataStorageRecordFailure,
     CreateOrgMetadataStorageRecordSuccess,
     CreateRepoAttestationFailure,
@@ -267,6 +269,8 @@ export function textAndData(
         | CreateUpdateFileContentsFailure
         | CreateOrgArtifactDeploymentRecordSuccess
         | CreateOrgArtifactDeploymentRecordFailure
+        | CreateOrgIssueFieldSuccess
+        | CreateOrgIssueFieldFailure
         | CreateOrgMetadataStorageRecordSuccess
         | CreateOrgMetadataStorageRecordFailure
         | CreateRepoAttestationSuccess
