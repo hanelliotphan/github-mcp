@@ -584,6 +584,21 @@ export type ListOrgBlockedUsersSuccess = {
 
 export type ListOrgBlockedUsersFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/issue-fields. */
+export type OrgIssueFieldRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/issue-fields — HTTP 200. */
+export type ListOrgIssueFieldsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    issue_fields: OrgIssueFieldRow[];
+    request_id: string | null;
+};
+
+export type ListOrgIssueFieldsFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/blocks/{username} — GitHub returns 204 when blocked; 404 when not (or without admin:org). */
 export type CheckOrgBlockedUserSuccess = {
     success: true;

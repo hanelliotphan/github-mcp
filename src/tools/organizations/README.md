@@ -12,6 +12,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Organization custom properties](custom-properties/README.md)** tools (`GET` / `PATCH /orgs/{org}/properties/schema`, …) live in [`custom-properties/`](custom-properties/).
 
+**[Organization issue fields](issue-fields/README.md)** tools (`GET /orgs/{org}/issue-fields`, …) live in [`issue-fields/`](issue-fields/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -19,6 +21,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_orgs_for_user`](README.md#github_list_orgs_for_user)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
+- [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_get_org_custom_properties`](custom-properties/README.md#github_get_org_custom_properties)
 - [`github_get_org_custom_property`](custom-properties/README.md#github_get_org_custom_property)
 - [`github_create_update_org_custom_properties`](custom-properties/README.md#github_create_update_org_custom_properties)
