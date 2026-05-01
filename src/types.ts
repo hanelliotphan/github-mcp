@@ -1106,6 +1106,37 @@ export type DeleteOrgCustomPropertySuccess = {
 
 export type DeleteOrgCustomPropertyFailure = CreateRepoFailure;
 
+/** One repository row from GET /orgs/{org}/properties/values. */
+export type OrgRepositoryCustomPropertyValuesRow = {
+    repository_id: number;
+    repository_name: string;
+    repository_full_name: string;
+    properties: RepoCustomPropertyValue[];
+};
+
+/** GET /orgs/{org}/properties/values — HTTP 200. */
+export type GetOrgCustomPropertyValuesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Echo of `repository_query` when provided; otherwise null. */
+    repository_query: string | null;
+    repositories: OrgRepositoryCustomPropertyValuesRow[];
+    /**
+     * Parsed from the last response `Link` header. For a single-page request, use `next` for the following call.
+     * When `all_pages` completed fully, this is `null`. When `truncated` is true, `next` points at the page to fetch next.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetOrgCustomPropertyValuesFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}. */
 export type RouteStatsByActorRow = Record<string, unknown>;
 

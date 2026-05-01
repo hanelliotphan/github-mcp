@@ -79,6 +79,8 @@ import type {
     GetOrgCustomPropertiesSuccess,
     GetOrgCustomPropertyFailure,
     GetOrgCustomPropertySuccess,
+    GetOrgCustomPropertyValuesFailure,
+    GetOrgCustomPropertyValuesSuccess,
     GetOrgFailure,
     GetOrgImmutableReleasesSettingsFailure,
     GetOrgImmutableReleasesSettingsSuccess,
@@ -303,6 +305,8 @@ export function textAndData(
         | GetOrgCustomPropertiesFailure
         | GetOrgCustomPropertySuccess
         | GetOrgCustomPropertyFailure
+        | GetOrgCustomPropertyValuesSuccess
+        | GetOrgCustomPropertyValuesFailure
         | GetOrgImmutableReleasesSettingsSuccess
         | GetOrgImmutableReleasesSettingsFailure
         | GetRouteStatsByActorSuccess

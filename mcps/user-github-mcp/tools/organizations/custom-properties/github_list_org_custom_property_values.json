@@ -1,0 +1,26 @@
+{
+  "name": "github_list_org_custom_property_values",
+  "description": "GET /orgs/{org}/properties/values — list org repos with custom property name/value pairs. Optional repository_query (search qualifiers), page/per_page (max 100), or all_pages + max_pages. Org members may read. HTTP 200. See GitHub REST org custom properties.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "repository_query": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Optional filter: same qualifiers as GitHub repository search (GitHub repository_query)."
+      },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean", "description": "Follow Link next until exhausted or max_pages." },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -53,6 +53,7 @@ import { registerGithubCreateUpdateOrgCustomPropertiesTool } from "./tools/organ
 import { registerGithubCreateUpdateOrgCustomPropertyTool } from "./tools/organizations/custom-properties/github-create-update-org-custom-property.js";
 import { registerGithubDeleteOrgCustomPropertyTool } from "./tools/organizations/custom-properties/github-delete-org-custom-property.js";
 import { registerGithubGetOrgCustomPropertyTool } from "./tools/organizations/custom-properties/github-get-org-custom-property.js";
+import { registerGithubListOrgCustomPropertyValuesTool } from "./tools/organizations/custom-properties/github-list-org-custom-property-values.js";
 import { registerGithubGetOrgCustomPropertiesTool } from "./tools/organizations/custom-properties/github-get-org-custom-properties.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
@@ -137,6 +138,7 @@ registerGithubGetOrgCustomPropertyTool(server, octokit);
 registerGithubCreateUpdateOrgCustomPropertiesTool(server, octokit);
 registerGithubCreateUpdateOrgCustomPropertyTool(server, octokit);
 registerGithubDeleteOrgCustomPropertyTool(server, octokit);
+registerGithubListOrgCustomPropertyValuesTool(server, octokit);
 registerGithubGetOrgRouteStatsByActorTool(server, octokit);
 registerGithubGetOrgSubjectStatsTool(server, octokit);
 registerGithubGetOrgSummaryStatsTool(server, octokit);

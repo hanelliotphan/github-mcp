@@ -11,6 +11,7 @@ Repository-scoped custom property value tools live under [`repositories/custom-p
 - [`github_create_update_org_custom_property`](README.md#github_create_update_org_custom_property)
 - [`github_create_update_org_custom_properties`](README.md#github_create_update_org_custom_properties)
 - [`github_delete_org_custom_property`](README.md#github_delete_org_custom_property)
+- [`github_list_org_custom_property_values`](README.md#github_list_org_custom_property_values)
 
 ---
 
@@ -74,6 +75,27 @@ Calls [Remove a custom property for an organization](https://docs.github.com/en/
 #### Output
 
 On success (**204** No Content): **`org`**, **`custom_property_name`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
+
+---
+
+### `github_list_org_custom_property_values`
+
+Calls [List custom property values for organization repositories](https://docs.github.com/en/rest/orgs/custom-properties?apiVersion=2026-03-10#list-custom-property-values-for-organization-repositories) (`GET /orgs/{org}/properties/values`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`repository_query`** (optional) — filter repos (GitHub search-style query / qualifiers)
+- **`per_page`** (optional, 1–100, default **100**) — page size
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — if true, follow `Link: rel="next"` until done or **`max_pages`**
+- **`max_pages`** (optional, 1–500, default **100**) — cap when **`all_pages`** is true
+
+#### Output
+
+On success (**200**): **`org`**, **`repository_query`** (echo or null), **`repositories`** (each with **`repository_id`**, **`repository_name`**, **`repository_full_name`**, **`properties`** as `{ property_name, value }` list), **`http_status`**, **`pagination`** (from `Link` header), **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
+
+Organization **members** can read.
 
 ---
 
