@@ -10,6 +10,7 @@ Repository-scoped custom property value tools live under [`repositories/custom-p
 - [`github_get_org_custom_property`](README.md#github_get_org_custom_property)
 - [`github_create_update_org_custom_property`](README.md#github_create_update_org_custom_property)
 - [`github_create_update_org_custom_properties`](README.md#github_create_update_org_custom_properties)
+- [`github_delete_org_custom_property`](README.md#github_delete_org_custom_property)
 
 ---
 
@@ -58,6 +59,21 @@ Calls [Create or update a custom property for an organization](https://docs.gith
 #### Output
 
 On success (**200**): same shape as **`github_get_org_custom_property`** — **`org`**, **`custom_property_name`**, **`property`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
+
+---
+
+### `github_delete_org_custom_property`
+
+Calls [Remove a custom property for an organization](https://docs.github.com/en/rest/orgs/custom-properties?apiVersion=2026-03-10#remove-a-custom-property-for-an-organization) (`DELETE /orgs/{org}/properties/schema/{custom_property_name}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`custom_property_name`** (required) — property name to remove (GitHub path segment)
+
+#### Output
+
+On success (**204** No Content): **`org`**, **`custom_property_name`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
 
 ---
 

@@ -1093,6 +1093,19 @@ export type GetOrgCustomPropertySuccess = {
 
 export type GetOrgCustomPropertyFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/properties/schema/{custom_property_name} — HTTP 204 No Content. */
+export type DeleteOrgCustomPropertySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Echoed path parameter. */
+    custom_property_name: string;
+    request_id: string | null;
+};
+
+export type DeleteOrgCustomPropertyFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}. */
 export type RouteStatsByActorRow = Record<string, unknown>;
 
