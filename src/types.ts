@@ -665,6 +665,33 @@ export type CreateOrgIssueTypeSuccess = {
 
 export type CreateOrgIssueTypeFailure = CreateRepoFailure;
 
+/** PUT /orgs/{org}/issue-types/{issue_type_id} — HTTP 200. */
+export type UpdateOrgIssueTypeSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Echoed path parameter. */
+    issue_type_id: number;
+    issue_type: OrgIssueTypeRow;
+    request_id: string | null;
+};
+
+export type UpdateOrgIssueTypeFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/issue-types/{issue_type_id} — HTTP 204 No Content. */
+export type DeleteOrgIssueTypeSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Echoed path parameter. */
+    issue_type_id: number;
+    request_id: string | null;
+};
+
+export type DeleteOrgIssueTypeFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/blocks/{username} — GitHub returns 204 when blocked; 404 when not (or without admin:org). */
 export type CheckOrgBlockedUserSuccess = {
     success: true;

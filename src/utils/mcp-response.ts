@@ -27,6 +27,8 @@ import type {
     CreateOrgArtifactDeploymentRecordSuccess,
     CreateOrgIssueFieldFailure,
     CreateOrgIssueFieldSuccess,
+    CreateOrgIssueTypeFailure,
+    CreateOrgIssueTypeSuccess,
     CreateOrgMetadataStorageRecordFailure,
     CreateOrgMetadataStorageRecordSuccess,
     CreateRepoAttestationFailure,
@@ -67,6 +69,8 @@ import type {
     DeleteOrgCustomPropertySuccess,
     DeleteOrgIssueFieldFailure,
     DeleteOrgIssueFieldSuccess,
+    DeleteOrgIssueTypeFailure,
+    DeleteOrgIssueTypeSuccess,
     DeleteOrgFailure,
     DeleteOrgSuccess,
     DeleteRepoRulesetFailure,
@@ -221,6 +225,8 @@ import type {
     UnblockOrgUserSuccess,
     UpdateOrgIssueFieldFailure,
     UpdateOrgIssueFieldSuccess,
+    UpdateOrgIssueTypeFailure,
+    UpdateOrgIssueTypeSuccess,
     UpdateOrgFailure,
     UpdateOrgSuccess,
     UpdateRepoRulesetFailure,
@@ -277,6 +283,8 @@ export function textAndData(
         | CreateOrgArtifactDeploymentRecordFailure
         | CreateOrgIssueFieldSuccess
         | CreateOrgIssueFieldFailure
+        | CreateOrgIssueTypeSuccess
+        | CreateOrgIssueTypeFailure
         | CreateOrgMetadataStorageRecordSuccess
         | CreateOrgMetadataStorageRecordFailure
         | CreateRepoAttestationSuccess
@@ -307,6 +315,8 @@ export function textAndData(
         | DeleteOrgCustomPropertyFailure
         | DeleteOrgIssueFieldSuccess
         | DeleteOrgIssueFieldFailure
+        | DeleteOrgIssueTypeSuccess
+        | DeleteOrgIssueTypeFailure
         | DeleteRepoRulesetSuccess
         | DeleteRepoRulesetFailure
         | DeleteRepoWebhookSuccess
@@ -457,6 +467,8 @@ export function textAndData(
         | UnblockOrgUserFailure
         | UpdateOrgIssueFieldSuccess
         | UpdateOrgIssueFieldFailure
+        | UpdateOrgIssueTypeSuccess
+        | UpdateOrgIssueTypeFailure
         | UpdateOrgSuccess
         | UpdateOrgFailure
         | UpdateRepoRulesetSuccess

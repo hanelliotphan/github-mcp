@@ -1,0 +1,30 @@
+{
+  "name": "github_update_org_issue_type",
+  "description": "PUT /orgs/{org}/issue-types/{issue_type_id} — update an org issue type (required name, is_enabled; optional description, color). Org admin; classic PAT admin:org. HTTP 200. See GitHub REST org issue types.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "issue_type_id": { "type": "integer", "minimum": 1 },
+      "name": { "type": "string", "minLength": 1 },
+      "is_enabled": { "type": "boolean" },
+      "description": { "type": ["string", "null"] },
+      "color": {
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": ["gray", "blue", "green", "yellow", "orange", "red", "pink", "purple"]
+          },
+          { "type": "null" }
+        ]
+      }
+    },
+    "required": ["org", "issue_type_id", "name", "is_enabled"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
