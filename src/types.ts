@@ -638,6 +638,21 @@ export type DeleteOrgIssueFieldSuccess = {
 
 export type DeleteOrgIssueFieldFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/issue-types. */
+export type OrgIssueTypeRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/issue-types — HTTP 200. */
+export type ListOrgIssueTypesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    issue_types: OrgIssueTypeRow[];
+    request_id: string | null;
+};
+
+export type ListOrgIssueTypesFailure = CreateRepoFailure;
+
 /** GET /orgs/{org}/blocks/{username} — GitHub returns 204 when blocked; 404 when not (or without admin:org). */
 export type CheckOrgBlockedUserSuccess = {
     success: true;

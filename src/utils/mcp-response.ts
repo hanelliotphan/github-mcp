@@ -185,6 +185,8 @@ import type {
     ListOrgBlockedUsersSuccess,
     ListOrgIssueFieldsFailure,
     ListOrgIssueFieldsSuccess,
+    ListOrgIssueTypesFailure,
+    ListOrgIssueTypesSuccess,
     ListOrgMetadataStorageRecordsFailure,
     ListOrgMetadataStorageRecordsSuccess,
     ListOrgsForAuthenticatedUserFailure,
@@ -419,6 +421,8 @@ export function textAndData(
         | ListOrgBlockedUsersFailure
         | ListOrgIssueFieldsSuccess
         | ListOrgIssueFieldsFailure
+        | ListOrgIssueTypesSuccess
+        | ListOrgIssueTypesFailure
         | ListOrgMetadataStorageRecordsSuccess
         | ListOrgMetadataStorageRecordsFailure
         | ListOrgsForAuthenticatedUserSuccess

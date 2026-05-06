@@ -60,6 +60,7 @@ import { registerGithubCreateOrgIssueFieldTool } from "./tools/organizations/iss
 import { registerGithubDeleteOrgIssueFieldTool } from "./tools/organizations/issue-fields/github-delete-org-issue-field.js";
 import { registerGithubListOrgIssueFieldsTool } from "./tools/organizations/issue-fields/github-list-org-issue-fields.js";
 import { registerGithubUpdateOrgIssueFieldTool } from "./tools/organizations/issue-fields/github-update-org-issue-field.js";
+import { registerGithubListOrgIssueTypesTool } from "./tools/organizations/issue-types/github-list-org-issue-types.js";
 import { registerGithubGetOrgTool } from "./tools/organizations/github-get-org.js";
 import { registerGithubGetOrgImmutableReleasesSettingsTool } from "./tools/organizations/github-get-org-immutable-releases-settings.js";
 import { registerGithubDisableImmutableReleasesForOrgRepoTool } from "./tools/organizations/github-disable-immutable-releases-for-org-repo.js";
@@ -142,6 +143,7 @@ registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);
 registerGithubUpdateOrgIssueFieldTool(server, octokit);
 registerGithubDeleteOrgIssueFieldTool(server, octokit);
+registerGithubListOrgIssueTypesTool(server, octokit);
 registerGithubGetOrgCustomPropertiesTool(server, octokit);
 registerGithubGetOrgCustomPropertyTool(server, octokit);
 registerGithubCreateUpdateOrgCustomPropertiesTool(server, octokit);
