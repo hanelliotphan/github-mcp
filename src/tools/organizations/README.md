@@ -28,6 +28,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_update_org_issue_field`](issue-fields/README.md#github_update_org_issue_field)
 - [`github_delete_org_issue_field`](issue-fields/README.md#github_delete_org_issue_field)
 - [`github_list_org_issue_types`](issue-types/README.md#github_list_org_issue_types)
+- [`github_create_org_issue_type`](issue-types/README.md#github_create_org_issue_type)
 - [`github_get_org_custom_properties`](custom-properties/README.md#github_get_org_custom_properties)
 - [`github_get_org_custom_property`](custom-properties/README.md#github_get_org_custom_property)
 - [`github_create_update_org_custom_properties`](custom-properties/README.md#github_create_update_org_custom_properties)
