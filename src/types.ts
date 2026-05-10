@@ -584,6 +584,30 @@ export type ListOrgBlockedUsersSuccess = {
 
 export type ListOrgBlockedUsersFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/failed_invitations. */
+export type OrgFailedInvitationRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/failed_invitations — HTTP 200. */
+export type ListOrgFailedInvitationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    invitations: OrgFailedInvitationRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgFailedInvitationsFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/issue-fields. */
 export type OrgIssueFieldRow = Record<string, unknown>;
 

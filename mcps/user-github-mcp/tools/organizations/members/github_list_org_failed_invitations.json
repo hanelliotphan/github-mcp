@@ -1,0 +1,21 @@
+{
+  "name": "github_list_org_failed_invitations",
+  "description": "GET /orgs/{org}/failed_invitations — list failed org invitations (failed_at, failed_reason, login/email, role, inviter, …). Optional page/per_page or all_pages/max_pages. HTTP 200. See GitHub REST org members.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

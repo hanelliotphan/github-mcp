@@ -187,6 +187,8 @@ import type {
     ListOrgAttestationsSuccess,
     ListOrgBlockedUsersFailure,
     ListOrgBlockedUsersSuccess,
+    ListOrgFailedInvitationsFailure,
+    ListOrgFailedInvitationsSuccess,
     ListOrgIssueFieldsFailure,
     ListOrgIssueFieldsSuccess,
     ListOrgIssueTypesFailure,
@@ -429,6 +431,8 @@ export function textAndData(
         | ListOrgAttestationsFailure
         | ListOrgBlockedUsersSuccess
         | ListOrgBlockedUsersFailure
+        | ListOrgFailedInvitationsSuccess
+        | ListOrgFailedInvitationsFailure
         | ListOrgIssueFieldsSuccess
         | ListOrgIssueFieldsFailure
         | ListOrgIssueTypesSuccess

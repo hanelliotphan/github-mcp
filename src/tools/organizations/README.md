@@ -10,6 +10,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Blocking users](blocking-users/README.md)** tools (`/orgs/{org}/blocks`, `/orgs/{org}/blocks/{username}`) live in [`blocking-users/`](blocking-users/).
 
+**[Organization members](members/README.md)** tools (`/orgs/{org}/failed_invitations`, …) live in [`members/`](members/).
+
 **[Organization custom properties](custom-properties/README.md)** tools (`GET` / `PATCH /orgs/{org}/properties/schema`, …) live in [`custom-properties/`](custom-properties/).
 
 **[Organization issue fields](issue-fields/README.md)** tools (`GET /orgs/{org}/issue-fields`, …) live in [`issue-fields/`](issue-fields/).
@@ -51,6 +53,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_delete_org_attestation_by_subject_digest`](artifact-attestations/README.md#github_delete_org_attestation_by_subject_digest)
 - [`github_delete_org_attestations_bulk`](artifact-attestations/README.md#github_delete_org_attestations_bulk)
 - [`github_list_org_blocked_users`](blocking-users/README.md#github_list_org_blocked_users)
+- [`github_list_org_failed_invitations`](members/README.md#github_list_org_failed_invitations)
 - [`github_check_org_blocked_user`](blocking-users/README.md#github_check_org_blocked_user)
 - [`github_block_org_user`](blocking-users/README.md#github_block_org_user)
 - [`github_unblock_org_user`](blocking-users/README.md#github_unblock_org_user)
