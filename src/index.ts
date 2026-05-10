@@ -82,6 +82,7 @@ import { registerGithubBlockOrgUserTool } from "./tools/organizations/blocking-u
 import { registerGithubCheckOrgBlockedUserTool } from "./tools/organizations/blocking-users/github-check-org-blocked-user.js";
 import { registerGithubListOrgBlockedUsersTool } from "./tools/organizations/blocking-users/github-list-org-blocked-users.js";
 import { registerGithubUnblockOrgUserTool } from "./tools/organizations/blocking-users/github-unblock-org-user.js";
+import { registerGithubCreateOrgInvitationTool } from "./tools/organizations/members/github-create-org-invitation.js";
 import { registerGithubListOrgFailedInvitationsTool } from "./tools/organizations/members/github-list-org-failed-invitations.js";
 import { registerGithubListOrgPendingInvitationsTool } from "./tools/organizations/members/github-list-org-pending-invitations.js";
 import { registerGithubSetOrgClusterDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-set-org-cluster-deployment-records.js";
@@ -183,6 +184,7 @@ registerGithubListOrgAttestationsBulkSubjectDigestsTool(server, octokit);
 registerGithubListOrgBlockedUsersTool(server, octokit);
 registerGithubListOrgFailedInvitationsTool(server, octokit);
 registerGithubListOrgPendingInvitationsTool(server, octokit);
+registerGithubCreateOrgInvitationTool(server, octokit);
 registerGithubCheckOrgBlockedUserTool(server, octokit);
 registerGithubBlockOrgUserTool(server, octokit);
 registerGithubUnblockOrgUserTool(server, octokit);

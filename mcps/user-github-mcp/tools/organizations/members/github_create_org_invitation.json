@@ -1,0 +1,27 @@
+{
+  "name": "github_create_org_invitation",
+  "description": "POST /orgs/{org}/invitations — invite by invitee_id (GitHub user id) or email; optional role (direct_member, admin, billing_manager, reinstate) and team_ids. HTTP 201. Org owner only. See GitHub REST org members.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "invitee_id": { "type": "integer", "minimum": 1 },
+      "email": { "type": "string", "minLength": 1 },
+      "role": {
+        "type": "string",
+        "enum": ["admin", "direct_member", "billing_manager", "reinstate"]
+      },
+      "team_ids": {
+        "type": "array",
+        "items": { "type": "integer" }
+      }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

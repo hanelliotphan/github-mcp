@@ -629,6 +629,18 @@ export type ListOrgPendingInvitationsSuccess = {
 
 export type ListOrgPendingInvitationsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/invitations — HTTP 201 (organization invitation object per GitHub). */
+export type CreateOrgInvitationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    invitation: OrgFailedInvitationRow;
+    request_id: string | null;
+};
+
+export type CreateOrgInvitationFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/issue-fields. */
 export type OrgIssueFieldRow = Record<string, unknown>;
 

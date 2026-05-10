@@ -6,6 +6,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 
 - [`github_list_org_failed_invitations`](README.md#github_list_org_failed_invitations)
 - [`github_list_org_pending_invitations`](README.md#github_list_org_pending_invitations)
+- [`github_create_org_invitation`](README.md#github_create_org_invitation)
 
 ---
 
@@ -48,3 +49,23 @@ Calls [List pending organization invitations](https://docs.github.com/en/rest/or
 On success (**200**): **`org`**, **`invitations`**, **`http_status`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (**404**, etc.).
 
 Requires permission to list invitations (typically org owner or **`admin:org`** on classic PATs).
+
+---
+
+### `github_create_org_invitation`
+
+Calls [Create an organization invitation](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#create-an-organization-invitation) (`POST /orgs/{org}/invitations`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`invitee_id`** (optional) — GitHub user id of the person to invite (omit if using **`email`**)
+- **`email`** (optional) — email address to invite (omit if using **`invitee_id`**); provide **exactly one** of these
+- **`role`** (optional) — `direct_member` (GitHub default when omitted), `admin`, `billing_manager`, or **`reinstate`**
+- **`team_ids`** (optional) — array of numeric team ids to add the member to
+
+#### Output
+
+On success (**201**): **`org`**, **`invitation`** (id, login, email, role, inviter, …), **`http_status`**, **`request_id`**. On failure: **`error`** (**404**, **422**, etc.).
+
+Requires **organization owner**. Triggers notifications; respect invitation rate limits.
