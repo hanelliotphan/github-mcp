@@ -608,6 +608,27 @@ export type ListOrgFailedInvitationsSuccess = {
 
 export type ListOrgFailedInvitationsFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/invitations — HTTP 200 (same item shape as failed invitations per GitHub). */
+export type ListOrgPendingInvitationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    invitations: OrgFailedInvitationRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgPendingInvitationsFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/issue-fields. */
 export type OrgIssueFieldRow = Record<string, unknown>;
 

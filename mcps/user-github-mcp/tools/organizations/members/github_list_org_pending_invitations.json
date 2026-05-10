@@ -1,0 +1,29 @@
+{
+  "name": "github_list_org_pending_invitations",
+  "description": "GET /orgs/{org}/invitations — list pending org invitations (role, login/email, inviter, …). Optional role and invitation_source filters; page/per_page or all_pages. HTTP 200. See GitHub REST org members.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "role": {
+        "type": "string",
+        "enum": ["all", "admin", "direct_member", "billing_manager", "hiring_manager"]
+      },
+      "invitation_source": {
+        "type": "string",
+        "enum": ["all", "member", "scim"]
+      },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

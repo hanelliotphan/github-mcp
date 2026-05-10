@@ -5,6 +5,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 ## Tools
 
 - [`github_list_org_failed_invitations`](README.md#github_list_org_failed_invitations)
+- [`github_list_org_pending_invitations`](README.md#github_list_org_pending_invitations)
 
 ---
 
@@ -25,3 +26,25 @@ Calls [List failed organization invitations](https://docs.github.com/en/rest/org
 On success (**200**): **`org`**, **`invitations`** (each includes **`failed_at`**, **`failed_reason`**, and other invitation fields per GitHub), **`http_status`**, **`pagination`** (from `Link` header), **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (**404**, etc.).
 
 Requires permission to read failed invitations (typically org owner or **`admin:org`** on classic PATs).
+
+---
+
+### `github_list_org_pending_invitations`
+
+Calls [List pending organization invitations](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#list-pending-organization-invitations) (`GET /orgs/{org}/invitations`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`per_page`** (optional, 1–100, default **100**) — page size
+- **`page`** (optional, default **1**) — page number
+- **`role`** (optional) — filter: `all`, `admin`, `direct_member`, `billing_manager`, `hiring_manager` (GitHub default when omitted: **all**)
+- **`invitation_source`** (optional) — filter: `all`, `member`, `scim` (GitHub default when omitted: **all**)
+- **`all_pages`** (optional) — follow `Link: rel="next"` until done or **`max_pages`**
+- **`max_pages`** (optional, 1–500, default **100**) — cap when **`all_pages`** is true
+
+#### Output
+
+On success (**200**): **`org`**, **`invitations`**, **`http_status`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (**404**, etc.).
+
+Requires permission to list invitations (typically org owner or **`admin:org`** on classic PATs).

@@ -54,6 +54,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_delete_org_attestations_bulk`](artifact-attestations/README.md#github_delete_org_attestations_bulk)
 - [`github_list_org_blocked_users`](blocking-users/README.md#github_list_org_blocked_users)
 - [`github_list_org_failed_invitations`](members/README.md#github_list_org_failed_invitations)
+- [`github_list_org_pending_invitations`](members/README.md#github_list_org_pending_invitations)
 - [`github_check_org_blocked_user`](blocking-users/README.md#github_check_org_blocked_user)
 - [`github_block_org_user`](blocking-users/README.md#github_block_org_user)
 - [`github_unblock_org_user`](blocking-users/README.md#github_unblock_org_user)
