@@ -3,6 +3,8 @@ import type {
     BlockOrgUserSuccess,
     BulkListOrgAttestationsFailure,
     BulkListOrgAttestationsSuccess,
+    CancelOrgInvitationFailure,
+    CancelOrgInvitationSuccess,
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess,
     CheckPrivateVulnerabilityReportingFailure,
@@ -261,6 +263,8 @@ export function textAndData(
         | CheckImmutableReleasesFailure
         | CheckOrgBlockedUserSuccess
         | CheckOrgBlockedUserFailure
+        | CancelOrgInvitationSuccess
+        | CancelOrgInvitationFailure
         | EnableImmutableReleasesSuccess
         | EnableImmutableReleasesFailure
         | EnableImmutableReleasesForOrgRepoSuccess

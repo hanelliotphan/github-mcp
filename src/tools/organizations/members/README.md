@@ -7,6 +7,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_list_org_failed_invitations`](README.md#github_list_org_failed_invitations)
 - [`github_list_org_pending_invitations`](README.md#github_list_org_pending_invitations)
 - [`github_create_org_invitation`](README.md#github_create_org_invitation)
+- [`github_cancel_org_invitation`](README.md#github_cancel_org_invitation)
 
 ---
 
@@ -69,3 +70,20 @@ Calls [Create an organization invitation](https://docs.github.com/en/rest/orgs/m
 On success (**201**): **`org`**, **`invitation`** (id, login, email, role, inviter, …), **`http_status`**, **`request_id`**. On failure: **`error`** (**404**, **422**, etc.).
 
 Requires **organization owner**. Triggers notifications; respect invitation rate limits.
+
+---
+
+### `github_cancel_org_invitation`
+
+Calls [Cancel an organization invitation](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#cancel-an-organization-invitation) (`DELETE /orgs/{org}/invitations/{invitation_id}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`invitation_id`** (required) — numeric id of the pending invitation (from **`github_list_org_pending_invitations`**)
+
+#### Output
+
+On success (**204**): **`org`**, **`invitation_id`**, **`http_status`**, **`request_id`**. On failure: **`error`** (**404**, **422**, etc.).
+
+Requires **organization owner**. Triggers notifications.

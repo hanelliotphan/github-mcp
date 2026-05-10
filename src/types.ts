@@ -641,6 +641,19 @@ export type CreateOrgInvitationSuccess = {
 
 export type CreateOrgInvitationFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/invitations/{invitation_id} — HTTP 204 No Content. */
+export type CancelOrgInvitationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Echoed path parameter. */
+    invitation_id: number;
+    request_id: string | null;
+};
+
+export type CancelOrgInvitationFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/issue-fields. */
 export type OrgIssueFieldRow = Record<string, unknown>;
 
