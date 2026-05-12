@@ -654,6 +654,31 @@ export type CancelOrgInvitationSuccess = {
 
 export type CancelOrgInvitationFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/invitations/{invitation_id}/teams (Team object per GitHub). */
+export type OrgInvitationTeamRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/invitations/{invitation_id}/teams — HTTP 200. */
+export type ListOrgInvitationTeamsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    invitation_id: number;
+    teams: OrgInvitationTeamRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgInvitationTeamsFailure = CreateRepoFailure;
+
 /** One row from GET /orgs/{org}/issue-fields. */
 export type OrgIssueFieldRow = Record<string, unknown>;
 

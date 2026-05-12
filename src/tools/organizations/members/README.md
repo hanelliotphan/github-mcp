@@ -6,6 +6,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 
 - [`github_list_org_failed_invitations`](README.md#github_list_org_failed_invitations)
 - [`github_list_org_pending_invitations`](README.md#github_list_org_pending_invitations)
+- [`github_list_org_invitation_teams`](README.md#github_list_org_invitation_teams)
 - [`github_create_org_invitation`](README.md#github_create_org_invitation)
 - [`github_cancel_org_invitation`](README.md#github_cancel_org_invitation)
 
@@ -50,6 +51,27 @@ Calls [List pending organization invitations](https://docs.github.com/en/rest/or
 On success (**200**): **`org`**, **`invitations`**, **`http_status`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (**404**, etc.).
 
 Requires permission to list invitations (typically org owner or **`admin:org`** on classic PATs).
+
+---
+
+### `github_list_org_invitation_teams`
+
+Calls [List organization invitation teams](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#list-organization-invitation-teams) (`GET /orgs/{org}/invitations/{invitation_id}/teams`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`invitation_id`** (required) — numeric invitation id (from **`github_list_org_pending_invitations`** or **`github_create_org_invitation`**)
+- **`per_page`** (optional, 1–100, default **100**) — page size
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — follow `Link: rel="next"` until done or **`max_pages`**
+- **`max_pages`** (optional, 1–500, default **100**) — cap when **`all_pages`** is true
+
+#### Output
+
+On success (**200**): **`org`**, **`invitation_id`**, **`teams`**, **`http_status`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: **`error`** (**404**, etc.).
+
+Requires permission to see org invitations (typically org owner or **`admin:org`** on classic PATs).
 
 ---
 
