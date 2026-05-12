@@ -9,6 +9,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_list_org_invitation_teams`](README.md#github_list_org_invitation_teams)
 - [`github_create_org_invitation`](README.md#github_create_org_invitation)
 - [`github_cancel_org_invitation`](README.md#github_cancel_org_invitation)
+- [`github_list_org_members`](README.md#github_list_org_members)
 
 ---
 
@@ -109,3 +110,25 @@ Calls [Cancel an organization invitation](https://docs.github.com/en/rest/orgs/m
 On success (**204**): **`org`**, **`invitation_id`**, **`http_status`**, **`request_id`**. On failure: **`error`** (**404**, **422**, etc.).
 
 Requires **organization owner**. Triggers notifications.
+
+---
+
+### `github_list_org_members`
+
+Calls [List organization members](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#list-organization-members) (`GET /orgs/{org}/members`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`filter`** (optional) — `2fa_disabled`, `2fa_insecure`, or **`all`** (GitHub default: **all**; `2fa_*` values are **organization-owner** only)
+- **`role`** (optional) — **`all`**, `admin`, or **`member`** (GitHub default: **all**)
+- **`per_page`** (optional, 1–100, default **100**) — page size
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — follow `Link: rel="next"` until done or **`max_pages`**
+- **`max_pages`** (optional, 1–500, default **100**) — cap when **`all_pages`** is true
+
+#### Output
+
+On success (**200**): **`org`**, **`members`** (Simple User objects), **`http_status`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: **`error`** (**422**, etc.).
+
+Requires permission to list members (org member for basic list; owner for **`filter`** restrictions per GitHub).

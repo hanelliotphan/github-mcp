@@ -197,6 +197,8 @@ import type {
     ListOrgPendingInvitationsSuccess,
     ListOrgInvitationTeamsFailure,
     ListOrgInvitationTeamsSuccess,
+    ListOrgMembersFailure,
+    ListOrgMembersSuccess,
     ListOrgIssueFieldsFailure,
     ListOrgIssueFieldsSuccess,
     ListOrgIssueTypesFailure,
@@ -269,6 +271,8 @@ export function textAndData(
         | CancelOrgInvitationFailure
         | ListOrgInvitationTeamsSuccess
         | ListOrgInvitationTeamsFailure
+        | ListOrgMembersSuccess
+        | ListOrgMembersFailure
         | EnableImmutableReleasesSuccess
         | EnableImmutableReleasesFailure
         | EnableImmutableReleasesForOrgRepoSuccess
