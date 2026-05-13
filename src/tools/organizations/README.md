@@ -59,6 +59,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_create_org_invitation`](members/README.md#github_create_org_invitation)
 - [`github_cancel_org_invitation`](members/README.md#github_cancel_org_invitation)
 - [`github_list_org_members`](members/README.md#github_list_org_members)
+- [`github_check_org_membership_for_user`](members/README.md#github_check_org_membership_for_user)
 - [`github_check_org_blocked_user`](blocking-users/README.md#github_check_org_blocked_user)
 - [`github_block_org_user`](blocking-users/README.md#github_block_org_user)
 - [`github_unblock_org_user`](blocking-users/README.md#github_unblock_org_user)

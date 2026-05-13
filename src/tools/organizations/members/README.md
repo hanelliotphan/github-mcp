@@ -10,6 +10,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_create_org_invitation`](README.md#github_create_org_invitation)
 - [`github_cancel_org_invitation`](README.md#github_cancel_org_invitation)
 - [`github_list_org_members`](README.md#github_list_org_members)
+- [`github_check_org_membership_for_user`](README.md#github_check_org_membership_for_user)
 
 ---
 
@@ -132,3 +133,24 @@ Calls [List organization members](https://docs.github.com/en/rest/orgs/members?a
 On success (**200**): **`org`**, **`members`** (Simple User objects), **`http_status`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: **`error`** (**422**, etc.).
 
 Requires permission to list members (org member for basic list; owner for **`filter`** restrictions per GitHub).
+
+---
+
+### `github_check_org_membership_for_user`
+
+Calls [Check organization membership for a user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#check-organization-membership-for-a-user) (`GET /orgs/{org}/members/{username}`). The tool uses **`redirect: manual`** so an HTTP **302** is returned in the payload instead of being followed.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — GitHub handle to check
+
+#### Output
+
+Structured **`success: true`** payload:
+
+- **`http_status` `204`**, **`is_member`**: `true` — authenticated user is an org member and **`username`** is a member.
+- **`http_status` `404`**, **`is_member`**: `false` — authenticated user is an org member and **`username`** is not a member (see GitHub for other **404** cases).
+- **`http_status` `302`**, **`is_member`**: `null` — authenticated user is **not** an org member; GitHub does not disclose whether **`username`** is a member. **`location`** may be set from the **`Location`** header.
+
+Other HTTP statuses return **`success: false`** with **`error`**.

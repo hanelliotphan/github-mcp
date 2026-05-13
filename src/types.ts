@@ -825,6 +825,26 @@ export type CheckOrgBlockedUserSuccess = {
 
 export type CheckOrgBlockedUserFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/members/{username} — GitHub returns **204** if the requester is an org member and `username` is a member; **404** if the requester is an org member and `username` is not; **302** if the requester is not an org member (target membership not disclosed). */
+export type CheckOrgMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    username: string;
+    http_status: number;
+    /**
+     * **true** when GitHub returned **204** (user is a member).
+     * **false** when GitHub returned **404** (requester is an org member; user is not a member — or see GitHub docs for edge cases).
+     * **null** when GitHub returned **302** (authenticated user is not an org member; membership is not disclosed).
+     */
+    is_member: boolean | null;
+    /** When `http_status` is **302**, the redirect target URL if GitHub sent **`Location`**. */
+    location: string | null;
+    request_id: string | null;
+};
+
+export type CheckOrgMembershipForUserFailure = CreateRepoFailure;
+
 /** PUT /orgs/{org}/blocks/{username} — HTTP 204 on success. */
 export type BlockOrgUserSuccess = {
     success: true;
