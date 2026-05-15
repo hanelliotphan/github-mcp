@@ -845,6 +845,33 @@ export type CheckOrgMembershipForUserSuccess = {
 
 export type CheckOrgMembershipForUserFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/members/{username} — HTTP 204 No Content. Removes direct membership and team access; enterprise-team indirect membership may remain per GitHub. */
+export type RemoveOrgMemberSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    request_id: string | null;
+};
+
+export type RemoveOrgMemberFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/memberships/{username} — HTTP 200 (org membership object per GitHub). */
+export type OrgMembershipRow = Record<string, unknown>;
+
+export type GetOrgMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    membership: OrgMembershipRow;
+    request_id: string | null;
+};
+
+export type GetOrgMembershipForUserFailure = CreateRepoFailure;
+
 /** PUT /orgs/{org}/blocks/{username} — HTTP 204 on success. */
 export type BlockOrgUserSuccess = {
     success: true;

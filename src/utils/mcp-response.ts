@@ -17,6 +17,8 @@ import type {
     CheckOrgBlockedUserSuccess,
     CheckOrgMembershipForUserFailure,
     CheckOrgMembershipForUserSuccess,
+    RemoveOrgMemberFailure,
+    RemoveOrgMemberSuccess,
     EnableImmutableReleasesFailure,
     EnableImmutableReleasesForOrgRepoFailure,
     EnableImmutableReleasesForOrgRepoSuccess,
@@ -100,6 +102,8 @@ import type {
     GetOrgFailure,
     GetOrgImmutableReleasesSettingsFailure,
     GetOrgImmutableReleasesSettingsSuccess,
+    GetOrgMembershipForUserFailure,
+    GetOrgMembershipForUserSuccess,
     GetOrgSuccess,
     GetRouteStatsByActorFailure,
     GetRouteStatsByActorSuccess,
@@ -271,6 +275,8 @@ export function textAndData(
         | CheckOrgBlockedUserFailure
         | CheckOrgMembershipForUserSuccess
         | CheckOrgMembershipForUserFailure
+        | RemoveOrgMemberSuccess
+        | RemoveOrgMemberFailure
         | CancelOrgInvitationSuccess
         | CancelOrgInvitationFailure
         | ListOrgInvitationTeamsSuccess
@@ -361,6 +367,8 @@ export function textAndData(
         | GetOrgCustomPropertyValuesFailure
         | GetOrgImmutableReleasesSettingsSuccess
         | GetOrgImmutableReleasesSettingsFailure
+        | GetOrgMembershipForUserSuccess
+        | GetOrgMembershipForUserFailure
         | GetRouteStatsByActorSuccess
         | GetRouteStatsByActorFailure
         | GetSubjectStatsSuccess

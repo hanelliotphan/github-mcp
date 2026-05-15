@@ -11,6 +11,8 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_cancel_org_invitation`](README.md#github_cancel_org_invitation)
 - [`github_list_org_members`](README.md#github_list_org_members)
 - [`github_check_org_membership_for_user`](README.md#github_check_org_membership_for_user)
+- [`github_remove_org_member`](README.md#github_remove_org_member)
+- [`github_get_org_membership_for_user`](README.md#github_get_org_membership_for_user)
 
 ---
 
@@ -154,3 +156,37 @@ Structured **`success: true`** payload:
 - **`http_status` `302`**, **`is_member`**: `null` — authenticated user is **not** an org member; GitHub does not disclose whether **`username`** is a member. **`location`** may be set from the **`Location`** header.
 
 Other HTTP statuses return **`success: false`** with **`error`**.
+
+---
+
+### `github_remove_org_member`
+
+Calls [Remove an organization member](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#remove-an-organization-member) (`DELETE /orgs/{org}/members/{username}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — GitHub handle to remove from the organization
+
+#### Output
+
+On success (**204**): **`org`**, **`username`**, **`http_status`**, **`request_id`**. On failure: **`error`** (**403**, **404**, **451**, etc.).
+
+Requires permission to remove members (typically **organization owner**). Enterprise-team indirect membership may remain per GitHub.
+
+---
+
+### `github_get_org_membership_for_user`
+
+Calls [Get organization membership for a user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#get-organization-membership-for-a-user) (`GET /orgs/{org}/memberships/{username}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — GitHub handle whose membership to fetch
+
+#### Output
+
+On success (**200**): **`org`**, **`username`**, **`membership`** (`state`, `role`, `user`, `organization`, `permissions`, …), **`http_status`**, **`request_id`**. On failure: **`error`** (**403**, **404**, etc.).
+
+The authenticated user must be an **organization member** (per GitHub).
