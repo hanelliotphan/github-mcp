@@ -13,6 +13,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_check_org_membership_for_user`](README.md#github_check_org_membership_for_user)
 - [`github_remove_org_member`](README.md#github_remove_org_member)
 - [`github_get_org_membership_for_user`](README.md#github_get_org_membership_for_user)
+- [`github_set_org_membership_for_user`](README.md#github_set_org_membership_for_user)
 
 ---
 
@@ -190,3 +191,21 @@ Calls [Get organization membership for a user](https://docs.github.com/en/rest/o
 On success (**200**): **`org`**, **`username`**, **`membership`** (`state`, `role`, `user`, `organization`, `permissions`, …), **`http_status`**, **`request_id`**. On failure: **`error`** (**403**, **404**, etc.).
 
 The authenticated user must be an **organization member** (per GitHub).
+
+---
+
+### `github_set_org_membership_for_user`
+
+Calls [Set organization membership for a user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#set-organization-membership-for-a-user) (`PUT /orgs/{org}/memberships/{username}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — GitHub handle to add or update
+- **`role`** (optional) — **`member`** (default when omitted, per GitHub) or **`admin`** (organization owner)
+
+#### Output
+
+On success (**200**): **`org`**, **`username`**, **`membership`** (same shape as GET), **`http_status`**, **`request_id`**. On failure: **`error`** (**403**, **422**, **451**, etc.).
+
+Only **organization owners** may call this endpoint. Adding a user may leave **`state`** as **`pending`** until they accept; watch invitation rate limits per GitHub.

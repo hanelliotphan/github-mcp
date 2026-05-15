@@ -86,6 +86,7 @@ import { registerGithubCancelOrgInvitationTool } from "./tools/organizations/mem
 import { registerGithubCheckOrgMembershipForUserTool } from "./tools/organizations/members/github-check-org-membership-for-user.js";
 import { registerGithubCreateOrgInvitationTool } from "./tools/organizations/members/github-create-org-invitation.js";
 import { registerGithubGetOrgMembershipForUserTool } from "./tools/organizations/members/github-get-org-membership-for-user.js";
+import { registerGithubSetOrgMembershipForUserTool } from "./tools/organizations/members/github-set-org-membership-for-user.js";
 import { registerGithubListOrgFailedInvitationsTool } from "./tools/organizations/members/github-list-org-failed-invitations.js";
 import { registerGithubListOrgInvitationTeamsTool } from "./tools/organizations/members/github-list-org-invitation-teams.js";
 import { registerGithubListOrgMembersTool } from "./tools/organizations/members/github-list-org-members.js";
@@ -197,6 +198,7 @@ registerGithubListOrgMembersTool(server, octokit);
 registerGithubCheckOrgMembershipForUserTool(server, octokit);
 registerGithubRemoveOrgMemberTool(server, octokit);
 registerGithubGetOrgMembershipForUserTool(server, octokit);
+registerGithubSetOrgMembershipForUserTool(server, octokit);
 registerGithubCheckOrgBlockedUserTool(server, octokit);
 registerGithubBlockOrgUserTool(server, octokit);
 registerGithubUnblockOrgUserTool(server, octokit);

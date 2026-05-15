@@ -872,6 +872,19 @@ export type GetOrgMembershipForUserSuccess = {
 
 export type GetOrgMembershipForUserFailure = CreateRepoFailure;
 
+/** PUT /orgs/{org}/memberships/{username} — HTTP 200 (same membership object as GET per GitHub). */
+export type SetOrgMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    membership: OrgMembershipRow;
+    request_id: string | null;
+};
+
+export type SetOrgMembershipForUserFailure = CreateRepoFailure;
+
 /** PUT /orgs/{org}/blocks/{username} — HTTP 204 on success. */
 export type BlockOrgUserSuccess = {
     success: true;

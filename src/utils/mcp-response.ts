@@ -237,6 +237,8 @@ import type {
     SetOrgClusterDeploymentRecordsSuccess,
     SetOrgImmutableReleasesSettingsFailure,
     SetOrgImmutableReleasesSettingsSuccess,
+    SetOrgMembershipForUserFailure,
+    SetOrgMembershipForUserSuccess,
     TransferRepoFailure,
     TransferRepoSuccess,
     UnblockOrgUserFailure,
@@ -497,6 +499,8 @@ export function textAndData(
         | SetOrgClusterDeploymentRecordsFailure
         | SetOrgImmutableReleasesSettingsSuccess
         | SetOrgImmutableReleasesSettingsFailure
+        | SetOrgMembershipForUserSuccess
+        | SetOrgMembershipForUserFailure
         | TransferRepoSuccess
         | TransferRepoFailure
         | UnblockOrgUserSuccess
