@@ -1318,6 +1318,31 @@ export type ListOrgsForAuthenticatedUserSuccess = {
 
 export type ListOrgsForAuthenticatedUserFailure = CreateRepoFailure;
 
+/** One row from GET /user/memberships/orgs (Org Membership per GitHub). MCP tool: `github_list_org_memberships_for_auth_user`. */
+export type AuthUserOrgMembershipRow = Record<string, unknown>;
+
+/** GET /user/memberships/orgs — HTTP 200. */
+export type ListOrgMembershipsForAuthUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    memberships: AuthUserOrgMembershipRow[];
+    /** Echoed when **`state`** was sent in the request; omitted when listing both active and pending. */
+    state?: "active" | "pending";
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgMembershipsForAuthUserFailure = CreateRepoFailure;
+
 /** GET /users/{username}/orgs — public org memberships for a user (simple org rows; page/per_page pagination). */
 export type ListOrgsForUserSuccess = {
     success: true;

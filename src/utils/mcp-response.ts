@@ -221,6 +221,8 @@ import type {
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
     ListOrgsForUserSuccess,
+    ListOrgMembershipsForAuthUserFailure,
+    ListOrgMembershipsForAuthUserSuccess,
     ListImmutableReleasesForOrgReposFailure,
     ListImmutableReleasesForOrgReposSuccess,
     ListOrgReposFailure,
@@ -491,6 +493,8 @@ export function textAndData(
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess
         | ListOrgsForUserFailure
+        | ListOrgMembershipsForAuthUserSuccess
+        | ListOrgMembershipsForAuthUserFailure
         | ListImmutableReleasesForOrgReposSuccess
         | ListImmutableReleasesForOrgReposFailure
         | ListOrgReposSuccess

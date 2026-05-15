@@ -1,0 +1,18 @@
+{
+  "name": "github_list_org_memberships_for_auth_user",
+  "description": "GET /user/memberships/orgs — authenticated user's org memberships (state, role, organization, user). Optional state active/pending; page/per_page or all_pages. Not GET /user/orgs. See GitHub REST org members.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "state": {
+        "type": "string",
+        "enum": ["active", "pending"]
+      },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -22,6 +22,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 - [`github_list_organizations`](README.md#github_list_organizations)
 - [`github_list_orgs_for_authenticated_user`](README.md#github_list_orgs_for_authenticated_user)
+- [`github_list_org_memberships_for_auth_user`](README.md#github_list_org_memberships_for_auth_user)
 - [`github_list_orgs_for_user`](README.md#github_list_orgs_for_user)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
@@ -258,7 +259,7 @@ On success: `organizations`, `since` (cursor used on the last request, or `null`
 
 ### `github_list_orgs_for_authenticated_user`
 
-Lists organizations for the authenticated user via [List organizations for the authenticated user](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-organizations-for-the-authenticated-user) (`GET /user/orgs`). Returns the same **simple** organization shape as **`github_list_organizations`**, but only orgs your authorization can operate on (not the global public catalog).
+Lists organizations for the authenticated user via [List organizations for the authenticated user](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-organizations-for-the-authenticated-user) (`GET /user/orgs`). Returns the same **simple** organization shape as **`github_list_organizations`**, but only orgs your authorization can operate on (not the global public catalog). For **full membership rows** (state, role, pending vs active, etc.), use **`github_list_org_memberships_for_auth_user`** (`GET /user/memberships/orgs`).
 
 Classic OAuth and PATs need at least **`user`** or **`read:org`**; insufficient scope yields **403**. Fine-grained tokens may receive **200** with an **empty** list per GitHub.
 
@@ -274,9 +275,26 @@ On success: **`organizations`**, **`page`**, **`per_page`**, **`pages_fetched`**
 
 ---
 
+### `github_list_org_memberships_for_auth_user`
+
+Lists [organization memberships for the authenticated user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#list-organization-memberships-for-the-authenticated-user) (`GET /user/memberships/orgs`). Returns **Org Membership** objects (`state`, `role`, `organization`, `user`, …), not the same JSON as **`github_list_orgs_for_authenticated_user`** (`GET /user/orgs`).
+
+#### Inputs
+
+- **`state`** (optional) — **`active`** or **`pending`** (omit for both per GitHub)
+- **`page`** (optional, default **1**)
+- **`per_page`** (optional, 1–100; default **100** when omitted; GitHub’s REST default is **30**)
+- **`all_pages`** (optional), **`max_pages`** (optional, 1–500; default **100** with **`all_pages`**)
+
+#### Output
+
+On success: **`memberships`**, **`http_status`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, optional echoed **`state`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
 ### `github_list_orgs_for_user`
 
-Lists [public organization memberships](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-organizations-for-a-user) for a user account (`GET /users/{username}/orgs`). Returns the same **simple** organization shape as **`github_list_organizations`**. **Private** memberships are never included; for the authenticated user’s orgs (including private), use **`github_list_orgs_for_authenticated_user`**.
+Lists [public organization memberships](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2026-03-10#list-organizations-for-a-user) for a user account (`GET /users/{username}/orgs`). Returns the same **simple** organization shape as **`github_list_organizations`**. **Private** memberships are never included; for the authenticated user’s orgs (including private), use **`github_list_orgs_for_authenticated_user`**. For **membership state and roles** for the token user, use **`github_list_org_memberships_for_auth_user`** (`GET /user/memberships/orgs`).
 
 #### Inputs
 
