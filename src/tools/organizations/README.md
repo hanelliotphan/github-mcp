@@ -24,6 +24,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_orgs_for_authenticated_user`](README.md#github_list_orgs_for_authenticated_user)
 - [`github_list_org_memberships_for_auth_user`](README.md#github_list_org_memberships_for_auth_user)
 - [`github_get_org_membership_for_auth_user`](README.md#github_get_org_membership_for_auth_user)
+- [`github_update_org_membership_for_auth_user`](README.md#github_update_org_membership_for_auth_user)
 - [`github_list_orgs_for_user`](README.md#github_list_orgs_for_user)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_get_org`](README.md#github_get_org)
@@ -69,6 +70,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_remove_org_member`](members/README.md#github_remove_org_member)
 - [`github_get_org_membership_for_user`](members/README.md#github_get_org_membership_for_user)
 - [`github_get_org_membership_for_auth_user`](README.md#github_get_org_membership_for_auth_user)
+- [`github_update_org_membership_for_auth_user`](README.md#github_update_org_membership_for_auth_user)
 - [`github_set_org_membership_for_user`](members/README.md#github_set_org_membership_for_user)
 - [`github_remove_org_membership_for_user`](members/README.md#github_remove_org_membership_for_user)
 - [`github_check_org_blocked_user`](blocking-users/README.md#github_check_org_blocked_user)
@@ -296,7 +298,7 @@ On success: **`memberships`**, **`http_status`**, **`page`**, **`per_page`**, **
 
 ### `github_get_org_membership_for_auth_user`
 
-Gets [an organization membership for the authenticated user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#get-an-organization-membership-for-the-authenticated-user) (`GET /user/memberships/orgs/{org}`). Returns the same **Org Membership** object as **`github_get_org_membership_for_user`** (`GET /orgs/{org}/memberships/{username}`). **`200`** when the token user has **active** or **pending** membership in **`org`**; **`404`** if they are not affiliated.
+Gets [an organization membership for the authenticated user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#get-an-organization-membership-for-the-authenticated-user) (`GET /user/memberships/orgs/{org}`). Returns the same **Org Membership** object as **`github_get_org_membership_for_user`** (`GET /orgs/{org}/memberships/{username}`). **`200`** when the token user has **active** or **pending** membership in **`org`**; **`404`** if they are not affiliated. To **accept** a **pending** invitation (set membership to **active**), use **`github_update_org_membership_for_auth_user`**.
 
 #### Inputs
 
@@ -305,6 +307,20 @@ Gets [an organization membership for the authenticated user](https://docs.github
 #### Output
 
 On success: echoed **`org`**, **`membership`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, etc.).
+
+---
+
+### `github_update_org_membership_for_auth_user`
+
+Updates [an organization membership for the authenticated user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#update-an-organization-membership-for-the-authenticated-user) (`PATCH /user/memberships/orgs/{org}`). Sends **`state`: `active`** (the only value GitHub accepts) so a **pending** invite becomes an **active** membership. Returns the updated **Org Membership** object.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+
+#### Output
+
+On success: echoed **`org`**, **`membership`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (**403**, **404**, **422**, etc.).
 
 ---
 

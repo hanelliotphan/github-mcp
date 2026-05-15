@@ -898,6 +898,18 @@ export type GetOrgMembershipForAuthUserSuccess = {
 
 export type GetOrgMembershipForAuthUserFailure = CreateRepoFailure;
 
+/** PATCH /user/memberships/orgs/{org} — HTTP 200 (accept pending invite; body `state` must be **active** per GitHub). MCP tool: `github_update_org_membership_for_auth_user`. */
+export type UpdateOrgMembershipForAuthUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    membership: OrgMembershipRow;
+    request_id: string | null;
+};
+
+export type UpdateOrgMembershipForAuthUserFailure = CreateRepoFailure;
+
 /** PUT /orgs/{org}/memberships/{username} — HTTP 200 (same membership object as GET per GitHub). */
 export type SetOrgMembershipForUserSuccess = {
     success: true;
