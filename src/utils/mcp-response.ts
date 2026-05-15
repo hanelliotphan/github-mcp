@@ -23,6 +23,8 @@ import type {
     RemoveOrgMemberSuccess,
     RemoveOrgMembershipForUserFailure,
     RemoveOrgMembershipForUserSuccess,
+    RemovePublicOrgMembershipForAuthUserFailure,
+    RemovePublicOrgMembershipForAuthUserSuccess,
     EnableImmutableReleasesFailure,
     EnableImmutableReleasesForOrgRepoFailure,
     EnableImmutableReleasesForOrgRepoSuccess,
@@ -289,6 +291,8 @@ export function textAndData(
         | RemoveOrgMemberFailure
         | RemoveOrgMembershipForUserSuccess
         | RemoveOrgMembershipForUserFailure
+        | RemovePublicOrgMembershipForAuthUserSuccess
+        | RemovePublicOrgMembershipForAuthUserFailure
         | CancelOrgInvitationSuccess
         | CancelOrgInvitationFailure
         | ListOrgInvitationTeamsSuccess

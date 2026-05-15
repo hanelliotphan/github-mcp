@@ -62,6 +62,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_org_public_members`](members/README.md#github_list_org_public_members)
 - [`github_check_org_public_membership_for_user`](members/README.md#github_check_org_public_membership_for_user)
 - [`github_set_public_org_membership_for_auth_user`](members/README.md#github_set_public_org_membership_for_auth_user)
+- [`github_remove_public_org_membership_for_auth_user`](members/README.md#github_remove_public_org_membership_for_auth_user)
 - [`github_check_org_membership_for_user`](members/README.md#github_check_org_membership_for_user)
 - [`github_remove_org_member`](members/README.md#github_remove_org_member)
 - [`github_get_org_membership_for_user`](members/README.md#github_get_org_membership_for_user)
