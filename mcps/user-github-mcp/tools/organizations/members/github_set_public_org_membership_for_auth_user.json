@@ -1,0 +1,23 @@
+{
+  "name": "github_set_public_org_membership_for_auth_user",
+  "description": "PUT /orgs/{org}/public_members/{username} — publicize the token user's org membership; username must match the authenticated user. Empty body per GitHub. HTTP 204. See GitHub REST org members.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org", "username"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

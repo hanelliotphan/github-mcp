@@ -243,6 +243,8 @@ import type {
     SetOrgImmutableReleasesSettingsSuccess,
     SetOrgMembershipForUserFailure,
     SetOrgMembershipForUserSuccess,
+    SetPublicOrgMembershipForAuthUserFailure,
+    SetPublicOrgMembershipForAuthUserSuccess,
     TransferRepoFailure,
     TransferRepoSuccess,
     UnblockOrgUserFailure,
@@ -509,6 +511,8 @@ export function textAndData(
         | SetOrgImmutableReleasesSettingsFailure
         | SetOrgMembershipForUserSuccess
         | SetOrgMembershipForUserFailure
+        | SetPublicOrgMembershipForAuthUserSuccess
+        | SetPublicOrgMembershipForAuthUserFailure
         | TransferRepoSuccess
         | TransferRepoFailure
         | UnblockOrgUserSuccess

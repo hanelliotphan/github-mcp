@@ -899,6 +899,18 @@ export type SetOrgMembershipForUserSuccess = {
 
 export type SetOrgMembershipForUserFailure = CreateRepoFailure;
 
+/** PUT /orgs/{org}/public_members/{username} — HTTP 204 No Content. MCP tool: `github_set_public_org_membership_for_auth_user`. Only the authenticated user may publicize their own membership (`username` must match the token user per GitHub). */
+export type SetPublicOrgMembershipForAuthUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    request_id: string | null;
+};
+
+export type SetPublicOrgMembershipForAuthUserFailure = CreateRepoFailure;
+
 /** DELETE /orgs/{org}/memberships/{username} — HTTP 204 No Content. Removes active member or cancels pending invitation; enterprise indirect membership may remain per GitHub. */
 export type RemoveOrgMembershipForUserSuccess = {
     success: true;

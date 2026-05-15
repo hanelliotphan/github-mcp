@@ -12,6 +12,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_list_org_members`](README.md#github_list_org_members)
 - [`github_list_org_public_members`](README.md#github_list_org_public_members)
 - [`github_check_org_public_membership_for_user`](README.md#github_check_org_public_membership_for_user)
+- [`github_set_public_org_membership_for_auth_user`](README.md#github_set_public_org_membership_for_auth_user)
 - [`github_check_org_membership_for_user`](README.md#github_check_org_membership_for_user)
 - [`github_remove_org_member`](README.md#github_remove_org_member)
 - [`github_get_org_membership_for_user`](README.md#github_get_org_membership_for_user)
@@ -179,6 +180,23 @@ Structured **`success: true`** payload:
 - **`http_status` `404`**, **`is_public_member`**: `false` — user is **not** a public member.
 
 Other errors return **`success: false`** with **`error`**.
+
+---
+
+### `github_set_public_org_membership_for_auth_user`
+
+Calls [Set public organization membership for the authenticated user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#set-public-organization-membership-for-the-authenticated-user) (`PUT /orgs/{org}/public_members/{username}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — must be the **authenticated** user’s GitHub login (same as the token account)
+
+#### Output
+
+On success (**204**): **`org`**, **`username`**, **`http_status`**, **`request_id`**. On failure: **`error`** (**403**, etc.).
+
+Request body must be empty per GitHub; the tool does not send a JSON body.
 
 ---
 
