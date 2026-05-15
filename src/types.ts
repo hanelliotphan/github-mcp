@@ -885,6 +885,18 @@ export type SetOrgMembershipForUserSuccess = {
 
 export type SetOrgMembershipForUserFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/memberships/{username} — HTTP 204 No Content. Removes active member or cancels pending invitation; enterprise indirect membership may remain per GitHub. */
+export type RemoveOrgMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    request_id: string | null;
+};
+
+export type RemoveOrgMembershipForUserFailure = CreateRepoFailure;
+
 /** PUT /orgs/{org}/blocks/{username} — HTTP 204 on success. */
 export type BlockOrgUserSuccess = {
     success: true;

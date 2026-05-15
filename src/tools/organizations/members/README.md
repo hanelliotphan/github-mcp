@@ -14,6 +14,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_remove_org_member`](README.md#github_remove_org_member)
 - [`github_get_org_membership_for_user`](README.md#github_get_org_membership_for_user)
 - [`github_set_org_membership_for_user`](README.md#github_set_org_membership_for_user)
+- [`github_remove_org_membership_for_user`](README.md#github_remove_org_membership_for_user)
 
 ---
 
@@ -209,3 +210,22 @@ Calls [Set organization membership for a user](https://docs.github.com/en/rest/o
 On success (**200**): **`org`**, **`username`**, **`membership`** (same shape as GET), **`http_status`**, **`request_id`**. On failure: **`error`** (**403**, **422**, **451**, etc.).
 
 Only **organization owners** may call this endpoint. Adding a user may leave **`state`** as **`pending`** until they accept; watch invitation rate limits per GitHub.
+
+---
+
+### `github_remove_org_membership_for_user`
+
+Calls [Remove organization membership for a user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#remove-organization-membership-for-a-user) (`DELETE /orgs/{org}/memberships/{username}`).
+
+This differs from **`github_remove_org_member`** (`DELETE /orgs/{org}/members/{username}`): the **memberships** endpoint also **cancels a pending invitation** and is the API documented for membership removal in this form.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — GitHub handle to remove or un-invite
+
+#### Output
+
+On success (**204**): **`org`**, **`username`**, **`http_status`**, **`request_id`**. On failure: **`error`** (**403**, **404**, etc.).
+
+Requires **organization owner**. Sends email to the affected user per GitHub.

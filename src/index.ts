@@ -92,6 +92,7 @@ import { registerGithubListOrgInvitationTeamsTool } from "./tools/organizations/
 import { registerGithubListOrgMembersTool } from "./tools/organizations/members/github-list-org-members.js";
 import { registerGithubListOrgPendingInvitationsTool } from "./tools/organizations/members/github-list-org-pending-invitations.js";
 import { registerGithubRemoveOrgMemberTool } from "./tools/organizations/members/github-remove-org-member.js";
+import { registerGithubRemoveOrgMembershipForUserTool } from "./tools/organizations/members/github-remove-org-membership-for-user.js";
 import { registerGithubSetOrgClusterDeploymentRecordsTool } from "./tools/organizations/artifact-metadata/github-set-org-cluster-deployment-records.js";
 import { registerGithubEnableOrDisableOrgSecurityFeatureTool } from "./tools/organizations/github-enable-or-disable-org-security-feature.js";
 import { registerGithubListImmutableReleasesForOrgReposTool } from "./tools/organizations/github-list-immutable-releases-for-org-repos.js";
@@ -199,6 +200,7 @@ registerGithubCheckOrgMembershipForUserTool(server, octokit);
 registerGithubRemoveOrgMemberTool(server, octokit);
 registerGithubGetOrgMembershipForUserTool(server, octokit);
 registerGithubSetOrgMembershipForUserTool(server, octokit);
+registerGithubRemoveOrgMembershipForUserTool(server, octokit);
 registerGithubCheckOrgBlockedUserTool(server, octokit);
 registerGithubBlockOrgUserTool(server, octokit);
 registerGithubUnblockOrgUserTool(server, octokit);
