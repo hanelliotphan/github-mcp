@@ -17,6 +17,8 @@ import type {
     CheckOrgBlockedUserSuccess,
     CheckOrgMembershipForUserFailure,
     CheckOrgMembershipForUserSuccess,
+    CheckOrgPublicMembershipForUserFailure,
+    CheckOrgPublicMembershipForUserSuccess,
     RemoveOrgMemberFailure,
     RemoveOrgMemberSuccess,
     RemoveOrgMembershipForUserFailure,
@@ -279,6 +281,8 @@ export function textAndData(
         | CheckOrgBlockedUserFailure
         | CheckOrgMembershipForUserSuccess
         | CheckOrgMembershipForUserFailure
+        | CheckOrgPublicMembershipForUserSuccess
+        | CheckOrgPublicMembershipForUserFailure
         | RemoveOrgMemberSuccess
         | RemoveOrgMemberFailure
         | RemoveOrgMembershipForUserSuccess

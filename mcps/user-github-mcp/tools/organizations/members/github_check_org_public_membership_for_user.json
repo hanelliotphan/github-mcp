@@ -1,0 +1,23 @@
+{
+  "name": "github_check_org_public_membership_for_user",
+  "description": "GET /orgs/{org}/public_members/{username} — 204 if user is a public org member, 404 if not. Returns is_public_member. See GitHub REST org members.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org", "username"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

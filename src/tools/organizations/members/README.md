@@ -11,6 +11,7 @@ Tool implementations wrap [REST API endpoints for organization members](https://
 - [`github_cancel_org_invitation`](README.md#github_cancel_org_invitation)
 - [`github_list_org_members`](README.md#github_list_org_members)
 - [`github_list_org_public_members`](README.md#github_list_org_public_members)
+- [`github_check_org_public_membership_for_user`](README.md#github_check_org_public_membership_for_user)
 - [`github_check_org_membership_for_user`](README.md#github_check_org_membership_for_user)
 - [`github_remove_org_member`](README.md#github_remove_org_member)
 - [`github_get_org_membership_for_user`](README.md#github_get_org_membership_for_user)
@@ -158,6 +159,26 @@ Calls [List public organization members](https://docs.github.com/en/rest/orgs/me
 On success (**200**): **`org`**, **`members`** (Simple User objects for **public** members only), **`http_status`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`request_id`**. On failure: **`error`**.
 
 Public endpoint shape per GitHub; no **`filter`** / **`role`** on this route.
+
+---
+
+### `github_check_org_public_membership_for_user`
+
+Calls [Check public organization membership for a user](https://docs.github.com/en/rest/orgs/members?apiVersion=2026-03-10#check-public-organization-membership-for-a-user) (`GET /orgs/{org}/public_members/{username}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — GitHub handle to check
+
+#### Output
+
+Structured **`success: true`** payload:
+
+- **`http_status` `204`**, **`is_public_member`**: `true` — user has **public** org membership.
+- **`http_status` `404`**, **`is_public_member`**: `false` — user is **not** a public member.
+
+Other errors return **`success: false`** with **`error`**.
 
 ---
 

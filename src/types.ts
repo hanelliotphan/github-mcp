@@ -845,6 +845,20 @@ export type CheckOrgMembershipForUserSuccess = {
 
 export type CheckOrgMembershipForUserFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/public_members/{username} — GitHub returns **204** if the user is a **public** member; **404** if not. */
+export type CheckOrgPublicMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    username: string;
+    http_status: number;
+    /** **true** on HTTP **204**; **false** on HTTP **404**. */
+    is_public_member: boolean;
+    request_id: string | null;
+};
+
+export type CheckOrgPublicMembershipForUserFailure = CreateRepoFailure;
+
 /** DELETE /orgs/{org}/members/{username} — HTTP 204 No Content. Removes direct membership and team access; enterprise-team indirect membership may remain per GitHub. */
 export type RemoveOrgMemberSuccess = {
     success: true;
