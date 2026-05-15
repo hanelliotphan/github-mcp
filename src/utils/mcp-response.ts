@@ -108,6 +108,8 @@ import type {
     GetOrgFailure,
     GetOrgImmutableReleasesSettingsFailure,
     GetOrgImmutableReleasesSettingsSuccess,
+    GetOrgMembershipForAuthUserFailure,
+    GetOrgMembershipForAuthUserSuccess,
     GetOrgMembershipForUserFailure,
     GetOrgMembershipForUserSuccess,
     GetOrgSuccess,
@@ -385,6 +387,8 @@ export function textAndData(
         | GetOrgCustomPropertyValuesFailure
         | GetOrgImmutableReleasesSettingsSuccess
         | GetOrgImmutableReleasesSettingsFailure
+        | GetOrgMembershipForAuthUserSuccess
+        | GetOrgMembershipForAuthUserFailure
         | GetOrgMembershipForUserSuccess
         | GetOrgMembershipForUserFailure
         | GetRouteStatsByActorSuccess

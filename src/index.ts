@@ -103,6 +103,7 @@ import { registerGithubListImmutableReleasesForOrgReposTool } from "./tools/orga
 import { registerGithubListOrgAppInstallationsTool } from "./tools/organizations/github-list-org-app-installations.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
+import { registerGithubGetOrgMembershipForAuthUserTool } from "./tools/organizations/github-get-org-membership-for-auth-user.js";
 import { registerGithubListOrgMembershipsForAuthUserTool } from "./tools/organizations/github-list-org-memberships-for-auth-user.js";
 import { registerGithubListOrgsForUserTool } from "./tools/organizations/github-list-orgs-for-user.js";
 import { registerGithubSetImmutableReleasesForOrgReposTool } from "./tools/organizations/github-set-immutable-releases-for-org-repos.js";
@@ -156,6 +157,7 @@ registerGithubCreateOrgRepoTool(server, octokit);
 registerGithubListOrganizationsTool(server, octokit);
 registerGithubListOrgsForAuthenticatedUserTool(server, octokit);
 registerGithubListOrgMembershipsForAuthUserTool(server, octokit);
+registerGithubGetOrgMembershipForAuthUserTool(server, octokit);
 registerGithubListOrgsForUserTool(server, octokit);
 registerGithubListOrgAppInstallationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
