@@ -18,6 +18,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Organization issue types](issue-types/README.md)** tools (`GET /orgs/{org}/issue-types`, …) live in [`issue-types/`](issue-types/).
 
+**[Network configurations](network-configurations/README.md)** tools (`GET /orgs/{org}/settings/network-configurations`, …) live in [`network-configurations/`](network-configurations/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -27,6 +29,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_update_org_membership_for_auth_user`](README.md#github_update_org_membership_for_auth_user)
 - [`github_list_orgs_for_user`](README.md#github_list_orgs_for_user)
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
+- [`github_list_org_network_configurations`](network-configurations/README.md#github_list_org_network_configurations)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)
@@ -357,3 +360,9 @@ Pagination uses **`page`** and **`per_page`** (1–100; default **100** when omi
 #### Output
 
 On success: **`org`**, **`total_count`**, **`installations`**, **`page`**, **`per_page`**, **`pages_fetched`**, **`pagination`**, optional **`truncated`**, **`request_id`**. On failure: structured **`error`** (e.g. **403** when not an owner).
+
+---
+
+### `github_list_org_network_configurations`
+
+Documented in [`network-configurations/README.md`](network-configurations/README.md#github_list_org_network_configurations). Lists hosted compute network configurations via [List hosted compute network configurations for an organization](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#list-hosted-compute-network-configurations-for-an-organization) (`GET /orgs/{org}/settings/network-configurations`). Classic tokens need **`read:network_configurations`**.

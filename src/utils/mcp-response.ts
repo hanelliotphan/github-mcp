@@ -219,6 +219,8 @@ import type {
     ListOrgIssueTypesSuccess,
     ListOrgMetadataStorageRecordsFailure,
     ListOrgMetadataStorageRecordsSuccess,
+    ListOrgNetworkConfigurationsFailure,
+    ListOrgNetworkConfigurationsSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -495,6 +497,8 @@ export function textAndData(
         | ListOrgIssueTypesFailure
         | ListOrgMetadataStorageRecordsSuccess
         | ListOrgMetadataStorageRecordsFailure
+        | ListOrgNetworkConfigurationsSuccess
+        | ListOrgNetworkConfigurationsFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

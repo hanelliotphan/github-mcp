@@ -1411,6 +1411,31 @@ export type ListOrgAppInstallationsSuccess = {
 
 export type ListOrgAppInstallationsFailure = CreateRepoFailure;
 
+/** One hosted compute network configuration from GET /orgs/{org}/settings/network-configurations. */
+export type OrgNetworkConfigurationItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/settings/network-configurations — HTTP 200. MCP tool: `github_list_org_network_configurations`. */
+export type ListOrgNetworkConfigurationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    network_configurations: OrgNetworkConfigurationItem[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgNetworkConfigurationsFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

@@ -101,6 +101,7 @@ import { registerGithubSetOrgClusterDeploymentRecordsTool } from "./tools/organi
 import { registerGithubEnableOrDisableOrgSecurityFeatureTool } from "./tools/organizations/github-enable-or-disable-org-security-feature.js";
 import { registerGithubListImmutableReleasesForOrgReposTool } from "./tools/organizations/github-list-immutable-releases-for-org-repos.js";
 import { registerGithubListOrgAppInstallationsTool } from "./tools/organizations/github-list-org-app-installations.js";
+import { registerGithubListOrgNetworkConfigurationsTool } from "./tools/organizations/network-configurations/github-list-org-network-configurations.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
 import { registerGithubGetOrgMembershipForAuthUserTool } from "./tools/organizations/github-get-org-membership-for-auth-user.js";
@@ -162,6 +163,7 @@ registerGithubGetOrgMembershipForAuthUserTool(server, octokit);
 registerGithubUpdateOrgMembershipForAuthUserTool(server, octokit);
 registerGithubListOrgsForUserTool(server, octokit);
 registerGithubListOrgAppInstallationsTool(server, octokit);
+registerGithubListOrgNetworkConfigurationsTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);
