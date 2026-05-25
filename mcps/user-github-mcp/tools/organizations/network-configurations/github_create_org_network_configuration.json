@@ -1,0 +1,40 @@
+{
+  "name": "github_create_org_network_configuration",
+  "description": "POST /orgs/{org}/settings/network-configurations — create hosted compute network config. Required name, network_settings_ids (exactly one id). Optional compute_service none|actions, failover_network_settings_ids, failover_network_enabled. Classic tokens need write:network_configurations. HTTP 201.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^[A-Za-z0-9._-]{1,100}$"
+      },
+      "network_settings_ids": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "minItems": 1,
+        "maxItems": 1
+      },
+      "compute_service": {
+        "type": "string",
+        "enum": ["none", "actions"]
+      },
+      "failover_network_settings_ids": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "minItems": 1,
+        "maxItems": 1
+      },
+      "failover_network_enabled": { "type": "boolean" }
+    },
+    "required": ["org", "name", "network_settings_ids"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

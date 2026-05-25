@@ -7,6 +7,7 @@ Classic OAuth apps and personal access tokens (classic) need **`read:network_con
 ## Tools
 
 - [`github_list_org_network_configurations`](README.md#github_list_org_network_configurations)
+- [`github_create_org_network_configuration`](README.md#github_create_org_network_configuration)
 
 ---
 
@@ -25,3 +26,22 @@ Calls [List hosted compute network configurations for an organization](https://d
 #### Output
 
 On success (**200**): **`org`**, **`total_count`**, **`network_configurations`** (hosted compute network configuration objects), **`http_status`**, **`pagination`**, **`request_id`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**. On failure: structured **`error`**.
+
+---
+
+### `github_create_org_network_configuration`
+
+Calls [Create a hosted compute network configuration for an organization](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#create-a-hosted-compute-network-configuration-for-an-organization) (`POST /orgs/{org}/settings/network-configurations`). Classic tokens need **`write:network_configurations`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`name`** (required) — **1–100** characters; letters, digits, `.`, `-`, `_` only
+- **`network_settings_ids`** (required) — array with **exactly one** network settings resource id
+- **`compute_service`** (optional) — **`none`** or **`actions`**
+- **`failover_network_settings_ids`** (optional) — array with **exactly one** failover network settings id
+- **`failover_network_enabled`** (optional) — boolean
+
+#### Output
+
+On success (**201**): **`org`**, **`network_configuration`** (created object with `id`, `name`, `compute_service`, …), **`http_status`**, **`request_id`**. On failure: structured **`error`**.

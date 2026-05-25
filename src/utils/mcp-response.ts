@@ -43,6 +43,8 @@ import type {
     CreateOrgIssueFieldSuccess,
     CreateOrgIssueTypeFailure,
     CreateOrgIssueTypeSuccess,
+    CreateOrgNetworkConfigurationFailure,
+    CreateOrgNetworkConfigurationSuccess,
     CreateOrgMetadataStorageRecordFailure,
     CreateOrgMetadataStorageRecordSuccess,
     CreateRepoAttestationFailure,
@@ -339,6 +341,8 @@ export function textAndData(
         | CreateOrgIssueFieldFailure
         | CreateOrgIssueTypeSuccess
         | CreateOrgIssueTypeFailure
+        | CreateOrgNetworkConfigurationSuccess
+        | CreateOrgNetworkConfigurationFailure
         | CreateOrgMetadataStorageRecordSuccess
         | CreateOrgMetadataStorageRecordFailure
         | CreateRepoAttestationSuccess

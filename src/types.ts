@@ -1436,6 +1436,18 @@ export type ListOrgNetworkConfigurationsSuccess = {
 
 export type ListOrgNetworkConfigurationsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/settings/network-configurations — HTTP 201. MCP tool: `github_create_org_network_configuration`. */
+export type CreateOrgNetworkConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    network_configuration: OrgNetworkConfigurationItem;
+    request_id: string | null;
+};
+
+export type CreateOrgNetworkConfigurationFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
