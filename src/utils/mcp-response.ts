@@ -87,6 +87,8 @@ import type {
     DeleteOrgIssueFieldSuccess,
     DeleteOrgIssueTypeFailure,
     DeleteOrgIssueTypeSuccess,
+    DeleteOrgNetworkConfigurationFailure,
+    DeleteOrgNetworkConfigurationSuccess,
     DeleteOrgFailure,
     DeleteOrgSuccess,
     DeleteRepoRulesetFailure,
@@ -381,6 +383,8 @@ export function textAndData(
         | DeleteOrgIssueFieldFailure
         | DeleteOrgIssueTypeSuccess
         | DeleteOrgIssueTypeFailure
+        | DeleteOrgNetworkConfigurationSuccess
+        | DeleteOrgNetworkConfigurationFailure
         | DeleteRepoRulesetSuccess
         | DeleteRepoRulesetFailure
         | DeleteRepoWebhookSuccess

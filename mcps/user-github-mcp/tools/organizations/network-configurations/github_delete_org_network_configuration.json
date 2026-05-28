@@ -1,0 +1,21 @@
+{
+  "name": "github_delete_org_network_configuration",
+  "description": "DELETE /orgs/{org}/settings/network-configurations/{network_configuration_id} — remove hosted compute network config. Classic tokens need write:network_configurations. HTTP 204 No Content.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "network_configuration_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": ["org", "network_configuration_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

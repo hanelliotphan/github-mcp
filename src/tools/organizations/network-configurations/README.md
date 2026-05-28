@@ -10,6 +10,7 @@ Classic OAuth apps and personal access tokens (classic) need **`read:network_con
 - [`github_create_org_network_configuration`](README.md#github_create_org_network_configuration)
 - [`github_get_org_network_configuration`](README.md#github_get_org_network_configuration)
 - [`github_update_org_network_configuration`](README.md#github_update_org_network_configuration)
+- [`github_delete_org_network_configuration`](README.md#github_delete_org_network_configuration)
 
 ---
 
@@ -82,3 +83,18 @@ Calls [Update a hosted compute network configuration for an organization](https:
 #### Output
 
 On success (**200**): echoed **`org`**, **`network_configuration_id`**, **`network_configuration`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_delete_org_network_configuration`
+
+Calls [Delete a hosted compute network configuration from an organization](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#delete-a-hosted-compute-network-configuration-from-an-organization) (`DELETE /orgs/{org}/settings/network-configurations/{network_configuration_id}`). Classic tokens need **`write:network_configurations`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`network_configuration_id`** (required) — unique configuration id to delete
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`network_configuration_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
