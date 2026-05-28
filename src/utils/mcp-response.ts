@@ -267,6 +267,8 @@ import type {
     UpdateOrgIssueTypeSuccess,
     UpdateOrgMembershipForAuthUserFailure,
     UpdateOrgMembershipForAuthUserSuccess,
+    UpdateOrgNetworkConfigurationFailure,
+    UpdateOrgNetworkConfigurationSuccess,
     UpdateOrgFailure,
     UpdateOrgSuccess,
     UpdateRepoRulesetFailure,
@@ -549,6 +551,8 @@ export function textAndData(
         | UpdateOrgIssueTypeFailure
         | UpdateOrgMembershipForAuthUserSuccess
         | UpdateOrgMembershipForAuthUserFailure
+        | UpdateOrgNetworkConfigurationSuccess
+        | UpdateOrgNetworkConfigurationFailure
         | UpdateOrgSuccess
         | UpdateOrgFailure
         | UpdateRepoRulesetSuccess

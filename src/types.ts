@@ -1461,6 +1461,19 @@ export type GetOrgNetworkConfigurationSuccess = {
 
 export type GetOrgNetworkConfigurationFailure = CreateRepoFailure;
 
+/** PATCH /orgs/{org}/settings/network-configurations/{network_configuration_id} — HTTP 200. MCP tool: `github_update_org_network_configuration`. */
+export type UpdateOrgNetworkConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    network_configuration_id: string;
+    network_configuration: OrgNetworkConfigurationItem;
+    request_id: string | null;
+};
+
+export type UpdateOrgNetworkConfigurationFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

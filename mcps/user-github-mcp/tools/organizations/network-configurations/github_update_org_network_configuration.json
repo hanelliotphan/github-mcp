@@ -1,0 +1,44 @@
+{
+  "name": "github_update_org_network_configuration",
+  "description": "PATCH /orgs/{org}/settings/network-configurations/{network_configuration_id} — update hosted compute network config. At least one of name, network_settings_ids (one id), compute_service none|actions, failover_network_settings_ids, failover_network_enabled. Classic tokens need write:network_configurations. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "network_configuration_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^[A-Za-z0-9._-]{1,100}$"
+      },
+      "network_settings_ids": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "minItems": 1,
+        "maxItems": 1
+      },
+      "compute_service": {
+        "type": "string",
+        "enum": ["none", "actions"]
+      },
+      "failover_network_settings_ids": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "minItems": 1,
+        "maxItems": 1
+      },
+      "failover_network_enabled": { "type": "boolean" }
+    },
+    "required": ["org", "network_configuration_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
