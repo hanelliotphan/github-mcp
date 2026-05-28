@@ -1,0 +1,21 @@
+{
+  "name": "github_get_org_network_configuration",
+  "description": "GET /orgs/{org}/settings/network-configurations/{network_configuration_id} — one hosted compute network config (id, name, compute_service, network_settings_ids, …). Classic tokens need read:network_configurations. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "network_configuration_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": ["org", "network_configuration_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

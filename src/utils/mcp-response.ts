@@ -112,6 +112,8 @@ import type {
     GetOrgImmutableReleasesSettingsSuccess,
     GetOrgMembershipForAuthUserFailure,
     GetOrgMembershipForAuthUserSuccess,
+    GetOrgNetworkConfigurationFailure,
+    GetOrgNetworkConfigurationSuccess,
     GetOrgMembershipForUserFailure,
     GetOrgMembershipForUserSuccess,
     GetOrgSuccess,
@@ -343,6 +345,8 @@ export function textAndData(
         | CreateOrgIssueTypeFailure
         | CreateOrgNetworkConfigurationSuccess
         | CreateOrgNetworkConfigurationFailure
+        | GetOrgNetworkConfigurationSuccess
+        | GetOrgNetworkConfigurationFailure
         | CreateOrgMetadataStorageRecordSuccess
         | CreateOrgMetadataStorageRecordFailure
         | CreateRepoAttestationSuccess

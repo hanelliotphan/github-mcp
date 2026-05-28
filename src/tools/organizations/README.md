@@ -31,6 +31,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_org_app_installations`](README.md#github_list_org_app_installations)
 - [`github_list_org_network_configurations`](network-configurations/README.md#github_list_org_network_configurations)
 - [`github_create_org_network_configuration`](network-configurations/README.md#github_create_org_network_configuration)
+- [`github_get_org_network_configuration`](network-configurations/README.md#github_get_org_network_configuration)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)
@@ -366,4 +367,4 @@ On success: **`org`**, **`total_count`**, **`installations`**, **`page`**, **`pe
 
 ### `github_list_org_network_configurations`
 
-Documented in [`network-configurations/README.md`](network-configurations/README.md). Lists hosted compute network configurations via [List hosted compute network configurations for an organization](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#list-hosted-compute-network-configurations-for-an-organization) (`GET /orgs/{org}/settings/network-configurations`). Classic tokens need **`read:network_configurations`**. Create via **`github_create_org_network_configuration`** ([POST](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#create-a-hosted-compute-network-configuration-for-an-organization); **`write:network_configurations`**).
+Documented in [`network-configurations/README.md`](network-configurations/README.md). **`github_list_org_network_configurations`** ([list](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#list-hosted-compute-network-configurations-for-an-organization); **`read:network_configurations`**). **`github_create_org_network_configuration`** ([create](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#create-a-hosted-compute-network-configuration-for-an-organization); **`write:network_configurations`**). **`github_get_org_network_configuration`** ([get by id](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#get-a-hosted-compute-network-configuration-for-an-organization)).
