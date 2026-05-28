@@ -116,6 +116,8 @@ import type {
     GetOrgMembershipForAuthUserSuccess,
     GetOrgNetworkConfigurationFailure,
     GetOrgNetworkConfigurationSuccess,
+    GetOrgNetworkSettingsFailure,
+    GetOrgNetworkSettingsSuccess,
     GetOrgMembershipForUserFailure,
     GetOrgMembershipForUserSuccess,
     GetOrgSuccess,
@@ -351,6 +353,8 @@ export function textAndData(
         | CreateOrgNetworkConfigurationFailure
         | GetOrgNetworkConfigurationSuccess
         | GetOrgNetworkConfigurationFailure
+        | GetOrgNetworkSettingsSuccess
+        | GetOrgNetworkSettingsFailure
         | CreateOrgMetadataStorageRecordSuccess
         | CreateOrgMetadataStorageRecordFailure
         | CreateRepoAttestationSuccess

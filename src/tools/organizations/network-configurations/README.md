@@ -1,6 +1,6 @@
 # Organization network configurations MCP tools
 
-Tool implementations wrap [REST API endpoints for network configurations](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10) (`/orgs/{org}/settings/network-configurations`, …). They are registered from `src/index.ts`.
+Tool implementations wrap [REST API endpoints for network configurations](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10) (`/orgs/{org}/settings/network-configurations`, `/orgs/{org}/settings/network-settings/{network_settings_id}`, …). They are registered from `src/index.ts`.
 
 Classic OAuth apps and personal access tokens (classic) need **`read:network_configurations`** to list or read configurations and **`write:network_configurations`** to create, update, or delete (per GitHub). Success payloads follow the shared MCP shape; failures use the structured **error** envelope.
 
@@ -11,6 +11,7 @@ Classic OAuth apps and personal access tokens (classic) need **`read:network_con
 - [`github_get_org_network_configuration`](README.md#github_get_org_network_configuration)
 - [`github_update_org_network_configuration`](README.md#github_update_org_network_configuration)
 - [`github_delete_org_network_configuration`](README.md#github_delete_org_network_configuration)
+- [`github_get_org_network_settings`](README.md#github_get_org_network_settings)
 
 ---
 
@@ -98,3 +99,18 @@ Calls [Delete a hosted compute network configuration from an organization](https
 #### Output
 
 On success (**204**): echoed **`org`**, **`network_configuration_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_org_network_settings`
+
+Calls [Get a hosted compute network settings resource for an organization](https://docs.github.com/en/rest/orgs/network-configurations?apiVersion=2026-03-10#get-a-hosted-compute-network-settings-resource-for-an-organization) (`GET /orgs/{org}/settings/network-settings/{network_settings_id}`). Classic tokens need **`read:network_configurations`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`network_settings_id`** (required) — unique network settings resource id (used in **`network_settings_ids`** when creating/updating configurations)
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`network_settings_id`**, **`network_settings`** (`id`, `name`, `subnet_id`, `region`, optional `network_configuration_id`, …), **`http_status`**, **`request_id`**. On failure: structured **`error`**.
