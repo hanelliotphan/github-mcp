@@ -20,6 +20,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Network configurations](network-configurations/README.md)** tools (`GET /orgs/{org}/settings/network-configurations`, …) live in [`network-configurations/`](network-configurations/).
 
+**[Organization roles](organization-roles/README.md)** tools (`GET /orgs/{org}/organization-roles`, …) live in [`organization-roles/`](organization-roles/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -35,6 +37,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_update_org_network_configuration`](network-configurations/README.md#github_update_org_network_configuration)
 - [`github_delete_org_network_configuration`](network-configurations/README.md#github_delete_org_network_configuration)
 - [`github_get_org_network_settings`](network-configurations/README.md#github_get_org_network_settings)
+- [`github_list_org_roles`](organization-roles/README.md#github_list_org_roles)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)

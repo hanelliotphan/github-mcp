@@ -1,0 +1,17 @@
+{
+  "name": "github_list_org_roles",
+  "description": "GET /orgs/{org}/organization-roles — list organization roles (total_count, roles with id, name, description, base_role, source, permissions). Requires org admin; classic tokens need admin:org. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

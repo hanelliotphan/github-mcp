@@ -1502,6 +1502,22 @@ export type GetOrgNetworkSettingsSuccess = {
 
 export type GetOrgNetworkSettingsFailure = CreateRepoFailure;
 
+/** One organization role from GET /orgs/{org}/organization-roles. */
+export type OrganizationRoleItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/organization-roles — HTTP 200. MCP tool: `github_list_org_roles`. */
+export type ListOrgRolesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    roles: OrganizationRoleItem[];
+    request_id: string | null;
+};
+
+export type ListOrgRolesFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

@@ -106,6 +106,7 @@ import { registerGithubCreateOrgNetworkConfigurationTool } from "./tools/organiz
 import { registerGithubGetOrgNetworkConfigurationTool } from "./tools/organizations/network-configurations/github-get-org-network-configuration.js";
 import { registerGithubGetOrgNetworkSettingsTool } from "./tools/organizations/network-configurations/github-get-org-network-settings.js";
 import { registerGithubListOrgNetworkConfigurationsTool } from "./tools/organizations/network-configurations/github-list-org-network-configurations.js";
+import { registerGithubListOrgRolesTool } from "./tools/organizations/organization-roles/github-list-org-roles.js";
 import { registerGithubUpdateOrgNetworkConfigurationTool } from "./tools/organizations/network-configurations/github-update-org-network-configuration.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
@@ -174,6 +175,7 @@ registerGithubGetOrgNetworkConfigurationTool(server, octokit);
 registerGithubUpdateOrgNetworkConfigurationTool(server, octokit);
 registerGithubDeleteOrgNetworkConfigurationTool(server, octokit);
 registerGithubGetOrgNetworkSettingsTool(server, octokit);
+registerGithubListOrgRolesTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);
