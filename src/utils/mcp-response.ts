@@ -231,6 +231,8 @@ import type {
     ListOrgNetworkConfigurationsSuccess,
     ListOrgRolesFailure,
     ListOrgRolesSuccess,
+    RemoveAllOrgRolesForTeamFailure,
+    RemoveAllOrgRolesForTeamSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -521,6 +523,8 @@ export function textAndData(
         | ListOrgNetworkConfigurationsFailure
         | ListOrgRolesSuccess
         | ListOrgRolesFailure
+        | RemoveAllOrgRolesForTeamSuccess
+        | RemoveAllOrgRolesForTeamFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

@@ -1518,6 +1518,18 @@ export type ListOrgRolesSuccess = {
 
 export type ListOrgRolesFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/organization-roles/teams/{team_slug} — HTTP 204 No Content. MCP tool: `github_remove_all_org_roles_for_team`. */
+export type RemoveAllOrgRolesForTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    request_id: string | null;
+};
+
+export type RemoveAllOrgRolesForTeamFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
