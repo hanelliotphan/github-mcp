@@ -10,6 +10,7 @@ The authenticated user must be an **organization administrator** (or hold the `r
 - [`github_remove_all_org_roles_for_team`](README.md#github_remove_all_org_roles_for_team)
 - [`github_assign_org_role_to_team`](README.md#github_assign_org_role_to_team)
 - [`github_remove_org_role_from_team`](README.md#github_remove_org_role_from_team)
+- [`github_remove_all_org_roles_for_user`](README.md#github_remove_all_org_roles_for_user)
 
 ---
 
@@ -71,3 +72,18 @@ Calls [Remove an organization role from a team](https://docs.github.com/en/rest/
 #### Output
 
 On success (**204**): echoed **`org`**, **`team_slug`**, **`role_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_remove_all_org_roles_for_user`
+
+Calls [Remove all organization roles for a user](https://docs.github.com/en/rest/orgs/organization-roles?apiVersion=2026-03-10#remove-all-organization-roles-for-a-user) (`DELETE /orgs/{org}/organization-roles/users/{username}`). Requires org admin; classic tokens need **`admin:org`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — user login (handle)
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`username`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.

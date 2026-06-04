@@ -1556,6 +1556,18 @@ export type RemoveOrgRoleFromTeamSuccess = {
 
 export type RemoveOrgRoleFromTeamFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/organization-roles/users/{username} — HTTP 204 No Content. MCP tool: `github_remove_all_org_roles_for_user`. */
+export type RemoveAllOrgRolesForUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    request_id: string | null;
+};
+
+export type RemoveAllOrgRolesForUserFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
