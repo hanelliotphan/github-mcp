@@ -15,6 +15,7 @@ The authenticated user must be an **organization administrator** (or hold the `r
 - [`github_remove_org_role_from_user`](README.md#github_remove_org_role_from_user)
 - [`github_get_org_role`](README.md#github_get_org_role)
 - [`github_list_teams_assigned_to_org_role`](README.md#github_list_teams_assigned_to_org_role)
+- [`github_list_users_assigned_to_org_role`](README.md#github_list_users_assigned_to_org_role)
 
 ---
 
@@ -157,3 +158,22 @@ Calls [List teams that are assigned to an organization role](https://docs.github
 #### Output
 
 On success (**200**): echoed **`org`**, **`role_id`**, **`teams`** (role-assignment-for-a-team rows: `id`, `name`, `slug`, `permission`, `assignment` (`direct`/`indirect`/`mixed`), `permissions`, `parent`, …), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).
+
+---
+
+### `github_list_users_assigned_to_org_role`
+
+Calls [List users that are assigned to an organization role](https://docs.github.com/en/rest/orgs/organization-roles?apiVersion=2026-03-10#list-users-that-are-assigned-to-an-organization-role) (`GET /orgs/{org}/organization-roles/{role_id}/users`). Requires org admin; classic tokens need **`admin:org`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`role_id`** (required) — numeric id of the organization role (from **`github_list_org_roles`**)
+- **`per_page`** (optional, 1–100, default **100**) — results per page
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — when **true**, follow `next` links and aggregate results
+- **`max_pages`** (optional, 1–500, default **100**) — page cap when `all_pages` is set
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`role_id`**, **`users`** (role-assignment-for-a-user rows: `login`, `id`, `assignment` (`direct`/`indirect`/`mixed`), `inherited_from` teams, plus simple-user fields), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).

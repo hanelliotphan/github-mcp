@@ -46,6 +46,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_remove_org_role_from_user`](organization-roles/README.md#github_remove_org_role_from_user)
 - [`github_get_org_role`](organization-roles/README.md#github_get_org_role)
 - [`github_list_teams_assigned_to_org_role`](organization-roles/README.md#github_list_teams_assigned_to_org_role)
+- [`github_list_users_assigned_to_org_role`](organization-roles/README.md#github_list_users_assigned_to_org_role)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)

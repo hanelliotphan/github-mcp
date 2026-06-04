@@ -247,6 +247,8 @@ import type {
     GetOrgRoleSuccess,
     ListTeamsAssignedToOrgRoleFailure,
     ListTeamsAssignedToOrgRoleSuccess,
+    ListUsersAssignedToOrgRoleFailure,
+    ListUsersAssignedToOrgRoleSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -553,6 +555,8 @@ export function textAndData(
         | GetOrgRoleFailure
         | ListTeamsAssignedToOrgRoleSuccess
         | ListTeamsAssignedToOrgRoleFailure
+        | ListUsersAssignedToOrgRoleSuccess
+        | ListUsersAssignedToOrgRoleFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess
