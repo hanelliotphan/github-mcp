@@ -1607,6 +1607,31 @@ export type GetOrgRoleSuccess = {
 
 export type GetOrgRoleFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/organization-roles/{role_id}/teams (A Role Assignment for a Team). */
+export type OrgRoleTeamAssignmentRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/organization-roles/{role_id}/teams — HTTP 200. MCP tool: `github_list_teams_assigned_to_org_role`. */
+export type ListTeamsAssignedToOrgRoleSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    role_id: number;
+    teams: OrgRoleTeamAssignmentRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListTeamsAssignedToOrgRoleFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
