@@ -112,6 +112,7 @@ import { registerGithubAssignOrgRoleToTeamTool } from "./tools/organizations/org
 import { registerGithubRemoveOrgRoleFromTeamTool } from "./tools/organizations/organization-roles/github-remove-org-role-from-team.js";
 import { registerGithubRemoveAllOrgRolesForUserTool } from "./tools/organizations/organization-roles/github-remove-all-org-roles-for-user.js";
 import { registerGithubAssignOrgRoleToUserTool } from "./tools/organizations/organization-roles/github-assign-org-role-to-user.js";
+import { registerGithubRemoveOrgRoleFromUserTool } from "./tools/organizations/organization-roles/github-remove-org-role-from-user.js";
 import { registerGithubUpdateOrgNetworkConfigurationTool } from "./tools/organizations/network-configurations/github-update-org-network-configuration.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
@@ -186,6 +187,7 @@ registerGithubAssignOrgRoleToTeamTool(server, octokit);
 registerGithubRemoveOrgRoleFromTeamTool(server, octokit);
 registerGithubRemoveAllOrgRolesForUserTool(server, octokit);
 registerGithubAssignOrgRoleToUserTool(server, octokit);
+registerGithubRemoveOrgRoleFromUserTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);

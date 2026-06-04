@@ -1,0 +1,27 @@
+{
+  "name": "github_remove_org_role_from_user",
+  "description": "DELETE /orgs/{org}/organization-roles/users/{username}/{role_id} — remove one organization role from a user. Requires org admin; classic tokens need admin:org. HTTP 204 No Content.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "role_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["org", "username", "role_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

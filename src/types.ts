@@ -1581,6 +1581,19 @@ export type AssignOrgRoleToUserSuccess = {
 
 export type AssignOrgRoleToUserFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/organization-roles/users/{username}/{role_id} — HTTP 204 No Content. MCP tool: `github_remove_org_role_from_user`. */
+export type RemoveOrgRoleFromUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    role_id: number;
+    request_id: string | null;
+};
+
+export type RemoveOrgRoleFromUserFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
