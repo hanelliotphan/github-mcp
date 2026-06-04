@@ -13,6 +13,7 @@ The authenticated user must be an **organization administrator** (or hold the `r
 - [`github_remove_all_org_roles_for_user`](README.md#github_remove_all_org_roles_for_user)
 - [`github_assign_org_role_to_user`](README.md#github_assign_org_role_to_user)
 - [`github_remove_org_role_from_user`](README.md#github_remove_org_role_from_user)
+- [`github_get_org_role`](README.md#github_get_org_role)
 
 ---
 
@@ -121,3 +122,18 @@ Calls [Remove an organization role from a user](https://docs.github.com/en/rest/
 #### Output
 
 On success (**204**): echoed **`org`**, **`username`**, **`role_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_org_role`
+
+Calls [Get an organization role](https://docs.github.com/en/rest/orgs/organization-roles?apiVersion=2026-03-10#get-an-organization-role) (`GET /orgs/{org}/organization-roles/{role_id}`). Requires org admin (or `read_organization_custom_org_role`); classic tokens need **`admin:org`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`role_id`** (required) — numeric id of the organization role (from **`github_list_org_roles`**)
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`role_id`**, **`role`** (`id`, `name`, `description`, `base_role`, `source`, `permissions`, `organization`, `created_at`, `updated_at`), **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).
