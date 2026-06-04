@@ -9,6 +9,7 @@ The authenticated user must be an **organization administrator** (or hold the `r
 - [`github_list_org_roles`](README.md#github_list_org_roles)
 - [`github_remove_all_org_roles_for_team`](README.md#github_remove_all_org_roles_for_team)
 - [`github_assign_org_role_to_team`](README.md#github_assign_org_role_to_team)
+- [`github_remove_org_role_from_team`](README.md#github_remove_org_role_from_team)
 
 ---
 
@@ -54,3 +55,19 @@ Calls [Assign an organization role to a team](https://docs.github.com/en/rest/or
 #### Output
 
 On success (**204**): echoed **`org`**, **`team_slug`**, **`role_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **422**).
+
+---
+
+### `github_remove_org_role_from_team`
+
+Calls [Remove an organization role from a team](https://docs.github.com/en/rest/orgs/organization-roles?apiVersion=2026-03-10#remove-an-organization-role-from-a-team) (`DELETE /orgs/{org}/organization-roles/teams/{team_slug}/{role_id}`). Removes a **single** role; to remove **all** roles use **`github_remove_all_org_roles_for_team`**. Requires org admin; classic tokens need **`admin:org`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`team_slug`** (required) — slug of the team
+- **`role_id`** (required) — numeric id of the organization role
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`team_slug`**, **`role_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.

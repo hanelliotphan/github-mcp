@@ -235,6 +235,8 @@ import type {
     RemoveAllOrgRolesForTeamSuccess,
     AssignOrgRoleToTeamFailure,
     AssignOrgRoleToTeamSuccess,
+    RemoveOrgRoleFromTeamFailure,
+    RemoveOrgRoleFromTeamSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -529,6 +531,8 @@ export function textAndData(
         | RemoveAllOrgRolesForTeamFailure
         | AssignOrgRoleToTeamSuccess
         | AssignOrgRoleToTeamFailure
+        | RemoveOrgRoleFromTeamSuccess
+        | RemoveOrgRoleFromTeamFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess
