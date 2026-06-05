@@ -8,6 +8,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 
 - [`github_list_org_outside_collaborators`](README.md#github_list_org_outside_collaborators)
 - [`github_convert_org_member_to_outside_collaborator`](README.md#github_convert_org_member_to_outside_collaborator)
+- [`github_remove_org_outside_collaborator`](README.md#github_remove_org_outside_collaborator)
 
 ---
 
@@ -43,3 +44,18 @@ Calls [Convert an organization member to outside collaborator](https://docs.gith
 #### Output
 
 On success (**204** or **202**): echoed **`org`**, **`username`**, **`async`**, optional **`data`** (present when GitHub returns a 202 body), **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403** if the user is the last owner / not a member / blocked by policy, **404**).
+
+---
+
+### `github_remove_org_outside_collaborator`
+
+Calls [Remove outside collaborator from an organization](https://docs.github.com/en/rest/orgs/outside-collaborators?apiVersion=2026-03-10#remove-outside-collaborator-from-an-organization) (`DELETE /orgs/{org}/outside_collaborators/{username}`). Removing the user removes them from **all** of the organization’s repositories. Requires org admin; classic tokens need **`admin:org`**.
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`username`** (required) — user login (handle) to remove
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`username`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **422** if the user is an organization member).

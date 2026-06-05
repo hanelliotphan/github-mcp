@@ -1698,6 +1698,18 @@ export type ConvertOrgMemberToOutsideCollaboratorSuccess = {
 
 export type ConvertOrgMemberToOutsideCollaboratorFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/outside_collaborators/{username} — HTTP 204 No Content. MCP tool: `github_remove_org_outside_collaborator`. */
+export type RemoveOrgOutsideCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    request_id: string | null;
+};
+
+export type RemoveOrgOutsideCollaboratorFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

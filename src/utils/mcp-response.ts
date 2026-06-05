@@ -253,6 +253,8 @@ import type {
     ListOrgOutsideCollaboratorsSuccess,
     ConvertOrgMemberToOutsideCollaboratorFailure,
     ConvertOrgMemberToOutsideCollaboratorSuccess,
+    RemoveOrgOutsideCollaboratorFailure,
+    RemoveOrgOutsideCollaboratorSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -565,6 +567,8 @@ export function textAndData(
         | ListOrgOutsideCollaboratorsFailure
         | ConvertOrgMemberToOutsideCollaboratorSuccess
         | ConvertOrgMemberToOutsideCollaboratorFailure
+        | RemoveOrgOutsideCollaboratorSuccess
+        | RemoveOrgOutsideCollaboratorFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess
