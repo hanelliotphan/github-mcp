@@ -1,0 +1,25 @@
+{
+  "name": "github_list_org_outside_collaborators",
+  "description": "GET /orgs/{org}/outside_collaborators — list outside collaborators of the org (simple user rows). Optional filter: all (default), 2fa_disabled, 2fa_insecure. page/per_page (default 100), all_pages + max_pages. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "filter": {
+        "type": "string",
+        "enum": ["2fa_disabled", "2fa_insecure", "all"]
+      },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

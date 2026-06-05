@@ -1657,6 +1657,31 @@ export type ListUsersAssignedToOrgRoleSuccess = {
 
 export type ListUsersAssignedToOrgRoleFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/outside_collaborators (Simple User per GitHub). */
+export type OrgOutsideCollaboratorRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/outside_collaborators — HTTP 200. MCP tool: `github_list_org_outside_collaborators`. */
+export type ListOrgOutsideCollaboratorsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    filter: "2fa_disabled" | "2fa_insecure" | "all";
+    outside_collaborators: OrgOutsideCollaboratorRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgOutsideCollaboratorsFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
