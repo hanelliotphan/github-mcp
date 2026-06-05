@@ -251,6 +251,8 @@ import type {
     ListUsersAssignedToOrgRoleSuccess,
     ListOrgOutsideCollaboratorsFailure,
     ListOrgOutsideCollaboratorsSuccess,
+    ConvertOrgMemberToOutsideCollaboratorFailure,
+    ConvertOrgMemberToOutsideCollaboratorSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -561,6 +563,8 @@ export function textAndData(
         | ListUsersAssignedToOrgRoleFailure
         | ListOrgOutsideCollaboratorsSuccess
         | ListOrgOutsideCollaboratorsFailure
+        | ConvertOrgMemberToOutsideCollaboratorSuccess
+        | ConvertOrgMemberToOutsideCollaboratorFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

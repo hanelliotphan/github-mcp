@@ -1682,6 +1682,22 @@ export type ListOrgOutsideCollaboratorsSuccess = {
 
 export type ListOrgOutsideCollaboratorsFailure = CreateRepoFailure;
 
+/** PUT /orgs/{org}/outside_collaborators/{username} — HTTP 204 (converted) or 202 (queued async). MCP tool: `github_convert_org_member_to_outside_collaborator`. */
+export type ConvertOrgMemberToOutsideCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    /** Whether the conversion was requested asynchronously (echoes the `async` input). */
+    async: boolean;
+    /** Present when GitHub returns a 202 body for an async request. */
+    data?: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type ConvertOrgMemberToOutsideCollaboratorFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
