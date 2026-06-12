@@ -24,6 +24,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Outside collaborators](outside-collaborators/README.md)** tools (`GET /orgs/{org}/outside_collaborators`, …) live in [`outside-collaborators/`](outside-collaborators/).
 
+**[Personal access tokens](personal-access-tokens/README.md)** tools (`GET /orgs/{org}/personal-access-token-requests`, …) live in [`personal-access-tokens/`](personal-access-tokens/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -52,6 +54,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_org_outside_collaborators`](outside-collaborators/README.md#github_list_org_outside_collaborators)
 - [`github_convert_org_member_to_outside_collaborator`](outside-collaborators/README.md#github_convert_org_member_to_outside_collaborator)
 - [`github_remove_org_outside_collaborator`](outside-collaborators/README.md#github_remove_org_outside_collaborator)
+- [`github_list_org_pat_requests`](personal-access-tokens/README.md#github_list_org_pat_requests)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)

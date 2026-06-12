@@ -1710,6 +1710,30 @@ export type RemoveOrgOutsideCollaboratorSuccess = {
 
 export type RemoveOrgOutsideCollaboratorFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/personal-access-token-requests (Simple Organization Programmatic Access Grant Request). */
+export type OrgPatRequestRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/personal-access-token-requests — HTTP 200. MCP tool: `github_list_org_pat_requests`. */
+export type ListOrgPatRequestsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    pat_requests: OrgPatRequestRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgPatRequestsFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
