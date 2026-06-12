@@ -65,6 +65,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_update_org_pat`](personal-access-tokens/README.md#github_update_org_pat)
 - [`github_list_org_pat_repositories`](personal-access-tokens/README.md#github_list_org_pat_repositories)
 - [`github_list_org_rule_suites`](rule-suites/README.md#github_list_org_rule_suites)
+- [`github_get_org_rule_suite`](rule-suites/README.md#github_get_org_rule_suite)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)

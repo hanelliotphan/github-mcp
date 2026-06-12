@@ -1890,6 +1890,21 @@ export type ListOrgRuleSuitesSuccess = {
 
 export type ListOrgRuleSuitesFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/rulesets/rule-suites/{rule_suite_id} — HTTP 200 (rule suite with rule_evaluations). MCP tool: `github_get_org_rule_suite`. */
+export type OrgRuleSuiteItem = Record<string, unknown>;
+
+export type GetOrgRuleSuiteSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    rule_suite_id: number;
+    rule_suite: OrgRuleSuiteItem;
+    request_id: string | null;
+};
+
+export type GetOrgRuleSuiteFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

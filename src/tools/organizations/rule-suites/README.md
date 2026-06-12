@@ -7,6 +7,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 ## Tools
 
 - [`github_list_org_rule_suites`](README.md#github_list_org_rule_suites)
+- [`github_get_org_rule_suite`](README.md#github_get_org_rule_suite)
 
 ---
 
@@ -31,3 +32,18 @@ Calls [List organization rule suites](https://docs.github.com/en/rest/orgs/rule-
 #### Output
 
 On success (**200**): echoed **`org`**, **`rule_suites`** (rule suite rows: `id`, `actor_name`, `ref`, `repository_name`, `pushed_at`, `result`, `evaluation_result`, …), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).
+
+---
+
+### `github_get_org_rule_suite`
+
+Calls [Get an organization rule suite](https://docs.github.com/en/rest/orgs/rule-suites?apiVersion=2026-03-10#get-an-organization-rule-suite) (`GET /orgs/{org}/rulesets/rule-suites/{rule_suite_id}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`rule_suite_id`** (required) — rule suite id (from **`github_list_org_rule_suites`**)
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`rule_suite_id`**, **`rule_suite`** (`id`, `actor_name`, `ref`, `repository_name`, `pushed_at`, `result`, `evaluation_result`, `rule_evaluations`, …), **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).

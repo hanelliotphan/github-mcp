@@ -273,6 +273,8 @@ import type {
     ListOrgPatRepositoriesSuccess,
     ListOrgRuleSuitesFailure,
     ListOrgRuleSuitesSuccess,
+    GetOrgRuleSuiteFailure,
+    GetOrgRuleSuiteSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -605,6 +607,8 @@ export function textAndData(
         | ListOrgPatRepositoriesFailure
         | ListOrgRuleSuitesSuccess
         | ListOrgRuleSuitesFailure
+        | GetOrgRuleSuiteSuccess
+        | GetOrgRuleSuiteFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

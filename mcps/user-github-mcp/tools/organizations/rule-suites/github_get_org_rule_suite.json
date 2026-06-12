@@ -1,0 +1,21 @@
+{
+  "name": "github_get_org_rule_suite",
+  "description": "GET /orgs/{org}/rulesets/rule-suites/{rule_suite_id} — one organization rule suite (id, actor_name, ref, repository_name, result, rule_evaluations, …). rule_suite_id from github_list_org_rule_suites. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "rule_suite_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["org", "rule_suite_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
