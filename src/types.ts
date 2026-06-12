@@ -1813,6 +1813,21 @@ export type ListOrgPatsSuccess = {
 
 export type ListOrgPatsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/personal-access-tokens — HTTP 202 Accepted. MCP tool: `github_update_org_pats`. */
+export type UpdateOrgPatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    action: "revoke";
+    pat_ids: number[];
+    /** Present when GitHub returns a 202 body. */
+    data?: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdateOrgPatsFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
