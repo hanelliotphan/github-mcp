@@ -1,0 +1,55 @@
+{
+  "name": "github_update_org_ruleset",
+  "description": "PUT /orgs/{org}/rulesets/{ruleset_id} — update an organization repository ruleset. Pass ruleset with at least one field (name, enforcement, target, bypass_actors, conditions, rules). ruleset_id from github_list_org_rulesets. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "ruleset_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "ruleset": {
+        "type": "object",
+        "minProperties": 1,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "enforcement": {
+            "type": "string",
+            "enum": ["disabled", "active", "evaluate"]
+          },
+          "target": {
+            "type": "string",
+            "enum": ["branch", "tag", "push", "repository"]
+          },
+          "bypass_actors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "conditions": {
+            "type": "object"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "required": ["org", "ruleset_id", "ruleset"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
