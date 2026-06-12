@@ -138,6 +138,7 @@ import { registerGithubGetOrgRulesetHistoryTool } from "./tools/organizations/ru
 import { registerGithubGetOrgRulesetVersionTool } from "./tools/organizations/rules/github-get-org-ruleset-version.js";
 import { registerGithubAddOrgSecurityManagerTeamTool } from "./tools/organizations/security-managers/github-add-org-security-manager-team.js";
 import { registerGithubListOrgSecurityManagerTeamsTool } from "./tools/organizations/security-managers/github-list-org-security-manager-teams.js";
+import { registerGithubRemoveOrgSecurityManagerTeamTool } from "./tools/organizations/security-managers/github-remove-org-security-manager-team.js";
 import { registerGithubUpdateOrgNetworkConfigurationTool } from "./tools/organizations/network-configurations/github-update-org-network-configuration.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
@@ -238,6 +239,7 @@ registerGithubGetOrgRulesetHistoryTool(server, octokit);
 registerGithubGetOrgRulesetVersionTool(server, octokit);
 registerGithubAddOrgSecurityManagerTeamTool(server, octokit);
 registerGithubListOrgSecurityManagerTeamsTool(server, octokit);
+registerGithubRemoveOrgSecurityManagerTeamTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);
