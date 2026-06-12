@@ -1,0 +1,51 @@
+{
+  "name": "github_create_org_ruleset",
+  "description": "POST /orgs/{org}/rulesets — create an organization repository ruleset. Pass ruleset with name and enforcement (disabled, active, evaluate); optional target (branch, tag, push, repository), bypass_actors, conditions, rules per GitHub REST docs. Returns 201 with ruleset body.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "ruleset": {
+        "type": "object",
+        "required": ["name", "enforcement"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "enforcement": {
+            "type": "string",
+            "enum": ["disabled", "active", "evaluate"]
+          },
+          "target": {
+            "type": "string",
+            "enum": ["branch", "tag", "push", "repository"]
+          },
+          "bypass_actors": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "conditions": {
+            "type": "object"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "required": ["org", "ruleset"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -7,6 +7,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 ## Tools
 
 - [`github_list_org_rulesets`](README.md#github_list_org_rulesets)
+- [`github_create_org_ruleset`](README.md#github_create_org_ruleset)
 
 ---
 
@@ -26,3 +27,18 @@ Calls [Get all organization repository rulesets](https://docs.github.com/en/rest
 #### Output
 
 On success (**200**): echoed **`org`**, **`rulesets`** (repository ruleset objects: `id`, `name`, `target`, `enforcement`, `conditions`, `rules`, …), optional **`targets`**, **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).
+
+---
+
+### `github_create_org_ruleset`
+
+Calls [Create an organization repository ruleset](https://docs.github.com/en/rest/orgs/rules?apiVersion=2026-03-10#create-an-organization-repository-ruleset) (`POST /orgs/{org}/rulesets`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`ruleset`** (required) — ruleset body with at least **`name`** and **`enforcement`** (`disabled`, `active`, or `evaluate`); optional **`target`** (`branch`, `tag`, `push`, `repository`; default `branch` on GitHub), **`conditions`** (org conditions object), **`rules`**, **`bypass_actors`**
+
+#### Output
+
+On success (**201**): echoed **`org`**, **`ruleset`** (created ruleset object), **`http_status`**, **`request_id`**. On failure: structured **`error`**.

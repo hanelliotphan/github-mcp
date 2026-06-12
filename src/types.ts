@@ -1931,6 +1931,18 @@ export type ListOrgRulesetsSuccess = {
 
 export type ListOrgRulesetsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/rulesets — HTTP 201 Created. MCP tool: `github_create_org_ruleset`. */
+export type CreateOrgRulesetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    ruleset: OrgRulesetListItem;
+    request_id: string | null;
+};
+
+export type CreateOrgRulesetFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
