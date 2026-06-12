@@ -1750,6 +1750,20 @@ export type ReviewOrgPatRequestsSuccess = {
 
 export type ReviewOrgPatRequestsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/personal-access-token-requests/{pat_request_id} — HTTP 204 No Content. MCP tool: `github_review_org_pat_request`. */
+export type ReviewOrgPatRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    pat_request_id: number;
+    action: "approve" | "deny";
+    reason?: string | null;
+    request_id: string | null;
+};
+
+export type ReviewOrgPatRequestFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

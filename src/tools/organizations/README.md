@@ -56,6 +56,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_remove_org_outside_collaborator`](outside-collaborators/README.md#github_remove_org_outside_collaborator)
 - [`github_list_org_pat_requests`](personal-access-tokens/README.md#github_list_org_pat_requests)
 - [`github_review_org_pat_requests`](personal-access-tokens/README.md#github_review_org_pat_requests)
+- [`github_review_org_pat_request`](personal-access-tokens/README.md#github_review_org_pat_request)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)
