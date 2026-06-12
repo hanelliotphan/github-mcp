@@ -1,0 +1,59 @@
+{
+  "name": "github_update_org_webhook",
+  "description": "Update an organization webhook (PATCH /orgs/{org}/hooks/{hook_id}). Pass webhook with at least one of name, config, events, active. If secret was set before, resend same or new secret or it is removed. Requires org owner; classic tokens need admin:org_hook. Returns 200. See GitHub REST organization webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "webhook": {
+        "type": "object",
+        "minProperties": 1,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "content_type": {
+                "type": "string",
+                "enum": ["json", "form"]
+              },
+              "secret": {
+                "type": "string"
+              },
+              "insecure_ssl": {}
+            },
+            "additionalProperties": true
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "required": ["org", "hook_id", "webhook"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

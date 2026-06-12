@@ -7,6 +7,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 - [`github_list_org_webhooks`](README.md#github_list_org_webhooks)
 - [`github_create_org_webhook`](README.md#github_create_org_webhook)
 - [`github_get_org_webhook`](README.md#github_get_org_webhook)
+- [`github_update_org_webhook`](README.md#github_update_org_webhook)
 
 ---
 
@@ -62,6 +63,25 @@ Retrieves one webhook via [Get an organization webhook](https://docs.github.com/
 #### Output
 
 On success (**200**): echoed **`org`**, **`hook_id`**, **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
+### `github_update_org_webhook`
+
+Updates a webhook via [Update an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#update-an-organization-webhook) (`PATCH /orgs/{org}/hooks/{hook_id}`). Updating overwrites the secret — if one was set, resend the same or a new secret or GitHub removes it. For **`config`**-only edits, use **`github_update_org_webhook_config`** when available.
+
+#### Inputs
+
+- **`org`** (required), **`hook_id`** (required)
+- **`webhook`** (required) — at least one of **`name`**, **`config`**, **`events`**, **`active`**
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`hook_id`**, updated **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 #### Access
 

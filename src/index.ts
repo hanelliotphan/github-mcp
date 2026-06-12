@@ -142,6 +142,7 @@ import { registerGithubRemoveOrgSecurityManagerTeamTool } from "./tools/organiza
 import { registerGithubCreateOrgWebhookTool } from "./tools/organizations/webhooks/github-create-org-webhook.js";
 import { registerGithubGetOrgWebhookTool } from "./tools/organizations/webhooks/github-get-org-webhook.js";
 import { registerGithubListOrgWebhooksTool } from "./tools/organizations/webhooks/github-list-org-webhooks.js";
+import { registerGithubUpdateOrgWebhookTool } from "./tools/organizations/webhooks/github-update-org-webhook.js";
 import { registerGithubUpdateOrgNetworkConfigurationTool } from "./tools/organizations/network-configurations/github-update-org-network-configuration.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
@@ -246,6 +247,7 @@ registerGithubRemoveOrgSecurityManagerTeamTool(server, octokit);
 registerGithubCreateOrgWebhookTool(server, octokit);
 registerGithubGetOrgWebhookTool(server, octokit);
 registerGithubListOrgWebhooksTool(server, octokit);
+registerGithubUpdateOrgWebhookTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);
