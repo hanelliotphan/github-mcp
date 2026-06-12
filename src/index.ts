@@ -126,6 +126,7 @@ import { registerGithubListOrgPatRequestRepositoriesTool } from "./tools/organiz
 import { registerGithubListOrgPatsTool } from "./tools/organizations/personal-access-tokens/github-list-org-pats.js";
 import { registerGithubUpdateOrgPatsTool } from "./tools/organizations/personal-access-tokens/github-update-org-pats.js";
 import { registerGithubUpdateOrgPatTool } from "./tools/organizations/personal-access-tokens/github-update-org-pat.js";
+import { registerGithubListOrgPatRepositoriesTool } from "./tools/organizations/personal-access-tokens/github-list-org-pat-repositories.js";
 import { registerGithubUpdateOrgNetworkConfigurationTool } from "./tools/organizations/network-configurations/github-update-org-network-configuration.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
@@ -214,6 +215,7 @@ registerGithubListOrgPatRequestRepositoriesTool(server, octokit);
 registerGithubListOrgPatsTool(server, octokit);
 registerGithubUpdateOrgPatsTool(server, octokit);
 registerGithubUpdateOrgPatTool(server, octokit);
+registerGithubListOrgPatRepositoriesTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);

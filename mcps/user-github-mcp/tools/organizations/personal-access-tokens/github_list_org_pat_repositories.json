@@ -1,0 +1,25 @@
+{
+  "name": "github_list_org_pat_repositories",
+  "description": "GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories — list repositories a fine-grained PAT has access to (minimal repository rows). GitHub Apps only. page/per_page (default 100), all_pages + max_pages. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "pat_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org", "pat_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

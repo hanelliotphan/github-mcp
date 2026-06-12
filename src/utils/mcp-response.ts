@@ -269,6 +269,8 @@ import type {
     UpdateOrgPatsSuccess,
     UpdateOrgPatFailure,
     UpdateOrgPatSuccess,
+    ListOrgPatRepositoriesFailure,
+    ListOrgPatRepositoriesSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -597,6 +599,8 @@ export function textAndData(
         | UpdateOrgPatsFailure
         | UpdateOrgPatSuccess
         | UpdateOrgPatFailure
+        | ListOrgPatRepositoriesSuccess
+        | ListOrgPatRepositoriesFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

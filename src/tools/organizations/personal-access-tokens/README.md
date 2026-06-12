@@ -13,6 +13,7 @@ Tool implementations wrap [REST API endpoints for personal access tokens](https:
 - [`github_list_org_pats`](README.md#github_list_org_pats)
 - [`github_update_org_pats`](README.md#github_update_org_pats)
 - [`github_update_org_pat`](README.md#github_update_org_pat)
+- [`github_list_org_pat_repositories`](README.md#github_list_org_pat_repositories)
 
 ---
 
@@ -150,3 +151,22 @@ Calls [Update the access a fine-grained personal access token has to organizatio
 #### Output
 
 On success (**204**): echoed **`org`**, **`pat_id`**, **`action`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**, **500**).
+
+---
+
+### `github_list_org_pat_repositories`
+
+Calls [List repositories a fine-grained personal access token has access to](https://docs.github.com/en/rest/orgs/personal-access-tokens?apiVersion=2026-03-10#list-repositories-a-fine-grained-personal-access-token-has-access-to) (`GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories`). **GitHub Apps only.**
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`pat_id`** (required) — token id (from **`github_list_org_pats`**)
+- **`per_page`** (optional, 1–100, default **100**) — results per page
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — when **true**, follow `next` links and aggregate results
+- **`max_pages`** (optional, 1–500, default **100**) — page cap when `all_pages` is set
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`pat_id`**, **`repositories`** (minimal repository rows), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **500**).
