@@ -309,6 +309,8 @@ import type {
     UpdateOrgWebhookSuccess,
     GetOrgWebhookDeliveryFailure,
     GetOrgWebhookDeliverySuccess,
+    RedeliverOrgWebhookDeliveryFailure,
+    RedeliverOrgWebhookDeliverySuccess,
     ListOrgWebhookDeliveriesFailure,
     ListOrgWebhookDeliveriesSuccess,
     ListOrgWebhooksFailure,
@@ -681,6 +683,8 @@ export function textAndData(
         | DeleteOrgWebhookFailure
         | GetOrgWebhookDeliverySuccess
         | GetOrgWebhookDeliveryFailure
+        | RedeliverOrgWebhookDeliverySuccess
+        | RedeliverOrgWebhookDeliveryFailure
         | ListOrgWebhookDeliveriesSuccess
         | ListOrgWebhookDeliveriesFailure
         | ListOrgWebhooksSuccess

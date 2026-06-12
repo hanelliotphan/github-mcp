@@ -1,0 +1,25 @@
+{
+  "name": "github_redeliver_org_webhook_delivery",
+  "description": "Redeliver an organization webhook delivery (POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts). Queues a new attempt; success is typically HTTP 202. delivery_id from list or get delivery. Requires org owner; classic tokens need admin:org_hook. See GitHub REST organization webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "delivery_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["org", "hook_id", "delivery_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

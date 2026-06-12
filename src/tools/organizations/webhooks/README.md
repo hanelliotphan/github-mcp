@@ -12,6 +12,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 - [`github_update_org_webhook`](README.md#github_update_org_webhook)
 - [`github_list_org_webhook_deliveries`](README.md#github_list_org_webhook_deliveries)
 - [`github_get_org_webhook_delivery`](README.md#github_get_org_webhook_delivery)
+- [`github_redeliver_org_webhook_delivery`](README.md#github_redeliver_org_webhook_delivery)
 - [`github_delete_org_webhook`](README.md#github_delete_org_webhook)
 
 ---
@@ -165,6 +166,24 @@ Returns one delivery via [Get a webhook delivery for an organization webhook](ht
 #### Output
 
 On success (**200**): echoed **`org`**, **`hook_id`**, **`delivery_id`**, **`delivery`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
+### `github_redeliver_org_webhook_delivery`
+
+Queues a redelivery via [Redeliver a delivery for an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#redeliver-a-delivery-for-an-organization-webhook) (`POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts`).
+
+#### Inputs
+
+- **`org`** (required), **`hook_id`** (required), **`delivery_id`** (required) — from `github_list_org_webhook_deliveries` or `github_get_org_webhook_delivery`
+
+#### Output
+
+On success (typically **202**): echoed **`org`**, **`hook_id`**, **`delivery_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 #### Access
 

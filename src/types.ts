@@ -2192,6 +2192,19 @@ export type GetOrgWebhookDeliverySuccess = {
 
 export type GetOrgWebhookDeliveryFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}/attempts — typically HTTP 202 Accepted. MCP tool: `github_redeliver_org_webhook_delivery`. */
+export type RedeliverOrgWebhookDeliverySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hook_id: number;
+    delivery_id: number;
+    request_id: string | null;
+};
+
+export type RedeliverOrgWebhookDeliveryFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
