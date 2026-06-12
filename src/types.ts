@@ -2116,6 +2116,18 @@ export type UpdateOrgWebhookSuccess = {
 
 export type UpdateOrgWebhookFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/hooks/{hook_id} — HTTP 204 No Content. MCP tool: `github_delete_org_webhook`. */
+export type DeleteOrgWebhookSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hook_id: number;
+    request_id: string | null;
+};
+
+export type DeleteOrgWebhookFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

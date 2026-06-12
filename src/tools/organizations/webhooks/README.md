@@ -8,6 +8,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 - [`github_create_org_webhook`](README.md#github_create_org_webhook)
 - [`github_get_org_webhook`](README.md#github_get_org_webhook)
 - [`github_update_org_webhook`](README.md#github_update_org_webhook)
+- [`github_delete_org_webhook`](README.md#github_delete_org_webhook)
 
 ---
 
@@ -82,6 +83,25 @@ Updates a webhook via [Update an organization webhook](https://docs.github.com/e
 #### Output
 
 On success (**200**): echoed **`org`**, **`hook_id`**, updated **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
+### `github_delete_org_webhook`
+
+Deletes a webhook via [Delete an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#delete-an-organization-webhook) (`DELETE /orgs/{org}/hooks/{hook_id}`).
+
+#### Inputs
+
+- **`org`** (required)
+- **`hook_id`** (required) — from `github_list_org_webhooks` or **`X-GitHub-Hook-ID`** on a delivery
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`hook_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 #### Access
 

@@ -140,6 +140,7 @@ import { registerGithubAddOrgSecurityManagerTeamTool } from "./tools/organizatio
 import { registerGithubListOrgSecurityManagerTeamsTool } from "./tools/organizations/security-managers/github-list-org-security-manager-teams.js";
 import { registerGithubRemoveOrgSecurityManagerTeamTool } from "./tools/organizations/security-managers/github-remove-org-security-manager-team.js";
 import { registerGithubCreateOrgWebhookTool } from "./tools/organizations/webhooks/github-create-org-webhook.js";
+import { registerGithubDeleteOrgWebhookTool } from "./tools/organizations/webhooks/github-delete-org-webhook.js";
 import { registerGithubGetOrgWebhookTool } from "./tools/organizations/webhooks/github-get-org-webhook.js";
 import { registerGithubListOrgWebhooksTool } from "./tools/organizations/webhooks/github-list-org-webhooks.js";
 import { registerGithubUpdateOrgWebhookTool } from "./tools/organizations/webhooks/github-update-org-webhook.js";
@@ -245,6 +246,7 @@ registerGithubAddOrgSecurityManagerTeamTool(server, octokit);
 registerGithubListOrgSecurityManagerTeamsTool(server, octokit);
 registerGithubRemoveOrgSecurityManagerTeamTool(server, octokit);
 registerGithubCreateOrgWebhookTool(server, octokit);
+registerGithubDeleteOrgWebhookTool(server, octokit);
 registerGithubGetOrgWebhookTool(server, octokit);
 registerGithubListOrgWebhooksTool(server, octokit);
 registerGithubUpdateOrgWebhookTool(server, octokit);
