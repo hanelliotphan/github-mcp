@@ -10,6 +10,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 - [`github_get_org_webhook_config`](README.md#github_get_org_webhook_config)
 - [`github_update_org_webhook_config`](README.md#github_update_org_webhook_config)
 - [`github_update_org_webhook`](README.md#github_update_org_webhook)
+- [`github_list_org_webhook_deliveries`](README.md#github_list_org_webhook_deliveries)
 - [`github_delete_org_webhook`](README.md#github_delete_org_webhook)
 
 ---
@@ -123,6 +124,28 @@ Updates a webhook via [Update an organization webhook](https://docs.github.com/e
 #### Output
 
 On success (**200**): echoed **`org`**, **`hook_id`**, updated **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
+### `github_list_org_webhook_deliveries`
+
+Lists delivery attempts via [List deliveries for an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#list-deliveries-for-an-organization-webhook) (`GET /orgs/{org}/hooks/{hook_id}/deliveries`). Each row is a **simple webhook delivery** (e.g. **`id`**, **`guid`**, **`delivered_at`**, **`status_code`**, **`event`**). For the **full** delivery (request/response bodies when present), call **`github_get_org_webhook_delivery`** with **`delivery_id`** = **`id`** when available.
+
+#### Inputs
+
+- **`org`** (required), **`hook_id`** (required)
+- **`per_page`** (optional) — 1–100; default **100** when omitted (GitHub’s REST default is **30**)
+- **`cursor`** (optional) — pagination cursor from previous **`pagination.next`**
+- **`status`** (optional) — **`success`** (status codes 200–399) or **`failure`** (400–599)
+- **`all_pages`** (optional), **`max_pages`** (optional)
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`hook_id`**, **`deliveries`**, **`pagination`**, **`request_id`**, **`cursor`**, **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`**.
 
 #### Access
 

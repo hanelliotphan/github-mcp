@@ -2157,6 +2157,27 @@ export type UpdateOrgWebhookConfigSuccess = {
 
 export type UpdateOrgWebhookConfigFailure = CreateRepoFailure;
 
+/** One delivery from GET /orgs/{org}/hooks/{hook_id}/deliveries (simple webhook delivery per GitHub). */
+export type OrgWebhookDeliveryItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/hooks/{hook_id}/deliveries — HTTP 200. MCP tool: `github_list_org_webhook_deliveries`. */
+export type ListOrgWebhookDeliveriesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    hook_id: number;
+    deliveries: OrgWebhookDeliveryItem[];
+    pagination: GitHubCursorQueryLinkPagination | null;
+    request_id: string | null;
+    /** `cursor` query used for the first page in this response (omit on first page). */
+    cursor: string | undefined;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgWebhookDeliveriesFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

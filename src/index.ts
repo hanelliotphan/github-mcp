@@ -143,6 +143,7 @@ import { registerGithubCreateOrgWebhookTool } from "./tools/organizations/webhoo
 import { registerGithubDeleteOrgWebhookTool } from "./tools/organizations/webhooks/github-delete-org-webhook.js";
 import { registerGithubGetOrgWebhookConfigTool } from "./tools/organizations/webhooks/github-get-org-webhook-config.js";
 import { registerGithubGetOrgWebhookTool } from "./tools/organizations/webhooks/github-get-org-webhook.js";
+import { registerGithubListOrgWebhookDeliveriesTool } from "./tools/organizations/webhooks/github-list-org-webhook-deliveries.js";
 import { registerGithubListOrgWebhooksTool } from "./tools/organizations/webhooks/github-list-org-webhooks.js";
 import { registerGithubUpdateOrgWebhookConfigTool } from "./tools/organizations/webhooks/github-update-org-webhook-config.js";
 import { registerGithubUpdateOrgWebhookTool } from "./tools/organizations/webhooks/github-update-org-webhook.js";
@@ -251,6 +252,7 @@ registerGithubCreateOrgWebhookTool(server, octokit);
 registerGithubDeleteOrgWebhookTool(server, octokit);
 registerGithubGetOrgWebhookConfigTool(server, octokit);
 registerGithubGetOrgWebhookTool(server, octokit);
+registerGithubListOrgWebhookDeliveriesTool(server, octokit);
 registerGithubListOrgWebhooksTool(server, octokit);
 registerGithubUpdateOrgWebhookConfigTool(server, octokit);
 registerGithubUpdateOrgWebhookTool(server, octokit);
