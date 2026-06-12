@@ -74,6 +74,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_update_org_ruleset`](rules/README.md#github_update_org_ruleset)
 - [`github_delete_org_ruleset`](rules/README.md#github_delete_org_ruleset)
 - [`github_get_org_ruleset_history`](rules/README.md#github_get_org_ruleset_history)
+- [`github_get_org_ruleset_version`](rules/README.md#github_get_org_ruleset_version)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)

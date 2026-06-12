@@ -1,0 +1,25 @@
+{
+  "name": "github_get_org_ruleset_version",
+  "description": "GET /orgs/{org}/rulesets/{ruleset_id}/history/{version_id} — one organization ruleset version snapshot (version_id, actor, updated_at, state). version_id from github_get_org_ruleset_history. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "ruleset_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "version_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["org", "ruleset_id", "version_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

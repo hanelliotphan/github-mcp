@@ -2002,6 +2002,24 @@ export type GetOrgRulesetHistorySuccess = {
 
 export type GetOrgRulesetHistoryFailure = CreateRepoFailure;
 
+/** Body from GET /orgs/{org}/rulesets/{ruleset_id}/history/{version_id} — version metadata plus `state` (ruleset snapshot). */
+export type OrgRulesetVersionWithState = Record<string, unknown>;
+
+/** GET /orgs/{org}/rulesets/{ruleset_id}/history/{version_id} — HTTP 200. MCP tool: `github_get_org_ruleset_version`. */
+export type GetOrgRulesetVersionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    ruleset_id: number;
+    version_id: number;
+    /** Full API object: `version_id`, `actor`, `updated_at`, `state`, etc. */
+    version: OrgRulesetVersionWithState;
+    request_id: string | null;
+};
+
+export type GetOrgRulesetVersionFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

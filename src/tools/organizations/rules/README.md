@@ -12,6 +12,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 - [`github_update_org_ruleset`](README.md#github_update_org_ruleset)
 - [`github_delete_org_ruleset`](README.md#github_delete_org_ruleset)
 - [`github_get_org_ruleset_history`](README.md#github_get_org_ruleset_history)
+- [`github_get_org_ruleset_version`](README.md#github_get_org_ruleset_version)
 
 ---
 
@@ -111,3 +112,19 @@ Calls [Get organization ruleset history](https://docs.github.com/en/rest/orgs/ru
 #### Output
 
 On success (**200**): echoed **`org`**, **`ruleset_id`**, **`versions`** (ruleset version rows: `version_id`, `actor`, `updated_at`), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).
+
+---
+
+### `github_get_org_ruleset_version`
+
+Calls [Get organization ruleset version](https://docs.github.com/en/rest/orgs/rules?apiVersion=2026-03-10#get-organization-ruleset-version) (`GET /orgs/{org}/rulesets/{ruleset_id}/history/{version_id}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`ruleset_id`** (required) — ruleset id (from **`github_list_org_rulesets`**)
+- **`version_id`** (required) — version id (from **`github_get_org_ruleset_history`**)
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`ruleset_id`**, **`version_id`**, **`version`** (full object with `version_id`, `actor`, `updated_at`, `state`), **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).
