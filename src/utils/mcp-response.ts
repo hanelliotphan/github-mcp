@@ -275,6 +275,8 @@ import type {
     ListOrgRuleSuitesSuccess,
     GetOrgRuleSuiteFailure,
     GetOrgRuleSuiteSuccess,
+    ListOrgRulesetsFailure,
+    ListOrgRulesetsSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -609,6 +611,8 @@ export function textAndData(
         | ListOrgRuleSuitesFailure
         | GetOrgRuleSuiteSuccess
         | GetOrgRuleSuiteFailure
+        | ListOrgRulesetsSuccess
+        | ListOrgRulesetsFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

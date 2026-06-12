@@ -1905,6 +1905,32 @@ export type GetOrgRuleSuiteSuccess = {
 
 export type GetOrgRuleSuiteFailure = CreateRepoFailure;
 
+/** One ruleset from GET /orgs/{org}/rulesets (repository ruleset object per GitHub). */
+export type OrgRulesetListItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/rulesets — HTTP 200. MCP tool: `github_list_org_rulesets`. */
+export type ListOrgRulesetsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    rulesets: OrgRulesetListItem[];
+    /** Requested comma-separated `targets` filter, if any. */
+    targets?: string;
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgRulesetsFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
