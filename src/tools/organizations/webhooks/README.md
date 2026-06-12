@@ -7,6 +7,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 - [`github_list_org_webhooks`](README.md#github_list_org_webhooks)
 - [`github_create_org_webhook`](README.md#github_create_org_webhook)
 - [`github_get_org_webhook`](README.md#github_get_org_webhook)
+- [`github_get_org_webhook_config`](README.md#github_get_org_webhook_config)
 - [`github_update_org_webhook`](README.md#github_update_org_webhook)
 - [`github_delete_org_webhook`](README.md#github_delete_org_webhook)
 
@@ -54,7 +55,7 @@ Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`
 
 ### `github_get_org_webhook`
 
-Retrieves one webhook via [Get an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#get-an-organization-webhook) (`GET /orgs/{org}/hooks/{hook_id}`). For only **`config`**, use **`github_get_org_webhook_config`** when available.
+Retrieves one webhook via [Get an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#get-an-organization-webhook) (`GET /orgs/{org}/hooks/{hook_id}`). For only **`config`**, use **`github_get_org_webhook_config`**.
 
 #### Inputs
 
@@ -64,6 +65,25 @@ Retrieves one webhook via [Get an organization webhook](https://docs.github.com/
 #### Output
 
 On success (**200**): echoed **`org`**, **`hook_id`**, **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
+### `github_get_org_webhook_config`
+
+Returns webhook **`config`** via [Get a webhook configuration for an organization](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#get-a-webhook-configuration-for-an-organization) (`GET /orgs/{org}/hooks/{hook_id}/config`). Returns **`url`**, **`content_type`**, **`secret`**, **`insecure_ssl`** — not **`events`** or **`active`** (use **`github_get_org_webhook`** for the full hook).
+
+#### Inputs
+
+- **`org`** (required)
+- **`hook_id`** (required) — from `github_list_org_webhooks` or **`X-GitHub-Hook-ID`** on a delivery
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`hook_id`**, **`config`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 #### Access
 

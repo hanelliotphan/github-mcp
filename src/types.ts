@@ -2128,6 +2128,22 @@ export type DeleteOrgWebhookSuccess = {
 
 export type DeleteOrgWebhookFailure = CreateRepoFailure;
 
+/** Config object from GET /orgs/{org}/hooks/{hook_id}/config (`url`, `content_type`, `secret`, `insecure_ssl`, …). */
+export type OrgWebhookConfigItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/hooks/{hook_id}/config — HTTP 200. MCP tool: `github_get_org_webhook_config`. */
+export type GetOrgWebhookConfigSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hook_id: number;
+    config: OrgWebhookConfigItem;
+    request_id: string | null;
+};
+
+export type GetOrgWebhookConfigFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
