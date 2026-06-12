@@ -1,0 +1,63 @@
+{
+  "name": "github_create_org_webhook",
+  "description": "Create an organization webhook (POST /orgs/{org}/hooks). Pass webhook with config.url (required), optional config.content_type json or form, secret, insecure_ssl, username, password; optional events array, active, name (must be web). Requires org owner; classic tokens need admin:org_hook. Returns 201. See GitHub REST organization webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "webhook": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": ["web"]
+          },
+          "config": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "content_type": {
+                "type": "string",
+                "enum": ["json", "form"]
+              },
+              "secret": {
+                "type": "string"
+              },
+              "insecure_ssl": {},
+              "username": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              }
+            },
+            "required": ["url"],
+            "additionalProperties": true
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": ["config"],
+        "additionalProperties": true
+      }
+    },
+    "required": ["org", "webhook"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

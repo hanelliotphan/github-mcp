@@ -2078,6 +2078,18 @@ export type ListOrgWebhooksSuccess = {
 
 export type ListOrgWebhooksFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/hooks — HTTP 201 Created. MCP tool: `github_create_org_webhook`. */
+export type CreateOrgWebhookSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    webhook: OrgWebhookItem;
+    request_id: string | null;
+};
+
+export type CreateOrgWebhookFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

@@ -5,6 +5,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 ## Tools
 
 - [`github_list_org_webhooks`](README.md#github_list_org_webhooks)
+- [`github_create_org_webhook`](README.md#github_create_org_webhook)
 
 ---
 
@@ -26,3 +27,22 @@ On success (**200**): echoed **`org`**, **`webhooks`**, **`pagination`**, **`req
 #### Access
 
 The authenticated user must be an **organization owner**. Classic OAuth apps and PATs need **`admin:org_hook`** scope. OAuth apps cannot list webhooks they did not create; users cannot list webhooks created by OAuth apps.
+
+---
+
+### `github_create_org_webhook`
+
+Creates a webhook via [Create an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#create-an-organization-webhook) (`POST /orgs/{org}/hooks`). Creates a hook that posts payloads in JSON format when **`config.content_type`** is **`json`**.
+
+#### Inputs
+
+- **`org`** (required)
+- **`webhook`** (required) — **`config.url`** required; optional **`name`** (must be **`web`**), **`events`**, **`active`**, **`config.content_type`**, **`config.secret`**, **`config.insecure_ssl`**, **`config.username`**, **`config.password`**
+
+#### Output
+
+On success (**201**): echoed **`org`**, created **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
