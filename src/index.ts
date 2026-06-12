@@ -122,6 +122,7 @@ import { registerGithubRemoveOrgOutsideCollaboratorTool } from "./tools/organiza
 import { registerGithubListOrgPatRequestsTool } from "./tools/organizations/personal-access-tokens/github-list-org-pat-requests.js";
 import { registerGithubReviewOrgPatRequestsTool } from "./tools/organizations/personal-access-tokens/github-review-org-pat-requests.js";
 import { registerGithubReviewOrgPatRequestTool } from "./tools/organizations/personal-access-tokens/github-review-org-pat-request.js";
+import { registerGithubListOrgPatRequestRepositoriesTool } from "./tools/organizations/personal-access-tokens/github-list-org-pat-request-repositories.js";
 import { registerGithubUpdateOrgNetworkConfigurationTool } from "./tools/organizations/network-configurations/github-update-org-network-configuration.js";
 import { registerGithubListOrganizationsTool } from "./tools/organizations/github-list-organizations.js";
 import { registerGithubListOrgsForAuthenticatedUserTool } from "./tools/organizations/github-list-orgs-for-authenticated-user.js";
@@ -206,6 +207,7 @@ registerGithubRemoveOrgOutsideCollaboratorTool(server, octokit);
 registerGithubListOrgPatRequestsTool(server, octokit);
 registerGithubReviewOrgPatRequestsTool(server, octokit);
 registerGithubReviewOrgPatRequestTool(server, octokit);
+registerGithubListOrgPatRequestRepositoriesTool(server, octokit);
 registerGithubGetOrgTool(server, octokit);
 registerGithubListOrgIssueFieldsTool(server, octokit);
 registerGithubCreateOrgIssueFieldTool(server, octokit);

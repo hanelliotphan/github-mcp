@@ -1764,6 +1764,31 @@ export type ReviewOrgPatRequestSuccess = {
 
 export type ReviewOrgPatRequestFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories (Minimal Repository). */
+export type OrgPatRequestRepositoryRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories — HTTP 200. MCP tool: `github_list_org_pat_request_repositories`. */
+export type ListOrgPatRequestRepositoriesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    pat_request_id: number;
+    repositories: OrgPatRequestRepositoryRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgPatRequestRepositoriesFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

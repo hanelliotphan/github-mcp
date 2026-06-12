@@ -9,6 +9,7 @@ Tool implementations wrap [REST API endpoints for personal access tokens](https:
 - [`github_list_org_pat_requests`](README.md#github_list_org_pat_requests)
 - [`github_review_org_pat_requests`](README.md#github_review_org_pat_requests)
 - [`github_review_org_pat_request`](README.md#github_review_org_pat_request)
+- [`github_list_org_pat_request_repositories`](README.md#github_list_org_pat_request_repositories)
 
 ---
 
@@ -69,3 +70,22 @@ Calls [Review a request to access organization resources with a fine-grained per
 #### Output
 
 On success (**204**): echoed **`org`**, **`pat_request_id`**, **`action`**, **`reason`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**, **500**).
+
+---
+
+### `github_list_org_pat_request_repositories`
+
+Calls [List repositories requested to be accessed by a fine-grained personal access token](https://docs.github.com/en/rest/orgs/personal-access-tokens?apiVersion=2026-03-10#list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token) (`GET /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories`). **GitHub Apps only.**
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`pat_request_id`** (required) — request id (from **`github_list_org_pat_requests`**)
+- **`per_page`** (optional, 1–100, default **100**) — results per page
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — when **true**, follow `next` links and aggregate results
+- **`max_pages`** (optional, 1–500, default **100**) — page cap when `all_pages` is set
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`pat_request_id`**, **`repositories`** (minimal repository rows), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **500**).
