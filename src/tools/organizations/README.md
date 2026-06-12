@@ -32,6 +32,8 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 
 **[Security managers](security-managers/README.md)** tools (`GET /orgs/{org}/security-managers`, …) live in [`security-managers/`](security-managers/). **Deprecated** by GitHub (removal from January 1, 2026); use Organization Roles instead.
 
+**[Webhooks](webhooks/README.md)** tools (`GET /orgs/{org}/hooks`, …) live in [`webhooks/`](webhooks/).
+
 ## Tools
 
 - [`github_list_organizations`](README.md#github_list_organizations)
@@ -80,6 +82,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_add_org_security_manager_team`](security-managers/README.md#github_add_org_security_manager_team)
 - [`github_list_org_security_manager_teams`](security-managers/README.md#github_list_org_security_manager_teams)
 - [`github_remove_org_security_manager_team`](security-managers/README.md#github_remove_org_security_manager_team)
+- [`github_list_org_webhooks`](webhooks/README.md#github_list_org_webhooks)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)
 - [`github_create_org_issue_field`](issue-fields/README.md#github_create_org_issue_field)

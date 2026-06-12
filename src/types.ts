@@ -2059,6 +2059,25 @@ export type RemoveOrgSecurityManagerTeamSuccess = {
 
 export type RemoveOrgSecurityManagerTeamFailure = CreateRepoFailure;
 
+/** One webhook from GET /orgs/{org}/hooks (Org Hook per GitHub). */
+export type OrgWebhookItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/hooks — HTTP 200. MCP tool: `github_list_org_webhooks`. */
+export type ListOrgWebhooksSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    webhooks: OrgWebhookItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgWebhooksFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
