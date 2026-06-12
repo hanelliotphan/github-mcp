@@ -283,6 +283,8 @@ import type {
     GetOrgRulesetSuccess,
     UpdateOrgRulesetFailure,
     UpdateOrgRulesetSuccess,
+    DeleteOrgRulesetFailure,
+    DeleteOrgRulesetSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -625,6 +627,8 @@ export function textAndData(
         | GetOrgRulesetFailure
         | UpdateOrgRulesetSuccess
         | UpdateOrgRulesetFailure
+        | DeleteOrgRulesetSuccess
+        | DeleteOrgRulesetFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

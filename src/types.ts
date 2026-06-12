@@ -1969,6 +1969,18 @@ export type UpdateOrgRulesetSuccess = {
 
 export type UpdateOrgRulesetFailure = CreateRepoFailure;
 
+/** DELETE /orgs/{org}/rulesets/{ruleset_id} — HTTP 204 No Content. MCP tool: `github_delete_org_ruleset`. */
+export type DeleteOrgRulesetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    ruleset_id: number;
+    request_id: string | null;
+};
+
+export type DeleteOrgRulesetFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

@@ -1,0 +1,21 @@
+{
+  "name": "github_delete_org_ruleset",
+  "description": "DELETE /orgs/{org}/rulesets/{ruleset_id} — delete an organization repository ruleset. ruleset_id from github_list_org_rulesets. HTTP 204 No Content.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "ruleset_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["org", "ruleset_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

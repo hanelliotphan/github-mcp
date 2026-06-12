@@ -10,6 +10,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 - [`github_create_org_ruleset`](README.md#github_create_org_ruleset)
 - [`github_get_org_ruleset`](README.md#github_get_org_ruleset)
 - [`github_update_org_ruleset`](README.md#github_update_org_ruleset)
+- [`github_delete_org_ruleset`](README.md#github_delete_org_ruleset)
 
 ---
 
@@ -75,3 +76,18 @@ Calls [Update an organization repository ruleset](https://docs.github.com/en/res
 #### Output
 
 On success (**200**): echoed **`org`**, **`ruleset_id`**, **`ruleset`** (updated ruleset object), **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_delete_org_ruleset`
+
+Calls [Delete an organization repository ruleset](https://docs.github.com/en/rest/orgs/rules?apiVersion=2026-03-10#delete-an-organization-repository-ruleset) (`DELETE /orgs/{org}/rulesets/{ruleset_id}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`ruleset_id`** (required) — ruleset id (from **`github_list_org_rulesets`** or **`github_get_org_ruleset`**)
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`ruleset_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).
