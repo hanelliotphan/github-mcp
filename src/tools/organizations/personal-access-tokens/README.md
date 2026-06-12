@@ -10,6 +10,7 @@ Tool implementations wrap [REST API endpoints for personal access tokens](https:
 - [`github_review_org_pat_requests`](README.md#github_review_org_pat_requests)
 - [`github_review_org_pat_request`](README.md#github_review_org_pat_request)
 - [`github_list_org_pat_request_repositories`](README.md#github_list_org_pat_request_repositories)
+- [`github_list_org_pats`](README.md#github_list_org_pats)
 
 ---
 
@@ -89,3 +90,29 @@ Calls [List repositories requested to be accessed by a fine-grained personal acc
 #### Output
 
 On success (**200**): echoed **`org`**, **`pat_request_id`**, **`repositories`** (minimal repository rows), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **500**).
+
+---
+
+### `github_list_org_pats`
+
+Calls [List fine-grained personal access tokens with access to organization resources](https://docs.github.com/en/rest/orgs/personal-access-tokens?apiVersion=2026-03-10#list-fine-grained-personal-access-tokens-with-access-to-organization-resources) (`GET /orgs/{org}/personal-access-tokens`). **GitHub Apps only.**
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`sort`** (optional) — `created_at` (only allowed value; default)
+- **`direction`** (optional) — `asc` or `desc` (default **desc**)
+- **`owner`** (optional) — array of owner usernames to filter by
+- **`repository`** (optional) — repository name to filter by
+- **`permission`** (optional) — permission to filter by
+- **`last_used_before`** (optional) — ISO 8601 `YYYY-MM-DDTHH:MM:SSZ`; only tokens last used before this time
+- **`last_used_after`** (optional) — ISO 8601 `YYYY-MM-DDTHH:MM:SSZ`; only tokens last used after this time
+- **`token_id`** (optional) — array of token IDs to filter by
+- **`per_page`** (optional, 1–100, default **100**) — results per page
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — when **true**, follow `next` links and aggregate results
+- **`max_pages`** (optional, 1–500, default **100**) — page cap when `all_pages` is set
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`personal_access_tokens`** (organization programmatic access grant rows: `id`, `owner`, `repository_selection`, `permissions`, `access_granted_at`, `token_id`, `token_name`, `token_expired`, …), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**, **500**).

@@ -263,6 +263,8 @@ import type {
     ReviewOrgPatRequestSuccess,
     ListOrgPatRequestRepositoriesFailure,
     ListOrgPatRequestRepositoriesSuccess,
+    ListOrgPatsFailure,
+    ListOrgPatsSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -585,6 +587,8 @@ export function textAndData(
         | ReviewOrgPatRequestFailure
         | ListOrgPatRequestRepositoriesSuccess
         | ListOrgPatRequestRepositoriesFailure
+        | ListOrgPatsSuccess
+        | ListOrgPatsFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess
