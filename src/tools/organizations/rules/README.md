@@ -8,6 +8,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 
 - [`github_list_org_rulesets`](README.md#github_list_org_rulesets)
 - [`github_create_org_ruleset`](README.md#github_create_org_ruleset)
+- [`github_get_org_ruleset`](README.md#github_get_org_ruleset)
 
 ---
 
@@ -42,3 +43,18 @@ Calls [Create an organization repository ruleset](https://docs.github.com/en/res
 #### Output
 
 On success (**201**): echoed **`org`**, **`ruleset`** (created ruleset object), **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_get_org_ruleset`
+
+Calls [Get an organization repository ruleset](https://docs.github.com/en/rest/orgs/rules?apiVersion=2026-03-10#get-an-organization-repository-ruleset) (`GET /orgs/{org}/rulesets/{ruleset_id}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`ruleset_id`** (required) — ruleset id (from **`github_list_org_rulesets`**)
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`ruleset_id`**, **`ruleset`** (full ruleset object; `bypass_actors` only when the token has write access), **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).

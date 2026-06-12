@@ -1943,6 +1943,19 @@ export type CreateOrgRulesetSuccess = {
 
 export type CreateOrgRulesetFailure = CreateRepoFailure;
 
+/** GET /orgs/{org}/rulesets/{ruleset_id} — HTTP 200. MCP tool: `github_get_org_ruleset`. */
+export type GetOrgRulesetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    ruleset_id: number;
+    ruleset: OrgRulesetListItem;
+    request_id: string | null;
+};
+
+export type GetOrgRulesetFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
