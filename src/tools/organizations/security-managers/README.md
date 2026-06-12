@@ -9,6 +9,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 ## Tools
 
 - [`github_list_org_security_manager_teams`](README.md#github_list_org_security_manager_teams)
+- [`github_add_org_security_manager_team`](README.md#github_add_org_security_manager_team)
 
 ---
 
@@ -23,3 +24,18 @@ Calls [List security manager teams](https://docs.github.com/en/rest/orgs/securit
 #### Output
 
 On success (**200**): echoed **`org`**, **`teams`** (team simple objects: `id`, `name`, `slug`, `permission`, `description`, …), **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+---
+
+### `github_add_org_security_manager_team`
+
+Calls [Add a security manager team](https://docs.github.com/en/rest/orgs/security-managers?apiVersion=2026-03-10#add-a-security-manager-team) (`PUT /orgs/{org}/security-managers/teams/{team_slug}`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`team_slug`** (required) — slug of the team name
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`team_slug`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.

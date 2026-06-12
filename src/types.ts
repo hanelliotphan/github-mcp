@@ -2035,6 +2035,18 @@ export type ListOrgSecurityManagerTeamsSuccess = {
 
 export type ListOrgSecurityManagerTeamsFailure = CreateRepoFailure;
 
+/** PUT /orgs/{org}/security-managers/teams/{team_slug} — HTTP 204 No Content. MCP tool: `github_add_org_security_manager_team`. */
+export type AddOrgSecurityManagerTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    request_id: string | null;
+};
+
+export type AddOrgSecurityManagerTeamFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

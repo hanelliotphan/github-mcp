@@ -1,0 +1,21 @@
+{
+  "name": "github_add_org_security_manager_team",
+  "description": "PUT /orgs/{org}/security-managers/teams/{team_slug} — add a team as security managers. Deprecated: GitHub removes this API from Jan 1, 2026; use Organization Roles instead. HTTP 204 No Content.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "team_slug": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": ["org", "team_slug"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
