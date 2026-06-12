@@ -1981,6 +1981,27 @@ export type DeleteOrgRulesetSuccess = {
 
 export type DeleteOrgRulesetFailure = CreateRepoFailure;
 
+/** One version row from GET /orgs/{org}/rulesets/{ruleset_id}/history (`version_id`, `actor`, `updated_at`, …). */
+export type OrgRulesetHistoryVersionItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/rulesets/{ruleset_id}/history — HTTP 200. MCP tool: `github_get_org_ruleset_history`. */
+export type GetOrgRulesetHistorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    ruleset_id: number;
+    versions: OrgRulesetHistoryVersionItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetOrgRulesetHistoryFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

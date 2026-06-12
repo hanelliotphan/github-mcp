@@ -11,6 +11,7 @@ Success payloads follow the shared MCP shape; failures use the structured **erro
 - [`github_get_org_ruleset`](README.md#github_get_org_ruleset)
 - [`github_update_org_ruleset`](README.md#github_update_org_ruleset)
 - [`github_delete_org_ruleset`](README.md#github_delete_org_ruleset)
+- [`github_get_org_ruleset_history`](README.md#github_get_org_ruleset_history)
 
 ---
 
@@ -91,3 +92,22 @@ Calls [Delete an organization repository ruleset](https://docs.github.com/en/res
 #### Output
 
 On success (**204**): echoed **`org`**, **`ruleset_id`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).
+
+---
+
+### `github_get_org_ruleset_history`
+
+Calls [Get organization ruleset history](https://docs.github.com/en/rest/orgs/rules?apiVersion=2026-03-10#get-organization-ruleset-history) (`GET /orgs/{org}/rulesets/{ruleset_id}/history`).
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`ruleset_id`** (required) — ruleset id (from **`github_list_org_rulesets`**)
+- **`per_page`** (optional, 1–100, default **100**) — results per page
+- **`page`** (optional, default **1**) — page number
+- **`all_pages`** (optional) — when **true**, follow `next` links and aggregate results
+- **`max_pages`** (optional, 1–500, default **100**) — page cap when `all_pages` is set
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`ruleset_id`**, **`versions`** (ruleset version rows: `version_id`, `actor`, `updated_at`), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **404**, **500**).
