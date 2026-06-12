@@ -145,6 +145,7 @@ import { registerGithubGetOrgWebhookDeliveryTool } from "./tools/organizations/w
 import { registerGithubGetOrgWebhookConfigTool } from "./tools/organizations/webhooks/github-get-org-webhook-config.js";
 import { registerGithubGetOrgWebhookTool } from "./tools/organizations/webhooks/github-get-org-webhook.js";
 import { registerGithubListOrgWebhookDeliveriesTool } from "./tools/organizations/webhooks/github-list-org-webhook-deliveries.js";
+import { registerGithubPingOrgWebhookTool } from "./tools/organizations/webhooks/github-ping-org-webhook.js";
 import { registerGithubRedeliverOrgWebhookDeliveryTool } from "./tools/organizations/webhooks/github-redeliver-org-webhook-delivery.js";
 import { registerGithubListOrgWebhooksTool } from "./tools/organizations/webhooks/github-list-org-webhooks.js";
 import { registerGithubUpdateOrgWebhookConfigTool } from "./tools/organizations/webhooks/github-update-org-webhook-config.js";
@@ -256,6 +257,7 @@ registerGithubGetOrgWebhookDeliveryTool(server, octokit);
 registerGithubGetOrgWebhookConfigTool(server, octokit);
 registerGithubGetOrgWebhookTool(server, octokit);
 registerGithubListOrgWebhookDeliveriesTool(server, octokit);
+registerGithubPingOrgWebhookTool(server, octokit);
 registerGithubRedeliverOrgWebhookDeliveryTool(server, octokit);
 registerGithubListOrgWebhooksTool(server, octokit);
 registerGithubUpdateOrgWebhookConfigTool(server, octokit);

@@ -309,6 +309,8 @@ import type {
     UpdateOrgWebhookSuccess,
     GetOrgWebhookDeliveryFailure,
     GetOrgWebhookDeliverySuccess,
+    PingOrgWebhookFailure,
+    PingOrgWebhookSuccess,
     RedeliverOrgWebhookDeliveryFailure,
     RedeliverOrgWebhookDeliverySuccess,
     ListOrgWebhookDeliveriesFailure,
@@ -683,6 +685,8 @@ export function textAndData(
         | DeleteOrgWebhookFailure
         | GetOrgWebhookDeliverySuccess
         | GetOrgWebhookDeliveryFailure
+        | PingOrgWebhookSuccess
+        | PingOrgWebhookFailure
         | RedeliverOrgWebhookDeliverySuccess
         | RedeliverOrgWebhookDeliveryFailure
         | ListOrgWebhookDeliveriesSuccess

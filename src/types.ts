@@ -2205,6 +2205,18 @@ export type RedeliverOrgWebhookDeliverySuccess = {
 
 export type RedeliverOrgWebhookDeliveryFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/hooks/{hook_id}/pings — HTTP 204 No Content. MCP tool: `github_ping_org_webhook`. */
+export type PingOrgWebhookSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hook_id: number;
+    request_id: string | null;
+};
+
+export type PingOrgWebhookFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
