@@ -1,0 +1,25 @@
+{
+  "name": "github_update_org_pat",
+  "description": "POST /orgs/{org}/personal-access-tokens/{pat_id} — revoke one org member's access via a fine-grained PAT (action: revoke only). GitHub Apps only. HTTP 204.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "pat_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "action": {
+        "type": "string",
+        "enum": ["revoke"]
+      }
+    },
+    "required": ["org", "pat_id", "action"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

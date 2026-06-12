@@ -1828,6 +1828,19 @@ export type UpdateOrgPatsSuccess = {
 
 export type UpdateOrgPatsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/personal-access-tokens/{pat_id} — HTTP 204 No Content. MCP tool: `github_update_org_pat`. */
+export type UpdateOrgPatSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    pat_id: number;
+    action: "revoke";
+    request_id: string | null;
+};
+
+export type UpdateOrgPatFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

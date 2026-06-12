@@ -267,6 +267,8 @@ import type {
     ListOrgPatsSuccess,
     UpdateOrgPatsFailure,
     UpdateOrgPatsSuccess,
+    UpdateOrgPatFailure,
+    UpdateOrgPatSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -593,6 +595,8 @@ export function textAndData(
         | ListOrgPatsFailure
         | UpdateOrgPatsSuccess
         | UpdateOrgPatsFailure
+        | UpdateOrgPatSuccess
+        | UpdateOrgPatFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

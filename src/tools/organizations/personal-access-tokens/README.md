@@ -12,6 +12,7 @@ Tool implementations wrap [REST API endpoints for personal access tokens](https:
 - [`github_list_org_pat_request_repositories`](README.md#github_list_org_pat_request_repositories)
 - [`github_list_org_pats`](README.md#github_list_org_pats)
 - [`github_update_org_pats`](README.md#github_update_org_pats)
+- [`github_update_org_pat`](README.md#github_update_org_pat)
 
 ---
 
@@ -133,3 +134,19 @@ Calls [Update the access to organization resources via fine-grained personal acc
 #### Output
 
 On success (**202** Accepted; processed asynchronously): echoed **`org`**, **`action`**, **`pat_ids`**, optional **`data`** (present when GitHub returns a 202 body), **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**, **500**).
+
+---
+
+### `github_update_org_pat`
+
+Calls [Update the access a fine-grained personal access token has to organization resources](https://docs.github.com/en/rest/orgs/personal-access-tokens?apiVersion=2026-03-10#update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources) (`POST /orgs/{org}/personal-access-tokens/{pat_id}`). Revokes **one** org member’s access via a fine-grained PAT (`action`: `revoke` only). **GitHub Apps only.**
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`pat_id`** (required) — token id (from **`github_list_org_pats`**)
+- **`action`** (required) — `revoke` (only supported value)
+
+#### Output
+
+On success (**204**): echoed **`org`**, **`pat_id`**, **`action`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**, **500**).
