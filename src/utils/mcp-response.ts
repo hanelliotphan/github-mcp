@@ -257,6 +257,8 @@ import type {
     RemoveOrgOutsideCollaboratorSuccess,
     ListOrgPatRequestsFailure,
     ListOrgPatRequestsSuccess,
+    ReviewOrgPatRequestsFailure,
+    ReviewOrgPatRequestsSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -573,6 +575,8 @@ export function textAndData(
         | RemoveOrgOutsideCollaboratorFailure
         | ListOrgPatRequestsSuccess
         | ListOrgPatRequestsFailure
+        | ReviewOrgPatRequestsSuccess
+        | ReviewOrgPatRequestsFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

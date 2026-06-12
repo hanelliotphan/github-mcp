@@ -1734,6 +1734,22 @@ export type ListOrgPatRequestsSuccess = {
 
 export type ListOrgPatRequestsFailure = CreateRepoFailure;
 
+/** POST /orgs/{org}/personal-access-token-requests — HTTP 202 Accepted. MCP tool: `github_review_org_pat_requests`. */
+export type ReviewOrgPatRequestsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    action: "approve" | "deny";
+    pat_request_ids?: number[];
+    reason?: string | null;
+    /** Present when GitHub returns a 202 body. */
+    data?: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type ReviewOrgPatRequestsFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

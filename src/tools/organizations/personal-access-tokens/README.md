@@ -7,6 +7,7 @@ Tool implementations wrap [REST API endpoints for personal access tokens](https:
 ## Tools
 
 - [`github_list_org_pat_requests`](README.md#github_list_org_pat_requests)
+- [`github_review_org_pat_requests`](README.md#github_review_org_pat_requests)
 
 ---
 
@@ -33,3 +34,20 @@ Calls [List requests to access organization resources with fine-grained personal
 #### Output
 
 On success (**200**): echoed **`org`**, **`pat_requests`** (simple org programmatic access grant request rows: `id`, `reason`, `owner`, `repository_selection`, `permissions`, `token_id`, `token_name`, `token_expired`, …), **`pagination`**, **`page`**, **`per_page`**, **`pages_fetched`**, optional **`truncated`**, **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**, **500**).
+
+---
+
+### `github_review_org_pat_requests`
+
+Calls [Review requests to access organization resources with fine-grained personal access tokens](https://docs.github.com/en/rest/orgs/personal-access-tokens?apiVersion=2026-03-10#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) (`POST /orgs/{org}/personal-access-token-requests`). Approves or denies **multiple** pending PAT access requests. **GitHub Apps only.**
+
+#### Inputs
+
+- **`org`** (required) — organization login
+- **`action`** (required) — `approve` or `deny`
+- **`pat_request_ids`** (optional) — 1–100 request ids (from **`github_list_org_pat_requests`**)
+- **`reason`** (optional) — reason for approving/denying (max 1024 characters)
+
+#### Output
+
+On success (**202** Accepted; processed asynchronously): echoed **`org`**, **`action`**, **`pat_request_ids`**, **`reason`**, optional **`data`** (present when GitHub returns a 202 body), **`http_status`**, **`request_id`**. On failure: structured **`error`** (e.g. **403**, **404**, **422**, **500**).
