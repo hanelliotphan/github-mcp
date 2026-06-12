@@ -11,6 +11,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 - [`github_update_org_webhook_config`](README.md#github_update_org_webhook_config)
 - [`github_update_org_webhook`](README.md#github_update_org_webhook)
 - [`github_list_org_webhook_deliveries`](README.md#github_list_org_webhook_deliveries)
+- [`github_get_org_webhook_delivery`](README.md#github_get_org_webhook_delivery)
 - [`github_delete_org_webhook`](README.md#github_delete_org_webhook)
 
 ---
@@ -133,7 +134,7 @@ Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`
 
 ### `github_list_org_webhook_deliveries`
 
-Lists delivery attempts via [List deliveries for an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#list-deliveries-for-an-organization-webhook) (`GET /orgs/{org}/hooks/{hook_id}/deliveries`). Each row is a **simple webhook delivery** (e.g. **`id`**, **`guid`**, **`delivered_at`**, **`status_code`**, **`event`**). For the **full** delivery (request/response bodies when present), call **`github_get_org_webhook_delivery`** with **`delivery_id`** = **`id`** when available.
+Lists delivery attempts via [List deliveries for an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#list-deliveries-for-an-organization-webhook) (`GET /orgs/{org}/hooks/{hook_id}/deliveries`). Each row is a **simple webhook delivery** (e.g. **`id`**, **`guid`**, **`delivered_at`**, **`status_code`**, **`event`**). For the **full** delivery (request/response bodies when present), call **`github_get_org_webhook_delivery`** with **`delivery_id`** = **`id`**.
 
 #### Inputs
 
@@ -146,6 +147,24 @@ Lists delivery attempts via [List deliveries for an organization webhook](https:
 #### Output
 
 On success (**200**): echoed **`org`**, **`hook_id`**, **`deliveries`**, **`pagination`**, **`request_id`**, **`cursor`**, **`per_page`**, **`pages_fetched`**, and optionally **`truncated`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
+### `github_get_org_webhook_delivery`
+
+Returns one delivery via [Get a webhook delivery for an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#get-a-webhook-delivery-for-an-organization-webhook) (`GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}`). Includes full **`request`** and **`response`** payloads when present.
+
+#### Inputs
+
+- **`org`** (required), **`hook_id`** (required), **`delivery_id`** (required) — **`delivery_id`** from **`id`** in `github_list_org_webhook_deliveries`
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`hook_id`**, **`delivery_id`**, **`delivery`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 #### Access
 

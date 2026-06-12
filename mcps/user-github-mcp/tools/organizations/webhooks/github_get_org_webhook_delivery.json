@@ -1,0 +1,25 @@
+{
+  "name": "github_get_org_webhook_delivery",
+  "description": "Get one organization webhook delivery by ID (GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}). Full delivery including request/response bodies when present. delivery_id from github_list_org_webhook_deliveries id. Requires org owner; classic tokens need admin:org_hook. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "delivery_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["org", "hook_id", "delivery_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
