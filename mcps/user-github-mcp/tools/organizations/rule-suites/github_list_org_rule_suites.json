@@ -1,0 +1,41 @@
+{
+  "name": "github_list_org_rule_suites",
+  "description": "GET /orgs/{org}/rulesets/rule-suites — list organization rule evaluation suites. Filters: ref, repository_name, time_period, actor_name, rule_suite_result, evaluate_status. page/per_page (default 100), all_pages + max_pages. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "ref": { "type": "string", "minLength": 1 },
+      "repository_name": { "type": "string", "minLength": 1 },
+      "time_period": {
+        "type": "string",
+        "enum": ["hour", "day", "week", "month"]
+      },
+      "actor_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "rule_suite_result": {
+        "type": "string",
+        "enum": ["pass", "fail", "bypass", "all"]
+      },
+      "evaluate_status": {
+        "type": "string",
+        "enum": ["all", "active", "evaluate"]
+      },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

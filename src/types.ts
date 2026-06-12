@@ -1866,6 +1866,30 @@ export type ListOrgPatRepositoriesSuccess = {
 
 export type ListOrgPatRepositoriesFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/rulesets/rule-suites. */
+export type OrgRuleSuiteRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/rulesets/rule-suites — HTTP 200. MCP tool: `github_list_org_rule_suites`. */
+export type ListOrgRuleSuitesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    rule_suites: OrgRuleSuiteRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgRuleSuitesFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 
