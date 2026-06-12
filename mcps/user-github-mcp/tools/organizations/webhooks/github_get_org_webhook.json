@@ -1,0 +1,21 @@
+{
+  "name": "github_get_org_webhook",
+  "description": "Get one organization webhook by ID (GET /orgs/{org}/hooks/{hook_id}). Use hook_id from github_list_org_webhooks or X-GitHub-Hook-ID header. Requires org owner; classic tokens need admin:org_hook. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "hook_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["org", "hook_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

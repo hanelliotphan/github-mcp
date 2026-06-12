@@ -83,6 +83,7 @@ Nested **[API Insights](api-insights/README.md)** tools (`/orgs/{org}/insights/a
 - [`github_list_org_security_manager_teams`](security-managers/README.md#github_list_org_security_manager_teams)
 - [`github_remove_org_security_manager_team`](security-managers/README.md#github_remove_org_security_manager_team)
 - [`github_create_org_webhook`](webhooks/README.md#github_create_org_webhook)
+- [`github_get_org_webhook`](webhooks/README.md#github_get_org_webhook)
 - [`github_list_org_webhooks`](webhooks/README.md#github_list_org_webhooks)
 - [`github_get_org`](README.md#github_get_org)
 - [`github_list_org_issue_fields`](issue-fields/README.md#github_list_org_issue_fields)

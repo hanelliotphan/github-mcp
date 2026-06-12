@@ -6,6 +6,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 
 - [`github_list_org_webhooks`](README.md#github_list_org_webhooks)
 - [`github_create_org_webhook`](README.md#github_create_org_webhook)
+- [`github_get_org_webhook`](README.md#github_get_org_webhook)
 
 ---
 
@@ -42,6 +43,25 @@ Creates a webhook via [Create an organization webhook](https://docs.github.com/e
 #### Output
 
 On success (**201**): echoed **`org`**, created **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
+### `github_get_org_webhook`
+
+Retrieves one webhook via [Get an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#get-an-organization-webhook) (`GET /orgs/{org}/hooks/{hook_id}`). For only **`config`**, use **`github_get_org_webhook_config`** when available.
+
+#### Inputs
+
+- **`org`** (required)
+- **`hook_id`** (required) — from `github_list_org_webhooks` or **`X-GitHub-Hook-ID`** on a delivery
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`hook_id`**, **`webhook`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
 
 #### Access
 

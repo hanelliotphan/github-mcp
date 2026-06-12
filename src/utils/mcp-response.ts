@@ -297,6 +297,8 @@ import type {
     ListOrgSecurityManagerTeamsSuccess,
     CreateOrgWebhookFailure,
     CreateOrgWebhookSuccess,
+    GetOrgWebhookFailure,
+    GetOrgWebhookSuccess,
     ListOrgWebhooksFailure,
     ListOrgWebhooksSuccess,
     ListOrgsForAuthenticatedUserFailure,
@@ -655,6 +657,8 @@ export function textAndData(
         | ListOrgSecurityManagerTeamsFailure
         | CreateOrgWebhookSuccess
         | CreateOrgWebhookFailure
+        | GetOrgWebhookSuccess
+        | GetOrgWebhookFailure
         | ListOrgWebhooksSuccess
         | ListOrgWebhooksFailure
         | ListOrgsForAuthenticatedUserSuccess
