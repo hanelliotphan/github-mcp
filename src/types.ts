@@ -2144,6 +2144,19 @@ export type GetOrgWebhookConfigSuccess = {
 
 export type GetOrgWebhookConfigFailure = CreateRepoFailure;
 
+/** PATCH /orgs/{org}/hooks/{hook_id}/config — HTTP 200. MCP tool: `github_update_org_webhook_config`. */
+export type UpdateOrgWebhookConfigSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hook_id: number;
+    config: OrgWebhookConfigItem;
+    request_id: string | null;
+};
+
+export type UpdateOrgWebhookConfigFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

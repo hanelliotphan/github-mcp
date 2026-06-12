@@ -45,7 +45,7 @@ export function registerGithubUpdateOrgWebhookTool(server: McpServer, octokit: O
         "Update an organization webhook (PATCH /orgs/{org}/hooks/{hook_id}). " +
             "Pass **`webhook`** with one or more of **`config`**, **`events`**, **`active`**, **`name`**; extra keys are forwarded. " +
             "If a **`secret`** was previously set, you must send the same secret, a new secret, or GitHub clears it. " +
-            "For **`config`**-only edits, use **`github_update_org_webhook_config`** when available. " +
+            "For **`config`**-only edits, use **`github_update_org_webhook_config`**. " +
             "Use **`hook_id`** from `github_list_org_webhooks`. The authenticated user must be an **organization owner**; classic OAuth apps and PATs need **`admin:org_hook`** scope. " +
             "Success is HTTP **200**. " +
             "See [Update an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#update-an-organization-webhook).",

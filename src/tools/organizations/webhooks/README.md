@@ -8,6 +8,7 @@ Tools for [GitHub REST: organization webhooks](https://docs.github.com/en/rest/o
 - [`github_create_org_webhook`](README.md#github_create_org_webhook)
 - [`github_get_org_webhook`](README.md#github_get_org_webhook)
 - [`github_get_org_webhook_config`](README.md#github_get_org_webhook_config)
+- [`github_update_org_webhook_config`](README.md#github_update_org_webhook_config)
 - [`github_update_org_webhook`](README.md#github_update_org_webhook)
 - [`github_delete_org_webhook`](README.md#github_delete_org_webhook)
 
@@ -91,9 +92,28 @@ Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`
 
 ---
 
+### `github_update_org_webhook_config`
+
+Updates webhook **`config`** via [Update a webhook configuration for an organization](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#update-a-webhook-configuration-for-an-organization) (`PATCH /orgs/{org}/hooks/{hook_id}/config`). Does not change **`events`** or **`active`** (use **`github_update_org_webhook`** for those).
+
+#### Inputs
+
+- **`org`** (required), **`hook_id`** (required)
+- **`config`** (required) — at least one of **`url`**, **`content_type`**, **`secret`**, **`insecure_ssl`**
+
+#### Output
+
+On success (**200**): echoed **`org`**, **`hook_id`**, updated **`config`**, **`http_status`**, **`request_id`**. On failure: structured **`error`**.
+
+#### Access
+
+Organization owner required; classic OAuth apps and PATs need **`admin:org_hook`** scope.
+
+---
+
 ### `github_update_org_webhook`
 
-Updates a webhook via [Update an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#update-an-organization-webhook) (`PATCH /orgs/{org}/hooks/{hook_id}`). Updating overwrites the secret — if one was set, resend the same or a new secret or GitHub removes it. For **`config`**-only edits, use **`github_update_org_webhook_config`** when available.
+Updates a webhook via [Update an organization webhook](https://docs.github.com/en/rest/orgs/webhooks?apiVersion=2026-03-10#update-an-organization-webhook) (`PATCH /orgs/{org}/hooks/{hook_id}`). Updating overwrites the secret — if one was set, resend the same or a new secret or GitHub removes it. For **`config`**-only edits, use **`github_update_org_webhook_config`**.
 
 #### Inputs
 
