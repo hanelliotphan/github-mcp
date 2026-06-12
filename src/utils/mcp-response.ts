@@ -289,6 +289,8 @@ import type {
     GetOrgRulesetHistorySuccess,
     GetOrgRulesetVersionFailure,
     GetOrgRulesetVersionSuccess,
+    ListOrgSecurityManagerTeamsFailure,
+    ListOrgSecurityManagerTeamsSuccess,
     ListOrgsForAuthenticatedUserFailure,
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
@@ -637,6 +639,8 @@ export function textAndData(
         | GetOrgRulesetHistoryFailure
         | GetOrgRulesetVersionSuccess
         | GetOrgRulesetVersionFailure
+        | ListOrgSecurityManagerTeamsSuccess
+        | ListOrgSecurityManagerTeamsFailure
         | ListOrgsForAuthenticatedUserSuccess
         | ListOrgsForAuthenticatedUserFailure
         | ListOrgsForUserSuccess

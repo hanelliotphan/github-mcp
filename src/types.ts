@@ -2020,6 +2020,21 @@ export type GetOrgRulesetVersionSuccess = {
 
 export type GetOrgRulesetVersionFailure = CreateRepoFailure;
 
+/** One row from GET /orgs/{org}/security-managers (Team Simple per GitHub). */
+export type OrgSecurityManagerTeamRow = Record<string, unknown>;
+
+/** GET /orgs/{org}/security-managers — HTTP 200. MCP tool: `github_list_org_security_manager_teams`. */
+export type ListOrgSecurityManagerTeamsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    teams: OrgSecurityManagerTeamRow[];
+    request_id: string | null;
+};
+
+export type ListOrgSecurityManagerTeamsFailure = CreateRepoFailure;
+
 /** One repository from GET /orgs/{org}/settings/immutable-releases/repositories. */
 export type OrgImmutableReleasesRepositoryItem = Record<string, unknown>;
 

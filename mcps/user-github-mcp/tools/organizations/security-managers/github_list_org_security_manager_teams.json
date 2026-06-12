@@ -1,0 +1,17 @@
+{
+  "name": "github_list_org_security_manager_teams",
+  "description": "GET /orgs/{org}/security-managers — list teams with the security manager role (team simple rows). Deprecated: GitHub removes this API from Jan 1, 2026; use Organization Roles instead. HTTP 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
