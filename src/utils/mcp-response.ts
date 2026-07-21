@@ -221,6 +221,54 @@ import type {
     AddSelfHostedRunnerToGroupForOrgSuccess,
     RemoveSelfHostedRunnerFromGroupForOrgFailure,
     RemoveSelfHostedRunnerFromGroupForOrgSuccess,
+    ListSelfHostedRunnersForOrgFailure,
+    ListSelfHostedRunnersForOrgSuccess,
+    ListRunnerApplicationsForOrgFailure,
+    ListRunnerApplicationsForOrgSuccess,
+    GenerateRunnerJitconfigForOrgFailure,
+    GenerateRunnerJitconfigForOrgSuccess,
+    CreateRegistrationTokenForOrgFailure,
+    CreateRegistrationTokenForOrgSuccess,
+    CreateRemoveTokenForOrgFailure,
+    CreateRemoveTokenForOrgSuccess,
+    GetSelfHostedRunnerForOrgFailure,
+    GetSelfHostedRunnerForOrgSuccess,
+    DeleteSelfHostedRunnerFromOrgFailure,
+    DeleteSelfHostedRunnerFromOrgSuccess,
+    ListLabelsForSelfHostedRunnerForOrgFailure,
+    ListLabelsForSelfHostedRunnerForOrgSuccess,
+    AddCustomLabelsToSelfHostedRunnerForOrgFailure,
+    AddCustomLabelsToSelfHostedRunnerForOrgSuccess,
+    SetCustomLabelsForSelfHostedRunnerForOrgFailure,
+    SetCustomLabelsForSelfHostedRunnerForOrgSuccess,
+    RemoveAllCustomLabelsFromSelfHostedRunnerForOrgFailure,
+    RemoveAllCustomLabelsFromSelfHostedRunnerForOrgSuccess,
+    RemoveCustomLabelFromSelfHostedRunnerForOrgFailure,
+    RemoveCustomLabelFromSelfHostedRunnerForOrgSuccess,
+    ListSelfHostedRunnersForRepoFailure,
+    ListSelfHostedRunnersForRepoSuccess,
+    ListRunnerApplicationsForRepoFailure,
+    ListRunnerApplicationsForRepoSuccess,
+    GenerateRunnerJitconfigForRepoFailure,
+    GenerateRunnerJitconfigForRepoSuccess,
+    CreateRegistrationTokenForRepoFailure,
+    CreateRegistrationTokenForRepoSuccess,
+    CreateRemoveTokenForRepoFailure,
+    CreateRemoveTokenForRepoSuccess,
+    GetSelfHostedRunnerForRepoFailure,
+    GetSelfHostedRunnerForRepoSuccess,
+    DeleteSelfHostedRunnerFromRepoFailure,
+    DeleteSelfHostedRunnerFromRepoSuccess,
+    ListLabelsForSelfHostedRunnerForRepoFailure,
+    ListLabelsForSelfHostedRunnerForRepoSuccess,
+    AddCustomLabelsToSelfHostedRunnerForRepoFailure,
+    AddCustomLabelsToSelfHostedRunnerForRepoSuccess,
+    SetCustomLabelsForSelfHostedRunnerForRepoFailure,
+    SetCustomLabelsForSelfHostedRunnerForRepoSuccess,
+    RemoveAllCustomLabelsFromSelfHostedRunnerForRepoFailure,
+    RemoveAllCustomLabelsFromSelfHostedRunnerForRepoSuccess,
+    RemoveCustomLabelFromSelfHostedRunnerForRepoFailure,
+    RemoveCustomLabelFromSelfHostedRunnerForRepoSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -791,6 +839,54 @@ export function textAndData(
         | AddSelfHostedRunnerToGroupForOrgFailure
         | RemoveSelfHostedRunnerFromGroupForOrgSuccess
         | RemoveSelfHostedRunnerFromGroupForOrgFailure
+        | ListSelfHostedRunnersForOrgSuccess
+        | ListSelfHostedRunnersForOrgFailure
+        | ListRunnerApplicationsForOrgSuccess
+        | ListRunnerApplicationsForOrgFailure
+        | GenerateRunnerJitconfigForOrgSuccess
+        | GenerateRunnerJitconfigForOrgFailure
+        | CreateRegistrationTokenForOrgSuccess
+        | CreateRegistrationTokenForOrgFailure
+        | CreateRemoveTokenForOrgSuccess
+        | CreateRemoveTokenForOrgFailure
+        | GetSelfHostedRunnerForOrgSuccess
+        | GetSelfHostedRunnerForOrgFailure
+        | DeleteSelfHostedRunnerFromOrgSuccess
+        | DeleteSelfHostedRunnerFromOrgFailure
+        | ListLabelsForSelfHostedRunnerForOrgSuccess
+        | ListLabelsForSelfHostedRunnerForOrgFailure
+        | AddCustomLabelsToSelfHostedRunnerForOrgSuccess
+        | AddCustomLabelsToSelfHostedRunnerForOrgFailure
+        | SetCustomLabelsForSelfHostedRunnerForOrgSuccess
+        | SetCustomLabelsForSelfHostedRunnerForOrgFailure
+        | RemoveAllCustomLabelsFromSelfHostedRunnerForOrgSuccess
+        | RemoveAllCustomLabelsFromSelfHostedRunnerForOrgFailure
+        | RemoveCustomLabelFromSelfHostedRunnerForOrgSuccess
+        | RemoveCustomLabelFromSelfHostedRunnerForOrgFailure
+        | ListSelfHostedRunnersForRepoSuccess
+        | ListSelfHostedRunnersForRepoFailure
+        | ListRunnerApplicationsForRepoSuccess
+        | ListRunnerApplicationsForRepoFailure
+        | GenerateRunnerJitconfigForRepoSuccess
+        | GenerateRunnerJitconfigForRepoFailure
+        | CreateRegistrationTokenForRepoSuccess
+        | CreateRegistrationTokenForRepoFailure
+        | CreateRemoveTokenForRepoSuccess
+        | CreateRemoveTokenForRepoFailure
+        | GetSelfHostedRunnerForRepoSuccess
+        | GetSelfHostedRunnerForRepoFailure
+        | DeleteSelfHostedRunnerFromRepoSuccess
+        | DeleteSelfHostedRunnerFromRepoFailure
+        | ListLabelsForSelfHostedRunnerForRepoSuccess
+        | ListLabelsForSelfHostedRunnerForRepoFailure
+        | AddCustomLabelsToSelfHostedRunnerForRepoSuccess
+        | AddCustomLabelsToSelfHostedRunnerForRepoFailure
+        | SetCustomLabelsForSelfHostedRunnerForRepoSuccess
+        | SetCustomLabelsForSelfHostedRunnerForRepoFailure
+        | RemoveAllCustomLabelsFromSelfHostedRunnerForRepoSuccess
+        | RemoveAllCustomLabelsFromSelfHostedRunnerForRepoFailure
+        | RemoveCustomLabelFromSelfHostedRunnerForRepoSuccess
+        | RemoveCustomLabelFromSelfHostedRunnerForRepoFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

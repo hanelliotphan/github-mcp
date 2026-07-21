@@ -1,0 +1,16 @@
+{
+  "name": "github_generate_runner_jitconfig_for_org",
+  "description": "Generate a just-in-time runner configuration for an organization (POST /orgs/{org}/actions/runners/generate-jitconfig). Provide name, runner_group_id, labels (1-100), optional work_folder (default _work). Classic tokens need admin:org scope. Success is HTTP 201 with runner and encoded_jit_config. See GitHub REST self-hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1 },
+      "runner_group_id": { "type": "integer", "minimum": 1 },
+      "labels": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1, "maxItems": 100 },
+      "work_folder": { "type": "string" }
+    },
+    "required": ["org", "name", "runner_group_id", "labels"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

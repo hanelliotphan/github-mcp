@@ -1,0 +1,12 @@
+{
+  "name": "github_create_registration_token_for_org",
+  "description": "Create a registration token for adding a self-hosted runner to an organization (POST /orgs/{org}/actions/runners/registration-token). The token is used with the runner config script and expires after one hour. Classic tokens need admin:org scope. Success is HTTP 201. See GitHub REST self-hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

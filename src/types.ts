@@ -4490,3 +4490,254 @@ export type RemoveSelfHostedRunnerFromGroupForOrgSuccess = {
 };
 
 export type RemoveSelfHostedRunnerFromGroupForOrgFailure = CreateRepoFailure;
+
+/** A self-hosted runner object (id, name, os, status, busy, labels, …). */
+export type SelfHostedRunnerItem = Record<string, unknown>;
+
+/** A runner application download entry (os, architecture, download_url, …). */
+export type RunnerApplicationItem = Record<string, unknown>;
+
+/** A self-hosted runner label (id, name, type). */
+export type SelfHostedRunnerLabelItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/actions/runners — HTTP 200. MCP tool: `github_list_self_hosted_runners_for_org`. */
+export type ListSelfHostedRunnersForOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    runners: SelfHostedRunnerItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelfHostedRunnersForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/runners/downloads — HTTP 200. MCP tool: `github_list_runner_applications_for_org`. */
+export type ListRunnerApplicationsForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_applications: RunnerApplicationItem[];
+    request_id: string | null;
+};
+
+export type ListRunnerApplicationsForOrgFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/actions/runners/generate-jitconfig — HTTP 201. MCP tool: `github_generate_runner_jitconfig_for_org`. */
+export type GenerateRunnerJitconfigForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    jitconfig: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GenerateRunnerJitconfigForOrgFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/actions/runners/registration-token — HTTP 201. MCP tool: `github_create_registration_token_for_org`. */
+export type CreateRegistrationTokenForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    token: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateRegistrationTokenForOrgFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/actions/runners/remove-token — HTTP 201. MCP tool: `github_create_remove_token_for_org`. */
+export type CreateRemoveTokenForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    token: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateRemoveTokenForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/runners/{runner_id} — HTTP 200. MCP tool: `github_get_self_hosted_runner_for_org`. */
+export type GetSelfHostedRunnerForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_id: number;
+    runner: SelfHostedRunnerItem;
+    request_id: string | null;
+};
+
+export type GetSelfHostedRunnerForOrgFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/runners/{runner_id} — HTTP 204 No Content. MCP tool: `github_delete_self_hosted_runner_from_org`. */
+export type DeleteSelfHostedRunnerFromOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_id: number;
+    request_id: string | null;
+};
+
+export type DeleteSelfHostedRunnerFromOrgFailure = CreateRepoFailure;
+
+/** GET/POST/PUT/DELETE /orgs/{org}/actions/runners/{runner_id}/labels(/**) — HTTP 200. Org runner label tools. */
+export type OrgRunnerLabelsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_id: number;
+    total_count: number;
+    labels: SelfHostedRunnerLabelItem[];
+    request_id: string | null;
+};
+
+export type ListLabelsForSelfHostedRunnerForOrgSuccess = OrgRunnerLabelsSuccess;
+export type ListLabelsForSelfHostedRunnerForOrgFailure = CreateRepoFailure;
+export type AddCustomLabelsToSelfHostedRunnerForOrgSuccess = OrgRunnerLabelsSuccess;
+export type AddCustomLabelsToSelfHostedRunnerForOrgFailure = CreateRepoFailure;
+export type SetCustomLabelsForSelfHostedRunnerForOrgSuccess = OrgRunnerLabelsSuccess;
+export type SetCustomLabelsForSelfHostedRunnerForOrgFailure = CreateRepoFailure;
+export type RemoveAllCustomLabelsFromSelfHostedRunnerForOrgSuccess = OrgRunnerLabelsSuccess;
+export type RemoveAllCustomLabelsFromSelfHostedRunnerForOrgFailure = CreateRepoFailure;
+export type RemoveCustomLabelFromSelfHostedRunnerForOrgSuccess = OrgRunnerLabelsSuccess;
+export type RemoveCustomLabelFromSelfHostedRunnerForOrgFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runners — HTTP 200. MCP tool: `github_list_self_hosted_runners_for_repo`. */
+export type ListSelfHostedRunnersForRepoSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    runners: SelfHostedRunnerItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelfHostedRunnersForRepoFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runners/downloads — HTTP 200. MCP tool: `github_list_runner_applications_for_repo`. */
+export type ListRunnerApplicationsForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    runner_applications: RunnerApplicationItem[];
+    request_id: string | null;
+};
+
+export type ListRunnerApplicationsForRepoFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig — HTTP 201. MCP tool: `github_generate_runner_jitconfig_for_repo`. */
+export type GenerateRunnerJitconfigForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    jitconfig: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GenerateRunnerJitconfigForRepoFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runners/registration-token — HTTP 201. MCP tool: `github_create_registration_token_for_repo`. */
+export type CreateRegistrationTokenForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    token: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateRegistrationTokenForRepoFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runners/remove-token — HTTP 201. MCP tool: `github_create_remove_token_for_repo`. */
+export type CreateRemoveTokenForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    token: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateRemoveTokenForRepoFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runners/{runner_id} — HTTP 200. MCP tool: `github_get_self_hosted_runner_for_repo`. */
+export type GetSelfHostedRunnerForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    runner_id: number;
+    runner: SelfHostedRunnerItem;
+    request_id: string | null;
+};
+
+export type GetSelfHostedRunnerForRepoFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/runners/{runner_id} — HTTP 204 No Content. MCP tool: `github_delete_self_hosted_runner_from_repo`. */
+export type DeleteSelfHostedRunnerFromRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    runner_id: number;
+    request_id: string | null;
+};
+
+export type DeleteSelfHostedRunnerFromRepoFailure = CreateRepoFailure;
+
+/** GET/POST/PUT/DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels(/**) — HTTP 200. Repo runner label tools. */
+export type RepoRunnerLabelsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    runner_id: number;
+    total_count: number;
+    labels: SelfHostedRunnerLabelItem[];
+    request_id: string | null;
+};
+
+export type ListLabelsForSelfHostedRunnerForRepoSuccess = RepoRunnerLabelsSuccess;
+export type ListLabelsForSelfHostedRunnerForRepoFailure = CreateRepoFailure;
+export type AddCustomLabelsToSelfHostedRunnerForRepoSuccess = RepoRunnerLabelsSuccess;
+export type AddCustomLabelsToSelfHostedRunnerForRepoFailure = CreateRepoFailure;
+export type SetCustomLabelsForSelfHostedRunnerForRepoSuccess = RepoRunnerLabelsSuccess;
+export type SetCustomLabelsForSelfHostedRunnerForRepoFailure = CreateRepoFailure;
+export type RemoveAllCustomLabelsFromSelfHostedRunnerForRepoSuccess = RepoRunnerLabelsSuccess;
+export type RemoveAllCustomLabelsFromSelfHostedRunnerForRepoFailure = CreateRepoFailure;
+export type RemoveCustomLabelFromSelfHostedRunnerForRepoSuccess = RepoRunnerLabelsSuccess;
+export type RemoveCustomLabelFromSelfHostedRunnerForRepoFailure = CreateRepoFailure;

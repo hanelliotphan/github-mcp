@@ -1,0 +1,17 @@
+{
+  "name": "github_generate_runner_jitconfig_for_repo",
+  "description": "Generate a just-in-time runner configuration for a repository (POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig). Provide runner_name, runner_group_id, labels (1-100), optional work_folder (default _work). Classic tokens need repo scope. Success is HTTP 201 with runner and encoded_jit_config. See GitHub REST self-hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^[A-Za-z0-9._-]{1,100}$" },
+      "runner_name": { "type": "string", "minLength": 1 },
+      "runner_group_id": { "type": "integer", "minimum": 1 },
+      "labels": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1, "maxItems": 100 },
+      "work_folder": { "type": "string" }
+    },
+    "required": ["owner", "name", "runner_name", "runner_group_id", "labels"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

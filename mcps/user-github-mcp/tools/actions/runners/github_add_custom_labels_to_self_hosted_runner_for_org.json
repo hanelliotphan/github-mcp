@@ -1,0 +1,14 @@
+{
+  "name": "github_add_custom_labels_to_self_hosted_runner_for_org",
+  "description": "Add custom labels to a self-hosted runner configured in an organization (POST /orgs/{org}/actions/runners/{runner_id}/labels). Provide labels (1-100) to append to existing labels. Returns the full updated label set. Classic tokens need admin:org scope. See GitHub REST self-hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "runner_id": { "type": "integer", "minimum": 1 },
+      "labels": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1, "maxItems": 100 }
+    },
+    "required": ["org", "runner_id", "labels"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

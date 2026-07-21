@@ -1,0 +1,13 @@
+{
+  "name": "github_get_self_hosted_runner_for_org",
+  "description": "Get a specific self-hosted runner configured in an organization (GET /orgs/{org}/actions/runners/{runner_id}). Classic tokens need admin:org scope. See GitHub REST self-hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "runner_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["org", "runner_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
