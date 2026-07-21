@@ -1,0 +1,27 @@
+{
+  "name": "github_delete_artifact",
+  "description": "Delete a GitHub Actions artifact (DELETE /repos/{owner}/{repo}/actions/artifacts/{artifact_id}). artifact_id from github_list_artifacts_for_repo or github_list_workflow_run_artifacts. Classic tokens need repo scope. HTTP 204 No Content. See GitHub REST Actions artifacts.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "artifact_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "artifact_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

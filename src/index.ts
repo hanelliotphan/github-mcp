@@ -191,6 +191,11 @@ import { registerGithubTestPushRepoWebhookTool } from "./tools/repositories/webh
 import { registerGithubRedeliverRepoWebhookDeliveryTool } from "./tools/repositories/webhooks/github-redeliver-repo-webhook-delivery.js";
 import { registerGithubUpdateRepoWebhookConfigTool } from "./tools/repositories/webhooks/github-update-repo-webhook-config.js";
 import { registerGithubUpdateRepoWebhookTool } from "./tools/repositories/webhooks/github-update-repo-webhook.js";
+import { registerGithubListArtifactsForRepoTool } from "./tools/actions/artifacts/github-list-artifacts-for-repo.js";
+import { registerGithubGetArtifactTool } from "./tools/actions/artifacts/github-get-artifact.js";
+import { registerGithubDeleteArtifactTool } from "./tools/actions/artifacts/github-delete-artifact.js";
+import { registerGithubDownloadArtifactTool } from "./tools/actions/artifacts/github-download-artifact.js";
+import { registerGithubListWorkflowRunArtifactsTool } from "./tools/actions/artifacts/github-list-workflow-run-artifacts.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -395,6 +400,11 @@ registerGithubCreateRepoWebhookTool(server, octokit);
 registerGithubUpdateRepoWebhookConfigTool(server, octokit);
 registerGithubUpdateRepoWebhookTool(server, octokit);
 registerGithubDeleteRepoWebhookTool(server, octokit);
+registerGithubListArtifactsForRepoTool(server, octokit);
+registerGithubGetArtifactTool(server, octokit);
+registerGithubDeleteArtifactTool(server, octokit);
+registerGithubDownloadArtifactTool(server, octokit);
+registerGithubListWorkflowRunArtifactsTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

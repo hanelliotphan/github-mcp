@@ -1,0 +1,31 @@
+{
+  "name": "github_download_artifact",
+  "description": "Get a temporary download URL for a GitHub Actions artifact archive (GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}). Returns the 302 Location URL (expires after 1 minute) without downloading. archive_format must be zip. artifact_id from list tools. Classic tokens need repo scope. Expired artifacts return 410. See GitHub REST Actions artifacts.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "artifact_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "archive_format": {
+        "type": "string",
+        "enum": ["zip"]
+      }
+    },
+    "required": ["owner", "name", "artifact_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -3217,3 +3217,94 @@ export type CreateRepoAttestationSuccess = {
 };
 
 export type CreateRepoAttestationFailure = CreateRepoFailure;
+
+/** One artifact from the GitHub Actions artifacts API (Artifact per GitHub). */
+export type ArtifactItem = Record<string, unknown>;
+
+/** GET /repos/{owner}/{repo}/actions/artifacts — HTTP 200. MCP tool: `github_list_artifacts_for_repo`. */
+export type ListArtifactsForRepoSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    artifacts: ArtifactItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListArtifactsForRepoFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id} — HTTP 200. MCP tool: `github_get_artifact`. */
+export type GetArtifactSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    artifact_id: number;
+    artifact: ArtifactItem;
+    request_id: string | null;
+};
+
+export type GetArtifactFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/artifacts/{artifact_id} — HTTP 204 No Content. MCP tool: `github_delete_artifact`. */
+export type DeleteArtifactSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    artifact_id: number;
+    request_id: string | null;
+};
+
+export type DeleteArtifactFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format} — HTTP 302 redirect. MCP tool: `github_download_artifact`. */
+export type DownloadArtifactSuccess = {
+    success: true;
+    message: string;
+    /** GitHub returns 302 Found with a Location URL to the archive. */
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    artifact_id: number;
+    archive_format: string;
+    /** Value of the Location header: temporary URL to download the archive (expires after 1 minute). */
+    archive_download_url: string;
+    request_id: string | null;
+};
+
+export type DownloadArtifactFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts — HTTP 200. MCP tool: `github_list_workflow_run_artifacts`. */
+export type ListWorkflowRunArtifactsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    artifacts: ArtifactItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListWorkflowRunArtifactsFailure = CreateRepoFailure;

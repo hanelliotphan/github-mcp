@@ -49,6 +49,16 @@ import type {
     CreateOrgMetadataStorageRecordSuccess,
     CreateRepoAttestationFailure,
     CreateRepoAttestationSuccess,
+    ListArtifactsForRepoFailure,
+    ListArtifactsForRepoSuccess,
+    GetArtifactFailure,
+    GetArtifactSuccess,
+    DeleteArtifactFailure,
+    DeleteArtifactSuccess,
+    DownloadArtifactFailure,
+    DownloadArtifactSuccess,
+    ListWorkflowRunArtifactsFailure,
+    ListWorkflowRunArtifactsSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -447,6 +457,16 @@ export function textAndData(
         | CreateOrgMetadataStorageRecordFailure
         | CreateRepoAttestationSuccess
         | CreateRepoAttestationFailure
+        | ListArtifactsForRepoSuccess
+        | ListArtifactsForRepoFailure
+        | GetArtifactSuccess
+        | GetArtifactFailure
+        | DeleteArtifactSuccess
+        | DeleteArtifactFailure
+        | DownloadArtifactSuccess
+        | DownloadArtifactFailure
+        | ListWorkflowRunArtifactsSuccess
+        | ListWorkflowRunArtifactsFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
