@@ -5410,3 +5410,105 @@ export type ListWorkflowRunsSuccess = {
 };
 
 export type ListWorkflowRunsFailure = CreateRepoFailure;
+
+// ============================================================================
+// Actions — Workflows
+// ============================================================================
+
+/** A workflow object as returned by the GitHub Actions workflows API. */
+export type WorkflowItem = Record<string, unknown>;
+
+/** GET /repos/{owner}/{repo}/actions/workflows — HTTP 200. MCP tool: `github_list_repo_workflows`. */
+export type ListRepoWorkflowsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    workflows: WorkflowItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoWorkflowsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/workflows/{workflow_id} — HTTP 200. MCP tool: `github_get_workflow`. */
+export type GetWorkflowSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    workflow_id: string | number;
+    workflow: WorkflowItem;
+    request_id: string | null;
+};
+
+export type GetWorkflowFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable — HTTP 204 No Content. MCP tool: `github_disable_workflow`. */
+export type DisableWorkflowSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    workflow_id: string | number;
+    request_id: string | null;
+};
+
+export type DisableWorkflowFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches — HTTP 204 (or 200 with run details). MCP tool: `github_create_workflow_dispatch`. */
+export type CreateWorkflowDispatchSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    workflow_id: string | number;
+    ref: string;
+    workflow_run_id?: number;
+    run_url?: string;
+    html_url?: string;
+    request_id: string | null;
+};
+
+export type CreateWorkflowDispatchFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable — HTTP 204 No Content. MCP tool: `github_enable_workflow`. */
+export type EnableWorkflowSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    workflow_id: string | number;
+    request_id: string | null;
+};
+
+export type EnableWorkflowFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing — HTTP 200. MCP tool: `github_get_workflow_usage`. */
+export type GetWorkflowUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    workflow_id: string | number;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetWorkflowUsageFailure = CreateRepoFailure;

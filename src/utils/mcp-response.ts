@@ -355,6 +355,18 @@ import type {
     GetWorkflowRunUsageSuccess,
     ListWorkflowRunsFailure,
     ListWorkflowRunsSuccess,
+    ListRepoWorkflowsFailure,
+    ListRepoWorkflowsSuccess,
+    GetWorkflowFailure,
+    GetWorkflowSuccess,
+    DisableWorkflowFailure,
+    DisableWorkflowSuccess,
+    CreateWorkflowDispatchFailure,
+    CreateWorkflowDispatchSuccess,
+    EnableWorkflowFailure,
+    EnableWorkflowSuccess,
+    GetWorkflowUsageFailure,
+    GetWorkflowUsageSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1059,6 +1071,18 @@ export function textAndData(
         | GetWorkflowRunUsageFailure
         | ListWorkflowRunsSuccess
         | ListWorkflowRunsFailure
+        | ListRepoWorkflowsSuccess
+        | ListRepoWorkflowsFailure
+        | GetWorkflowSuccess
+        | GetWorkflowFailure
+        | DisableWorkflowSuccess
+        | DisableWorkflowFailure
+        | CreateWorkflowDispatchSuccess
+        | CreateWorkflowDispatchFailure
+        | EnableWorkflowSuccess
+        | EnableWorkflowFailure
+        | GetWorkflowUsageSuccess
+        | GetWorkflowUsageFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

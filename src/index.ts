@@ -344,6 +344,12 @@ import { registerGithubReRunWorkflowTool } from "./tools/actions/workflow-runs/g
 import { registerGithubReRunWorkflowFailedJobsTool } from "./tools/actions/workflow-runs/github-re-run-workflow-failed-jobs.js";
 import { registerGithubGetWorkflowRunUsageTool } from "./tools/actions/workflow-runs/github-get-workflow-run-usage.js";
 import { registerGithubListWorkflowRunsTool } from "./tools/actions/workflow-runs/github-list-workflow-runs.js";
+import { registerGithubListRepoWorkflowsTool } from "./tools/actions/workflows/github-list-repo-workflows.js";
+import { registerGithubGetWorkflowTool } from "./tools/actions/workflows/github-get-workflow.js";
+import { registerGithubDisableWorkflowTool } from "./tools/actions/workflows/github-disable-workflow.js";
+import { registerGithubCreateWorkflowDispatchTool } from "./tools/actions/workflows/github-create-workflow-dispatch.js";
+import { registerGithubEnableWorkflowTool } from "./tools/actions/workflows/github-enable-workflow.js";
+import { registerGithubGetWorkflowUsageTool } from "./tools/actions/workflows/github-get-workflow-usage.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -701,6 +707,12 @@ registerGithubReRunWorkflowTool(server, octokit);
 registerGithubReRunWorkflowFailedJobsTool(server, octokit);
 registerGithubGetWorkflowRunUsageTool(server, octokit);
 registerGithubListWorkflowRunsTool(server, octokit);
+registerGithubListRepoWorkflowsTool(server, octokit);
+registerGithubGetWorkflowTool(server, octokit);
+registerGithubDisableWorkflowTool(server, octokit);
+registerGithubCreateWorkflowDispatchTool(server, octokit);
+registerGithubEnableWorkflowTool(server, octokit);
+registerGithubGetWorkflowUsageTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();
