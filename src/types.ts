@@ -4741,3 +4741,305 @@ export type RemoveAllCustomLabelsFromSelfHostedRunnerForRepoSuccess = RepoRunner
 export type RemoveAllCustomLabelsFromSelfHostedRunnerForRepoFailure = CreateRepoFailure;
 export type RemoveCustomLabelFromSelfHostedRunnerForRepoSuccess = RepoRunnerLabelsSuccess;
 export type RemoveCustomLabelFromSelfHostedRunnerForRepoFailure = CreateRepoFailure;
+
+/** One GitHub Actions variable (name, value, timestamps; org variables also include visibility). */
+export type ActionsVariableItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/actions/variables — HTTP 200. MCP tool: `github_list_org_actions_variables`. */
+export type ListOrgActionsVariablesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    variables: ActionsVariableItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgActionsVariablesFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/actions/variables — HTTP 201. MCP tool: `github_create_org_actions_variable`. */
+export type CreateOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type CreateOrgActionsVariableFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/variables/{name} — HTTP 200. MCP tool: `github_get_org_actions_variable`. */
+export type GetOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    variable: ActionsVariableItem;
+    request_id: string | null;
+};
+
+export type GetOrgActionsVariableFailure = CreateRepoFailure;
+
+/** PATCH /orgs/{org}/actions/variables/{name} — HTTP 204 No Content. MCP tool: `github_update_org_actions_variable`. */
+export type UpdateOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type UpdateOrgActionsVariableFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/variables/{name} — HTTP 204 No Content. MCP tool: `github_delete_org_actions_variable`. */
+export type DeleteOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type DeleteOrgActionsVariableFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/variables/{name}/repositories — HTTP 200. MCP tool: `github_list_selected_repos_for_org_actions_variable`. */
+export type ListSelectedReposForOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    variable_name: string;
+    total_count: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelectedReposForOrgActionsVariableFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/variables/{name}/repositories — HTTP 204 No Content. MCP tool: `github_set_selected_repos_for_org_actions_variable`. */
+export type SetSelectedReposForOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+
+export type SetSelectedReposForOrgActionsVariableFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/variables/{name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_add_selected_repo_to_org_actions_variable`. */
+export type AddSelectedRepoToOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type AddSelectedRepoToOrgActionsVariableFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/variables/{name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_remove_selected_repo_from_org_actions_variable`. */
+export type RemoveSelectedRepoFromOrgActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type RemoveSelectedRepoFromOrgActionsVariableFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/organization-variables — HTTP 200. MCP tool: `github_list_repo_organization_actions_variables`. */
+export type ListRepoOrganizationActionsVariablesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    variables: ActionsVariableItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoOrganizationActionsVariablesFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/variables — HTTP 200. MCP tool: `github_list_repo_actions_variables`. */
+export type ListRepoActionsVariablesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    variables: ActionsVariableItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoActionsVariablesFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/variables — HTTP 201. MCP tool: `github_create_repo_actions_variable`. */
+export type CreateRepoActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type CreateRepoActionsVariableFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/variables/{name} — HTTP 200. MCP tool: `github_get_repo_actions_variable`. */
+export type GetRepoActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    variable: ActionsVariableItem;
+    request_id: string | null;
+};
+
+export type GetRepoActionsVariableFailure = CreateRepoFailure;
+
+/** PATCH /repos/{owner}/{repo}/actions/variables/{name} — HTTP 204 No Content. MCP tool: `github_update_repo_actions_variable`. */
+export type UpdateRepoActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type UpdateRepoActionsVariableFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/variables/{name} — HTTP 204 No Content. MCP tool: `github_delete_repo_actions_variable`. */
+export type DeleteRepoActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type DeleteRepoActionsVariableFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/environments/{environment_name}/variables — HTTP 200. MCP tool: `github_list_environment_actions_variables`. */
+export type ListEnvironmentActionsVariablesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    total_count: number;
+    variables: ActionsVariableItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListEnvironmentActionsVariablesFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/environments/{environment_name}/variables — HTTP 201. MCP tool: `github_create_environment_actions_variable`. */
+export type CreateEnvironmentActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type CreateEnvironmentActionsVariableFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/environments/{environment_name}/variables/{name} — HTTP 200. MCP tool: `github_get_environment_actions_variable`. */
+export type GetEnvironmentActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    variable_name: string;
+    variable: ActionsVariableItem;
+    request_id: string | null;
+};
+
+export type GetEnvironmentActionsVariableFailure = CreateRepoFailure;
+
+/** PATCH /repos/{owner}/{repo}/environments/{environment_name}/variables/{name} — HTTP 204 No Content. MCP tool: `github_update_environment_actions_variable`. */
+export type UpdateEnvironmentActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type UpdateEnvironmentActionsVariableFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/environments/{environment_name}/variables/{name} — HTTP 204 No Content. MCP tool: `github_delete_environment_actions_variable`. */
+export type DeleteEnvironmentActionsVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type DeleteEnvironmentActionsVariableFailure = CreateRepoFailure;

@@ -1,0 +1,13 @@
+{
+  "name": "github_delete_org_actions_variable",
+  "description": "Delete an organization GitHub Actions variable by name (DELETE /orgs/{org}/actions/variables/{name}). Classic tokens need admin:org scope (plus repo for private repositories). Success is HTTP 204. See GitHub REST Actions variables.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "pattern": "^[A-Za-z_][A-Za-z0-9_]*$" }
+    },
+    "required": ["org", "name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

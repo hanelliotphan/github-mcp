@@ -269,6 +269,46 @@ import type {
     RemoveAllCustomLabelsFromSelfHostedRunnerForRepoSuccess,
     RemoveCustomLabelFromSelfHostedRunnerForRepoFailure,
     RemoveCustomLabelFromSelfHostedRunnerForRepoSuccess,
+    ListOrgActionsVariablesFailure,
+    ListOrgActionsVariablesSuccess,
+    CreateOrgActionsVariableFailure,
+    CreateOrgActionsVariableSuccess,
+    GetOrgActionsVariableFailure,
+    GetOrgActionsVariableSuccess,
+    UpdateOrgActionsVariableFailure,
+    UpdateOrgActionsVariableSuccess,
+    DeleteOrgActionsVariableFailure,
+    DeleteOrgActionsVariableSuccess,
+    ListSelectedReposForOrgActionsVariableFailure,
+    ListSelectedReposForOrgActionsVariableSuccess,
+    SetSelectedReposForOrgActionsVariableFailure,
+    SetSelectedReposForOrgActionsVariableSuccess,
+    AddSelectedRepoToOrgActionsVariableFailure,
+    AddSelectedRepoToOrgActionsVariableSuccess,
+    RemoveSelectedRepoFromOrgActionsVariableFailure,
+    RemoveSelectedRepoFromOrgActionsVariableSuccess,
+    ListRepoOrganizationActionsVariablesFailure,
+    ListRepoOrganizationActionsVariablesSuccess,
+    ListRepoActionsVariablesFailure,
+    ListRepoActionsVariablesSuccess,
+    CreateRepoActionsVariableFailure,
+    CreateRepoActionsVariableSuccess,
+    GetRepoActionsVariableFailure,
+    GetRepoActionsVariableSuccess,
+    UpdateRepoActionsVariableFailure,
+    UpdateRepoActionsVariableSuccess,
+    DeleteRepoActionsVariableFailure,
+    DeleteRepoActionsVariableSuccess,
+    ListEnvironmentActionsVariablesFailure,
+    ListEnvironmentActionsVariablesSuccess,
+    CreateEnvironmentActionsVariableFailure,
+    CreateEnvironmentActionsVariableSuccess,
+    GetEnvironmentActionsVariableFailure,
+    GetEnvironmentActionsVariableSuccess,
+    UpdateEnvironmentActionsVariableFailure,
+    UpdateEnvironmentActionsVariableSuccess,
+    DeleteEnvironmentActionsVariableFailure,
+    DeleteEnvironmentActionsVariableSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -887,6 +927,46 @@ export function textAndData(
         | RemoveAllCustomLabelsFromSelfHostedRunnerForRepoFailure
         | RemoveCustomLabelFromSelfHostedRunnerForRepoSuccess
         | RemoveCustomLabelFromSelfHostedRunnerForRepoFailure
+        | ListOrgActionsVariablesSuccess
+        | ListOrgActionsVariablesFailure
+        | CreateOrgActionsVariableSuccess
+        | CreateOrgActionsVariableFailure
+        | GetOrgActionsVariableSuccess
+        | GetOrgActionsVariableFailure
+        | UpdateOrgActionsVariableSuccess
+        | UpdateOrgActionsVariableFailure
+        | DeleteOrgActionsVariableSuccess
+        | DeleteOrgActionsVariableFailure
+        | ListSelectedReposForOrgActionsVariableSuccess
+        | ListSelectedReposForOrgActionsVariableFailure
+        | SetSelectedReposForOrgActionsVariableSuccess
+        | SetSelectedReposForOrgActionsVariableFailure
+        | AddSelectedRepoToOrgActionsVariableSuccess
+        | AddSelectedRepoToOrgActionsVariableFailure
+        | RemoveSelectedRepoFromOrgActionsVariableSuccess
+        | RemoveSelectedRepoFromOrgActionsVariableFailure
+        | ListRepoOrganizationActionsVariablesSuccess
+        | ListRepoOrganizationActionsVariablesFailure
+        | ListRepoActionsVariablesSuccess
+        | ListRepoActionsVariablesFailure
+        | CreateRepoActionsVariableSuccess
+        | CreateRepoActionsVariableFailure
+        | GetRepoActionsVariableSuccess
+        | GetRepoActionsVariableFailure
+        | UpdateRepoActionsVariableSuccess
+        | UpdateRepoActionsVariableFailure
+        | DeleteRepoActionsVariableSuccess
+        | DeleteRepoActionsVariableFailure
+        | ListEnvironmentActionsVariablesSuccess
+        | ListEnvironmentActionsVariablesFailure
+        | CreateEnvironmentActionsVariableSuccess
+        | CreateEnvironmentActionsVariableFailure
+        | GetEnvironmentActionsVariableSuccess
+        | GetEnvironmentActionsVariableFailure
+        | UpdateEnvironmentActionsVariableSuccess
+        | UpdateEnvironmentActionsVariableFailure
+        | DeleteEnvironmentActionsVariableSuccess
+        | DeleteEnvironmentActionsVariableFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
