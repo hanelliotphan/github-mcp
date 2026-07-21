@@ -1,0 +1,31 @@
+{
+  "name": "github_delete_actions_cache_by_key",
+  "description": "Delete GitHub Actions caches for a repository by key (DELETE /repos/{owner}/{repo}/actions/caches?key=). Deletes caches matching key, optionally scoped to ref. Returns total_count and actions_caches. Classic tokens need repo scope. See GitHub REST Actions cache.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "key": {
+        "type": "string",
+        "minLength": 1
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": ["owner", "name", "key"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

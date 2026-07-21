@@ -196,6 +196,12 @@ import { registerGithubGetArtifactTool } from "./tools/actions/artifacts/github-
 import { registerGithubDeleteArtifactTool } from "./tools/actions/artifacts/github-delete-artifact.js";
 import { registerGithubDownloadArtifactTool } from "./tools/actions/artifacts/github-download-artifact.js";
 import { registerGithubListWorkflowRunArtifactsTool } from "./tools/actions/artifacts/github-list-workflow-run-artifacts.js";
+import { registerGithubGetActionsCacheUsageForRepoTool } from "./tools/actions/cache/github-get-actions-cache-usage-for-repo.js";
+import { registerGithubGetActionsCacheUsageForOrgTool } from "./tools/actions/cache/github-get-actions-cache-usage-for-org.js";
+import { registerGithubGetActionsCacheUsageByRepoForOrgTool } from "./tools/actions/cache/github-get-actions-cache-usage-by-repo-for-org.js";
+import { registerGithubListActionsCachesTool } from "./tools/actions/cache/github-list-actions-caches.js";
+import { registerGithubDeleteActionsCacheByKeyTool } from "./tools/actions/cache/github-delete-actions-cache-by-key.js";
+import { registerGithubDeleteActionsCacheByIdTool } from "./tools/actions/cache/github-delete-actions-cache-by-id.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -405,6 +411,12 @@ registerGithubGetArtifactTool(server, octokit);
 registerGithubDeleteArtifactTool(server, octokit);
 registerGithubDownloadArtifactTool(server, octokit);
 registerGithubListWorkflowRunArtifactsTool(server, octokit);
+registerGithubGetActionsCacheUsageForRepoTool(server, octokit);
+registerGithubGetActionsCacheUsageForOrgTool(server, octokit);
+registerGithubGetActionsCacheUsageByRepoForOrgTool(server, octokit);
+registerGithubListActionsCachesTool(server, octokit);
+registerGithubDeleteActionsCacheByKeyTool(server, octokit);
+registerGithubDeleteActionsCacheByIdTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

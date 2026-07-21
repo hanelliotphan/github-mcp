@@ -1,0 +1,27 @@
+{
+  "name": "github_delete_actions_cache_by_id",
+  "description": "Delete a GitHub Actions cache for a repository by id (DELETE /repos/{owner}/{repo}/actions/caches/{cache_id}). Success is HTTP 204. Classic tokens need repo scope. See GitHub REST Actions cache.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "cache_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "cache_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -75,6 +75,7 @@ Implementations live under `src/tools/` (`actions/`, `repositories/`, `organizat
 - **[Rule suites](src/tools/repositories/rule-suites/README.md)** — ruleset evaluation history.
 - **[Attestations](src/tools/repositories/attestations/README.md)** — artifact attestations.
 - **[Actions artifacts](src/tools/actions/artifacts/README.md)** — list (repo and workflow run), get, delete, and download GitHub Actions artifacts (`GET/DELETE /repos/{owner}/{repo}/actions/artifacts/...`, `GET …/actions/runs/{run_id}/artifacts`).
+- **[Actions cache](src/tools/actions/cache/README.md)** — cache usage (repo, org, and by-repository for an org), list caches, and delete caches by key or id (`GET /repos/{owner}/{repo}/actions/cache/usage`, `GET /orgs/{org}/actions/cache/usage[-by-repository]`, `GET/DELETE …/actions/caches`).
 
 Static MCP tool descriptors (JSON: tool name, description, argument schema) live under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/) in the **same subfolders as** `src/tools` (e.g. `tools/repositories/webhooks/`, `tools/organizations/`), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. They mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
 

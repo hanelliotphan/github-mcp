@@ -3308,3 +3308,108 @@ export type ListWorkflowRunArtifactsSuccess = {
 };
 
 export type ListWorkflowRunArtifactsFailure = CreateRepoFailure;
+
+/** GitHub Actions cache usage summary for a repository. */
+export type ActionsCacheUsageForRepo = Record<string, unknown>;
+
+/** One repository cache-usage row from the org cache usage-by-repository API. */
+export type ActionsCacheUsageByRepoItem = Record<string, unknown>;
+
+/** One GitHub Actions cache entry. */
+export type ActionsCacheItem = Record<string, unknown>;
+
+/** GET /repos/{owner}/{repo}/actions/cache/usage — HTTP 200. MCP tool: `github_get_actions_cache_usage_for_repo`. */
+export type GetActionsCacheUsageForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    usage: ActionsCacheUsageForRepo;
+    request_id: string | null;
+};
+
+export type GetActionsCacheUsageForRepoFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/cache/usage — HTTP 200. MCP tool: `github_get_actions_cache_usage_for_org`. */
+export type GetActionsCacheUsageForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetActionsCacheUsageForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/cache/usage-by-repository — HTTP 200. MCP tool: `github_get_actions_cache_usage_by_repo_for_org`. */
+export type GetActionsCacheUsageByRepoForOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    repository_cache_usages: ActionsCacheUsageByRepoItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetActionsCacheUsageByRepoForOrgFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/caches — HTTP 200. MCP tool: `github_list_actions_caches`. */
+export type ListActionsCachesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    actions_caches: ActionsCacheItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListActionsCachesFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/caches?key= — HTTP 200. MCP tool: `github_delete_actions_cache_by_key`. */
+export type DeleteActionsCacheByKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    key: string;
+    ref: string | null;
+    /** Total count of caches deleted, as reported by GitHub. */
+    total_count: number;
+    actions_caches: ActionsCacheItem[];
+    request_id: string | null;
+};
+
+export type DeleteActionsCacheByKeyFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/caches/{cache_id} — HTTP 204 No Content. MCP tool: `github_delete_actions_cache_by_id`. */
+export type DeleteActionsCacheByIdSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    cache_id: number;
+    request_id: string | null;
+};
+
+export type DeleteActionsCacheByIdFailure = CreateRepoFailure;

@@ -59,6 +59,18 @@ import type {
     DownloadArtifactSuccess,
     ListWorkflowRunArtifactsFailure,
     ListWorkflowRunArtifactsSuccess,
+    GetActionsCacheUsageForRepoFailure,
+    GetActionsCacheUsageForRepoSuccess,
+    GetActionsCacheUsageForOrgFailure,
+    GetActionsCacheUsageForOrgSuccess,
+    GetActionsCacheUsageByRepoForOrgFailure,
+    GetActionsCacheUsageByRepoForOrgSuccess,
+    ListActionsCachesFailure,
+    ListActionsCachesSuccess,
+    DeleteActionsCacheByKeyFailure,
+    DeleteActionsCacheByKeySuccess,
+    DeleteActionsCacheByIdFailure,
+    DeleteActionsCacheByIdSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -467,6 +479,18 @@ export function textAndData(
         | DownloadArtifactFailure
         | ListWorkflowRunArtifactsSuccess
         | ListWorkflowRunArtifactsFailure
+        | GetActionsCacheUsageForRepoSuccess
+        | GetActionsCacheUsageForRepoFailure
+        | GetActionsCacheUsageForOrgSuccess
+        | GetActionsCacheUsageForOrgFailure
+        | GetActionsCacheUsageByRepoForOrgSuccess
+        | GetActionsCacheUsageByRepoForOrgFailure
+        | ListActionsCachesSuccess
+        | ListActionsCachesFailure
+        | DeleteActionsCacheByKeySuccess
+        | DeleteActionsCacheByKeyFailure
+        | DeleteActionsCacheByIdSuccess
+        | DeleteActionsCacheByIdFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
