@@ -1,0 +1,28 @@
+{
+  "name": "github_set_custom_oidc_sub_claim_for_repo",
+  "description": "Set the customization template for an OIDC subject claim for a repository (PUT /repos/{owner}/{repo}/actions/oidc/customization/sub). Body use_default (boolean) and include_claim_keys (array, required when use_default false). Success is HTTP 201. Requires repo admin; classic tokens need repo scope. See GitHub REST Actions OIDC.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "use_default": { "type": "boolean" },
+      "include_claim_keys": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 }
+      }
+    },
+    "required": ["owner", "name", "use_default"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -3684,3 +3684,56 @@ export type DeleteHostedRunnerForOrgSuccess = {
 };
 
 export type DeleteHostedRunnerForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/oidc/customization/sub — HTTP 200. MCP tool: `github_get_oidc_custom_sub_template_for_org`. */
+export type GetOidcCustomSubTemplateForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    template: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetOidcCustomSubTemplateForOrgFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/oidc/customization/sub — HTTP 201/204. MCP tool: `github_update_oidc_custom_sub_template_for_org`. */
+export type UpdateOidcCustomSubTemplateForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    include_claim_keys: string[];
+    request_id: string | null;
+};
+
+export type UpdateOidcCustomSubTemplateForOrgFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/oidc/customization/sub — HTTP 200. MCP tool: `github_get_custom_oidc_sub_claim_for_repo`. */
+export type GetCustomOidcSubClaimForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    claim: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetCustomOidcSubClaimForRepoFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/oidc/customization/sub — HTTP 201. MCP tool: `github_set_custom_oidc_sub_claim_for_repo`. */
+export type SetCustomOidcSubClaimForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    use_default: boolean;
+    include_claim_keys: string[] | null;
+    request_id: string | null;
+};
+
+export type SetCustomOidcSubClaimForRepoFailure = CreateRepoFailure;

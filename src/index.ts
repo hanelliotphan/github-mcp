@@ -221,6 +221,10 @@ import { registerGithubGetHostedRunnersPlatformsForOrgTool } from "./tools/actio
 import { registerGithubGetHostedRunnerForOrgTool } from "./tools/actions/hosted-runners/github-get-hosted-runner-for-org.js";
 import { registerGithubUpdateHostedRunnerForOrgTool } from "./tools/actions/hosted-runners/github-update-hosted-runner-for-org.js";
 import { registerGithubDeleteHostedRunnerForOrgTool } from "./tools/actions/hosted-runners/github-delete-hosted-runner-for-org.js";
+import { registerGithubGetOidcCustomSubTemplateForOrgTool } from "./tools/actions/oidc/github-get-oidc-custom-sub-template-for-org.js";
+import { registerGithubUpdateOidcCustomSubTemplateForOrgTool } from "./tools/actions/oidc/github-update-oidc-custom-sub-template-for-org.js";
+import { registerGithubGetCustomOidcSubClaimForRepoTool } from "./tools/actions/oidc/github-get-custom-oidc-sub-claim-for-repo.js";
+import { registerGithubSetCustomOidcSubClaimForRepoTool } from "./tools/actions/oidc/github-set-custom-oidc-sub-claim-for-repo.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -455,6 +459,10 @@ registerGithubGetHostedRunnersPlatformsForOrgTool(server, octokit);
 registerGithubGetHostedRunnerForOrgTool(server, octokit);
 registerGithubUpdateHostedRunnerForOrgTool(server, octokit);
 registerGithubDeleteHostedRunnerForOrgTool(server, octokit);
+registerGithubGetOidcCustomSubTemplateForOrgTool(server, octokit);
+registerGithubUpdateOidcCustomSubTemplateForOrgTool(server, octokit);
+registerGithubGetCustomOidcSubClaimForRepoTool(server, octokit);
+registerGithubSetCustomOidcSubClaimForRepoTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

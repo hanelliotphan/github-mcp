@@ -109,6 +109,14 @@ import type {
     UpdateHostedRunnerForOrgSuccess,
     DeleteHostedRunnerForOrgFailure,
     DeleteHostedRunnerForOrgSuccess,
+    GetOidcCustomSubTemplateForOrgFailure,
+    GetOidcCustomSubTemplateForOrgSuccess,
+    UpdateOidcCustomSubTemplateForOrgFailure,
+    UpdateOidcCustomSubTemplateForOrgSuccess,
+    GetCustomOidcSubClaimForRepoFailure,
+    GetCustomOidcSubClaimForRepoSuccess,
+    SetCustomOidcSubClaimForRepoFailure,
+    SetCustomOidcSubClaimForRepoSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -567,6 +575,14 @@ export function textAndData(
         | UpdateHostedRunnerForOrgFailure
         | DeleteHostedRunnerForOrgSuccess
         | DeleteHostedRunnerForOrgFailure
+        | GetOidcCustomSubTemplateForOrgSuccess
+        | GetOidcCustomSubTemplateForOrgFailure
+        | UpdateOidcCustomSubTemplateForOrgSuccess
+        | UpdateOidcCustomSubTemplateForOrgFailure
+        | GetCustomOidcSubClaimForRepoSuccess
+        | GetCustomOidcSubClaimForRepoFailure
+        | SetCustomOidcSubClaimForRepoSuccess
+        | SetCustomOidcSubClaimForRepoFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
