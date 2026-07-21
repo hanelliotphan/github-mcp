@@ -3413,3 +3413,60 @@ export type DeleteActionsCacheByIdSuccess = {
 };
 
 export type DeleteActionsCacheByIdFailure = CreateRepoFailure;
+
+/** One concurrency group entry (shape varies by endpoint). */
+export type ConcurrencyGroupItem = Record<string, unknown>;
+
+/** GET /repos/{owner}/{repo}/actions/concurrency_groups — HTTP 200. MCP tool: `github_list_concurrency_groups_for_repo`. */
+export type ListConcurrencyGroupsForRepoSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Total count reported by GitHub. */
+    total_count: number;
+    concurrency_groups: ConcurrencyGroupItem[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListConcurrencyGroupsForRepoFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/concurrency_groups/{concurrency_group_name} — HTTP 200. MCP tool: `github_get_concurrency_group`. */
+export type GetConcurrencyGroupSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    concurrency_group_name: string;
+    concurrency_group: ConcurrencyGroupItem;
+    request_id: string | null;
+};
+
+export type GetConcurrencyGroupFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/concurrency_groups — HTTP 200. MCP tool: `github_list_concurrency_groups_for_workflow_run`. */
+export type ListConcurrencyGroupsForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    /** Total count reported by GitHub. */
+    total_count: number;
+    concurrency_groups: ConcurrencyGroupItem[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListConcurrencyGroupsForWorkflowRunFailure = CreateRepoFailure;

@@ -202,6 +202,9 @@ import { registerGithubGetActionsCacheUsageByRepoForOrgTool } from "./tools/acti
 import { registerGithubListActionsCachesTool } from "./tools/actions/cache/github-list-actions-caches.js";
 import { registerGithubDeleteActionsCacheByKeyTool } from "./tools/actions/cache/github-delete-actions-cache-by-key.js";
 import { registerGithubDeleteActionsCacheByIdTool } from "./tools/actions/cache/github-delete-actions-cache-by-id.js";
+import { registerGithubListConcurrencyGroupsForRepoTool } from "./tools/actions/concurrency-groups/github-list-concurrency-groups-for-repo.js";
+import { registerGithubGetConcurrencyGroupTool } from "./tools/actions/concurrency-groups/github-get-concurrency-group.js";
+import { registerGithubListConcurrencyGroupsForWorkflowRunTool } from "./tools/actions/concurrency-groups/github-list-concurrency-groups-for-workflow-run.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -417,6 +420,9 @@ registerGithubGetActionsCacheUsageByRepoForOrgTool(server, octokit);
 registerGithubListActionsCachesTool(server, octokit);
 registerGithubDeleteActionsCacheByKeyTool(server, octokit);
 registerGithubDeleteActionsCacheByIdTool(server, octokit);
+registerGithubListConcurrencyGroupsForRepoTool(server, octokit);
+registerGithubGetConcurrencyGroupTool(server, octokit);
+registerGithubListConcurrencyGroupsForWorkflowRunTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

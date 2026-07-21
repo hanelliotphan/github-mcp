@@ -71,6 +71,12 @@ import type {
     DeleteActionsCacheByKeySuccess,
     DeleteActionsCacheByIdFailure,
     DeleteActionsCacheByIdSuccess,
+    ListConcurrencyGroupsForRepoFailure,
+    ListConcurrencyGroupsForRepoSuccess,
+    GetConcurrencyGroupFailure,
+    GetConcurrencyGroupSuccess,
+    ListConcurrencyGroupsForWorkflowRunFailure,
+    ListConcurrencyGroupsForWorkflowRunSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -491,6 +497,12 @@ export function textAndData(
         | DeleteActionsCacheByKeyFailure
         | DeleteActionsCacheByIdSuccess
         | DeleteActionsCacheByIdFailure
+        | ListConcurrencyGroupsForRepoSuccess
+        | ListConcurrencyGroupsForRepoFailure
+        | GetConcurrencyGroupSuccess
+        | GetConcurrencyGroupFailure
+        | ListConcurrencyGroupsForWorkflowRunSuccess
+        | ListConcurrencyGroupsForWorkflowRunFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

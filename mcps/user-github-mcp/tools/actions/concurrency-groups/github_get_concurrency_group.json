@@ -1,0 +1,35 @@
+{
+  "name": "github_get_concurrency_group",
+  "description": "Get a specific GitHub Actions concurrency group for a repository including its queue (GET /repos/{owner}/{repo}/actions/concurrency_groups/{concurrency_group_name}). Returns group_name, group_url, total_count, group_members. 404 if inactive/missing. Optional ahead_of_run or ahead_of_job (mutually exclusive). Classic tokens need repo scope for private repos. See GitHub REST Actions concurrency groups.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "concurrency_group_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "ahead_of_run": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "ahead_of_job": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": ["owner", "name", "concurrency_group_name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
