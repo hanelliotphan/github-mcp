@@ -15,9 +15,11 @@
         "@modelcontextprotocol/sdk": "^1.17.4",
         "@octokit/rest": "^22.0.0",
         "dotenv": "^17.2.3",
+        "libsodium-wrappers": "^0.8.4",
         "zod": "^4.1.12"
     },
     "devDependencies": {
+        "@types/libsodium-wrappers": "^0.7.14",
         "@types/node": "^24.6.0",
         "tsx": "^4.20.6",
         "typescript": "^5.9.3"

@@ -153,6 +153,46 @@ import type {
     GetGithubActionsDefaultWorkflowPermissionsRepositorySuccess,
     SetGithubActionsDefaultWorkflowPermissionsRepositoryFailure,
     SetGithubActionsDefaultWorkflowPermissionsRepositorySuccess,
+    ListOrgActionsSecretsFailure,
+    ListOrgActionsSecretsSuccess,
+    GetOrgActionsPublicKeyFailure,
+    GetOrgActionsPublicKeySuccess,
+    GetOrgActionsSecretFailure,
+    GetOrgActionsSecretSuccess,
+    CreateOrUpdateOrgActionsSecretFailure,
+    CreateOrUpdateOrgActionsSecretSuccess,
+    DeleteOrgActionsSecretFailure,
+    DeleteOrgActionsSecretSuccess,
+    ListSelectedReposForOrgActionsSecretFailure,
+    ListSelectedReposForOrgActionsSecretSuccess,
+    SetSelectedReposForOrgActionsSecretFailure,
+    SetSelectedReposForOrgActionsSecretSuccess,
+    AddSelectedRepoToOrgActionsSecretFailure,
+    AddSelectedRepoToOrgActionsSecretSuccess,
+    RemoveSelectedRepoFromOrgActionsSecretFailure,
+    RemoveSelectedRepoFromOrgActionsSecretSuccess,
+    ListRepoOrganizationActionsSecretsFailure,
+    ListRepoOrganizationActionsSecretsSuccess,
+    ListRepoActionsSecretsFailure,
+    ListRepoActionsSecretsSuccess,
+    GetRepoActionsPublicKeyFailure,
+    GetRepoActionsPublicKeySuccess,
+    GetRepoActionsSecretFailure,
+    GetRepoActionsSecretSuccess,
+    CreateOrUpdateRepoActionsSecretFailure,
+    CreateOrUpdateRepoActionsSecretSuccess,
+    DeleteRepoActionsSecretFailure,
+    DeleteRepoActionsSecretSuccess,
+    ListEnvironmentActionsSecretsFailure,
+    ListEnvironmentActionsSecretsSuccess,
+    GetEnvironmentActionsPublicKeyFailure,
+    GetEnvironmentActionsPublicKeySuccess,
+    GetEnvironmentActionsSecretFailure,
+    GetEnvironmentActionsSecretSuccess,
+    CreateOrUpdateEnvironmentActionsSecretFailure,
+    CreateOrUpdateEnvironmentActionsSecretSuccess,
+    DeleteEnvironmentActionsSecretFailure,
+    DeleteEnvironmentActionsSecretSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -655,6 +695,46 @@ export function textAndData(
         | GetGithubActionsDefaultWorkflowPermissionsRepositoryFailure
         | SetGithubActionsDefaultWorkflowPermissionsRepositorySuccess
         | SetGithubActionsDefaultWorkflowPermissionsRepositoryFailure
+        | ListOrgActionsSecretsSuccess
+        | ListOrgActionsSecretsFailure
+        | GetOrgActionsPublicKeySuccess
+        | GetOrgActionsPublicKeyFailure
+        | GetOrgActionsSecretSuccess
+        | GetOrgActionsSecretFailure
+        | CreateOrUpdateOrgActionsSecretSuccess
+        | CreateOrUpdateOrgActionsSecretFailure
+        | DeleteOrgActionsSecretSuccess
+        | DeleteOrgActionsSecretFailure
+        | ListSelectedReposForOrgActionsSecretSuccess
+        | ListSelectedReposForOrgActionsSecretFailure
+        | SetSelectedReposForOrgActionsSecretSuccess
+        | SetSelectedReposForOrgActionsSecretFailure
+        | AddSelectedRepoToOrgActionsSecretSuccess
+        | AddSelectedRepoToOrgActionsSecretFailure
+        | RemoveSelectedRepoFromOrgActionsSecretSuccess
+        | RemoveSelectedRepoFromOrgActionsSecretFailure
+        | ListRepoOrganizationActionsSecretsSuccess
+        | ListRepoOrganizationActionsSecretsFailure
+        | ListRepoActionsSecretsSuccess
+        | ListRepoActionsSecretsFailure
+        | GetRepoActionsPublicKeySuccess
+        | GetRepoActionsPublicKeyFailure
+        | GetRepoActionsSecretSuccess
+        | GetRepoActionsSecretFailure
+        | CreateOrUpdateRepoActionsSecretSuccess
+        | CreateOrUpdateRepoActionsSecretFailure
+        | DeleteRepoActionsSecretSuccess
+        | DeleteRepoActionsSecretFailure
+        | ListEnvironmentActionsSecretsSuccess
+        | ListEnvironmentActionsSecretsFailure
+        | GetEnvironmentActionsPublicKeySuccess
+        | GetEnvironmentActionsPublicKeyFailure
+        | GetEnvironmentActionsSecretSuccess
+        | GetEnvironmentActionsSecretFailure
+        | CreateOrUpdateEnvironmentActionsSecretSuccess
+        | CreateOrUpdateEnvironmentActionsSecretFailure
+        | DeleteEnvironmentActionsSecretSuccess
+        | DeleteEnvironmentActionsSecretFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

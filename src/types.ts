@@ -3968,3 +3968,319 @@ export type SetGithubActionsDefaultWorkflowPermissionsRepositorySuccess = {
 };
 
 export type SetGithubActionsDefaultWorkflowPermissionsRepositoryFailure = CreateRepoFailure;
+
+/** One GitHub Actions secret (name + timestamps; org secrets also include visibility). Value is never returned. */
+export type ActionsSecretItem = Record<string, unknown>;
+
+/** A GitHub Actions public key used to encrypt secrets (`key_id`, `key`). */
+export type ActionsPublicKey = Record<string, unknown>;
+
+/** GET /orgs/{org}/actions/secrets — HTTP 200. MCP tool: `github_list_org_actions_secrets`. */
+export type ListOrgActionsSecretsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    secrets: ActionsSecretItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgActionsSecretsFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/secrets/public-key — HTTP 200. MCP tool: `github_get_org_actions_public_key`. */
+export type GetOrgActionsPublicKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    public_key: ActionsPublicKey;
+    request_id: string | null;
+};
+
+export type GetOrgActionsPublicKeyFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/secrets/{secret_name} — HTTP 200. MCP tool: `github_get_org_actions_secret`. */
+export type GetOrgActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    secret: ActionsSecretItem;
+    request_id: string | null;
+};
+
+export type GetOrgActionsSecretFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/secrets/{secret_name} — HTTP 201 (created) or 204 (updated). MCP tool: `github_create_or_update_org_actions_secret`. */
+export type CreateOrUpdateOrgActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    /** True when GitHub returned 201 (a new secret was created). */
+    created: boolean;
+    request_id: string | null;
+};
+
+export type CreateOrUpdateOrgActionsSecretFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/secrets/{secret_name} — HTTP 204 No Content. MCP tool: `github_delete_org_actions_secret`. */
+export type DeleteOrgActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    request_id: string | null;
+};
+
+export type DeleteOrgActionsSecretFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/secrets/{secret_name}/repositories — HTTP 200. MCP tool: `github_list_selected_repos_for_org_actions_secret`. */
+export type ListSelectedReposForOrgActionsSecretSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    secret_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelectedReposForOrgActionsSecretFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/secrets/{secret_name}/repositories — HTTP 204 No Content. MCP tool: `github_set_selected_repos_for_org_actions_secret`. */
+export type SetSelectedReposForOrgActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+
+export type SetSelectedReposForOrgActionsSecretFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_add_selected_repo_to_org_actions_secret`. */
+export type AddSelectedRepoToOrgActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type AddSelectedRepoToOrgActionsSecretFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_remove_selected_repo_from_org_actions_secret`. */
+export type RemoveSelectedRepoFromOrgActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type RemoveSelectedRepoFromOrgActionsSecretFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/organization-secrets — HTTP 200. MCP tool: `github_list_repo_organization_actions_secrets`. */
+export type ListRepoOrganizationActionsSecretsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    secrets: ActionsSecretItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoOrganizationActionsSecretsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/secrets — HTTP 200. MCP tool: `github_list_repo_actions_secrets`. */
+export type ListRepoActionsSecretsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    secrets: ActionsSecretItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoActionsSecretsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/secrets/public-key — HTTP 200. MCP tool: `github_get_repo_actions_public_key`. */
+export type GetRepoActionsPublicKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    public_key: ActionsPublicKey;
+    request_id: string | null;
+};
+
+export type GetRepoActionsPublicKeyFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/secrets/{secret_name} — HTTP 200. MCP tool: `github_get_repo_actions_secret`. */
+export type GetRepoActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    secret_name: string;
+    secret: ActionsSecretItem;
+    request_id: string | null;
+};
+
+export type GetRepoActionsSecretFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/secrets/{secret_name} — HTTP 201 (created) or 204 (updated). MCP tool: `github_create_or_update_repo_actions_secret`. */
+export type CreateOrUpdateRepoActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    secret_name: string;
+    /** True when GitHub returned 201 (a new secret was created). */
+    created: boolean;
+    request_id: string | null;
+};
+
+export type CreateOrUpdateRepoActionsSecretFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/secrets/{secret_name} — HTTP 204 No Content. MCP tool: `github_delete_repo_actions_secret`. */
+export type DeleteRepoActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    secret_name: string;
+    request_id: string | null;
+};
+
+export type DeleteRepoActionsSecretFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/environments/{environment_name}/secrets — HTTP 200. MCP tool: `github_list_environment_actions_secrets`. */
+export type ListEnvironmentActionsSecretsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    secrets: ActionsSecretItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListEnvironmentActionsSecretsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key — HTTP 200. MCP tool: `github_get_environment_actions_public_key`. */
+export type GetEnvironmentActionsPublicKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    public_key: ActionsPublicKey;
+    request_id: string | null;
+};
+
+export type GetEnvironmentActionsPublicKeyFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name} — HTTP 200. MCP tool: `github_get_environment_actions_secret`. */
+export type GetEnvironmentActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    secret_name: string;
+    secret: ActionsSecretItem;
+    request_id: string | null;
+};
+
+export type GetEnvironmentActionsSecretFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name} — HTTP 201 (created) or 204 (updated). MCP tool: `github_create_or_update_environment_actions_secret`. */
+export type CreateOrUpdateEnvironmentActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    secret_name: string;
+    /** True when GitHub returned 201 (a new secret was created). */
+    created: boolean;
+    request_id: string | null;
+};
+
+export type CreateOrUpdateEnvironmentActionsSecretFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name} — HTTP 204 No Content. MCP tool: `github_delete_environment_actions_secret`. */
+export type DeleteEnvironmentActionsSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    environment_name: string;
+    secret_name: string;
+    request_id: string | null;
+};
+
+export type DeleteEnvironmentActionsSecretFailure = CreateRepoFailure;
