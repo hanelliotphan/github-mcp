@@ -117,6 +117,42 @@ import type {
     GetCustomOidcSubClaimForRepoSuccess,
     SetCustomOidcSubClaimForRepoFailure,
     SetCustomOidcSubClaimForRepoSuccess,
+    GetGithubActionsPermissionsOrganizationFailure,
+    GetGithubActionsPermissionsOrganizationSuccess,
+    SetGithubActionsPermissionsOrganizationFailure,
+    SetGithubActionsPermissionsOrganizationSuccess,
+    ListSelectedRepositoriesEnabledGithubActionsOrganizationFailure,
+    ListSelectedRepositoriesEnabledGithubActionsOrganizationSuccess,
+    SetSelectedRepositoriesEnabledGithubActionsOrganizationFailure,
+    SetSelectedRepositoriesEnabledGithubActionsOrganizationSuccess,
+    EnableSelectedRepositoryGithubActionsOrganizationFailure,
+    EnableSelectedRepositoryGithubActionsOrganizationSuccess,
+    DisableSelectedRepositoryGithubActionsOrganizationFailure,
+    DisableSelectedRepositoryGithubActionsOrganizationSuccess,
+    GetAllowedActionsOrganizationFailure,
+    GetAllowedActionsOrganizationSuccess,
+    SetAllowedActionsOrganizationFailure,
+    SetAllowedActionsOrganizationSuccess,
+    GetGithubActionsDefaultWorkflowPermissionsOrganizationFailure,
+    GetGithubActionsDefaultWorkflowPermissionsOrganizationSuccess,
+    SetGithubActionsDefaultWorkflowPermissionsOrganizationFailure,
+    SetGithubActionsDefaultWorkflowPermissionsOrganizationSuccess,
+    GetGithubActionsPermissionsRepositoryFailure,
+    GetGithubActionsPermissionsRepositorySuccess,
+    SetGithubActionsPermissionsRepositoryFailure,
+    SetGithubActionsPermissionsRepositorySuccess,
+    GetWorkflowAccessToRepositoryFailure,
+    GetWorkflowAccessToRepositorySuccess,
+    SetWorkflowAccessToRepositoryFailure,
+    SetWorkflowAccessToRepositorySuccess,
+    GetAllowedActionsRepositoryFailure,
+    GetAllowedActionsRepositorySuccess,
+    SetAllowedActionsRepositoryFailure,
+    SetAllowedActionsRepositorySuccess,
+    GetGithubActionsDefaultWorkflowPermissionsRepositoryFailure,
+    GetGithubActionsDefaultWorkflowPermissionsRepositorySuccess,
+    SetGithubActionsDefaultWorkflowPermissionsRepositoryFailure,
+    SetGithubActionsDefaultWorkflowPermissionsRepositorySuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -583,6 +619,42 @@ export function textAndData(
         | GetCustomOidcSubClaimForRepoFailure
         | SetCustomOidcSubClaimForRepoSuccess
         | SetCustomOidcSubClaimForRepoFailure
+        | GetGithubActionsPermissionsOrganizationSuccess
+        | GetGithubActionsPermissionsOrganizationFailure
+        | SetGithubActionsPermissionsOrganizationSuccess
+        | SetGithubActionsPermissionsOrganizationFailure
+        | ListSelectedRepositoriesEnabledGithubActionsOrganizationSuccess
+        | ListSelectedRepositoriesEnabledGithubActionsOrganizationFailure
+        | SetSelectedRepositoriesEnabledGithubActionsOrganizationSuccess
+        | SetSelectedRepositoriesEnabledGithubActionsOrganizationFailure
+        | EnableSelectedRepositoryGithubActionsOrganizationSuccess
+        | EnableSelectedRepositoryGithubActionsOrganizationFailure
+        | DisableSelectedRepositoryGithubActionsOrganizationSuccess
+        | DisableSelectedRepositoryGithubActionsOrganizationFailure
+        | GetAllowedActionsOrganizationSuccess
+        | GetAllowedActionsOrganizationFailure
+        | SetAllowedActionsOrganizationSuccess
+        | SetAllowedActionsOrganizationFailure
+        | GetGithubActionsDefaultWorkflowPermissionsOrganizationSuccess
+        | GetGithubActionsDefaultWorkflowPermissionsOrganizationFailure
+        | SetGithubActionsDefaultWorkflowPermissionsOrganizationSuccess
+        | SetGithubActionsDefaultWorkflowPermissionsOrganizationFailure
+        | GetGithubActionsPermissionsRepositorySuccess
+        | GetGithubActionsPermissionsRepositoryFailure
+        | SetGithubActionsPermissionsRepositorySuccess
+        | SetGithubActionsPermissionsRepositoryFailure
+        | GetWorkflowAccessToRepositorySuccess
+        | GetWorkflowAccessToRepositoryFailure
+        | SetWorkflowAccessToRepositorySuccess
+        | SetWorkflowAccessToRepositoryFailure
+        | GetAllowedActionsRepositorySuccess
+        | GetAllowedActionsRepositoryFailure
+        | SetAllowedActionsRepositorySuccess
+        | SetAllowedActionsRepositoryFailure
+        | GetGithubActionsDefaultWorkflowPermissionsRepositorySuccess
+        | GetGithubActionsDefaultWorkflowPermissionsRepositoryFailure
+        | SetGithubActionsDefaultWorkflowPermissionsRepositorySuccess
+        | SetGithubActionsDefaultWorkflowPermissionsRepositoryFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

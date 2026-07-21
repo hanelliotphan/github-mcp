@@ -1,0 +1,16 @@
+{
+  "name": "github_set_allowed_actions_repository",
+  "description": "Set allowed actions and reusable workflows for a repository (PUT /repos/{owner}/{repo}/actions/permissions/selected-actions). Optional github_owned_allowed, verified_allowed, patterns_allowed. Success is HTTP 204. Requires repo admin; classic tokens need repo scope. See GitHub REST Actions permissions.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" },
+      "github_owned_allowed": { "type": "boolean" },
+      "verified_allowed": { "type": "boolean" },
+      "patterns_allowed": { "type": "array", "items": { "type": "string" } }
+    },
+    "required": ["owner", "name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

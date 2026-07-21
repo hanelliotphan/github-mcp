@@ -1,0 +1,14 @@
+{
+  "name": "github_set_workflow_access_to_repository",
+  "description": "Set the level of access other repositories have to a repository's Actions resources (PUT /repos/{owner}/{repo}/actions/permissions/access). Body access_level (none|user|organization|enterprise). Success is HTTP 204. Requires repo admin; classic tokens need repo scope. See GitHub REST Actions permissions.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" },
+      "access_level": { "type": "string", "enum": ["none", "user", "organization", "enterprise"] }
+    },
+    "required": ["owner", "name", "access_level"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

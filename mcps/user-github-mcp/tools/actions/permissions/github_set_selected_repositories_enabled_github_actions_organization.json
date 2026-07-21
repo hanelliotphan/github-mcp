@@ -1,0 +1,13 @@
+{
+  "name": "github_set_selected_repositories_enabled_github_actions_organization",
+  "description": "Replace the list of selected repositories enabled for GitHub Actions in an organization (PUT /orgs/{org}/actions/permissions/repositories). Body selected_repository_ids (array of integers). Success is HTTP 204. Requires org owner; classic tokens need admin:org scope. See GitHub REST Actions permissions.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "selected_repository_ids": { "type": "array", "items": { "type": "integer" } }
+    },
+    "required": ["org", "selected_repository_ids"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

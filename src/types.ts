@@ -3737,3 +3737,234 @@ export type SetCustomOidcSubClaimForRepoSuccess = {
 };
 
 export type SetCustomOidcSubClaimForRepoFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/permissions — HTTP 200. MCP tool: `github_get_github_actions_permissions_organization`. */
+export type GetGithubActionsPermissionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    permissions: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetGithubActionsPermissionsOrganizationFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/permissions — HTTP 204. MCP tool: `github_set_github_actions_permissions_organization`. */
+export type SetGithubActionsPermissionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    request_id: string | null;
+};
+
+export type SetGithubActionsPermissionsOrganizationFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/permissions/repositories — HTTP 200. MCP tool: `github_list_selected_repositories_enabled_github_actions_organization`. */
+export type ListSelectedRepositoriesEnabledGithubActionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelectedRepositoriesEnabledGithubActionsOrganizationFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/permissions/repositories — HTTP 204. MCP tool: `github_set_selected_repositories_enabled_github_actions_organization`. */
+export type SetSelectedRepositoriesEnabledGithubActionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+
+export type SetSelectedRepositoriesEnabledGithubActionsOrganizationFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/permissions/repositories/{repository_id} — HTTP 204. MCP tool: `github_enable_selected_repository_github_actions_organization`. */
+export type EnableSelectedRepositoryGithubActionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type EnableSelectedRepositoryGithubActionsOrganizationFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/permissions/repositories/{repository_id} — HTTP 204. MCP tool: `github_disable_selected_repository_github_actions_organization`. */
+export type DisableSelectedRepositoryGithubActionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type DisableSelectedRepositoryGithubActionsOrganizationFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/permissions/selected-actions — HTTP 200. MCP tool: `github_get_allowed_actions_organization`. */
+export type GetAllowedActionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    allowed_actions: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetAllowedActionsOrganizationFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/permissions/selected-actions — HTTP 204. MCP tool: `github_set_allowed_actions_organization`. */
+export type SetAllowedActionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    request_id: string | null;
+};
+
+export type SetAllowedActionsOrganizationFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/permissions/workflow — HTTP 200. MCP tool: `github_get_github_actions_default_workflow_permissions_organization`. */
+export type GetGithubActionsDefaultWorkflowPermissionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    permissions: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetGithubActionsDefaultWorkflowPermissionsOrganizationFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/permissions/workflow — HTTP 204. MCP tool: `github_set_github_actions_default_workflow_permissions_organization`. */
+export type SetGithubActionsDefaultWorkflowPermissionsOrganizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    request_id: string | null;
+};
+
+export type SetGithubActionsDefaultWorkflowPermissionsOrganizationFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/permissions — HTTP 200. MCP tool: `github_get_github_actions_permissions_repository`. */
+export type GetGithubActionsPermissionsRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    permissions: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetGithubActionsPermissionsRepositoryFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/permissions — HTTP 204. MCP tool: `github_set_github_actions_permissions_repository`. */
+export type SetGithubActionsPermissionsRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type SetGithubActionsPermissionsRepositoryFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/permissions/access — HTTP 200. MCP tool: `github_get_workflow_access_to_repository`. */
+export type GetWorkflowAccessToRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    access: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetWorkflowAccessToRepositoryFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/permissions/access — HTTP 204. MCP tool: `github_set_workflow_access_to_repository`. */
+export type SetWorkflowAccessToRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    access_level: string;
+    request_id: string | null;
+};
+
+export type SetWorkflowAccessToRepositoryFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/permissions/selected-actions — HTTP 200. MCP tool: `github_get_allowed_actions_repository`. */
+export type GetAllowedActionsRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    allowed_actions: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetAllowedActionsRepositoryFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/permissions/selected-actions — HTTP 204. MCP tool: `github_set_allowed_actions_repository`. */
+export type SetAllowedActionsRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type SetAllowedActionsRepositoryFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/permissions/workflow — HTTP 200. MCP tool: `github_get_github_actions_default_workflow_permissions_repository`. */
+export type GetGithubActionsDefaultWorkflowPermissionsRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    permissions: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetGithubActionsDefaultWorkflowPermissionsRepositoryFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/actions/permissions/workflow — HTTP 204. MCP tool: `github_set_github_actions_default_workflow_permissions_repository`. */
+export type SetGithubActionsDefaultWorkflowPermissionsRepositorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type SetGithubActionsDefaultWorkflowPermissionsRepositoryFailure = CreateRepoFailure;

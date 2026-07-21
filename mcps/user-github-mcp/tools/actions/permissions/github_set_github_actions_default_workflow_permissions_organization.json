@@ -1,0 +1,14 @@
+{
+  "name": "github_set_github_actions_default_workflow_permissions_organization",
+  "description": "Set default workflow permissions for an organization (PUT /orgs/{org}/actions/permissions/workflow). Optional default_workflow_permissions (read|write) and can_approve_pull_request_reviews. Success is HTTP 204. Requires org owner; classic tokens need admin:org scope. See GitHub REST Actions permissions.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "default_workflow_permissions": { "type": "string", "enum": ["read", "write"] },
+      "can_approve_pull_request_reviews": { "type": "boolean" }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

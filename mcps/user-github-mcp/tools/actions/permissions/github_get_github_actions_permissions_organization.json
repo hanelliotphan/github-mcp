@@ -1,0 +1,12 @@
+{
+  "name": "github_get_github_actions_permissions_organization",
+  "description": "Get GitHub Actions permissions policy for an organization (GET /orgs/{org}/actions/permissions). Returns enabled_repositories, allowed_actions, selected_actions_url. Requires org owner; classic tokens need admin:org scope. See GitHub REST Actions permissions.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
