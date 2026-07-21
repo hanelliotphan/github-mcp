@@ -5043,3 +5043,78 @@ export type DeleteEnvironmentActionsVariableSuccess = {
 };
 
 export type DeleteEnvironmentActionsVariableFailure = CreateRepoFailure;
+
+/** One GitHub Actions workflow job (id, run_id, status, conclusion, steps, …). */
+export type WorkflowJobItem = Record<string, unknown>;
+
+/** GET /repos/{owner}/{repo}/actions/jobs/{job_id} — HTTP 200. MCP tool: `github_get_job_for_workflow_run`. */
+export type GetJobForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    job_id: number;
+    job: WorkflowJobItem;
+    request_id: string | null;
+};
+
+export type GetJobForWorkflowRunFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/jobs/{job_id}/logs — HTTP 302 Found (redirect URL). MCP tool: `github_download_job_logs_for_workflow_run`. */
+export type DownloadJobLogsForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    job_id: number;
+    logs_download_url: string;
+    request_id: string | null;
+};
+
+export type DownloadJobLogsForWorkflowRunFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs — HTTP 200. MCP tool: `github_list_jobs_for_workflow_run_attempt`. */
+export type ListJobsForWorkflowRunAttemptSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    attempt_number: number;
+    total_count: number;
+    jobs: WorkflowJobItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListJobsForWorkflowRunAttemptFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs — HTTP 200. MCP tool: `github_list_jobs_for_workflow_run`. */
+export type ListJobsForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    filter: "latest" | "all";
+    total_count: number;
+    jobs: WorkflowJobItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListJobsForWorkflowRunFailure = CreateRepoFailure;

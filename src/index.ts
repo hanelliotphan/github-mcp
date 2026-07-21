@@ -321,6 +321,10 @@ import { registerGithubCreateEnvironmentActionsVariableTool } from "./tools/acti
 import { registerGithubGetEnvironmentActionsVariableTool } from "./tools/actions/variables/github-get-environment-actions-variable.js";
 import { registerGithubUpdateEnvironmentActionsVariableTool } from "./tools/actions/variables/github-update-environment-actions-variable.js";
 import { registerGithubDeleteEnvironmentActionsVariableTool } from "./tools/actions/variables/github-delete-environment-actions-variable.js";
+import { registerGithubGetJobForWorkflowRunTool } from "./tools/actions/workflow-jobs/github-get-job-for-workflow-run.js";
+import { registerGithubDownloadJobLogsForWorkflowRunTool } from "./tools/actions/workflow-jobs/github-download-job-logs-for-workflow-run.js";
+import { registerGithubListJobsForWorkflowRunAttemptTool } from "./tools/actions/workflow-jobs/github-list-jobs-for-workflow-run-attempt.js";
+import { registerGithubListJobsForWorkflowRunTool } from "./tools/actions/workflow-jobs/github-list-jobs-for-workflow-run.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -655,6 +659,10 @@ registerGithubCreateEnvironmentActionsVariableTool(server, octokit);
 registerGithubGetEnvironmentActionsVariableTool(server, octokit);
 registerGithubUpdateEnvironmentActionsVariableTool(server, octokit);
 registerGithubDeleteEnvironmentActionsVariableTool(server, octokit);
+registerGithubGetJobForWorkflowRunTool(server, octokit);
+registerGithubDownloadJobLogsForWorkflowRunTool(server, octokit);
+registerGithubListJobsForWorkflowRunAttemptTool(server, octokit);
+registerGithubListJobsForWorkflowRunTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

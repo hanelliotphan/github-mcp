@@ -309,6 +309,14 @@ import type {
     UpdateEnvironmentActionsVariableSuccess,
     DeleteEnvironmentActionsVariableFailure,
     DeleteEnvironmentActionsVariableSuccess,
+    GetJobForWorkflowRunFailure,
+    GetJobForWorkflowRunSuccess,
+    DownloadJobLogsForWorkflowRunFailure,
+    DownloadJobLogsForWorkflowRunSuccess,
+    ListJobsForWorkflowRunAttemptFailure,
+    ListJobsForWorkflowRunAttemptSuccess,
+    ListJobsForWorkflowRunFailure,
+    ListJobsForWorkflowRunSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -967,6 +975,14 @@ export function textAndData(
         | UpdateEnvironmentActionsVariableFailure
         | DeleteEnvironmentActionsVariableSuccess
         | DeleteEnvironmentActionsVariableFailure
+        | GetJobForWorkflowRunSuccess
+        | GetJobForWorkflowRunFailure
+        | DownloadJobLogsForWorkflowRunSuccess
+        | DownloadJobLogsForWorkflowRunFailure
+        | ListJobsForWorkflowRunAttemptSuccess
+        | ListJobsForWorkflowRunAttemptFailure
+        | ListJobsForWorkflowRunSuccess
+        | ListJobsForWorkflowRunFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
