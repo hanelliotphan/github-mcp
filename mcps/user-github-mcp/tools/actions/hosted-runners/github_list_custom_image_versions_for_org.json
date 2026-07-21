@@ -1,0 +1,18 @@
+{
+  "name": "github_list_custom_image_versions_for_org",
+  "description": "List image versions of a custom image for an organization (GET /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions). Returns total_count and image_versions. Classic tokens need manage_runners:org scope. See GitHub REST Actions hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "image_definition_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["org", "image_definition_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "github_get_hosted_runner_for_org",
+  "description": "Get a GitHub-hosted runner configured in an organization (GET /orgs/{org}/actions/hosted-runners/{hosted_runner_id}). Returns the runner object. Classic tokens need manage_runners:org scope. See GitHub REST Actions hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "hosted_runner_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["org", "hosted_runner_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

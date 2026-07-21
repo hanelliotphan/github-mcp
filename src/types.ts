@@ -3470,3 +3470,217 @@ export type ListConcurrencyGroupsForWorkflowRunSuccess = {
 };
 
 export type ListConcurrencyGroupsForWorkflowRunFailure = CreateRepoFailure;
+
+/** A GitHub-hosted runner or related image/spec object (shape varies by endpoint). */
+export type HostedRunnerItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/actions/hosted-runners — HTTP 200. MCP tool: `github_list_hosted_runners_for_org`. */
+export type ListHostedRunnersForOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    runners: HostedRunnerItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListHostedRunnersForOrgFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/actions/hosted-runners — HTTP 201. MCP tool: `github_create_hosted_runner_for_org`. */
+export type CreateHostedRunnerForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner: HostedRunnerItem;
+    request_id: string | null;
+};
+
+export type CreateHostedRunnerForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/images/custom — HTTP 200. MCP tool: `github_list_custom_images_for_org`. */
+export type ListCustomImagesForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    images: HostedRunnerItem[];
+    request_id: string | null;
+};
+
+export type ListCustomImagesForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id} — HTTP 200. MCP tool: `github_get_custom_image_for_org`. */
+export type GetCustomImageForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    image_definition_id: number;
+    image: HostedRunnerItem;
+    request_id: string | null;
+};
+
+export type GetCustomImageForOrgFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id} — HTTP 204. MCP tool: `github_delete_custom_image_from_org`. */
+export type DeleteCustomImageFromOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    image_definition_id: number;
+    request_id: string | null;
+};
+
+export type DeleteCustomImageFromOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions — HTTP 200. MCP tool: `github_list_custom_image_versions_for_org`. */
+export type ListCustomImageVersionsForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    image_definition_id: number;
+    total_count: number;
+    image_versions: HostedRunnerItem[];
+    request_id: string | null;
+};
+
+export type ListCustomImageVersionsForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version} — HTTP 200. MCP tool: `github_get_custom_image_version_for_org`. */
+export type GetCustomImageVersionForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    image_definition_id: number;
+    version: string;
+    image_version: HostedRunnerItem;
+    request_id: string | null;
+};
+
+export type GetCustomImageVersionForOrgFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version} — HTTP 204. MCP tool: `github_delete_custom_image_version_from_org`. */
+export type DeleteCustomImageVersionFromOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    image_definition_id: number;
+    version: string;
+    request_id: string | null;
+};
+
+export type DeleteCustomImageVersionFromOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/images/github-owned — HTTP 200. MCP tool: `github_get_hosted_runners_github_owned_images_for_org`. */
+export type GetHostedRunnersGithubOwnedImagesForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    images: HostedRunnerItem[];
+    request_id: string | null;
+};
+
+export type GetHostedRunnersGithubOwnedImagesForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/images/partner — HTTP 200. MCP tool: `github_get_hosted_runners_partner_images_for_org`. */
+export type GetHostedRunnersPartnerImagesForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    images: HostedRunnerItem[];
+    request_id: string | null;
+};
+
+export type GetHostedRunnersPartnerImagesForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/limits — HTTP 200. MCP tool: `github_get_hosted_runners_limits_for_org`. */
+export type GetHostedRunnersLimitsForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    limits: HostedRunnerItem;
+    request_id: string | null;
+};
+
+export type GetHostedRunnersLimitsForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/machine-sizes — HTTP 200. MCP tool: `github_get_hosted_runners_machine_specs_for_org`. */
+export type GetHostedRunnersMachineSpecsForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    machine_specs: HostedRunnerItem[];
+    request_id: string | null;
+};
+
+export type GetHostedRunnersMachineSpecsForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/platforms — HTTP 200. MCP tool: `github_get_hosted_runners_platforms_for_org`. */
+export type GetHostedRunnersPlatformsForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    total_count: number;
+    platforms: string[];
+    request_id: string | null;
+};
+
+export type GetHostedRunnersPlatformsForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/hosted-runners/{hosted_runner_id} — HTTP 200. MCP tool: `github_get_hosted_runner_for_org`. */
+export type GetHostedRunnerForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hosted_runner_id: number;
+    runner: HostedRunnerItem;
+    request_id: string | null;
+};
+
+export type GetHostedRunnerForOrgFailure = CreateRepoFailure;
+
+/** PATCH /orgs/{org}/actions/hosted-runners/{hosted_runner_id} — HTTP 200. MCP tool: `github_update_hosted_runner_for_org`. */
+export type UpdateHostedRunnerForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hosted_runner_id: number;
+    runner: HostedRunnerItem;
+    request_id: string | null;
+};
+
+export type UpdateHostedRunnerForOrgFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/hosted-runners/{hosted_runner_id} — HTTP 202 Accepted. MCP tool: `github_delete_hosted_runner_for_org`. */
+export type DeleteHostedRunnerForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    hosted_runner_id: number;
+    runner: HostedRunnerItem;
+    request_id: string | null;
+};
+
+export type DeleteHostedRunnerForOrgFailure = CreateRepoFailure;

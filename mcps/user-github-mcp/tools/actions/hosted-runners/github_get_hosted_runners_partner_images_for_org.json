@@ -1,0 +1,17 @@
+{
+  "name": "github_get_hosted_runners_partner_images_for_org",
+  "description": "Get partner images available for GitHub-hosted runners in an organization (GET /orgs/{org}/actions/hosted-runners/images/partner). Returns total_count and images. See GitHub REST Actions hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

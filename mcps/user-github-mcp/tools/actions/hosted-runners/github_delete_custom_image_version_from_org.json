@@ -1,0 +1,19 @@
+{
+  "name": "github_delete_custom_image_version_from_org",
+  "description": "Delete an image version of a custom image from an organization (DELETE /orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}). Success is HTTP 204. Classic tokens need manage_runners:org scope. See GitHub REST Actions hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "image_definition_id": { "type": "integer", "minimum": 1 },
+      "version": { "type": "string", "minLength": 1 }
+    },
+    "required": ["org", "image_definition_id", "version"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

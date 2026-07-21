@@ -77,6 +77,38 @@ import type {
     GetConcurrencyGroupSuccess,
     ListConcurrencyGroupsForWorkflowRunFailure,
     ListConcurrencyGroupsForWorkflowRunSuccess,
+    ListHostedRunnersForOrgFailure,
+    ListHostedRunnersForOrgSuccess,
+    CreateHostedRunnerForOrgFailure,
+    CreateHostedRunnerForOrgSuccess,
+    ListCustomImagesForOrgFailure,
+    ListCustomImagesForOrgSuccess,
+    GetCustomImageForOrgFailure,
+    GetCustomImageForOrgSuccess,
+    DeleteCustomImageFromOrgFailure,
+    DeleteCustomImageFromOrgSuccess,
+    ListCustomImageVersionsForOrgFailure,
+    ListCustomImageVersionsForOrgSuccess,
+    GetCustomImageVersionForOrgFailure,
+    GetCustomImageVersionForOrgSuccess,
+    DeleteCustomImageVersionFromOrgFailure,
+    DeleteCustomImageVersionFromOrgSuccess,
+    GetHostedRunnersGithubOwnedImagesForOrgFailure,
+    GetHostedRunnersGithubOwnedImagesForOrgSuccess,
+    GetHostedRunnersPartnerImagesForOrgFailure,
+    GetHostedRunnersPartnerImagesForOrgSuccess,
+    GetHostedRunnersLimitsForOrgFailure,
+    GetHostedRunnersLimitsForOrgSuccess,
+    GetHostedRunnersMachineSpecsForOrgFailure,
+    GetHostedRunnersMachineSpecsForOrgSuccess,
+    GetHostedRunnersPlatformsForOrgFailure,
+    GetHostedRunnersPlatformsForOrgSuccess,
+    GetHostedRunnerForOrgFailure,
+    GetHostedRunnerForOrgSuccess,
+    UpdateHostedRunnerForOrgFailure,
+    UpdateHostedRunnerForOrgSuccess,
+    DeleteHostedRunnerForOrgFailure,
+    DeleteHostedRunnerForOrgSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -503,6 +535,38 @@ export function textAndData(
         | GetConcurrencyGroupFailure
         | ListConcurrencyGroupsForWorkflowRunSuccess
         | ListConcurrencyGroupsForWorkflowRunFailure
+        | ListHostedRunnersForOrgSuccess
+        | ListHostedRunnersForOrgFailure
+        | CreateHostedRunnerForOrgSuccess
+        | CreateHostedRunnerForOrgFailure
+        | ListCustomImagesForOrgSuccess
+        | ListCustomImagesForOrgFailure
+        | GetCustomImageForOrgSuccess
+        | GetCustomImageForOrgFailure
+        | DeleteCustomImageFromOrgSuccess
+        | DeleteCustomImageFromOrgFailure
+        | ListCustomImageVersionsForOrgSuccess
+        | ListCustomImageVersionsForOrgFailure
+        | GetCustomImageVersionForOrgSuccess
+        | GetCustomImageVersionForOrgFailure
+        | DeleteCustomImageVersionFromOrgSuccess
+        | DeleteCustomImageVersionFromOrgFailure
+        | GetHostedRunnersGithubOwnedImagesForOrgSuccess
+        | GetHostedRunnersGithubOwnedImagesForOrgFailure
+        | GetHostedRunnersPartnerImagesForOrgSuccess
+        | GetHostedRunnersPartnerImagesForOrgFailure
+        | GetHostedRunnersLimitsForOrgSuccess
+        | GetHostedRunnersLimitsForOrgFailure
+        | GetHostedRunnersMachineSpecsForOrgSuccess
+        | GetHostedRunnersMachineSpecsForOrgFailure
+        | GetHostedRunnersPlatformsForOrgSuccess
+        | GetHostedRunnersPlatformsForOrgFailure
+        | GetHostedRunnerForOrgSuccess
+        | GetHostedRunnerForOrgFailure
+        | UpdateHostedRunnerForOrgSuccess
+        | UpdateHostedRunnerForOrgFailure
+        | DeleteHostedRunnerForOrgSuccess
+        | DeleteHostedRunnerForOrgFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

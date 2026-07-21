@@ -1,0 +1,18 @@
+{
+  "name": "github_delete_hosted_runner_for_org",
+  "description": "Delete a GitHub-hosted runner for an organization (DELETE /orgs/{org}/actions/hosted-runners/{hosted_runner_id}). Success is HTTP 202 and returns the runner object. See GitHub REST Actions hosted runners.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "hosted_runner_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["org", "hosted_runner_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
