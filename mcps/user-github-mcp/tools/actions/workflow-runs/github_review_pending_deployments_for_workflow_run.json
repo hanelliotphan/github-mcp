@@ -1,0 +1,17 @@
+{
+  "name": "github_review_pending_deployments_for_workflow_run",
+  "description": "Approve or reject pending deployments waiting on protection rules for a workflow run (POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments). Provide environment_ids, state (approved or rejected), comment. Classic tokens need repo scope. Returns HTTP 200. See GitHub REST workflow runs.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" },
+      "run_id": { "type": "integer", "minimum": 1 },
+      "environment_ids": { "type": "array", "minItems": 1, "items": { "type": "integer", "minimum": 0 } },
+      "state": { "type": "string", "enum": ["approved", "rejected"] },
+      "comment": { "type": "string", "maxLength": 65535 }
+    },
+    "required": ["owner", "name", "run_id", "environment_ids", "state", "comment"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

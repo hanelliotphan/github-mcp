@@ -1,0 +1,15 @@
+{
+  "name": "github_re_run_job_for_workflow_run",
+  "description": "Re-run a job and its dependent jobs in a workflow run (POST /repos/{owner}/{repo}/actions/jobs/{job_id}/rerun). Optionally set enable_debug_logging. Classic tokens need repo scope. Returns HTTP 201. See GitHub REST workflow runs.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" },
+      "job_id": { "type": "integer", "minimum": 1 },
+      "enable_debug_logging": { "type": "boolean" }
+    },
+    "required": ["owner", "name", "job_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

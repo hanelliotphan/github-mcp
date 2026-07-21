@@ -317,6 +317,44 @@ import type {
     ListJobsForWorkflowRunAttemptSuccess,
     ListJobsForWorkflowRunFailure,
     ListJobsForWorkflowRunSuccess,
+    ReRunJobForWorkflowRunFailure,
+    ReRunJobForWorkflowRunSuccess,
+    ListWorkflowRunsForRepoFailure,
+    ListWorkflowRunsForRepoSuccess,
+    GetWorkflowRunFailure,
+    GetWorkflowRunSuccess,
+    DeleteWorkflowRunFailure,
+    DeleteWorkflowRunSuccess,
+    GetReviewsForWorkflowRunFailure,
+    GetReviewsForWorkflowRunSuccess,
+    ApproveWorkflowRunFailure,
+    ApproveWorkflowRunSuccess,
+    GetWorkflowRunAttemptFailure,
+    GetWorkflowRunAttemptSuccess,
+    DownloadWorkflowRunAttemptLogsFailure,
+    DownloadWorkflowRunAttemptLogsSuccess,
+    CancelWorkflowRunFailure,
+    CancelWorkflowRunSuccess,
+    ReviewCustomGatesForWorkflowRunFailure,
+    ReviewCustomGatesForWorkflowRunSuccess,
+    ForceCancelWorkflowRunFailure,
+    ForceCancelWorkflowRunSuccess,
+    DownloadWorkflowRunLogsFailure,
+    DownloadWorkflowRunLogsSuccess,
+    DeleteWorkflowRunLogsFailure,
+    DeleteWorkflowRunLogsSuccess,
+    GetPendingDeploymentsForWorkflowRunFailure,
+    GetPendingDeploymentsForWorkflowRunSuccess,
+    ReviewPendingDeploymentsForWorkflowRunFailure,
+    ReviewPendingDeploymentsForWorkflowRunSuccess,
+    ReRunWorkflowFailure,
+    ReRunWorkflowSuccess,
+    ReRunWorkflowFailedJobsFailure,
+    ReRunWorkflowFailedJobsSuccess,
+    GetWorkflowRunUsageFailure,
+    GetWorkflowRunUsageSuccess,
+    ListWorkflowRunsFailure,
+    ListWorkflowRunsSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -983,6 +1021,44 @@ export function textAndData(
         | ListJobsForWorkflowRunAttemptFailure
         | ListJobsForWorkflowRunSuccess
         | ListJobsForWorkflowRunFailure
+        | ReRunJobForWorkflowRunSuccess
+        | ReRunJobForWorkflowRunFailure
+        | ListWorkflowRunsForRepoSuccess
+        | ListWorkflowRunsForRepoFailure
+        | GetWorkflowRunSuccess
+        | GetWorkflowRunFailure
+        | DeleteWorkflowRunSuccess
+        | DeleteWorkflowRunFailure
+        | GetReviewsForWorkflowRunSuccess
+        | GetReviewsForWorkflowRunFailure
+        | ApproveWorkflowRunSuccess
+        | ApproveWorkflowRunFailure
+        | GetWorkflowRunAttemptSuccess
+        | GetWorkflowRunAttemptFailure
+        | DownloadWorkflowRunAttemptLogsSuccess
+        | DownloadWorkflowRunAttemptLogsFailure
+        | CancelWorkflowRunSuccess
+        | CancelWorkflowRunFailure
+        | ReviewCustomGatesForWorkflowRunSuccess
+        | ReviewCustomGatesForWorkflowRunFailure
+        | ForceCancelWorkflowRunSuccess
+        | ForceCancelWorkflowRunFailure
+        | DownloadWorkflowRunLogsSuccess
+        | DownloadWorkflowRunLogsFailure
+        | DeleteWorkflowRunLogsSuccess
+        | DeleteWorkflowRunLogsFailure
+        | GetPendingDeploymentsForWorkflowRunSuccess
+        | GetPendingDeploymentsForWorkflowRunFailure
+        | ReviewPendingDeploymentsForWorkflowRunSuccess
+        | ReviewPendingDeploymentsForWorkflowRunFailure
+        | ReRunWorkflowSuccess
+        | ReRunWorkflowFailure
+        | ReRunWorkflowFailedJobsSuccess
+        | ReRunWorkflowFailedJobsFailure
+        | GetWorkflowRunUsageSuccess
+        | GetWorkflowRunUsageFailure
+        | ListWorkflowRunsSuccess
+        | ListWorkflowRunsFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

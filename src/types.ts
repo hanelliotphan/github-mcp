@@ -5118,3 +5118,295 @@ export type ListJobsForWorkflowRunSuccess = {
 };
 
 export type ListJobsForWorkflowRunFailure = CreateRepoFailure;
+
+/** One GitHub Actions workflow run (id, name, status, conclusion, head_sha, …). */
+export type WorkflowRunItem = Record<string, unknown>;
+
+/** POST /repos/{owner}/{repo}/actions/jobs/{job_id}/rerun — HTTP 201. MCP tool: `github_re_run_job_for_workflow_run`. */
+export type ReRunJobForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    job_id: number;
+    request_id: string | null;
+};
+
+export type ReRunJobForWorkflowRunFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs — HTTP 200. MCP tool: `github_list_workflow_runs_for_repo`. */
+export type ListWorkflowRunsForRepoSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    workflow_runs: WorkflowRunItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListWorkflowRunsForRepoFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id} — HTTP 200. MCP tool: `github_get_workflow_run`. */
+export type GetWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    workflow_run: WorkflowRunItem;
+    request_id: string | null;
+};
+
+export type GetWorkflowRunFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/runs/{run_id} — HTTP 204 No Content. MCP tool: `github_delete_workflow_run`. */
+export type DeleteWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    request_id: string | null;
+};
+
+export type DeleteWorkflowRunFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/approvals — HTTP 200. MCP tool: `github_get_reviews_for_workflow_run`. */
+export type GetReviewsForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    reviews: Record<string, unknown>[];
+    request_id: string | null;
+};
+
+export type GetReviewsForWorkflowRunFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runs/{run_id}/approve — HTTP 201. MCP tool: `github_approve_workflow_run`. */
+export type ApproveWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    request_id: string | null;
+};
+
+export type ApproveWorkflowRunFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number} — HTTP 200. MCP tool: `github_get_workflow_run_attempt`. */
+export type GetWorkflowRunAttemptSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    attempt_number: number;
+    workflow_run: WorkflowRunItem;
+    request_id: string | null;
+};
+
+export type GetWorkflowRunAttemptFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs — HTTP 302 Found. MCP tool: `github_download_workflow_run_attempt_logs`. */
+export type DownloadWorkflowRunAttemptLogsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    attempt_number: number;
+    logs_download_url: string;
+    request_id: string | null;
+};
+
+export type DownloadWorkflowRunAttemptLogsFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel — HTTP 202 Accepted. MCP tool: `github_cancel_workflow_run`. */
+export type CancelWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    request_id: string | null;
+};
+
+export type CancelWorkflowRunFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule — HTTP 204 No Content. MCP tool: `github_review_custom_gates_for_workflow_run`. */
+export type ReviewCustomGatesForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    environment_name: string;
+    state: "approved" | "rejected";
+    request_id: string | null;
+};
+
+export type ReviewCustomGatesForWorkflowRunFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel — HTTP 202 Accepted. MCP tool: `github_force_cancel_workflow_run`. */
+export type ForceCancelWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    request_id: string | null;
+};
+
+export type ForceCancelWorkflowRunFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs — HTTP 302 Found. MCP tool: `github_download_workflow_run_logs`. */
+export type DownloadWorkflowRunLogsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    logs_download_url: string;
+    request_id: string | null;
+};
+
+export type DownloadWorkflowRunLogsFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/actions/runs/{run_id}/logs — HTTP 204 No Content. MCP tool: `github_delete_workflow_run_logs`. */
+export type DeleteWorkflowRunLogsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    request_id: string | null;
+};
+
+export type DeleteWorkflowRunLogsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments — HTTP 200. MCP tool: `github_get_pending_deployments_for_workflow_run`. */
+export type GetPendingDeploymentsForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    pending_deployments: Record<string, unknown>[];
+    request_id: string | null;
+};
+
+export type GetPendingDeploymentsForWorkflowRunFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments — HTTP 200. MCP tool: `github_review_pending_deployments_for_workflow_run`. */
+export type ReviewPendingDeploymentsForWorkflowRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    deployments: Record<string, unknown>[];
+    request_id: string | null;
+};
+
+export type ReviewPendingDeploymentsForWorkflowRunFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun — HTTP 201. MCP tool: `github_re_run_workflow`. */
+export type ReRunWorkflowSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    request_id: string | null;
+};
+
+export type ReRunWorkflowFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs — HTTP 201. MCP tool: `github_re_run_workflow_failed_jobs`. */
+export type ReRunWorkflowFailedJobsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    request_id: string | null;
+};
+
+export type ReRunWorkflowFailedJobsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/runs/{run_id}/timing — HTTP 200. MCP tool: `github_get_workflow_run_usage`. */
+export type GetWorkflowRunUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    run_id: number;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetWorkflowRunUsageFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs — HTTP 200. MCP tool: `github_list_workflow_runs`. */
+export type ListWorkflowRunsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    workflow_id: string | number;
+    total_count: number;
+    workflow_runs: WorkflowRunItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListWorkflowRunsFailure = CreateRepoFailure;
