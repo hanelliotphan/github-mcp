@@ -193,6 +193,34 @@ import type {
     CreateOrUpdateEnvironmentActionsSecretSuccess,
     DeleteEnvironmentActionsSecretFailure,
     DeleteEnvironmentActionsSecretSuccess,
+    ListSelfHostedRunnerGroupsForOrgFailure,
+    ListSelfHostedRunnerGroupsForOrgSuccess,
+    CreateSelfHostedRunnerGroupForOrgFailure,
+    CreateSelfHostedRunnerGroupForOrgSuccess,
+    GetSelfHostedRunnerGroupForOrgFailure,
+    GetSelfHostedRunnerGroupForOrgSuccess,
+    UpdateSelfHostedRunnerGroupForOrgFailure,
+    UpdateSelfHostedRunnerGroupForOrgSuccess,
+    DeleteSelfHostedRunnerGroupFromOrgFailure,
+    DeleteSelfHostedRunnerGroupFromOrgSuccess,
+    ListGithubHostedRunnersInGroupForOrgFailure,
+    ListGithubHostedRunnersInGroupForOrgSuccess,
+    ListRepoAccessToSelfHostedRunnerGroupInOrgFailure,
+    ListRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
+    SetRepoAccessToSelfHostedRunnerGroupInOrgFailure,
+    SetRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
+    AddRepoAccessToSelfHostedRunnerGroupInOrgFailure,
+    AddRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
+    RemoveRepoAccessToSelfHostedRunnerGroupInOrgFailure,
+    RemoveRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
+    ListSelfHostedRunnersInGroupForOrgFailure,
+    ListSelfHostedRunnersInGroupForOrgSuccess,
+    SetSelfHostedRunnersInGroupForOrgFailure,
+    SetSelfHostedRunnersInGroupForOrgSuccess,
+    AddSelfHostedRunnerToGroupForOrgFailure,
+    AddSelfHostedRunnerToGroupForOrgSuccess,
+    RemoveSelfHostedRunnerFromGroupForOrgFailure,
+    RemoveSelfHostedRunnerFromGroupForOrgSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -735,6 +763,34 @@ export function textAndData(
         | CreateOrUpdateEnvironmentActionsSecretFailure
         | DeleteEnvironmentActionsSecretSuccess
         | DeleteEnvironmentActionsSecretFailure
+        | ListSelfHostedRunnerGroupsForOrgSuccess
+        | ListSelfHostedRunnerGroupsForOrgFailure
+        | CreateSelfHostedRunnerGroupForOrgSuccess
+        | CreateSelfHostedRunnerGroupForOrgFailure
+        | GetSelfHostedRunnerGroupForOrgSuccess
+        | GetSelfHostedRunnerGroupForOrgFailure
+        | UpdateSelfHostedRunnerGroupForOrgSuccess
+        | UpdateSelfHostedRunnerGroupForOrgFailure
+        | DeleteSelfHostedRunnerGroupFromOrgSuccess
+        | DeleteSelfHostedRunnerGroupFromOrgFailure
+        | ListGithubHostedRunnersInGroupForOrgSuccess
+        | ListGithubHostedRunnersInGroupForOrgFailure
+        | ListRepoAccessToSelfHostedRunnerGroupInOrgSuccess
+        | ListRepoAccessToSelfHostedRunnerGroupInOrgFailure
+        | SetRepoAccessToSelfHostedRunnerGroupInOrgSuccess
+        | SetRepoAccessToSelfHostedRunnerGroupInOrgFailure
+        | AddRepoAccessToSelfHostedRunnerGroupInOrgSuccess
+        | AddRepoAccessToSelfHostedRunnerGroupInOrgFailure
+        | RemoveRepoAccessToSelfHostedRunnerGroupInOrgSuccess
+        | RemoveRepoAccessToSelfHostedRunnerGroupInOrgFailure
+        | ListSelfHostedRunnersInGroupForOrgSuccess
+        | ListSelfHostedRunnersInGroupForOrgFailure
+        | SetSelfHostedRunnersInGroupForOrgSuccess
+        | SetSelfHostedRunnersInGroupForOrgFailure
+        | AddSelfHostedRunnerToGroupForOrgSuccess
+        | AddSelfHostedRunnerToGroupForOrgFailure
+        | RemoveSelfHostedRunnerFromGroupForOrgSuccess
+        | RemoveSelfHostedRunnerFromGroupForOrgFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

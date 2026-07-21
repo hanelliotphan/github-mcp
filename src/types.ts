@@ -4284,3 +4284,209 @@ export type DeleteEnvironmentActionsSecretSuccess = {
 };
 
 export type DeleteEnvironmentActionsSecretFailure = CreateRepoFailure;
+
+/** A self-hosted runner group object (shape varies by endpoint). */
+export type RunnerGroupItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/actions/runner-groups — HTTP 200. MCP tool: `github_list_self_hosted_runner_groups_for_org`. */
+export type ListSelfHostedRunnerGroupsForOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    runner_groups: RunnerGroupItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelfHostedRunnerGroupsForOrgFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/actions/runner-groups — HTTP 201. MCP tool: `github_create_self_hosted_runner_group_for_org`. */
+export type CreateSelfHostedRunnerGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group: RunnerGroupItem;
+    request_id: string | null;
+};
+
+export type CreateSelfHostedRunnerGroupForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/runner-groups/{runner_group_id} — HTTP 200. MCP tool: `github_get_self_hosted_runner_group_for_org`. */
+export type GetSelfHostedRunnerGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    runner_group: RunnerGroupItem;
+    request_id: string | null;
+};
+
+export type GetSelfHostedRunnerGroupForOrgFailure = CreateRepoFailure;
+
+/** PATCH /orgs/{org}/actions/runner-groups/{runner_group_id} — HTTP 200. MCP tool: `github_update_self_hosted_runner_group_for_org`. */
+export type UpdateSelfHostedRunnerGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    runner_group: RunnerGroupItem;
+    request_id: string | null;
+};
+
+export type UpdateSelfHostedRunnerGroupForOrgFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/runner-groups/{runner_group_id} — HTTP 204 No Content. MCP tool: `github_delete_self_hosted_runner_group_from_org`. */
+export type DeleteSelfHostedRunnerGroupFromOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    request_id: string | null;
+};
+
+export type DeleteSelfHostedRunnerGroupFromOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/runner-groups/{runner_group_id}/hosted-runners — HTTP 200. MCP tool: `github_list_github_hosted_runners_in_group_for_org`. */
+export type ListGithubHostedRunnersInGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    runner_group_id: number;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    runners: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListGithubHostedRunnersInGroupForOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories — HTTP 200. MCP tool: `github_list_repo_access_to_self_hosted_runner_group_in_org`. */
+export type ListRepoAccessToSelfHostedRunnerGroupInOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    runner_group_id: number;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoAccessToSelfHostedRunnerGroupInOrgFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories — HTTP 204 No Content. MCP tool: `github_set_repo_access_to_self_hosted_runner_group_in_org`. */
+export type SetRepoAccessToSelfHostedRunnerGroupInOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+
+export type SetRepoAccessToSelfHostedRunnerGroupInOrgFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_add_repo_access_to_self_hosted_runner_group_in_org`. */
+export type AddRepoAccessToSelfHostedRunnerGroupInOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type AddRepoAccessToSelfHostedRunnerGroupInOrgFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_remove_repo_access_to_self_hosted_runner_group_in_org`. */
+export type RemoveRepoAccessToSelfHostedRunnerGroupInOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type RemoveRepoAccessToSelfHostedRunnerGroupInOrgFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners — HTTP 200. MCP tool: `github_list_self_hosted_runners_in_group_for_org`. */
+export type ListSelfHostedRunnersInGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    runner_group_id: number;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    runners: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelfHostedRunnersInGroupForOrgFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners — HTTP 204 No Content. MCP tool: `github_set_self_hosted_runners_in_group_for_org`. */
+export type SetSelfHostedRunnersInGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    runners: number[];
+    request_id: string | null;
+};
+
+export type SetSelfHostedRunnersInGroupForOrgFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id} — HTTP 204 No Content. MCP tool: `github_add_self_hosted_runner_to_group_for_org`. */
+export type AddSelfHostedRunnerToGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    runner_id: number;
+    request_id: string | null;
+};
+
+export type AddSelfHostedRunnerToGroupForOrgFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id} — HTTP 204 No Content. MCP tool: `github_remove_self_hosted_runner_from_group_for_org`. */
+export type RemoveSelfHostedRunnerFromGroupForOrgSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    runner_group_id: number;
+    runner_id: number;
+    request_id: string | null;
+};
+
+export type RemoveSelfHostedRunnerFromGroupForOrgFailure = CreateRepoFailure;

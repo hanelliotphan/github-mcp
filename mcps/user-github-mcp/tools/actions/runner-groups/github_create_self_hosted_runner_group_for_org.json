@@ -1,0 +1,20 @@
+{
+  "name": "github_create_self_hosted_runner_group_for_org",
+  "description": "Create a self-hosted runner group for an organization (POST /orgs/{org}/actions/runner-groups). Provide name and optionally visibility (selected|all|private), selected_repository_ids, runners, allows_public_repositories, restricted_to_workflows, selected_workflows, network_configuration_id. Classic tokens need admin:org scope. HTTP 201 with the created group. See GitHub REST self-hosted runner groups.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1 },
+      "visibility": { "type": "string", "enum": ["selected", "all", "private"] },
+      "selected_repository_ids": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+      "runners": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+      "allows_public_repositories": { "type": "boolean" },
+      "restricted_to_workflows": { "type": "boolean" },
+      "selected_workflows": { "type": "array", "items": { "type": "string" } },
+      "network_configuration_id": { "type": "string" }
+    },
+    "required": ["org", "name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

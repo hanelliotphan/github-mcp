@@ -1,0 +1,14 @@
+{
+  "name": "github_set_repo_access_to_self_hosted_runner_group_in_org",
+  "description": "Replace the list of repositories that have access to a self-hosted runner group in an organization (PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories). Provide selected_repository_ids (complete list). Classic tokens need admin:org scope. Success is HTTP 204. See GitHub REST self-hosted runner groups.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "runner_group_id": { "type": "integer", "minimum": 1 },
+      "selected_repository_ids": { "type": "array", "items": { "type": "integer", "minimum": 1 } }
+    },
+    "required": ["org", "runner_group_id", "selected_repository_ids"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

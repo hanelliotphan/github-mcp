@@ -1,0 +1,14 @@
+{
+  "name": "github_add_self_hosted_runner_to_group_for_org",
+  "description": "Add a self-hosted runner to a runner group configured in an organization (PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}). Classic tokens need admin:org scope. Success is HTTP 204. See GitHub REST self-hosted runner groups.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "runner_group_id": { "type": "integer", "minimum": 1 },
+      "runner_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["org", "runner_group_id", "runner_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
