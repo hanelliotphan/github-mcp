@@ -654,6 +654,11 @@ import { registerGithubDeleteRepoInvitationTool } from "./tools/collaborators/in
 import { registerGithubListUserRepositoryInvitationsTool } from "./tools/collaborators/invitations/github-list-user-repository-invitations.js";
 import { registerGithubAcceptRepositoryInvitationTool } from "./tools/collaborators/invitations/github-accept-repository-invitation.js";
 import { registerGithubDeclineRepositoryInvitationTool } from "./tools/collaborators/invitations/github-decline-repository-invitation.js";
+import { registerGithubListRepoCommitsTool } from "./tools/commits/commits/github-list-repo-commits.js";
+import { registerGithubGetRepoCommitTool } from "./tools/commits/commits/github-get-repo-commit.js";
+import { registerGithubCompareRepoCommitsTool } from "./tools/commits/commits/github-compare-repo-commits.js";
+import { registerGithubListBranchesForHeadCommitTool } from "./tools/commits/commits/github-list-branches-for-head-commit.js";
+import { registerGithubListPullRequestsAssociatedWithCommitTool } from "./tools/commits/commits/github-list-pull-requests-associated-with-commit.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1320,6 +1325,11 @@ registerGithubDeleteRepoInvitationTool(server, octokit);
 registerGithubListUserRepositoryInvitationsTool(server, octokit);
 registerGithubAcceptRepositoryInvitationTool(server, octokit);
 registerGithubDeclineRepositoryInvitationTool(server, octokit);
+registerGithubListRepoCommitsTool(server, octokit);
+registerGithubGetRepoCommitTool(server, octokit);
+registerGithubCompareRepoCommitsTool(server, octokit);
+registerGithubListBranchesForHeadCommitTool(server, octokit);
+registerGithubListPullRequestsAssociatedWithCommitTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

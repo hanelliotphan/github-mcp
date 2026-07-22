@@ -1,0 +1,39 @@
+{
+  "name": "github_get_repo_commit",
+  "description": "Get a commit (GET /repos/{owner}/{repo}/commits/{ref}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "ref"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

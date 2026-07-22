@@ -1068,6 +1068,16 @@ import type {
     AcceptRepositoryInvitationFailure,
     DeclineRepositoryInvitationSuccess,
     DeclineRepositoryInvitationFailure,
+    ListRepoCommitsSuccess,
+    ListRepoCommitsFailure,
+    GetRepoCommitSuccess,
+    GetRepoCommitFailure,
+    CompareRepoCommitsSuccess,
+    CompareRepoCommitsFailure,
+    ListBranchesForHeadCommitSuccess,
+    ListBranchesForHeadCommitFailure,
+    ListPullRequestsAssociatedWithCommitSuccess,
+    ListPullRequestsAssociatedWithCommitFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2578,7 +2588,17 @@ export function textAndData(
         | AcceptRepositoryInvitationSuccess
         | AcceptRepositoryInvitationFailure
         | DeclineRepositoryInvitationSuccess
-        | DeclineRepositoryInvitationFailure) {
+        | DeclineRepositoryInvitationFailure
+        | ListRepoCommitsSuccess
+        | ListRepoCommitsFailure
+        | GetRepoCommitSuccess
+        | GetRepoCommitFailure
+        | CompareRepoCommitsSuccess
+        | CompareRepoCommitsFailure
+        | ListBranchesForHeadCommitSuccess
+        | ListBranchesForHeadCommitFailure
+        | ListPullRequestsAssociatedWithCommitSuccess
+        | ListPullRequestsAssociatedWithCommitFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

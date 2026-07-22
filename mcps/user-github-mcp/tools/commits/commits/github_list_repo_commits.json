@@ -1,0 +1,66 @@
+{
+  "name": "github_list_repo_commits",
+  "description": "List commits (GET /repos/{owner}/{repo}/commits).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "sha": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "path": {
+        "type": "string",
+        "minLength": 1
+      },
+      "author": {
+        "type": "string",
+        "minLength": 1
+      },
+      "committer": {
+        "type": "string",
+        "minLength": 1
+      },
+      "since": {
+        "type": "string",
+        "minLength": 1
+      },
+      "until": {
+        "type": "string",
+        "minLength": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

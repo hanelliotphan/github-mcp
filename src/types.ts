@@ -9467,3 +9467,86 @@ export type DeclineRepositoryInvitationSuccess = {
     request_id: string | null;
 };
 export type DeclineRepositoryInvitationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_commits`. */
+export type ListRepoCommitsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    commits: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoCommitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_commit`. */
+export type GetRepoCommitSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ref: string;
+    result: Record<string, unknown>;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page?: number;
+    per_page?: number;
+};
+export type GetRepoCommitFailure = CreateRepoFailure;
+
+/** MCP tool: `github_compare_repo_commits`. */
+export type CompareRepoCommitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    base: string;
+    head: string;
+    result: Record<string, unknown>;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page?: number;
+    per_page?: number;
+};
+export type CompareRepoCommitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_branches_for_head_commit`. */
+export type ListBranchesForHeadCommitSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    commit_sha: string;
+    branches: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListBranchesForHeadCommitFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_pull_requests_associated_with_commit`. */
+export type ListPullRequestsAssociatedWithCommitSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    commit_sha: string;
+    pull_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListPullRequestsAssociatedWithCommitFailure = CreateRepoFailure;
