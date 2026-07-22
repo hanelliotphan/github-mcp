@@ -1096,6 +1096,8 @@ import type {
     ListCommitStatusesFailure,
     CreateCommitStatusSuccess,
     CreateCommitStatusFailure,
+    GetRepoCopilotCloudAgentConfigurationSuccess,
+    GetRepoCopilotCloudAgentConfigurationFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2634,7 +2636,9 @@ export function textAndData(
         | ListCommitStatusesSuccess
         | ListCommitStatusesFailure
         | CreateCommitStatusSuccess
-        | CreateCommitStatusFailure) {
+        | CreateCommitStatusFailure
+        | GetRepoCopilotCloudAgentConfigurationSuccess
+        | GetRepoCopilotCloudAgentConfigurationFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

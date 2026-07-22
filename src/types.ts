@@ -9680,3 +9680,15 @@ export type CreateCommitStatusSuccess = {
     request_id: string | null;
 };
 export type CreateCommitStatusFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_copilot_cloud_agent_configuration`. */
+export type GetRepoCopilotCloudAgentConfigurationSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    owner: string;
+    name: string;
+    configuration: Record<string, unknown>;
+};
+export type GetRepoCopilotCloudAgentConfigurationFailure = CreateRepoFailure;
+

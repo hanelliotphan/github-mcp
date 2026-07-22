@@ -668,6 +668,7 @@ import { registerGithubCreateCommitCommentTool } from "./tools/commits/comments/
 import { registerGithubGetCombinedCommitStatusTool } from "./tools/commits/statuses/github-get-combined-commit-status.js";
 import { registerGithubListCommitStatusesTool } from "./tools/commits/statuses/github-list-commit-statuses.js";
 import { registerGithubCreateCommitStatusTool } from "./tools/commits/statuses/github-create-commit-status.js";
+import { registerGithubGetRepoCopilotCloudAgentConfigurationTool } from "./tools/copilot/copilot-cloud-agent-management/github-get-repo-copilot-cloud-agent-configuration.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1348,6 +1349,7 @@ registerGithubCreateCommitCommentTool(server, octokit);
 registerGithubGetCombinedCommitStatusTool(server, octokit);
 registerGithubListCommitStatusesTool(server, octokit);
 registerGithubCreateCommitStatusTool(server, octokit);
+registerGithubGetRepoCopilotCloudAgentConfigurationTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

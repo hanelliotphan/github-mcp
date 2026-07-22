@@ -1,0 +1,24 @@
+{
+  "name": "github_get_repo_copilot_cloud_agent_configuration",
+  "description": "Get Copilot cloud agent configuration for a repository (GET /repos/{owner}/{repo}/copilot/cloud-agent/configuration).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
