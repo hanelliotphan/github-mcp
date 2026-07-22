@@ -6960,3 +6960,54 @@ export type ListMarketplacePurchasesForAuthenticatedUserStubbedSuccess = {
 };
 
 export type ListMarketplacePurchasesForAuthenticatedUserStubbedFailure = CreateRepoFailure;
+
+// --- Apps > OAuth authorizations (REST) ---
+
+/** Authorization / token metadata from OAuth app check/reset token endpoints. */
+export type OAuthAuthorizationItem = Record<string, unknown>;
+
+/** DELETE /applications/{client_id}/grant — HTTP 204. MCP tool: `github_delete_app_authorization`. */
+export type DeleteAppAuthorizationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    client_id: string;
+    request_id: string | null;
+};
+
+export type DeleteAppAuthorizationFailure = CreateRepoFailure;
+
+/** POST /applications/{client_id}/token — HTTP 200. MCP tool: `github_check_app_token`. */
+export type CheckAppTokenSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    client_id: string;
+    authorization: OAuthAuthorizationItem;
+    request_id: string | null;
+};
+
+export type CheckAppTokenFailure = CreateRepoFailure;
+
+/** PATCH /applications/{client_id}/token — HTTP 200. MCP tool: `github_reset_app_token`. */
+export type ResetAppTokenSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    client_id: string;
+    authorization: OAuthAuthorizationItem;
+    request_id: string | null;
+};
+
+export type ResetAppTokenFailure = CreateRepoFailure;
+
+/** DELETE /applications/{client_id}/token — HTTP 204. MCP tool: `github_delete_app_token`. */
+export type DeleteAppTokenSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    client_id: string;
+    request_id: string | null;
+};
+
+export type DeleteAppTokenFailure = CreateRepoFailure;

@@ -1,0 +1,24 @@
+{
+  "name": "github_reset_app_token",
+  "description": "PATCH /applications/{client_id}/token — reset OAuth token; response includes new token (200; invalid → 404). Required: client_id, access_token (sensitive). Typically needs OAuth/GitHub App client credentials, not a Bearer PAT.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "client_id": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The client ID of the GitHub app."
+      },
+      "access_token": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The access token of the OAuth or GitHub application. Sensitive; do not log."
+      }
+    },
+    "required": [
+      "client_id",
+      "access_token"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -557,6 +557,14 @@ import type {
     ListMarketplacePurchasesForAuthenticatedUserSuccess,
     ListMarketplacePurchasesForAuthenticatedUserStubbedFailure,
     ListMarketplacePurchasesForAuthenticatedUserStubbedSuccess,
+    DeleteAppAuthorizationFailure,
+    DeleteAppAuthorizationSuccess,
+    CheckAppTokenFailure,
+    CheckAppTokenSuccess,
+    ResetAppTokenFailure,
+    ResetAppTokenSuccess,
+    DeleteAppTokenFailure,
+    DeleteAppTokenSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1463,6 +1471,14 @@ export function textAndData(
         | ListMarketplacePurchasesForAuthenticatedUserFailure
         | ListMarketplacePurchasesForAuthenticatedUserStubbedSuccess
         | ListMarketplacePurchasesForAuthenticatedUserStubbedFailure
+        | DeleteAppAuthorizationSuccess
+        | DeleteAppAuthorizationFailure
+        | CheckAppTokenSuccess
+        | CheckAppTokenFailure
+        | ResetAppTokenSuccess
+        | ResetAppTokenFailure
+        | DeleteAppTokenSuccess
+        | DeleteAppTokenFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

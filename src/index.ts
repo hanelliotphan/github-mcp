@@ -445,6 +445,10 @@ import { registerGithubListMarketplacePlansStubbedTool } from "./tools/apps/mark
 import { registerGithubListMarketplaceAccountsForPlanStubbedTool } from "./tools/apps/marketplace/github-list-marketplace-accounts-for-plan-stubbed.js";
 import { registerGithubListMarketplacePurchasesForAuthenticatedUserTool } from "./tools/apps/marketplace/github-list-marketplace-purchases-for-authenticated-user.js";
 import { registerGithubListMarketplacePurchasesForAuthenticatedUserStubbedTool } from "./tools/apps/marketplace/github-list-marketplace-purchases-for-authenticated-user-stubbed.js";
+import { registerGithubDeleteAppAuthorizationTool } from "./tools/apps/oauth-applications/github-delete-app-authorization.js";
+import { registerGithubCheckAppTokenTool } from "./tools/apps/oauth-applications/github-check-app-token.js";
+import { registerGithubResetAppTokenTool } from "./tools/apps/oauth-applications/github-reset-app-token.js";
+import { registerGithubDeleteAppTokenTool } from "./tools/apps/oauth-applications/github-delete-app-token.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -903,6 +907,10 @@ registerGithubListMarketplacePlansStubbedTool(server, octokit);
 registerGithubListMarketplaceAccountsForPlanStubbedTool(server, octokit);
 registerGithubListMarketplacePurchasesForAuthenticatedUserTool(server, octokit);
 registerGithubListMarketplacePurchasesForAuthenticatedUserStubbedTool(server, octokit);
+registerGithubDeleteAppAuthorizationTool(server, octokit);
+registerGithubCheckAppTokenTool(server, octokit);
+registerGithubResetAppTokenTool(server, octokit);
+registerGithubDeleteAppTokenTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();
