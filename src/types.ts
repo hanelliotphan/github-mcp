@@ -9247,3 +9247,80 @@ export type AddSelectedRepoToOrgCodespacesSecretFailure = CreateRepoFailure;
 /** MCP tool: `github_remove_selected_repo_from_org_codespaces_secret`. */
 export type RemoveSelectedRepoFromOrgCodespacesSecretSuccess = { success: true; message: string; http_status: number; org: string; secret_name: string; repository_id: number; request_id: string | null; };
 export type RemoveSelectedRepoFromOrgCodespacesSecretFailure = CreateRepoFailure;
+/** MCP tool: `github_list_repo_codespace_machines`. */
+export type ListRepoCodespaceMachinesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    machines: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListRepoCodespaceMachinesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_codespace_machines`. */
+export type ListUserCodespaceMachinesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    machines: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListUserCodespaceMachinesFailure = CreateRepoFailure;
+/** MCP tool: `github_list_repo_codespaces_secrets`. */
+export type ListRepoCodespacesSecretsSuccess = { success: true; message: string; owner: string; repo: string; full_name: string; total_count: number; secrets: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListRepoCodespacesSecretsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_codespaces_public_key`. */
+export type GetRepoCodespacesPublicKeySuccess = { success: true; message: string; http_status: number; owner: string; repo: string; full_name: string; public_key: Record<string, unknown>; request_id: string | null; };
+export type GetRepoCodespacesPublicKeyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_codespaces_secret`. */
+export type GetRepoCodespacesSecretSuccess = { success: true; message: string; http_status: number; owner: string; repo: string; full_name: string; secret_name: string; secret: Record<string, unknown>; request_id: string | null; };
+export type GetRepoCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_or_update_repo_codespaces_secret`. */
+export type CreateOrUpdateRepoCodespacesSecretSuccess = { success: true; message: string; http_status: number; owner: string; repo: string; full_name: string; secret_name: string; created: boolean; request_id: string | null; };
+export type CreateOrUpdateRepoCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_codespaces_secret`. */
+export type DeleteRepoCodespacesSecretSuccess = { success: true; message: string; http_status: number; owner: string; repo: string; full_name: string; secret_name: string; request_id: string | null; };
+export type DeleteRepoCodespacesSecretFailure = CreateRepoFailure;
+/** MCP tool: `github_list_user_codespaces_secrets`. */
+export type ListUserCodespacesSecretsSuccess = { success: true; message: string; total_count: number; secrets: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserCodespacesSecretsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_codespaces_public_key`. */
+export type GetUserCodespacesPublicKeySuccess = { success: true; message: string; http_status: number; public_key: Record<string, unknown>; request_id: string | null; };
+export type GetUserCodespacesPublicKeyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_codespaces_secret`. */
+export type GetUserCodespacesSecretSuccess = { success: true; message: string; http_status: number; secret_name: string; secret: Record<string, unknown>; request_id: string | null; };
+export type GetUserCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_or_update_user_codespaces_secret`. */
+export type CreateOrUpdateUserCodespacesSecretSuccess = { success: true; message: string; http_status: number; secret_name: string; created: boolean; request_id: string | null; };
+export type CreateOrUpdateUserCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_user_codespaces_secret`. */
+export type DeleteUserCodespacesSecretSuccess = { success: true; message: string; http_status: number; secret_name: string; request_id: string | null; };
+export type DeleteUserCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repos_for_user_codespaces_secret`. */
+export type ListReposForUserCodespacesSecretSuccess = { success: true; message: string; secret_name: string; total_count: number; repositories: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListReposForUserCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_repos_for_user_codespaces_secret`. */
+export type SetReposForUserCodespacesSecretSuccess = { success: true; message: string; http_status: number; secret_name: string; selected_repository_ids: number[]; request_id: string | null; };
+export type SetReposForUserCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_repo_to_user_codespaces_secret`. */
+export type AddRepoToUserCodespacesSecretSuccess = { success: true; message: string; http_status: number; secret_name: string; repository_id: number; request_id: string | null; };
+export type AddRepoToUserCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_repo_from_user_codespaces_secret`. */
+export type RemoveRepoFromUserCodespacesSecretSuccess = { success: true; message: string; http_status: number; secret_name: string; repository_id: number; request_id: string | null; };
+export type RemoveRepoFromUserCodespacesSecretFailure = CreateRepoFailure;

@@ -13,6 +13,8 @@ import type {
     AddRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
     AddRepoToAppInstallationFailure,
     AddRepoToAppInstallationSuccess,
+    AddRepoToUserCodespacesSecretFailure,
+    AddRepoToUserCodespacesSecretSuccess,
     AddResourcesToEnterpriseCostCenterFailure,
     AddResourcesToEnterpriseCostCenterSuccess,
     AddSelectedRepoToOrgActionsSecretFailure,
@@ -137,6 +139,10 @@ import type {
     CreateOrUpdateRepoActionsSecretSuccess,
     CreateOrUpdateRepoAgentSecretFailure,
     CreateOrUpdateRepoAgentSecretSuccess,
+    CreateOrUpdateRepoCodespacesSecretFailure,
+    CreateOrUpdateRepoCodespacesSecretSuccess,
+    CreateOrUpdateUserCodespacesSecretFailure,
+    CreateOrUpdateUserCodespacesSecretSuccess,
     CreatePullRequestCodespaceFailure,
     CreatePullRequestCodespaceSuccess,
     CreateRegistrationTokenForOrgFailure,
@@ -271,6 +277,8 @@ import type {
     DeleteRepoAutolinkSuccess,
     DeleteRepoBranchProtectionFailure,
     DeleteRepoBranchProtectionSuccess,
+    DeleteRepoCodespacesSecretFailure,
+    DeleteRepoCodespacesSecretSuccess,
     DeleteRepoFailure,
     DeleteRepoRulesetFailure,
     DeleteRepoRulesetSuccess,
@@ -288,6 +296,8 @@ import type {
     DeleteThreadSubscriptionFailure,
     DeleteThreadSubscriptionSuccess,
     DeleteUserCodespaceFailure,
+    DeleteUserCodespacesSecretFailure,
+    DeleteUserCodespacesSecretSuccess,
     DeleteUserCodespaceSuccess,
     DeleteWorkflowRunFailure,
     DeleteWorkflowRunLogsFailure,
@@ -561,6 +571,10 @@ import type {
     GetRepoCodeSecurityConfigurationSuccess,
     GetRepoCodespaceDefaultsFailure,
     GetRepoCodespaceDefaultsSuccess,
+    GetRepoCodespacesPublicKeyFailure,
+    GetRepoCodespacesPublicKeySuccess,
+    GetRepoCodespacesSecretFailure,
+    GetRepoCodespacesSecretSuccess,
     GetRepoContentFailure,
     GetRepoContentSuccess,
     GetRepoCustomPropertyValuesFailure,
@@ -628,6 +642,10 @@ import type {
     GetUserCodespaceExportFailure,
     GetUserCodespaceExportSuccess,
     GetUserCodespaceFailure,
+    GetUserCodespacesPublicKeyFailure,
+    GetUserCodespacesPublicKeySuccess,
+    GetUserCodespacesSecretFailure,
+    GetUserCodespacesSecretSuccess,
     GetUserCodespaceSuccess,
     GetUserInstallationForAuthenticatedAppFailure,
     GetUserInstallationForAuthenticatedAppSuccess,
@@ -873,7 +891,11 @@ import type {
     ListRepoCodeScanningDismissalRequestsSuccess,
     ListRepoCodespaceDevcontainersFailure,
     ListRepoCodespaceDevcontainersSuccess,
+    ListRepoCodespaceMachinesFailure,
+    ListRepoCodespaceMachinesSuccess,
     ListRepoCodespacesFailure,
+    ListRepoCodespacesSecretsFailure,
+    ListRepoCodespacesSecretsSuccess,
     ListRepoCodespacesSuccess,
     ListRepoContributorsFailure,
     ListRepoContributorsSuccess,
@@ -899,6 +921,8 @@ import type {
     ListRepoRuleSuitesSuccess,
     ListReposAccessibleToInstallationFailure,
     ListReposAccessibleToInstallationSuccess,
+    ListReposForUserCodespacesSecretFailure,
+    ListReposForUserCodespacesSecretSuccess,
     ListReposStarredByAuthenticatedUserFailure,
     ListReposStarredByAuthenticatedUserSuccess,
     ListReposStarredByUserFailure,
@@ -945,7 +969,11 @@ import type {
     ListStargazersSuccess,
     ListTeamsAssignedToOrgRoleFailure,
     ListTeamsAssignedToOrgRoleSuccess,
+    ListUserCodespaceMachinesFailure,
+    ListUserCodespaceMachinesSuccess,
     ListUserCodespacesFailure,
+    ListUserCodespacesSecretsFailure,
+    ListUserCodespacesSecretsSuccess,
     ListUserCodespacesSuccess,
     ListUserReposFailure,
     ListUserReposSuccess,
@@ -1017,6 +1045,8 @@ import type {
     RemoveRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
     RemoveRepoFromAppInstallationFailure,
     RemoveRepoFromAppInstallationSuccess,
+    RemoveRepoFromUserCodespacesSecretFailure,
+    RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
     RemoveSelectedRepoFromOrgActionsSecretFailure,
@@ -1109,6 +1139,8 @@ import type {
     SetPublicOrgMembershipForAuthUserSuccess,
     SetRepoAccessToSelfHostedRunnerGroupInOrgFailure,
     SetRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
+    SetReposForUserCodespacesSecretFailure,
+    SetReposForUserCodespacesSecretSuccess,
     SetRepoSubscriptionFailure,
     SetRepoSubscriptionSuccess,
     SetSelectedReposForOrgActionsSecretFailure,
@@ -2438,7 +2470,71 @@ export function textAndData(
         | StartUserCodespaceFailure
         | StartUserCodespaceSuccess
         | StopUserCodespaceFailure
-        | StopUserCodespaceSuccess) {
+        | StopUserCodespaceSuccess
+        | ListOrgCodespacesFailure
+        | ListOrgCodespacesSuccess
+        | SetOrgCodespacesAccessFailure
+        | SetOrgCodespacesAccessSuccess
+        | AddOrgCodespacesAccessUsersFailure
+        | AddOrgCodespacesAccessUsersSuccess
+        | RemoveOrgCodespacesAccessUsersFailure
+        | RemoveOrgCodespacesAccessUsersSuccess
+        | ListOrgUserCodespacesFailure
+        | ListOrgUserCodespacesSuccess
+        | DeleteOrgUserCodespaceFailure
+        | DeleteOrgUserCodespaceSuccess
+        | StopOrgUserCodespaceFailure
+        | StopOrgUserCodespaceSuccess
+        | ListOrgCodespacesSecretsFailure
+        | ListOrgCodespacesSecretsSuccess
+        | GetOrgCodespacesPublicKeyFailure
+        | GetOrgCodespacesPublicKeySuccess
+        | GetOrgCodespacesSecretFailure
+        | GetOrgCodespacesSecretSuccess
+        | CreateOrUpdateOrgCodespacesSecretFailure
+        | CreateOrUpdateOrgCodespacesSecretSuccess
+        | DeleteOrgCodespacesSecretFailure
+        | DeleteOrgCodespacesSecretSuccess
+        | ListSelectedReposForOrgCodespacesSecretFailure
+        | ListSelectedReposForOrgCodespacesSecretSuccess
+        | SetSelectedReposForOrgCodespacesSecretFailure
+        | SetSelectedReposForOrgCodespacesSecretSuccess
+        | AddSelectedRepoToOrgCodespacesSecretFailure
+        | AddSelectedRepoToOrgCodespacesSecretSuccess
+        | RemoveSelectedRepoFromOrgCodespacesSecretFailure
+        | RemoveSelectedRepoFromOrgCodespacesSecretSuccess
+        | ListRepoCodespaceMachinesFailure
+        | ListRepoCodespaceMachinesSuccess
+        | ListUserCodespaceMachinesFailure
+        | ListUserCodespaceMachinesSuccess
+        | ListRepoCodespacesSecretsFailure
+        | ListRepoCodespacesSecretsSuccess
+        | GetRepoCodespacesPublicKeyFailure
+        | GetRepoCodespacesPublicKeySuccess
+        | GetRepoCodespacesSecretFailure
+        | GetRepoCodespacesSecretSuccess
+        | CreateOrUpdateRepoCodespacesSecretFailure
+        | CreateOrUpdateRepoCodespacesSecretSuccess
+        | DeleteRepoCodespacesSecretFailure
+        | DeleteRepoCodespacesSecretSuccess
+        | ListUserCodespacesSecretsFailure
+        | ListUserCodespacesSecretsSuccess
+        | GetUserCodespacesPublicKeyFailure
+        | GetUserCodespacesPublicKeySuccess
+        | GetUserCodespacesSecretFailure
+        | GetUserCodespacesSecretSuccess
+        | CreateOrUpdateUserCodespacesSecretFailure
+        | CreateOrUpdateUserCodespacesSecretSuccess
+        | DeleteUserCodespacesSecretFailure
+        | DeleteUserCodespacesSecretSuccess
+        | ListReposForUserCodespacesSecretFailure
+        | ListReposForUserCodespacesSecretSuccess
+        | SetReposForUserCodespacesSecretFailure
+        | SetReposForUserCodespacesSecretSuccess
+        | AddRepoToUserCodespacesSecretFailure
+        | AddRepoToUserCodespacesSecretSuccess
+        | RemoveRepoFromUserCodespacesSecretFailure
+        | RemoveRepoFromUserCodespacesSecretSuccess) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

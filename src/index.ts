@@ -627,6 +627,22 @@ import { registerGithubListSelectedReposForOrgCodespacesSecretTool } from "./too
 import { registerGithubSetSelectedReposForOrgCodespacesSecretTool } from "./tools/codespaces/organization-secrets/github-set-selected-repos-for-org-codespaces-secret.js";
 import { registerGithubAddSelectedRepoToOrgCodespacesSecretTool } from "./tools/codespaces/organization-secrets/github-add-selected-repo-to-org-codespaces-secret.js";
 import { registerGithubRemoveSelectedRepoFromOrgCodespacesSecretTool } from "./tools/codespaces/organization-secrets/github-remove-selected-repo-from-org-codespaces-secret.js";
+import { registerGithubListRepoCodespaceMachinesTool } from "./tools/codespaces/machines/github-list-repo-codespace-machines.js";
+import { registerGithubListUserCodespaceMachinesTool } from "./tools/codespaces/machines/github-list-user-codespace-machines.js";
+import { registerGithubListRepoCodespacesSecretsTool } from "./tools/codespaces/repository-secrets/github-list-repo-codespaces-secrets.js";
+import { registerGithubGetRepoCodespacesPublicKeyTool } from "./tools/codespaces/repository-secrets/github-get-repo-codespaces-public-key.js";
+import { registerGithubGetRepoCodespacesSecretTool } from "./tools/codespaces/repository-secrets/github-get-repo-codespaces-secret.js";
+import { registerGithubCreateOrUpdateRepoCodespacesSecretTool } from "./tools/codespaces/repository-secrets/github-create-or-update-repo-codespaces-secret.js";
+import { registerGithubDeleteRepoCodespacesSecretTool } from "./tools/codespaces/repository-secrets/github-delete-repo-codespaces-secret.js";
+import { registerGithubListUserCodespacesSecretsTool } from "./tools/codespaces/secrets/github-list-user-codespaces-secrets.js";
+import { registerGithubGetUserCodespacesPublicKeyTool } from "./tools/codespaces/secrets/github-get-user-codespaces-public-key.js";
+import { registerGithubGetUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-get-user-codespaces-secret.js";
+import { registerGithubCreateOrUpdateUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-create-or-update-user-codespaces-secret.js";
+import { registerGithubDeleteUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-delete-user-codespaces-secret.js";
+import { registerGithubListReposForUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-list-repos-for-user-codespaces-secret.js";
+import { registerGithubSetReposForUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-set-repos-for-user-codespaces-secret.js";
+import { registerGithubAddRepoToUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-add-repo-to-user-codespaces-secret.js";
+import { registerGithubRemoveRepoFromUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-remove-repo-from-user-codespaces-secret.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1263,6 +1279,25 @@ registerGithubListSelectedReposForOrgCodespacesSecretTool(server, octokit);
 registerGithubSetSelectedReposForOrgCodespacesSecretTool(server, octokit);
 registerGithubAddSelectedRepoToOrgCodespacesSecretTool(server, octokit);
 registerGithubRemoveSelectedRepoFromOrgCodespacesSecretTool(server, octokit);
+
+registerGithubListRepoCodespaceMachinesTool(server, octokit);
+registerGithubListUserCodespaceMachinesTool(server, octokit);
+
+registerGithubListRepoCodespacesSecretsTool(server, octokit);
+registerGithubGetRepoCodespacesPublicKeyTool(server, octokit);
+registerGithubGetRepoCodespacesSecretTool(server, octokit);
+registerGithubCreateOrUpdateRepoCodespacesSecretTool(server, octokit);
+registerGithubDeleteRepoCodespacesSecretTool(server, octokit);
+
+registerGithubListUserCodespacesSecretsTool(server, octokit);
+registerGithubGetUserCodespacesPublicKeyTool(server, octokit);
+registerGithubGetUserCodespacesSecretTool(server, octokit);
+registerGithubCreateOrUpdateUserCodespacesSecretTool(server, octokit);
+registerGithubDeleteUserCodespacesSecretTool(server, octokit);
+registerGithubListReposForUserCodespacesSecretTool(server, octokit);
+registerGithubSetReposForUserCodespacesSecretTool(server, octokit);
+registerGithubAddRepoToUserCodespacesSecretTool(server, octokit);
+registerGithubRemoveRepoFromUserCodespacesSecretTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

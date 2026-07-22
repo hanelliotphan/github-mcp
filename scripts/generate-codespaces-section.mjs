@@ -1315,7 +1315,7 @@ function genTypes(tool) {
         else if (k === "addSelected" || k === "removeSelected") lines.push(`export type ${S}Success = { success: true; message: string; http_status: number; org: string; secret_name: string; repository_id: number; request_id: string | null; };`);
     } else if (tool.template === "repoSecret") {
         const k = tool.repoSecretKind;
-        const repoFields = "owner: string;\n    repo: string;\n    full_name: string;";
+        const repoFields = "owner: string;\n    repo: string;\n    full_name: string";
         if (k === "list") lines.push(`export type ${S}Success = { success: true; message: string; ${repoFields}; total_count: number; secrets: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };`);
         else if (k === "getPublicKey") lines.push(`export type ${S}Success = { success: true; message: string; http_status: number; ${repoFields}; public_key: Record<string, unknown>; request_id: string | null; };`);
         else if (k === "getSecret") lines.push(`export type ${S}Success = { success: true; message: string; http_status: number; ${repoFields}; secret_name: string; secret: Record<string, unknown>; request_id: string | null; };`);
@@ -1438,7 +1438,7 @@ function updateMcpResponse(tools) {
     const newTypes = [];
     for (const tool of tools) {
         const S = pascalFromTool(tool.name);
-        if (!content.includes(`${S}Success`)) {
+        if (!content.includes(`| ${S}Success`)) {
             newTypes.push(`${S}Failure`, `${S}Success`);
         }
     }
