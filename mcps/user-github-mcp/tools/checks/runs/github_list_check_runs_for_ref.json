@@ -1,0 +1,70 @@
+{
+  "name": "github_list_check_runs_for_ref",
+  "description": "List check runs for a Git reference (GET /repos/{owner}/{repo}/commits/{ref}/check-runs). Optional check_name/status/filter/app_id; supports pagination.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 512
+      },
+      "check_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "queued",
+          "in_progress",
+          "completed"
+        ]
+      },
+      "filter": {
+        "type": "string",
+        "enum": [
+          "latest",
+          "all"
+        ]
+      },
+      "app_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "ref"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

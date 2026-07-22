@@ -1,0 +1,79 @@
+{
+  "name": "github_create_check_run",
+  "description": "Create a check run (POST /repos/{owner}/{repo}/check-runs). Requires a GitHub App. check_name maps to API name.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "check_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "head_sha": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "details_url": {
+        "type": "string"
+      },
+      "external_id": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "queued",
+          "in_progress",
+          "completed"
+        ]
+      },
+      "started_at": {
+        "type": "string"
+      },
+      "conclusion": {
+        "type": "string",
+        "enum": [
+          "action_required",
+          "cancelled",
+          "failure",
+          "neutral",
+          "success",
+          "skipped",
+          "stale",
+          "timed_out"
+        ]
+      },
+      "completed_at": {
+        "type": "string"
+      },
+      "output": {
+        "type": "object"
+      },
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "maxItems": 3
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "check_name",
+      "head_sha"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

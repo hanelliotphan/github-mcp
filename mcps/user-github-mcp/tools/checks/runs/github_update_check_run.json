@@ -1,0 +1,80 @@
+{
+  "name": "github_update_check_run",
+  "description": "Update a check run (PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}). Requires a GitHub App.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "check_run_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "check_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "details_url": {
+        "type": "string"
+      },
+      "external_id": {
+        "type": "string"
+      },
+      "started_at": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "queued",
+          "in_progress",
+          "completed",
+          "waiting",
+          "requested",
+          "pending"
+        ]
+      },
+      "conclusion": {
+        "type": "string",
+        "enum": [
+          "action_required",
+          "cancelled",
+          "failure",
+          "neutral",
+          "success",
+          "skipped",
+          "stale",
+          "timed_out"
+        ]
+      },
+      "completed_at": {
+        "type": "string"
+      },
+      "output": {
+        "type": "object"
+      },
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "maxItems": 3
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "check_run_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

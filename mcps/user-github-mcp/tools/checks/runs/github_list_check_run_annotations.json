@@ -1,0 +1,46 @@
+{
+  "name": "github_list_check_run_annotations",
+  "description": "List check run annotations (GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "check_run_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "check_run_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

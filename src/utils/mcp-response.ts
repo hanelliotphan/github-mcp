@@ -709,6 +709,20 @@ import type {
     UpdateOrgCampaignSuccess,
     DeleteOrgCampaignFailure,
     DeleteOrgCampaignSuccess,
+    CreateCheckRunFailure,
+    CreateCheckRunSuccess,
+    GetCheckRunFailure,
+    GetCheckRunSuccess,
+    UpdateCheckRunFailure,
+    UpdateCheckRunSuccess,
+    ListCheckRunAnnotationsFailure,
+    ListCheckRunAnnotationsSuccess,
+    RerequestCheckRunFailure,
+    RerequestCheckRunSuccess,
+    ListCheckRunsForSuiteFailure,
+    ListCheckRunsForSuiteSuccess,
+    ListCheckRunsForRefFailure,
+    ListCheckRunsForRefSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1767,6 +1781,20 @@ export function textAndData(
         | UpdateOrgCampaignFailure
         | DeleteOrgCampaignSuccess
         | DeleteOrgCampaignFailure
+        | CreateCheckRunFailure
+        | CreateCheckRunSuccess
+        | GetCheckRunFailure
+        | GetCheckRunSuccess
+        | UpdateCheckRunFailure
+        | UpdateCheckRunSuccess
+        | ListCheckRunAnnotationsFailure
+        | ListCheckRunAnnotationsSuccess
+        | RerequestCheckRunFailure
+        | RerequestCheckRunSuccess
+        | ListCheckRunsForSuiteFailure
+        | ListCheckRunsForSuiteSuccess
+        | ListCheckRunsForRefFailure
+        | ListCheckRunsForRefSuccess
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

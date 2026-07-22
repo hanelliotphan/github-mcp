@@ -522,6 +522,13 @@ import { registerGithubCreateOrgCampaignTool } from "./tools/campaigns/campaigns
 import { registerGithubGetOrgCampaignTool } from "./tools/campaigns/campaigns/github-get-org-campaign.js";
 import { registerGithubUpdateOrgCampaignTool } from "./tools/campaigns/campaigns/github-update-org-campaign.js";
 import { registerGithubDeleteOrgCampaignTool } from "./tools/campaigns/campaigns/github-delete-org-campaign.js";
+import { registerGithubCreateCheckRunTool } from "./tools/checks/runs/github-create-check-run.js";
+import { registerGithubGetCheckRunTool } from "./tools/checks/runs/github-get-check-run.js";
+import { registerGithubUpdateCheckRunTool } from "./tools/checks/runs/github-update-check-run.js";
+import { registerGithubListCheckRunAnnotationsTool } from "./tools/checks/runs/github-list-check-run-annotations.js";
+import { registerGithubRerequestCheckRunTool } from "./tools/checks/runs/github-rerequest-check-run.js";
+import { registerGithubListCheckRunsForSuiteTool } from "./tools/checks/runs/github-list-check-runs-for-suite.js";
+import { registerGithubListCheckRunsForRefTool } from "./tools/checks/runs/github-list-check-runs-for-ref.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -1056,6 +1063,13 @@ registerGithubCreateOrgCampaignTool(server, octokit);
 registerGithubGetOrgCampaignTool(server, octokit);
 registerGithubUpdateOrgCampaignTool(server, octokit);
 registerGithubDeleteOrgCampaignTool(server, octokit);
+registerGithubCreateCheckRunTool(server, octokit);
+registerGithubGetCheckRunTool(server, octokit);
+registerGithubUpdateCheckRunTool(server, octokit);
+registerGithubListCheckRunAnnotationsTool(server, octokit);
+registerGithubRerequestCheckRunTool(server, octokit);
+registerGithubListCheckRunsForSuiteTool(server, octokit);
+registerGithubListCheckRunsForRefTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.

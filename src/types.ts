@@ -8017,3 +8017,113 @@ export type DeleteOrgCampaignSuccess = {
 };
 
 export type DeleteOrgCampaignFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/check-runs — HTTP 201. MCP tool: `github_create_check_run`. */
+export type CreateCheckRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    check_run: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateCheckRunFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/check-runs/{check_run_id} — HTTP 200. MCP tool: `github_get_check_run`. */
+export type GetCheckRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    check_run_id: number;
+    check_run: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetCheckRunFailure = CreateRepoFailure;
+
+/** PATCH /repos/{owner}/{repo}/check-runs/{check_run_id} — HTTP 200. MCP tool: `github_update_check_run`. */
+export type UpdateCheckRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    check_run_id: number;
+    check_run: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdateCheckRunFailure = CreateRepoFailure;
+
+/** GET .../check-runs/{check_run_id}/annotations — HTTP 200. MCP tool: `github_list_check_run_annotations`. */
+export type ListCheckRunAnnotationsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    check_run_id: number;
+    annotations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListCheckRunAnnotationsFailure = CreateRepoFailure;
+
+/** POST .../check-runs/{check_run_id}/rerequest — HTTP 201. MCP tool: `github_rerequest_check_run`. */
+export type RerequestCheckRunSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    check_run_id: number;
+    request_id: string | null;
+};
+
+export type RerequestCheckRunFailure = CreateRepoFailure;
+
+/** GET .../check-suites/{check_suite_id}/check-runs — HTTP 200. MCP tool: `github_list_check_runs_for_suite`. */
+export type ListCheckRunsForSuiteSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    check_suite_id: number;
+    total_count: number;
+    check_runs: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListCheckRunsForSuiteFailure = CreateRepoFailure;
+
+/** GET .../commits/{ref}/check-runs — HTTP 200. MCP tool: `github_list_check_runs_for_ref`. */
+export type ListCheckRunsForRefSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    ref: string;
+    total_count: number;
+    check_runs: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListCheckRunsForRefFailure = CreateRepoFailure;

@@ -1,0 +1,65 @@
+{
+  "name": "github_list_check_runs_for_suite",
+  "description": "List check runs in a check suite (GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs). Optional check_name/status/filter; supports pagination.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "check_suite_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "check_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "queued",
+          "in_progress",
+          "completed"
+        ]
+      },
+      "filter": {
+        "type": "string",
+        "enum": [
+          "latest",
+          "all"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "check_suite_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
