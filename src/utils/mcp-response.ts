@@ -367,6 +367,24 @@ import type {
     EnableWorkflowSuccess,
     GetWorkflowUsageFailure,
     GetWorkflowUsageSuccess,
+    ListPublicEventsFailure,
+    ListPublicEventsSuccess,
+    ListPublicEventsForRepoNetworkFailure,
+    ListPublicEventsForRepoNetworkSuccess,
+    ListPublicOrgEventsFailure,
+    ListPublicOrgEventsSuccess,
+    ListRepoEventsFailure,
+    ListRepoEventsSuccess,
+    ListEventsForAuthenticatedUserFailure,
+    ListEventsForAuthenticatedUserSuccess,
+    ListOrgEventsForAuthenticatedUserFailure,
+    ListOrgEventsForAuthenticatedUserSuccess,
+    ListPublicEventsForUserFailure,
+    ListPublicEventsForUserSuccess,
+    ListReceivedEventsForUserFailure,
+    ListReceivedEventsForUserSuccess,
+    ListReceivedPublicEventsForUserFailure,
+    ListReceivedPublicEventsForUserSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1083,6 +1101,24 @@ export function textAndData(
         | EnableWorkflowFailure
         | GetWorkflowUsageSuccess
         | GetWorkflowUsageFailure
+        | ListPublicEventsSuccess
+        | ListPublicEventsFailure
+        | ListPublicEventsForRepoNetworkSuccess
+        | ListPublicEventsForRepoNetworkFailure
+        | ListPublicOrgEventsSuccess
+        | ListPublicOrgEventsFailure
+        | ListRepoEventsSuccess
+        | ListRepoEventsFailure
+        | ListEventsForAuthenticatedUserSuccess
+        | ListEventsForAuthenticatedUserFailure
+        | ListOrgEventsForAuthenticatedUserSuccess
+        | ListOrgEventsForAuthenticatedUserFailure
+        | ListPublicEventsForUserSuccess
+        | ListPublicEventsForUserFailure
+        | ListReceivedEventsForUserSuccess
+        | ListReceivedEventsForUserFailure
+        | ListReceivedPublicEventsForUserSuccess
+        | ListReceivedPublicEventsForUserFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

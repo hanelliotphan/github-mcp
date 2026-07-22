@@ -5512,3 +5512,158 @@ export type GetWorkflowUsageSuccess = {
 };
 
 export type GetWorkflowUsageFailure = CreateRepoFailure;
+
+// ============================================================================
+// Activity — Events
+// ============================================================================
+
+/** A GitHub event object as returned by the activity events API. */
+export type EventItem = Record<string, unknown>;
+
+/** GET /events — HTTP 200. MCP tool: `github_list_public_events`. */
+export type ListPublicEventsSuccess = {
+    success: true;
+    message: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListPublicEventsFailure = CreateRepoFailure;
+
+/** GET /networks/{owner}/{repo}/events — HTTP 200. MCP tool: `github_list_public_events_for_repo_network`. */
+export type ListPublicEventsForRepoNetworkSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListPublicEventsForRepoNetworkFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/events — HTTP 200. MCP tool: `github_list_public_org_events`. */
+export type ListPublicOrgEventsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListPublicOrgEventsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/events — HTTP 200. MCP tool: `github_list_repo_events`. */
+export type ListRepoEventsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoEventsFailure = CreateRepoFailure;
+
+/** GET /users/{username}/events — HTTP 200. MCP tool: `github_list_events_for_authenticated_user`. */
+export type ListEventsForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListEventsForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** GET /users/{username}/events/orgs/{org} — HTTP 200. MCP tool: `github_list_org_events_for_authenticated_user`. */
+export type ListOrgEventsForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    org: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgEventsForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** GET /users/{username}/events/public — HTTP 200. MCP tool: `github_list_public_events_for_user`. */
+export type ListPublicEventsForUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListPublicEventsForUserFailure = CreateRepoFailure;
+
+/** GET /users/{username}/received_events — HTTP 200. MCP tool: `github_list_received_events_for_user`. */
+export type ListReceivedEventsForUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListReceivedEventsForUserFailure = CreateRepoFailure;
+
+/** GET /users/{username}/received_events/public — HTTP 200. MCP tool: `github_list_received_public_events_for_user`. */
+export type ListReceivedPublicEventsForUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    events: EventItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListReceivedPublicEventsForUserFailure = CreateRepoFailure;

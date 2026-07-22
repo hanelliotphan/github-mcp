@@ -350,6 +350,15 @@ import { registerGithubDisableWorkflowTool } from "./tools/actions/workflows/git
 import { registerGithubCreateWorkflowDispatchTool } from "./tools/actions/workflows/github-create-workflow-dispatch.js";
 import { registerGithubEnableWorkflowTool } from "./tools/actions/workflows/github-enable-workflow.js";
 import { registerGithubGetWorkflowUsageTool } from "./tools/actions/workflows/github-get-workflow-usage.js";
+import { registerGithubListPublicEventsTool } from "./tools/activity/events/github-list-public-events.js";
+import { registerGithubListPublicEventsForRepoNetworkTool } from "./tools/activity/events/github-list-public-events-for-repo-network.js";
+import { registerGithubListPublicOrgEventsTool } from "./tools/activity/events/github-list-public-org-events.js";
+import { registerGithubListRepoEventsTool } from "./tools/activity/events/github-list-repo-events.js";
+import { registerGithubListEventsForAuthenticatedUserTool } from "./tools/activity/events/github-list-events-for-authenticated-user.js";
+import { registerGithubListOrgEventsForAuthenticatedUserTool } from "./tools/activity/events/github-list-org-events-for-authenticated-user.js";
+import { registerGithubListPublicEventsForUserTool } from "./tools/activity/events/github-list-public-events-for-user.js";
+import { registerGithubListReceivedEventsForUserTool } from "./tools/activity/events/github-list-received-events-for-user.js";
+import { registerGithubListReceivedPublicEventsForUserTool } from "./tools/activity/events/github-list-received-public-events-for-user.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -713,6 +722,15 @@ registerGithubDisableWorkflowTool(server, octokit);
 registerGithubCreateWorkflowDispatchTool(server, octokit);
 registerGithubEnableWorkflowTool(server, octokit);
 registerGithubGetWorkflowUsageTool(server, octokit);
+registerGithubListPublicEventsTool(server, octokit);
+registerGithubListPublicEventsForRepoNetworkTool(server, octokit);
+registerGithubListPublicOrgEventsTool(server, octokit);
+registerGithubListRepoEventsTool(server, octokit);
+registerGithubListEventsForAuthenticatedUserTool(server, octokit);
+registerGithubListOrgEventsForAuthenticatedUserTool(server, octokit);
+registerGithubListPublicEventsForUserTool(server, octokit);
+registerGithubListReceivedEventsForUserTool(server, octokit);
+registerGithubListReceivedPublicEventsForUserTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();
