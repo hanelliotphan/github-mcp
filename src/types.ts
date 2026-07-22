@@ -7495,3 +7495,459 @@ export type MergeRepoBranchSuccess = {
 };
 
 export type MergeRepoBranchFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_branch_protection`. */
+export type GetRepoBranchProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    protection: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetRepoBranchProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_branch_protection`. */
+export type UpdateRepoBranchProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    protection: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdateRepoBranchProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_branch_protection`. */
+export type DeleteRepoBranchProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    request_id: string | null;
+};
+
+export type DeleteRepoBranchProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_admin_branch_protection`. */
+export type GetAdminBranchProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    enforce_admins: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetAdminBranchProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_admin_branch_protection`. */
+export type SetAdminBranchProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    enforce_admins: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type SetAdminBranchProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_admin_branch_protection`. */
+export type DeleteAdminBranchProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    request_id: string | null;
+};
+
+export type DeleteAdminBranchProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_pull_request_review_protection`. */
+export type GetPullRequestReviewProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    required_pull_request_reviews: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetPullRequestReviewProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_pull_request_review_protection`. */
+export type UpdatePullRequestReviewProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    required_pull_request_reviews: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdatePullRequestReviewProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_pull_request_review_protection`. */
+export type DeletePullRequestReviewProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    request_id: string | null;
+};
+
+export type DeletePullRequestReviewProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_commit_signature_protection`. */
+export type GetCommitSignatureProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    required_signatures: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetCommitSignatureProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_commit_signature_protection`. */
+export type CreateCommitSignatureProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    required_signatures: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateCommitSignatureProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_commit_signature_protection`. */
+export type DeleteCommitSignatureProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    request_id: string | null;
+};
+
+export type DeleteCommitSignatureProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_status_checks_protection`. */
+export type GetStatusChecksProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    required_status_checks: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetStatusChecksProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_status_check_protection`. */
+export type UpdateStatusCheckProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    required_status_checks: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdateStatusCheckProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_status_check_protection`. */
+export type RemoveStatusCheckProtectionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    request_id: string | null;
+};
+
+export type RemoveStatusCheckProtectionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_all_status_check_contexts`. */
+export type GetAllStatusCheckContextsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    contexts: unknown[];
+    request_id: string | null;
+};
+
+export type GetAllStatusCheckContextsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_status_check_contexts`. */
+export type AddStatusCheckContextsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    contexts: unknown[];
+    request_id: string | null;
+};
+
+export type AddStatusCheckContextsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_status_check_contexts`. */
+export type SetStatusCheckContextsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    contexts: unknown[];
+    request_id: string | null;
+};
+
+export type SetStatusCheckContextsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_status_check_contexts`. */
+export type RemoveStatusCheckContextsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    contexts: unknown[];
+    request_id: string | null;
+};
+
+export type RemoveStatusCheckContextsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_access_restrictions`. */
+export type GetAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    restrictions: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_access_restrictions`. */
+export type DeleteAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    request_id: string | null;
+};
+
+export type DeleteAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_apps_with_access_to_protected_branch`. */
+export type GetAppsWithAccessToProtectedBranchSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    apps: unknown[];
+    request_id: string | null;
+};
+
+export type GetAppsWithAccessToProtectedBranchFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_app_access_restrictions`. */
+export type AddAppAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    apps: unknown[];
+    request_id: string | null;
+};
+
+export type AddAppAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_app_access_restrictions`. */
+export type SetAppAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    apps: unknown[];
+    request_id: string | null;
+};
+
+export type SetAppAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_app_access_restrictions`. */
+export type RemoveAppAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    apps: unknown[];
+    request_id: string | null;
+};
+
+export type RemoveAppAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_teams_with_access_to_protected_branch`. */
+export type GetTeamsWithAccessToProtectedBranchSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    teams: unknown[];
+    request_id: string | null;
+};
+
+export type GetTeamsWithAccessToProtectedBranchFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_team_access_restrictions`. */
+export type AddTeamAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    teams: unknown[];
+    request_id: string | null;
+};
+
+export type AddTeamAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_team_access_restrictions`. */
+export type SetTeamAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    teams: unknown[];
+    request_id: string | null;
+};
+
+export type SetTeamAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_team_access_restrictions`. */
+export type RemoveTeamAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    teams: unknown[];
+    request_id: string | null;
+};
+
+export type RemoveTeamAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_users_with_access_to_protected_branch`. */
+export type GetUsersWithAccessToProtectedBranchSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    users: unknown[];
+    request_id: string | null;
+};
+
+export type GetUsersWithAccessToProtectedBranchFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_user_access_restrictions`. */
+export type AddUserAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    users: unknown[];
+    request_id: string | null;
+};
+
+export type AddUserAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_user_access_restrictions`. */
+export type SetUserAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    users: unknown[];
+    request_id: string | null;
+};
+
+export type SetUserAccessRestrictionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_user_access_restrictions`. */
+export type RemoveUserAccessRestrictionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    users: unknown[];
+    request_id: string | null;
+};
+
+export type RemoveUserAccessRestrictionsFailure = CreateRepoFailure;

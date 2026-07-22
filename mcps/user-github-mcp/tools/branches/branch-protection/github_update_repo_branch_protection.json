@@ -1,0 +1,82 @@
+{
+  "name": "github_update_repo_branch_protection",
+  "description": "Update branch protection (PUT /repos/{owner}/{repo}/branches/{branch}/protection).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "required_status_checks": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "enforce_admins": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "required_pull_request_reviews": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "restrictions": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "required_linear_history": {
+        "type": "boolean"
+      },
+      "allow_force_pushes": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "allow_deletions": {
+        "type": "boolean"
+      },
+      "block_creations": {
+        "type": "boolean"
+      },
+      "required_conversation_resolution": {
+        "type": "boolean"
+      },
+      "lock_branch": {
+        "type": "boolean"
+      },
+      "allow_fork_syncing": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch",
+      "required_status_checks",
+      "enforce_admins",
+      "required_pull_request_reviews",
+      "restrictions"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

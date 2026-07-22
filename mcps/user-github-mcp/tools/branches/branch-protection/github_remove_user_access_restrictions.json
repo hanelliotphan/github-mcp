@@ -1,0 +1,38 @@
+{
+  "name": "github_remove_user_access_restrictions",
+  "description": "Remove user access restrictions (DELETE .../restrictions/users).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "users": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch",
+      "users"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

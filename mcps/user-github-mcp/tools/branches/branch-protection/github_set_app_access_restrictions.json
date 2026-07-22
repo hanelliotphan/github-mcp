@@ -1,0 +1,38 @@
+{
+  "name": "github_set_app_access_restrictions",
+  "description": "Set app access restrictions (PUT .../restrictions/apps).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "apps": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch",
+      "apps"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

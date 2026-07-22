@@ -1,0 +1,38 @@
+{
+  "name": "github_add_status_check_contexts",
+  "description": "Add status check contexts (POST .../required_status_checks/contexts).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "contexts": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch",
+      "contexts"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

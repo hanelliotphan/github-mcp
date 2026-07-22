@@ -1,0 +1,56 @@
+{
+  "name": "github_update_status_check_protection",
+  "description": "Update status check protection (PATCH .../required_status_checks).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "strict": {
+        "type": "boolean"
+      },
+      "contexts": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "checks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "type": "string"
+            },
+            "app_id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "context"
+          ]
+        }
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

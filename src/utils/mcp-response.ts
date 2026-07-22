@@ -633,6 +633,72 @@ import type {
     SyncForkBranchWithUpstreamSuccess,
     MergeRepoBranchFailure,
     MergeRepoBranchSuccess,
+    GetRepoBranchProtectionSuccess,
+    GetRepoBranchProtectionFailure,
+    UpdateRepoBranchProtectionSuccess,
+    UpdateRepoBranchProtectionFailure,
+    DeleteRepoBranchProtectionSuccess,
+    DeleteRepoBranchProtectionFailure,
+    GetAdminBranchProtectionSuccess,
+    GetAdminBranchProtectionFailure,
+    SetAdminBranchProtectionSuccess,
+    SetAdminBranchProtectionFailure,
+    DeleteAdminBranchProtectionSuccess,
+    DeleteAdminBranchProtectionFailure,
+    GetPullRequestReviewProtectionSuccess,
+    GetPullRequestReviewProtectionFailure,
+    UpdatePullRequestReviewProtectionSuccess,
+    UpdatePullRequestReviewProtectionFailure,
+    DeletePullRequestReviewProtectionSuccess,
+    DeletePullRequestReviewProtectionFailure,
+    GetCommitSignatureProtectionSuccess,
+    GetCommitSignatureProtectionFailure,
+    CreateCommitSignatureProtectionSuccess,
+    CreateCommitSignatureProtectionFailure,
+    DeleteCommitSignatureProtectionSuccess,
+    DeleteCommitSignatureProtectionFailure,
+    GetStatusChecksProtectionSuccess,
+    GetStatusChecksProtectionFailure,
+    UpdateStatusCheckProtectionSuccess,
+    UpdateStatusCheckProtectionFailure,
+    RemoveStatusCheckProtectionSuccess,
+    RemoveStatusCheckProtectionFailure,
+    GetAllStatusCheckContextsSuccess,
+    GetAllStatusCheckContextsFailure,
+    AddStatusCheckContextsSuccess,
+    AddStatusCheckContextsFailure,
+    SetStatusCheckContextsSuccess,
+    SetStatusCheckContextsFailure,
+    RemoveStatusCheckContextsSuccess,
+    RemoveStatusCheckContextsFailure,
+    GetAccessRestrictionsSuccess,
+    GetAccessRestrictionsFailure,
+    DeleteAccessRestrictionsSuccess,
+    DeleteAccessRestrictionsFailure,
+    GetAppsWithAccessToProtectedBranchSuccess,
+    GetAppsWithAccessToProtectedBranchFailure,
+    AddAppAccessRestrictionsSuccess,
+    AddAppAccessRestrictionsFailure,
+    SetAppAccessRestrictionsSuccess,
+    SetAppAccessRestrictionsFailure,
+    RemoveAppAccessRestrictionsSuccess,
+    RemoveAppAccessRestrictionsFailure,
+    GetTeamsWithAccessToProtectedBranchSuccess,
+    GetTeamsWithAccessToProtectedBranchFailure,
+    AddTeamAccessRestrictionsSuccess,
+    AddTeamAccessRestrictionsFailure,
+    SetTeamAccessRestrictionsSuccess,
+    SetTeamAccessRestrictionsFailure,
+    RemoveTeamAccessRestrictionsSuccess,
+    RemoveTeamAccessRestrictionsFailure,
+    GetUsersWithAccessToProtectedBranchSuccess,
+    GetUsersWithAccessToProtectedBranchFailure,
+    AddUserAccessRestrictionsSuccess,
+    AddUserAccessRestrictionsFailure,
+    SetUserAccessRestrictionsSuccess,
+    SetUserAccessRestrictionsFailure,
+    RemoveUserAccessRestrictionsSuccess,
+    RemoveUserAccessRestrictionsFailure,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1615,6 +1681,72 @@ export function textAndData(
         | SyncForkBranchWithUpstreamFailure
         | MergeRepoBranchSuccess
         | MergeRepoBranchFailure
+        | GetRepoBranchProtectionSuccess
+        | GetRepoBranchProtectionFailure
+        | UpdateRepoBranchProtectionSuccess
+        | UpdateRepoBranchProtectionFailure
+        | DeleteRepoBranchProtectionSuccess
+        | DeleteRepoBranchProtectionFailure
+        | GetAdminBranchProtectionSuccess
+        | GetAdminBranchProtectionFailure
+        | SetAdminBranchProtectionSuccess
+        | SetAdminBranchProtectionFailure
+        | DeleteAdminBranchProtectionSuccess
+        | DeleteAdminBranchProtectionFailure
+        | GetPullRequestReviewProtectionSuccess
+        | GetPullRequestReviewProtectionFailure
+        | UpdatePullRequestReviewProtectionSuccess
+        | UpdatePullRequestReviewProtectionFailure
+        | DeletePullRequestReviewProtectionSuccess
+        | DeletePullRequestReviewProtectionFailure
+        | GetCommitSignatureProtectionSuccess
+        | GetCommitSignatureProtectionFailure
+        | CreateCommitSignatureProtectionSuccess
+        | CreateCommitSignatureProtectionFailure
+        | DeleteCommitSignatureProtectionSuccess
+        | DeleteCommitSignatureProtectionFailure
+        | GetStatusChecksProtectionSuccess
+        | GetStatusChecksProtectionFailure
+        | UpdateStatusCheckProtectionSuccess
+        | UpdateStatusCheckProtectionFailure
+        | RemoveStatusCheckProtectionSuccess
+        | RemoveStatusCheckProtectionFailure
+        | GetAllStatusCheckContextsSuccess
+        | GetAllStatusCheckContextsFailure
+        | AddStatusCheckContextsSuccess
+        | AddStatusCheckContextsFailure
+        | SetStatusCheckContextsSuccess
+        | SetStatusCheckContextsFailure
+        | RemoveStatusCheckContextsSuccess
+        | RemoveStatusCheckContextsFailure
+        | GetAccessRestrictionsSuccess
+        | GetAccessRestrictionsFailure
+        | DeleteAccessRestrictionsSuccess
+        | DeleteAccessRestrictionsFailure
+        | GetAppsWithAccessToProtectedBranchSuccess
+        | GetAppsWithAccessToProtectedBranchFailure
+        | AddAppAccessRestrictionsSuccess
+        | AddAppAccessRestrictionsFailure
+        | SetAppAccessRestrictionsSuccess
+        | SetAppAccessRestrictionsFailure
+        | RemoveAppAccessRestrictionsSuccess
+        | RemoveAppAccessRestrictionsFailure
+        | GetTeamsWithAccessToProtectedBranchSuccess
+        | GetTeamsWithAccessToProtectedBranchFailure
+        | AddTeamAccessRestrictionsSuccess
+        | AddTeamAccessRestrictionsFailure
+        | SetTeamAccessRestrictionsSuccess
+        | SetTeamAccessRestrictionsFailure
+        | RemoveTeamAccessRestrictionsSuccess
+        | RemoveTeamAccessRestrictionsFailure
+        | GetUsersWithAccessToProtectedBranchSuccess
+        | GetUsersWithAccessToProtectedBranchFailure
+        | AddUserAccessRestrictionsSuccess
+        | AddUserAccessRestrictionsFailure
+        | SetUserAccessRestrictionsSuccess
+        | SetUserAccessRestrictionsFailure
+        | RemoveUserAccessRestrictionsSuccess
+        | RemoveUserAccessRestrictionsFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

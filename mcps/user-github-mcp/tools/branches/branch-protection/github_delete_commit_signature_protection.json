@@ -1,0 +1,30 @@
+{
+  "name": "github_delete_commit_signature_protection",
+  "description": "Delete commit signature protection (DELETE .../required_signatures).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
