@@ -6100,3 +6100,235 @@ export type GetAgentTaskSuccess = {
 };
 
 export type GetAgentTaskFailure = CreateRepoFailure;
+
+/** One GitHub agent secret (name + timestamps; org secrets also include visibility). Value is never returned. */
+export type AgentSecretItem = Record<string, unknown>;
+
+/** A GitHub agent public key used to encrypt secrets (`key_id`, `key`). */
+export type AgentPublicKey = Record<string, unknown>;
+
+/** GET /orgs/{org}/agents/secrets — HTTP 200. MCP tool: `github_list_org_agent_secrets`. */
+export type ListOrgAgentSecretsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    secrets: AgentSecretItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgAgentSecretsFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/agents/secrets/public-key — HTTP 200. MCP tool: `github_get_org_agent_public_key`. */
+export type GetOrgAgentPublicKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    public_key: AgentPublicKey;
+    request_id: string | null;
+};
+
+export type GetOrgAgentPublicKeyFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/agents/secrets/{secret_name} — HTTP 200. MCP tool: `github_get_org_agent_secret`. */
+export type GetOrgAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    secret: AgentSecretItem;
+    request_id: string | null;
+};
+
+export type GetOrgAgentSecretFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/agents/secrets/{secret_name} — HTTP 201 (created) or 204 (updated). MCP tool: `github_create_or_update_org_agent_secret`. */
+export type CreateOrUpdateOrgAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    /** True when GitHub returned 201 (a new secret was created). */
+    created: boolean;
+    request_id: string | null;
+};
+
+export type CreateOrUpdateOrgAgentSecretFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/agents/secrets/{secret_name} — HTTP 204 No Content. MCP tool: `github_delete_org_agent_secret`. */
+export type DeleteOrgAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    request_id: string | null;
+};
+
+export type DeleteOrgAgentSecretFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/agents/secrets/{secret_name}/repositories — HTTP 200. MCP tool: `github_list_selected_repos_for_org_agent_secret`. */
+export type ListSelectedReposForOrgAgentSecretSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    secret_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelectedReposForOrgAgentSecretFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/agents/secrets/{secret_name}/repositories — HTTP 204 No Content. MCP tool: `github_set_selected_repos_for_org_agent_secret`. */
+export type SetSelectedReposForOrgAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+
+export type SetSelectedReposForOrgAgentSecretFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_add_selected_repo_to_org_agent_secret`. */
+export type AddSelectedRepoToOrgAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type AddSelectedRepoToOrgAgentSecretFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/agents/secrets/{secret_name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_remove_selected_repo_from_org_agent_secret`. */
+export type RemoveSelectedRepoFromOrgAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type RemoveSelectedRepoFromOrgAgentSecretFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/agents/organization-secrets — HTTP 200. MCP tool: `github_list_repo_organization_agent_secrets`. */
+export type ListRepoOrganizationAgentSecretsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    secrets: AgentSecretItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoOrganizationAgentSecretsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/agents/secrets — HTTP 200. MCP tool: `github_list_repo_agent_secrets`. */
+export type ListRepoAgentSecretsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    /** Total count reported by GitHub across all pages. */
+    total_count: number;
+    secrets: AgentSecretItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoAgentSecretsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/agents/secrets/public-key — HTTP 200. MCP tool: `github_get_repo_agent_public_key`. */
+export type GetRepoAgentPublicKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    public_key: AgentPublicKey;
+    request_id: string | null;
+};
+
+export type GetRepoAgentPublicKeyFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/agents/secrets/{secret_name} — HTTP 200. MCP tool: `github_get_repo_agent_secret`. */
+export type GetRepoAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    secret_name: string;
+    secret: AgentSecretItem;
+    request_id: string | null;
+};
+
+export type GetRepoAgentSecretFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/agents/secrets/{secret_name} — HTTP 201 (created) or 204 (updated). MCP tool: `github_create_or_update_repo_agent_secret`. */
+export type CreateOrUpdateRepoAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    secret_name: string;
+    /** True when GitHub returned 201 (a new secret was created). */
+    created: boolean;
+    request_id: string | null;
+};
+
+export type CreateOrUpdateRepoAgentSecretFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/agents/secrets/{secret_name} — HTTP 204 No Content. MCP tool: `github_delete_repo_agent_secret`. */
+export type DeleteRepoAgentSecretSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    secret_name: string;
+    request_id: string | null;
+};
+
+export type DeleteRepoAgentSecretFailure = CreateRepoFailure;

@@ -441,6 +441,36 @@ import type {
     ListAgentTasksSuccess,
     GetAgentTaskFailure,
     GetAgentTaskSuccess,
+    ListOrgAgentSecretsFailure,
+    ListOrgAgentSecretsSuccess,
+    GetOrgAgentPublicKeyFailure,
+    GetOrgAgentPublicKeySuccess,
+    GetOrgAgentSecretFailure,
+    GetOrgAgentSecretSuccess,
+    CreateOrUpdateOrgAgentSecretFailure,
+    CreateOrUpdateOrgAgentSecretSuccess,
+    DeleteOrgAgentSecretFailure,
+    DeleteOrgAgentSecretSuccess,
+    ListSelectedReposForOrgAgentSecretFailure,
+    ListSelectedReposForOrgAgentSecretSuccess,
+    SetSelectedReposForOrgAgentSecretFailure,
+    SetSelectedReposForOrgAgentSecretSuccess,
+    AddSelectedRepoToOrgAgentSecretFailure,
+    AddSelectedRepoToOrgAgentSecretSuccess,
+    RemoveSelectedRepoFromOrgAgentSecretFailure,
+    RemoveSelectedRepoFromOrgAgentSecretSuccess,
+    ListRepoOrganizationAgentSecretsFailure,
+    ListRepoOrganizationAgentSecretsSuccess,
+    ListRepoAgentSecretsFailure,
+    ListRepoAgentSecretsSuccess,
+    GetRepoAgentPublicKeyFailure,
+    GetRepoAgentPublicKeySuccess,
+    GetRepoAgentSecretFailure,
+    GetRepoAgentSecretSuccess,
+    CreateOrUpdateRepoAgentSecretFailure,
+    CreateOrUpdateRepoAgentSecretSuccess,
+    DeleteRepoAgentSecretFailure,
+    DeleteRepoAgentSecretSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1231,6 +1261,36 @@ export function textAndData(
         | ListAgentTasksFailure
         | GetAgentTaskSuccess
         | GetAgentTaskFailure
+        | ListOrgAgentSecretsSuccess
+        | ListOrgAgentSecretsFailure
+        | GetOrgAgentPublicKeySuccess
+        | GetOrgAgentPublicKeyFailure
+        | GetOrgAgentSecretSuccess
+        | GetOrgAgentSecretFailure
+        | CreateOrUpdateOrgAgentSecretSuccess
+        | CreateOrUpdateOrgAgentSecretFailure
+        | DeleteOrgAgentSecretSuccess
+        | DeleteOrgAgentSecretFailure
+        | ListSelectedReposForOrgAgentSecretSuccess
+        | ListSelectedReposForOrgAgentSecretFailure
+        | SetSelectedReposForOrgAgentSecretSuccess
+        | SetSelectedReposForOrgAgentSecretFailure
+        | AddSelectedRepoToOrgAgentSecretSuccess
+        | AddSelectedRepoToOrgAgentSecretFailure
+        | RemoveSelectedRepoFromOrgAgentSecretSuccess
+        | RemoveSelectedRepoFromOrgAgentSecretFailure
+        | ListRepoOrganizationAgentSecretsSuccess
+        | ListRepoOrganizationAgentSecretsFailure
+        | ListRepoAgentSecretsSuccess
+        | ListRepoAgentSecretsFailure
+        | GetRepoAgentPublicKeySuccess
+        | GetRepoAgentPublicKeyFailure
+        | GetRepoAgentSecretSuccess
+        | GetRepoAgentSecretFailure
+        | CreateOrUpdateRepoAgentSecretSuccess
+        | CreateOrUpdateRepoAgentSecretFailure
+        | DeleteRepoAgentSecretSuccess
+        | DeleteRepoAgentSecretFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
