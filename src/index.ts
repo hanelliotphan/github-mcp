@@ -454,6 +454,7 @@ import { registerGithubUpdateAppWebhookConfigTool } from "./tools/apps/webhooks/
 import { registerGithubListAppWebhookDeliveriesTool } from "./tools/apps/webhooks/github-list-app-webhook-deliveries.js";
 import { registerGithubGetAppWebhookDeliveryTool } from "./tools/apps/webhooks/github-get-app-webhook-delivery.js";
 import { registerGithubRedeliverAppWebhookDeliveryTool } from "./tools/apps/webhooks/github-redeliver-app-webhook-delivery.js";
+import { registerGithubGetOrgAdvancedSecurityActiveCommittersTool } from "./tools/billing/billing/github-get-org-advanced-security-active-committers.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -921,6 +922,7 @@ registerGithubUpdateAppWebhookConfigTool(server, octokit);
 registerGithubListAppWebhookDeliveriesTool(server, octokit);
 registerGithubGetAppWebhookDeliveryTool(server, octokit);
 registerGithubRedeliverAppWebhookDeliveryTool(server, octokit);
+registerGithubGetOrgAdvancedSecurityActiveCommittersTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

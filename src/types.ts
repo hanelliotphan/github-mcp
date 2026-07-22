@@ -7080,3 +7080,25 @@ export type RedeliverAppWebhookDeliverySuccess = {
 };
 
 export type RedeliverAppWebhookDeliveryFailure = CreateRepoFailure;
+
+// ============================================================================
+// Billing — Advanced Security committers
+// ============================================================================
+
+/** GET /orgs/{org}/settings/billing/advanced-security — HTTP 200. MCP tool: `github_get_org_advanced_security_active_committers`. */
+export type GetOrgAdvancedSecurityActiveCommittersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    /** Totals plus `repositories` committer breakdown from the API body. */
+    billing: Record<string, unknown>;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type GetOrgAdvancedSecurityActiveCommittersFailure = CreateRepoFailure;

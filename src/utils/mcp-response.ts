@@ -575,6 +575,8 @@ import type {
     GetAppWebhookDeliverySuccess,
     RedeliverAppWebhookDeliveryFailure,
     RedeliverAppWebhookDeliverySuccess,
+    GetOrgAdvancedSecurityActiveCommittersFailure,
+    GetOrgAdvancedSecurityActiveCommittersSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1499,6 +1501,8 @@ export function textAndData(
         | GetAppWebhookDeliveryFailure
         | RedeliverAppWebhookDeliverySuccess
         | RedeliverAppWebhookDeliveryFailure
+        | GetOrgAdvancedSecurityActiveCommittersSuccess
+        | GetOrgAdvancedSecurityActiveCommittersFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
