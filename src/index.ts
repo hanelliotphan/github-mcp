@@ -668,6 +668,8 @@ import { registerGithubCreateCommitCommentTool } from "./tools/commits/comments/
 import { registerGithubGetCombinedCommitStatusTool } from "./tools/commits/statuses/github-get-combined-commit-status.js";
 import { registerGithubListCommitStatusesTool } from "./tools/commits/statuses/github-list-commit-statuses.js";
 import { registerGithubCreateCommitStatusTool } from "./tools/commits/statuses/github-create-commit-status.js";
+import { registerGithubSetOrgCopilotContentExclusionTool } from "./tools/copilot/copilot-content-exclusion-management/github-set-org-copilot-content-exclusion.js";
+import { registerGithubGetOrgCopilotContentExclusionTool } from "./tools/copilot/copilot-content-exclusion-management/github-get-org-copilot-content-exclusion.js";
 import { registerGithubDisableOrgCopilotCodingAgentRepositoryTool } from "./tools/copilot/copilot-coding-agent-management/github-disable-org-copilot-coding-agent-repository.js";
 import { registerGithubEnableOrgCopilotCodingAgentRepositoryTool } from "./tools/copilot/copilot-coding-agent-management/github-enable-org-copilot-coding-agent-repository.js";
 import { registerGithubSetOrgCopilotCodingAgentRepositoriesTool } from "./tools/copilot/copilot-coding-agent-management/github-set-org-copilot-coding-agent-repositories.js";
@@ -1358,6 +1360,8 @@ registerGithubCreateCommitCommentTool(server, octokit);
 registerGithubGetCombinedCommitStatusTool(server, octokit);
 registerGithubListCommitStatusesTool(server, octokit);
 registerGithubCreateCommitStatusTool(server, octokit);
+registerGithubSetOrgCopilotContentExclusionTool(server, octokit);
+registerGithubGetOrgCopilotContentExclusionTool(server, octokit);
 registerGithubDisableOrgCopilotCodingAgentRepositoryTool(server, octokit);
 registerGithubEnableOrgCopilotCodingAgentRepositoryTool(server, octokit);
 registerGithubSetOrgCopilotCodingAgentRepositoriesTool(server, octokit);

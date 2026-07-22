@@ -1096,6 +1096,10 @@ import type {
     ListCommitStatusesFailure,
     CreateCommitStatusSuccess,
     CreateCommitStatusFailure,
+    SetOrgCopilotContentExclusionSuccess,
+    SetOrgCopilotContentExclusionFailure,
+    GetOrgCopilotContentExclusionSuccess,
+    GetOrgCopilotContentExclusionFailure,
     DisableOrgCopilotCodingAgentRepositorySuccess,
     DisableOrgCopilotCodingAgentRepositoryFailure,
     EnableOrgCopilotCodingAgentRepositorySuccess,
@@ -2674,7 +2678,11 @@ export function textAndData(
         | EnableOrgCopilotCodingAgentRepositorySuccess
         | EnableOrgCopilotCodingAgentRepositoryFailure
         | DisableOrgCopilotCodingAgentRepositorySuccess
-        | DisableOrgCopilotCodingAgentRepositoryFailure) {
+        | DisableOrgCopilotCodingAgentRepositoryFailure
+        | GetOrgCopilotContentExclusionSuccess
+        | GetOrgCopilotContentExclusionFailure
+        | SetOrgCopilotContentExclusionSuccess
+        | SetOrgCopilotContentExclusionFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

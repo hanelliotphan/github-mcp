@@ -9791,3 +9791,25 @@ export type GetRepoCopilotCloudAgentConfigurationSuccess = {
 };
 export type GetRepoCopilotCloudAgentConfigurationFailure = CreateRepoFailure;
 
+/** MCP tool: `github_get_org_copilot_content_exclusion`. */
+export type GetOrgCopilotContentExclusionSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    rules: Record<string, unknown>;
+};
+export type GetOrgCopilotContentExclusionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_copilot_content_exclusion`. */
+export type SetOrgCopilotContentExclusionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    rules: Record<string, string[]>;
+    result?: Record<string, unknown>;
+};
+export type SetOrgCopilotContentExclusionFailure = CreateRepoFailure;
+

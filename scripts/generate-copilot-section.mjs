@@ -466,7 +466,7 @@ function generateTypes(tool) {
         fields += `\n    ${tool.resultKey}: Record<string, unknown>;`;
         fields = fields.replace("http_status: number;\n    ", "");
     }
-    if (tool.kind === "put" || tool.kind === "putRules") {
+    if (tool.kind === "put") {
         fields += `\n    ${tool.resultKey ?? "result"}: Record<string, unknown>;`;
     }
     if (tool.kind === "put204" || tool.kind === "post204" || tool.kind === "delete204" || tool.kind === "delete204body") {
@@ -476,7 +476,7 @@ function generateTypes(tool) {
         fields += `\n    total_seats: number;\n    seats: Record<string, unknown>[];\n    pagination: GitHubPageLinkPagination | null;\n    page: number;\n    per_page: number;\n    pages_fetched: number;\n    truncated?: boolean;`;
         fields = fields.replace("http_status: number;\n    ", "");
     }
-    if (tool.kind === "list" || tool.kind === "listCustomAgents") {
+    if (tool.kind === "list") {
         fields += `\n    total_count: number;\n    ${tool.listKey}: Record<string, unknown>[];\n    pagination: GitHubPageLinkPagination | null;\n    page: number;\n    per_page: number;\n    pages_fetched: number;\n    truncated?: boolean;`;
         fields = fields.replace("http_status: number;\n    ", "");
     }
@@ -1095,10 +1095,9 @@ function patchIndex(section, mode) {
 function patchTypes(section) {
     const typesPath = path.join(ROOT, "src/types.ts");
     let content = fs.readFileSync(typesPath, "utf8");
-    const anchor = "export type CreateCommitStatusFailure = CreateRepoFailure;";
     const block = section.tools.map(generateTypes).join("\n");
     if (!content.includes(successTypeName(section.tools[0]))) {
-        content = content.replace(anchor, `${anchor}\n\n${block}`);
+        content = `${content.trimEnd()}\n\n${block}`;
         fs.writeFileSync(typesPath, content);
     }
 }

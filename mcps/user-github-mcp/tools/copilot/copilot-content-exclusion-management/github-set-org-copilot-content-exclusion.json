@@ -1,0 +1,28 @@
+{
+  "name": "github_set_org_copilot_content_exclusion",
+  "description": "Set Copilot content exclusion rules for an organization (PUT /orgs/{org}/copilot/content_exclusion).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "rules": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required": [
+      "org",
+      "rules"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
