@@ -9859,3 +9859,143 @@ export type DeleteEnterpriseCopilotCustomAgentsSourceSuccess = {
     enterprise: string;
 };
 export type DeleteEnterpriseCopilotCustomAgentsSourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_copilot_metrics_1_day`. */
+export type GetEnterpriseCopilotMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    enterprise: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetEnterpriseCopilotMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_copilot_metrics_28_day`. */
+export type GetEnterpriseCopilotMetrics28DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    enterprise: string;
+    report: Record<string, unknown>;
+};
+export type GetEnterpriseCopilotMetrics28DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_copilot_repos_metrics_1_day`. */
+export type GetEnterpriseCopilotReposMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    enterprise: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetEnterpriseCopilotReposMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_copilot_user_teams_metrics_1_day`. */
+export type GetEnterpriseCopilotUserTeamsMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    enterprise: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetEnterpriseCopilotUserTeamsMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_copilot_users_metrics_1_day`. */
+export type GetEnterpriseCopilotUsersMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    enterprise: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetEnterpriseCopilotUsersMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_copilot_users_metrics_28_day`. */
+export type GetEnterpriseCopilotUsersMetrics28DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    enterprise: string;
+    report: Record<string, unknown>;
+};
+export type GetEnterpriseCopilotUsersMetrics28DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_metrics_1_day`. */
+export type GetOrgCopilotMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetOrgCopilotMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_metrics_28_day`. */
+export type GetOrgCopilotMetrics28DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    report: Record<string, unknown>;
+};
+export type GetOrgCopilotMetrics28DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_repos_metrics_1_day`. */
+export type GetOrgCopilotReposMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetOrgCopilotReposMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_user_teams_metrics_1_day`. */
+export type GetOrgCopilotUserTeamsMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetOrgCopilotUserTeamsMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_users_metrics_1_day`. */
+export type GetOrgCopilotUsersMetrics1DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    day: string;
+    report: Record<string, unknown>;
+};
+export type GetOrgCopilotUsersMetrics1DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_users_metrics_28_day`. */
+export type GetOrgCopilotUsersMetrics28DaySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    report: Record<string, unknown>;
+};
+export type GetOrgCopilotUsersMetrics28DayFailure = CreateRepoFailure;

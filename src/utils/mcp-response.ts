@@ -1096,6 +1096,30 @@ import type {
     ListCommitStatusesFailure,
     CreateCommitStatusSuccess,
     CreateCommitStatusFailure,
+    GetOrgCopilotUsersMetrics28DaySuccess,
+    GetOrgCopilotUsersMetrics28DayFailure,
+    GetOrgCopilotUsersMetrics1DaySuccess,
+    GetOrgCopilotUsersMetrics1DayFailure,
+    GetOrgCopilotUserTeamsMetrics1DaySuccess,
+    GetOrgCopilotUserTeamsMetrics1DayFailure,
+    GetOrgCopilotReposMetrics1DaySuccess,
+    GetOrgCopilotReposMetrics1DayFailure,
+    GetOrgCopilotMetrics28DaySuccess,
+    GetOrgCopilotMetrics28DayFailure,
+    GetOrgCopilotMetrics1DaySuccess,
+    GetOrgCopilotMetrics1DayFailure,
+    GetEnterpriseCopilotUsersMetrics28DaySuccess,
+    GetEnterpriseCopilotUsersMetrics28DayFailure,
+    GetEnterpriseCopilotUsersMetrics1DaySuccess,
+    GetEnterpriseCopilotUsersMetrics1DayFailure,
+    GetEnterpriseCopilotUserTeamsMetrics1DaySuccess,
+    GetEnterpriseCopilotUserTeamsMetrics1DayFailure,
+    GetEnterpriseCopilotReposMetrics1DaySuccess,
+    GetEnterpriseCopilotReposMetrics1DayFailure,
+    GetEnterpriseCopilotMetrics28DaySuccess,
+    GetEnterpriseCopilotMetrics28DayFailure,
+    GetEnterpriseCopilotMetrics1DaySuccess,
+    GetEnterpriseCopilotMetrics1DayFailure,
     DeleteEnterpriseCopilotCustomAgentsSourceSuccess,
     DeleteEnterpriseCopilotCustomAgentsSourceFailure,
     SetEnterpriseCopilotCustomAgentsSourceSuccess,
@@ -2698,7 +2722,31 @@ export function textAndData(
         | SetEnterpriseCopilotCustomAgentsSourceSuccess
         | SetEnterpriseCopilotCustomAgentsSourceFailure
         | DeleteEnterpriseCopilotCustomAgentsSourceSuccess
-        | DeleteEnterpriseCopilotCustomAgentsSourceFailure) {
+        | DeleteEnterpriseCopilotCustomAgentsSourceFailure
+        | GetEnterpriseCopilotMetrics1DaySuccess
+        | GetEnterpriseCopilotMetrics1DayFailure
+        | GetEnterpriseCopilotMetrics28DaySuccess
+        | GetEnterpriseCopilotMetrics28DayFailure
+        | GetEnterpriseCopilotReposMetrics1DaySuccess
+        | GetEnterpriseCopilotReposMetrics1DayFailure
+        | GetEnterpriseCopilotUserTeamsMetrics1DaySuccess
+        | GetEnterpriseCopilotUserTeamsMetrics1DayFailure
+        | GetEnterpriseCopilotUsersMetrics1DaySuccess
+        | GetEnterpriseCopilotUsersMetrics1DayFailure
+        | GetEnterpriseCopilotUsersMetrics28DaySuccess
+        | GetEnterpriseCopilotUsersMetrics28DayFailure
+        | GetOrgCopilotMetrics1DaySuccess
+        | GetOrgCopilotMetrics1DayFailure
+        | GetOrgCopilotMetrics28DaySuccess
+        | GetOrgCopilotMetrics28DayFailure
+        | GetOrgCopilotReposMetrics1DaySuccess
+        | GetOrgCopilotReposMetrics1DayFailure
+        | GetOrgCopilotUserTeamsMetrics1DaySuccess
+        | GetOrgCopilotUserTeamsMetrics1DayFailure
+        | GetOrgCopilotUsersMetrics1DaySuccess
+        | GetOrgCopilotUsersMetrics1DayFailure
+        | GetOrgCopilotUsersMetrics28DaySuccess
+        | GetOrgCopilotUsersMetrics28DayFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
