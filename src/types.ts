@@ -6554,3 +6554,194 @@ export type DeleteRepoAgentVariableSuccess = {
 
 export type DeleteRepoAgentVariableFailure = CreateRepoFailure;
 
+
+// --- Apps > GitHub Apps (REST) ---
+
+/** GitHub App object from GET /app or GET /apps/{app_slug}. */
+export type GitHubAppItem = Record<string, unknown>;
+
+/** GitHub App created from a manifest (includes client_secret, pem, webhook_secret). */
+export type GitHubAppFromManifestItem = Record<string, unknown>;
+
+/** Installation object for a GitHub App. */
+export type AppInstallationItem = Record<string, unknown>;
+
+/** Pending installation request for a GitHub App. */
+export type InstallationRequestItem = Record<string, unknown>;
+
+/** Installation access token response (token, expires_at, permissions, repositories, …). */
+export type InstallationAccessTokenItem = Record<string, unknown>;
+
+/** Scoped user access token / authorization response. */
+export type ScopedAccessTokenItem = Record<string, unknown>;
+
+/** GET /app — HTTP 200. MCP tool: `github_get_authenticated_app`. */
+export type GetAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    app: GitHubAppItem;
+    request_id: string | null;
+};
+
+export type GetAuthenticatedAppFailure = CreateRepoFailure;
+
+/** POST /app-manifests/{code}/conversions — HTTP 201. MCP tool: `github_create_github_app_from_manifest`. */
+export type CreateGithubAppFromManifestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    app: GitHubAppFromManifestItem;
+    request_id: string | null;
+};
+
+export type CreateGithubAppFromManifestFailure = CreateRepoFailure;
+
+/** GET /app/installation-requests — HTTP 200. MCP tool: `github_list_installation_requests_for_authenticated_app`. */
+export type ListInstallationRequestsForAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    installation_requests: InstallationRequestItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListInstallationRequestsForAuthenticatedAppFailure = CreateRepoFailure;
+
+/** GET /app/installations — HTTP 200. MCP tool: `github_list_installations_for_authenticated_app`. */
+export type ListInstallationsForAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    installations: AppInstallationItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListInstallationsForAuthenticatedAppFailure = CreateRepoFailure;
+
+/** GET /app/installations/{installation_id} — HTTP 200. MCP tool: `github_get_installation_for_authenticated_app`. */
+export type GetInstallationForAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    installation_id: number;
+    installation: AppInstallationItem;
+    request_id: string | null;
+};
+
+export type GetInstallationForAuthenticatedAppFailure = CreateRepoFailure;
+
+/** DELETE /app/installations/{installation_id} — HTTP 202. MCP tool: `github_delete_installation_for_authenticated_app`. */
+export type DeleteInstallationForAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    installation_id: number;
+    request_id: string | null;
+};
+
+export type DeleteInstallationForAuthenticatedAppFailure = CreateRepoFailure;
+
+/** POST /app/installations/{installation_id}/access_tokens — HTTP 201. MCP tool: `github_create_installation_access_token`. */
+export type CreateInstallationAccessTokenSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    installation_id: number;
+    token: InstallationAccessTokenItem;
+    request_id: string | null;
+};
+
+export type CreateInstallationAccessTokenFailure = CreateRepoFailure;
+
+/** PUT /app/installations/{installation_id}/suspended — HTTP 204. MCP tool: `github_suspend_app_installation`. */
+export type SuspendAppInstallationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    installation_id: number;
+    request_id: string | null;
+};
+
+export type SuspendAppInstallationFailure = CreateRepoFailure;
+
+/** DELETE /app/installations/{installation_id}/suspended — HTTP 204. MCP tool: `github_unsuspend_app_installation`. */
+export type UnsuspendAppInstallationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    installation_id: number;
+    request_id: string | null;
+};
+
+export type UnsuspendAppInstallationFailure = CreateRepoFailure;
+
+/** POST /applications/{client_id}/token/scoped — HTTP 200. MCP tool: `github_create_scoped_access_token`. */
+export type CreateScopedAccessTokenSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    client_id: string;
+    authorization: ScopedAccessTokenItem;
+    request_id: string | null;
+};
+
+export type CreateScopedAccessTokenFailure = CreateRepoFailure;
+
+/** GET /apps/{app_slug} — HTTP 200. MCP tool: `github_get_app`. */
+export type GetAppSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    app_slug: string;
+    app: GitHubAppItem;
+    request_id: string | null;
+};
+
+export type GetAppFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/installation — HTTP 200. MCP tool: `github_get_org_installation_for_authenticated_app`. */
+export type GetOrgInstallationForAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    installation: AppInstallationItem;
+    request_id: string | null;
+};
+
+export type GetOrgInstallationForAuthenticatedAppFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/installation — HTTP 200. MCP tool: `github_get_repo_installation_for_authenticated_app`. */
+export type GetRepoInstallationForAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    installation: AppInstallationItem;
+    request_id: string | null;
+};
+
+export type GetRepoInstallationForAuthenticatedAppFailure = CreateRepoFailure;
+
+/** GET /users/{username}/installation — HTTP 200. MCP tool: `github_get_user_installation_for_authenticated_app`. */
+export type GetUserInstallationForAuthenticatedAppSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    installation: AppInstallationItem;
+    request_id: string | null;
+};
+
+export type GetUserInstallationForAuthenticatedAppFailure = CreateRepoFailure;

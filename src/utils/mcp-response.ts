@@ -501,6 +501,34 @@ import type {
     UpdateRepoAgentVariableSuccess,
     DeleteRepoAgentVariableFailure,
     DeleteRepoAgentVariableSuccess,
+    GetAuthenticatedAppFailure,
+    GetAuthenticatedAppSuccess,
+    CreateGithubAppFromManifestFailure,
+    CreateGithubAppFromManifestSuccess,
+    ListInstallationRequestsForAuthenticatedAppFailure,
+    ListInstallationRequestsForAuthenticatedAppSuccess,
+    ListInstallationsForAuthenticatedAppFailure,
+    ListInstallationsForAuthenticatedAppSuccess,
+    GetInstallationForAuthenticatedAppFailure,
+    GetInstallationForAuthenticatedAppSuccess,
+    DeleteInstallationForAuthenticatedAppFailure,
+    DeleteInstallationForAuthenticatedAppSuccess,
+    CreateInstallationAccessTokenFailure,
+    CreateInstallationAccessTokenSuccess,
+    SuspendAppInstallationFailure,
+    SuspendAppInstallationSuccess,
+    UnsuspendAppInstallationFailure,
+    UnsuspendAppInstallationSuccess,
+    CreateScopedAccessTokenFailure,
+    CreateScopedAccessTokenSuccess,
+    GetAppFailure,
+    GetAppSuccess,
+    GetOrgInstallationForAuthenticatedAppFailure,
+    GetOrgInstallationForAuthenticatedAppSuccess,
+    GetRepoInstallationForAuthenticatedAppFailure,
+    GetRepoInstallationForAuthenticatedAppSuccess,
+    GetUserInstallationForAuthenticatedAppFailure,
+    GetUserInstallationForAuthenticatedAppSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1351,6 +1379,34 @@ export function textAndData(
         | UpdateRepoAgentVariableFailure
         | DeleteRepoAgentVariableSuccess
         | DeleteRepoAgentVariableFailure
+        | GetAuthenticatedAppSuccess
+        | GetAuthenticatedAppFailure
+        | CreateGithubAppFromManifestSuccess
+        | CreateGithubAppFromManifestFailure
+        | ListInstallationRequestsForAuthenticatedAppSuccess
+        | ListInstallationRequestsForAuthenticatedAppFailure
+        | ListInstallationsForAuthenticatedAppSuccess
+        | ListInstallationsForAuthenticatedAppFailure
+        | GetInstallationForAuthenticatedAppSuccess
+        | GetInstallationForAuthenticatedAppFailure
+        | DeleteInstallationForAuthenticatedAppSuccess
+        | DeleteInstallationForAuthenticatedAppFailure
+        | CreateInstallationAccessTokenSuccess
+        | CreateInstallationAccessTokenFailure
+        | SuspendAppInstallationSuccess
+        | SuspendAppInstallationFailure
+        | UnsuspendAppInstallationSuccess
+        | UnsuspendAppInstallationFailure
+        | CreateScopedAccessTokenSuccess
+        | CreateScopedAccessTokenFailure
+        | GetAppSuccess
+        | GetAppFailure
+        | GetOrgInstallationForAuthenticatedAppSuccess
+        | GetOrgInstallationForAuthenticatedAppFailure
+        | GetRepoInstallationForAuthenticatedAppSuccess
+        | GetRepoInstallationForAuthenticatedAppFailure
+        | GetUserInstallationForAuthenticatedAppSuccess
+        | GetUserInstallationForAuthenticatedAppFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

@@ -1,0 +1,18 @@
+{
+  "name": "github_delete_installation_for_authenticated_app",
+  "description": "DELETE /app/installations/{installation_id} — uninstall the GitHub App. Requires JWT. Returns 202. Prefer suspend for temporary block.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "installation_id": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "The unique identifier of the installation."
+      }
+    },
+    "required": [
+      "installation_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

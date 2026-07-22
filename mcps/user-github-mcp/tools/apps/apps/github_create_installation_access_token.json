@@ -1,0 +1,43 @@
+{
+  "name": "github_create_installation_access_token",
+  "description": "POST /app/installations/{installation_id}/access_tokens — create installation access token (1h). Requires JWT. Optional repositories, repository_ids, permissions.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "installation_id": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "The unique identifier of the installation."
+      },
+      "repositories": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "maxItems": 500,
+        "description": "Repository names the token should access (up to 500)."
+      },
+      "repository_ids": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxItems": 500,
+        "description": "Repository IDs the token should access (up to 500)."
+      },
+      "permissions": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Subset of app permissions for the token."
+      }
+    },
+    "required": [
+      "installation_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

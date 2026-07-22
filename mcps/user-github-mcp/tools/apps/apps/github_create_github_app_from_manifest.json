@@ -1,0 +1,18 @@
+{
+  "name": "github_create_github_app_from_manifest",
+  "description": "POST /app-manifests/{code}/conversions — complete GitHub App Manifest handshake. Returns app id, pem, client_secret, webhook_secret. See create-a-github-app-from-a-manifest.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "code": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Temporary code from the GitHub App Manifest flow."
+      }
+    },
+    "required": [
+      "code"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

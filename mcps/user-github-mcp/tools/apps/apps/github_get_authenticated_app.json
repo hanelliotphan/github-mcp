@@ -1,0 +1,9 @@
+{
+  "name": "github_get_authenticated_app",
+  "description": "GET /app — get the authenticated GitHub App. Requires JWT (GitHub App auth). Returns app metadata including installations_count. See Get the authenticated app.",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
