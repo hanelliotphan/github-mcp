@@ -7011,3 +7011,72 @@ export type DeleteAppTokenSuccess = {
 };
 
 export type DeleteAppTokenFailure = CreateRepoFailure;
+
+// --- Apps > Webhooks (REST) ---
+
+/** Config object from GET /app/hook/config (`url`, `content_type`, `secret`, `insecure_ssl`, …). */
+export type AppWebhookConfigItem = Record<string, unknown>;
+
+/** GET /app/hook/config — HTTP 200. MCP tool: `github_get_app_webhook_config`. JWT required. */
+export type GetAppWebhookConfigSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    config: AppWebhookConfigItem;
+    request_id: string | null;
+};
+
+export type GetAppWebhookConfigFailure = CreateRepoFailure;
+
+/** PATCH /app/hook/config — HTTP 200. MCP tool: `github_update_app_webhook_config`. JWT required. */
+export type UpdateAppWebhookConfigSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    config: AppWebhookConfigItem;
+    request_id: string | null;
+};
+
+export type UpdateAppWebhookConfigFailure = CreateRepoFailure;
+
+/** One delivery from GET /app/hook/deliveries (simple webhook delivery per GitHub). */
+export type AppWebhookDeliveryItem = Record<string, unknown>;
+
+/** GET /app/hook/deliveries — HTTP 200. MCP tool: `github_list_app_webhook_deliveries`. JWT required. Cursor pagination. */
+export type ListAppWebhookDeliveriesSuccess = {
+    success: true;
+    message: string;
+    deliveries: AppWebhookDeliveryItem[];
+    pagination: GitHubCursorQueryLinkPagination | null;
+    request_id: string | null;
+    /** `cursor` query used for the first page in this response (omit on first page). */
+    cursor: string | undefined;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListAppWebhookDeliveriesFailure = CreateRepoFailure;
+
+/** GET /app/hook/deliveries/{delivery_id} — HTTP 200 (full delivery). MCP tool: `github_get_app_webhook_delivery`. JWT required. */
+export type GetAppWebhookDeliverySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    delivery_id: number;
+    delivery: AppWebhookDeliveryItem;
+    request_id: string | null;
+};
+
+export type GetAppWebhookDeliveryFailure = CreateRepoFailure;
+
+/** POST /app/hook/deliveries/{delivery_id}/attempts — typically HTTP 202 Accepted. MCP tool: `github_redeliver_app_webhook_delivery`. JWT required. */
+export type RedeliverAppWebhookDeliverySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    delivery_id: number;
+    request_id: string | null;
+};
+
+export type RedeliverAppWebhookDeliveryFailure = CreateRepoFailure;

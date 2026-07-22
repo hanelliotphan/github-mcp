@@ -565,6 +565,16 @@ import type {
     ResetAppTokenSuccess,
     DeleteAppTokenFailure,
     DeleteAppTokenSuccess,
+    GetAppWebhookConfigFailure,
+    GetAppWebhookConfigSuccess,
+    UpdateAppWebhookConfigFailure,
+    UpdateAppWebhookConfigSuccess,
+    ListAppWebhookDeliveriesFailure,
+    ListAppWebhookDeliveriesSuccess,
+    GetAppWebhookDeliveryFailure,
+    GetAppWebhookDeliverySuccess,
+    RedeliverAppWebhookDeliveryFailure,
+    RedeliverAppWebhookDeliverySuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1479,6 +1489,16 @@ export function textAndData(
         | ResetAppTokenFailure
         | DeleteAppTokenSuccess
         | DeleteAppTokenFailure
+        | GetAppWebhookConfigSuccess
+        | GetAppWebhookConfigFailure
+        | UpdateAppWebhookConfigSuccess
+        | UpdateAppWebhookConfigFailure
+        | ListAppWebhookDeliveriesSuccess
+        | ListAppWebhookDeliveriesFailure
+        | GetAppWebhookDeliverySuccess
+        | GetAppWebhookDeliveryFailure
+        | RedeliverAppWebhookDeliverySuccess
+        | RedeliverAppWebhookDeliveryFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

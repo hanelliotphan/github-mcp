@@ -1,0 +1,9 @@
+{
+  "name": "github_get_app_webhook_config",
+  "description": "GET /app/hook/config — get the webhook configuration for a GitHub App (url, content_type, secret, insecure_ssl). Requires JWT (GitHub App auth). HTTP 200. See Get a webhook configuration for an app.",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

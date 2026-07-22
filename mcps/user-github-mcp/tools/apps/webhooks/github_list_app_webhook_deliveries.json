@@ -1,0 +1,31 @@
+{
+  "name": "github_list_app_webhook_deliveries",
+  "description": "List deliveries for a GitHub App webhook (GET /app/hook/deliveries). Cursor pagination: per_page 1-100 default 100, cursor, optional status success|failure, all_pages and max_pages. Requires JWT (GitHub App auth). See GitHub REST Apps webhooks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "cursor": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["success", "failure"]
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

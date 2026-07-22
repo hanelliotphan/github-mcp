@@ -1,0 +1,22 @@
+{
+  "name": "github_update_app_webhook_config",
+  "description": "PATCH /app/hook/config — update the webhook configuration for a GitHub App. Optional url, content_type (json|form), secret, insecure_ssl; at least one required. Requires JWT (GitHub App auth). Returns 200.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string",
+        "minLength": 1
+      },
+      "content_type": {
+        "type": "string",
+        "enum": ["json", "form"]
+      },
+      "secret": {
+        "type": "string"
+      },
+      "insecure_ssl": {}
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

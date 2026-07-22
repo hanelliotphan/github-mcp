@@ -449,6 +449,11 @@ import { registerGithubDeleteAppAuthorizationTool } from "./tools/apps/oauth-app
 import { registerGithubCheckAppTokenTool } from "./tools/apps/oauth-applications/github-check-app-token.js";
 import { registerGithubResetAppTokenTool } from "./tools/apps/oauth-applications/github-reset-app-token.js";
 import { registerGithubDeleteAppTokenTool } from "./tools/apps/oauth-applications/github-delete-app-token.js";
+import { registerGithubGetAppWebhookConfigTool } from "./tools/apps/webhooks/github-get-app-webhook-config.js";
+import { registerGithubUpdateAppWebhookConfigTool } from "./tools/apps/webhooks/github-update-app-webhook-config.js";
+import { registerGithubListAppWebhookDeliveriesTool } from "./tools/apps/webhooks/github-list-app-webhook-deliveries.js";
+import { registerGithubGetAppWebhookDeliveryTool } from "./tools/apps/webhooks/github-get-app-webhook-delivery.js";
+import { registerGithubRedeliverAppWebhookDeliveryTool } from "./tools/apps/webhooks/github-redeliver-app-webhook-delivery.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -911,6 +916,11 @@ registerGithubDeleteAppAuthorizationTool(server, octokit);
 registerGithubCheckAppTokenTool(server, octokit);
 registerGithubResetAppTokenTool(server, octokit);
 registerGithubDeleteAppTokenTool(server, octokit);
+registerGithubGetAppWebhookConfigTool(server, octokit);
+registerGithubUpdateAppWebhookConfigTool(server, octokit);
+registerGithubListAppWebhookDeliveriesTool(server, octokit);
+registerGithubGetAppWebhookDeliveryTool(server, octokit);
+registerGithubRedeliverAppWebhookDeliveryTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

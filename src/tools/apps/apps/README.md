@@ -4,7 +4,7 @@ Tool implementations wrap [REST API endpoints for GitHub Apps](https://docs.gith
 
 Most endpoints require authentication as a **GitHub App** using a **JWT** (not a personal access token or installation token). `github_get_app` is a public lookup by slug; `github_create_github_app_from_manifest` completes the manifest handshake; `github_create_scoped_access_token` scopes a user access token for an OAuth/GitHub App `client_id`.
 
-OAuth Apps and App webhooks sections are **not** implemented here. Marketplace endpoints live under [Apps (Marketplace)](../marketplace/README.md). Installation-scoped and user-installation endpoints live under [Apps (Installations)](../installations/README.md).
+OAuth authorization endpoints live under [Apps (OAuth authorizations)](../oauth-applications/README.md). App webhook endpoints live under [Apps (Webhooks)](../webhooks/README.md). Marketplace endpoints live under [Apps (Marketplace)](../marketplace/README.md). Installation-scoped and user-installation endpoints live under [Apps (Installations)](../installations/README.md).
 
 Success payloads follow the shared MCP shape; failures use the structured **error** envelope (`CreateRepoFailure`).
 
