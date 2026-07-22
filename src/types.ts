@@ -8922,3 +8922,24 @@ export type GetRepoCodeSecurityConfigurationSuccess = {
     request_id: string | null;
 };
 export type GetRepoCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_codes_of_conduct`. */
+export type ListCodesOfConductSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codes_of_conduct: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListCodesOfConductFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_code_of_conduct`. */
+export type GetCodeOfConductSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    key: string;
+    code_of_conduct: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeOfConductFailure = CreateRepoFailure;

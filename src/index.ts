@@ -589,6 +589,8 @@ import { registerGithubAttachOrgCodeSecurityConfigurationTool } from "./tools/co
 import { registerGithubSetOrgCodeSecurityConfigurationAsDefaultTool } from "./tools/code-security/configurations/github-set-org-code-security-configuration-as-default.js";
 import { registerGithubListOrgCodeSecurityConfigurationRepositoriesTool } from "./tools/code-security/configurations/github-list-org-code-security-configuration-repositories.js";
 import { registerGithubGetRepoCodeSecurityConfigurationTool } from "./tools/code-security/configurations/github-get-repo-code-security-configuration.js";
+import { registerGithubListCodesOfConductTool } from "./tools/codes-of-conduct/codes-of-conduct/github-list-codes-of-conduct.js";
+import { registerGithubGetCodeOfConductTool } from "./tools/codes-of-conduct/codes-of-conduct/github-get-code-of-conduct.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -1170,6 +1172,28 @@ registerGithubGetCodeScanningDefaultSetupTool(server, octokit);
 registerGithubUpdateCodeScanningDefaultSetupTool(server, octokit);
 registerGithubUploadCodeScanningSarifTool(server, octokit);
 registerGithubGetCodeScanningSarifTool(server, octokit);
+registerGithubListEnterpriseCodeSecurityConfigurationsTool(server, octokit);
+registerGithubCreateEnterpriseCodeSecurityConfigurationTool(server, octokit);
+registerGithubListEnterpriseCodeSecurityDefaultConfigurationsTool(server, octokit);
+registerGithubGetEnterpriseCodeSecurityConfigurationTool(server, octokit);
+registerGithubUpdateEnterpriseCodeSecurityConfigurationTool(server, octokit);
+registerGithubDeleteEnterpriseCodeSecurityConfigurationTool(server, octokit);
+registerGithubAttachEnterpriseCodeSecurityConfigurationTool(server, octokit);
+registerGithubSetEnterpriseCodeSecurityConfigurationAsDefaultTool(server, octokit);
+registerGithubListEnterpriseCodeSecurityConfigurationRepositoriesTool(server, octokit);
+registerGithubListOrgCodeSecurityConfigurationsTool(server, octokit);
+registerGithubCreateOrgCodeSecurityConfigurationTool(server, octokit);
+registerGithubListOrgCodeSecurityDefaultConfigurationsTool(server, octokit);
+registerGithubDetachOrgCodeSecurityConfigurationsTool(server, octokit);
+registerGithubGetOrgCodeSecurityConfigurationTool(server, octokit);
+registerGithubUpdateOrgCodeSecurityConfigurationTool(server, octokit);
+registerGithubDeleteOrgCodeSecurityConfigurationTool(server, octokit);
+registerGithubAttachOrgCodeSecurityConfigurationTool(server, octokit);
+registerGithubSetOrgCodeSecurityConfigurationAsDefaultTool(server, octokit);
+registerGithubListOrgCodeSecurityConfigurationRepositoriesTool(server, octokit);
+registerGithubGetRepoCodeSecurityConfigurationTool(server, octokit);
+registerGithubListCodesOfConductTool(server, octokit);
+registerGithubGetCodeOfConductTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.

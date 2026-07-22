@@ -843,6 +843,10 @@ import type {
     ListOrgCodeSecurityConfigurationRepositoriesFailure,
     GetRepoCodeSecurityConfigurationSuccess,
     GetRepoCodeSecurityConfigurationFailure,
+    ListCodesOfConductSuccess,
+    ListCodesOfConductFailure,
+    GetCodeOfConductSuccess,
+    GetCodeOfConductFailure,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -2035,6 +2039,10 @@ export function textAndData(
         | ListOrgCodeSecurityConfigurationRepositoriesFailure
         | GetRepoCodeSecurityConfigurationSuccess
         | GetRepoCodeSecurityConfigurationFailure
+        | ListCodesOfConductSuccess
+        | ListCodesOfConductFailure
+        | GetCodeOfConductSuccess
+        | GetCodeOfConductFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

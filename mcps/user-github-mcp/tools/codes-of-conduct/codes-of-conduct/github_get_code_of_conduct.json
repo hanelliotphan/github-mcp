@@ -1,0 +1,17 @@
+{
+  "name": "github_get_code_of_conduct",
+  "description": "Get a code of conduct by key (GET /codes_of_conduct/{key}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "key": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "key"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
