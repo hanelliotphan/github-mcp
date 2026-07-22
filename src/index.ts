@@ -360,6 +360,16 @@ import { registerGithubListPublicEventsForUserTool } from "./tools/activity/even
 import { registerGithubListReceivedEventsForUserTool } from "./tools/activity/events/github-list-received-events-for-user.js";
 import { registerGithubListReceivedPublicEventsForUserTool } from "./tools/activity/events/github-list-received-public-events-for-user.js";
 import { registerGithubGetFeedsTool } from "./tools/activity/feeds/github-get-feeds.js";
+import { registerGithubListNotificationsForAuthenticatedUserTool } from "./tools/activity/notifications/github-list-notifications-for-authenticated-user.js";
+import { registerGithubMarkNotificationsAsReadTool } from "./tools/activity/notifications/github-mark-notifications-as-read.js";
+import { registerGithubGetThreadTool } from "./tools/activity/notifications/github-get-thread.js";
+import { registerGithubMarkThreadAsReadTool } from "./tools/activity/notifications/github-mark-thread-as-read.js";
+import { registerGithubMarkThreadAsDoneTool } from "./tools/activity/notifications/github-mark-thread-as-done.js";
+import { registerGithubGetThreadSubscriptionForAuthenticatedUserTool } from "./tools/activity/notifications/github-get-thread-subscription-for-authenticated-user.js";
+import { registerGithubSetThreadSubscriptionTool } from "./tools/activity/notifications/github-set-thread-subscription.js";
+import { registerGithubDeleteThreadSubscriptionTool } from "./tools/activity/notifications/github-delete-thread-subscription.js";
+import { registerGithubListRepoNotificationsForAuthenticatedUserTool } from "./tools/activity/notifications/github-list-repo-notifications-for-authenticated-user.js";
+import { registerGithubMarkRepoNotificationsAsReadTool } from "./tools/activity/notifications/github-mark-repo-notifications-as-read.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -733,6 +743,16 @@ registerGithubListPublicEventsForUserTool(server, octokit);
 registerGithubListReceivedEventsForUserTool(server, octokit);
 registerGithubListReceivedPublicEventsForUserTool(server, octokit);
 registerGithubGetFeedsTool(server, octokit);
+registerGithubListNotificationsForAuthenticatedUserTool(server, octokit);
+registerGithubMarkNotificationsAsReadTool(server, octokit);
+registerGithubGetThreadTool(server, octokit);
+registerGithubMarkThreadAsReadTool(server, octokit);
+registerGithubMarkThreadAsDoneTool(server, octokit);
+registerGithubGetThreadSubscriptionForAuthenticatedUserTool(server, octokit);
+registerGithubSetThreadSubscriptionTool(server, octokit);
+registerGithubDeleteThreadSubscriptionTool(server, octokit);
+registerGithubListRepoNotificationsForAuthenticatedUserTool(server, octokit);
+registerGithubMarkRepoNotificationsAsReadTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

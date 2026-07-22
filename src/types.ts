@@ -5682,3 +5682,138 @@ export type GetFeedsSuccess = {
 };
 
 export type GetFeedsFailure = CreateRepoFailure;
+
+// ============================================================================
+// Activity — Notifications
+// ============================================================================
+
+/** A notification thread object as returned by the activity notifications API. */
+export type NotificationThreadItem = Record<string, unknown>;
+
+/** GET /notifications — HTTP 200. MCP tool: `github_list_notifications_for_authenticated_user`. */
+export type ListNotificationsForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    notifications: NotificationThreadItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListNotificationsForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** PUT /notifications — HTTP 202/205. MCP tool: `github_mark_notifications_as_read`. */
+export type MarkNotificationsAsReadSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    api_message?: string;
+    request_id: string | null;
+};
+
+export type MarkNotificationsAsReadFailure = CreateRepoFailure;
+
+/** GET /notifications/threads/{thread_id} — HTTP 200. MCP tool: `github_get_thread`. */
+export type GetThreadSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    thread_id: number;
+    thread: NotificationThreadItem;
+    request_id: string | null;
+};
+
+export type GetThreadFailure = CreateRepoFailure;
+
+/** PATCH /notifications/threads/{thread_id} — HTTP 205. MCP tool: `github_mark_thread_as_read`. */
+export type MarkThreadAsReadSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    thread_id: number;
+    request_id: string | null;
+};
+
+export type MarkThreadAsReadFailure = CreateRepoFailure;
+
+/** DELETE /notifications/threads/{thread_id} — HTTP 204. MCP tool: `github_mark_thread_as_done`. */
+export type MarkThreadAsDoneSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    thread_id: number;
+    request_id: string | null;
+};
+
+export type MarkThreadAsDoneFailure = CreateRepoFailure;
+
+/** GET /notifications/threads/{thread_id}/subscription — HTTP 200. MCP tool: `github_get_thread_subscription_for_authenticated_user`. */
+export type GetThreadSubscriptionForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    thread_id: number;
+    subscription: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetThreadSubscriptionForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** PUT /notifications/threads/{thread_id}/subscription — HTTP 200. MCP tool: `github_set_thread_subscription`. */
+export type SetThreadSubscriptionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    thread_id: number;
+    subscription: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type SetThreadSubscriptionFailure = CreateRepoFailure;
+
+/** DELETE /notifications/threads/{thread_id}/subscription — HTTP 204. MCP tool: `github_delete_thread_subscription`. */
+export type DeleteThreadSubscriptionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    thread_id: number;
+    request_id: string | null;
+};
+
+export type DeleteThreadSubscriptionFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/notifications — HTTP 200. MCP tool: `github_list_repo_notifications_for_authenticated_user`. */
+export type ListRepoNotificationsForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    notifications: NotificationThreadItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoNotificationsForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/notifications — HTTP 202/205. MCP tool: `github_mark_repo_notifications_as_read`. */
+export type MarkRepoNotificationsAsReadSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    api_message?: string;
+    url?: string;
+    request_id: string | null;
+};
+
+export type MarkRepoNotificationsAsReadFailure = CreateRepoFailure;

@@ -1,0 +1,12 @@
+{
+  "name": "github_get_thread_subscription_for_authenticated_user",
+  "description": "Check whether the authenticated user is subscribed to a notification thread (GET /notifications/threads/{thread_id}/subscription). Requires classic PAT with notifications or repo scope. Returns HTTP 200. See GitHub REST activity notifications.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "thread_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["thread_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -387,6 +387,26 @@ import type {
     ListReceivedPublicEventsForUserSuccess,
     GetFeedsFailure,
     GetFeedsSuccess,
+    ListNotificationsForAuthenticatedUserFailure,
+    ListNotificationsForAuthenticatedUserSuccess,
+    MarkNotificationsAsReadFailure,
+    MarkNotificationsAsReadSuccess,
+    GetThreadFailure,
+    GetThreadSuccess,
+    MarkThreadAsReadFailure,
+    MarkThreadAsReadSuccess,
+    MarkThreadAsDoneFailure,
+    MarkThreadAsDoneSuccess,
+    GetThreadSubscriptionForAuthenticatedUserFailure,
+    GetThreadSubscriptionForAuthenticatedUserSuccess,
+    SetThreadSubscriptionFailure,
+    SetThreadSubscriptionSuccess,
+    DeleteThreadSubscriptionFailure,
+    DeleteThreadSubscriptionSuccess,
+    ListRepoNotificationsForAuthenticatedUserFailure,
+    ListRepoNotificationsForAuthenticatedUserSuccess,
+    MarkRepoNotificationsAsReadFailure,
+    MarkRepoNotificationsAsReadSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1123,6 +1143,26 @@ export function textAndData(
         | ListReceivedPublicEventsForUserFailure
         | GetFeedsSuccess
         | GetFeedsFailure
+        | ListNotificationsForAuthenticatedUserSuccess
+        | ListNotificationsForAuthenticatedUserFailure
+        | MarkNotificationsAsReadSuccess
+        | MarkNotificationsAsReadFailure
+        | GetThreadSuccess
+        | GetThreadFailure
+        | MarkThreadAsReadSuccess
+        | MarkThreadAsReadFailure
+        | MarkThreadAsDoneSuccess
+        | MarkThreadAsDoneFailure
+        | GetThreadSubscriptionForAuthenticatedUserSuccess
+        | GetThreadSubscriptionForAuthenticatedUserFailure
+        | SetThreadSubscriptionSuccess
+        | SetThreadSubscriptionFailure
+        | DeleteThreadSubscriptionSuccess
+        | DeleteThreadSubscriptionFailure
+        | ListRepoNotificationsForAuthenticatedUserSuccess
+        | ListRepoNotificationsForAuthenticatedUserFailure
+        | MarkRepoNotificationsAsReadSuccess
+        | MarkRepoNotificationsAsReadFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

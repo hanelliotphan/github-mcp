@@ -1,0 +1,12 @@
+{
+  "name": "github_mark_thread_as_done",
+  "description": "Mark a notification thread as done (DELETE /notifications/threads/{thread_id}). Requires classic PAT with notifications or repo scope. Returns HTTP 204. See GitHub REST activity notifications.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "thread_id": { "type": "integer", "minimum": 1 }
+    },
+    "required": ["thread_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

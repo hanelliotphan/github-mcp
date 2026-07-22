@@ -1,0 +1,13 @@
+{
+  "name": "github_mark_notifications_as_read",
+  "description": "Mark all notifications as read for the authenticated user (PUT /notifications). Requires classic PAT with notifications or repo scope. Optional last_read_at (ISO 8601) and read. Returns HTTP 202 (async) or 205. See GitHub REST activity notifications.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "last_read_at": { "type": "string" },
+      "read": { "type": "boolean" }
+    },
+    "required": [],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
