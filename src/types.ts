@@ -9212,3 +9212,38 @@ export type StopOrgUserCodespaceSuccess = {
     request_id: string | null;
 };
 export type StopOrgUserCodespaceFailure = CreateRepoFailure;
+/** MCP tool: `github_list_org_codespaces_secrets`. */
+export type ListOrgCodespacesSecretsSuccess = { success: true; message: string; org: string; total_count: number; secrets: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListOrgCodespacesSecretsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_codespaces_public_key`. */
+export type GetOrgCodespacesPublicKeySuccess = { success: true; message: string; http_status: number; org: string; public_key: Record<string, unknown>; request_id: string | null; };
+export type GetOrgCodespacesPublicKeyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_codespaces_secret`. */
+export type GetOrgCodespacesSecretSuccess = { success: true; message: string; http_status: number; org: string; secret_name: string; secret: Record<string, unknown>; request_id: string | null; };
+export type GetOrgCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_or_update_org_codespaces_secret`. */
+export type CreateOrUpdateOrgCodespacesSecretSuccess = { success: true; message: string; http_status: number; org: string; secret_name: string; created: boolean; request_id: string | null; };
+export type CreateOrUpdateOrgCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_codespaces_secret`. */
+export type DeleteOrgCodespacesSecretSuccess = { success: true; message: string; http_status: number; org: string; secret_name: string; request_id: string | null; };
+export type DeleteOrgCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_selected_repos_for_org_codespaces_secret`. */
+export type ListSelectedReposForOrgCodespacesSecretSuccess = { success: true; message: string; org: string; secret_name: string; total_count: number; repositories: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListSelectedReposForOrgCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_selected_repos_for_org_codespaces_secret`. */
+export type SetSelectedReposForOrgCodespacesSecretSuccess = { success: true; message: string; http_status: number; org: string; secret_name: string; selected_repository_ids: number[]; request_id: string | null; };
+export type SetSelectedReposForOrgCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_selected_repo_to_org_codespaces_secret`. */
+export type AddSelectedRepoToOrgCodespacesSecretSuccess = { success: true; message: string; http_status: number; org: string; secret_name: string; repository_id: number; request_id: string | null; };
+export type AddSelectedRepoToOrgCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_selected_repo_from_org_codespaces_secret`. */
+export type RemoveSelectedRepoFromOrgCodespacesSecretSuccess = { success: true; message: string; http_status: number; org: string; secret_name: string; repository_id: number; request_id: string | null; };
+export type RemoveSelectedRepoFromOrgCodespacesSecretFailure = CreateRepoFailure;

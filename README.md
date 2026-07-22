@@ -190,6 +190,8 @@ This server reads `GITHUB_TOKEN` from `<your_home_directory>/github-mcp/.env`.
 Do not include an `env` block in MCP client configs for this project.
 
 - **[Organizations](src/tools/codespaces/organizations/README.md)**
+- **[Organization secrets](src/tools/codespaces/organization-secrets/README.md)**
+- **[Organization secrets](src/tools/codespaces/organization-secrets/README.md)**
 ### Cursor
 
 ```json

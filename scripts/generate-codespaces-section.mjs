@@ -60,7 +60,7 @@ function zodOwner() {
                 .string()
                 .min(1)
                 .max(39)
-                .regex(ownerLoginRegex, "owner must be a valid user or organization login (1–39 chars, alphanumeric and hyphens)"),`;
+                .regex(ownerLoginRegex, "owner must be a valid user or organization login (1–39 chars, alphanumeric and hyphens)")`;
 }
 
 function zodRepoName() {
@@ -68,7 +68,7 @@ function zodRepoName() {
                 .string()
                 .min(1)
                 .max(100)
-                .regex(repoNameRegex, "name must be 1-100 chars and contain only letters, numbers, '.', '_' or '-'"),`;
+                .regex(repoNameRegex, "name must be 1-100 chars and contain only letters, numbers, '.', '_' or '-'")`;
 }
 
 function zodOrg() {
@@ -76,14 +76,14 @@ function zodOrg() {
                 .string()
                 .min(1)
                 .max(39)
-                .regex(orgLoginRegex, "org must be a valid organization login (1–39 chars, alphanumeric and hyphens)"),`;
+                .regex(orgLoginRegex, "org must be a valid organization login (1–39 chars, alphanumeric and hyphens)")`;
 }
 
 function zodSecretName() {
     return `secret_name: z
                 .string()
                 .min(1)
-                .regex(secretNameRegex, "secret_name may only contain letters, numbers, and underscores and cannot start with a number"),`;
+                .regex(secretNameRegex, "secret_name may only contain letters, numbers, and underscores and cannot start with a number")`;
 }
 
 function zodPagination() {
@@ -568,7 +568,7 @@ export function ${registerFn(tool.name)}(server: McpServer, octokit: Octokit): v
         "${tool.name}",
         "${tool.description}",
         {
-            ${tool.scope === "orgUser" ? [zodOrg(), "username: z.string().min(1),", pathParams[0].zod].join("\n            ") : pathParams.map((p) => p.zod).join(",\n            ")}
+            ${tool.scope === "orgUser" ? [zodOrg(), "username: z.string().min(1),", pathParams[0].zod].join(",\n            ") : pathParams.map((p) => p.zod).join(",\n            ")}
         },
         async (input) => {
             try {
@@ -1425,7 +1425,9 @@ function genMcpJson(tool) {
 function appendTypes(tools) {
     const file = path.join(ROOT, "src/types.ts");
     let content = fs.readFileSync(file, "utf8");
-    const block = tools.map(genTypes).join("\n\n") + "\n";
+    const missing = tools.filter((t) => !content.includes(`\`${t.name}\``));
+    if (missing.length === 0) return;
+    const block = missing.map(genTypes).join("\n\n") + "\n";
     if (!content.endsWith("\n")) content += "\n";
     fs.writeFileSync(file, content + block);
 }
@@ -1436,8 +1438,11 @@ function updateMcpResponse(tools) {
     const newTypes = [];
     for (const tool of tools) {
         const S = pascalFromTool(tool.name);
-        newTypes.push(`${S}Failure`, `${S}Success`);
+        if (!content.includes(`${S}Success`)) {
+            newTypes.push(`${S}Failure`, `${S}Success`);
+        }
     }
+    if (newTypes.length === 0) return;
     const importMatch = content.match(/import type \{([\s\S]*?)\} from "\.\.\/types\.js";/);
     if (!importMatch) throw new Error("Could not find types import in mcp-response.ts");
     const existing = importMatch[1].split(",").map((s) => s.trim()).filter(Boolean);
@@ -1451,8 +1456,10 @@ function updateMcpResponse(tools) {
 function updateIndex(tools, subdir) {
     const file = path.join(ROOT, "src/index.ts");
     let content = fs.readFileSync(file, "utf8");
-    const importLines = tools.map((t) => `import { ${registerFn(t.name)} } from "./tools/${subdir}/${kebabFromTool(t.name)}.js";`);
-    const registerLines = tools.map((t) => `${registerFn(t.name)}(server, octokit);`);
+    const missing = tools.filter((t) => !content.includes(registerFn(t.name)));
+    if (missing.length === 0) return;
+    const importLines = missing.map((t) => `import { ${registerFn(t.name)} } from "./tools/${subdir}/${kebabFromTool(t.name)}.js";`);
+    const registerLines = missing.map((t) => `${registerFn(t.name)}(server, octokit);`);
     const marker = "installCompactToolsListHandler(server);";
     if (!content.includes(marker)) throw new Error("installCompactToolsListHandler marker not found");
     const insertAt = content.indexOf(marker);
