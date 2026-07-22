@@ -63,45 +63,79 @@ npm run dev
 
 ## Tools
 
-Implementations live under `src/tools/` (`actions/`, `repositories/`, `organizations/`, and nested feature folders). Documentation is split for readability:
+Implementations live under `src/tools/`. Each link below has the full tool list and endpoint details for that area:
 
-- **[Organization tools](src/tools/organizations/README.md)** — list organizations (`GET /organizations`), list orgs for the authenticated user (`GET /user/orgs`), list public org memberships for a user (`GET /users/{username}/orgs`), list org GitHub App installations (`GET /orgs/{org}/installations`), [API Insights](src/tools/organizations/api-insights/README.md) (`GET /orgs/{org}/insights/api/subject-stats`, `summary-stats`, `summary-stats/{actor_type}/{actor_id}`, `summary-stats/users/{user_id}`, `time-stats`, `time-stats/{actor_type}/{actor_id}`, `time-stats/users/{user_id}`, `user-stats/{user_id}`, route stats by actor, …), [artifact metadata](src/tools/organizations/artifact-metadata/README.md) (`POST /orgs/{org}/artifacts/metadata/deployment-record`, `GET …/artifacts/{subject_digest}/metadata/deployment-records`, `GET …/metadata/storage-records`, `…/deployment-record/cluster/{cluster}`, `POST …/metadata/storage-record`, …), [org attestations](src/tools/organizations/artifact-attestations/README.md) (`GET /orgs/{org}/attestations/repositories`, `GET /orgs/{org}/attestations/{subject_digest}`, `POST /orgs/{org}/attestations/bulk-list`, `DELETE …/attestations/{attestation_id}`, `DELETE …/attestations/digest/{subject_digest}`, `POST …/attestations/delete-request`, …), [org blocking](src/tools/organizations/blocking-users/README.md) (`GET /orgs/{org}/blocks`, `GET/PUT/DELETE …/blocks/{username}`), [org custom properties](src/tools/organizations/custom-properties/README.md) (`GET /orgs/{org}/properties/schema`, `GET …/schema/{custom_property_name}`, `PATCH …/schema`), get/set org immutable releases settings (`GET` / `PUT /orgs/{org}/settings/immutable-releases`), list / replace / add / remove selected repos for immutable releases (`GET` / `PUT` / `PUT …/{repository_id}` / `DELETE …/{repository_id}` under `/orgs/{org}/settings/immutable-releases/repositories`), get, update, and delete an org (`GET` / `PATCH` / `DELETE /orgs/{org}`; delete is guarded with `confirm` / `dry_run`).
-- **[Repository tools overview](src/tools/repositories/README.md)** — tools registered from the top level of `repositories/` (create/delete/update repo, lists, settings, dispatch, dependency alerts, CODEOWNERS, etc.), plus the shared response conventions.
-- **[Contents](src/tools/repositories/contents/README.md)** — repository files, READMEs, create/update/delete file contents, tar/zip archive download URLs.
-- **[Autolinks](src/tools/repositories/autolinks/README.md)** — list, get, create, and delete repository autolinks.
-- **[Custom properties](src/tools/repositories/custom-properties/README.md)** — get, create, and update organization custom property values on repositories.
-- **[Forks](src/tools/repositories/forks/README.md)** — list and create repository forks.
-- **[Rules](src/tools/repositories/rules/README.md)** — branch rules; list, get, create, and update repository rulesets.
-- **[Rule suites](src/tools/repositories/rule-suites/README.md)** — ruleset evaluation history.
-- **[Attestations](src/tools/repositories/attestations/README.md)** — artifact attestations.
-- **[Actions artifacts](src/tools/actions/artifacts/README.md)** — list (repo and workflow run), get, delete, and download GitHub Actions artifacts (`GET/DELETE /repos/{owner}/{repo}/actions/artifacts/...`, `GET …/actions/runs/{run_id}/artifacts`).
-- **[Actions cache](src/tools/actions/cache/README.md)** — cache usage (repo, org, and by-repository for an org), list caches, and delete caches by key or id (`GET /repos/{owner}/{repo}/actions/cache/usage`, `GET /orgs/{org}/actions/cache/usage[-by-repository]`, `GET/DELETE …/actions/caches`).
-- **[Actions concurrency groups](src/tools/actions/concurrency-groups/README.md)** — list concurrency groups for a repo or workflow run, and get a concurrency group with its queue (`GET /repos/{owner}/{repo}/actions/concurrency_groups[/{group}]`, `GET …/actions/runs/{run_id}/concurrency_groups`).
-- **[GitHub-hosted runners](src/tools/actions/hosted-runners/README.md)** — list/create/get/update/delete hosted runners, GitHub-owned/partner images, limits, machine specs, platforms, and custom images/versions (`GET/POST/PATCH/DELETE /orgs/{org}/actions/hosted-runners...`).
-- **[Actions OIDC](src/tools/actions/oidc/README.md)** — get/set the OIDC subject claim customization template for an org or repo (`GET/PUT /orgs/{org}/actions/oidc/customization/sub`, `GET/PUT /repos/{owner}/{repo}/actions/oidc/customization/sub`).
-- **[Actions permissions](src/tools/actions/permissions/README.md)** — get/set Actions permissions policy, selected repositories, allowed actions, workflow access, and default workflow permissions for orgs and repos (`GET/PUT/DELETE /orgs/{org}/actions/permissions...`, `GET/PUT /repos/{owner}/{repo}/actions/permissions...`).
-- **[Actions secrets](src/tools/actions/secrets/README.md)** — list/get/create/update/delete Actions secrets and public keys for orgs, repositories, and environments, plus manage selected repositories for org secrets (`GET/PUT/DELETE /orgs/{org}/actions/secrets...`, `GET/PUT/DELETE /repos/{owner}/{repo}/actions/secrets...`, `.../environments/{environment_name}/secrets...`). Plaintext values are encrypted with LibSodium automatically.
-- **[Actions self-hosted runner groups](src/tools/actions/runner-groups/README.md)** — list/create/get/update/delete organization runner groups and manage their repository access and runner membership (`GET/POST/PATCH/DELETE/PUT /orgs/{org}/actions/runner-groups...`).
-- **[Actions self-hosted runners](src/tools/actions/runners/README.md)** — list/get/delete self-hosted runners, list runner applications, create JIT/registration/remove tokens, and manage runner labels for organizations and repositories (`GET/POST/PUT/DELETE /orgs/{org}/actions/runners...` and `/repos/{owner}/{repo}/actions/runners...`).
-- **[Actions variables](src/tools/actions/variables/README.md)** — list/create/get/update/delete GitHub Actions variables and manage selected-repository access at the organization, repository, and environment levels (`GET/POST/PATCH/DELETE/PUT /orgs/{org}/actions/variables...`, `/repos/{owner}/{repo}/actions/variables...`, and `.../environments/{environment_name}/variables...`).
-- **[Actions workflow jobs](src/tools/actions/workflow-jobs/README.md)** — get a workflow job, get a temporary job logs download URL, and list jobs for a workflow run or run attempt (`GET /repos/{owner}/{repo}/actions/jobs/{job_id}...` and `.../runs/{run_id}/jobs`).
-- **[Actions workflow runs](src/tools/actions/workflow-runs/README.md)** — list/get/delete workflow runs and attempts, re-run/cancel/force-cancel/approve runs, get temporary log download URLs, and manage review history and pending/custom deployment approvals (`GET/POST/DELETE /repos/{owner}/{repo}/actions/runs/{run_id}...` and `.../workflows/{workflow_id}/runs`).
-- **[Actions workflows](src/tools/actions/workflows/README.md)** — list repository workflows, get a workflow, enable/disable a workflow, trigger a `workflow_dispatch` event, and get workflow usage (`GET/PUT/POST /repos/{owner}/{repo}/actions/workflows...` and `.../workflows/{workflow_id}/dispatches`).
-- **[Activity events](src/tools/activity/events/README.md)** — list public, repository-network, organization, repository, user, and received event streams (`GET /events`, `GET /networks/{owner}/{repo}/events`, `GET /orgs/{org}/events`, `GET /repos/{owner}/{repo}/events`, `GET /users/{username}/events...` and `.../received_events...`).
-- **[Activity feeds](src/tools/activity/feeds/README.md)** — list the feeds available to the authenticated user (`GET /feeds`).
-- **[Activity notifications](src/tools/activity/notifications/README.md)** — list/mark notifications and repository notifications as read, get a thread, mark a thread read/done, and get/set/delete thread subscriptions (`GET/PUT /notifications`, `GET/PATCH/DELETE /notifications/threads/{thread_id}...`, `GET/PUT /repos/{owner}/{repo}/notifications`).
-- **[Activity starring](src/tools/activity/starring/README.md)** — list stargazers, list repositories starred by the authenticated user or another user, and check/star/unstar a repository (`GET /repos/{owner}/{repo}/stargazers`, `GET /user/starred`, `GET/PUT/DELETE /user/starred/{owner}/{repo}`, `GET /users/{username}/starred`).
-- **[Activity watching](src/tools/activity/watching/README.md)** — list watchers, get/set/delete a repository subscription, and list repositories watched by the authenticated user or another user (`GET /repos/{owner}/{repo}/subscribers`, `GET/PUT/DELETE /repos/{owner}/{repo}/subscription`, `GET /user/subscriptions`, `GET /users/{username}/subscriptions`).
-- **[Agent tasks](src/tools/agent-tasks/README.md)** — list and get Copilot cloud agent tasks (user-wide or per repository) and start a new task (`GET/POST /agents/repos/{owner}/{repo}/tasks...`, `GET /agents/tasks...`). Public preview.
-- **[Agents secrets](src/tools/agents/secrets/README.md)** — list/get/create/update/delete Agents secrets and public keys for orgs and repositories, plus manage selected repositories for org secrets (`GET/PUT/DELETE /orgs/{org}/agents/secrets...`, `GET/PUT/DELETE /repos/{owner}/{repo}/agents/secrets...`). Plaintext values are encrypted with LibSodium automatically.
-- **[Agents variables](src/tools/agents/variables/README.md)** — list/create/get/update/delete GitHub Agents variables and manage selected-repository access at the organization and repository levels (`GET/POST/PATCH/DELETE/PUT /orgs/{org}/agents/variables...` and `/repos/{owner}/{repo}/agents/variables...`).
-- **[Apps (GitHub Apps)](src/tools/apps/apps/README.md)** — get the authenticated app, create an app from a manifest, list installation requests and installations, get/delete installations, create installation access tokens, suspend/unsuspend installations, create scoped user tokens, get an app by slug, and look up installations by org/repo/user (`GET /app`, `POST /app-manifests/{code}/conversions`, `GET/DELETE /app/installations...`, `POST …/access_tokens`, `PUT/DELETE …/suspended`, `POST /applications/{client_id}/token/scoped`, `GET /apps/{app_slug}`, `GET /orgs/{org}/installation`, `GET /repos/{owner}/{repo}/installation`, `GET /users/{username}/installation`). Most endpoints require GitHub App **JWT** authentication.
-- **[Apps (Installations)](src/tools/apps/installations/README.md)** — list repositories accessible to an installation, revoke an installation access token, list app installations accessible to a user, list installation repositories for the authenticated user, and add/remove repositories on an installation (`GET /installation/repositories`, `DELETE /installation/token`, `GET /user/installations`, `GET /user/installations/{installation_id}/repositories`, `PUT/DELETE /user/installations/{installation_id}/repositories/{repository_id}`). Auth is an **installation token** or **user token** depending on the endpoint; add/remove repo require a classic PAT with **`repo`**.
-- **[Apps (Marketplace)](src/tools/apps/marketplace/README.md)** — get a subscription plan for an account, list Marketplace plans and accounts for a plan, stubbed listing counterparts for testing, and list Marketplace purchases for the authenticated user (`GET /marketplace_listing/accounts/{account_id}`, `GET /marketplace_listing/plans`, `GET /marketplace_listing/plans/{plan_id}/accounts`, stubbed `/marketplace_listing/stubbed/...` variants, `GET /user/marketplace_purchases`, `GET /user/marketplace_purchases/stubbed`). Most listing endpoints require a GitHub App **JWT** or OAuth app basic auth; stubbed endpoints return hard-coded test data.
-- **[Apps (OAuth authorizations)](src/tools/apps/oauth-applications/README.md)** — delete an app authorization/grant, check an OAuth token, reset a token, and delete a token (`DELETE /applications/{client_id}/grant`, `POST/PATCH/DELETE /applications/{client_id}/token`). Typically require **OAuth/GitHub App client credentials** (not a normal Bearer PAT); `access_token` inputs are sensitive and not logged.
-- **[Apps (Webhooks)](src/tools/apps/webhooks/README.md)** — get/update the GitHub App webhook configuration, list/get deliveries (cursor pagination), and redeliver (`GET/PATCH /app/hook/config`, `GET /app/hook/deliveries`, `GET /app/hook/deliveries/{delivery_id}`, `POST /app/hook/deliveries/{delivery_id}/attempts`). All endpoints require GitHub App **JWT** authentication. Completes the Apps REST section.
+### Organizations
 
-Static MCP tool descriptors (JSON: tool name, description, argument schema) live under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/) in the **same subfolders as** `src/tools` (e.g. `tools/repositories/webhooks/`, `tools/organizations/`), with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. They mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
+- **[Organization tools](src/tools/organizations/README.md)**
+- **[API Insights](src/tools/organizations/api-insights/README.md)**
+- **[Artifact metadata](src/tools/organizations/artifact-metadata/README.md)**
+- **[Attestations](src/tools/organizations/artifact-attestations/README.md)**
+- **[Blocking users](src/tools/organizations/blocking-users/README.md)**
+- **[Custom properties](src/tools/organizations/custom-properties/README.md)**
+- **[Issue fields](src/tools/organizations/issue-fields/README.md)**
+- **[Issue types](src/tools/organizations/issue-types/README.md)**
+- **[Members](src/tools/organizations/members/README.md)**
+- **[Network configurations](src/tools/organizations/network-configurations/README.md)**
+- **[Organization roles](src/tools/organizations/organization-roles/README.md)**
+- **[Outside collaborators](src/tools/organizations/outside-collaborators/README.md)**
+- **[Personal access tokens](src/tools/organizations/personal-access-tokens/README.md)**
+- **[Rules](src/tools/organizations/rules/README.md)**
+- **[Rule suites](src/tools/organizations/rule-suites/README.md)**
+- **[Security managers](src/tools/organizations/security-managers/README.md)**
+- **[Webhooks](src/tools/organizations/webhooks/README.md)**
+
+### Repositories
+
+- **[Repository tools overview](src/tools/repositories/README.md)**
+- **[Contents](src/tools/repositories/contents/README.md)**
+- **[Autolinks](src/tools/repositories/autolinks/README.md)**
+- **[Custom properties](src/tools/repositories/custom-properties/README.md)**
+- **[Forks](src/tools/repositories/forks/README.md)**
+- **[Rules](src/tools/repositories/rules/README.md)**
+- **[Rule suites](src/tools/repositories/rule-suites/README.md)**
+- **[Attestations](src/tools/repositories/attestations/README.md)**
+- **[Webhooks](src/tools/repositories/webhooks/README.md)**
+
+### Actions
+
+- **[Artifacts](src/tools/actions/artifacts/README.md)**
+- **[Cache](src/tools/actions/cache/README.md)**
+- **[Concurrency groups](src/tools/actions/concurrency-groups/README.md)**
+- **[GitHub-hosted runners](src/tools/actions/hosted-runners/README.md)**
+- **[OIDC](src/tools/actions/oidc/README.md)**
+- **[Permissions](src/tools/actions/permissions/README.md)**
+- **[Secrets](src/tools/actions/secrets/README.md)**
+- **[Self-hosted runner groups](src/tools/actions/runner-groups/README.md)**
+- **[Self-hosted runners](src/tools/actions/runners/README.md)**
+- **[Variables](src/tools/actions/variables/README.md)**
+- **[Workflow jobs](src/tools/actions/workflow-jobs/README.md)**
+- **[Workflow runs](src/tools/actions/workflow-runs/README.md)**
+- **[Workflows](src/tools/actions/workflows/README.md)**
+
+### Activity
+
+- **[Events](src/tools/activity/events/README.md)**
+- **[Feeds](src/tools/activity/feeds/README.md)**
+- **[Notifications](src/tools/activity/notifications/README.md)**
+- **[Starring](src/tools/activity/starring/README.md)**
+- **[Watching](src/tools/activity/watching/README.md)**
+
+### Agent tasks & Agents
+
+- **[Agent tasks](src/tools/agent-tasks/README.md)**
+- **[Agents secrets](src/tools/agents/secrets/README.md)**
+- **[Agents variables](src/tools/agents/variables/README.md)**
+
+### Apps
+
+- **[GitHub Apps](src/tools/apps/apps/README.md)**
+- **[Installations](src/tools/apps/installations/README.md)**
+- **[Marketplace](src/tools/apps/marketplace/README.md)**
+- **[OAuth authorizations](src/tools/apps/oauth-applications/README.md)**
+- **[Webhooks](src/tools/apps/webhooks/README.md)**
+
+Static MCP tool descriptors (JSON: tool name, description, argument schema) live under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/) in the **same subfolders as** `src/tools`, with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. They mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.
 
 ## MCP Client Config (using `.env` only)
 
