@@ -9813,3 +9813,49 @@ export type SetOrgCopilotContentExclusionSuccess = {
 };
 export type SetOrgCopilotContentExclusionFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_enterprise_copilot_custom_agents`. */
+export type ListEnterpriseCopilotCustomAgentsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    enterprise: string;
+    custom_agents: Record<string, unknown>[] | null;
+    pagination: GitHubPageLinkPagination | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseCopilotCustomAgentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_copilot_custom_agents_source`. */
+export type GetEnterpriseCopilotCustomAgentsSourceSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    enterprise: string;
+    source: Record<string, unknown>;
+};
+export type GetEnterpriseCopilotCustomAgentsSourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_enterprise_copilot_custom_agents_source`. */
+export type SetEnterpriseCopilotCustomAgentsSourceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    enterprise: string;
+    organization_id: number;
+    create_ruleset?: boolean;
+    source: Record<string, unknown>;
+};
+export type SetEnterpriseCopilotCustomAgentsSourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_enterprise_copilot_custom_agents_source`. */
+export type DeleteEnterpriseCopilotCustomAgentsSourceSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    enterprise: string;
+};
+export type DeleteEnterpriseCopilotCustomAgentsSourceFailure = CreateRepoFailure;

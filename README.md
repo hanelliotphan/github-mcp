@@ -201,6 +201,7 @@ Implementations live under `src/tools/`. Each link below has the full tool list 
 ### Copilot
 
 - **[Copilot coding agent management](src/tools/copilot/copilot-coding-agent-management/README.md)**
+- **[Copilot custom agents](src/tools/copilot/copilot-custom-agents/README.md)**
 - **[Copilot content exclusion management](src/tools/copilot/copilot-content-exclusion-management/README.md)**
 - **[Copilot cloud agent repository management](src/tools/copilot/copilot-cloud-agent-management/README.md)**
 

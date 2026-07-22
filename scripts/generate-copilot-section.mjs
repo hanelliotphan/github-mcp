@@ -642,7 +642,7 @@ function generateToolFile(section, tool) {
                     success: true,
                     message: "Request completed successfully.",
                     http_status: response.status as number,
-                    ${ctxFields},
+                    ${ctxFields}${bodyEcho ? `,\n                    ${bodyEcho}` : ""},
                     ${tool.resultKey ?? "result"}: toPlain(response.data),
                     request_id: requestId
                 };
