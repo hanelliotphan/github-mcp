@@ -7180,3 +7180,99 @@ export type DeleteOrgBudgetSuccess = {
 };
 
 export type DeleteOrgBudgetFailure = CreateRepoFailure;
+
+// ============================================================================
+// Billing — Cost centers
+// ============================================================================
+
+/** One cost center from enterprise billing cost-centers endpoints. */
+export type EnterpriseCostCenterItem = Record<string, unknown>;
+
+/** GET /enterprises/{enterprise}/settings/billing/cost-centers — HTTP 200. MCP tool: `github_list_enterprise_cost_centers`. */
+export type ListEnterpriseCostCentersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    cost_centers: EnterpriseCostCenterItem[];
+    request_id: string | null;
+};
+
+export type ListEnterpriseCostCentersFailure = CreateRepoFailure;
+
+/** POST /enterprises/{enterprise}/settings/billing/cost-centers — HTTP 200. MCP tool: `github_create_enterprise_cost_center`. */
+export type CreateEnterpriseCostCenterSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    cost_center: EnterpriseCostCenterItem;
+    request_id: string | null;
+};
+
+export type CreateEnterpriseCostCenterFailure = CreateRepoFailure;
+
+/** GET /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id} — HTTP 200. MCP tool: `github_get_enterprise_cost_center`. */
+export type GetEnterpriseCostCenterSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    cost_center_id: string;
+    cost_center: EnterpriseCostCenterItem;
+    request_id: string | null;
+};
+
+export type GetEnterpriseCostCenterFailure = CreateRepoFailure;
+
+/** PATCH /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id} — HTTP 200. MCP tool: `github_update_enterprise_cost_center`. */
+export type UpdateEnterpriseCostCenterSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    cost_center_id: string;
+    cost_center: EnterpriseCostCenterItem;
+    request_id: string | null;
+};
+
+export type UpdateEnterpriseCostCenterFailure = CreateRepoFailure;
+
+/** DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id} — HTTP 200. MCP tool: `github_delete_enterprise_cost_center`. */
+export type DeleteEnterpriseCostCenterSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    cost_center_id: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type DeleteEnterpriseCostCenterFailure = CreateRepoFailure;
+
+/** POST …/cost-centers/{cost_center_id}/resource — HTTP 200. MCP tool: `github_add_resources_to_enterprise_cost_center`. */
+export type AddResourcesToEnterpriseCostCenterSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    cost_center_id: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type AddResourcesToEnterpriseCostCenterFailure = CreateRepoFailure;
+
+/** DELETE …/cost-centers/{cost_center_id}/resource — HTTP 200. MCP tool: `github_remove_resources_from_enterprise_cost_center`. */
+export type RemoveResourcesFromEnterpriseCostCenterSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    cost_center_id: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type RemoveResourcesFromEnterpriseCostCenterFailure = CreateRepoFailure;

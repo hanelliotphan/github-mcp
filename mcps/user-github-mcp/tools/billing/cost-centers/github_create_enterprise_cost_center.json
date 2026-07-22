@@ -1,0 +1,27 @@
+{
+  "name": "github_create_enterprise_cost_center",
+  "description": "github create enterprise cost center",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "ai_credit_pool_enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "enterprise",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

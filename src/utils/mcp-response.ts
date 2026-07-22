@@ -587,6 +587,20 @@ import type {
     UpdateOrgBudgetSuccess,
     DeleteOrgBudgetFailure,
     DeleteOrgBudgetSuccess,
+    ListEnterpriseCostCentersFailure,
+    ListEnterpriseCostCentersSuccess,
+    CreateEnterpriseCostCenterFailure,
+    CreateEnterpriseCostCenterSuccess,
+    GetEnterpriseCostCenterFailure,
+    GetEnterpriseCostCenterSuccess,
+    UpdateEnterpriseCostCenterFailure,
+    UpdateEnterpriseCostCenterSuccess,
+    DeleteEnterpriseCostCenterFailure,
+    DeleteEnterpriseCostCenterSuccess,
+    AddResourcesToEnterpriseCostCenterFailure,
+    AddResourcesToEnterpriseCostCenterSuccess,
+    RemoveResourcesFromEnterpriseCostCenterFailure,
+    RemoveResourcesFromEnterpriseCostCenterSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1523,6 +1537,20 @@ export function textAndData(
         | UpdateOrgBudgetFailure
         | DeleteOrgBudgetSuccess
         | DeleteOrgBudgetFailure
+        | ListEnterpriseCostCentersSuccess
+        | ListEnterpriseCostCentersFailure
+        | CreateEnterpriseCostCenterSuccess
+        | CreateEnterpriseCostCenterFailure
+        | GetEnterpriseCostCenterSuccess
+        | GetEnterpriseCostCenterFailure
+        | UpdateEnterpriseCostCenterSuccess
+        | UpdateEnterpriseCostCenterFailure
+        | DeleteEnterpriseCostCenterSuccess
+        | DeleteEnterpriseCostCenterFailure
+        | AddResourcesToEnterpriseCostCenterSuccess
+        | AddResourcesToEnterpriseCostCenterFailure
+        | RemoveResourcesFromEnterpriseCostCenterSuccess
+        | RemoveResourcesFromEnterpriseCostCenterFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

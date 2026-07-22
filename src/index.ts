@@ -460,6 +460,13 @@ import { registerGithubCreateOrgBudgetTool } from "./tools/billing/budgets/githu
 import { registerGithubGetOrgBudgetTool } from "./tools/billing/budgets/github-get-org-budget.js";
 import { registerGithubUpdateOrgBudgetTool } from "./tools/billing/budgets/github-update-org-budget.js";
 import { registerGithubDeleteOrgBudgetTool } from "./tools/billing/budgets/github-delete-org-budget.js";
+import { registerGithubListEnterpriseCostCentersTool } from "./tools/billing/cost-centers/github-list-enterprise-cost-centers.js";
+import { registerGithubCreateEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-create-enterprise-cost-center.js";
+import { registerGithubGetEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-get-enterprise-cost-center.js";
+import { registerGithubUpdateEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-update-enterprise-cost-center.js";
+import { registerGithubDeleteEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-delete-enterprise-cost-center.js";
+import { registerGithubAddResourcesToEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-add-resources-to-enterprise-cost-center.js";
+import { registerGithubRemoveResourcesFromEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-remove-resources-from-enterprise-cost-center.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -933,6 +940,13 @@ registerGithubCreateOrgBudgetTool(server, octokit);
 registerGithubGetOrgBudgetTool(server, octokit);
 registerGithubUpdateOrgBudgetTool(server, octokit);
 registerGithubDeleteOrgBudgetTool(server, octokit);
+registerGithubListEnterpriseCostCentersTool(server, octokit);
+registerGithubCreateEnterpriseCostCenterTool(server, octokit);
+registerGithubGetEnterpriseCostCenterTool(server, octokit);
+registerGithubUpdateEnterpriseCostCenterTool(server, octokit);
+registerGithubDeleteEnterpriseCostCenterTool(server, octokit);
+registerGithubAddResourcesToEnterpriseCostCenterTool(server, octokit);
+registerGithubRemoveResourcesFromEnterpriseCostCenterTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

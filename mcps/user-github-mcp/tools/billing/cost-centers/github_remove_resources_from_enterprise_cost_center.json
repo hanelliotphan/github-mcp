@@ -1,0 +1,47 @@
+{
+  "name": "github_remove_resources_from_enterprise_cost_center",
+  "description": "github remove resources from enterprise cost center",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "cost_center_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "users": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "organizations": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "repositories": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "enterprise_teams": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "enterprise",
+      "cost_center_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
