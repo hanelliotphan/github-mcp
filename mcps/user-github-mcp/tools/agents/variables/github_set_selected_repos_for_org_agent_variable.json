@@ -1,0 +1,33 @@
+{
+  "name": "github_set_selected_repos_for_org_agent_variable",
+  "description": "Replace the full set of repositories that can access a selected-visibility organization agent variable (PUT /orgs/{org}/agents/variables/{name}/repositories). Provide selected_repository_ids (the complete desired list). HTTP 409 if visibility is not selected. Classic tokens need admin:org scope (plus repo for private repositories). Success is HTTP 204. See GitHub REST Agents variables.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+      },
+      "selected_repository_ids": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "required": [
+      "org",
+      "name",
+      "selected_repository_ids"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

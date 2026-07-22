@@ -471,6 +471,36 @@ import type {
     CreateOrUpdateRepoAgentSecretSuccess,
     DeleteRepoAgentSecretFailure,
     DeleteRepoAgentSecretSuccess,
+    ListOrgAgentVariablesFailure,
+    ListOrgAgentVariablesSuccess,
+    CreateOrgAgentVariableFailure,
+    CreateOrgAgentVariableSuccess,
+    GetOrgAgentVariableFailure,
+    GetOrgAgentVariableSuccess,
+    UpdateOrgAgentVariableFailure,
+    UpdateOrgAgentVariableSuccess,
+    DeleteOrgAgentVariableFailure,
+    DeleteOrgAgentVariableSuccess,
+    ListSelectedReposForOrgAgentVariableFailure,
+    ListSelectedReposForOrgAgentVariableSuccess,
+    SetSelectedReposForOrgAgentVariableFailure,
+    SetSelectedReposForOrgAgentVariableSuccess,
+    AddSelectedRepoToOrgAgentVariableFailure,
+    AddSelectedRepoToOrgAgentVariableSuccess,
+    RemoveSelectedRepoFromOrgAgentVariableFailure,
+    RemoveSelectedRepoFromOrgAgentVariableSuccess,
+    ListRepoOrganizationAgentVariablesFailure,
+    ListRepoOrganizationAgentVariablesSuccess,
+    ListRepoAgentVariablesFailure,
+    ListRepoAgentVariablesSuccess,
+    CreateRepoAgentVariableFailure,
+    CreateRepoAgentVariableSuccess,
+    GetRepoAgentVariableFailure,
+    GetRepoAgentVariableSuccess,
+    UpdateRepoAgentVariableFailure,
+    UpdateRepoAgentVariableSuccess,
+    DeleteRepoAgentVariableFailure,
+    DeleteRepoAgentVariableSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1291,6 +1321,36 @@ export function textAndData(
         | CreateOrUpdateRepoAgentSecretFailure
         | DeleteRepoAgentSecretSuccess
         | DeleteRepoAgentSecretFailure
+        | ListOrgAgentVariablesSuccess
+        | ListOrgAgentVariablesFailure
+        | CreateOrgAgentVariableSuccess
+        | CreateOrgAgentVariableFailure
+        | GetOrgAgentVariableSuccess
+        | GetOrgAgentVariableFailure
+        | UpdateOrgAgentVariableSuccess
+        | UpdateOrgAgentVariableFailure
+        | DeleteOrgAgentVariableSuccess
+        | DeleteOrgAgentVariableFailure
+        | ListSelectedReposForOrgAgentVariableSuccess
+        | ListSelectedReposForOrgAgentVariableFailure
+        | SetSelectedReposForOrgAgentVariableSuccess
+        | SetSelectedReposForOrgAgentVariableFailure
+        | AddSelectedRepoToOrgAgentVariableSuccess
+        | AddSelectedRepoToOrgAgentVariableFailure
+        | RemoveSelectedRepoFromOrgAgentVariableSuccess
+        | RemoveSelectedRepoFromOrgAgentVariableFailure
+        | ListRepoOrganizationAgentVariablesSuccess
+        | ListRepoOrganizationAgentVariablesFailure
+        | ListRepoAgentVariablesSuccess
+        | ListRepoAgentVariablesFailure
+        | CreateRepoAgentVariableSuccess
+        | CreateRepoAgentVariableFailure
+        | GetRepoAgentVariableSuccess
+        | GetRepoAgentVariableFailure
+        | UpdateRepoAgentVariableSuccess
+        | UpdateRepoAgentVariableFailure
+        | DeleteRepoAgentVariableSuccess
+        | DeleteRepoAgentVariableFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

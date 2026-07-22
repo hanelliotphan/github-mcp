@@ -6332,3 +6332,225 @@ export type DeleteRepoAgentSecretSuccess = {
 };
 
 export type DeleteRepoAgentSecretFailure = CreateRepoFailure;
+
+/** One GitHub Agents variable (name, value, timestamps; org variables also include visibility). */
+export type AgentVariableItem = Record<string, unknown>;
+
+/** GET /orgs/{org}/agents/variables — HTTP 200. MCP tool: `github_list_org_agent_variables`. */
+export type ListOrgAgentVariablesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    variables: AgentVariableItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgAgentVariablesFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/agents/variables — HTTP 201. MCP tool: `github_create_org_agent_variable`. */
+export type CreateOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type CreateOrgAgentVariableFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/agents/variables/{name} — HTTP 200. MCP tool: `github_get_org_agent_variable`. */
+export type GetOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    variable: AgentVariableItem;
+    request_id: string | null;
+};
+
+export type GetOrgAgentVariableFailure = CreateRepoFailure;
+
+/** PATCH /orgs/{org}/agents/variables/{name} — HTTP 204 No Content. MCP tool: `github_update_org_agent_variable`. */
+export type UpdateOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type UpdateOrgAgentVariableFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/agents/variables/{name} — HTTP 204 No Content. MCP tool: `github_delete_org_agent_variable`. */
+export type DeleteOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type DeleteOrgAgentVariableFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/agents/variables/{name}/repositories — HTTP 200. MCP tool: `github_list_selected_repos_for_org_agent_variable`. */
+export type ListSelectedReposForOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    variable_name: string;
+    total_count: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListSelectedReposForOrgAgentVariableFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/agents/variables/{name}/repositories — HTTP 204 No Content. MCP tool: `github_set_selected_repos_for_org_agent_variable`. */
+export type SetSelectedReposForOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+
+export type SetSelectedReposForOrgAgentVariableFailure = CreateRepoFailure;
+
+/** PUT /orgs/{org}/agents/variables/{name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_add_selected_repo_to_org_agent_variable`. */
+export type AddSelectedRepoToOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type AddSelectedRepoToOrgAgentVariableFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/agents/variables/{name}/repositories/{repository_id} — HTTP 204 No Content. MCP tool: `github_remove_selected_repo_from_org_agent_variable`. */
+export type RemoveSelectedRepoFromOrgAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    variable_name: string;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type RemoveSelectedRepoFromOrgAgentVariableFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/agents/organization-variables — HTTP 200. MCP tool: `github_list_repo_organization_agent_variables`. */
+export type ListRepoOrganizationAgentVariablesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    variables: AgentVariableItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoOrganizationAgentVariablesFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/agents/variables — HTTP 200. MCP tool: `github_list_repo_agent_variables`. */
+export type ListRepoAgentVariablesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    variables: AgentVariableItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoAgentVariablesFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/agents/variables — HTTP 201. MCP tool: `github_create_repo_agent_variable`. */
+export type CreateRepoAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type CreateRepoAgentVariableFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/agents/variables/{name} — HTTP 200. MCP tool: `github_get_repo_agent_variable`. */
+export type GetRepoAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    variable: AgentVariableItem;
+    request_id: string | null;
+};
+
+export type GetRepoAgentVariableFailure = CreateRepoFailure;
+
+/** PATCH /repos/{owner}/{repo}/agents/variables/{name} — HTTP 204 No Content. MCP tool: `github_update_repo_agent_variable`. */
+export type UpdateRepoAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type UpdateRepoAgentVariableFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/agents/variables/{name} — HTTP 204 No Content. MCP tool: `github_delete_repo_agent_variable`. */
+export type DeleteRepoAgentVariableSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    variable_name: string;
+    request_id: string | null;
+};
+
+export type DeleteRepoAgentVariableFailure = CreateRepoFailure;
+

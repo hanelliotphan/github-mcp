@@ -1,0 +1,30 @@
+{
+  "name": "github_add_selected_repo_to_org_agent_variable",
+  "description": "Grant one repository access to a selected-visibility organization agent variable (PUT /orgs/{org}/agents/variables/{name}/repositories/{repository_id}). HTTP 409 if visibility is not selected. Classic tokens need admin:org scope (plus repo for private repositories). Success is HTTP 204. See GitHub REST Agents variables.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+      },
+      "repository_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "org",
+      "name",
+      "repository_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
