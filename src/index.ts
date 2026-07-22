@@ -643,6 +643,11 @@ import { registerGithubListReposForUserCodespacesSecretTool } from "./tools/code
 import { registerGithubSetReposForUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-set-repos-for-user-codespaces-secret.js";
 import { registerGithubAddRepoToUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-add-repo-to-user-codespaces-secret.js";
 import { registerGithubRemoveRepoFromUserCodespacesSecretTool } from "./tools/codespaces/secrets/github-remove-repo-from-user-codespaces-secret.js";
+import { registerGithubListRepoCollaboratorsTool } from "./tools/collaborators/collaborators/github-list-repo-collaborators.js";
+import { registerGithubCheckRepoCollaboratorTool } from "./tools/collaborators/collaborators/github-check-repo-collaborator.js";
+import { registerGithubAddRepoCollaboratorTool } from "./tools/collaborators/collaborators/github-add-repo-collaborator.js";
+import { registerGithubRemoveRepoCollaboratorTool } from "./tools/collaborators/collaborators/github-remove-repo-collaborator.js";
+import { registerGithubGetRepoCollaboratorPermissionTool } from "./tools/collaborators/collaborators/github-get-repo-collaborator-permission.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1298,6 +1303,11 @@ registerGithubListReposForUserCodespacesSecretTool(server, octokit);
 registerGithubSetReposForUserCodespacesSecretTool(server, octokit);
 registerGithubAddRepoToUserCodespacesSecretTool(server, octokit);
 registerGithubRemoveRepoFromUserCodespacesSecretTool(server, octokit);
+registerGithubListRepoCollaboratorsTool(server, octokit);
+registerGithubCheckRepoCollaboratorTool(server, octokit);
+registerGithubAddRepoCollaboratorTool(server, octokit);
+registerGithubRemoveRepoCollaboratorTool(server, octokit);
+registerGithubGetRepoCollaboratorPermissionTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

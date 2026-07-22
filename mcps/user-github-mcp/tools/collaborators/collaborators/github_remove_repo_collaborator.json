@@ -1,0 +1,30 @@
+{
+  "name": "github_remove_repo_collaborator",
+  "description": "Remove a repository collaborator.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "username"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

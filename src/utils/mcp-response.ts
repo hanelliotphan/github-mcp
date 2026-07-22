@@ -1046,6 +1046,16 @@ import type {
     RemoveRepoFromAppInstallationFailure,
     RemoveRepoFromAppInstallationSuccess,
     RemoveRepoFromUserCodespacesSecretFailure,
+    ListRepoCollaboratorsSuccess,
+    ListRepoCollaboratorsFailure,
+    CheckRepoCollaboratorSuccess,
+    CheckRepoCollaboratorFailure,
+    AddRepoCollaboratorSuccess,
+    AddRepoCollaboratorFailure,
+    RemoveRepoCollaboratorSuccess,
+    RemoveRepoCollaboratorFailure,
+    GetRepoCollaboratorPermissionSuccess,
+    GetRepoCollaboratorPermissionFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2534,7 +2544,17 @@ export function textAndData(
         | AddRepoToUserCodespacesSecretFailure
         | AddRepoToUserCodespacesSecretSuccess
         | RemoveRepoFromUserCodespacesSecretFailure
-        | RemoveRepoFromUserCodespacesSecretSuccess) {
+        | RemoveRepoFromUserCodespacesSecretSuccess
+        | ListRepoCollaboratorsSuccess
+        | ListRepoCollaboratorsFailure
+        | CheckRepoCollaboratorSuccess
+        | CheckRepoCollaboratorFailure
+        | AddRepoCollaboratorSuccess
+        | AddRepoCollaboratorFailure
+        | RemoveRepoCollaboratorSuccess
+        | RemoveRepoCollaboratorFailure
+        | GetRepoCollaboratorPermissionSuccess
+        | GetRepoCollaboratorPermissionFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

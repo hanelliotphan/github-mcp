@@ -9324,3 +9324,71 @@ export type AddRepoToUserCodespacesSecretFailure = CreateRepoFailure;
 /** MCP tool: `github_remove_repo_from_user_codespaces_secret`. */
 export type RemoveRepoFromUserCodespacesSecretSuccess = { success: true; message: string; http_status: number; secret_name: string; repository_id: number; request_id: string | null; };
 export type RemoveRepoFromUserCodespacesSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_collaborators`. */
+export type ListRepoCollaboratorsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    collaborators: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoCollaboratorsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_check_repo_collaborator`. */
+export type CheckRepoCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    username: string;
+    is_collaborator: boolean;
+    request_id: string | null;
+};
+export type CheckRepoCollaboratorFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_repo_collaborator`. */
+export type AddRepoCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    username: string;
+    invited: boolean;
+    invitation: Record<string, unknown> | null;
+    request_id: string | null;
+};
+export type AddRepoCollaboratorFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_repo_collaborator`. */
+export type RemoveRepoCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    username: string;
+    request_id: string | null;
+};
+export type RemoveRepoCollaboratorFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_collaborator_permission`. */
+export type GetRepoCollaboratorPermissionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    username: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoCollaboratorPermissionFailure = CreateRepoFailure;
