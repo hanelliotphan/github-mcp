@@ -7276,3 +7276,147 @@ export type RemoveResourcesFromEnterpriseCostCenterSuccess = {
 };
 
 export type RemoveResourcesFromEnterpriseCostCenterFailure = CreateRepoFailure;
+
+// ============================================================================
+// Billing — Usage
+// ============================================================================
+
+/** GET /organizations/{org}/settings/billing/ai_credit/usage — HTTP 200. MCP tool: `github_get_org_ai_credit_billing_usage`. */
+export type GetOrgAiCreditBillingUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetOrgAiCreditBillingUsageFailure = CreateRepoFailure;
+
+/** GET /organizations/{org}/settings/billing/premium_request/usage — HTTP 200. MCP tool: `github_get_org_premium_request_billing_usage`. */
+export type GetOrgPremiumRequestBillingUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetOrgPremiumRequestBillingUsageFailure = CreateRepoFailure;
+
+/** GET /organizations/{org}/settings/billing/usage — HTTP 200. MCP tool: `github_get_org_billing_usage`. */
+export type GetOrgBillingUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetOrgBillingUsageFailure = CreateRepoFailure;
+
+/** GET /organizations/{org}/settings/billing/usage/summary — HTTP 200. MCP tool: `github_get_org_billing_usage_summary`. Public preview. */
+export type GetOrgBillingUsageSummarySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetOrgBillingUsageSummaryFailure = CreateRepoFailure;
+
+/** GET /users/{username}/settings/billing/ai_credit/usage — HTTP 200. MCP tool: `github_get_user_ai_credit_billing_usage`. */
+export type GetUserAiCreditBillingUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetUserAiCreditBillingUsageFailure = CreateRepoFailure;
+
+/** GET /users/{username}/settings/billing/premium_request/usage — HTTP 200. MCP tool: `github_get_user_premium_request_billing_usage`. */
+export type GetUserPremiumRequestBillingUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetUserPremiumRequestBillingUsageFailure = CreateRepoFailure;
+
+/** GET /users/{username}/settings/billing/usage — HTTP 200. MCP tool: `github_get_user_billing_usage`. */
+export type GetUserBillingUsageSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetUserBillingUsageFailure = CreateRepoFailure;
+
+/** GET /users/{username}/settings/billing/usage/summary — HTTP 200. MCP tool: `github_get_user_billing_usage_summary`. Public preview. */
+export type GetUserBillingUsageSummarySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    usage: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetUserBillingUsageSummaryFailure = CreateRepoFailure;
+
+// ============================================================================
+// Billing — Usage reports
+// ============================================================================
+
+/** One export from GET /enterprises/{enterprise}/settings/billing/reports. */
+export type EnterpriseUsageReportExportItem = Record<string, unknown>;
+
+/** GET /enterprises/{enterprise}/settings/billing/reports — HTTP 200. MCP tool: `github_list_enterprise_usage_report_exports`. */
+export type ListEnterpriseUsageReportExportsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    usage_report_exports: EnterpriseUsageReportExportItem[];
+    request_id: string | null;
+};
+
+export type ListEnterpriseUsageReportExportsFailure = CreateRepoFailure;
+
+/** POST /enterprises/{enterprise}/settings/billing/reports — HTTP 202. MCP tool: `github_create_enterprise_usage_report_export`. */
+export type CreateEnterpriseUsageReportExportSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    report: EnterpriseUsageReportExportItem;
+    request_id: string | null;
+};
+
+export type CreateEnterpriseUsageReportExportFailure = CreateRepoFailure;
+
+/** GET /enterprises/{enterprise}/settings/billing/reports/{report_id} — HTTP 200. MCP tool: `github_get_enterprise_usage_report_export`. */
+export type GetEnterpriseUsageReportExportSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    report_id: string;
+    report: EnterpriseUsageReportExportItem;
+    request_id: string | null;
+};
+
+export type GetEnterpriseUsageReportExportFailure = CreateRepoFailure;

@@ -467,6 +467,17 @@ import { registerGithubUpdateEnterpriseCostCenterTool } from "./tools/billing/co
 import { registerGithubDeleteEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-delete-enterprise-cost-center.js";
 import { registerGithubAddResourcesToEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-add-resources-to-enterprise-cost-center.js";
 import { registerGithubRemoveResourcesFromEnterpriseCostCenterTool } from "./tools/billing/cost-centers/github-remove-resources-from-enterprise-cost-center.js";
+import { registerGithubGetOrgAiCreditBillingUsageTool } from "./tools/billing/usage/github-get-org-ai-credit-billing-usage.js";
+import { registerGithubGetOrgPremiumRequestBillingUsageTool } from "./tools/billing/usage/github-get-org-premium-request-billing-usage.js";
+import { registerGithubGetOrgBillingUsageTool } from "./tools/billing/usage/github-get-org-billing-usage.js";
+import { registerGithubGetOrgBillingUsageSummaryTool } from "./tools/billing/usage/github-get-org-billing-usage-summary.js";
+import { registerGithubGetUserAiCreditBillingUsageTool } from "./tools/billing/usage/github-get-user-ai-credit-billing-usage.js";
+import { registerGithubGetUserPremiumRequestBillingUsageTool } from "./tools/billing/usage/github-get-user-premium-request-billing-usage.js";
+import { registerGithubGetUserBillingUsageTool } from "./tools/billing/usage/github-get-user-billing-usage.js";
+import { registerGithubGetUserBillingUsageSummaryTool } from "./tools/billing/usage/github-get-user-billing-usage-summary.js";
+import { registerGithubListEnterpriseUsageReportExportsTool } from "./tools/billing/usage-reports/github-list-enterprise-usage-report-exports.js";
+import { registerGithubCreateEnterpriseUsageReportExportTool } from "./tools/billing/usage-reports/github-create-enterprise-usage-report-export.js";
+import { registerGithubGetEnterpriseUsageReportExportTool } from "./tools/billing/usage-reports/github-get-enterprise-usage-report-export.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -947,6 +958,17 @@ registerGithubUpdateEnterpriseCostCenterTool(server, octokit);
 registerGithubDeleteEnterpriseCostCenterTool(server, octokit);
 registerGithubAddResourcesToEnterpriseCostCenterTool(server, octokit);
 registerGithubRemoveResourcesFromEnterpriseCostCenterTool(server, octokit);
+registerGithubGetOrgAiCreditBillingUsageTool(server, octokit);
+registerGithubGetOrgPremiumRequestBillingUsageTool(server, octokit);
+registerGithubGetOrgBillingUsageTool(server, octokit);
+registerGithubGetOrgBillingUsageSummaryTool(server, octokit);
+registerGithubGetUserAiCreditBillingUsageTool(server, octokit);
+registerGithubGetUserPremiumRequestBillingUsageTool(server, octokit);
+registerGithubGetUserBillingUsageTool(server, octokit);
+registerGithubGetUserBillingUsageSummaryTool(server, octokit);
+registerGithubListEnterpriseUsageReportExportsTool(server, octokit);
+registerGithubCreateEnterpriseUsageReportExportTool(server, octokit);
+registerGithubGetEnterpriseUsageReportExportTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

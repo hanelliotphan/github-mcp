@@ -601,6 +601,28 @@ import type {
     AddResourcesToEnterpriseCostCenterSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
+    GetOrgAiCreditBillingUsageFailure,
+    GetOrgAiCreditBillingUsageSuccess,
+    GetOrgPremiumRequestBillingUsageFailure,
+    GetOrgPremiumRequestBillingUsageSuccess,
+    GetOrgBillingUsageFailure,
+    GetOrgBillingUsageSuccess,
+    GetOrgBillingUsageSummaryFailure,
+    GetOrgBillingUsageSummarySuccess,
+    GetUserAiCreditBillingUsageFailure,
+    GetUserAiCreditBillingUsageSuccess,
+    GetUserPremiumRequestBillingUsageFailure,
+    GetUserPremiumRequestBillingUsageSuccess,
+    GetUserBillingUsageFailure,
+    GetUserBillingUsageSuccess,
+    GetUserBillingUsageSummaryFailure,
+    GetUserBillingUsageSummarySuccess,
+    ListEnterpriseUsageReportExportsFailure,
+    ListEnterpriseUsageReportExportsSuccess,
+    CreateEnterpriseUsageReportExportFailure,
+    CreateEnterpriseUsageReportExportSuccess,
+    GetEnterpriseUsageReportExportFailure,
+    GetEnterpriseUsageReportExportSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1551,6 +1573,28 @@ export function textAndData(
         | AddResourcesToEnterpriseCostCenterFailure
         | RemoveResourcesFromEnterpriseCostCenterSuccess
         | RemoveResourcesFromEnterpriseCostCenterFailure
+        | GetOrgAiCreditBillingUsageSuccess
+        | GetOrgAiCreditBillingUsageFailure
+        | GetOrgPremiumRequestBillingUsageSuccess
+        | GetOrgPremiumRequestBillingUsageFailure
+        | GetOrgBillingUsageSuccess
+        | GetOrgBillingUsageFailure
+        | GetOrgBillingUsageSummarySuccess
+        | GetOrgBillingUsageSummaryFailure
+        | GetUserAiCreditBillingUsageSuccess
+        | GetUserAiCreditBillingUsageFailure
+        | GetUserPremiumRequestBillingUsageSuccess
+        | GetUserPremiumRequestBillingUsageFailure
+        | GetUserBillingUsageSuccess
+        | GetUserBillingUsageFailure
+        | GetUserBillingUsageSummarySuccess
+        | GetUserBillingUsageSummaryFailure
+        | ListEnterpriseUsageReportExportsSuccess
+        | ListEnterpriseUsageReportExportsFailure
+        | CreateEnterpriseUsageReportExportSuccess
+        | CreateEnterpriseUsageReportExportFailure
+        | GetEnterpriseUsageReportExportSuccess
+        | GetEnterpriseUsageReportExportFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

@@ -1,0 +1,42 @@
+{
+  "name": "github_get_org_premium_request_billing_usage",
+  "description": "\"Get premium request billing usage for an organization (GET /organizations/{org}/settings/billing/premium_request/usage).  Only the past 24 months are available.  See [Get billing premium request usag",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "year": {
+        "type": "integer",
+        "minimum": 2000,
+        "maximum": 2100
+      },
+      "month": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 12
+      },
+      "day": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 31
+      },
+      "user": {
+        "type": "string"
+      },
+      "model": {
+        "type": "string"
+      },
+      "product": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

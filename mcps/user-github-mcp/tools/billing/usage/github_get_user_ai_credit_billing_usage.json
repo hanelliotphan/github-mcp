@@ -1,0 +1,39 @@
+{
+  "name": "github_get_user_ai_credit_billing_usage",
+  "description": "\"Get AI credit billing usage for a user (GET /users/{username}/settings/billing/ai_credit/usage).  Only the past 24 months are available.  See [Get billing AI credit usage report for a user](https://d",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "year": {
+        "type": "integer",
+        "minimum": 2000,
+        "maximum": 2100
+      },
+      "month": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 12
+      },
+      "day": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 31
+      },
+      "model": {
+        "type": "string"
+      },
+      "product": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "username"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
