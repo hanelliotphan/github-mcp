@@ -455,6 +455,11 @@ import { registerGithubListAppWebhookDeliveriesTool } from "./tools/apps/webhook
 import { registerGithubGetAppWebhookDeliveryTool } from "./tools/apps/webhooks/github-get-app-webhook-delivery.js";
 import { registerGithubRedeliverAppWebhookDeliveryTool } from "./tools/apps/webhooks/github-redeliver-app-webhook-delivery.js";
 import { registerGithubGetOrgAdvancedSecurityActiveCommittersTool } from "./tools/billing/billing/github-get-org-advanced-security-active-committers.js";
+import { registerGithubListOrgBudgetsTool } from "./tools/billing/budgets/github-list-org-budgets.js";
+import { registerGithubCreateOrgBudgetTool } from "./tools/billing/budgets/github-create-org-budget.js";
+import { registerGithubGetOrgBudgetTool } from "./tools/billing/budgets/github-get-org-budget.js";
+import { registerGithubUpdateOrgBudgetTool } from "./tools/billing/budgets/github-update-org-budget.js";
+import { registerGithubDeleteOrgBudgetTool } from "./tools/billing/budgets/github-delete-org-budget.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -923,6 +928,11 @@ registerGithubListAppWebhookDeliveriesTool(server, octokit);
 registerGithubGetAppWebhookDeliveryTool(server, octokit);
 registerGithubRedeliverAppWebhookDeliveryTool(server, octokit);
 registerGithubGetOrgAdvancedSecurityActiveCommittersTool(server, octokit);
+registerGithubListOrgBudgetsTool(server, octokit);
+registerGithubCreateOrgBudgetTool(server, octokit);
+registerGithubGetOrgBudgetTool(server, octokit);
+registerGithubUpdateOrgBudgetTool(server, octokit);
+registerGithubDeleteOrgBudgetTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

@@ -1,0 +1,68 @@
+{
+  "name": "github_update_org_budget",
+  "description": "Update a budget for an organization (PATCH /organizations/{org}/settings/billing/budgets/{budget_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "budget_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "budget_amount": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "prevent_further_usage": {
+        "type": "boolean"
+      },
+      "budget_alerting": {
+        "type": "object",
+        "properties": {
+          "will_alert": {
+            "type": "boolean"
+          },
+          "alert_recipients": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "budget_scope": {
+        "type": "string",
+        "enum": [
+          "enterprise",
+          "organization",
+          "repository",
+          "cost_center",
+          "multi_user_customer",
+          "user"
+        ]
+      },
+      "budget_entity_name": {
+        "type": "string"
+      },
+      "budget_type": {
+        "type": "string"
+      },
+      "budget_product_sku": {
+        "type": "string"
+      },
+      "user": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "org",
+      "budget_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

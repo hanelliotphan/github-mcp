@@ -1,0 +1,50 @@
+{
+  "name": "github_list_org_budgets",
+  "description": "List all budgets for an organization (GET /organizations/{org}/settings/billing/budgets). Org admin or billing manager. Supports scope/user filters and page/all_pages.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "scope": {
+        "type": "string",
+        "enum": [
+          "enterprise",
+          "organization",
+          "repository",
+          "cost_center",
+          "multi_user_customer",
+          "user"
+        ]
+      },
+      "user": {
+        "type": "string",
+        "minLength": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

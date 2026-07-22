@@ -1,0 +1,23 @@
+{
+  "name": "github_get_org_budget",
+  "description": "Get a budget by ID for an organization (GET /organizations/{org}/settings/billing/budgets/{budget_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "budget_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "org",
+      "budget_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

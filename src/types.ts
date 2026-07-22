@@ -7102,3 +7102,81 @@ export type GetOrgAdvancedSecurityActiveCommittersSuccess = {
 };
 
 export type GetOrgAdvancedSecurityActiveCommittersFailure = CreateRepoFailure;
+
+// ============================================================================
+// Billing — Budgets
+// ============================================================================
+
+/** One budget row from GET /organizations/{org}/settings/billing/budgets. */
+export type OrgBudgetItem = Record<string, unknown>;
+
+/** GET /organizations/{org}/settings/billing/budgets — HTTP 200. MCP tool: `github_list_org_budgets`. */
+export type ListOrgBudgetsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    budgets: OrgBudgetItem[];
+    total_count?: number;
+    has_next_page?: boolean;
+    /** Remaining top-level fields from the API body (e.g. `user`, `effective_budget`). */
+    extra: Record<string, unknown>;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgBudgetsFailure = CreateRepoFailure;
+
+/** POST /organizations/{org}/settings/billing/budgets — HTTP 200. MCP tool: `github_create_org_budget`. */
+export type CreateOrgBudgetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateOrgBudgetFailure = CreateRepoFailure;
+
+/** GET /organizations/{org}/settings/billing/budgets/{budget_id} — HTTP 200. MCP tool: `github_get_org_budget`. */
+export type GetOrgBudgetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    budget_id: string;
+    budget: OrgBudgetItem;
+    request_id: string | null;
+};
+
+export type GetOrgBudgetFailure = CreateRepoFailure;
+
+/** PATCH /organizations/{org}/settings/billing/budgets/{budget_id} — HTTP 200. MCP tool: `github_update_org_budget`. */
+export type UpdateOrgBudgetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    budget_id: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdateOrgBudgetFailure = CreateRepoFailure;
+
+/** DELETE /organizations/{org}/settings/billing/budgets/{budget_id} — HTTP 200. MCP tool: `github_delete_org_budget`. */
+export type DeleteOrgBudgetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    budget_id: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type DeleteOrgBudgetFailure = CreateRepoFailure;

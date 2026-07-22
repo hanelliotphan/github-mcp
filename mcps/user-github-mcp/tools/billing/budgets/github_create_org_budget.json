@@ -1,0 +1,61 @@
+{
+  "name": "github_create_org_budget",
+  "description": "Create a budget for an organization (POST /organizations/{org}/settings/billing/budgets). Org admin or billing manager.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "budget_amount": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "prevent_further_usage": {
+        "type": "boolean"
+      },
+      "budget_alerting": {
+        "type": "object",
+        "properties": {
+          "will_alert": {
+            "type": "boolean"
+          },
+          "alert_recipients": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "budget_scope": {
+        "type": "string",
+        "enum": [
+          "organization",
+          "repository",
+          "multi_user_customer",
+          "user"
+        ]
+      },
+      "budget_entity_name": {
+        "type": "string"
+      },
+      "budget_type": {
+        "type": "string"
+      },
+      "budget_product_sku": {
+        "type": "string"
+      },
+      "user": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

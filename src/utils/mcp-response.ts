@@ -577,6 +577,16 @@ import type {
     RedeliverAppWebhookDeliverySuccess,
     GetOrgAdvancedSecurityActiveCommittersFailure,
     GetOrgAdvancedSecurityActiveCommittersSuccess,
+    ListOrgBudgetsFailure,
+    ListOrgBudgetsSuccess,
+    CreateOrgBudgetFailure,
+    CreateOrgBudgetSuccess,
+    GetOrgBudgetFailure,
+    GetOrgBudgetSuccess,
+    UpdateOrgBudgetFailure,
+    UpdateOrgBudgetSuccess,
+    DeleteOrgBudgetFailure,
+    DeleteOrgBudgetSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1503,6 +1513,16 @@ export function textAndData(
         | RedeliverAppWebhookDeliveryFailure
         | GetOrgAdvancedSecurityActiveCommittersSuccess
         | GetOrgAdvancedSecurityActiveCommittersFailure
+        | ListOrgBudgetsSuccess
+        | ListOrgBudgetsFailure
+        | CreateOrgBudgetSuccess
+        | CreateOrgBudgetFailure
+        | GetOrgBudgetSuccess
+        | GetOrgBudgetFailure
+        | UpdateOrgBudgetSuccess
+        | UpdateOrgBudgetFailure
+        | DeleteOrgBudgetSuccess
+        | DeleteOrgBudgetFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
