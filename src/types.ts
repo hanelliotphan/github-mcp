@@ -8282,3 +8282,59 @@ export type ListClassroomAssignmentsSuccess = {
 };
 
 export type ListClassroomAssignmentsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/code-quality/findings — HTTP 200. MCP tool: `github_list_repo_code_quality_findings`. */
+export type ListRepoCodeQualityFindingsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    findings: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoCodeQualityFindingsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/code-quality/findings/{finding_number} — HTTP 200. MCP tool: `github_get_repo_code_quality_finding`. */
+export type GetRepoCodeQualityFindingSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    finding_number: number;
+    finding: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetRepoCodeQualityFindingFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/code-quality/setup — HTTP 200. MCP tool: `github_get_repo_code_quality_setup`. */
+export type GetRepoCodeQualitySetupSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    setup: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetRepoCodeQualitySetupFailure = CreateRepoFailure;
+
+/** PATCH /repos/{owner}/{repo}/code-quality/setup — HTTP 200 or 202. MCP tool: `github_update_repo_code_quality_setup`. */
+export type UpdateRepoCodeQualitySetupSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdateRepoCodeQualitySetupFailure = CreateRepoFailure;

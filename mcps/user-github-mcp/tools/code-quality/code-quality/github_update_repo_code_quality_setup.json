@@ -1,0 +1,59 @@
+{
+  "name": "github_update_repo_code_quality_setup",
+  "description": "Update a code quality setup configuration (PATCH /repos/{owner}/{repo}/code-quality/setup). Returns 200 or 202.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "configured",
+          "not-configured"
+        ]
+      },
+      "runner_type": {
+        "type": "string",
+        "enum": [
+          "standard",
+          "labeled"
+        ]
+      },
+      "runner_label": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "languages": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "csharp",
+            "go",
+            "java-kotlin",
+            "javascript-typescript",
+            "python",
+            "ruby",
+            "rust"
+          ]
+        }
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

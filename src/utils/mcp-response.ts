@@ -745,6 +745,14 @@ import type {
     GetClassroomSuccess,
     ListClassroomAssignmentsFailure,
     ListClassroomAssignmentsSuccess,
+    ListRepoCodeQualityFindingsFailure,
+    ListRepoCodeQualityFindingsSuccess,
+    GetRepoCodeQualityFindingFailure,
+    GetRepoCodeQualityFindingSuccess,
+    GetRepoCodeQualitySetupFailure,
+    GetRepoCodeQualitySetupSuccess,
+    UpdateRepoCodeQualitySetupFailure,
+    UpdateRepoCodeQualitySetupSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1839,6 +1847,14 @@ export function textAndData(
         | GetClassroomFailure
         | ListClassroomAssignmentsSuccess
         | ListClassroomAssignmentsFailure
+        | ListRepoCodeQualityFindingsSuccess
+        | ListRepoCodeQualityFindingsFailure
+        | GetRepoCodeQualityFindingSuccess
+        | GetRepoCodeQualityFindingFailure
+        | GetRepoCodeQualitySetupSuccess
+        | GetRepoCodeQualitySetupFailure
+        | UpdateRepoCodeQualitySetupSuccess
+        | UpdateRepoCodeQualitySetupFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

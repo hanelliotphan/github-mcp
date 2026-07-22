@@ -1,0 +1,59 @@
+{
+  "name": "github_list_repo_code_quality_findings",
+  "description": "List code quality findings for a repository (GET /repos/{owner}/{repo}/code-quality/findings). Cursor before/after pagination.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "direction": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ]
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "open",
+          "dismissed"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "before": {
+        "type": "string",
+        "minLength": 1
+      },
+      "after": {
+        "type": "string",
+        "minLength": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

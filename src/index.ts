@@ -540,6 +540,10 @@ import { registerGithubListClassroomAssignmentsTool } from "./tools/classroom/cl
 import { registerGithubGetClassroomAssignmentTool } from "./tools/classroom/classroom/github-get-classroom-assignment.js";
 import { registerGithubListAcceptedClassroomAssignmentsTool } from "./tools/classroom/classroom/github-list-accepted-classroom-assignments.js";
 import { registerGithubGetClassroomAssignmentGradesTool } from "./tools/classroom/classroom/github-get-classroom-assignment-grades.js";
+import { registerGithubListRepoCodeQualityFindingsTool } from "./tools/code-quality/code-quality/github-list-repo-code-quality-findings.js";
+import { registerGithubGetRepoCodeQualityFindingTool } from "./tools/code-quality/code-quality/github-get-repo-code-quality-finding.js";
+import { registerGithubGetRepoCodeQualitySetupTool } from "./tools/code-quality/code-quality/github-get-repo-code-quality-setup.js";
+import { registerGithubUpdateRepoCodeQualitySetupTool } from "./tools/code-quality/code-quality/github-update-repo-code-quality-setup.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -1092,6 +1096,10 @@ registerGithubListClassroomAssignmentsTool(server, octokit);
 registerGithubGetClassroomAssignmentTool(server, octokit);
 registerGithubListAcceptedClassroomAssignmentsTool(server, octokit);
 registerGithubGetClassroomAssignmentGradesTool(server, octokit);
+registerGithubListRepoCodeQualityFindingsTool(server, octokit);
+registerGithubGetRepoCodeQualityFindingTool(server, octokit);
+registerGithubGetRepoCodeQualitySetupTool(server, octokit);
+registerGithubUpdateRepoCodeQualitySetupTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.
