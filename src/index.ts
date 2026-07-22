@@ -2,6 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { Octokit } from "@octokit/rest";
 import { getRequiredEnv } from "./config/env.js";
+import { installCompactToolsListHandler } from "./utils/mcp-list-tools-compact.js";
 import { registerGithubCheckDependabotSecurityUpdatesTool } from "./tools/repositories/github-check-dependabot-security-updates.js";
 import { registerGithubCheckPrivateVulnerabilityReportingTool } from "./tools/repositories/github-check-private-vulnerability-reporting.js";
 import { registerGithubCheckImmutableReleasesTool } from "./tools/repositories/github-check-immutable-releases.js";
@@ -969,6 +970,10 @@ registerGithubGetUserBillingUsageSummaryTool(server, octokit);
 registerGithubListEnterpriseUsageReportExportsTool(server, octokit);
 registerGithubCreateEnterpriseUsageReportExportTool(server, octokit);
 registerGithubGetEnterpriseUsageReportExportTool(server, octokit);
+
+// Cursor's MCP process does not follow tools/list pagination; a huge single payload
+// can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.
+installCompactToolsListHandler(server);
 
 async function main() {
     const transport = new StdioServerTransport();
