@@ -529,6 +529,18 @@ import type {
     GetRepoInstallationForAuthenticatedAppSuccess,
     GetUserInstallationForAuthenticatedAppFailure,
     GetUserInstallationForAuthenticatedAppSuccess,
+    ListReposAccessibleToInstallationFailure,
+    ListReposAccessibleToInstallationSuccess,
+    RevokeInstallationAccessTokenFailure,
+    RevokeInstallationAccessTokenSuccess,
+    ListAppInstallationsAccessibleToUserFailure,
+    ListAppInstallationsAccessibleToUserSuccess,
+    ListInstallationReposForAuthenticatedUserFailure,
+    ListInstallationReposForAuthenticatedUserSuccess,
+    AddRepoToAppInstallationFailure,
+    AddRepoToAppInstallationSuccess,
+    RemoveRepoFromAppInstallationFailure,
+    RemoveRepoFromAppInstallationSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1407,6 +1419,18 @@ export function textAndData(
         | GetRepoInstallationForAuthenticatedAppFailure
         | GetUserInstallationForAuthenticatedAppSuccess
         | GetUserInstallationForAuthenticatedAppFailure
+        | ListReposAccessibleToInstallationSuccess
+        | ListReposAccessibleToInstallationFailure
+        | RevokeInstallationAccessTokenSuccess
+        | RevokeInstallationAccessTokenFailure
+        | ListAppInstallationsAccessibleToUserSuccess
+        | ListAppInstallationsAccessibleToUserFailure
+        | ListInstallationReposForAuthenticatedUserSuccess
+        | ListInstallationReposForAuthenticatedUserFailure
+        | AddRepoToAppInstallationSuccess
+        | AddRepoToAppInstallationFailure
+        | RemoveRepoFromAppInstallationSuccess
+        | RemoveRepoFromAppInstallationFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

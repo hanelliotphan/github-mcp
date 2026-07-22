@@ -6745,3 +6745,91 @@ export type GetUserInstallationForAuthenticatedAppSuccess = {
 };
 
 export type GetUserInstallationForAuthenticatedAppFailure = CreateRepoFailure;
+
+/** Repository object from installation repository list endpoints. */
+export type InstallationRepositoryItem = Record<string, unknown>;
+
+/** GET /installation/repositories — HTTP 200. MCP tool: `github_list_repos_accessible_to_installation`. */
+export type ListReposAccessibleToInstallationSuccess = {
+    success: true;
+    message: string;
+    total_count: number;
+    repositories: InstallationRepositoryItem[];
+    repository_selection?: string;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListReposAccessibleToInstallationFailure = CreateRepoFailure;
+
+/** DELETE /installation/token — HTTP 204. MCP tool: `github_revoke_installation_access_token`. */
+export type RevokeInstallationAccessTokenSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+};
+
+export type RevokeInstallationAccessTokenFailure = CreateRepoFailure;
+
+/** GET /user/installations — HTTP 200. MCP tool: `github_list_app_installations_accessible_to_user`. */
+export type ListAppInstallationsAccessibleToUserSuccess = {
+    success: true;
+    message: string;
+    total_count: number;
+    installations: AppInstallationItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListAppInstallationsAccessibleToUserFailure = CreateRepoFailure;
+
+/** GET /user/installations/{installation_id}/repositories — HTTP 200. MCP tool: `github_list_installation_repos_for_authenticated_user`. */
+export type ListInstallationReposForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    installation_id: number;
+    total_count: number;
+    repositories: InstallationRepositoryItem[];
+    repository_selection?: string;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListInstallationReposForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** PUT /user/installations/{installation_id}/repositories/{repository_id} — HTTP 204. MCP tool: `github_add_repo_to_app_installation`. */
+export type AddRepoToAppInstallationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    installation_id: number;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type AddRepoToAppInstallationFailure = CreateRepoFailure;
+
+/** DELETE /user/installations/{installation_id}/repositories/{repository_id} — HTTP 204. MCP tool: `github_remove_repo_from_app_installation`. */
+export type RemoveRepoFromAppInstallationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    installation_id: number;
+    repository_id: number;
+    request_id: string | null;
+};
+
+export type RemoveRepoFromAppInstallationFailure = CreateRepoFailure;

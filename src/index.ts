@@ -431,6 +431,12 @@ import { registerGithubGetAppTool } from "./tools/apps/apps/github-get-app.js";
 import { registerGithubGetOrgInstallationForAuthenticatedAppTool } from "./tools/apps/apps/github-get-org-installation-for-authenticated-app.js";
 import { registerGithubGetRepoInstallationForAuthenticatedAppTool } from "./tools/apps/apps/github-get-repo-installation-for-authenticated-app.js";
 import { registerGithubGetUserInstallationForAuthenticatedAppTool } from "./tools/apps/apps/github-get-user-installation-for-authenticated-app.js";
+import { registerGithubListReposAccessibleToInstallationTool } from "./tools/apps/installations/github-list-repos-accessible-to-installation.js";
+import { registerGithubRevokeInstallationAccessTokenTool } from "./tools/apps/installations/github-revoke-installation-access-token.js";
+import { registerGithubListAppInstallationsAccessibleToUserTool } from "./tools/apps/installations/github-list-app-installations-accessible-to-user.js";
+import { registerGithubListInstallationReposForAuthenticatedUserTool } from "./tools/apps/installations/github-list-installation-repos-for-authenticated-user.js";
+import { registerGithubAddRepoToAppInstallationTool } from "./tools/apps/installations/github-add-repo-to-app-installation.js";
+import { registerGithubRemoveRepoFromAppInstallationTool } from "./tools/apps/installations/github-remove-repo-from-app-installation.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -875,6 +881,12 @@ registerGithubGetAppTool(server, octokit);
 registerGithubGetOrgInstallationForAuthenticatedAppTool(server, octokit);
 registerGithubGetRepoInstallationForAuthenticatedAppTool(server, octokit);
 registerGithubGetUserInstallationForAuthenticatedAppTool(server, octokit);
+registerGithubListReposAccessibleToInstallationTool(server, octokit);
+registerGithubRevokeInstallationAccessTokenTool(server, octokit);
+registerGithubListAppInstallationsAccessibleToUserTool(server, octokit);
+registerGithubListInstallationReposForAuthenticatedUserTool(server, octokit);
+registerGithubAddRepoToAppInstallationTool(server, octokit);
+registerGithubRemoveRepoFromAppInstallationTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

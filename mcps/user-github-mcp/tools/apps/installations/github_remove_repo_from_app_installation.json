@@ -1,0 +1,24 @@
+{
+  "name": "github_remove_repo_from_app_installation",
+  "description": "DELETE /user/installations/{installation_id}/repositories/{repository_id} — remove a repository from an app installation (204). Requires classic PAT with repo scope and admin access; installation must use selected repository_selection.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "installation_id": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "The unique identifier of the installation."
+      },
+      "repository_id": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "The unique identifier of the repository."
+      }
+    },
+    "required": [
+      "installation_id",
+      "repository_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

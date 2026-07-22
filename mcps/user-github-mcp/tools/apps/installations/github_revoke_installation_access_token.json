@@ -1,0 +1,9 @@
+{
+  "name": "github_revoke_installation_access_token",
+  "description": "DELETE /installation/token — revoke the installation access token used for this request (204). Requires installation access token. After revoke, create a new token with github_create_installation_access_token.",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
