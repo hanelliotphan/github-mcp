@@ -1115,8 +1115,8 @@ function patchMcpResponse(section) {
                 `    CreateCommitStatusSuccess,\n    CreateCommitStatusFailure,\n    ${s},\n    ${f},`
             );
             content = content.replace(
-                "        | CreateCommitStatusSuccess\n        | CreateCommitStatusFailure) {",
-                `        | CreateCommitStatusSuccess\n        | CreateCommitStatusFailure\n        | ${s}\n        | ${f}) {`
+                /(\| [A-Za-z0-9]+Failure)\) \{\n    \/\/ Provide both human-readable text/,
+                `$1\n        | ${s}\n        | ${f}) {\n    // Provide both human-readable text`
             );
         }
     }

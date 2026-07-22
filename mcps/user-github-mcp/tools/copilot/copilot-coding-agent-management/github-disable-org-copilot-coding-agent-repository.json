@@ -1,0 +1,23 @@
+{
+  "name": "github_disable_org_copilot_coding_agent_repository",
+  "description": "Disable a repository for Copilot cloud agent in an organization (DELETE /orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "repository_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "org",
+      "repository_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

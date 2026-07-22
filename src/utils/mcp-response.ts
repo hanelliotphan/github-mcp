@@ -1096,6 +1096,24 @@ import type {
     ListCommitStatusesFailure,
     CreateCommitStatusSuccess,
     CreateCommitStatusFailure,
+    DisableOrgCopilotCodingAgentRepositorySuccess,
+    DisableOrgCopilotCodingAgentRepositoryFailure,
+    EnableOrgCopilotCodingAgentRepositorySuccess,
+    EnableOrgCopilotCodingAgentRepositoryFailure,
+    SetOrgCopilotCodingAgentRepositoriesSuccess,
+    SetOrgCopilotCodingAgentRepositoriesFailure,
+    ListOrgCopilotCodingAgentRepositoriesSuccess,
+    ListOrgCopilotCodingAgentRepositoriesFailure,
+    SetOrgCopilotCodingAgentPermissionsSuccess,
+    SetOrgCopilotCodingAgentPermissionsFailure,
+    GetOrgCopilotCodingAgentPermissionsSuccess,
+    GetOrgCopilotCodingAgentPermissionsFailure,
+    RemoveEnterpriseCopilotCodingAgentOrganizationsSuccess,
+    RemoveEnterpriseCopilotCodingAgentOrganizationsFailure,
+    AddEnterpriseCopilotCodingAgentOrganizationsSuccess,
+    AddEnterpriseCopilotCodingAgentOrganizationsFailure,
+    SetEnterpriseCopilotCodingAgentPolicySuccess,
+    SetEnterpriseCopilotCodingAgentPolicyFailure,
     GetRepoCopilotCloudAgentConfigurationSuccess,
     GetRepoCopilotCloudAgentConfigurationFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
@@ -2638,7 +2656,25 @@ export function textAndData(
         | CreateCommitStatusSuccess
         | CreateCommitStatusFailure
         | GetRepoCopilotCloudAgentConfigurationSuccess
-        | GetRepoCopilotCloudAgentConfigurationFailure) {
+        | GetRepoCopilotCloudAgentConfigurationFailure
+        | SetEnterpriseCopilotCodingAgentPolicySuccess
+        | SetEnterpriseCopilotCodingAgentPolicyFailure
+        | AddEnterpriseCopilotCodingAgentOrganizationsSuccess
+        | AddEnterpriseCopilotCodingAgentOrganizationsFailure
+        | RemoveEnterpriseCopilotCodingAgentOrganizationsSuccess
+        | RemoveEnterpriseCopilotCodingAgentOrganizationsFailure
+        | GetOrgCopilotCodingAgentPermissionsSuccess
+        | GetOrgCopilotCodingAgentPermissionsFailure
+        | SetOrgCopilotCodingAgentPermissionsSuccess
+        | SetOrgCopilotCodingAgentPermissionsFailure
+        | ListOrgCopilotCodingAgentRepositoriesSuccess
+        | ListOrgCopilotCodingAgentRepositoriesFailure
+        | SetOrgCopilotCodingAgentRepositoriesSuccess
+        | SetOrgCopilotCodingAgentRepositoriesFailure
+        | EnableOrgCopilotCodingAgentRepositorySuccess
+        | EnableOrgCopilotCodingAgentRepositoryFailure
+        | DisableOrgCopilotCodingAgentRepositorySuccess
+        | DisableOrgCopilotCodingAgentRepositoryFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

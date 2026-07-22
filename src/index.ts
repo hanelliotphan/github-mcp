@@ -668,6 +668,15 @@ import { registerGithubCreateCommitCommentTool } from "./tools/commits/comments/
 import { registerGithubGetCombinedCommitStatusTool } from "./tools/commits/statuses/github-get-combined-commit-status.js";
 import { registerGithubListCommitStatusesTool } from "./tools/commits/statuses/github-list-commit-statuses.js";
 import { registerGithubCreateCommitStatusTool } from "./tools/commits/statuses/github-create-commit-status.js";
+import { registerGithubDisableOrgCopilotCodingAgentRepositoryTool } from "./tools/copilot/copilot-coding-agent-management/github-disable-org-copilot-coding-agent-repository.js";
+import { registerGithubEnableOrgCopilotCodingAgentRepositoryTool } from "./tools/copilot/copilot-coding-agent-management/github-enable-org-copilot-coding-agent-repository.js";
+import { registerGithubSetOrgCopilotCodingAgentRepositoriesTool } from "./tools/copilot/copilot-coding-agent-management/github-set-org-copilot-coding-agent-repositories.js";
+import { registerGithubListOrgCopilotCodingAgentRepositoriesTool } from "./tools/copilot/copilot-coding-agent-management/github-list-org-copilot-coding-agent-repositories.js";
+import { registerGithubSetOrgCopilotCodingAgentPermissionsTool } from "./tools/copilot/copilot-coding-agent-management/github-set-org-copilot-coding-agent-permissions.js";
+import { registerGithubGetOrgCopilotCodingAgentPermissionsTool } from "./tools/copilot/copilot-coding-agent-management/github-get-org-copilot-coding-agent-permissions.js";
+import { registerGithubRemoveEnterpriseCopilotCodingAgentOrganizationsTool } from "./tools/copilot/copilot-coding-agent-management/github-remove-enterprise-copilot-coding-agent-organizations.js";
+import { registerGithubAddEnterpriseCopilotCodingAgentOrganizationsTool } from "./tools/copilot/copilot-coding-agent-management/github-add-enterprise-copilot-coding-agent-organizations.js";
+import { registerGithubSetEnterpriseCopilotCodingAgentPolicyTool } from "./tools/copilot/copilot-coding-agent-management/github-set-enterprise-copilot-coding-agent-policy.js";
 import { registerGithubGetRepoCopilotCloudAgentConfigurationTool } from "./tools/copilot/copilot-cloud-agent-management/github-get-repo-copilot-cloud-agent-configuration.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1349,6 +1358,15 @@ registerGithubCreateCommitCommentTool(server, octokit);
 registerGithubGetCombinedCommitStatusTool(server, octokit);
 registerGithubListCommitStatusesTool(server, octokit);
 registerGithubCreateCommitStatusTool(server, octokit);
+registerGithubDisableOrgCopilotCodingAgentRepositoryTool(server, octokit);
+registerGithubEnableOrgCopilotCodingAgentRepositoryTool(server, octokit);
+registerGithubSetOrgCopilotCodingAgentRepositoriesTool(server, octokit);
+registerGithubListOrgCopilotCodingAgentRepositoriesTool(server, octokit);
+registerGithubSetOrgCopilotCodingAgentPermissionsTool(server, octokit);
+registerGithubGetOrgCopilotCodingAgentPermissionsTool(server, octokit);
+registerGithubRemoveEnterpriseCopilotCodingAgentOrganizationsTool(server, octokit);
+registerGithubAddEnterpriseCopilotCodingAgentOrganizationsTool(server, octokit);
+registerGithubSetEnterpriseCopilotCodingAgentPolicyTool(server, octokit);
 registerGithubGetRepoCopilotCloudAgentConfigurationTool(server, octokit);
 
 installCompactToolsListHandler(server);

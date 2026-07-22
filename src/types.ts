@@ -9681,6 +9681,105 @@ export type CreateCommitStatusSuccess = {
 };
 export type CreateCommitStatusFailure = CreateRepoFailure;
 
+/** MCP tool: `github_set_enterprise_copilot_coding_agent_policy`. */
+export type SetEnterpriseCopilotCodingAgentPolicySuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    enterprise: string;
+    policy_state: string;
+};
+export type SetEnterpriseCopilotCodingAgentPolicyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_enterprise_copilot_coding_agent_organizations`. */
+export type AddEnterpriseCopilotCodingAgentOrganizationsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    enterprise: string;
+    organizations?: string[];
+    custom_properties?: Record<string, unknown>[];
+};
+export type AddEnterpriseCopilotCodingAgentOrganizationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_enterprise_copilot_coding_agent_organizations`. */
+export type RemoveEnterpriseCopilotCodingAgentOrganizationsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    enterprise: string;
+    organizations?: string[];
+    custom_properties?: Record<string, unknown>[];
+};
+export type RemoveEnterpriseCopilotCodingAgentOrganizationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_coding_agent_permissions`. */
+export type GetOrgCopilotCodingAgentPermissionsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    permissions: Record<string, unknown>;
+};
+export type GetOrgCopilotCodingAgentPermissionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_copilot_coding_agent_permissions`. */
+export type SetOrgCopilotCodingAgentPermissionsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    enabled_repositories: string;
+};
+export type SetOrgCopilotCodingAgentPermissionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_copilot_coding_agent_repositories`. */
+export type ListOrgCopilotCodingAgentRepositoriesSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    total_count: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgCopilotCodingAgentRepositoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_copilot_coding_agent_repositories`. */
+export type SetOrgCopilotCodingAgentRepositoriesSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    selected_repository_ids: number[];
+};
+export type SetOrgCopilotCodingAgentRepositoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_enable_org_copilot_coding_agent_repository`. */
+export type EnableOrgCopilotCodingAgentRepositorySuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    repository_id: number;
+};
+export type EnableOrgCopilotCodingAgentRepositoryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_disable_org_copilot_coding_agent_repository`. */
+export type DisableOrgCopilotCodingAgentRepositorySuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    repository_id: number;
+};
+export type DisableOrgCopilotCodingAgentRepositoryFailure = CreateRepoFailure;
+
+
 /** MCP tool: `github_get_repo_copilot_cloud_agent_configuration`. */
 export type GetRepoCopilotCloudAgentConfigurationSuccess = {
     success: true;

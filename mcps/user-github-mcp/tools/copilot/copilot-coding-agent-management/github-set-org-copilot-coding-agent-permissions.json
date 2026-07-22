@@ -1,0 +1,27 @@
+{
+  "name": "github_set_org_copilot_coding_agent_permissions",
+  "description": "Set Copilot cloud agent repository permissions for an organization (PUT /orgs/{org}/copilot/coding-agent/permissions).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "enabled_repositories": {
+        "type": "string",
+        "enum": [
+          "all",
+          "selected",
+          "none"
+        ]
+      }
+    },
+    "required": [
+      "org",
+      "enabled_repositories"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
