@@ -8679,3 +8679,246 @@ export type GetCodeScanningSarifSuccess = {
     request_id: string | null;
 };
 export type GetCodeScanningSarifFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_enterprise_code_security_configurations`. */
+export type ListEnterpriseCodeSecurityConfigurationsSuccess = {
+    success: true;
+    message: string;
+    enterprise: string;
+    configurations: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseCodeSecurityConfigurationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_enterprise_code_security_configuration`. */
+export type CreateEnterpriseCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    configuration: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateEnterpriseCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_enterprise_code_security_default_configurations`. */
+export type ListEnterpriseCodeSecurityDefaultConfigurationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    defaults: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListEnterpriseCodeSecurityDefaultConfigurationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_code_security_configuration`. */
+export type GetEnterpriseCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    configuration_id: number;
+    configuration: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetEnterpriseCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_enterprise_code_security_configuration`. */
+export type UpdateEnterpriseCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    configuration_id: number;
+    configuration: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateEnterpriseCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_enterprise_code_security_configuration`. */
+export type DeleteEnterpriseCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    configuration_id: number;
+    request_id: string | null;
+};
+export type DeleteEnterpriseCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_attach_enterprise_code_security_configuration`. */
+export type AttachEnterpriseCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    configuration_id: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AttachEnterpriseCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_enterprise_code_security_configuration_as_default`. */
+export type SetEnterpriseCodeSecurityConfigurationAsDefaultSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    configuration_id: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type SetEnterpriseCodeSecurityConfigurationAsDefaultFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_enterprise_code_security_configuration_repositories`. */
+export type ListEnterpriseCodeSecurityConfigurationRepositoriesSuccess = {
+    success: true;
+    message: string;
+    enterprise: string;
+    configuration_id: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseCodeSecurityConfigurationRepositoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_code_security_configurations`. */
+export type ListOrgCodeSecurityConfigurationsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    configurations: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgCodeSecurityConfigurationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_code_security_configuration`. */
+export type CreateOrgCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    configuration: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_code_security_default_configurations`. */
+export type ListOrgCodeSecurityDefaultConfigurationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    defaults: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListOrgCodeSecurityDefaultConfigurationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_detach_org_code_security_configurations`. */
+export type DetachOrgCodeSecurityConfigurationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    selected_repository_ids: number[];
+    request_id: string | null;
+};
+export type DetachOrgCodeSecurityConfigurationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_code_security_configuration`. */
+export type GetOrgCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    configuration_id: number;
+    configuration: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetOrgCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_code_security_configuration`. */
+export type UpdateOrgCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    configuration_id: number;
+    configuration: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateOrgCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_code_security_configuration`. */
+export type DeleteOrgCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    configuration_id: number;
+    request_id: string | null;
+};
+export type DeleteOrgCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_attach_org_code_security_configuration`. */
+export type AttachOrgCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    configuration_id: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AttachOrgCodeSecurityConfigurationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_code_security_configuration_as_default`. */
+export type SetOrgCodeSecurityConfigurationAsDefaultSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    configuration_id: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type SetOrgCodeSecurityConfigurationAsDefaultFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_code_security_configuration_repositories`. */
+export type ListOrgCodeSecurityConfigurationRepositoriesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    configuration_id: number;
+    repositories: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgCodeSecurityConfigurationRepositoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_code_security_configuration`. */
+export type GetRepoCodeSecurityConfigurationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    configuration: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoCodeSecurityConfigurationFailure = CreateRepoFailure;

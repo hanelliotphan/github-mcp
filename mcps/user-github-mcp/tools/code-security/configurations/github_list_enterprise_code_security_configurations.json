@@ -1,0 +1,37 @@
+{
+  "name": "github_list_enterprise_code_security_configurations",
+  "description": "List code security configurations for an enterprise (GET /enterprises/{enterprise}/code-security/configurations).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "before": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "enterprise"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

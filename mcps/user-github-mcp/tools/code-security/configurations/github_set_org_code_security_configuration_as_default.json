@@ -1,0 +1,32 @@
+{
+  "name": "github_set_org_code_security_configuration_as_default",
+  "description": "Set an organization code security configuration as default.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "configuration_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "default_for_new_repos": {
+        "type": "string",
+        "enum": [
+          "all",
+          "none",
+          "private_and_internal",
+          "public"
+        ]
+      }
+    },
+    "required": [
+      "org",
+      "configuration_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

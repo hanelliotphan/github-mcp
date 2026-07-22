@@ -1,0 +1,40 @@
+{
+  "name": "github_attach_org_code_security_configuration",
+  "description": "Attach an organization code security configuration to repositories.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "configuration_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "scope": {
+        "type": "string",
+        "enum": [
+          "all",
+          "all_without_configurations",
+          "public",
+          "private_or_internal",
+          "selected"
+        ]
+      },
+      "selected_repository_ids": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    "required": [
+      "org",
+      "configuration_id",
+      "scope"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -803,6 +803,46 @@ import type {
     UploadCodeScanningSarifFailure,
     GetCodeScanningSarifSuccess,
     GetCodeScanningSarifFailure,
+    ListEnterpriseCodeSecurityConfigurationsSuccess,
+    ListEnterpriseCodeSecurityConfigurationsFailure,
+    CreateEnterpriseCodeSecurityConfigurationSuccess,
+    CreateEnterpriseCodeSecurityConfigurationFailure,
+    ListEnterpriseCodeSecurityDefaultConfigurationsSuccess,
+    ListEnterpriseCodeSecurityDefaultConfigurationsFailure,
+    GetEnterpriseCodeSecurityConfigurationSuccess,
+    GetEnterpriseCodeSecurityConfigurationFailure,
+    UpdateEnterpriseCodeSecurityConfigurationSuccess,
+    UpdateEnterpriseCodeSecurityConfigurationFailure,
+    DeleteEnterpriseCodeSecurityConfigurationSuccess,
+    DeleteEnterpriseCodeSecurityConfigurationFailure,
+    AttachEnterpriseCodeSecurityConfigurationSuccess,
+    AttachEnterpriseCodeSecurityConfigurationFailure,
+    SetEnterpriseCodeSecurityConfigurationAsDefaultSuccess,
+    SetEnterpriseCodeSecurityConfigurationAsDefaultFailure,
+    ListEnterpriseCodeSecurityConfigurationRepositoriesSuccess,
+    ListEnterpriseCodeSecurityConfigurationRepositoriesFailure,
+    ListOrgCodeSecurityConfigurationsSuccess,
+    ListOrgCodeSecurityConfigurationsFailure,
+    CreateOrgCodeSecurityConfigurationSuccess,
+    CreateOrgCodeSecurityConfigurationFailure,
+    ListOrgCodeSecurityDefaultConfigurationsSuccess,
+    ListOrgCodeSecurityDefaultConfigurationsFailure,
+    DetachOrgCodeSecurityConfigurationsSuccess,
+    DetachOrgCodeSecurityConfigurationsFailure,
+    GetOrgCodeSecurityConfigurationSuccess,
+    GetOrgCodeSecurityConfigurationFailure,
+    UpdateOrgCodeSecurityConfigurationSuccess,
+    UpdateOrgCodeSecurityConfigurationFailure,
+    DeleteOrgCodeSecurityConfigurationSuccess,
+    DeleteOrgCodeSecurityConfigurationFailure,
+    AttachOrgCodeSecurityConfigurationSuccess,
+    AttachOrgCodeSecurityConfigurationFailure,
+    SetOrgCodeSecurityConfigurationAsDefaultSuccess,
+    SetOrgCodeSecurityConfigurationAsDefaultFailure,
+    ListOrgCodeSecurityConfigurationRepositoriesSuccess,
+    ListOrgCodeSecurityConfigurationRepositoriesFailure,
+    GetRepoCodeSecurityConfigurationSuccess,
+    GetRepoCodeSecurityConfigurationFailure,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1955,6 +1995,46 @@ export function textAndData(
         | UploadCodeScanningSarifFailure
         | GetCodeScanningSarifSuccess
         | GetCodeScanningSarifFailure
+        | ListEnterpriseCodeSecurityConfigurationsSuccess
+        | ListEnterpriseCodeSecurityConfigurationsFailure
+        | CreateEnterpriseCodeSecurityConfigurationSuccess
+        | CreateEnterpriseCodeSecurityConfigurationFailure
+        | ListEnterpriseCodeSecurityDefaultConfigurationsSuccess
+        | ListEnterpriseCodeSecurityDefaultConfigurationsFailure
+        | GetEnterpriseCodeSecurityConfigurationSuccess
+        | GetEnterpriseCodeSecurityConfigurationFailure
+        | UpdateEnterpriseCodeSecurityConfigurationSuccess
+        | UpdateEnterpriseCodeSecurityConfigurationFailure
+        | DeleteEnterpriseCodeSecurityConfigurationSuccess
+        | DeleteEnterpriseCodeSecurityConfigurationFailure
+        | AttachEnterpriseCodeSecurityConfigurationSuccess
+        | AttachEnterpriseCodeSecurityConfigurationFailure
+        | SetEnterpriseCodeSecurityConfigurationAsDefaultSuccess
+        | SetEnterpriseCodeSecurityConfigurationAsDefaultFailure
+        | ListEnterpriseCodeSecurityConfigurationRepositoriesSuccess
+        | ListEnterpriseCodeSecurityConfigurationRepositoriesFailure
+        | ListOrgCodeSecurityConfigurationsSuccess
+        | ListOrgCodeSecurityConfigurationsFailure
+        | CreateOrgCodeSecurityConfigurationSuccess
+        | CreateOrgCodeSecurityConfigurationFailure
+        | ListOrgCodeSecurityDefaultConfigurationsSuccess
+        | ListOrgCodeSecurityDefaultConfigurationsFailure
+        | DetachOrgCodeSecurityConfigurationsSuccess
+        | DetachOrgCodeSecurityConfigurationsFailure
+        | GetOrgCodeSecurityConfigurationSuccess
+        | GetOrgCodeSecurityConfigurationFailure
+        | UpdateOrgCodeSecurityConfigurationSuccess
+        | UpdateOrgCodeSecurityConfigurationFailure
+        | DeleteOrgCodeSecurityConfigurationSuccess
+        | DeleteOrgCodeSecurityConfigurationFailure
+        | AttachOrgCodeSecurityConfigurationSuccess
+        | AttachOrgCodeSecurityConfigurationFailure
+        | SetOrgCodeSecurityConfigurationAsDefaultSuccess
+        | SetOrgCodeSecurityConfigurationAsDefaultFailure
+        | ListOrgCodeSecurityConfigurationRepositoriesSuccess
+        | ListOrgCodeSecurityConfigurationRepositoriesFailure
+        | GetRepoCodeSecurityConfigurationSuccess
+        | GetRepoCodeSecurityConfigurationFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
