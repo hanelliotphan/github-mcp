@@ -1,0 +1,18 @@
+{
+  "name": "github_list_enterprise_usage_report_exports",
+  "description": "List usage report exports for an enterprise (GET /enterprises/{enterprise}/settings/billing/reports).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      }
+    },
+    "required": [
+      "enterprise"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "github_create_enterprise_usage_report_export",
+  "description": "Create a usage report export for an enterprise (POST /enterprises/{enterprise}/settings/billing/reports).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "report_type": {
+        "type": "string",
+        "enum": [
+          "detailed",
+          "summarized",
+          "premium_request",
+          "ai_credit"
+        ]
+      },
+      "start_date": {
+        "type": "string",
+        "minLength": 1
+      },
+      "end_date": {
+        "type": "string",
+        "minLength": 1
+      },
+      "send_email": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "enterprise",
+      "report_type",
+      "start_date"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
