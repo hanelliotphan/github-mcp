@@ -1,0 +1,30 @@
+{
+  "name": "github_sync_fork_branch_with_upstream",
+  "description": "Sync a fork branch with upstream (POST /repos/{owner}/{repo}/merge-upstream).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

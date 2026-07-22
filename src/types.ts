@@ -7420,3 +7420,78 @@ export type GetEnterpriseUsageReportExportSuccess = {
 };
 
 export type GetEnterpriseUsageReportExportFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/branches — HTTP 200. MCP tool: `github_list_repo_branches`. */
+export type ListRepoBranchesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    branches: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoBranchesFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/branches/{branch} — HTTP 200. MCP tool: `github_get_repo_branch`. */
+export type GetRepoBranchSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetRepoBranchFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/branches/{branch}/rename — HTTP 201. MCP tool: `github_rename_repo_branch`. */
+export type RenameRepoBranchSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    new_name: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type RenameRepoBranchFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/merge-upstream — HTTP 200. MCP tool: `github_sync_fork_branch_with_upstream`. */
+export type SyncForkBranchWithUpstreamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    branch: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type SyncForkBranchWithUpstreamFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/merges — HTTP 201 or 204. MCP tool: `github_merge_repo_branch`. */
+export type MergeRepoBranchSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    base: string;
+    head: string;
+    merge: Record<string, unknown> | null;
+    request_id: string | null;
+};
+
+export type MergeRepoBranchFailure = CreateRepoFailure;

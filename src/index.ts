@@ -479,6 +479,11 @@ import { registerGithubGetUserBillingUsageSummaryTool } from "./tools/billing/us
 import { registerGithubListEnterpriseUsageReportExportsTool } from "./tools/billing/usage-reports/github-list-enterprise-usage-report-exports.js";
 import { registerGithubCreateEnterpriseUsageReportExportTool } from "./tools/billing/usage-reports/github-create-enterprise-usage-report-export.js";
 import { registerGithubGetEnterpriseUsageReportExportTool } from "./tools/billing/usage-reports/github-get-enterprise-usage-report-export.js";
+import { registerGithubListRepoBranchesTool } from "./tools/branches/branches/github-list-repo-branches.js";
+import { registerGithubGetRepoBranchTool } from "./tools/branches/branches/github-get-repo-branch.js";
+import { registerGithubRenameRepoBranchTool } from "./tools/branches/branches/github-rename-repo-branch.js";
+import { registerGithubSyncForkBranchWithUpstreamTool } from "./tools/branches/branches/github-sync-fork-branch-with-upstream.js";
+import { registerGithubMergeRepoBranchTool } from "./tools/branches/branches/github-merge-repo-branch.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -970,6 +975,11 @@ registerGithubGetUserBillingUsageSummaryTool(server, octokit);
 registerGithubListEnterpriseUsageReportExportsTool(server, octokit);
 registerGithubCreateEnterpriseUsageReportExportTool(server, octokit);
 registerGithubGetEnterpriseUsageReportExportTool(server, octokit);
+registerGithubListRepoBranchesTool(server, octokit);
+registerGithubGetRepoBranchTool(server, octokit);
+registerGithubRenameRepoBranchTool(server, octokit);
+registerGithubSyncForkBranchWithUpstreamTool(server, octokit);
+registerGithubMergeRepoBranchTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.

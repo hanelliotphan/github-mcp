@@ -1,0 +1,41 @@
+{
+  "name": "github_merge_repo_branch",
+  "description": "Merge a branch (POST /repos/{owner}/{repo}/merges). Returns 201 or 204 when already merged.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "base": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "head": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "commit_message": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 65536
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "base",
+      "head"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

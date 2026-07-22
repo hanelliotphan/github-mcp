@@ -1,0 +1,36 @@
+{
+  "name": "github_rename_repo_branch",
+  "description": "Rename a branch (POST /repos/{owner}/{repo}/branches/{branch}/rename).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "branch": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "new_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "branch",
+      "new_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

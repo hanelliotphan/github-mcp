@@ -623,6 +623,16 @@ import type {
     CreateEnterpriseUsageReportExportSuccess,
     GetEnterpriseUsageReportExportFailure,
     GetEnterpriseUsageReportExportSuccess,
+    ListRepoBranchesFailure,
+    ListRepoBranchesSuccess,
+    GetRepoBranchFailure,
+    GetRepoBranchSuccess,
+    RenameRepoBranchFailure,
+    RenameRepoBranchSuccess,
+    SyncForkBranchWithUpstreamFailure,
+    SyncForkBranchWithUpstreamSuccess,
+    MergeRepoBranchFailure,
+    MergeRepoBranchSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1595,6 +1605,16 @@ export function textAndData(
         | CreateEnterpriseUsageReportExportFailure
         | GetEnterpriseUsageReportExportSuccess
         | GetEnterpriseUsageReportExportFailure
+        | ListRepoBranchesSuccess
+        | ListRepoBranchesFailure
+        | GetRepoBranchSuccess
+        | GetRepoBranchFailure
+        | RenameRepoBranchSuccess
+        | RenameRepoBranchFailure
+        | SyncForkBranchWithUpstreamSuccess
+        | SyncForkBranchWithUpstreamFailure
+        | MergeRepoBranchSuccess
+        | MergeRepoBranchFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
