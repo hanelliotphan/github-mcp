@@ -648,6 +648,12 @@ import { registerGithubCheckRepoCollaboratorTool } from "./tools/collaborators/c
 import { registerGithubAddRepoCollaboratorTool } from "./tools/collaborators/collaborators/github-add-repo-collaborator.js";
 import { registerGithubRemoveRepoCollaboratorTool } from "./tools/collaborators/collaborators/github-remove-repo-collaborator.js";
 import { registerGithubGetRepoCollaboratorPermissionTool } from "./tools/collaborators/collaborators/github-get-repo-collaborator-permission.js";
+import { registerGithubListRepoInvitationsTool } from "./tools/collaborators/invitations/github-list-repo-invitations.js";
+import { registerGithubUpdateRepoInvitationTool } from "./tools/collaborators/invitations/github-update-repo-invitation.js";
+import { registerGithubDeleteRepoInvitationTool } from "./tools/collaborators/invitations/github-delete-repo-invitation.js";
+import { registerGithubListUserRepositoryInvitationsTool } from "./tools/collaborators/invitations/github-list-user-repository-invitations.js";
+import { registerGithubAcceptRepositoryInvitationTool } from "./tools/collaborators/invitations/github-accept-repository-invitation.js";
+import { registerGithubDeclineRepositoryInvitationTool } from "./tools/collaborators/invitations/github-decline-repository-invitation.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1308,6 +1314,12 @@ registerGithubCheckRepoCollaboratorTool(server, octokit);
 registerGithubAddRepoCollaboratorTool(server, octokit);
 registerGithubRemoveRepoCollaboratorTool(server, octokit);
 registerGithubGetRepoCollaboratorPermissionTool(server, octokit);
+registerGithubListRepoInvitationsTool(server, octokit);
+registerGithubUpdateRepoInvitationTool(server, octokit);
+registerGithubDeleteRepoInvitationTool(server, octokit);
+registerGithubListUserRepositoryInvitationsTool(server, octokit);
+registerGithubAcceptRepositoryInvitationTool(server, octokit);
+registerGithubDeclineRepositoryInvitationTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

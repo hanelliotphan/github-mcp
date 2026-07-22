@@ -1,0 +1,17 @@
+{
+  "name": "github_accept_repository_invitation",
+  "description": "Accept a repository invitation for the authenticated user.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "invitation_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "invitation_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

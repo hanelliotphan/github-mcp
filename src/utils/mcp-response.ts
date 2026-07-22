@@ -1056,6 +1056,18 @@ import type {
     RemoveRepoCollaboratorFailure,
     GetRepoCollaboratorPermissionSuccess,
     GetRepoCollaboratorPermissionFailure,
+    ListRepoInvitationsSuccess,
+    ListRepoInvitationsFailure,
+    UpdateRepoInvitationSuccess,
+    UpdateRepoInvitationFailure,
+    DeleteRepoInvitationSuccess,
+    DeleteRepoInvitationFailure,
+    ListUserRepositoryInvitationsSuccess,
+    ListUserRepositoryInvitationsFailure,
+    AcceptRepositoryInvitationSuccess,
+    AcceptRepositoryInvitationFailure,
+    DeclineRepositoryInvitationSuccess,
+    DeclineRepositoryInvitationFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2554,7 +2566,19 @@ export function textAndData(
         | RemoveRepoCollaboratorSuccess
         | RemoveRepoCollaboratorFailure
         | GetRepoCollaboratorPermissionSuccess
-        | GetRepoCollaboratorPermissionFailure) {
+        | GetRepoCollaboratorPermissionFailure
+        | ListRepoInvitationsSuccess
+        | ListRepoInvitationsFailure
+        | UpdateRepoInvitationSuccess
+        | UpdateRepoInvitationFailure
+        | DeleteRepoInvitationSuccess
+        | DeleteRepoInvitationFailure
+        | ListUserRepositoryInvitationsSuccess
+        | ListUserRepositoryInvitationsFailure
+        | AcceptRepositoryInvitationSuccess
+        | AcceptRepositoryInvitationFailure
+        | DeclineRepositoryInvitationSuccess
+        | DeclineRepositoryInvitationFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

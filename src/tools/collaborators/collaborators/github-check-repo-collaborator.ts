@@ -5,7 +5,7 @@ import { z } from "zod";
 import type { CheckRepoCollaboratorSuccess, CheckRepoCollaboratorFailure } from "../../../types.js";
 import { getRequestId, mapGitHubError, isHttpStatus } from "../../../utils/errors.js";
 import { textAndData } from "../../../utils/mcp-response.js";
-isHttpStatus
+
 const repoNameRegex = /^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$/;
 const ownerLoginRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;
 const usernameRegex = /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$/;

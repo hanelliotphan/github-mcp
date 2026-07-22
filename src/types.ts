@@ -9392,3 +9392,78 @@ export type GetRepoCollaboratorPermissionSuccess = {
     request_id: string | null;
 };
 export type GetRepoCollaboratorPermissionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_invitations`. */
+export type ListRepoInvitationsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    invitations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoInvitationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_invitation`. */
+export type UpdateRepoInvitationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    invitation_id: number;
+    invitation: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoInvitationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_invitation`. */
+export type DeleteRepoInvitationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    invitation_id: number;
+    request_id: string | null;
+};
+export type DeleteRepoInvitationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_repository_invitations`. */
+export type ListUserRepositoryInvitationsSuccess = {
+    success: true;
+    message: string;
+    invitations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListUserRepositoryInvitationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_accept_repository_invitation`. */
+export type AcceptRepositoryInvitationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    invitation_id: number;
+    request_id: string | null;
+};
+export type AcceptRepositoryInvitationFailure = CreateRepoFailure;
+
+/** MCP tool: `github_decline_repository_invitation`. */
+export type DeclineRepositoryInvitationSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    invitation_id: number;
+    request_id: string | null;
+};
+export type DeclineRepositoryInvitationFailure = CreateRepoFailure;

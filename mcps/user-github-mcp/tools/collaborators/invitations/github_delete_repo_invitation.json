@@ -1,0 +1,29 @@
+{
+  "name": "github_delete_repo_invitation",
+  "description": "Delete a repository invitation.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "invitation_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "invitation_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
