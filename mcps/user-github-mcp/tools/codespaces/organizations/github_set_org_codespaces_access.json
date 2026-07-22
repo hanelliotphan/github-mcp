@@ -1,0 +1,35 @@
+{
+  "name": "github_set_org_codespaces_access",
+  "description": "Manage codespaces access for organization members (PUT /orgs/{org}/codespaces/access). visibility required. See GitHub REST Codespaces organizations.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "visibility": {
+        "type": "string",
+        "enum": [
+          "disabled",
+          "selected_members",
+          "all_members",
+          "all_members_and_outside_collaborators"
+        ]
+      },
+      "selected_usernames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "org",
+      "visibility"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

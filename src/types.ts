@@ -9143,3 +9143,72 @@ export type StopUserCodespaceSuccess = {
     request_id: string | null;
 };
 export type StopUserCodespaceFailure = CreateRepoFailure;
+/** MCP tool: `github_list_org_codespaces`. */
+export type ListOrgCodespacesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    codespaces: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgCodespacesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_codespaces_access`. */
+export type SetOrgCodespacesAccessSuccess = { success: true; message: string; http_status: number; org: string; visibility: string; request_id: string | null; };
+export type SetOrgCodespacesAccessFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_org_codespaces_access_users`. */
+export type AddOrgCodespacesAccessUsersSuccess = { success: true; message: string; http_status: number; org: string; selected_usernames: string[]; request_id: string | null; };
+export type AddOrgCodespacesAccessUsersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_org_codespaces_access_users`. */
+export type RemoveOrgCodespacesAccessUsersSuccess = { success: true; message: string; http_status: number; org: string; selected_usernames: string[]; request_id: string | null; };
+export type RemoveOrgCodespacesAccessUsersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_user_codespaces`. */
+export type ListOrgUserCodespacesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    username: string;
+    total_count: number;
+    codespaces: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgUserCodespacesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_user_codespace`. */
+export type DeleteOrgUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    codespace_name: string;
+    request_id: string | null;
+};
+export type DeleteOrgUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_stop_org_user_codespace`. */
+export type StopOrgUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    username: string;
+    codespace_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type StopOrgUserCodespaceFailure = CreateRepoFailure;

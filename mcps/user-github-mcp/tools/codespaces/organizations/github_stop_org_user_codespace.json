@@ -1,0 +1,22 @@
+{
+  "name": "github_stop_org_user_codespace",
+  "description": "Stop an organization member codespace (POST .../stop). Returns HTTP 200 with codespace. See GitHub REST Codespaces organizations.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1
+      },
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "username",
+      "codespace_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

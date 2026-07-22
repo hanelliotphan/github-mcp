@@ -189,6 +189,7 @@ Static MCP tool descriptors (JSON: tool name, description, argument schema) live
 This server reads `GITHUB_TOKEN` from `<your_home_directory>/github-mcp/.env`.
 Do not include an `env` block in MCP client configs for this project.
 
+- **[Organizations](src/tools/codespaces/organizations/README.md)**
 ### Cursor
 
 ```json

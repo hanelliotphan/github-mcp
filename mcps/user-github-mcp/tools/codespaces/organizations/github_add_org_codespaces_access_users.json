@@ -1,0 +1,27 @@
+{
+  "name": "github_add_org_codespaces_access_users",
+  "description": "Add users to selected codespaces access (POST /orgs/{org}/codespaces/access/selected_users). selected_usernames required. See GitHub REST Codespaces organizations.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "selected_usernames": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "required": [
+      "org",
+      "selected_usernames"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

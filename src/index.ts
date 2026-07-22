@@ -611,6 +611,13 @@ import { registerGithubGetUserCodespaceExportTool } from "./tools/codespaces/cod
 import { registerGithubPublishUserCodespaceTool } from "./tools/codespaces/codespaces/github-publish-user-codespace.js";
 import { registerGithubStartUserCodespaceTool } from "./tools/codespaces/codespaces/github-start-user-codespace.js";
 import { registerGithubStopUserCodespaceTool } from "./tools/codespaces/codespaces/github-stop-user-codespace.js";
+import { registerGithubListOrgCodespacesTool } from "./tools/codespaces/organizations/github-list-org-codespaces.js";
+import { registerGithubSetOrgCodespacesAccessTool } from "./tools/codespaces/organizations/github-set-org-codespaces-access.js";
+import { registerGithubAddOrgCodespacesAccessUsersTool } from "./tools/codespaces/organizations/github-add-org-codespaces-access-users.js";
+import { registerGithubRemoveOrgCodespacesAccessUsersTool } from "./tools/codespaces/organizations/github-remove-org-codespaces-access-users.js";
+import { registerGithubListOrgUserCodespacesTool } from "./tools/codespaces/organizations/github-list-org-user-codespaces.js";
+import { registerGithubDeleteOrgUserCodespaceTool } from "./tools/codespaces/organizations/github-delete-org-user-codespace.js";
+import { registerGithubStopOrgUserCodespaceTool } from "./tools/codespaces/organizations/github-stop-org-user-codespace.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1229,6 +1236,14 @@ registerGithubGetUserCodespaceExportTool(server, octokit);
 registerGithubPublishUserCodespaceTool(server, octokit);
 registerGithubStartUserCodespaceTool(server, octokit);
 registerGithubStopUserCodespaceTool(server, octokit);
+
+registerGithubListOrgCodespacesTool(server, octokit);
+registerGithubSetOrgCodespacesAccessTool(server, octokit);
+registerGithubAddOrgCodespacesAccessUsersTool(server, octokit);
+registerGithubRemoveOrgCodespacesAccessUsersTool(server, octokit);
+registerGithubListOrgUserCodespacesTool(server, octokit);
+registerGithubDeleteOrgUserCodespaceTool(server, octokit);
+registerGithubStopOrgUserCodespaceTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

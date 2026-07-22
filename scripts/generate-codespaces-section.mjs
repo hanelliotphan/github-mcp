@@ -60,7 +60,7 @@ function zodOwner() {
                 .string()
                 .min(1)
                 .max(39)
-                .regex(ownerLoginRegex, "owner must be a valid user or organization login (1–39 chars, alphanumeric and hyphens)")`;
+                .regex(ownerLoginRegex, "owner must be a valid user or organization login (1–39 chars, alphanumeric and hyphens)"),`;
 }
 
 function zodRepoName() {
@@ -68,7 +68,7 @@ function zodRepoName() {
                 .string()
                 .min(1)
                 .max(100)
-                .regex(repoNameRegex, "name must be 1-100 chars and contain only letters, numbers, '.', '_' or '-'")`;
+                .regex(repoNameRegex, "name must be 1-100 chars and contain only letters, numbers, '.', '_' or '-'"),`;
 }
 
 function zodOrg() {
@@ -76,14 +76,14 @@ function zodOrg() {
                 .string()
                 .min(1)
                 .max(39)
-                .regex(orgLoginRegex, "org must be a valid organization login (1–39 chars, alphanumeric and hyphens)")`;
+                .regex(orgLoginRegex, "org must be a valid organization login (1–39 chars, alphanumeric and hyphens)"),`;
 }
 
 function zodSecretName() {
     return `secret_name: z
                 .string()
                 .min(1)
-                .regex(secretNameRegex, "secret_name may only contain letters, numbers, and underscores and cannot start with a number")`;
+                .regex(secretNameRegex, "secret_name may only contain letters, numbers, and underscores and cannot start with a number"),`;
 }
 
 function zodPagination() {
@@ -606,7 +606,7 @@ function genPostAction(tool) {
         ? "org: input.org,\n                    username: input.username,\n                    codespace_name: input.codespace_name"
         : `codespace_name: input.codespace_name${extraArgs.length ? ",\n                    " + extraArgs.join(",\n                    ") : ""}`;
     const successCtx = isOrgUser
-        ? "org: input.org,\n                    username: input.username,"
+        ? "org: input.org,\n                    username: input.username,\n                    codespace_name: input.codespace_name,"
         : "codespace_name: input.codespace_name,";
     return `${stdImports(`${S}Success`, `${S}Failure`)}
 ${regexConsts({ org: isOrgUser })}

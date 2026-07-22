@@ -1,0 +1,39 @@
+{
+  "name": "github_list_org_user_codespaces",
+  "description": "List codespaces for an organization member (GET /orgs/{org}/members/{username}/codespaces). See GitHub REST Codespaces organizations.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1
+      },
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "username",
+      "codespace_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
