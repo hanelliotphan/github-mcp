@@ -517,6 +517,11 @@ import { registerGithubGetUsersWithAccessToProtectedBranchTool } from "./tools/b
 import { registerGithubAddUserAccessRestrictionsTool } from "./tools/branches/branch-protection/github-add-user-access-restrictions.js";
 import { registerGithubSetUserAccessRestrictionsTool } from "./tools/branches/branch-protection/github-set-user-access-restrictions.js";
 import { registerGithubRemoveUserAccessRestrictionsTool } from "./tools/branches/branch-protection/github-remove-user-access-restrictions.js";
+import { registerGithubListOrgCampaignsTool } from "./tools/campaigns/campaigns/github-list-org-campaigns.js";
+import { registerGithubCreateOrgCampaignTool } from "./tools/campaigns/campaigns/github-create-org-campaign.js";
+import { registerGithubGetOrgCampaignTool } from "./tools/campaigns/campaigns/github-get-org-campaign.js";
+import { registerGithubUpdateOrgCampaignTool } from "./tools/campaigns/campaigns/github-update-org-campaign.js";
+import { registerGithubDeleteOrgCampaignTool } from "./tools/campaigns/campaigns/github-delete-org-campaign.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -1046,6 +1051,11 @@ registerGithubGetUsersWithAccessToProtectedBranchTool(server, octokit);
 registerGithubAddUserAccessRestrictionsTool(server, octokit);
 registerGithubSetUserAccessRestrictionsTool(server, octokit);
 registerGithubRemoveUserAccessRestrictionsTool(server, octokit);
+registerGithubListOrgCampaignsTool(server, octokit);
+registerGithubCreateOrgCampaignTool(server, octokit);
+registerGithubGetOrgCampaignTool(server, octokit);
+registerGithubUpdateOrgCampaignTool(server, octokit);
+registerGithubDeleteOrgCampaignTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.

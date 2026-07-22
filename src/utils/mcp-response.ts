@@ -699,6 +699,16 @@ import type {
     SetUserAccessRestrictionsFailure,
     RemoveUserAccessRestrictionsSuccess,
     RemoveUserAccessRestrictionsFailure,
+    ListOrgCampaignsFailure,
+    ListOrgCampaignsSuccess,
+    CreateOrgCampaignFailure,
+    CreateOrgCampaignSuccess,
+    GetOrgCampaignFailure,
+    GetOrgCampaignSuccess,
+    UpdateOrgCampaignFailure,
+    UpdateOrgCampaignSuccess,
+    DeleteOrgCampaignFailure,
+    DeleteOrgCampaignSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1747,6 +1757,16 @@ export function textAndData(
         | SetUserAccessRestrictionsFailure
         | RemoveUserAccessRestrictionsSuccess
         | RemoveUserAccessRestrictionsFailure
+        | ListOrgCampaignsSuccess
+        | ListOrgCampaignsFailure
+        | CreateOrgCampaignSuccess
+        | CreateOrgCampaignFailure
+        | GetOrgCampaignSuccess
+        | GetOrgCampaignFailure
+        | UpdateOrgCampaignSuccess
+        | UpdateOrgCampaignFailure
+        | DeleteOrgCampaignSuccess
+        | DeleteOrgCampaignFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

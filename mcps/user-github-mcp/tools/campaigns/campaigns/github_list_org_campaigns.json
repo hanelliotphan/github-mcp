@@ -1,0 +1,19 @@
+{
+  "name": "github_list_org_campaigns",
+  "description": "List security campaigns for an organization (GET /orgs/{org}/campaigns). Optional direction/state/sort; supports per_page/page/all_pages.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39 },
+      "direction": { "type": "string", "enum": ["asc", "desc"] },
+      "state": { "type": "string", "enum": ["open", "closed"] },
+      "sort": { "type": "string", "enum": ["created", "updated", "ends_at", "published"] },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["org"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "github_get_org_campaign",
+  "description": "Get a security campaign for an organization (GET /orgs/{org}/campaigns/{campaign_number}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39 },
+      "campaign_number": { "type": "integer", "exclusiveMinimum": 0 }
+    },
+    "required": ["org", "campaign_number"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

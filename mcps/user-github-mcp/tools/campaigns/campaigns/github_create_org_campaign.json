@@ -1,0 +1,30 @@
+{
+  "name": "github_create_org_campaign",
+  "description": "Create a security campaign for an organization (POST /orgs/{org}/campaigns). Requires name, description, ends_at.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39 },
+      "name": { "type": "string", "minLength": 1, "maxLength": 255 },
+      "description": { "type": "string", "minLength": 1, "maxLength": 65536 },
+      "ends_at": { "type": "string", "minLength": 1 },
+      "managers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+      "team_managers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+      "contact_link": { "type": ["string", "null"] },
+      "code_scanning_alerts": {
+        "type": ["array", "null"],
+        "items": {
+          "type": "object",
+          "properties": {
+            "repository_id": { "type": "integer", "exclusiveMinimum": 0 },
+            "alert_numbers": { "type": "array", "items": { "type": "integer", "exclusiveMinimum": 0 }, "minItems": 1 }
+          },
+          "required": ["repository_id", "alert_numbers"]
+        }
+      },
+      "generate_issues": { "type": "boolean" }
+    },
+    "required": ["org", "name", "description", "ends_at"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

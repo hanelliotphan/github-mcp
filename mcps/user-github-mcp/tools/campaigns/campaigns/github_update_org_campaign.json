@@ -1,0 +1,20 @@
+{
+  "name": "github_update_org_campaign",
+  "description": "Update a security campaign (PATCH /orgs/{org}/campaigns/{campaign_number}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": { "type": "string", "minLength": 1, "maxLength": 39 },
+      "campaign_number": { "type": "integer", "exclusiveMinimum": 0 },
+      "name": { "type": "string", "minLength": 1, "maxLength": 255 },
+      "description": { "type": "string", "minLength": 1, "maxLength": 65536 },
+      "managers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+      "team_managers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+      "ends_at": { "type": "string", "minLength": 1 },
+      "contact_link": { "type": ["string", "null"] },
+      "state": { "type": "string", "enum": ["open", "closed"] }
+    },
+    "required": ["org", "campaign_number"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

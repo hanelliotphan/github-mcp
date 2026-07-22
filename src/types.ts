@@ -7951,3 +7951,69 @@ export type RemoveUserAccessRestrictionsSuccess = {
 };
 
 export type RemoveUserAccessRestrictionsFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/campaigns — HTTP 200. MCP tool: `github_list_org_campaigns`. */
+export type ListOrgCampaignsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    campaigns: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgCampaignsFailure = CreateRepoFailure;
+
+/** POST /orgs/{org}/campaigns — HTTP 200. MCP tool: `github_create_org_campaign`. */
+export type CreateOrgCampaignSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    campaign: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateOrgCampaignFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/campaigns/{campaign_number} — HTTP 200. MCP tool: `github_get_org_campaign`. */
+export type GetOrgCampaignSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    campaign_number: number;
+    campaign: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetOrgCampaignFailure = CreateRepoFailure;
+
+/** PATCH /orgs/{org}/campaigns/{campaign_number} — HTTP 200. MCP tool: `github_update_org_campaign`. */
+export type UpdateOrgCampaignSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    campaign_number: number;
+    campaign: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type UpdateOrgCampaignFailure = CreateRepoFailure;
+
+/** DELETE /orgs/{org}/campaigns/{campaign_number} — HTTP 204. MCP tool: `github_delete_org_campaign`. */
+export type DeleteOrgCampaignSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    campaign_number: number;
+    request_id: string | null;
+};
+
+export type DeleteOrgCampaignFailure = CreateRepoFailure;
