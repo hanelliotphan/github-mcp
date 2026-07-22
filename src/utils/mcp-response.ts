@@ -723,6 +723,16 @@ import type {
     ListCheckRunsForSuiteSuccess,
     ListCheckRunsForRefFailure,
     ListCheckRunsForRefSuccess,
+    CreateCheckSuiteFailure,
+    CreateCheckSuiteSuccess,
+    SetCheckSuitesPreferencesFailure,
+    SetCheckSuitesPreferencesSuccess,
+    GetCheckSuiteFailure,
+    GetCheckSuiteSuccess,
+    RerequestCheckSuiteFailure,
+    RerequestCheckSuiteSuccess,
+    ListCheckSuitesForRefFailure,
+    ListCheckSuitesForRefSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1795,6 +1805,16 @@ export function textAndData(
         | ListCheckRunsForSuiteSuccess
         | ListCheckRunsForRefFailure
         | ListCheckRunsForRefSuccess
+        | CreateCheckSuiteSuccess
+        | CreateCheckSuiteFailure
+        | SetCheckSuitesPreferencesSuccess
+        | SetCheckSuitesPreferencesFailure
+        | GetCheckSuiteSuccess
+        | GetCheckSuiteFailure
+        | RerequestCheckSuiteSuccess
+        | RerequestCheckSuiteFailure
+        | ListCheckSuitesForRefSuccess
+        | ListCheckSuitesForRefFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

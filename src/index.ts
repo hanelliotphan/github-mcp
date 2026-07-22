@@ -529,6 +529,11 @@ import { registerGithubListCheckRunAnnotationsTool } from "./tools/checks/runs/g
 import { registerGithubRerequestCheckRunTool } from "./tools/checks/runs/github-rerequest-check-run.js";
 import { registerGithubListCheckRunsForSuiteTool } from "./tools/checks/runs/github-list-check-runs-for-suite.js";
 import { registerGithubListCheckRunsForRefTool } from "./tools/checks/runs/github-list-check-runs-for-ref.js";
+import { registerGithubCreateCheckSuiteTool } from "./tools/checks/suites/github-create-check-suite.js";
+import { registerGithubSetCheckSuitesPreferencesTool } from "./tools/checks/suites/github-set-check-suites-preferences.js";
+import { registerGithubGetCheckSuiteTool } from "./tools/checks/suites/github-get-check-suite.js";
+import { registerGithubRerequestCheckSuiteTool } from "./tools/checks/suites/github-rerequest-check-suite.js";
+import { registerGithubListCheckSuitesForRefTool } from "./tools/checks/suites/github-list-check-suites-for-ref.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -1070,6 +1075,11 @@ registerGithubListCheckRunAnnotationsTool(server, octokit);
 registerGithubRerequestCheckRunTool(server, octokit);
 registerGithubListCheckRunsForSuiteTool(server, octokit);
 registerGithubListCheckRunsForRefTool(server, octokit);
+registerGithubCreateCheckSuiteTool(server, octokit);
+registerGithubSetCheckSuitesPreferencesTool(server, octokit);
+registerGithubGetCheckSuiteTool(server, octokit);
+registerGithubRerequestCheckSuiteTool(server, octokit);
+registerGithubListCheckSuitesForRefTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.

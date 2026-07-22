@@ -1,0 +1,30 @@
+{
+  "name": "github_create_check_suite",
+  "description": "Create a check suite (POST /repos/{owner}/{repo}/check-suites). Requires a GitHub App. Returns 200 or 201.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "head_sha": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "head_sha"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

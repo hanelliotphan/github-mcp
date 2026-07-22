@@ -1,0 +1,29 @@
+{
+  "name": "github_rerequest_check_suite",
+  "description": "Rerequest a check suite (POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest). Requires a GitHub App.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "check_suite_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "check_suite_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

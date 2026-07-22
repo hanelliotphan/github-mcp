@@ -1,0 +1,29 @@
+{
+  "name": "github_get_check_suite",
+  "description": "Get a check suite (GET /repos/{owner}/{repo}/check-suites/{check_suite_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "check_suite_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "check_suite_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

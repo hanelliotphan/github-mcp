@@ -8127,3 +8127,75 @@ export type ListCheckRunsForRefSuccess = {
 };
 
 export type ListCheckRunsForRefFailure = CreateRepoFailure;
+
+/** POST /repos/{owner}/{repo}/check-suites — HTTP 200 or 201. MCP tool: `github_create_check_suite`. */
+export type CreateCheckSuiteSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    check_suite: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type CreateCheckSuiteFailure = CreateRepoFailure;
+
+/** PATCH /repos/{owner}/{repo}/check-suites/preferences — HTTP 200. MCP tool: `github_set_check_suites_preferences`. */
+export type SetCheckSuitesPreferencesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    preferences: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type SetCheckSuitesPreferencesFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/check-suites/{check_suite_id} — HTTP 200. MCP tool: `github_get_check_suite`. */
+export type GetCheckSuiteSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    check_suite_id: number;
+    check_suite: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetCheckSuiteFailure = CreateRepoFailure;
+
+/** POST .../check-suites/{check_suite_id}/rerequest — HTTP 201. MCP tool: `github_rerequest_check_suite`. */
+export type RerequestCheckSuiteSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    check_suite_id: number;
+    request_id: string | null;
+};
+
+export type RerequestCheckSuiteFailure = CreateRepoFailure;
+
+/** GET .../commits/{ref}/check-suites — HTTP 200. MCP tool: `github_list_check_suites_for_ref`. */
+export type ListCheckSuitesForRefSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    ref: string;
+    total_count: number;
+    check_suites: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListCheckSuitesForRefFailure = CreateRepoFailure;
