@@ -8338,3 +8338,63 @@ export type UpdateRepoCodeQualitySetupSuccess = {
 };
 
 export type UpdateRepoCodeQualitySetupFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/dismissal-requests/code-scanning — HTTP 200. MCP tool: `github_list_org_code_scanning_dismissal_requests`. */
+export type ListOrgCodeScanningDismissalRequestsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    dismissal_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListOrgCodeScanningDismissalRequestsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/dismissal-requests/code-scanning — HTTP 200. MCP tool: `github_list_repo_code_scanning_dismissal_requests`. */
+export type ListRepoCodeScanningDismissalRequestsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    dismissal_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListRepoCodeScanningDismissalRequestsFailure = CreateRepoFailure;
+
+/** GET .../dismissal-requests/code-scanning/{alert_number} — HTTP 200. MCP tool: `github_get_repo_code_scanning_dismissal_request`. */
+export type GetRepoCodeScanningDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    dismissal_request: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetRepoCodeScanningDismissalRequestFailure = CreateRepoFailure;
+
+/** PATCH .../dismissal-requests/code-scanning/{alert_number} — HTTP 204. MCP tool: `github_review_repo_code_scanning_dismissal_request`. */
+export type ReviewRepoCodeScanningDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    request_id: string | null;
+};
+
+export type ReviewRepoCodeScanningDismissalRequestFailure = CreateRepoFailure;

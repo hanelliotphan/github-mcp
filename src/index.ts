@@ -544,6 +544,10 @@ import { registerGithubListRepoCodeQualityFindingsTool } from "./tools/code-qual
 import { registerGithubGetRepoCodeQualityFindingTool } from "./tools/code-quality/code-quality/github-get-repo-code-quality-finding.js";
 import { registerGithubGetRepoCodeQualitySetupTool } from "./tools/code-quality/code-quality/github-get-repo-code-quality-setup.js";
 import { registerGithubUpdateRepoCodeQualitySetupTool } from "./tools/code-quality/code-quality/github-update-repo-code-quality-setup.js";
+import { registerGithubListOrgCodeScanningDismissalRequestsTool } from "./tools/code-scanning/alert-dismissal-requests/github-list-org-code-scanning-dismissal-requests.js";
+import { registerGithubListRepoCodeScanningDismissalRequestsTool } from "./tools/code-scanning/alert-dismissal-requests/github-list-repo-code-scanning-dismissal-requests.js";
+import { registerGithubGetRepoCodeScanningDismissalRequestTool } from "./tools/code-scanning/alert-dismissal-requests/github-get-repo-code-scanning-dismissal-request.js";
+import { registerGithubReviewRepoCodeScanningDismissalRequestTool } from "./tools/code-scanning/alert-dismissal-requests/github-review-repo-code-scanning-dismissal-request.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -1100,6 +1104,10 @@ registerGithubListRepoCodeQualityFindingsTool(server, octokit);
 registerGithubGetRepoCodeQualityFindingTool(server, octokit);
 registerGithubGetRepoCodeQualitySetupTool(server, octokit);
 registerGithubUpdateRepoCodeQualitySetupTool(server, octokit);
+registerGithubListOrgCodeScanningDismissalRequestsTool(server, octokit);
+registerGithubListRepoCodeScanningDismissalRequestsTool(server, octokit);
+registerGithubGetRepoCodeScanningDismissalRequestTool(server, octokit);
+registerGithubReviewRepoCodeScanningDismissalRequestTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.

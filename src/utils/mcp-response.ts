@@ -753,6 +753,14 @@ import type {
     GetRepoCodeQualitySetupSuccess,
     UpdateRepoCodeQualitySetupFailure,
     UpdateRepoCodeQualitySetupSuccess,
+    ListOrgCodeScanningDismissalRequestsFailure,
+    ListOrgCodeScanningDismissalRequestsSuccess,
+    ListRepoCodeScanningDismissalRequestsFailure,
+    ListRepoCodeScanningDismissalRequestsSuccess,
+    GetRepoCodeScanningDismissalRequestFailure,
+    GetRepoCodeScanningDismissalRequestSuccess,
+    ReviewRepoCodeScanningDismissalRequestFailure,
+    ReviewRepoCodeScanningDismissalRequestSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1855,6 +1863,14 @@ export function textAndData(
         | GetRepoCodeQualitySetupFailure
         | UpdateRepoCodeQualitySetupSuccess
         | UpdateRepoCodeQualitySetupFailure
+        | ListOrgCodeScanningDismissalRequestsSuccess
+        | ListOrgCodeScanningDismissalRequestsFailure
+        | ListRepoCodeScanningDismissalRequestsSuccess
+        | ListRepoCodeScanningDismissalRequestsFailure
+        | GetRepoCodeScanningDismissalRequestSuccess
+        | GetRepoCodeScanningDismissalRequestFailure
+        | ReviewRepoCodeScanningDismissalRequestSuccess
+        | ReviewRepoCodeScanningDismissalRequestFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess
