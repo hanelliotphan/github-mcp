@@ -6015,3 +6015,88 @@ export type ListReposWatchedByUserSuccess = {
 };
 
 export type ListReposWatchedByUserFailure = CreateRepoFailure;
+
+// ============================================================================
+// Agent Tasks
+// ============================================================================
+
+/** A Copilot cloud agent task as returned by the agent-tasks API. */
+export type AgentTaskItem = Record<string, unknown>;
+
+/** GET /agents/repos/{owner}/{repo}/tasks — HTTP 200. MCP tool: `github_list_agent_tasks_for_repo`. */
+export type ListAgentTasksForRepoSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    tasks: AgentTaskItem[];
+    total_active_count?: number;
+    total_archived_count?: number;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListAgentTasksForRepoFailure = CreateRepoFailure;
+
+/** POST /agents/repos/{owner}/{repo}/tasks — HTTP 201. MCP tool: `github_start_agent_task`. */
+export type StartAgentTaskSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    task: AgentTaskItem;
+    request_id: string | null;
+};
+
+export type StartAgentTaskFailure = CreateRepoFailure;
+
+/** GET /agents/repos/{owner}/{repo}/tasks/{task_id} — HTTP 200. MCP tool: `github_get_agent_task_for_repo`. */
+export type GetAgentTaskForRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    task_id: string;
+    task: AgentTaskItem;
+    request_id: string | null;
+};
+
+export type GetAgentTaskForRepoFailure = CreateRepoFailure;
+
+/** GET /agents/tasks — HTTP 200. MCP tool: `github_list_agent_tasks`. */
+export type ListAgentTasksSuccess = {
+    success: true;
+    message: string;
+    tasks: AgentTaskItem[];
+    total_active_count?: number;
+    total_archived_count?: number;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListAgentTasksFailure = CreateRepoFailure;
+
+/** GET /agents/tasks/{task_id} — HTTP 200. MCP tool: `github_get_agent_task`. */
+export type GetAgentTaskSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    task_id: string;
+    task: AgentTaskItem;
+    request_id: string | null;
+};
+
+export type GetAgentTaskFailure = CreateRepoFailure;

@@ -1,0 +1,19 @@
+{
+  "name": "github_start_agent_task",
+  "description": "Start a new Copilot cloud agent task for a repository (POST /agents/repos/{owner}/{repo}/tasks). Public preview. Requires Copilot Business/Enterprise and fine-grained PAT or GitHub App user token with Agent tasks repository read and write. Required prompt; optional model, custom_agent, create_pull_request, base_ref, head_ref. Returns HTTP 201. See GitHub REST agent-tasks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" },
+      "prompt": { "type": "string", "minLength": 1 },
+      "model": { "type": "string" },
+      "custom_agent": { "type": "string" },
+      "create_pull_request": { "type": "boolean" },
+      "base_ref": { "type": "string" },
+      "head_ref": { "type": "string" }
+    },
+    "required": ["owner", "name", "prompt"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

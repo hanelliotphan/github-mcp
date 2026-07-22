@@ -431,6 +431,16 @@ import type {
     ListWatchedReposForAuthenticatedUserSuccess,
     ListReposWatchedByUserFailure,
     ListReposWatchedByUserSuccess,
+    ListAgentTasksForRepoFailure,
+    ListAgentTasksForRepoSuccess,
+    StartAgentTaskFailure,
+    StartAgentTaskSuccess,
+    GetAgentTaskForRepoFailure,
+    GetAgentTaskForRepoSuccess,
+    ListAgentTasksFailure,
+    ListAgentTasksSuccess,
+    GetAgentTaskFailure,
+    GetAgentTaskSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1211,6 +1221,16 @@ export function textAndData(
         | ListWatchedReposForAuthenticatedUserFailure
         | ListReposWatchedByUserSuccess
         | ListReposWatchedByUserFailure
+        | ListAgentTasksForRepoSuccess
+        | ListAgentTasksForRepoFailure
+        | StartAgentTaskSuccess
+        | StartAgentTaskFailure
+        | GetAgentTaskForRepoSuccess
+        | GetAgentTaskForRepoFailure
+        | ListAgentTasksSuccess
+        | ListAgentTasksFailure
+        | GetAgentTaskSuccess
+        | GetAgentTaskFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

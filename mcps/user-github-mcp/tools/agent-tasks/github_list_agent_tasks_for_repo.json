@@ -1,0 +1,23 @@
+{
+  "name": "github_list_agent_tasks_for_repo",
+  "description": "List Copilot cloud agent tasks for a repository (GET /agents/repos/{owner}/{repo}/tasks). Public preview. Requires fine-grained PAT or GitHub App user token with Agent tasks repository read permission. Filters: sort, direction, state, is_archived, since, creator_id. per_page 1-100 default 30, page, all_pages, max_pages. See GitHub REST agent-tasks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" },
+      "sort": { "type": "string", "enum": ["updated_at", "created_at"] },
+      "direction": { "type": "string", "enum": ["asc", "desc"] },
+      "state": { "type": "string" },
+      "is_archived": { "type": "boolean" },
+      "since": { "type": "string" },
+      "creator_id": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["owner", "name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

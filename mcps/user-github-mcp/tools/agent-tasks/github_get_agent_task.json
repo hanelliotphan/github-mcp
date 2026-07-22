@@ -1,0 +1,12 @@
+{
+  "name": "github_get_agent_task",
+  "description": "Get a Copilot cloud agent task by ID with its associated sessions (GET /agents/tasks/{task_id}). Public preview. Requires fine-grained PAT or GitHub App user token with Agent tasks repository read permission. Returns HTTP 200. See GitHub REST agent-tasks.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "task_id": { "type": "string", "minLength": 1 }
+    },
+    "required": ["task_id"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -382,6 +382,11 @@ import { registerGithubSetRepoSubscriptionTool } from "./tools/activity/watching
 import { registerGithubDeleteRepoSubscriptionTool } from "./tools/activity/watching/github-delete-repo-subscription.js";
 import { registerGithubListWatchedReposForAuthenticatedUserTool } from "./tools/activity/watching/github-list-watched-repos-for-authenticated-user.js";
 import { registerGithubListReposWatchedByUserTool } from "./tools/activity/watching/github-list-repos-watched-by-user.js";
+import { registerGithubListAgentTasksForRepoTool } from "./tools/agent-tasks/github-list-agent-tasks-for-repo.js";
+import { registerGithubStartAgentTaskTool } from "./tools/agent-tasks/github-start-agent-task.js";
+import { registerGithubGetAgentTaskForRepoTool } from "./tools/agent-tasks/github-get-agent-task-for-repo.js";
+import { registerGithubListAgentTasksTool } from "./tools/agent-tasks/github-list-agent-tasks.js";
+import { registerGithubGetAgentTaskTool } from "./tools/agent-tasks/github-get-agent-task.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -777,6 +782,11 @@ registerGithubSetRepoSubscriptionTool(server, octokit);
 registerGithubDeleteRepoSubscriptionTool(server, octokit);
 registerGithubListWatchedReposForAuthenticatedUserTool(server, octokit);
 registerGithubListReposWatchedByUserTool(server, octokit);
+registerGithubListAgentTasksForRepoTool(server, octokit);
+registerGithubStartAgentTaskTool(server, octokit);
+registerGithubGetAgentTaskForRepoTool(server, octokit);
+registerGithubListAgentTasksTool(server, octokit);
+registerGithubGetAgentTaskTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();
