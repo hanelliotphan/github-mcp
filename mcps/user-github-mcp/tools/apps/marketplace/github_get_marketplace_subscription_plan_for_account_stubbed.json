@@ -1,0 +1,17 @@
+{
+  "name": "github_get_marketplace_subscription_plan_for_account_stubbed",
+  "description": "GET /marketplace_listing/stubbed/accounts/{account_id} — stubbed test counterpart of get Marketplace subscription plan for an account. Requires GitHub App JWT or OAuth app basic auth.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "account_id": {
+        "type": "integer",
+        "description": "Account id (user or organization)."
+      }
+    },
+    "required": [
+      "account_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

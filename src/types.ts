@@ -6833,3 +6833,130 @@ export type RemoveRepoFromAppInstallationSuccess = {
 };
 
 export type RemoveRepoFromAppInstallationFailure = CreateRepoFailure;
+
+// --- Apps > Marketplace (REST) ---
+
+/** Marketplace listing plan object. */
+export type MarketplaceListingPlanItem = Record<string, unknown>;
+
+/** Account + marketplace purchase (GET account subscription / list accounts for a plan). */
+export type MarketplacePurchaseAccountItem = Record<string, unknown>;
+
+/** Authenticated-user marketplace purchase subscription. */
+export type UserMarketplacePurchaseItem = Record<string, unknown>;
+
+/** GET /marketplace_listing/accounts/{account_id} — HTTP 200. MCP tool: `github_get_marketplace_subscription_plan_for_account`. */
+export type GetMarketplaceSubscriptionPlanForAccountSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    account_id: number;
+    account: MarketplacePurchaseAccountItem;
+    request_id: string | null;
+};
+
+export type GetMarketplaceSubscriptionPlanForAccountFailure = CreateRepoFailure;
+
+/** GET /marketplace_listing/plans — HTTP 200. MCP tool: `github_list_marketplace_plans`. */
+export type ListMarketplacePlansSuccess = {
+    success: true;
+    message: string;
+    plans: MarketplaceListingPlanItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListMarketplacePlansFailure = CreateRepoFailure;
+
+/** GET /marketplace_listing/plans/{plan_id}/accounts — HTTP 200. MCP tool: `github_list_marketplace_accounts_for_plan`. */
+export type ListMarketplaceAccountsForPlanSuccess = {
+    success: true;
+    message: string;
+    plan_id: number;
+    accounts: MarketplacePurchaseAccountItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListMarketplaceAccountsForPlanFailure = CreateRepoFailure;
+
+/** GET /marketplace_listing/stubbed/accounts/{account_id} — HTTP 200. MCP tool: `github_get_marketplace_subscription_plan_for_account_stubbed`. */
+export type GetMarketplaceSubscriptionPlanForAccountStubbedSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    account_id: number;
+    account: MarketplacePurchaseAccountItem;
+    request_id: string | null;
+};
+
+export type GetMarketplaceSubscriptionPlanForAccountStubbedFailure = CreateRepoFailure;
+
+/** GET /marketplace_listing/stubbed/plans — HTTP 200. MCP tool: `github_list_marketplace_plans_stubbed`. */
+export type ListMarketplacePlansStubbedSuccess = {
+    success: true;
+    message: string;
+    plans: MarketplaceListingPlanItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListMarketplacePlansStubbedFailure = CreateRepoFailure;
+
+/** GET /marketplace_listing/stubbed/plans/{plan_id}/accounts — HTTP 200. MCP tool: `github_list_marketplace_accounts_for_plan_stubbed`. */
+export type ListMarketplaceAccountsForPlanStubbedSuccess = {
+    success: true;
+    message: string;
+    plan_id: number;
+    accounts: MarketplacePurchaseAccountItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListMarketplaceAccountsForPlanStubbedFailure = CreateRepoFailure;
+
+/** GET /user/marketplace_purchases — HTTP 200. MCP tool: `github_list_marketplace_purchases_for_authenticated_user`. */
+export type ListMarketplacePurchasesForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    purchases: UserMarketplacePurchaseItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListMarketplacePurchasesForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** GET /user/marketplace_purchases/stubbed — HTTP 200. MCP tool: `github_list_marketplace_purchases_for_authenticated_user_stubbed`. */
+export type ListMarketplacePurchasesForAuthenticatedUserStubbedSuccess = {
+    success: true;
+    message: string;
+    purchases: UserMarketplacePurchaseItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListMarketplacePurchasesForAuthenticatedUserStubbedFailure = CreateRepoFailure;

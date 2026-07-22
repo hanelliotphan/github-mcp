@@ -541,6 +541,22 @@ import type {
     AddRepoToAppInstallationSuccess,
     RemoveRepoFromAppInstallationFailure,
     RemoveRepoFromAppInstallationSuccess,
+    GetMarketplaceSubscriptionPlanForAccountFailure,
+    GetMarketplaceSubscriptionPlanForAccountSuccess,
+    ListMarketplacePlansFailure,
+    ListMarketplacePlansSuccess,
+    ListMarketplaceAccountsForPlanFailure,
+    ListMarketplaceAccountsForPlanSuccess,
+    GetMarketplaceSubscriptionPlanForAccountStubbedFailure,
+    GetMarketplaceSubscriptionPlanForAccountStubbedSuccess,
+    ListMarketplacePlansStubbedFailure,
+    ListMarketplacePlansStubbedSuccess,
+    ListMarketplaceAccountsForPlanStubbedFailure,
+    ListMarketplaceAccountsForPlanStubbedSuccess,
+    ListMarketplacePurchasesForAuthenticatedUserFailure,
+    ListMarketplacePurchasesForAuthenticatedUserSuccess,
+    ListMarketplacePurchasesForAuthenticatedUserStubbedFailure,
+    ListMarketplacePurchasesForAuthenticatedUserStubbedSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1431,6 +1447,22 @@ export function textAndData(
         | AddRepoToAppInstallationFailure
         | RemoveRepoFromAppInstallationSuccess
         | RemoveRepoFromAppInstallationFailure
+        | GetMarketplaceSubscriptionPlanForAccountSuccess
+        | GetMarketplaceSubscriptionPlanForAccountFailure
+        | ListMarketplacePlansSuccess
+        | ListMarketplacePlansFailure
+        | ListMarketplaceAccountsForPlanSuccess
+        | ListMarketplaceAccountsForPlanFailure
+        | GetMarketplaceSubscriptionPlanForAccountStubbedSuccess
+        | GetMarketplaceSubscriptionPlanForAccountStubbedFailure
+        | ListMarketplacePlansStubbedSuccess
+        | ListMarketplacePlansStubbedFailure
+        | ListMarketplaceAccountsForPlanStubbedSuccess
+        | ListMarketplaceAccountsForPlanStubbedFailure
+        | ListMarketplacePurchasesForAuthenticatedUserSuccess
+        | ListMarketplacePurchasesForAuthenticatedUserFailure
+        | ListMarketplacePurchasesForAuthenticatedUserStubbedSuccess
+        | ListMarketplacePurchasesForAuthenticatedUserStubbedFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

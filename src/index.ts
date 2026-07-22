@@ -437,6 +437,14 @@ import { registerGithubListAppInstallationsAccessibleToUserTool } from "./tools/
 import { registerGithubListInstallationReposForAuthenticatedUserTool } from "./tools/apps/installations/github-list-installation-repos-for-authenticated-user.js";
 import { registerGithubAddRepoToAppInstallationTool } from "./tools/apps/installations/github-add-repo-to-app-installation.js";
 import { registerGithubRemoveRepoFromAppInstallationTool } from "./tools/apps/installations/github-remove-repo-from-app-installation.js";
+import { registerGithubGetMarketplaceSubscriptionPlanForAccountTool } from "./tools/apps/marketplace/github-get-marketplace-subscription-plan-for-account.js";
+import { registerGithubListMarketplacePlansTool } from "./tools/apps/marketplace/github-list-marketplace-plans.js";
+import { registerGithubListMarketplaceAccountsForPlanTool } from "./tools/apps/marketplace/github-list-marketplace-accounts-for-plan.js";
+import { registerGithubGetMarketplaceSubscriptionPlanForAccountStubbedTool } from "./tools/apps/marketplace/github-get-marketplace-subscription-plan-for-account-stubbed.js";
+import { registerGithubListMarketplacePlansStubbedTool } from "./tools/apps/marketplace/github-list-marketplace-plans-stubbed.js";
+import { registerGithubListMarketplaceAccountsForPlanStubbedTool } from "./tools/apps/marketplace/github-list-marketplace-accounts-for-plan-stubbed.js";
+import { registerGithubListMarketplacePurchasesForAuthenticatedUserTool } from "./tools/apps/marketplace/github-list-marketplace-purchases-for-authenticated-user.js";
+import { registerGithubListMarketplacePurchasesForAuthenticatedUserStubbedTool } from "./tools/apps/marketplace/github-list-marketplace-purchases-for-authenticated-user-stubbed.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -887,6 +895,14 @@ registerGithubListAppInstallationsAccessibleToUserTool(server, octokit);
 registerGithubListInstallationReposForAuthenticatedUserTool(server, octokit);
 registerGithubAddRepoToAppInstallationTool(server, octokit);
 registerGithubRemoveRepoFromAppInstallationTool(server, octokit);
+registerGithubGetMarketplaceSubscriptionPlanForAccountTool(server, octokit);
+registerGithubListMarketplacePlansTool(server, octokit);
+registerGithubListMarketplaceAccountsForPlanTool(server, octokit);
+registerGithubGetMarketplaceSubscriptionPlanForAccountStubbedTool(server, octokit);
+registerGithubListMarketplacePlansStubbedTool(server, octokit);
+registerGithubListMarketplaceAccountsForPlanStubbedTool(server, octokit);
+registerGithubListMarketplacePurchasesForAuthenticatedUserTool(server, octokit);
+registerGithubListMarketplacePurchasesForAuthenticatedUserStubbedTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();
