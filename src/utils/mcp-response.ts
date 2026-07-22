@@ -385,6 +385,8 @@ import type {
     ListReceivedEventsForUserSuccess,
     ListReceivedPublicEventsForUserFailure,
     ListReceivedPublicEventsForUserSuccess,
+    GetFeedsFailure,
+    GetFeedsSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1119,6 +1121,8 @@ export function textAndData(
         | ListReceivedEventsForUserFailure
         | ListReceivedPublicEventsForUserSuccess
         | ListReceivedPublicEventsForUserFailure
+        | GetFeedsSuccess
+        | GetFeedsFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

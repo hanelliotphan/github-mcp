@@ -1,0 +1,10 @@
+{
+  "name": "github_get_feeds",
+  "description": "List the feeds available to the authenticated user (GET /feeds). Response provides a URL for each feed (timeline, user, current-user public/private/actor/organizations, security advisories). Private feed URLs only returned with Basic Auth. Returns HTTP 200. See GitHub REST activity feeds.",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -359,6 +359,7 @@ import { registerGithubListOrgEventsForAuthenticatedUserTool } from "./tools/act
 import { registerGithubListPublicEventsForUserTool } from "./tools/activity/events/github-list-public-events-for-user.js";
 import { registerGithubListReceivedEventsForUserTool } from "./tools/activity/events/github-list-received-events-for-user.js";
 import { registerGithubListReceivedPublicEventsForUserTool } from "./tools/activity/events/github-list-received-public-events-for-user.js";
+import { registerGithubGetFeedsTool } from "./tools/activity/feeds/github-get-feeds.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -731,6 +732,7 @@ registerGithubListOrgEventsForAuthenticatedUserTool(server, octokit);
 registerGithubListPublicEventsForUserTool(server, octokit);
 registerGithubListReceivedEventsForUserTool(server, octokit);
 registerGithubListReceivedPublicEventsForUserTool(server, octokit);
+registerGithubGetFeedsTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

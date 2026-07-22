@@ -5667,3 +5667,18 @@ export type ListReceivedPublicEventsForUserSuccess = {
 };
 
 export type ListReceivedPublicEventsForUserFailure = CreateRepoFailure;
+
+// ============================================================================
+// Activity — Feeds
+// ============================================================================
+
+/** GET /feeds — HTTP 200. MCP tool: `github_get_feeds`. */
+export type GetFeedsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    feeds: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetFeedsFailure = CreateRepoFailure;
