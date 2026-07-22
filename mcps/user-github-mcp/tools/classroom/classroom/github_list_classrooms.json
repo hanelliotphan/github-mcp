@@ -1,0 +1,28 @@
+{
+  "name": "github_list_classrooms",
+  "description": "List GitHub Classrooms for the authenticated user (GET /classrooms). Closing down after 2026-08-28.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -733,6 +733,18 @@ import type {
     RerequestCheckSuiteSuccess,
     ListCheckSuitesForRefFailure,
     ListCheckSuitesForRefSuccess,
+    GetClassroomAssignmentFailure,
+    GetClassroomAssignmentSuccess,
+    ListAcceptedClassroomAssignmentsFailure,
+    ListAcceptedClassroomAssignmentsSuccess,
+    GetClassroomAssignmentGradesFailure,
+    GetClassroomAssignmentGradesSuccess,
+    ListClassroomsFailure,
+    ListClassroomsSuccess,
+    GetClassroomFailure,
+    GetClassroomSuccess,
+    ListClassroomAssignmentsFailure,
+    ListClassroomAssignmentsSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1815,6 +1827,18 @@ export function textAndData(
         | RerequestCheckSuiteFailure
         | ListCheckSuitesForRefSuccess
         | ListCheckSuitesForRefFailure
+        | GetClassroomAssignmentSuccess
+        | GetClassroomAssignmentFailure
+        | ListAcceptedClassroomAssignmentsSuccess
+        | ListAcceptedClassroomAssignmentsFailure
+        | GetClassroomAssignmentGradesSuccess
+        | GetClassroomAssignmentGradesFailure
+        | ListClassroomsSuccess
+        | ListClassroomsFailure
+        | GetClassroomSuccess
+        | GetClassroomFailure
+        | ListClassroomAssignmentsSuccess
+        | ListClassroomAssignmentsFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

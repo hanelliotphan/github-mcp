@@ -1,0 +1,34 @@
+{
+  "name": "github_list_accepted_classroom_assignments",
+  "description": "List accepted assignments for a Classroom assignment (GET /assignments/{assignment_id}/accepted_assignments). Closing down after 2026-08-28.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "assignment_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "assignment_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

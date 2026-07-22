@@ -1,0 +1,17 @@
+{
+  "name": "github_get_classroom_assignment_grades",
+  "description": "Get grades for a GitHub Classroom assignment (GET /assignments/{assignment_id}/grades). Closing down after 2026-08-28.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "assignment_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "assignment_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

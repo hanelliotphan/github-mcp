@@ -8199,3 +8199,86 @@ export type ListCheckSuitesForRefSuccess = {
 };
 
 export type ListCheckSuitesForRefFailure = CreateRepoFailure;
+
+/** GET /assignments/{assignment_id} — HTTP 200. MCP tool: `github_get_classroom_assignment`. */
+export type GetClassroomAssignmentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    assignment_id: number;
+    assignment: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetClassroomAssignmentFailure = CreateRepoFailure;
+
+/** GET /assignments/{assignment_id}/accepted_assignments — HTTP 200. MCP tool: `github_list_accepted_classroom_assignments`. */
+export type ListAcceptedClassroomAssignmentsSuccess = {
+    success: true;
+    message: string;
+    assignment_id: number;
+    accepted_assignments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListAcceptedClassroomAssignmentsFailure = CreateRepoFailure;
+
+/** GET /assignments/{assignment_id}/grades — HTTP 200. MCP tool: `github_get_classroom_assignment_grades`. */
+export type GetClassroomAssignmentGradesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    assignment_id: number;
+    grades: Record<string, unknown>[];
+    request_id: string | null;
+};
+
+export type GetClassroomAssignmentGradesFailure = CreateRepoFailure;
+
+/** GET /classrooms — HTTP 200. MCP tool: `github_list_classrooms`. */
+export type ListClassroomsSuccess = {
+    success: true;
+    message: string;
+    classrooms: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListClassroomsFailure = CreateRepoFailure;
+
+/** GET /classrooms/{classroom_id} — HTTP 200. MCP tool: `github_get_classroom`. */
+export type GetClassroomSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    classroom_id: number;
+    classroom: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type GetClassroomFailure = CreateRepoFailure;
+
+/** GET /classrooms/{classroom_id}/assignments — HTTP 200. MCP tool: `github_list_classroom_assignments`. */
+export type ListClassroomAssignmentsSuccess = {
+    success: true;
+    message: string;
+    classroom_id: number;
+    assignments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListClassroomAssignmentsFailure = CreateRepoFailure;

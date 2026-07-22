@@ -534,6 +534,12 @@ import { registerGithubSetCheckSuitesPreferencesTool } from "./tools/checks/suit
 import { registerGithubGetCheckSuiteTool } from "./tools/checks/suites/github-get-check-suite.js";
 import { registerGithubRerequestCheckSuiteTool } from "./tools/checks/suites/github-rerequest-check-suite.js";
 import { registerGithubListCheckSuitesForRefTool } from "./tools/checks/suites/github-list-check-suites-for-ref.js";
+import { registerGithubListClassroomsTool } from "./tools/classroom/classroom/github-list-classrooms.js";
+import { registerGithubGetClassroomTool } from "./tools/classroom/classroom/github-get-classroom.js";
+import { registerGithubListClassroomAssignmentsTool } from "./tools/classroom/classroom/github-list-classroom-assignments.js";
+import { registerGithubGetClassroomAssignmentTool } from "./tools/classroom/classroom/github-get-classroom-assignment.js";
+import { registerGithubListAcceptedClassroomAssignmentsTool } from "./tools/classroom/classroom/github-list-accepted-classroom-assignments.js";
+import { registerGithubGetClassroomAssignmentGradesTool } from "./tools/classroom/classroom/github-get-classroom-assignment-grades.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -1080,6 +1086,12 @@ registerGithubSetCheckSuitesPreferencesTool(server, octokit);
 registerGithubGetCheckSuiteTool(server, octokit);
 registerGithubRerequestCheckSuiteTool(server, octokit);
 registerGithubListCheckSuitesForRefTool(server, octokit);
+registerGithubListClassroomsTool(server, octokit);
+registerGithubGetClassroomTool(server, octokit);
+registerGithubListClassroomAssignmentsTool(server, octokit);
+registerGithubGetClassroomAssignmentTool(server, octokit);
+registerGithubListAcceptedClassroomAssignmentsTool(server, octokit);
+registerGithubGetClassroomAssignmentGradesTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.

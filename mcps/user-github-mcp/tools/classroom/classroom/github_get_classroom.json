@@ -1,0 +1,17 @@
+{
+  "name": "github_get_classroom",
+  "description": "Get a GitHub Classroom (GET /classrooms/{classroom_id}). Closing down after 2026-08-28.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "classroom_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "classroom_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
