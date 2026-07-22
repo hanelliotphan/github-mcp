@@ -9550,3 +9550,87 @@ export type ListPullRequestsAssociatedWithCommitSuccess = {
     truncated?: boolean;
 };
 export type ListPullRequestsAssociatedWithCommitFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_commit_comments`. */
+export type ListRepoCommitCommentsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    comments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoCommitCommentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_commit_comment`. */
+export type GetCommitCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    comment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCommitCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_commit_comment`. */
+export type UpdateCommitCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    comment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateCommitCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_commit_comment`. */
+export type DeleteCommitCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    request_id: string | null;
+};
+export type DeleteCommitCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_commit_comments`. */
+export type ListCommitCommentsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    commit_sha: string;
+    comments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListCommitCommentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_commit_comment`. */
+export type CreateCommitCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    commit_sha: string;
+    comment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateCommitCommentFailure = CreateRepoFailure;

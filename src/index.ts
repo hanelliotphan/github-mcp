@@ -659,6 +659,12 @@ import { registerGithubGetRepoCommitTool } from "./tools/commits/commits/github-
 import { registerGithubCompareRepoCommitsTool } from "./tools/commits/commits/github-compare-repo-commits.js";
 import { registerGithubListBranchesForHeadCommitTool } from "./tools/commits/commits/github-list-branches-for-head-commit.js";
 import { registerGithubListPullRequestsAssociatedWithCommitTool } from "./tools/commits/commits/github-list-pull-requests-associated-with-commit.js";
+import { registerGithubListRepoCommitCommentsTool } from "./tools/commits/comments/github-list-repo-commit-comments.js";
+import { registerGithubGetCommitCommentTool } from "./tools/commits/comments/github-get-commit-comment.js";
+import { registerGithubUpdateCommitCommentTool } from "./tools/commits/comments/github-update-commit-comment.js";
+import { registerGithubDeleteCommitCommentTool } from "./tools/commits/comments/github-delete-commit-comment.js";
+import { registerGithubListCommitCommentsTool } from "./tools/commits/comments/github-list-commit-comments.js";
+import { registerGithubCreateCommitCommentTool } from "./tools/commits/comments/github-create-commit-comment.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1330,6 +1336,12 @@ registerGithubGetRepoCommitTool(server, octokit);
 registerGithubCompareRepoCommitsTool(server, octokit);
 registerGithubListBranchesForHeadCommitTool(server, octokit);
 registerGithubListPullRequestsAssociatedWithCommitTool(server, octokit);
+registerGithubListRepoCommitCommentsTool(server, octokit);
+registerGithubGetCommitCommentTool(server, octokit);
+registerGithubUpdateCommitCommentTool(server, octokit);
+registerGithubDeleteCommitCommentTool(server, octokit);
+registerGithubListCommitCommentsTool(server, octokit);
+registerGithubCreateCommitCommentTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

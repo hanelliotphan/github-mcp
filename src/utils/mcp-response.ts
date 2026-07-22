@@ -1078,6 +1078,18 @@ import type {
     ListBranchesForHeadCommitFailure,
     ListPullRequestsAssociatedWithCommitSuccess,
     ListPullRequestsAssociatedWithCommitFailure,
+    ListRepoCommitCommentsSuccess,
+    ListRepoCommitCommentsFailure,
+    GetCommitCommentSuccess,
+    GetCommitCommentFailure,
+    UpdateCommitCommentSuccess,
+    UpdateCommitCommentFailure,
+    DeleteCommitCommentSuccess,
+    DeleteCommitCommentFailure,
+    ListCommitCommentsSuccess,
+    ListCommitCommentsFailure,
+    CreateCommitCommentSuccess,
+    CreateCommitCommentFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2598,7 +2610,19 @@ export function textAndData(
         | ListBranchesForHeadCommitSuccess
         | ListBranchesForHeadCommitFailure
         | ListPullRequestsAssociatedWithCommitSuccess
-        | ListPullRequestsAssociatedWithCommitFailure) {
+        | ListPullRequestsAssociatedWithCommitFailure
+        | ListRepoCommitCommentsSuccess
+        | ListRepoCommitCommentsFailure
+        | GetCommitCommentSuccess
+        | GetCommitCommentFailure
+        | UpdateCommitCommentSuccess
+        | UpdateCommitCommentFailure
+        | DeleteCommitCommentSuccess
+        | DeleteCommitCommentFailure
+        | ListCommitCommentsSuccess
+        | ListCommitCommentsFailure
+        | CreateCommitCommentSuccess
+        | CreateCommitCommentFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
