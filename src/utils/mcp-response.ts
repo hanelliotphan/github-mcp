@@ -1096,6 +1096,20 @@ import type {
     ListCommitStatusesFailure,
     CreateCommitStatusSuccess,
     CreateCommitStatusFailure,
+    GetOrgCopilotSeatDetailsForUserSuccess,
+    GetOrgCopilotSeatDetailsForUserFailure,
+    RemoveOrgCopilotSeatsForUsersSuccess,
+    RemoveOrgCopilotSeatsForUsersFailure,
+    AddOrgCopilotSeatsForUsersSuccess,
+    AddOrgCopilotSeatsForUsersFailure,
+    RemoveOrgCopilotSeatsForTeamsSuccess,
+    RemoveOrgCopilotSeatsForTeamsFailure,
+    AddOrgCopilotSeatsForTeamsSuccess,
+    AddOrgCopilotSeatsForTeamsFailure,
+    ListOrgCopilotSeatsSuccess,
+    ListOrgCopilotSeatsFailure,
+    GetOrgCopilotBillingSuccess,
+    GetOrgCopilotBillingFailure,
     GetOrgCopilotUsersMetrics28DaySuccess,
     GetOrgCopilotUsersMetrics28DayFailure,
     GetOrgCopilotUsersMetrics1DaySuccess,
@@ -2746,7 +2760,21 @@ export function textAndData(
         | GetOrgCopilotUsersMetrics1DaySuccess
         | GetOrgCopilotUsersMetrics1DayFailure
         | GetOrgCopilotUsersMetrics28DaySuccess
-        | GetOrgCopilotUsersMetrics28DayFailure) {
+        | GetOrgCopilotUsersMetrics28DayFailure
+        | GetOrgCopilotBillingSuccess
+        | GetOrgCopilotBillingFailure
+        | ListOrgCopilotSeatsSuccess
+        | ListOrgCopilotSeatsFailure
+        | AddOrgCopilotSeatsForTeamsSuccess
+        | AddOrgCopilotSeatsForTeamsFailure
+        | RemoveOrgCopilotSeatsForTeamsSuccess
+        | RemoveOrgCopilotSeatsForTeamsFailure
+        | AddOrgCopilotSeatsForUsersSuccess
+        | AddOrgCopilotSeatsForUsersFailure
+        | RemoveOrgCopilotSeatsForUsersSuccess
+        | RemoveOrgCopilotSeatsForUsersFailure
+        | GetOrgCopilotSeatDetailsForUserSuccess
+        | GetOrgCopilotSeatDetailsForUserFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

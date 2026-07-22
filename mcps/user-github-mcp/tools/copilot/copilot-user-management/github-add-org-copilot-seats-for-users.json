@@ -1,0 +1,27 @@
+{
+  "name": "github_add_org_copilot_seats_for_users",
+  "description": "Add users to the Copilot subscription for an organization (POST /orgs/{org}/copilot/billing/selected_users).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "selected_usernames": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "org",
+      "selected_usernames"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

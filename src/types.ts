@@ -9999,3 +9999,88 @@ export type GetOrgCopilotUsersMetrics28DaySuccess = {
     report: Record<string, unknown>;
 };
 export type GetOrgCopilotUsersMetrics28DayFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_billing`. */
+export type GetOrgCopilotBillingSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    billing: Record<string, unknown>;
+};
+export type GetOrgCopilotBillingFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_copilot_seats`. */
+export type ListOrgCopilotSeatsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    total_seats: number;
+    seats: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgCopilotSeatsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_org_copilot_seats_for_teams`. */
+export type AddOrgCopilotSeatsForTeamsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    selected_teams: string[];
+    result: Record<string, unknown>;
+};
+export type AddOrgCopilotSeatsForTeamsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_org_copilot_seats_for_teams`. */
+export type RemoveOrgCopilotSeatsForTeamsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    selected_teams: string[];
+    result: Record<string, unknown>;
+};
+export type RemoveOrgCopilotSeatsForTeamsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_org_copilot_seats_for_users`. */
+export type AddOrgCopilotSeatsForUsersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    selected_usernames: string[];
+    result: Record<string, unknown>;
+};
+export type AddOrgCopilotSeatsForUsersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_org_copilot_seats_for_users`. */
+export type RemoveOrgCopilotSeatsForUsersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    selected_usernames: string[];
+    result: Record<string, unknown>;
+};
+export type RemoveOrgCopilotSeatsForUsersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_seat_details_for_user`. */
+export type GetOrgCopilotSeatDetailsForUserSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    username: string;
+    seat: Record<string, unknown>;
+};
+export type GetOrgCopilotSeatDetailsForUserFailure = CreateRepoFailure;
