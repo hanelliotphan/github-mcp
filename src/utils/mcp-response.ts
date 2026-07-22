@@ -1090,6 +1090,12 @@ import type {
     ListCommitCommentsFailure,
     CreateCommitCommentSuccess,
     CreateCommitCommentFailure,
+    GetCombinedCommitStatusSuccess,
+    GetCombinedCommitStatusFailure,
+    ListCommitStatusesSuccess,
+    ListCommitStatusesFailure,
+    CreateCommitStatusSuccess,
+    CreateCommitStatusFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2622,7 +2628,13 @@ export function textAndData(
         | ListCommitCommentsSuccess
         | ListCommitCommentsFailure
         | CreateCommitCommentSuccess
-        | CreateCommitCommentFailure) {
+        | CreateCommitCommentFailure
+        | GetCombinedCommitStatusSuccess
+        | GetCombinedCommitStatusFailure
+        | ListCommitStatusesSuccess
+        | ListCommitStatusesFailure
+        | CreateCommitStatusSuccess
+        | CreateCommitStatusFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

@@ -665,6 +665,9 @@ import { registerGithubUpdateCommitCommentTool } from "./tools/commits/comments/
 import { registerGithubDeleteCommitCommentTool } from "./tools/commits/comments/github-delete-commit-comment.js";
 import { registerGithubListCommitCommentsTool } from "./tools/commits/comments/github-list-commit-comments.js";
 import { registerGithubCreateCommitCommentTool } from "./tools/commits/comments/github-create-commit-comment.js";
+import { registerGithubGetCombinedCommitStatusTool } from "./tools/commits/statuses/github-get-combined-commit-status.js";
+import { registerGithubListCommitStatusesTool } from "./tools/commits/statuses/github-list-commit-statuses.js";
+import { registerGithubCreateCommitStatusTool } from "./tools/commits/statuses/github-create-commit-status.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1342,6 +1345,9 @@ registerGithubUpdateCommitCommentTool(server, octokit);
 registerGithubDeleteCommitCommentTool(server, octokit);
 registerGithubListCommitCommentsTool(server, octokit);
 registerGithubCreateCommitCommentTool(server, octokit);
+registerGithubGetCombinedCommitStatusTool(server, octokit);
+registerGithubListCommitStatusesTool(server, octokit);
+registerGithubCreateCommitStatusTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

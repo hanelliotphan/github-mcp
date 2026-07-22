@@ -9634,3 +9634,49 @@ export type CreateCommitCommentSuccess = {
     request_id: string | null;
 };
 export type CreateCommitCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_combined_commit_status`. */
+export type GetCombinedCommitStatusSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ref: string;
+    result: Record<string, unknown>;
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+};
+export type GetCombinedCommitStatusFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_commit_statuses`. */
+export type ListCommitStatusesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    ref: string;
+    statuses: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListCommitStatusesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_commit_status`. */
+export type CreateCommitStatusSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    sha: string;
+    status: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateCommitStatusFailure = CreateRepoFailure;
