@@ -376,6 +376,12 @@ import { registerGithubCheckRepoIsStarredByAuthenticatedUserTool } from "./tools
 import { registerGithubStarRepoForAuthenticatedUserTool } from "./tools/activity/starring/github-star-repo-for-authenticated-user.js";
 import { registerGithubUnstarRepoForAuthenticatedUserTool } from "./tools/activity/starring/github-unstar-repo-for-authenticated-user.js";
 import { registerGithubListReposStarredByUserTool } from "./tools/activity/starring/github-list-repos-starred-by-user.js";
+import { registerGithubListWatchersTool } from "./tools/activity/watching/github-list-watchers.js";
+import { registerGithubGetRepoSubscriptionTool } from "./tools/activity/watching/github-get-repo-subscription.js";
+import { registerGithubSetRepoSubscriptionTool } from "./tools/activity/watching/github-set-repo-subscription.js";
+import { registerGithubDeleteRepoSubscriptionTool } from "./tools/activity/watching/github-delete-repo-subscription.js";
+import { registerGithubListWatchedReposForAuthenticatedUserTool } from "./tools/activity/watching/github-list-watched-repos-for-authenticated-user.js";
+import { registerGithubListReposWatchedByUserTool } from "./tools/activity/watching/github-list-repos-watched-by-user.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -765,6 +771,12 @@ registerGithubCheckRepoIsStarredByAuthenticatedUserTool(server, octokit);
 registerGithubStarRepoForAuthenticatedUserTool(server, octokit);
 registerGithubUnstarRepoForAuthenticatedUserTool(server, octokit);
 registerGithubListReposStarredByUserTool(server, octokit);
+registerGithubListWatchersTool(server, octokit);
+registerGithubGetRepoSubscriptionTool(server, octokit);
+registerGithubSetRepoSubscriptionTool(server, octokit);
+registerGithubDeleteRepoSubscriptionTool(server, octokit);
+registerGithubListWatchedReposForAuthenticatedUserTool(server, octokit);
+registerGithubListReposWatchedByUserTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();

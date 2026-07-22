@@ -5917,3 +5917,101 @@ export type ListReposStarredByUserSuccess = {
 };
 
 export type ListReposStarredByUserFailure = CreateRepoFailure;
+
+// ============================================================================
+// Activity — Watching
+// ============================================================================
+
+/** A watcher or watched-repository object as returned by the activity watching API. */
+export type WatchItem = Record<string, unknown>;
+
+/** GET /repos/{owner}/{repo}/subscribers — HTTP 200. MCP tool: `github_list_watchers`. */
+export type ListWatchersSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    watchers: WatchItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListWatchersFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/subscription — HTTP 200 (subscribed) / 404 (not subscribed). MCP tool: `github_get_repo_subscription`. */
+export type GetRepoSubscriptionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    subscribed: boolean;
+    subscription: Record<string, unknown> | null;
+    request_id: string | null;
+};
+
+export type GetRepoSubscriptionFailure = CreateRepoFailure;
+
+/** PUT /repos/{owner}/{repo}/subscription — HTTP 200. MCP tool: `github_set_repo_subscription`. */
+export type SetRepoSubscriptionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    subscription: Record<string, unknown>;
+    request_id: string | null;
+};
+
+export type SetRepoSubscriptionFailure = CreateRepoFailure;
+
+/** DELETE /repos/{owner}/{repo}/subscription — HTTP 204. MCP tool: `github_delete_repo_subscription`. */
+export type DeleteRepoSubscriptionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type DeleteRepoSubscriptionFailure = CreateRepoFailure;
+
+/** GET /user/subscriptions — HTTP 200. MCP tool: `github_list_watched_repos_for_authenticated_user`. */
+export type ListWatchedReposForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    watched_repositories: WatchItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListWatchedReposForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** GET /users/{username}/subscriptions — HTTP 200. MCP tool: `github_list_repos_watched_by_user`. */
+export type ListReposWatchedByUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    watched_repositories: WatchItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListReposWatchedByUserFailure = CreateRepoFailure;

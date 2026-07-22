@@ -419,6 +419,18 @@ import type {
     UnstarRepoForAuthenticatedUserSuccess,
     ListReposStarredByUserFailure,
     ListReposStarredByUserSuccess,
+    ListWatchersFailure,
+    ListWatchersSuccess,
+    GetRepoSubscriptionFailure,
+    GetRepoSubscriptionSuccess,
+    SetRepoSubscriptionFailure,
+    SetRepoSubscriptionSuccess,
+    DeleteRepoSubscriptionFailure,
+    DeleteRepoSubscriptionSuccess,
+    ListWatchedReposForAuthenticatedUserFailure,
+    ListWatchedReposForAuthenticatedUserSuccess,
+    ListReposWatchedByUserFailure,
+    ListReposWatchedByUserSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1187,6 +1199,18 @@ export function textAndData(
         | UnstarRepoForAuthenticatedUserFailure
         | ListReposStarredByUserSuccess
         | ListReposStarredByUserFailure
+        | ListWatchersSuccess
+        | ListWatchersFailure
+        | GetRepoSubscriptionSuccess
+        | GetRepoSubscriptionFailure
+        | SetRepoSubscriptionSuccess
+        | SetRepoSubscriptionFailure
+        | DeleteRepoSubscriptionSuccess
+        | DeleteRepoSubscriptionFailure
+        | ListWatchedReposForAuthenticatedUserSuccess
+        | ListWatchedReposForAuthenticatedUserFailure
+        | ListReposWatchedByUserSuccess
+        | ListReposWatchedByUserFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

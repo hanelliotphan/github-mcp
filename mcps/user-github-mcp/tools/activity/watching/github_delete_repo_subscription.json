@@ -1,0 +1,13 @@
+{
+  "name": "github_delete_repo_subscription",
+  "description": "Delete the authenticated user's subscription to a repository, stopping watching it (DELETE /repos/{owner}/{repo}/subscription). Use only to stop watching; to control notifications without unwatching, set the subscription. Returns HTTP 204. See GitHub REST activity watching.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" }
+    },
+    "required": ["owner", "name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
