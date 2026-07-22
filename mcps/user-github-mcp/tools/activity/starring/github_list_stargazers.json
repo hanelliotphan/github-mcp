@@ -1,0 +1,17 @@
+{
+  "name": "github_list_stargazers",
+  "description": "List the people that have starred a repository (GET /repos/{owner}/{repo}/stargazers). As of July 2026, access is limited to repo admins and collaborators. per_page 1-100 default 30, page, all_pages, max_pages. See GitHub REST activity starring.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "minLength": 1, "maxLength": 39, "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$" },
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "required": ["owner", "name"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

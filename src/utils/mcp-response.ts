@@ -407,6 +407,18 @@ import type {
     ListRepoNotificationsForAuthenticatedUserSuccess,
     MarkRepoNotificationsAsReadFailure,
     MarkRepoNotificationsAsReadSuccess,
+    ListStargazersFailure,
+    ListStargazersSuccess,
+    ListReposStarredByAuthenticatedUserFailure,
+    ListReposStarredByAuthenticatedUserSuccess,
+    CheckRepoIsStarredByAuthenticatedUserFailure,
+    CheckRepoIsStarredByAuthenticatedUserSuccess,
+    StarRepoForAuthenticatedUserFailure,
+    StarRepoForAuthenticatedUserSuccess,
+    UnstarRepoForAuthenticatedUserFailure,
+    UnstarRepoForAuthenticatedUserSuccess,
+    ListReposStarredByUserFailure,
+    ListReposStarredByUserSuccess,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1163,6 +1175,18 @@ export function textAndData(
         | ListRepoNotificationsForAuthenticatedUserFailure
         | MarkRepoNotificationsAsReadSuccess
         | MarkRepoNotificationsAsReadFailure
+        | ListStargazersSuccess
+        | ListStargazersFailure
+        | ListReposStarredByAuthenticatedUserSuccess
+        | ListReposStarredByAuthenticatedUserFailure
+        | CheckRepoIsStarredByAuthenticatedUserSuccess
+        | CheckRepoIsStarredByAuthenticatedUserFailure
+        | StarRepoForAuthenticatedUserSuccess
+        | StarRepoForAuthenticatedUserFailure
+        | UnstarRepoForAuthenticatedUserSuccess
+        | UnstarRepoForAuthenticatedUserFailure
+        | ListReposStarredByUserSuccess
+        | ListReposStarredByUserFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

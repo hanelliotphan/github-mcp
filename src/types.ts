@@ -5817,3 +5817,103 @@ export type MarkRepoNotificationsAsReadSuccess = {
 };
 
 export type MarkRepoNotificationsAsReadFailure = CreateRepoFailure;
+
+// ============================================================================
+// Activity — Starring
+// ============================================================================
+
+/** A stargazer or starred-repository object as returned by the activity starring API. */
+export type StarItem = Record<string, unknown>;
+
+/** GET /repos/{owner}/{repo}/stargazers — HTTP 200. MCP tool: `github_list_stargazers`. */
+export type ListStargazersSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    stargazers: StarItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListStargazersFailure = CreateRepoFailure;
+
+/** GET /user/starred — HTTP 200. MCP tool: `github_list_repos_starred_by_authenticated_user`. */
+export type ListReposStarredByAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    sort: "created" | "updated";
+    direction: "asc" | "desc";
+    starred_repositories: StarItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListReposStarredByAuthenticatedUserFailure = CreateRepoFailure;
+
+/** GET /user/starred/{owner}/{repo} — HTTP 204 (starred) / 404 (not starred). MCP tool: `github_check_repo_is_starred_by_authenticated_user`. */
+export type CheckRepoIsStarredByAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    starred: boolean;
+    request_id: string | null;
+};
+
+export type CheckRepoIsStarredByAuthenticatedUserFailure = CreateRepoFailure;
+
+/** PUT /user/starred/{owner}/{repo} — HTTP 204. MCP tool: `github_star_repo_for_authenticated_user`. */
+export type StarRepoForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type StarRepoForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** DELETE /user/starred/{owner}/{repo} — HTTP 204. MCP tool: `github_unstar_repo_for_authenticated_user`. */
+export type UnstarRepoForAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+
+export type UnstarRepoForAuthenticatedUserFailure = CreateRepoFailure;
+
+/** GET /users/{username}/starred — HTTP 200. MCP tool: `github_list_repos_starred_by_user`. */
+export type ListReposStarredByUserSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    sort: "created" | "updated";
+    direction: "asc" | "desc";
+    starred_repositories: StarItem[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListReposStarredByUserFailure = CreateRepoFailure;

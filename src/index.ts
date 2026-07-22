@@ -370,6 +370,12 @@ import { registerGithubSetThreadSubscriptionTool } from "./tools/activity/notifi
 import { registerGithubDeleteThreadSubscriptionTool } from "./tools/activity/notifications/github-delete-thread-subscription.js";
 import { registerGithubListRepoNotificationsForAuthenticatedUserTool } from "./tools/activity/notifications/github-list-repo-notifications-for-authenticated-user.js";
 import { registerGithubMarkRepoNotificationsAsReadTool } from "./tools/activity/notifications/github-mark-repo-notifications-as-read.js";
+import { registerGithubListStargazersTool } from "./tools/activity/starring/github-list-stargazers.js";
+import { registerGithubListReposStarredByAuthenticatedUserTool } from "./tools/activity/starring/github-list-repos-starred-by-authenticated-user.js";
+import { registerGithubCheckRepoIsStarredByAuthenticatedUserTool } from "./tools/activity/starring/github-check-repo-is-starred-by-authenticated-user.js";
+import { registerGithubStarRepoForAuthenticatedUserTool } from "./tools/activity/starring/github-star-repo-for-authenticated-user.js";
+import { registerGithubUnstarRepoForAuthenticatedUserTool } from "./tools/activity/starring/github-unstar-repo-for-authenticated-user.js";
+import { registerGithubListReposStarredByUserTool } from "./tools/activity/starring/github-list-repos-starred-by-user.js";
 import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github-replace-repo-topics.js";
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
@@ -753,6 +759,12 @@ registerGithubSetThreadSubscriptionTool(server, octokit);
 registerGithubDeleteThreadSubscriptionTool(server, octokit);
 registerGithubListRepoNotificationsForAuthenticatedUserTool(server, octokit);
 registerGithubMarkRepoNotificationsAsReadTool(server, octokit);
+registerGithubListStargazersTool(server, octokit);
+registerGithubListReposStarredByAuthenticatedUserTool(server, octokit);
+registerGithubCheckRepoIsStarredByAuthenticatedUserTool(server, octokit);
+registerGithubStarRepoForAuthenticatedUserTool(server, octokit);
+registerGithubUnstarRepoForAuthenticatedUserTool(server, octokit);
+registerGithubListReposStarredByUserTool(server, octokit);
 
 async function main() {
     const transport = new StdioServerTransport();
