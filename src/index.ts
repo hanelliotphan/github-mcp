@@ -595,6 +595,22 @@ import { registerGithubReplaceRepoTopicsTool } from "./tools/repositories/github
 import { registerGithubTransferRepoTool } from "./tools/repositories/github-transfer-repo.js";
 import { registerGithubUpdateRepoTool } from "./tools/repositories/github-update-repo.js";
 
+import { registerGithubListRepoCodespacesTool } from "./tools/codespaces/codespaces/github-list-repo-codespaces.js";
+import { registerGithubCreateRepoCodespaceTool } from "./tools/codespaces/codespaces/github-create-repo-codespace.js";
+import { registerGithubListRepoCodespaceDevcontainersTool } from "./tools/codespaces/codespaces/github-list-repo-codespace-devcontainers.js";
+import { registerGithubGetRepoCodespaceDefaultsTool } from "./tools/codespaces/codespaces/github-get-repo-codespace-defaults.js";
+import { registerGithubCheckRepoCodespacePermissionsTool } from "./tools/codespaces/codespaces/github-check-repo-codespace-permissions.js";
+import { registerGithubCreatePullRequestCodespaceTool } from "./tools/codespaces/codespaces/github-create-pull-request-codespace.js";
+import { registerGithubListUserCodespacesTool } from "./tools/codespaces/codespaces/github-list-user-codespaces.js";
+import { registerGithubCreateUserCodespaceTool } from "./tools/codespaces/codespaces/github-create-user-codespace.js";
+import { registerGithubGetUserCodespaceTool } from "./tools/codespaces/codespaces/github-get-user-codespace.js";
+import { registerGithubUpdateUserCodespaceTool } from "./tools/codespaces/codespaces/github-update-user-codespace.js";
+import { registerGithubDeleteUserCodespaceTool } from "./tools/codespaces/codespaces/github-delete-user-codespace.js";
+import { registerGithubExportUserCodespaceTool } from "./tools/codespaces/codespaces/github-export-user-codespace.js";
+import { registerGithubGetUserCodespaceExportTool } from "./tools/codespaces/codespaces/github-get-user-codespace-export.js";
+import { registerGithubPublishUserCodespaceTool } from "./tools/codespaces/codespaces/github-publish-user-codespace.js";
+import { registerGithubStartUserCodespaceTool } from "./tools/codespaces/codespaces/github-start-user-codespace.js";
+import { registerGithubStopUserCodespaceTool } from "./tools/codespaces/codespaces/github-stop-user-codespace.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1197,6 +1213,23 @@ registerGithubGetCodeOfConductTool(server, octokit);
 
 // Cursor's MCP process does not follow tools/list pagination; a huge single payload
 // can fail snapshot refresh and leave Settings stuck on an older ~169-tool cache.
+registerGithubListRepoCodespacesTool(server, octokit);
+registerGithubCreateRepoCodespaceTool(server, octokit);
+registerGithubListRepoCodespaceDevcontainersTool(server, octokit);
+registerGithubGetRepoCodespaceDefaultsTool(server, octokit);
+registerGithubCheckRepoCodespacePermissionsTool(server, octokit);
+registerGithubCreatePullRequestCodespaceTool(server, octokit);
+registerGithubListUserCodespacesTool(server, octokit);
+registerGithubCreateUserCodespaceTool(server, octokit);
+registerGithubGetUserCodespaceTool(server, octokit);
+registerGithubUpdateUserCodespaceTool(server, octokit);
+registerGithubDeleteUserCodespaceTool(server, octokit);
+registerGithubExportUserCodespaceTool(server, octokit);
+registerGithubGetUserCodespaceExportTool(server, octokit);
+registerGithubPublishUserCodespaceTool(server, octokit);
+registerGithubStartUserCodespaceTool(server, octokit);
+registerGithubStopUserCodespaceTool(server, octokit);
+
 installCompactToolsListHandler(server);
 
 async function main() {

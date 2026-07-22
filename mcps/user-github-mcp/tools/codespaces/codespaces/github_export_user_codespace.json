@@ -1,0 +1,17 @@
+{
+  "name": "github_export_user_codespace",
+  "description": "Export a codespace for the authenticated user (POST /user/codespaces/{codespace_name}/exports). Returns HTTP 202 with export object. See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "codespace_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

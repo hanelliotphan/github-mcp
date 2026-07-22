@@ -1,0 +1,17 @@
+{
+  "name": "github_delete_user_codespace",
+  "description": "Delete a codespace for the authenticated user (DELETE /user/codespaces/{codespace_name}). Returns HTTP 202. See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "codespace_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

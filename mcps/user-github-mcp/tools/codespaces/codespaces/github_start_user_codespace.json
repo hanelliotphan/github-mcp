@@ -1,0 +1,17 @@
+{
+  "name": "github_start_user_codespace",
+  "description": "Start a codespace (POST /user/codespaces/{codespace_name}/start). See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "codespace_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

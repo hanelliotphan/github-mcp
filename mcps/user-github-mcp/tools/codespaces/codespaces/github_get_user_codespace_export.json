@@ -1,0 +1,22 @@
+{
+  "name": "github_get_user_codespace_export",
+  "description": "Get details about a codespace export (GET /user/codespaces/{codespace_name}/exports/{export_id}). See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "export_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "codespace_name",
+      "export_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

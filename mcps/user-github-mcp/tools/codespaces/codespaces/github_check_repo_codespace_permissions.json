@@ -1,0 +1,34 @@
+{
+  "name": "github_check_repo_codespace_permissions",
+  "description": "Check whether devcontainer permissions are accepted (GET /repos/{owner}/{repo}/codespaces/permissions_check). Requires ref and devcontainer_path. Returns accepted boolean. See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "ref": {
+        "type": "string"
+      },
+      "devcontainer_path": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "ref",
+      "devcontainer_path"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "github_update_user_codespace",
+  "description": "Update a codespace for the authenticated user (PATCH /user/codespaces/{codespace_name}). Optional machine, display_name, recent_folders. See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "codespace_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

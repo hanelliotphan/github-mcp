@@ -1,0 +1,23 @@
+{
+  "name": "github_publish_user_codespace",
+  "description": "Publish a codespace to a repository (POST /user/codespaces/{codespace_name}/publish). Optional name and private. See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "codespace_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string"
+      },
+      "private": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "codespace_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -8943,3 +8943,203 @@ export type GetCodeOfConductSuccess = {
     request_id: string | null;
 };
 export type GetCodeOfConductFailure = CreateRepoFailure;
+/** MCP tool: `github_list_repo_codespaces`. */
+export type ListRepoCodespacesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    codespaces: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoCodespacesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_codespace`. */
+export type CreateRepoCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_codespace_devcontainers`. */
+export type ListRepoCodespaceDevcontainersSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    repo: string;
+    full_name: string;
+    total_count: number;
+    devcontainers: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoCodespaceDevcontainersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_codespace_defaults`. */
+export type GetRepoCodespaceDefaultsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    defaults: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoCodespaceDefaultsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_check_repo_codespace_permissions`. */
+export type CheckRepoCodespacePermissionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    accepted: boolean;
+    request_id: string | null;
+};
+export type CheckRepoCodespacePermissionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_pull_request_codespace`. */
+export type CreatePullRequestCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreatePullRequestCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_codespaces`. */
+export type ListUserCodespacesSuccess = {
+    success: true;
+    message: string;
+    total_count: number;
+    codespaces: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListUserCodespacesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_user_codespace`. */
+export type CreateUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_codespace`. */
+export type GetUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_user_codespace`. */
+export type UpdateUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_user_codespace`. */
+export type DeleteUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    request_id: string | null;
+};
+export type DeleteUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_export_user_codespace`. */
+export type ExportUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    export: Record<string, unknown>;
+    request_id: string | null;
+};
+export type ExportUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_codespace_export`. */
+export type GetUserCodespaceExportSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    export_id: number;
+    export: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetUserCodespaceExportFailure = CreateRepoFailure;
+
+/** MCP tool: `github_publish_user_codespace`. */
+export type PublishUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type PublishUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_start_user_codespace`. */
+export type StartUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type StartUserCodespaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_stop_user_codespace`. */
+export type StopUserCodespaceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    codespace_name: string;
+    codespace: Record<string, unknown>;
+    request_id: string | null;
+};
+export type StopUserCodespaceFailure = CreateRepoFailure;

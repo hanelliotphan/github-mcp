@@ -1,0 +1,72 @@
+{
+  "name": "github_create_pull_request_codespace",
+  "description": "Create a codespace from a pull request (POST /repos/{owner}/{repo}/pulls/{pull_number}/codespaces). Same optional create body fields as create_repo_codespace. See GitHub REST Codespaces.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "pattern": "^(?![.-])[A-Za-z0-9._-]{1,100}(?<![.-])$"
+      },
+      "pull_number": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "ref": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "geo": {
+        "type": "string",
+        "enum": [
+          "EuropeWest",
+          "SoutheastAsia",
+          "UsEast",
+          "UsWest"
+        ]
+      },
+      "client_ip": {
+        "type": "string"
+      },
+      "machine": {
+        "type": "string"
+      },
+      "devcontainer_path": {
+        "type": "string"
+      },
+      "multi_repo_permissions_opt_out": {
+        "type": "boolean"
+      },
+      "working_directory": {
+        "type": "string"
+      },
+      "idle_timeout_minutes": {
+        "type": "integer"
+      },
+      "display_name": {
+        "type": "string"
+      },
+      "retention_period_minutes": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 43200
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "pull_number"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
