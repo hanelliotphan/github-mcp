@@ -1,0 +1,64 @@
+{
+  "name": "github_update_code_scanning_default_setup",
+  "description": "Update code scanning default setup (PATCH /repos/{owner}/{repo}/code-scanning/default-setup). Returns 200 or 202.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "configured",
+          "not-configured"
+        ]
+      },
+      "runner_type": {
+        "type": "string",
+        "enum": [
+          "standard",
+          "labeled"
+        ]
+      },
+      "runner_label": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "query_suite": {
+        "type": "string",
+        "enum": [
+          "default",
+          "extended"
+        ]
+      },
+      "threat_model": {
+        "type": "string",
+        "enum": [
+          "remote",
+          "remote_and_local"
+        ]
+      },
+      "languages": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -8398,3 +8398,284 @@ export type ReviewRepoCodeScanningDismissalRequestSuccess = {
 };
 
 export type ReviewRepoCodeScanningDismissalRequestFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_code_scanning_alerts`. */
+export type ListOrgCodeScanningAlertsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    alerts: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgCodeScanningAlertsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_code_scanning_alerts`. */
+export type ListRepoCodeScanningAlertsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    alerts: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoCodeScanningAlertsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_code_scanning_alert_instances`. */
+export type ListCodeScanningAlertInstancesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    alert_number: number;
+    instances: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListCodeScanningAlertInstancesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_code_scanning_analyses`. */
+export type ListRepoCodeScanningAnalysesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    analyses: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoCodeScanningAnalysesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_code_scanning_alert`. */
+export type GetCodeScanningAlertSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    alert: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeScanningAlertFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_code_scanning_alert`. */
+export type UpdateCodeScanningAlertSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    alert: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateCodeScanningAlertFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_code_scanning_autofix`. */
+export type GetCodeScanningAutofixSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    autofix: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeScanningAutofixFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_code_scanning_autofix`. */
+export type CreateCodeScanningAutofixSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    autofix: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateCodeScanningAutofixFailure = CreateRepoFailure;
+
+/** MCP tool: `github_commit_code_scanning_autofix`. */
+export type CommitCodeScanningAutofixSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    commit: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CommitCodeScanningAutofixFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_code_scanning_analysis`. */
+export type GetCodeScanningAnalysisSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    analysis_id: number;
+    analysis: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeScanningAnalysisFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_code_scanning_analysis`. */
+export type DeleteCodeScanningAnalysisSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    analysis_id: number;
+    deletion: Record<string, unknown>;
+    request_id: string | null;
+};
+export type DeleteCodeScanningAnalysisFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_codeql_databases`. */
+export type ListCodeqlDatabasesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    databases: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListCodeqlDatabasesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_codeql_database`. */
+export type GetCodeqlDatabaseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    language: string;
+    database: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeqlDatabaseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_codeql_database`. */
+export type DeleteCodeqlDatabaseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    language: string;
+    request_id: string | null;
+};
+export type DeleteCodeqlDatabaseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_codeql_variant_analysis`. */
+export type CreateCodeqlVariantAnalysisSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    variant_analysis: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateCodeqlVariantAnalysisFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_codeql_variant_analysis`. */
+export type GetCodeqlVariantAnalysisSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    codeql_variant_analysis_id: number;
+    variant_analysis: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeqlVariantAnalysisFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_codeql_variant_analysis_repo_task`. */
+export type GetCodeqlVariantAnalysisRepoTaskSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    codeql_variant_analysis_id: number;
+    repo_owner: string;
+    repo_name: string;
+    task: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeqlVariantAnalysisRepoTaskFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_code_scanning_default_setup`. */
+export type GetCodeScanningDefaultSetupSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    setup: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeScanningDefaultSetupFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_code_scanning_default_setup`. */
+export type UpdateCodeScanningDefaultSetupSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateCodeScanningDefaultSetupFailure = CreateRepoFailure;
+
+/** MCP tool: `github_upload_code_scanning_sarif`. */
+export type UploadCodeScanningSarifSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    receipt: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UploadCodeScanningSarifFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_code_scanning_sarif`. */
+export type GetCodeScanningSarifSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    sarif_id: string;
+    status: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetCodeScanningSarifFailure = CreateRepoFailure;

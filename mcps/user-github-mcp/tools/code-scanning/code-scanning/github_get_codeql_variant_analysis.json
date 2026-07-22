@@ -1,0 +1,29 @@
+{
+  "name": "github_get_codeql_variant_analysis",
+  "description": "Get a CodeQL variant analysis summary (GET .../variant-analyses/{codeql_variant_analysis_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "codeql_variant_analysis_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "codeql_variant_analysis_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

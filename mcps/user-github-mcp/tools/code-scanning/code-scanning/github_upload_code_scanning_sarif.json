@@ -1,0 +1,48 @@
+{
+  "name": "github_upload_code_scanning_sarif",
+  "description": "Upload SARIF analysis data (POST /repos/{owner}/{repo}/code-scanning/sarifs). sarif must be gzip+base64.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "commit_sha": {
+        "type": "string"
+      },
+      "ref": {
+        "type": "string"
+      },
+      "sarif": {
+        "type": "string"
+      },
+      "checkout_uri": {
+        "type": "string"
+      },
+      "started_at": {
+        "type": "string"
+      },
+      "tool_name": {
+        "type": "string"
+      },
+      "validate": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "commit_sha",
+      "ref",
+      "sarif"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

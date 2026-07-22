@@ -761,6 +761,48 @@ import type {
     GetRepoCodeScanningDismissalRequestSuccess,
     ReviewRepoCodeScanningDismissalRequestFailure,
     ReviewRepoCodeScanningDismissalRequestSuccess,
+    ListOrgCodeScanningAlertsSuccess,
+    ListOrgCodeScanningAlertsFailure,
+    ListRepoCodeScanningAlertsSuccess,
+    ListRepoCodeScanningAlertsFailure,
+    ListCodeScanningAlertInstancesSuccess,
+    ListCodeScanningAlertInstancesFailure,
+    ListRepoCodeScanningAnalysesSuccess,
+    ListRepoCodeScanningAnalysesFailure,
+    GetCodeScanningAlertSuccess,
+    GetCodeScanningAlertFailure,
+    UpdateCodeScanningAlertSuccess,
+    UpdateCodeScanningAlertFailure,
+    GetCodeScanningAutofixSuccess,
+    GetCodeScanningAutofixFailure,
+    CreateCodeScanningAutofixSuccess,
+    CreateCodeScanningAutofixFailure,
+    CommitCodeScanningAutofixSuccess,
+    CommitCodeScanningAutofixFailure,
+    GetCodeScanningAnalysisSuccess,
+    GetCodeScanningAnalysisFailure,
+    DeleteCodeScanningAnalysisSuccess,
+    DeleteCodeScanningAnalysisFailure,
+    ListCodeqlDatabasesSuccess,
+    ListCodeqlDatabasesFailure,
+    GetCodeqlDatabaseSuccess,
+    GetCodeqlDatabaseFailure,
+    DeleteCodeqlDatabaseSuccess,
+    DeleteCodeqlDatabaseFailure,
+    CreateCodeqlVariantAnalysisSuccess,
+    CreateCodeqlVariantAnalysisFailure,
+    GetCodeqlVariantAnalysisSuccess,
+    GetCodeqlVariantAnalysisFailure,
+    GetCodeqlVariantAnalysisRepoTaskSuccess,
+    GetCodeqlVariantAnalysisRepoTaskFailure,
+    GetCodeScanningDefaultSetupSuccess,
+    GetCodeScanningDefaultSetupFailure,
+    UpdateCodeScanningDefaultSetupSuccess,
+    UpdateCodeScanningDefaultSetupFailure,
+    UploadCodeScanningSarifSuccess,
+    UploadCodeScanningSarifFailure,
+    GetCodeScanningSarifSuccess,
+    GetCodeScanningSarifFailure,
     CreateRepoAutolinkFailure,
     CreateRepoAutolinkSuccess,
     CreateRepoDispatchFailure,
@@ -1871,6 +1913,48 @@ export function textAndData(
         | GetRepoCodeScanningDismissalRequestFailure
         | ReviewRepoCodeScanningDismissalRequestSuccess
         | ReviewRepoCodeScanningDismissalRequestFailure
+        | ListOrgCodeScanningAlertsSuccess
+        | ListOrgCodeScanningAlertsFailure
+        | ListRepoCodeScanningAlertsSuccess
+        | ListRepoCodeScanningAlertsFailure
+        | ListCodeScanningAlertInstancesSuccess
+        | ListCodeScanningAlertInstancesFailure
+        | ListRepoCodeScanningAnalysesSuccess
+        | ListRepoCodeScanningAnalysesFailure
+        | GetCodeScanningAlertSuccess
+        | GetCodeScanningAlertFailure
+        | UpdateCodeScanningAlertSuccess
+        | UpdateCodeScanningAlertFailure
+        | GetCodeScanningAutofixSuccess
+        | GetCodeScanningAutofixFailure
+        | CreateCodeScanningAutofixSuccess
+        | CreateCodeScanningAutofixFailure
+        | CommitCodeScanningAutofixSuccess
+        | CommitCodeScanningAutofixFailure
+        | GetCodeScanningAnalysisSuccess
+        | GetCodeScanningAnalysisFailure
+        | DeleteCodeScanningAnalysisSuccess
+        | DeleteCodeScanningAnalysisFailure
+        | ListCodeqlDatabasesSuccess
+        | ListCodeqlDatabasesFailure
+        | GetCodeqlDatabaseSuccess
+        | GetCodeqlDatabaseFailure
+        | DeleteCodeqlDatabaseSuccess
+        | DeleteCodeqlDatabaseFailure
+        | CreateCodeqlVariantAnalysisSuccess
+        | CreateCodeqlVariantAnalysisFailure
+        | GetCodeqlVariantAnalysisSuccess
+        | GetCodeqlVariantAnalysisFailure
+        | GetCodeqlVariantAnalysisRepoTaskSuccess
+        | GetCodeqlVariantAnalysisRepoTaskFailure
+        | GetCodeScanningDefaultSetupSuccess
+        | GetCodeScanningDefaultSetupFailure
+        | UpdateCodeScanningDefaultSetupSuccess
+        | UpdateCodeScanningDefaultSetupFailure
+        | UploadCodeScanningSarifSuccess
+        | UploadCodeScanningSarifFailure
+        | GetCodeScanningSarifSuccess
+        | GetCodeScanningSarifFailure
         | CreateRepoAutolinkSuccess
         | CreateRepoAutolinkFailure
         | CreateRepoDispatchSuccess

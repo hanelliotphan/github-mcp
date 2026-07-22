@@ -1,0 +1,35 @@
+{
+  "name": "github_delete_code_scanning_analysis",
+  "description": "Delete a code scanning analysis (DELETE /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}). Optional confirm_delete.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "analysis_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "confirm_delete": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "analysis_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "github_commit_code_scanning_autofix",
+  "description": "Commit an autofix for a code scanning alert (POST .../autofix/commits).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "alert_number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "target_ref": {
+        "type": "string"
+      },
+      "message": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "alert_number"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

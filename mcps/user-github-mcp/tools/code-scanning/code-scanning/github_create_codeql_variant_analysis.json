@@ -1,0 +1,50 @@
+{
+  "name": "github_create_codeql_variant_analysis",
+  "description": "Create a CodeQL variant analysis (POST /repos/{owner}/{repo}/code-scanning/codeql/variant-analyses).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "language": {
+        "type": "string"
+      },
+      "query_pack": {
+        "type": "string"
+      },
+      "repositories": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "repository_lists": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "repository_owners": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "language",
+      "query_pack"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

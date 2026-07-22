@@ -1,0 +1,29 @@
+{
+  "name": "github_get_code_scanning_sarif",
+  "description": "Get SARIF upload info (GET /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "sarif_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "sarif_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

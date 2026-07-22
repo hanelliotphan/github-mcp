@@ -1,0 +1,82 @@
+{
+  "name": "github_list_org_code_scanning_alerts",
+  "description": "List code scanning alerts for an organization (GET /orgs/{org}/code-scanning/alerts). Classic tokens need security_events.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "tool_name": {
+        "type": "string"
+      },
+      "tool_guid": {
+        "type": "string"
+      },
+      "before": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      },
+      "direction": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ]
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "open",
+          "closed",
+          "dismissed",
+          "fixed"
+        ]
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "created",
+          "updated"
+        ]
+      },
+      "severity": {
+        "type": "string",
+        "enum": [
+          "critical",
+          "high",
+          "medium",
+          "low",
+          "warning",
+          "note",
+          "error"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

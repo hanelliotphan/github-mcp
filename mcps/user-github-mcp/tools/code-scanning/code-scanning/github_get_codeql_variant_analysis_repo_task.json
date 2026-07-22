@@ -1,0 +1,37 @@
+{
+  "name": "github_get_codeql_variant_analysis_repo_task",
+  "description": "Get variant analysis repo task status (GET .../variant-analyses/{id}/repos/{repo_owner}/{repo_name}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "codeql_variant_analysis_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "repo_owner": {
+        "type": "string"
+      },
+      "repo_name": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "codeql_variant_analysis_id",
+      "repo_owner",
+      "repo_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
