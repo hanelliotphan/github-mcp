@@ -1284,6 +1284,14 @@ import type {
     FetchRepoSbomReportFailure,
     GenerateRepoSbomReportSuccess,
     GenerateRepoSbomReportFailure,
+    ListRepoDeployKeysSuccess,
+    ListRepoDeployKeysFailure,
+    CreateRepoDeployKeySuccess,
+    CreateRepoDeployKeyFailure,
+    GetRepoDeployKeySuccess,
+    GetRepoDeployKeyFailure,
+    DeleteRepoDeployKeySuccess,
+    DeleteRepoDeployKeyFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3034,7 +3042,15 @@ export function textAndData(
         | FetchRepoSbomReportSuccess
         | FetchRepoSbomReportFailure
         | GenerateRepoSbomReportSuccess
-        | GenerateRepoSbomReportFailure) {
+        | GenerateRepoSbomReportFailure
+        | ListRepoDeployKeysSuccess
+        | ListRepoDeployKeysFailure
+        | CreateRepoDeployKeySuccess
+        | CreateRepoDeployKeyFailure
+        | GetRepoDeployKeySuccess
+        | GetRepoDeployKeyFailure
+        | DeleteRepoDeployKeySuccess
+        | DeleteRepoDeployKeyFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

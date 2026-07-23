@@ -1,0 +1,29 @@
+{
+  "name": "github_delete_repo_deploy_key",
+  "description": "Delete a deploy key from a repository (DELETE /repos/{owner}/{repo}/keys/{key_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "key_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "key_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

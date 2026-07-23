@@ -10652,4 +10652,57 @@ export type GenerateRepoSbomReportSuccess = {
 };
 export type GenerateRepoSbomReportFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_deploy_keys`. */
+export type ListRepoDeployKeysSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    keys: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoDeployKeysFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_deploy_key`. */
+export type CreateRepoDeployKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    deploy_key: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoDeployKeyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_deploy_key`. */
+export type GetRepoDeployKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    key_id: number;
+    deploy_key: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoDeployKeyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_deploy_key`. */
+export type DeleteRepoDeployKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    key_id: number;
+    request_id: string | null;
+};
+export type DeleteRepoDeployKeyFailure = CreateRepoFailure;
+
 
