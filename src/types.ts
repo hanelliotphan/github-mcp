@@ -11256,3 +11256,27 @@ export type GetRepoGitBlobSuccess = {
 };
 export type GetRepoGitBlobFailure = CreateRepoFailure;
 
+/** MCP tool: `github_create_repo_git_commit`. */
+export type CreateRepoGitCommitSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    commit: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoGitCommitFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_git_commit`. */
+export type GetRepoGitCommitSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    commit: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoGitCommitFailure = CreateRepoFailure;
+

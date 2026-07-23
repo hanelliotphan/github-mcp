@@ -812,6 +812,8 @@ import { registerGithubUpdateEnterpriseTeamTool } from "./tools/enterprise-teams
 import { registerGithubDeleteEnterpriseTeamTool } from "./tools/enterprise-teams/enterprise-teams/github-delete-enterprise-team.js";
 import { registerGithubCreateRepoGitBlobTool } from "./tools/git/blobs/github-create-repo-git-blob.js";
 import { registerGithubGetRepoGitBlobTool } from "./tools/git/blobs/github-get-repo-git-blob.js";
+import { registerGithubCreateRepoGitCommitTool } from "./tools/git/commits/github-create-repo-git-commit.js";
+import { registerGithubGetRepoGitCommitTool } from "./tools/git/commits/github-get-repo-git-commit.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1638,6 +1640,8 @@ registerGithubUpdateEnterpriseTeamTool(server, octokit);
 registerGithubDeleteEnterpriseTeamTool(server, octokit);
 registerGithubCreateRepoGitBlobTool(server, octokit);
 registerGithubGetRepoGitBlobTool(server, octokit);
+registerGithubCreateRepoGitCommitTool(server, octokit);
+registerGithubGetRepoGitCommitTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
