@@ -1,0 +1,38 @@
+{
+    "name": "github_update_repo_label",
+    "description": "Update a label (PATCH /repos/{owner}/{repo}/labels/{name}). MCP label_name maps to API path name; optional new_name, color, description. See [Update a label](https://docs.github.com/en/rest/issues/labels?apiVersion=2026-03-10#update-a-label).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "label_name": {
+                "type": "string",
+                "minLength": 1
+            },
+            "new_name": {
+                "type": "string"
+            },
+            "color": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "label_name"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

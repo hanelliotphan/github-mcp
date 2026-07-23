@@ -871,6 +871,17 @@ import { registerGithubGetRepoIssueTool } from "./tools/issues/issues/github-get
 import { registerGithubUpdateRepoIssueTool } from "./tools/issues/issues/github-update-repo-issue.js";
 import { registerGithubLockRepoIssueTool } from "./tools/issues/issues/github-lock-repo-issue.js";
 import { registerGithubUnlockRepoIssueTool } from "./tools/issues/issues/github-unlock-repo-issue.js";
+import { registerGithubListIssueLabelsTool } from "./tools/issues/labels/github-list-issue-labels.js";
+import { registerGithubAddIssueLabelsTool } from "./tools/issues/labels/github-add-issue-labels.js";
+import { registerGithubSetIssueLabelsTool } from "./tools/issues/labels/github-set-issue-labels.js";
+import { registerGithubRemoveAllIssueLabelsTool } from "./tools/issues/labels/github-remove-all-issue-labels.js";
+import { registerGithubRemoveIssueLabelTool } from "./tools/issues/labels/github-remove-issue-label.js";
+import { registerGithubListRepoLabelsTool } from "./tools/issues/labels/github-list-repo-labels.js";
+import { registerGithubCreateRepoLabelTool } from "./tools/issues/labels/github-create-repo-label.js";
+import { registerGithubGetRepoLabelTool } from "./tools/issues/labels/github-get-repo-label.js";
+import { registerGithubUpdateRepoLabelTool } from "./tools/issues/labels/github-update-repo-label.js";
+import { registerGithubDeleteRepoLabelTool } from "./tools/issues/labels/github-delete-repo-label.js";
+import { registerGithubListMilestoneLabelsTool } from "./tools/issues/labels/github-list-milestone-labels.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1758,6 +1769,17 @@ registerGithubGetRepoIssueTool(server, octokit);
 registerGithubUpdateRepoIssueTool(server, octokit);
 registerGithubLockRepoIssueTool(server, octokit);
 registerGithubUnlockRepoIssueTool(server, octokit);
+registerGithubListIssueLabelsTool(server, octokit);
+registerGithubAddIssueLabelsTool(server, octokit);
+registerGithubSetIssueLabelsTool(server, octokit);
+registerGithubRemoveAllIssueLabelsTool(server, octokit);
+registerGithubRemoveIssueLabelTool(server, octokit);
+registerGithubListRepoLabelsTool(server, octokit);
+registerGithubCreateRepoLabelTool(server, octokit);
+registerGithubGetRepoLabelTool(server, octokit);
+registerGithubUpdateRepoLabelTool(server, octokit);
+registerGithubDeleteRepoLabelTool(server, octokit);
+registerGithubListMilestoneLabelsTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

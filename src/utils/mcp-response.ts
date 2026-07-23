@@ -1494,6 +1494,28 @@ import type {
     LockRepoIssueFailure,
     UnlockRepoIssueSuccess,
     UnlockRepoIssueFailure,
+    ListIssueLabelsSuccess,
+    ListIssueLabelsFailure,
+    AddIssueLabelsSuccess,
+    AddIssueLabelsFailure,
+    SetIssueLabelsSuccess,
+    SetIssueLabelsFailure,
+    RemoveAllIssueLabelsSuccess,
+    RemoveAllIssueLabelsFailure,
+    RemoveIssueLabelSuccess,
+    RemoveIssueLabelFailure,
+    ListRepoLabelsSuccess,
+    ListRepoLabelsFailure,
+    CreateRepoLabelSuccess,
+    CreateRepoLabelFailure,
+    GetRepoLabelSuccess,
+    GetRepoLabelFailure,
+    UpdateRepoLabelSuccess,
+    UpdateRepoLabelFailure,
+    DeleteRepoLabelSuccess,
+    DeleteRepoLabelFailure,
+    ListMilestoneLabelsSuccess,
+    ListMilestoneLabelsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3454,7 +3476,29 @@ export function textAndData(
         | LockRepoIssueSuccess
         | LockRepoIssueFailure
         | UnlockRepoIssueSuccess
-        | UnlockRepoIssueFailure) {
+        | UnlockRepoIssueFailure
+        | ListIssueLabelsSuccess
+        | ListIssueLabelsFailure
+        | AddIssueLabelsSuccess
+        | AddIssueLabelsFailure
+        | SetIssueLabelsSuccess
+        | SetIssueLabelsFailure
+        | RemoveAllIssueLabelsSuccess
+        | RemoveAllIssueLabelsFailure
+        | RemoveIssueLabelSuccess
+        | RemoveIssueLabelFailure
+        | ListRepoLabelsSuccess
+        | ListRepoLabelsFailure
+        | CreateRepoLabelSuccess
+        | CreateRepoLabelFailure
+        | GetRepoLabelSuccess
+        | GetRepoLabelFailure
+        | UpdateRepoLabelSuccess
+        | UpdateRepoLabelFailure
+        | DeleteRepoLabelSuccess
+        | DeleteRepoLabelFailure
+        | ListMilestoneLabelsSuccess
+        | ListMilestoneLabelsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

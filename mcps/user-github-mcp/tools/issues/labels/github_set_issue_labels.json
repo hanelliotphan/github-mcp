@@ -1,0 +1,36 @@
+{
+    "name": "github_set_issue_labels",
+    "description": "Set labels on an issue (PUT /repos/{owner}/{repo}/issues/{issue_number}/labels). Empty array clears all labels. See [Set labels for an issue](https://docs.github.com/en/rest/issues/labels?apiVersion=2026-03-10#set-labels-for-an-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "labels": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number",
+            "labels"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

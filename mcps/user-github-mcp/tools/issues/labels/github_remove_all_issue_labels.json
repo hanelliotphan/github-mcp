@@ -1,0 +1,29 @@
+{
+    "name": "github_remove_all_issue_labels",
+    "description": "Remove all labels from an issue (DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels). See [Remove all labels from an issue](https://docs.github.com/en/rest/issues/labels?apiVersion=2026-03-10#remove-all-labels-from-an-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

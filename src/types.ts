@@ -12033,3 +12033,153 @@ export type UnlockRepoIssueSuccess = {
 };
 export type UnlockRepoIssueFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_issue_labels`. */
+export type ListIssueLabelsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    labels: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueLabelsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_issue_labels`. */
+export type AddIssueLabelsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    labels: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type AddIssueLabelsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_issue_labels`. */
+export type SetIssueLabelsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    labels: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type SetIssueLabelsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_all_issue_labels`. */
+export type RemoveAllIssueLabelsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    request_id: string | null;
+};
+export type RemoveAllIssueLabelsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_issue_label`. */
+export type RemoveIssueLabelSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    labels: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type RemoveIssueLabelFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_labels`. */
+export type ListRepoLabelsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    labels: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoLabelsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_label`. */
+export type CreateRepoLabelSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    label_name: string;
+    label: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoLabelFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_label`. */
+export type GetRepoLabelSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    label_name: string;
+    label: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoLabelFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_label`. */
+export type UpdateRepoLabelSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    label_name: string;
+    label: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoLabelFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_label`. */
+export type DeleteRepoLabelSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    label_name: string;
+    request_id: string | null;
+};
+export type DeleteRepoLabelFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_milestone_labels`. */
+export type ListMilestoneLabelsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    labels: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListMilestoneLabelsFailure = CreateRepoFailure;
+

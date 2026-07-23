@@ -1,0 +1,37 @@
+{
+    "name": "github_add_issue_labels",
+    "description": "Add labels to an issue (POST /repos/{owner}/{repo}/issues/{issue_number}/labels). See [Add labels to an issue](https://docs.github.com/en/rest/issues/labels?apiVersion=2026-03-10#add-labels-to-an-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "labels": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "minItems": 1
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number",
+            "labels"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}
