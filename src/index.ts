@@ -789,6 +789,9 @@ import { registerGithubCreateRepoEnvironmentDeploymentProtectionRuleTool } from 
 import { registerGithubListRepoEnvironmentAvailableDeploymentProtectionRuleAppsTool } from "./tools/deployments/protection-rules/github-list-repo-environment-available-deployment-protection-rule-apps.js";
 import { registerGithubGetRepoEnvironmentDeploymentProtectionRuleTool } from "./tools/deployments/protection-rules/github-get-repo-environment-deployment-protection-rule.js";
 import { registerGithubDeleteRepoEnvironmentDeploymentProtectionRuleTool } from "./tools/deployments/protection-rules/github-delete-repo-environment-deployment-protection-rule.js";
+import { registerGithubListRepoDeploymentStatusesTool } from "./tools/deployments/statuses/github-list-repo-deployment-statuses.js";
+import { registerGithubCreateRepoDeploymentStatusTool } from "./tools/deployments/statuses/github-create-repo-deployment-status.js";
+import { registerGithubGetRepoDeploymentStatusTool } from "./tools/deployments/statuses/github-get-repo-deployment-status.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1592,6 +1595,9 @@ registerGithubCreateRepoEnvironmentDeploymentProtectionRuleTool(server, octokit)
 registerGithubListRepoEnvironmentAvailableDeploymentProtectionRuleAppsTool(server, octokit);
 registerGithubGetRepoEnvironmentDeploymentProtectionRuleTool(server, octokit);
 registerGithubDeleteRepoEnvironmentDeploymentProtectionRuleTool(server, octokit);
+registerGithubListRepoDeploymentStatusesTool(server, octokit);
+registerGithubCreateRepoDeploymentStatusTool(server, octokit);
+registerGithubGetRepoDeploymentStatusTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

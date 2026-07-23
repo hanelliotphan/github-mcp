@@ -1,0 +1,46 @@
+{
+    "name": "github_list_repo_deployment_statuses",
+    "description": "List statuses for a repository deployment.",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "deployment_id": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "all_pages": {
+                "type": "boolean"
+            },
+            "max_pages": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "deployment_id"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

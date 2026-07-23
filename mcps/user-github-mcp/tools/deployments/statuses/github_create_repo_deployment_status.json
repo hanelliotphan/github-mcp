@@ -1,0 +1,61 @@
+{
+    "name": "github_create_repo_deployment_status",
+    "description": "Create a status for a repository deployment.",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "deployment_id": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "state": {
+                "type": "string",
+                "enum": [
+                    "error",
+                    "failure",
+                    "inactive",
+                    "in_progress",
+                    "queued",
+                    "pending",
+                    "success"
+                ]
+            },
+            "target_url": {
+                "type": "string"
+            },
+            "log_url": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string",
+                "maxLength": 140
+            },
+            "environment": {
+                "type": "string"
+            },
+            "environment_url": {
+                "type": "string"
+            },
+            "auto_inactive": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "deployment_id",
+            "state"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

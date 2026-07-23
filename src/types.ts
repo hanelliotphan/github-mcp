@@ -10957,3 +10957,46 @@ export type DeleteRepoEnvironmentDeploymentProtectionRuleSuccess = {
 };
 export type DeleteRepoEnvironmentDeploymentProtectionRuleFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_deployment_statuses`. */
+export type ListRepoDeploymentStatusesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    deployment_id: number;
+    statuses: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoDeploymentStatusesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_deployment_status`. */
+export type CreateRepoDeploymentStatusSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    deployment_id: number;
+    status: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoDeploymentStatusFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_deployment_status`. */
+export type GetRepoDeploymentStatusSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    deployment_id: number;
+        status_id: number;
+    status: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoDeploymentStatusFailure = CreateRepoFailure;
