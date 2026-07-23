@@ -12335,3 +12335,40 @@ export type ListIssueTimelineEventsSuccess = {
     truncated?: boolean;
 };
 export type ListIssueTimelineEventsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_commonly_used_licenses`. */
+export type ListCommonlyUsedLicensesSuccess = {
+    success: true;
+    message: string;
+    licenses: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListCommonlyUsedLicensesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_license`. */
+export type GetLicenseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    license_key: string;
+    license: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetLicenseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_license`. */
+export type GetRepoLicenseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    license_file: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoLicenseFailure = CreateRepoFailure;

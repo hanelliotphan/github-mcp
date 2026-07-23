@@ -1538,6 +1538,12 @@ import type {
     ReprioritizeIssueSubIssueFailure,
     ListIssueTimelineEventsSuccess,
     ListIssueTimelineEventsFailure,
+    ListCommonlyUsedLicensesSuccess,
+    ListCommonlyUsedLicensesFailure,
+    GetLicenseSuccess,
+    GetLicenseFailure,
+    GetRepoLicenseSuccess,
+    GetRepoLicenseFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3542,7 +3548,13 @@ export function textAndData(
         | ReprioritizeIssueSubIssueSuccess
         | ReprioritizeIssueSubIssueFailure
         | ListIssueTimelineEventsSuccess
-        | ListIssueTimelineEventsFailure) {
+        | ListIssueTimelineEventsFailure
+        | ListCommonlyUsedLicensesSuccess
+        | ListCommonlyUsedLicensesFailure
+        | GetLicenseSuccess
+        | GetLicenseFailure
+        | GetRepoLicenseSuccess
+        | GetRepoLicenseFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

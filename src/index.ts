@@ -893,6 +893,9 @@ import { registerGithubAddIssueSubIssueTool } from "./tools/issues/sub-issues/gi
 import { registerGithubRemoveIssueSubIssueTool } from "./tools/issues/sub-issues/github-remove-issue-sub-issue.js";
 import { registerGithubReprioritizeIssueSubIssueTool } from "./tools/issues/sub-issues/github-reprioritize-issue-sub-issue.js";
 import { registerGithubListIssueTimelineEventsTool } from "./tools/issues/timeline/github-list-issue-timeline-events.js";
+import { registerGithubListCommonlyUsedLicensesTool } from "./tools/licenses/licenses/github-list-commonly-used-licenses.js";
+import { registerGithubGetLicenseTool } from "./tools/licenses/licenses/github-get-license.js";
+import { registerGithubGetRepoLicenseTool } from "./tools/licenses/licenses/github-get-repo-license.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1802,6 +1805,9 @@ registerGithubAddIssueSubIssueTool(server, octokit);
 registerGithubRemoveIssueSubIssueTool(server, octokit);
 registerGithubReprioritizeIssueSubIssueTool(server, octokit);
 registerGithubListIssueTimelineEventsTool(server, octokit);
+registerGithubListCommonlyUsedLicensesTool(server, octokit);
+registerGithubGetLicenseTool(server, octokit);
+registerGithubGetRepoLicenseTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
