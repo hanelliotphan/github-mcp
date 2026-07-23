@@ -11390,3 +11390,24 @@ export type GetRepoGitTreeSuccess = {
     request_id: string | null;
 };
 export type GetRepoGitTreeFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_gitignore_templates`. */
+export type ListGitignoreTemplatesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    templates: string[];
+    request_id: string | null;
+};
+export type ListGitignoreTemplatesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_gitignore_template`. */
+export type GetGitignoreTemplateSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    name: string;
+    template: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetGitignoreTemplateFailure = CreateRepoFailure;

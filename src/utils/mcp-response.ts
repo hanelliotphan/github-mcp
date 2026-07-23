@@ -1396,6 +1396,10 @@ import type {
     CreateRepoGitTreeFailure,
     GetRepoGitTreeSuccess,
     GetRepoGitTreeFailure,
+    ListGitignoreTemplatesSuccess,
+    ListGitignoreTemplatesFailure,
+    GetGitignoreTemplateSuccess,
+    GetGitignoreTemplateFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3258,7 +3262,11 @@ export function textAndData(
         | CreateRepoGitTreeSuccess
         | CreateRepoGitTreeFailure
         | GetRepoGitTreeSuccess
-        | GetRepoGitTreeFailure) {
+        | GetRepoGitTreeFailure
+        | ListGitignoreTemplatesSuccess
+        | ListGitignoreTemplatesFailure
+        | GetGitignoreTemplateSuccess
+        | GetGitignoreTemplateFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

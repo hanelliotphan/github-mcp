@@ -1,0 +1,9 @@
+{
+  "name": "github_list_gitignore_templates",
+  "description": "List all .gitignore templates available when creating a repository (GET /gitignore/templates).",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
