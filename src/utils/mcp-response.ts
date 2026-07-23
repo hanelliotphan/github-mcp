@@ -1370,6 +1370,10 @@ import type {
     UpdateEnterpriseTeamFailure,
     DeleteEnterpriseTeamSuccess,
     DeleteEnterpriseTeamFailure,
+    CreateRepoGitBlobSuccess,
+    CreateRepoGitBlobFailure,
+    GetRepoGitBlobSuccess,
+    GetRepoGitBlobFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3206,7 +3210,11 @@ export function textAndData(
         | UpdateEnterpriseTeamSuccess
         | UpdateEnterpriseTeamFailure
         | DeleteEnterpriseTeamSuccess
-        | DeleteEnterpriseTeamFailure) {
+        | DeleteEnterpriseTeamFailure
+        | CreateRepoGitBlobSuccess
+        | CreateRepoGitBlobFailure
+        | GetRepoGitBlobSuccess
+        | GetRepoGitBlobFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

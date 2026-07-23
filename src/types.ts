@@ -11231,3 +11231,28 @@ export type DeleteEnterpriseTeamSuccess = {
     request_id: string | null;
 };
 export type DeleteEnterpriseTeamFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_git_blob`. */
+export type CreateRepoGitBlobSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    blob: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoGitBlobFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_git_blob`. */
+export type GetRepoGitBlobSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    blob: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoGitBlobFailure = CreateRepoFailure;
+
