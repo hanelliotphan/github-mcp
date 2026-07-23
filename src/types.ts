@@ -10612,4 +10612,44 @@ export type CreateRepoDependencySnapshotSuccess = {
 };
 export type CreateRepoDependencySnapshotFailure = CreateRepoFailure;
 
+/** MCP tool: `github_export_repo_sbom`. */
+export type ExportRepoSbomSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    sbom: Record<string, unknown>;
+    request_id: string | null;
+};
+export type ExportRepoSbomFailure = CreateRepoFailure;
+
+/** MCP tool: `github_fetch_repo_sbom_report`. */
+export type FetchRepoSbomReportSuccess = {
+    success: true;
+    message: string;
+    http_status: 202 | 302;
+    owner: string;
+    name: string;
+    sbom_uuid: string;
+    ready: boolean;
+    sbom_download_url: string | null;
+    request_id: string | null;
+};
+export type FetchRepoSbomReportFailure = CreateRepoFailure;
+
+/** MCP tool: `github_generate_repo_sbom_report`. */
+export type GenerateRepoSbomReportSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    sbom_url: string | null;
+    sbom_uuid: string | null;
+    report: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GenerateRepoSbomReportFailure = CreateRepoFailure;
+
 

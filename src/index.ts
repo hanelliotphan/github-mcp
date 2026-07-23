@@ -764,6 +764,9 @@ import { registerGithubCreateOrUpdateRepoDependabotSecretTool } from "./tools/de
 import { registerGithubDeleteRepoDependabotSecretTool } from "./tools/dependabot/secrets/github-delete-repo-dependabot-secret.js";
 import { registerGithubCompareRepoDependencyGraphTool } from "./tools/dependency-graph/dependency-review/github-compare-repo-dependency-graph.js";
 import { registerGithubCreateRepoDependencySnapshotTool } from "./tools/dependency-graph/dependency-submission/github-create-repo-dependency-snapshot.js";
+import { registerGithubExportRepoSbomTool } from "./tools/dependency-graph/sboms/github-export-repo-sbom.js";
+import { registerGithubFetchRepoSbomReportTool } from "./tools/dependency-graph/sboms/github-fetch-repo-sbom-report.js";
+import { registerGithubGenerateRepoSbomReportTool } from "./tools/dependency-graph/sboms/github-generate-repo-sbom-report.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1542,6 +1545,9 @@ registerGithubReviewRepoDependabotDismissalRequestTool(server, octokit);
 registerGithubCancelRepoDependabotDismissalRequestTool(server, octokit);
 registerGithubCompareRepoDependencyGraphTool(server, octokit);
 registerGithubCreateRepoDependencySnapshotTool(server, octokit);
+registerGithubExportRepoSbomTool(server, octokit);
+registerGithubFetchRepoSbomReportTool(server, octokit);
+registerGithubGenerateRepoSbomReportTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

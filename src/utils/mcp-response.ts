@@ -1278,6 +1278,12 @@ import type {
     CompareRepoDependencyGraphFailure,
     CreateRepoDependencySnapshotSuccess,
     CreateRepoDependencySnapshotFailure,
+    ExportRepoSbomSuccess,
+    ExportRepoSbomFailure,
+    FetchRepoSbomReportSuccess,
+    FetchRepoSbomReportFailure,
+    GenerateRepoSbomReportSuccess,
+    GenerateRepoSbomReportFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3022,7 +3028,13 @@ export function textAndData(
         | CompareRepoDependencyGraphSuccess
         | CompareRepoDependencyGraphFailure
         | CreateRepoDependencySnapshotSuccess
-        | CreateRepoDependencySnapshotFailure) {
+        | CreateRepoDependencySnapshotFailure
+        | ExportRepoSbomSuccess
+        | ExportRepoSbomFailure
+        | FetchRepoSbomReportSuccess
+        | FetchRepoSbomReportFailure
+        | GenerateRepoSbomReportSuccess
+        | GenerateRepoSbomReportFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

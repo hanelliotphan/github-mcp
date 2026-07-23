@@ -1,0 +1,24 @@
+{
+  "name": "github_export_repo_sbom",
+  "description": "Export a software bill of materials (SBOM) for a repository in SPDX JSON format (GET /repos/{owner}/{repo}/dependency-graph/sbom).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
