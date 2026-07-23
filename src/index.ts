@@ -887,6 +887,11 @@ import { registerGithubCreateRepoMilestoneTool } from "./tools/issues/milestones
 import { registerGithubGetRepoMilestoneTool } from "./tools/issues/milestones/github-get-repo-milestone.js";
 import { registerGithubUpdateRepoMilestoneTool } from "./tools/issues/milestones/github-update-repo-milestone.js";
 import { registerGithubDeleteRepoMilestoneTool } from "./tools/issues/milestones/github-delete-repo-milestone.js";
+import { registerGithubGetIssueParentTool } from "./tools/issues/sub-issues/github-get-issue-parent.js";
+import { registerGithubListIssueSubIssuesTool } from "./tools/issues/sub-issues/github-list-issue-sub-issues.js";
+import { registerGithubAddIssueSubIssueTool } from "./tools/issues/sub-issues/github-add-issue-sub-issue.js";
+import { registerGithubRemoveIssueSubIssueTool } from "./tools/issues/sub-issues/github-remove-issue-sub-issue.js";
+import { registerGithubReprioritizeIssueSubIssueTool } from "./tools/issues/sub-issues/github-reprioritize-issue-sub-issue.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1790,6 +1795,11 @@ registerGithubCreateRepoMilestoneTool(server, octokit);
 registerGithubGetRepoMilestoneTool(server, octokit);
 registerGithubUpdateRepoMilestoneTool(server, octokit);
 registerGithubDeleteRepoMilestoneTool(server, octokit);
+registerGithubGetIssueParentTool(server, octokit);
+registerGithubListIssueSubIssuesTool(server, octokit);
+registerGithubAddIssueSubIssueTool(server, octokit);
+registerGithubRemoveIssueSubIssueTool(server, octokit);
+registerGithubReprioritizeIssueSubIssueTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

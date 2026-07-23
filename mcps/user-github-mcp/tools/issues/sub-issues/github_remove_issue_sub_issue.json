@@ -1,0 +1,34 @@
+{
+    "name": "github_remove_issue_sub_issue",
+    "description": "Remove a sub-issue (DELETE /repos/{owner}/{repo}/issues/{issue_number}/sub_issues). See [Remove a sub-issue](https://docs.github.com/en/rest/issues/sub-issues?apiVersion=2026-03-10#remove-a-sub-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "sub_issue_id": {
+                "type": "integer",
+                "minimum": 1
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number",
+            "sub_issue_id"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

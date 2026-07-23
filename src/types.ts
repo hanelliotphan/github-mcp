@@ -12249,3 +12249,74 @@ export type DeleteRepoMilestoneSuccess = {
 };
 export type DeleteRepoMilestoneFailure = CreateRepoFailure;
 
+/** MCP tool: `github_get_issue_parent`. */
+export type GetIssueParentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetIssueParentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_issue_sub_issues`. */
+export type ListIssueSubIssuesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    issues: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueSubIssuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_issue_sub_issue`. */
+export type AddIssueSubIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    sub_issue_id: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddIssueSubIssueFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_issue_sub_issue`. */
+export type RemoveIssueSubIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    sub_issue_id: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type RemoveIssueSubIssueFailure = CreateRepoFailure;
+
+/** MCP tool: `github_reprioritize_issue_sub_issue`. */
+export type ReprioritizeIssueSubIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    sub_issue_id: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type ReprioritizeIssueSubIssueFailure = CreateRepoFailure;
+
