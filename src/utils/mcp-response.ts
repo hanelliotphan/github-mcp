@@ -1536,6 +1536,8 @@ import type {
     RemoveIssueSubIssueFailure,
     ReprioritizeIssueSubIssueSuccess,
     ReprioritizeIssueSubIssueFailure,
+    ListIssueTimelineEventsSuccess,
+    ListIssueTimelineEventsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3538,7 +3540,9 @@ export function textAndData(
         | RemoveIssueSubIssueSuccess
         | RemoveIssueSubIssueFailure
         | ReprioritizeIssueSubIssueSuccess
-        | ReprioritizeIssueSubIssueFailure) {
+        | ReprioritizeIssueSubIssueFailure
+        | ListIssueTimelineEventsSuccess
+        | ListIssueTimelineEventsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

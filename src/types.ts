@@ -12320,3 +12320,18 @@ export type ReprioritizeIssueSubIssueSuccess = {
 };
 export type ReprioritizeIssueSubIssueFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_issue_timeline_events`. */
+export type ListIssueTimelineEventsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    events: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueTimelineEventsFailure = CreateRepoFailure;

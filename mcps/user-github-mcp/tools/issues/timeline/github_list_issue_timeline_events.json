@@ -1,0 +1,46 @@
+{
+    "name": "github_list_issue_timeline_events",
+    "description": "List timeline events for an issue (GET /repos/{owner}/{repo}/issues/{issue_number}/timeline). Page pagination. See [List timeline events for an issue](https://docs.github.com/en/rest/issues/timeline?apiVersion=2026-03-10#list-timeline-events-for-an-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "all_pages": {
+                "type": "boolean"
+            },
+            "max_pages": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}
