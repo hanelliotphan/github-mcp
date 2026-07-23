@@ -1,0 +1,10 @@
+{
+    "name": "github_update_repo_dependabot_alert",
+    "description": "github_update_repo_dependabot_alert",
+    "arguments": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

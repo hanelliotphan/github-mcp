@@ -737,6 +737,11 @@ import { registerGithubGetRepoDependabotDismissalRequestTool } from "./tools/dep
 import { registerGithubCreateRepoDependabotDismissalRequestTool } from "./tools/dependabot/alert-dismissal-requests/github-create-repo-dependabot-dismissal-request.js";
 import { registerGithubReviewRepoDependabotDismissalRequestTool } from "./tools/dependabot/alert-dismissal-requests/github-review-repo-dependabot-dismissal-request.js";
 import { registerGithubCancelRepoDependabotDismissalRequestTool } from "./tools/dependabot/alert-dismissal-requests/github-cancel-repo-dependabot-dismissal-request.js";
+import { registerGithubListEnterpriseDependabotAlertsTool } from "./tools/dependabot/alerts/github-list-enterprise-dependabot-alerts.js";
+import { registerGithubListOrgDependabotAlertsTool } from "./tools/dependabot/alerts/github-list-org-dependabot-alerts.js";
+import { registerGithubListRepoDependabotAlertsTool } from "./tools/dependabot/alerts/github-list-repo-dependabot-alerts.js";
+import { registerGithubGetRepoDependabotAlertTool } from "./tools/dependabot/alerts/github-get-repo-dependabot-alert.js";
+import { registerGithubUpdateRepoDependabotAlertTool } from "./tools/dependabot/alerts/github-update-repo-dependabot-alert.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1482,6 +1487,11 @@ registerGithubGetUserCopilotSpaceResourceTool(server, octokit);
 registerGithubSetUserCopilotSpaceResourceTool(server, octokit);
 registerGithubDeleteUserCopilotSpaceResourceTool(server, octokit);
 registerGithubRevokeCredentialsTool(server, octokit);
+registerGithubListEnterpriseDependabotAlertsTool(server, octokit);
+registerGithubListOrgDependabotAlertsTool(server, octokit);
+registerGithubListRepoDependabotAlertsTool(server, octokit);
+registerGithubGetRepoDependabotAlertTool(server, octokit);
+registerGithubUpdateRepoDependabotAlertTool(server, octokit);
 registerGithubListOrgDependabotDismissalRequestsTool(server, octokit);
 registerGithubListRepoDependabotDismissalRequestsTool(server, octokit);
 registerGithubGetRepoDependabotDismissalRequestTool(server, octokit);

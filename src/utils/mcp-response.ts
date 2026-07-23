@@ -1236,6 +1236,16 @@ import type {
     ReviewRepoDependabotDismissalRequestFailure,
     CancelRepoDependabotDismissalRequestSuccess,
     CancelRepoDependabotDismissalRequestFailure,
+    ListEnterpriseDependabotAlertsSuccess,
+    ListEnterpriseDependabotAlertsFailure,
+    ListOrgDependabotAlertsSuccess,
+    ListOrgDependabotAlertsFailure,
+    ListRepoDependabotAlertsSuccess,
+    ListRepoDependabotAlertsFailure,
+    GetRepoDependabotAlertSuccess,
+    GetRepoDependabotAlertFailure,
+    UpdateRepoDependabotAlertSuccess,
+    UpdateRepoDependabotAlertFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2914,7 +2924,17 @@ export function textAndData(
         | ReviewRepoDependabotDismissalRequestSuccess
         | ReviewRepoDependabotDismissalRequestFailure
         | CancelRepoDependabotDismissalRequestSuccess
-        | CancelRepoDependabotDismissalRequestFailure) {
+        | CancelRepoDependabotDismissalRequestFailure
+        | ListEnterpriseDependabotAlertsSuccess
+        | ListEnterpriseDependabotAlertsFailure
+        | ListOrgDependabotAlertsSuccess
+        | ListOrgDependabotAlertsFailure
+        | ListRepoDependabotAlertsSuccess
+        | ListRepoDependabotAlertsFailure
+        | GetRepoDependabotAlertSuccess
+        | GetRepoDependabotAlertFailure
+        | UpdateRepoDependabotAlertSuccess
+        | UpdateRepoDependabotAlertFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

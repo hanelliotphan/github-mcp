@@ -10526,3 +10526,20 @@ export type CancelRepoDependabotDismissalRequestSuccess = {
 };
 export type CancelRepoDependabotDismissalRequestFailure = CreateRepoFailure;
 
+
+/** MCP tool: `github_list_enterprise_dependabot_alerts`. */
+export type ListEnterpriseDependabotAlertsSuccess = { success: true; message: string; enterprise: string; alerts: Record<string, unknown>[]; pagination: GitHubLinkPagination | null; request_id: string | null; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListEnterpriseDependabotAlertsFailure = CreateRepoFailure;
+/** MCP tool: `github_list_org_dependabot_alerts`. */
+export type ListOrgDependabotAlertsSuccess = { success: true; message: string; org: string; alerts: Record<string, unknown>[]; pagination: GitHubLinkPagination | null; request_id: string | null; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListOrgDependabotAlertsFailure = CreateRepoFailure;
+/** MCP tool: `github_list_repo_dependabot_alerts`. */
+export type ListRepoDependabotAlertsSuccess = { success: true; message: string; owner: string; name: string; alerts: Record<string, unknown>[]; pagination: GitHubLinkPagination | null; request_id: string | null; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListRepoDependabotAlertsFailure = CreateRepoFailure;
+/** MCP tool: `github_get_repo_dependabot_alert`. */
+export type GetRepoDependabotAlertSuccess = { success: true; message: string; http_status: number; owner: string; name: string; alert_number: number; alert: Record<string, unknown>; request_id: string | null; };
+export type GetRepoDependabotAlertFailure = CreateRepoFailure;
+/** MCP tool: `github_update_repo_dependabot_alert`. */
+export type UpdateRepoDependabotAlertSuccess = { success: true; message: string; http_status: number; owner: string; name: string; alert_number: number; alert: Record<string, unknown>; request_id: string | null; };
+export type UpdateRepoDependabotAlertFailure = CreateRepoFailure;
+
