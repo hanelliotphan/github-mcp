@@ -1274,6 +1274,8 @@ import type {
     CreateOrUpdateRepoDependabotSecretFailure,
     DeleteRepoDependabotSecretSuccess,
     DeleteRepoDependabotSecretFailure,
+    CompareRepoDependencyGraphSuccess,
+    CompareRepoDependencyGraphFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3014,7 +3016,9 @@ export function textAndData(
         | UpdateOrgDependabotRepositoryAccessSuccess
         | UpdateOrgDependabotRepositoryAccessFailure
         | SetOrgDependabotRepositoryAccessDefaultLevelSuccess
-        | SetOrgDependabotRepositoryAccessDefaultLevelFailure) {
+        | SetOrgDependabotRepositoryAccessDefaultLevelFailure
+        | CompareRepoDependencyGraphSuccess
+        | CompareRepoDependencyGraphFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

@@ -1,0 +1,38 @@
+{
+  "name": "github_compare_repo_dependency_graph",
+  "description": "Get a diff of the dependencies between commits (GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "base": {
+        "type": "string",
+        "minLength": 1
+      },
+      "head": {
+        "type": "string",
+        "minLength": 1
+      },
+      "manifest": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "base",
+      "head"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

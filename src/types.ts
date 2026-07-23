@@ -10585,3 +10585,19 @@ export type CreateOrUpdateRepoDependabotSecretSuccess = { success: true; message
 export type CreateOrUpdateRepoDependabotSecretFailure = CreateRepoFailure;
 export type DeleteRepoDependabotSecretSuccess = { success: true; message: string; http_status: number; org?: string; owner?: string; name?: string; secret_name: string; request_id: string | null; };
 export type DeleteRepoDependabotSecretFailure = CreateRepoFailure;
+
+/** MCP tool: `github_compare_repo_dependency_graph`. */
+export type CompareRepoDependencyGraphSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    base: string;
+    head: string;
+    changes: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type CompareRepoDependencyGraphFailure = CreateRepoFailure;
+
+
