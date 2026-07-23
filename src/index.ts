@@ -821,6 +821,8 @@ import { registerGithubUpdateRepoGitRefTool } from "./tools/git/refs/github-upda
 import { registerGithubDeleteRepoGitRefTool } from "./tools/git/refs/github-delete-repo-git-ref.js";
 import { registerGithubCreateRepoGitTagTool } from "./tools/git/tags/github-create-repo-git-tag.js";
 import { registerGithubGetRepoGitTagTool } from "./tools/git/tags/github-get-repo-git-tag.js";
+import { registerGithubCreateRepoGitTreeTool } from "./tools/git/trees/github-create-repo-git-tree.js";
+import { registerGithubGetRepoGitTreeTool } from "./tools/git/trees/github-get-repo-git-tree.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1656,6 +1658,8 @@ registerGithubUpdateRepoGitRefTool(server, octokit);
 registerGithubDeleteRepoGitRefTool(server, octokit);
 registerGithubCreateRepoGitTagTool(server, octokit);
 registerGithubGetRepoGitTagTool(server, octokit);
+registerGithubCreateRepoGitTreeTool(server, octokit);
+registerGithubGetRepoGitTreeTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

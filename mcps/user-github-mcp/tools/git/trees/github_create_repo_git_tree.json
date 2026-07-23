@@ -1,0 +1,48 @@
+{
+  "name": "github_create_repo_git_tree",
+  "description": "Create a Git tree object (POST /repos/{owner}/{repo}/git/trees).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "tree": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "properties": {
+            "path": { "type": "string" },
+            "mode": {
+              "type": "string",
+              "enum": ["100644", "100755", "040000", "160000", "120000"]
+            },
+            "type": {
+              "type": "string",
+              "enum": ["blob", "tree", "commit"]
+            },
+            "sha": {
+              "type": ["string", "null"]
+            },
+            "content": { "type": "string" }
+          }
+        }
+      },
+      "base_tree": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    },
+    "required": ["owner", "name", "tree"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1392,6 +1392,10 @@ import type {
     CreateRepoGitTagFailure,
     GetRepoGitTagSuccess,
     GetRepoGitTagFailure,
+    CreateRepoGitTreeSuccess,
+    CreateRepoGitTreeFailure,
+    GetRepoGitTreeSuccess,
+    GetRepoGitTreeFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3250,7 +3254,11 @@ export function textAndData(
         | CreateRepoGitTagSuccess
         | CreateRepoGitTagFailure
         | GetRepoGitTagSuccess
-        | GetRepoGitTagFailure) {
+        | GetRepoGitTagFailure
+        | CreateRepoGitTreeSuccess
+        | CreateRepoGitTreeFailure
+        | GetRepoGitTreeSuccess
+        | GetRepoGitTreeFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

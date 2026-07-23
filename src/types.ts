@@ -11367,3 +11367,26 @@ export type GetRepoGitTagSuccess = {
 };
 export type GetRepoGitTagFailure = CreateRepoFailure;
 
+/** MCP tool: `github_create_repo_git_tree`. */
+export type CreateRepoGitTreeSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    tree: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoGitTreeFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_git_tree`. */
+export type GetRepoGitTreeSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    tree: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoGitTreeFailure = CreateRepoFailure;
