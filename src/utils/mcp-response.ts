@@ -1166,6 +1166,22 @@ import type {
     SetEnterpriseCopilotCodingAgentPolicyFailure,
     GetRepoCopilotCloudAgentConfigurationSuccess,
     GetRepoCopilotCloudAgentConfigurationFailure,
+    ListOrgCopilotSpaceCollaboratorsSuccess,
+    ListOrgCopilotSpaceCollaboratorsFailure,
+    AddOrgCopilotSpaceCollaboratorSuccess,
+    AddOrgCopilotSpaceCollaboratorFailure,
+    SetOrgCopilotSpaceCollaboratorRoleSuccess,
+    SetOrgCopilotSpaceCollaboratorRoleFailure,
+    RemoveOrgCopilotSpaceCollaboratorSuccess,
+    RemoveOrgCopilotSpaceCollaboratorFailure,
+    ListUserCopilotSpaceCollaboratorsSuccess,
+    ListUserCopilotSpaceCollaboratorsFailure,
+    AddUserCopilotSpaceCollaboratorSuccess,
+    AddUserCopilotSpaceCollaboratorFailure,
+    SetUserCopilotSpaceCollaboratorRoleSuccess,
+    SetUserCopilotSpaceCollaboratorRoleFailure,
+    RemoveUserCopilotSpaceCollaboratorSuccess,
+    RemoveUserCopilotSpaceCollaboratorFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2707,6 +2723,22 @@ export function textAndData(
         | CreateCommitStatusFailure
         | GetRepoCopilotCloudAgentConfigurationSuccess
         | GetRepoCopilotCloudAgentConfigurationFailure
+        | ListOrgCopilotSpaceCollaboratorsSuccess
+        | ListOrgCopilotSpaceCollaboratorsFailure
+        | AddOrgCopilotSpaceCollaboratorSuccess
+        | AddOrgCopilotSpaceCollaboratorFailure
+        | SetOrgCopilotSpaceCollaboratorRoleSuccess
+        | SetOrgCopilotSpaceCollaboratorRoleFailure
+        | RemoveOrgCopilotSpaceCollaboratorSuccess
+        | RemoveOrgCopilotSpaceCollaboratorFailure
+        | ListUserCopilotSpaceCollaboratorsSuccess
+        | ListUserCopilotSpaceCollaboratorsFailure
+        | AddUserCopilotSpaceCollaboratorSuccess
+        | AddUserCopilotSpaceCollaboratorFailure
+        | SetUserCopilotSpaceCollaboratorRoleSuccess
+        | SetUserCopilotSpaceCollaboratorRoleFailure
+        | RemoveUserCopilotSpaceCollaboratorSuccess
+        | RemoveUserCopilotSpaceCollaboratorFailure
         | SetEnterpriseCopilotCodingAgentPolicySuccess
         | SetEnterpriseCopilotCodingAgentPolicyFailure
         | AddEnterpriseCopilotCodingAgentOrganizationsSuccess

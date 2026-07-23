@@ -10084,3 +10084,111 @@ export type GetOrgCopilotSeatDetailsForUserSuccess = {
     seat: Record<string, unknown>;
 };
 export type GetOrgCopilotSeatDetailsForUserFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_copilot_space_collaborators`. */
+export type ListOrgCopilotSpaceCollaboratorsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    collaborators: Record<string, unknown>[];
+};
+export type ListOrgCopilotSpaceCollaboratorsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_org_copilot_space_collaborator`. */
+export type AddOrgCopilotSpaceCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    actor_type: "User" | "Team";
+    actor_identifier: string;
+    role: "reader" | "writer" | "admin";
+    collaborator: Record<string, unknown>;
+};
+export type AddOrgCopilotSpaceCollaboratorFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_copilot_space_collaborator_role`. */
+export type SetOrgCopilotSpaceCollaboratorRoleSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    actor_type: "User" | "Team";
+    actor_identifier: string;
+    role: "reader" | "writer" | "admin" | "no_access";
+    collaborator: Record<string, unknown> | null;
+};
+export type SetOrgCopilotSpaceCollaboratorRoleFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_org_copilot_space_collaborator`. */
+export type RemoveOrgCopilotSpaceCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    actor_type: "User" | "Team";
+    actor_identifier: string;
+};
+export type RemoveOrgCopilotSpaceCollaboratorFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_copilot_space_collaborators`. */
+export type ListUserCopilotSpaceCollaboratorsSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    collaborators: Record<string, unknown>[];
+};
+export type ListUserCopilotSpaceCollaboratorsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_user_copilot_space_collaborator`. */
+export type AddUserCopilotSpaceCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    actor_type: "User" | "Team";
+    actor_identifier: string;
+    role: "reader" | "writer" | "admin";
+    collaborator: Record<string, unknown>;
+};
+export type AddUserCopilotSpaceCollaboratorFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_user_copilot_space_collaborator_role`. */
+export type SetUserCopilotSpaceCollaboratorRoleSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    actor_type: "User" | "Team";
+    actor_identifier: string;
+    role: "reader" | "writer" | "admin" | "no_access";
+    collaborator: Record<string, unknown> | null;
+};
+export type SetUserCopilotSpaceCollaboratorRoleFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_user_copilot_space_collaborator`. */
+export type RemoveUserCopilotSpaceCollaboratorSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    actor_type: "User" | "Team";
+    actor_identifier: string;
+};
+export type RemoveUserCopilotSpaceCollaboratorFailure = CreateRepoFailure;

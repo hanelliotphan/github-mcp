@@ -1,0 +1,36 @@
+{
+  "name": "github_remove_org_copilot_space_collaborator",
+  "description": "Remove a collaborator from an organization Copilot Space (DELETE /orgs/{org}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}). Returns HTTP 204.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "space_number": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "actor_type": {
+        "type": "string",
+        "enum": [
+          "User",
+          "Team"
+        ]
+      },
+      "actor_identifier": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "org",
+      "space_number",
+      "actor_type",
+      "actor_identifier"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

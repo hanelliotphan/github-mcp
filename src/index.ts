@@ -703,6 +703,14 @@ import { registerGithubRemoveEnterpriseCopilotCodingAgentOrganizationsTool } fro
 import { registerGithubAddEnterpriseCopilotCodingAgentOrganizationsTool } from "./tools/copilot/copilot-coding-agent-management/github-add-enterprise-copilot-coding-agent-organizations.js";
 import { registerGithubSetEnterpriseCopilotCodingAgentPolicyTool } from "./tools/copilot/copilot-coding-agent-management/github-set-enterprise-copilot-coding-agent-policy.js";
 import { registerGithubGetRepoCopilotCloudAgentConfigurationTool } from "./tools/copilot/copilot-cloud-agent-management/github-get-repo-copilot-cloud-agent-configuration.js";
+import { registerGithubListOrgCopilotSpaceCollaboratorsTool } from "./tools/copilot-spaces/collaborators/github-list-org-copilot-space-collaborators.js";
+import { registerGithubAddOrgCopilotSpaceCollaboratorTool } from "./tools/copilot-spaces/collaborators/github-add-org-copilot-space-collaborator.js";
+import { registerGithubSetOrgCopilotSpaceCollaboratorRoleTool } from "./tools/copilot-spaces/collaborators/github-set-org-copilot-space-collaborator-role.js";
+import { registerGithubRemoveOrgCopilotSpaceCollaboratorTool } from "./tools/copilot-spaces/collaborators/github-remove-org-copilot-space-collaborator.js";
+import { registerGithubListUserCopilotSpaceCollaboratorsTool } from "./tools/copilot-spaces/collaborators/github-list-user-copilot-space-collaborators.js";
+import { registerGithubAddUserCopilotSpaceCollaboratorTool } from "./tools/copilot-spaces/collaborators/github-add-user-copilot-space-collaborator.js";
+import { registerGithubSetUserCopilotSpaceCollaboratorRoleTool } from "./tools/copilot-spaces/collaborators/github-set-user-copilot-space-collaborator-role.js";
+import { registerGithubRemoveUserCopilotSpaceCollaboratorTool } from "./tools/copilot-spaces/collaborators/github-remove-user-copilot-space-collaborator.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1418,6 +1426,14 @@ registerGithubRemoveEnterpriseCopilotCodingAgentOrganizationsTool(server, octoki
 registerGithubAddEnterpriseCopilotCodingAgentOrganizationsTool(server, octokit);
 registerGithubSetEnterpriseCopilotCodingAgentPolicyTool(server, octokit);
 registerGithubGetRepoCopilotCloudAgentConfigurationTool(server, octokit);
+registerGithubListOrgCopilotSpaceCollaboratorsTool(server, octokit);
+registerGithubAddOrgCopilotSpaceCollaboratorTool(server, octokit);
+registerGithubSetOrgCopilotSpaceCollaboratorRoleTool(server, octokit);
+registerGithubRemoveOrgCopilotSpaceCollaboratorTool(server, octokit);
+registerGithubListUserCopilotSpaceCollaboratorsTool(server, octokit);
+registerGithubAddUserCopilotSpaceCollaboratorTool(server, octokit);
+registerGithubSetUserCopilotSpaceCollaboratorRoleTool(server, octokit);
+registerGithubRemoveUserCopilotSpaceCollaboratorTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

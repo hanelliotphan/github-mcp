@@ -1,0 +1,23 @@
+{
+  "name": "github_list_org_copilot_space_collaborators",
+  "description": "List collaborators for an organization Copilot Space (GET /orgs/{org}/copilot-spaces/{space_number}/collaborators). Returns collaborators array. Classic tokens need read:org.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "space_number": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "org",
+      "space_number"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
