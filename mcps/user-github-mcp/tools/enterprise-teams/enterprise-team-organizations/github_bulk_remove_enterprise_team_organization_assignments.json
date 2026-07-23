@@ -1,0 +1,33 @@
+{
+  "name": "github_bulk_remove_enterprise_team_organization_assignments",
+  "description": "Bulk remove organization assignments from an enterprise team (POST …/organizations/remove).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "enterprise_team": {
+        "type": "string",
+        "minLength": 1
+      },
+      "organization_slugs": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 39
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "enterprise",
+      "enterprise_team",
+      "organization_slugs"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

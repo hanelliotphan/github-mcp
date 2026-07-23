@@ -11092,3 +11092,82 @@ export type RemoveEnterpriseTeamMembershipSuccess = {
 };
 export type RemoveEnterpriseTeamMembershipFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_enterprise_team_organization_assignments`. */
+export type ListEnterpriseTeamOrganizationAssignmentsSuccess = {
+    success: true;
+    message: string;
+    enterprise: string;
+    enterprise_team: string;
+    organizations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseTeamOrganizationAssignmentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_bulk_add_enterprise_team_organization_assignments`. */
+export type BulkAddEnterpriseTeamOrganizationAssignmentsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    organization_slugs: string[];
+    organizations: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type BulkAddEnterpriseTeamOrganizationAssignmentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_bulk_remove_enterprise_team_organization_assignments`. */
+export type BulkRemoveEnterpriseTeamOrganizationAssignmentsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    organization_slugs: string[];
+    request_id: string | null;
+};
+export type BulkRemoveEnterpriseTeamOrganizationAssignmentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_team_organization_assignment`. */
+export type GetEnterpriseTeamOrganizationAssignmentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    org: string;
+    organization: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetEnterpriseTeamOrganizationAssignmentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_enterprise_team_organization_assignment`. */
+export type AddEnterpriseTeamOrganizationAssignmentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    org: string;
+    organization: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddEnterpriseTeamOrganizationAssignmentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_enterprise_team_organization_assignment`. */
+export type DeleteEnterpriseTeamOrganizationAssignmentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    org: string;
+    request_id: string | null;
+};
+export type DeleteEnterpriseTeamOrganizationAssignmentFailure = CreateRepoFailure;
+

@@ -1,0 +1,40 @@
+{
+  "name": "github_list_enterprise_team_organization_assignments",
+  "description": "List organization assignments for an enterprise team (GET …/organizations).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "enterprise_team": {
+        "type": "string",
+        "minLength": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "enterprise",
+      "enterprise_team"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

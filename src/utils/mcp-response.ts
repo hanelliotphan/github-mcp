@@ -1348,6 +1348,18 @@ import type {
     AddEnterpriseTeamMemberFailure,
     RemoveEnterpriseTeamMembershipSuccess,
     RemoveEnterpriseTeamMembershipFailure,
+    ListEnterpriseTeamOrganizationAssignmentsSuccess,
+    ListEnterpriseTeamOrganizationAssignmentsFailure,
+    BulkAddEnterpriseTeamOrganizationAssignmentsSuccess,
+    BulkAddEnterpriseTeamOrganizationAssignmentsFailure,
+    BulkRemoveEnterpriseTeamOrganizationAssignmentsSuccess,
+    BulkRemoveEnterpriseTeamOrganizationAssignmentsFailure,
+    GetEnterpriseTeamOrganizationAssignmentSuccess,
+    GetEnterpriseTeamOrganizationAssignmentFailure,
+    AddEnterpriseTeamOrganizationAssignmentSuccess,
+    AddEnterpriseTeamOrganizationAssignmentFailure,
+    DeleteEnterpriseTeamOrganizationAssignmentSuccess,
+    DeleteEnterpriseTeamOrganizationAssignmentFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3162,7 +3174,19 @@ export function textAndData(
         | AddEnterpriseTeamMemberSuccess
         | AddEnterpriseTeamMemberFailure
         | RemoveEnterpriseTeamMembershipSuccess
-        | RemoveEnterpriseTeamMembershipFailure) {
+        | RemoveEnterpriseTeamMembershipFailure
+        | ListEnterpriseTeamOrganizationAssignmentsSuccess
+        | ListEnterpriseTeamOrganizationAssignmentsFailure
+        | BulkAddEnterpriseTeamOrganizationAssignmentsSuccess
+        | BulkAddEnterpriseTeamOrganizationAssignmentsFailure
+        | BulkRemoveEnterpriseTeamOrganizationAssignmentsSuccess
+        | BulkRemoveEnterpriseTeamOrganizationAssignmentsFailure
+        | GetEnterpriseTeamOrganizationAssignmentSuccess
+        | GetEnterpriseTeamOrganizationAssignmentFailure
+        | AddEnterpriseTeamOrganizationAssignmentSuccess
+        | AddEnterpriseTeamOrganizationAssignmentFailure
+        | DeleteEnterpriseTeamOrganizationAssignmentSuccess
+        | DeleteEnterpriseTeamOrganizationAssignmentFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

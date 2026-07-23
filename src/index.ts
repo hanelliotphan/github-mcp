@@ -799,6 +799,12 @@ import { registerGithubBulkRemoveEnterpriseTeamMembersTool } from "./tools/enter
 import { registerGithubGetEnterpriseTeamMembershipTool } from "./tools/enterprise-teams/enterprise-team-members/github-get-enterprise-team-membership.js";
 import { registerGithubAddEnterpriseTeamMemberTool } from "./tools/enterprise-teams/enterprise-team-members/github-add-enterprise-team-member.js";
 import { registerGithubRemoveEnterpriseTeamMembershipTool } from "./tools/enterprise-teams/enterprise-team-members/github-remove-enterprise-team-membership.js";
+import { registerGithubListEnterpriseTeamOrganizationAssignmentsTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-list-enterprise-team-organization-assignments.js";
+import { registerGithubBulkAddEnterpriseTeamOrganizationAssignmentsTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-bulk-add-enterprise-team-organization-assignments.js";
+import { registerGithubBulkRemoveEnterpriseTeamOrganizationAssignmentsTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-bulk-remove-enterprise-team-organization-assignments.js";
+import { registerGithubGetEnterpriseTeamOrganizationAssignmentTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-get-enterprise-team-organization-assignment.js";
+import { registerGithubAddEnterpriseTeamOrganizationAssignmentTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-add-enterprise-team-organization-assignment.js";
+import { registerGithubDeleteEnterpriseTeamOrganizationAssignmentTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-delete-enterprise-team-organization-assignment.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1612,6 +1618,12 @@ registerGithubBulkRemoveEnterpriseTeamMembersTool(server, octokit);
 registerGithubGetEnterpriseTeamMembershipTool(server, octokit);
 registerGithubAddEnterpriseTeamMemberTool(server, octokit);
 registerGithubRemoveEnterpriseTeamMembershipTool(server, octokit);
+registerGithubListEnterpriseTeamOrganizationAssignmentsTool(server, octokit);
+registerGithubBulkAddEnterpriseTeamOrganizationAssignmentsTool(server, octokit);
+registerGithubBulkRemoveEnterpriseTeamOrganizationAssignmentsTool(server, octokit);
+registerGithubGetEnterpriseTeamOrganizationAssignmentTool(server, octokit);
+registerGithubAddEnterpriseTeamOrganizationAssignmentTool(server, octokit);
+registerGithubDeleteEnterpriseTeamOrganizationAssignmentTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

@@ -1,0 +1,29 @@
+{
+  "name": "github_add_enterprise_team_organization_assignment",
+  "description": "Add an organization assignment for an enterprise team (PUT …/organizations/{org}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "enterprise_team": {
+        "type": "string",
+        "minLength": 1
+      },
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      }
+    },
+    "required": [
+      "enterprise",
+      "enterprise_team",
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
