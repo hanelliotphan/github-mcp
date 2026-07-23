@@ -1,0 +1,97 @@
+{
+  "name": "github_create_repo_dependency_snapshot",
+  "description": "Create a snapshot of dependencies for a repository (POST /repos/{owner}/{repo}/dependency-graph/snapshots).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "version": {
+        "type": "integer"
+      },
+      "sha": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1
+      },
+      "job": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "correlator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "id",
+          "correlator"
+        ]
+      },
+      "detector": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "name",
+          "version",
+          "url"
+        ]
+      },
+      "scanned": {
+        "type": "string",
+        "minLength": 1
+      },
+      "metadata": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "manifests": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "version",
+      "sha",
+      "ref",
+      "job",
+      "detector",
+      "scanned"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

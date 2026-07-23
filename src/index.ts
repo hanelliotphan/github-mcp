@@ -763,6 +763,7 @@ import { registerGithubGetRepoDependabotSecretTool } from "./tools/dependabot/se
 import { registerGithubCreateOrUpdateRepoDependabotSecretTool } from "./tools/dependabot/secrets/github-create-or-update-repo-dependabot-secret.js";
 import { registerGithubDeleteRepoDependabotSecretTool } from "./tools/dependabot/secrets/github-delete-repo-dependabot-secret.js";
 import { registerGithubCompareRepoDependencyGraphTool } from "./tools/dependency-graph/dependency-review/github-compare-repo-dependency-graph.js";
+import { registerGithubCreateRepoDependencySnapshotTool } from "./tools/dependency-graph/dependency-submission/github-create-repo-dependency-snapshot.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1540,6 +1541,7 @@ registerGithubCreateRepoDependabotDismissalRequestTool(server, octokit);
 registerGithubReviewRepoDependabotDismissalRequestTool(server, octokit);
 registerGithubCancelRepoDependabotDismissalRequestTool(server, octokit);
 registerGithubCompareRepoDependencyGraphTool(server, octokit);
+registerGithubCreateRepoDependencySnapshotTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

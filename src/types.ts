@@ -10600,4 +10600,16 @@ export type CompareRepoDependencyGraphSuccess = {
 };
 export type CompareRepoDependencyGraphFailure = CreateRepoFailure;
 
+/** MCP tool: `github_create_repo_dependency_snapshot`. */
+export type CreateRepoDependencySnapshotSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    snapshot: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoDependencySnapshotFailure = CreateRepoFailure;
+
 
