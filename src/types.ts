@@ -11000,3 +11000,14 @@ export type GetRepoDeploymentStatusSuccess = {
     request_id: string | null;
 };
 export type GetRepoDeploymentStatusFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_emojis`. */
+export type GetEmojisSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    emoji_count: number;
+    emojis: Record<string, string>;
+    request_id: string | null;
+};
+export type GetEmojisFailure = CreateRepoFailure;

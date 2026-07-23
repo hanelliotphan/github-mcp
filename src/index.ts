@@ -792,6 +792,7 @@ import { registerGithubDeleteRepoEnvironmentDeploymentProtectionRuleTool } from 
 import { registerGithubListRepoDeploymentStatusesTool } from "./tools/deployments/statuses/github-list-repo-deployment-statuses.js";
 import { registerGithubCreateRepoDeploymentStatusTool } from "./tools/deployments/statuses/github-create-repo-deployment-status.js";
 import { registerGithubGetRepoDeploymentStatusTool } from "./tools/deployments/statuses/github-get-repo-deployment-status.js";
+import { registerGithubGetEmojisTool } from "./tools/emojis/emojis/github-get-emojis.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1598,6 +1599,7 @@ registerGithubDeleteRepoEnvironmentDeploymentProtectionRuleTool(server, octokit)
 registerGithubListRepoDeploymentStatusesTool(server, octokit);
 registerGithubCreateRepoDeploymentStatusTool(server, octokit);
 registerGithubGetRepoDeploymentStatusTool(server, octokit);
+registerGithubGetEmojisTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

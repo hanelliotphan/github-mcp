@@ -1,0 +1,9 @@
+{
+  "name": "github_get_emojis",
+  "description": "List all emojis available to use on GitHub (GET /emojis).",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

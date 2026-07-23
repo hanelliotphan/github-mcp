@@ -1334,6 +1334,8 @@ import type {
     CreateRepoDeploymentStatusFailure,
     GetRepoDeploymentStatusSuccess,
     GetRepoDeploymentStatusFailure,
+    GetEmojisSuccess,
+    GetEmojisFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3134,7 +3136,9 @@ export function textAndData(
         | CreateRepoDeploymentStatusSuccess
         | CreateRepoDeploymentStatusFailure
         | GetRepoDeploymentStatusSuccess
-        | GetRepoDeploymentStatusFailure) {
+        | GetRepoDeploymentStatusFailure
+        | GetEmojisSuccess
+        | GetEmojisFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
