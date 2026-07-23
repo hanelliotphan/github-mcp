@@ -11343,3 +11343,27 @@ export type DeleteRepoGitRefSuccess = {
 };
 export type DeleteRepoGitRefFailure = CreateRepoFailure;
 
+/** MCP tool: `github_create_repo_git_tag`. */
+export type CreateRepoGitTagSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    tag_object: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoGitTagFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_git_tag`. */
+export type GetRepoGitTagSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    tag_object: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoGitTagFailure = CreateRepoFailure;
+

@@ -257,6 +257,7 @@ Implementations live under `src/tools/`. Each link below has the full tool list 
 - **[Blobs](src/tools/git/blobs/README.md)**
 - **[Commits](src/tools/git/commits/README.md)**
 - **[Refs](src/tools/git/refs/README.md)**
+- **[Tags](src/tools/git/tags/README.md)**
 
 
 

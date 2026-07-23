@@ -1,0 +1,47 @@
+{
+  "name": "github_create_repo_git_tag",
+  "description": "Create a Git tag object (POST /repos/{owner}/{repo}/git/tags).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "tag": {
+        "type": "string",
+        "minLength": 1
+      },
+      "message": {
+        "type": "string",
+        "minLength": 1
+      },
+      "object": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "type": {
+        "type": "string",
+        "enum": ["commit", "tree", "blob"]
+      },
+      "tagger": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "email": { "type": "string", "minLength": 3 },
+          "date": { "type": "string" }
+        },
+        "required": ["name", "email"]
+      }
+    },
+    "required": ["owner", "name", "tag", "message", "object", "type"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

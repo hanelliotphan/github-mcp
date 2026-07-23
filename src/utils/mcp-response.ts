@@ -1388,6 +1388,10 @@ import type {
     UpdateRepoGitRefFailure,
     DeleteRepoGitRefSuccess,
     DeleteRepoGitRefFailure,
+    CreateRepoGitTagSuccess,
+    CreateRepoGitTagFailure,
+    GetRepoGitTagSuccess,
+    GetRepoGitTagFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3242,7 +3246,11 @@ export function textAndData(
         | UpdateRepoGitRefSuccess
         | UpdateRepoGitRefFailure
         | DeleteRepoGitRefSuccess
-        | DeleteRepoGitRefFailure) {
+        | DeleteRepoGitRefFailure
+        | CreateRepoGitTagSuccess
+        | CreateRepoGitTagFailure
+        | GetRepoGitTagSuccess
+        | GetRepoGitTagFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
