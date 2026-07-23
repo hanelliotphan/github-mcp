@@ -1182,6 +1182,26 @@ import type {
     SetUserCopilotSpaceCollaboratorRoleFailure,
     RemoveUserCopilotSpaceCollaboratorSuccess,
     RemoveUserCopilotSpaceCollaboratorFailure,
+    ListOrgCopilotSpacesSuccess,
+    ListOrgCopilotSpacesFailure,
+    CreateOrgCopilotSpaceSuccess,
+    CreateOrgCopilotSpaceFailure,
+    GetOrgCopilotSpaceSuccess,
+    GetOrgCopilotSpaceFailure,
+    SetOrgCopilotSpaceSuccess,
+    SetOrgCopilotSpaceFailure,
+    DeleteOrgCopilotSpaceSuccess,
+    DeleteOrgCopilotSpaceFailure,
+    ListUserCopilotSpacesSuccess,
+    ListUserCopilotSpacesFailure,
+    CreateUserCopilotSpaceSuccess,
+    CreateUserCopilotSpaceFailure,
+    GetUserCopilotSpaceSuccess,
+    GetUserCopilotSpaceFailure,
+    SetUserCopilotSpaceSuccess,
+    SetUserCopilotSpaceFailure,
+    DeleteUserCopilotSpaceSuccess,
+    DeleteUserCopilotSpaceFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2739,6 +2759,26 @@ export function textAndData(
         | SetUserCopilotSpaceCollaboratorRoleFailure
         | RemoveUserCopilotSpaceCollaboratorSuccess
         | RemoveUserCopilotSpaceCollaboratorFailure
+        | ListOrgCopilotSpacesSuccess
+        | ListOrgCopilotSpacesFailure
+        | CreateOrgCopilotSpaceSuccess
+        | CreateOrgCopilotSpaceFailure
+        | GetOrgCopilotSpaceSuccess
+        | GetOrgCopilotSpaceFailure
+        | SetOrgCopilotSpaceSuccess
+        | SetOrgCopilotSpaceFailure
+        | DeleteOrgCopilotSpaceSuccess
+        | DeleteOrgCopilotSpaceFailure
+        | ListUserCopilotSpacesSuccess
+        | ListUserCopilotSpacesFailure
+        | CreateUserCopilotSpaceSuccess
+        | CreateUserCopilotSpaceFailure
+        | GetUserCopilotSpaceSuccess
+        | GetUserCopilotSpaceFailure
+        | SetUserCopilotSpaceSuccess
+        | SetUserCopilotSpaceFailure
+        | DeleteUserCopilotSpaceSuccess
+        | DeleteUserCopilotSpaceFailure
         | SetEnterpriseCopilotCodingAgentPolicySuccess
         | SetEnterpriseCopilotCodingAgentPolicyFailure
         | AddEnterpriseCopilotCodingAgentOrganizationsSuccess

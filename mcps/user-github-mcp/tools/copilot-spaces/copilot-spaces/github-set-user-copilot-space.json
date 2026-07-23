@@ -1,0 +1,10 @@
+{
+  "name": "github_set_user_copilot_space",
+  "description": "Update a Copilot Space for a user (PUT /users/{username}/copilot-spaces/{space_number}). Optional name, description, general_instructions, base_role (reader|no_access), resources_attributes.",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
