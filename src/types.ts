@@ -11011,3 +11011,84 @@ export type GetEmojisSuccess = {
     request_id: string | null;
 };
 export type GetEmojisFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_enterprise_team_members`. */
+export type ListEnterpriseTeamMembersSuccess = {
+    success: true;
+    message: string;
+    enterprise: string;
+    enterprise_team: string;
+    members: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseTeamMembersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_bulk_add_enterprise_team_members`. */
+export type BulkAddEnterpriseTeamMembersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    usernames: string[];
+    members: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type BulkAddEnterpriseTeamMembersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_bulk_remove_enterprise_team_members`. */
+export type BulkRemoveEnterpriseTeamMembersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    usernames: string[];
+    members: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type BulkRemoveEnterpriseTeamMembersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_team_membership`. */
+export type GetEnterpriseTeamMembershipSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    username: string;
+    member: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetEnterpriseTeamMembershipFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_enterprise_team_member`. */
+export type AddEnterpriseTeamMemberSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    username: string;
+    member: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddEnterpriseTeamMemberFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_enterprise_team_membership`. */
+export type RemoveEnterpriseTeamMembershipSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    enterprise_team: string;
+    username: string;
+    request_id: string | null;
+};
+export type RemoveEnterpriseTeamMembershipFailure = CreateRepoFailure;
+

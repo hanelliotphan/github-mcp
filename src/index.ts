@@ -793,6 +793,12 @@ import { registerGithubListRepoDeploymentStatusesTool } from "./tools/deployment
 import { registerGithubCreateRepoDeploymentStatusTool } from "./tools/deployments/statuses/github-create-repo-deployment-status.js";
 import { registerGithubGetRepoDeploymentStatusTool } from "./tools/deployments/statuses/github-get-repo-deployment-status.js";
 import { registerGithubGetEmojisTool } from "./tools/emojis/emojis/github-get-emojis.js";
+import { registerGithubListEnterpriseTeamMembersTool } from "./tools/enterprise-teams/enterprise-team-members/github-list-enterprise-team-members.js";
+import { registerGithubBulkAddEnterpriseTeamMembersTool } from "./tools/enterprise-teams/enterprise-team-members/github-bulk-add-enterprise-team-members.js";
+import { registerGithubBulkRemoveEnterpriseTeamMembersTool } from "./tools/enterprise-teams/enterprise-team-members/github-bulk-remove-enterprise-team-members.js";
+import { registerGithubGetEnterpriseTeamMembershipTool } from "./tools/enterprise-teams/enterprise-team-members/github-get-enterprise-team-membership.js";
+import { registerGithubAddEnterpriseTeamMemberTool } from "./tools/enterprise-teams/enterprise-team-members/github-add-enterprise-team-member.js";
+import { registerGithubRemoveEnterpriseTeamMembershipTool } from "./tools/enterprise-teams/enterprise-team-members/github-remove-enterprise-team-membership.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1600,6 +1606,12 @@ registerGithubListRepoDeploymentStatusesTool(server, octokit);
 registerGithubCreateRepoDeploymentStatusTool(server, octokit);
 registerGithubGetRepoDeploymentStatusTool(server, octokit);
 registerGithubGetEmojisTool(server, octokit);
+registerGithubListEnterpriseTeamMembersTool(server, octokit);
+registerGithubBulkAddEnterpriseTeamMembersTool(server, octokit);
+registerGithubBulkRemoveEnterpriseTeamMembersTool(server, octokit);
+registerGithubGetEnterpriseTeamMembershipTool(server, octokit);
+registerGithubAddEnterpriseTeamMemberTool(server, octokit);
+registerGithubRemoveEnterpriseTeamMembershipTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

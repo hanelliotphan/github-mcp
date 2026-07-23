@@ -1336,6 +1336,18 @@ import type {
     GetRepoDeploymentStatusFailure,
     GetEmojisSuccess,
     GetEmojisFailure,
+    ListEnterpriseTeamMembersSuccess,
+    ListEnterpriseTeamMembersFailure,
+    BulkAddEnterpriseTeamMembersSuccess,
+    BulkAddEnterpriseTeamMembersFailure,
+    BulkRemoveEnterpriseTeamMembersSuccess,
+    BulkRemoveEnterpriseTeamMembersFailure,
+    GetEnterpriseTeamMembershipSuccess,
+    GetEnterpriseTeamMembershipFailure,
+    AddEnterpriseTeamMemberSuccess,
+    AddEnterpriseTeamMemberFailure,
+    RemoveEnterpriseTeamMembershipSuccess,
+    RemoveEnterpriseTeamMembershipFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3138,7 +3150,19 @@ export function textAndData(
         | GetRepoDeploymentStatusSuccess
         | GetRepoDeploymentStatusFailure
         | GetEmojisSuccess
-        | GetEmojisFailure) {
+        | GetEmojisFailure
+        | ListEnterpriseTeamMembersSuccess
+        | ListEnterpriseTeamMembersFailure
+        | BulkAddEnterpriseTeamMembersSuccess
+        | BulkAddEnterpriseTeamMembersFailure
+        | BulkRemoveEnterpriseTeamMembersSuccess
+        | BulkRemoveEnterpriseTeamMembersFailure
+        | GetEnterpriseTeamMembershipSuccess
+        | GetEnterpriseTeamMembershipFailure
+        | AddEnterpriseTeamMemberSuccess
+        | AddEnterpriseTeamMemberFailure
+        | RemoveEnterpriseTeamMembershipSuccess
+        | RemoveEnterpriseTeamMembershipFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
