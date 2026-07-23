@@ -1406,6 +1406,22 @@ import type {
     SetOrgInteractionLimitsFailure,
     RemoveOrgInteractionLimitsSuccess,
     RemoveOrgInteractionLimitsFailure,
+    GetRepoInteractionLimitsSuccess,
+    GetRepoInteractionLimitsFailure,
+    SetRepoInteractionLimitsSuccess,
+    SetRepoInteractionLimitsFailure,
+    RemoveRepoInteractionLimitsSuccess,
+    RemoveRepoInteractionLimitsFailure,
+    ListRepoPullRequestCreationCapBypassListSuccess,
+    ListRepoPullRequestCreationCapBypassListFailure,
+    AddRepoPullRequestCreationCapBypassUsersSuccess,
+    AddRepoPullRequestCreationCapBypassUsersFailure,
+    RemoveRepoPullRequestCreationCapBypassUsersSuccess,
+    RemoveRepoPullRequestCreationCapBypassUsersFailure,
+    GetRepoPullRequestCreationCapSuccess,
+    GetRepoPullRequestCreationCapFailure,
+    UpdateRepoPullRequestCreationCapSuccess,
+    UpdateRepoPullRequestCreationCapFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3278,7 +3294,23 @@ export function textAndData(
         | SetOrgInteractionLimitsSuccess
         | SetOrgInteractionLimitsFailure
         | RemoveOrgInteractionLimitsSuccess
-        | RemoveOrgInteractionLimitsFailure) {
+        | RemoveOrgInteractionLimitsFailure
+        | GetRepoInteractionLimitsSuccess
+        | GetRepoInteractionLimitsFailure
+        | SetRepoInteractionLimitsSuccess
+        | SetRepoInteractionLimitsFailure
+        | RemoveRepoInteractionLimitsSuccess
+        | RemoveRepoInteractionLimitsFailure
+        | ListRepoPullRequestCreationCapBypassListSuccess
+        | ListRepoPullRequestCreationCapBypassListFailure
+        | AddRepoPullRequestCreationCapBypassUsersSuccess
+        | AddRepoPullRequestCreationCapBypassUsersFailure
+        | RemoveRepoPullRequestCreationCapBypassUsersSuccess
+        | RemoveRepoPullRequestCreationCapBypassUsersFailure
+        | GetRepoPullRequestCreationCapSuccess
+        | GetRepoPullRequestCreationCapFailure
+        | UpdateRepoPullRequestCreationCapSuccess
+        | UpdateRepoPullRequestCreationCapFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

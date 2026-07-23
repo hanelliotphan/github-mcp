@@ -1,0 +1,24 @@
+{
+  "name": "github_remove_repo_interaction_limits",
+  "description": "Remove interaction restrictions from a repository (DELETE /repos/{owner}/{repo}/interaction-limits).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

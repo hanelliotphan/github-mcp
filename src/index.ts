@@ -828,6 +828,14 @@ import { registerGithubGetGitignoreTemplateTool } from "./tools/gitignore/gitign
 import { registerGithubGetOrgInteractionLimitsTool } from "./tools/interactions/orgs/github-get-org-interaction-limits.js";
 import { registerGithubRemoveOrgInteractionLimitsTool } from "./tools/interactions/orgs/github-remove-org-interaction-limits.js";
 import { registerGithubSetOrgInteractionLimitsTool } from "./tools/interactions/orgs/github-set-org-interaction-limits.js";
+import { registerGithubAddRepoPullRequestCreationCapBypassUsersTool } from "./tools/interactions/repos/github-add-repo-pull-request-creation-cap-bypass-users.js";
+import { registerGithubGetRepoInteractionLimitsTool } from "./tools/interactions/repos/github-get-repo-interaction-limits.js";
+import { registerGithubGetRepoPullRequestCreationCapTool } from "./tools/interactions/repos/github-get-repo-pull-request-creation-cap.js";
+import { registerGithubListRepoPullRequestCreationCapBypassListTool } from "./tools/interactions/repos/github-list-repo-pull-request-creation-cap-bypass-list.js";
+import { registerGithubRemoveRepoInteractionLimitsTool } from "./tools/interactions/repos/github-remove-repo-interaction-limits.js";
+import { registerGithubRemoveRepoPullRequestCreationCapBypassUsersTool } from "./tools/interactions/repos/github-remove-repo-pull-request-creation-cap-bypass-users.js";
+import { registerGithubSetRepoInteractionLimitsTool } from "./tools/interactions/repos/github-set-repo-interaction-limits.js";
+import { registerGithubUpdateRepoPullRequestCreationCapTool } from "./tools/interactions/repos/github-update-repo-pull-request-creation-cap.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1670,6 +1678,14 @@ registerGithubGetGitignoreTemplateTool(server, octokit);
 registerGithubGetOrgInteractionLimitsTool(server, octokit);
 registerGithubSetOrgInteractionLimitsTool(server, octokit);
 registerGithubRemoveOrgInteractionLimitsTool(server, octokit);
+registerGithubGetRepoInteractionLimitsTool(server, octokit);
+registerGithubSetRepoInteractionLimitsTool(server, octokit);
+registerGithubRemoveRepoInteractionLimitsTool(server, octokit);
+registerGithubListRepoPullRequestCreationCapBypassListTool(server, octokit);
+registerGithubAddRepoPullRequestCreationCapBypassUsersTool(server, octokit);
+registerGithubRemoveRepoPullRequestCreationCapBypassUsersTool(server, octokit);
+registerGithubGetRepoPullRequestCreationCapTool(server, octokit);
+registerGithubUpdateRepoPullRequestCreationCapTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

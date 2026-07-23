@@ -1,0 +1,24 @@
+{
+  "name": "github_list_repo_pull_request_creation_cap_bypass_list",
+  "description": "List users on the pull request creation cap bypass list (GET /repos/{owner}/{repo}/interaction-limits/pulls/bypass-list).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

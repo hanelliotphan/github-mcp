@@ -1,0 +1,35 @@
+{
+  "name": "github_add_repo_pull_request_creation_cap_bypass_users",
+  "description": "Add users to the pull request creation cap bypass list (PUT /repos/{owner}/{repo}/interaction-limits/pulls/bypass-list).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "users": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 39
+        },
+        "minItems": 1,
+        "maxItems": 100
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "users"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

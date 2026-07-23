@@ -11444,3 +11444,106 @@ export type RemoveOrgInteractionLimitsSuccess = {
 };
 export type RemoveOrgInteractionLimitsFailure = CreateRepoFailure;
 
+/** MCP tool: `github_get_repo_interaction_limits`. */
+export type GetRepoInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    interaction_limits: Record<string, unknown> | null;
+    request_id: string | null;
+};
+export type GetRepoInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_repo_interaction_limits`. */
+export type SetRepoInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    interaction_limits: Record<string, unknown>;
+    request_id: string | null;
+};
+export type SetRepoInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_repo_interaction_limits`. */
+export type RemoveRepoInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    request_id: string | null;
+};
+export type RemoveRepoInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_pull_request_creation_cap_bypass_list`. */
+export type ListRepoPullRequestCreationCapBypassListSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    users: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListRepoPullRequestCreationCapBypassListFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_repo_pull_request_creation_cap_bypass_users`. */
+export type AddRepoPullRequestCreationCapBypassUsersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    users: string[];
+    request_id: string | null;
+};
+export type AddRepoPullRequestCreationCapBypassUsersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_repo_pull_request_creation_cap_bypass_users`. */
+export type RemoveRepoPullRequestCreationCapBypassUsersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    users: string[];
+    request_id: string | null;
+};
+export type RemoveRepoPullRequestCreationCapBypassUsersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_pull_request_creation_cap`. */
+export type GetRepoPullRequestCreationCapSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    creation_cap: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoPullRequestCreationCapFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_pull_request_creation_cap`. */
+export type UpdateRepoPullRequestCreationCapSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    repo: string;
+    full_name: string;
+    creation_cap: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoPullRequestCreationCapFailure = CreateRepoFailure;
+

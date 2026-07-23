@@ -267,6 +267,7 @@ Implementations live under `src/tools/`. Each link below has the full tool list 
 ### Interactions
 
 - **[Organization interactions](src/tools/interactions/orgs/README.md)**
+- **[Repository interactions](src/tools/interactions/repos/README.md)**
 
 
 Static MCP tool descriptors (JSON: tool name, description, argument schema) live under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/) in the **same subfolders as** `src/tools`, with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. They mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.

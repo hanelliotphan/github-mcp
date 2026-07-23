@@ -1,0 +1,43 @@
+{
+  "name": "github_set_repo_interaction_limits",
+  "description": "Set interaction restrictions for a repository (PUT /repos/{owner}/{repo}/interaction-limits).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "limit": {
+        "type": "string",
+        "enum": [
+          "existing_users",
+          "contributors_only",
+          "collaborators_only"
+        ]
+      },
+      "expiry": {
+        "type": "string",
+        "enum": [
+          "one_day",
+          "three_days",
+          "one_week",
+          "one_month",
+          "six_months"
+        ]
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "limit"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
