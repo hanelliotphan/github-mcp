@@ -10885,3 +10885,75 @@ export type DeleteRepoEnvironmentSuccess = {
 };
 export type DeleteRepoEnvironmentFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_environment_deployment_protection_rules`. */
+export type ListRepoEnvironmentDeploymentProtectionRulesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+    total_count: number;
+    custom_deployment_protection_rules: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListRepoEnvironmentDeploymentProtectionRulesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_environment_deployment_protection_rule`. */
+export type CreateRepoEnvironmentDeploymentProtectionRuleSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+    deployment_protection_rule: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoEnvironmentDeploymentProtectionRuleFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_environment_available_deployment_protection_rule_apps`. */
+export type ListRepoEnvironmentAvailableDeploymentProtectionRuleAppsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    environment_name: string;
+    total_count: number;
+    available_custom_deployment_protection_rule_integrations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoEnvironmentAvailableDeploymentProtectionRuleAppsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_environment_deployment_protection_rule`. */
+export type GetRepoEnvironmentDeploymentProtectionRuleSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+        protection_rule_id: number;
+    deployment_protection_rule: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoEnvironmentDeploymentProtectionRuleFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_environment_deployment_protection_rule`. */
+export type DeleteRepoEnvironmentDeploymentProtectionRuleSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+        protection_rule_id: number;
+    request_id: string | null;
+};
+export type DeleteRepoEnvironmentDeploymentProtectionRuleFailure = CreateRepoFailure;
+

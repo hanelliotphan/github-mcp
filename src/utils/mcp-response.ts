@@ -1318,6 +1318,16 @@ import type {
     CreateOrUpdateRepoEnvironmentFailure,
     DeleteRepoEnvironmentSuccess,
     DeleteRepoEnvironmentFailure,
+    ListRepoEnvironmentDeploymentProtectionRulesSuccess,
+    ListRepoEnvironmentDeploymentProtectionRulesFailure,
+    CreateRepoEnvironmentDeploymentProtectionRuleSuccess,
+    CreateRepoEnvironmentDeploymentProtectionRuleFailure,
+    ListRepoEnvironmentAvailableDeploymentProtectionRuleAppsSuccess,
+    ListRepoEnvironmentAvailableDeploymentProtectionRuleAppsFailure,
+    GetRepoEnvironmentDeploymentProtectionRuleSuccess,
+    GetRepoEnvironmentDeploymentProtectionRuleFailure,
+    DeleteRepoEnvironmentDeploymentProtectionRuleSuccess,
+    DeleteRepoEnvironmentDeploymentProtectionRuleFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3102,7 +3112,17 @@ export function textAndData(
         | CreateOrUpdateRepoEnvironmentSuccess
         | CreateOrUpdateRepoEnvironmentFailure
         | DeleteRepoEnvironmentSuccess
-        | DeleteRepoEnvironmentFailure) {
+        | DeleteRepoEnvironmentFailure
+        | ListRepoEnvironmentDeploymentProtectionRulesSuccess
+        | ListRepoEnvironmentDeploymentProtectionRulesFailure
+        | CreateRepoEnvironmentDeploymentProtectionRuleSuccess
+        | CreateRepoEnvironmentDeploymentProtectionRuleFailure
+        | ListRepoEnvironmentAvailableDeploymentProtectionRuleAppsSuccess
+        | ListRepoEnvironmentAvailableDeploymentProtectionRuleAppsFailure
+        | GetRepoEnvironmentDeploymentProtectionRuleSuccess
+        | GetRepoEnvironmentDeploymentProtectionRuleFailure
+        | DeleteRepoEnvironmentDeploymentProtectionRuleSuccess
+        | DeleteRepoEnvironmentDeploymentProtectionRuleFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

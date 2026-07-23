@@ -1,0 +1,34 @@
+{
+    "name": "github_delete_repo_environment_deployment_protection_rule",
+    "description": "Disable a custom deployment protection rule for a repository environment.",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "environment_name": {
+                "type": "string",
+                "minLength": 1
+            },
+            "protection_rule_id": {
+                "type": "integer",
+                "minimum": 1
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "environment_name",
+            "protection_rule_id"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

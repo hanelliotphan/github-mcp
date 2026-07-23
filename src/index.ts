@@ -784,6 +784,11 @@ import { registerGithubListRepoEnvironmentsTool } from "./tools/deployments/envi
 import { registerGithubGetRepoEnvironmentTool } from "./tools/deployments/environments/github-get-repo-environment.js";
 import { registerGithubCreateOrUpdateRepoEnvironmentTool } from "./tools/deployments/environments/github-create-or-update-repo-environment.js";
 import { registerGithubDeleteRepoEnvironmentTool } from "./tools/deployments/environments/github-delete-repo-environment.js";
+import { registerGithubListRepoEnvironmentDeploymentProtectionRulesTool } from "./tools/deployments/protection-rules/github-list-repo-environment-deployment-protection-rules.js";
+import { registerGithubCreateRepoEnvironmentDeploymentProtectionRuleTool } from "./tools/deployments/protection-rules/github-create-repo-environment-deployment-protection-rule.js";
+import { registerGithubListRepoEnvironmentAvailableDeploymentProtectionRuleAppsTool } from "./tools/deployments/protection-rules/github-list-repo-environment-available-deployment-protection-rule-apps.js";
+import { registerGithubGetRepoEnvironmentDeploymentProtectionRuleTool } from "./tools/deployments/protection-rules/github-get-repo-environment-deployment-protection-rule.js";
+import { registerGithubDeleteRepoEnvironmentDeploymentProtectionRuleTool } from "./tools/deployments/protection-rules/github-delete-repo-environment-deployment-protection-rule.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1582,6 +1587,11 @@ registerGithubListRepoEnvironmentsTool(server, octokit);
 registerGithubGetRepoEnvironmentTool(server, octokit);
 registerGithubCreateOrUpdateRepoEnvironmentTool(server, octokit);
 registerGithubDeleteRepoEnvironmentTool(server, octokit);
+registerGithubListRepoEnvironmentDeploymentProtectionRulesTool(server, octokit);
+registerGithubCreateRepoEnvironmentDeploymentProtectionRuleTool(server, octokit);
+registerGithubListRepoEnvironmentAvailableDeploymentProtectionRuleAppsTool(server, octokit);
+registerGithubGetRepoEnvironmentDeploymentProtectionRuleTool(server, octokit);
+registerGithubDeleteRepoEnvironmentDeploymentProtectionRuleTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
