@@ -1460,6 +1460,14 @@ import type {
     GetIssueEventFailure,
     ListIssueEventsSuccess,
     ListIssueEventsFailure,
+    ListIssueDependenciesBlockedBySuccess,
+    ListIssueDependenciesBlockedByFailure,
+    AddIssueDependencyBlockedBySuccess,
+    AddIssueDependencyBlockedByFailure,
+    RemoveIssueDependencyBlockedBySuccess,
+    RemoveIssueDependencyBlockedByFailure,
+    ListIssueDependenciesBlockingSuccess,
+    ListIssueDependenciesBlockingFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3386,7 +3394,15 @@ export function textAndData(
         | GetIssueEventSuccess
         | GetIssueEventFailure
         | ListIssueEventsSuccess
-        | ListIssueEventsFailure) {
+        | ListIssueEventsFailure
+        | ListIssueDependenciesBlockedBySuccess
+        | ListIssueDependenciesBlockedByFailure
+        | AddIssueDependencyBlockedBySuccess
+        | AddIssueDependencyBlockedByFailure
+        | RemoveIssueDependencyBlockedBySuccess
+        | RemoveIssueDependencyBlockedByFailure
+        | ListIssueDependenciesBlockingSuccess
+        | ListIssueDependenciesBlockingFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

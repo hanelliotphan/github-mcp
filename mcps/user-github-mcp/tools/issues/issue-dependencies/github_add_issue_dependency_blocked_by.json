@@ -1,0 +1,34 @@
+{
+    "name": "github_add_issue_dependency_blocked_by",
+    "description": "Add a blocked-by dependency (POST /repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by). Success is HTTP 201. See [Add a blocked-by dependency](https://docs.github.com/en/rest/issues/issue-dependencies?apiVersion=2026-03-10#add-a-blocked-by-dependency).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "issue_id": {
+                "type": "integer",
+                "minimum": 1
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number",
+            "issue_id"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

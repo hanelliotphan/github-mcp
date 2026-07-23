@@ -1,0 +1,46 @@
+{
+    "name": "github_list_issue_dependencies_blocking",
+    "description": "List issues blocking an issue (GET /repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocking). Page pagination. See [List issues blocking an issue](https://docs.github.com/en/rest/issues/issue-dependencies?apiVersion=2026-03-10#list-issues-blocking-an-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "all_pages": {
+                "type": "boolean"
+            },
+            "max_pages": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

@@ -11798,3 +11798,62 @@ export type ListIssueEventsSuccess = {
 };
 export type ListIssueEventsFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_issue_dependencies_blocked_by`. */
+export type ListIssueDependenciesBlockedBySuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    issues: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueDependenciesBlockedByFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_issue_dependency_blocked_by`. */
+export type AddIssueDependencyBlockedBySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue_id: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddIssueDependencyBlockedByFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_issue_dependency_blocked_by`. */
+export type RemoveIssueDependencyBlockedBySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue_id: number;
+    request_id: string | null;
+};
+export type RemoveIssueDependencyBlockedByFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_issue_dependencies_blocking`. */
+export type ListIssueDependenciesBlockingSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    issues: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueDependenciesBlockingFailure = CreateRepoFailure;
+
