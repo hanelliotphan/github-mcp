@@ -1360,6 +1360,16 @@ import type {
     AddEnterpriseTeamOrganizationAssignmentFailure,
     DeleteEnterpriseTeamOrganizationAssignmentSuccess,
     DeleteEnterpriseTeamOrganizationAssignmentFailure,
+    ListEnterpriseTeamsSuccess,
+    ListEnterpriseTeamsFailure,
+    CreateEnterpriseTeamSuccess,
+    CreateEnterpriseTeamFailure,
+    GetEnterpriseTeamSuccess,
+    GetEnterpriseTeamFailure,
+    UpdateEnterpriseTeamSuccess,
+    UpdateEnterpriseTeamFailure,
+    DeleteEnterpriseTeamSuccess,
+    DeleteEnterpriseTeamFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3186,7 +3196,17 @@ export function textAndData(
         | AddEnterpriseTeamOrganizationAssignmentSuccess
         | AddEnterpriseTeamOrganizationAssignmentFailure
         | DeleteEnterpriseTeamOrganizationAssignmentSuccess
-        | DeleteEnterpriseTeamOrganizationAssignmentFailure) {
+        | DeleteEnterpriseTeamOrganizationAssignmentFailure
+        | ListEnterpriseTeamsSuccess
+        | ListEnterpriseTeamsFailure
+        | CreateEnterpriseTeamSuccess
+        | CreateEnterpriseTeamFailure
+        | GetEnterpriseTeamSuccess
+        | GetEnterpriseTeamFailure
+        | UpdateEnterpriseTeamSuccess
+        | UpdateEnterpriseTeamFailure
+        | DeleteEnterpriseTeamSuccess
+        | DeleteEnterpriseTeamFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

@@ -805,6 +805,11 @@ import { registerGithubBulkRemoveEnterpriseTeamOrganizationAssignmentsTool } fro
 import { registerGithubGetEnterpriseTeamOrganizationAssignmentTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-get-enterprise-team-organization-assignment.js";
 import { registerGithubAddEnterpriseTeamOrganizationAssignmentTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-add-enterprise-team-organization-assignment.js";
 import { registerGithubDeleteEnterpriseTeamOrganizationAssignmentTool } from "./tools/enterprise-teams/enterprise-team-organizations/github-delete-enterprise-team-organization-assignment.js";
+import { registerGithubListEnterpriseTeamsTool } from "./tools/enterprise-teams/enterprise-teams/github-list-enterprise-teams.js";
+import { registerGithubCreateEnterpriseTeamTool } from "./tools/enterprise-teams/enterprise-teams/github-create-enterprise-team.js";
+import { registerGithubGetEnterpriseTeamTool } from "./tools/enterprise-teams/enterprise-teams/github-get-enterprise-team.js";
+import { registerGithubUpdateEnterpriseTeamTool } from "./tools/enterprise-teams/enterprise-teams/github-update-enterprise-team.js";
+import { registerGithubDeleteEnterpriseTeamTool } from "./tools/enterprise-teams/enterprise-teams/github-delete-enterprise-team.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1624,6 +1629,11 @@ registerGithubBulkRemoveEnterpriseTeamOrganizationAssignmentsTool(server, octoki
 registerGithubGetEnterpriseTeamOrganizationAssignmentTool(server, octokit);
 registerGithubAddEnterpriseTeamOrganizationAssignmentTool(server, octokit);
 registerGithubDeleteEnterpriseTeamOrganizationAssignmentTool(server, octokit);
+registerGithubListEnterpriseTeamsTool(server, octokit);
+registerGithubCreateEnterpriseTeamTool(server, octokit);
+registerGithubGetEnterpriseTeamTool(server, octokit);
+registerGithubUpdateEnterpriseTeamTool(server, octokit);
+registerGithubDeleteEnterpriseTeamTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

@@ -1,0 +1,23 @@
+{
+  "name": "github_delete_enterprise_team",
+  "description": "Delete an enterprise team (DELETE /enterprises/{enterprise}/teams/{team_slug}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "team_slug": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "enterprise",
+      "team_slug"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

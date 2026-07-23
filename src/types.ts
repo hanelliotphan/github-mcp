@@ -11171,3 +11171,63 @@ export type DeleteEnterpriseTeamOrganizationAssignmentSuccess = {
 };
 export type DeleteEnterpriseTeamOrganizationAssignmentFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_enterprise_teams`. */
+export type ListEnterpriseTeamsSuccess = {
+    success: true;
+    message: string;
+    enterprise: string;
+    teams: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseTeamsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_enterprise_team`. */
+export type CreateEnterpriseTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    team: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateEnterpriseTeamFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_enterprise_team`. */
+export type GetEnterpriseTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    team_slug: string;
+    team: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetEnterpriseTeamFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_enterprise_team`. */
+export type UpdateEnterpriseTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    team_slug: string;
+    team: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateEnterpriseTeamFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_enterprise_team`. */
+export type DeleteEnterpriseTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    enterprise: string;
+    team_slug: string;
+    request_id: string | null;
+};
+export type DeleteEnterpriseTeamFailure = CreateRepoFailure;
