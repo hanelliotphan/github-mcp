@@ -11753,3 +11753,48 @@ export type CreateIssueCommentSuccess = {
 };
 export type CreateIssueCommentFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_issue_events`. */
+export type ListRepoIssueEventsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    events: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoIssueEventsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_issue_event`. */
+export type GetIssueEventSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    event_id: number;
+    event: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetIssueEventFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_issue_events`. */
+export type ListIssueEventsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    events: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueEventsFailure = CreateRepoFailure;
+

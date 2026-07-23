@@ -1454,6 +1454,12 @@ import type {
     ListIssueCommentsFailure,
     CreateIssueCommentSuccess,
     CreateIssueCommentFailure,
+    ListRepoIssueEventsSuccess,
+    ListRepoIssueEventsFailure,
+    GetIssueEventSuccess,
+    GetIssueEventFailure,
+    ListIssueEventsSuccess,
+    ListIssueEventsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3374,7 +3380,13 @@ export function textAndData(
         | ListIssueCommentsSuccess
         | ListIssueCommentsFailure
         | CreateIssueCommentSuccess
-        | CreateIssueCommentFailure) {
+        | CreateIssueCommentFailure
+        | ListRepoIssueEventsSuccess
+        | ListRepoIssueEventsFailure
+        | GetIssueEventSuccess
+        | GetIssueEventFailure
+        | ListIssueEventsSuccess
+        | ListIssueEventsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

@@ -851,6 +851,9 @@ import { registerGithubPinIssueCommentTool } from "./tools/issues/comments/githu
 import { registerGithubUnpinIssueCommentTool } from "./tools/issues/comments/github-unpin-issue-comment.js";
 import { registerGithubListIssueCommentsTool } from "./tools/issues/comments/github-list-issue-comments.js";
 import { registerGithubCreateIssueCommentTool } from "./tools/issues/comments/github-create-issue-comment.js";
+import { registerGithubListRepoIssueEventsTool } from "./tools/issues/events/github-list-repo-issue-events.js";
+import { registerGithubGetIssueEventTool } from "./tools/issues/events/github-get-issue-event.js";
+import { registerGithubListIssueEventsTool } from "./tools/issues/events/github-list-issue-events.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1718,6 +1721,9 @@ registerGithubPinIssueCommentTool(server, octokit);
 registerGithubUnpinIssueCommentTool(server, octokit);
 registerGithubListIssueCommentsTool(server, octokit);
 registerGithubCreateIssueCommentTool(server, octokit);
+registerGithubListRepoIssueEventsTool(server, octokit);
+registerGithubGetIssueEventTool(server, octokit);
+registerGithubListIssueEventsTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

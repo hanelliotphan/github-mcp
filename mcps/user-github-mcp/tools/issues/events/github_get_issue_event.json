@@ -1,0 +1,29 @@
+{
+    "name": "github_get_issue_event",
+    "description": "Get an issue event (GET /repos/{owner}/{repo}/issues/events/{event_id}). See [Get an issue event](https://docs.github.com/en/rest/issues/events?apiVersion=2026-03-10#get-an-issue-event).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "event_id": {
+                "type": "integer",
+                "minimum": 1
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "event_id"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}
