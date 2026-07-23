@@ -11857,3 +11857,58 @@ export type ListIssueDependenciesBlockingSuccess = {
 };
 export type ListIssueDependenciesBlockingFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_issue_field_values`. */
+export type ListIssueFieldValuesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    field_values: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueFieldValuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_issue_field_values`. */
+export type AddIssueFieldValuesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    field_values: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddIssueFieldValuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_issue_field_values`. */
+export type SetIssueFieldValuesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    field_values: Record<string, unknown>;
+    request_id: string | null;
+};
+export type SetIssueFieldValuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_issue_field_value`. */
+export type DeleteIssueFieldValueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue_field_id: number;
+    request_id: string | null;
+};
+export type DeleteIssueFieldValueFailure = CreateRepoFailure;
+

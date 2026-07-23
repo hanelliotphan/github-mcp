@@ -1468,6 +1468,14 @@ import type {
     RemoveIssueDependencyBlockedByFailure,
     ListIssueDependenciesBlockingSuccess,
     ListIssueDependenciesBlockingFailure,
+    ListIssueFieldValuesSuccess,
+    ListIssueFieldValuesFailure,
+    AddIssueFieldValuesSuccess,
+    AddIssueFieldValuesFailure,
+    SetIssueFieldValuesSuccess,
+    SetIssueFieldValuesFailure,
+    DeleteIssueFieldValueSuccess,
+    DeleteIssueFieldValueFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3402,7 +3410,15 @@ export function textAndData(
         | RemoveIssueDependencyBlockedBySuccess
         | RemoveIssueDependencyBlockedByFailure
         | ListIssueDependenciesBlockingSuccess
-        | ListIssueDependenciesBlockingFailure) {
+        | ListIssueDependenciesBlockingFailure
+        | ListIssueFieldValuesSuccess
+        | ListIssueFieldValuesFailure
+        | AddIssueFieldValuesSuccess
+        | AddIssueFieldValuesFailure
+        | SetIssueFieldValuesSuccess
+        | SetIssueFieldValuesFailure
+        | DeleteIssueFieldValueSuccess
+        | DeleteIssueFieldValueFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

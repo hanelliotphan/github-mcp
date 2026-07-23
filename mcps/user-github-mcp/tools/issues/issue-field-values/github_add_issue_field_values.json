@@ -1,0 +1,63 @@
+{
+    "name": "github_add_issue_field_values",
+    "description": "Add issue field values (POST /repos/{owner}/{repo}/issues/{issue_number}/issue-field-values). See [Add issue field values](https://docs.github.com/en/rest/issues/issue-field-values?apiVersion=2026-03-10#add-issue-field-values).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "issue_field_values": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "field_id": {
+                            "type": "integer",
+                            "minimum": 1
+                        },
+                        "value": {
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "field_id",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number",
+            "issue_field_values"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

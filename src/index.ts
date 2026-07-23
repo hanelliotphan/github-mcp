@@ -858,6 +858,10 @@ import { registerGithubListIssueDependenciesBlockedByTool } from "./tools/issues
 import { registerGithubAddIssueDependencyBlockedByTool } from "./tools/issues/issue-dependencies/github-add-issue-dependency-blocked-by.js";
 import { registerGithubRemoveIssueDependencyBlockedByTool } from "./tools/issues/issue-dependencies/github-remove-issue-dependency-blocked-by.js";
 import { registerGithubListIssueDependenciesBlockingTool } from "./tools/issues/issue-dependencies/github-list-issue-dependencies-blocking.js";
+import { registerGithubListIssueFieldValuesTool } from "./tools/issues/issue-field-values/github-list-issue-field-values.js";
+import { registerGithubAddIssueFieldValuesTool } from "./tools/issues/issue-field-values/github-add-issue-field-values.js";
+import { registerGithubSetIssueFieldValuesTool } from "./tools/issues/issue-field-values/github-set-issue-field-values.js";
+import { registerGithubDeleteIssueFieldValueTool } from "./tools/issues/issue-field-values/github-delete-issue-field-value.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1732,6 +1736,10 @@ registerGithubListIssueDependenciesBlockedByTool(server, octokit);
 registerGithubAddIssueDependencyBlockedByTool(server, octokit);
 registerGithubRemoveIssueDependencyBlockedByTool(server, octokit);
 registerGithubListIssueDependenciesBlockingTool(server, octokit);
+registerGithubListIssueFieldValuesTool(server, octokit);
+registerGithubAddIssueFieldValuesTool(server, octokit);
+registerGithubSetIssueFieldValuesTool(server, octokit);
+registerGithubDeleteIssueFieldValueTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
