@@ -721,6 +721,16 @@ import { registerGithubCreateUserCopilotSpaceTool } from "./tools/copilot-spaces
 import { registerGithubGetUserCopilotSpaceTool } from "./tools/copilot-spaces/copilot-spaces/github-get-user-copilot-space.js";
 import { registerGithubSetUserCopilotSpaceTool } from "./tools/copilot-spaces/copilot-spaces/github-set-user-copilot-space.js";
 import { registerGithubDeleteUserCopilotSpaceTool } from "./tools/copilot-spaces/copilot-spaces/github-delete-user-copilot-space.js";
+import { registerGithubListOrgCopilotSpaceResourcesTool } from "./tools/copilot-spaces/resources/github-list-org-copilot-space-resources.js";
+import { registerGithubCreateOrgCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-create-org-copilot-space-resource.js";
+import { registerGithubGetOrgCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-get-org-copilot-space-resource.js";
+import { registerGithubSetOrgCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-set-org-copilot-space-resource.js";
+import { registerGithubDeleteOrgCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-delete-org-copilot-space-resource.js";
+import { registerGithubListUserCopilotSpaceResourcesTool } from "./tools/copilot-spaces/resources/github-list-user-copilot-space-resources.js";
+import { registerGithubCreateUserCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-create-user-copilot-space-resource.js";
+import { registerGithubGetUserCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-get-user-copilot-space-resource.js";
+import { registerGithubSetUserCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-set-user-copilot-space-resource.js";
+import { registerGithubDeleteUserCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-delete-user-copilot-space-resource.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
     auth: token,
@@ -1454,6 +1464,16 @@ registerGithubCreateUserCopilotSpaceTool(server, octokit);
 registerGithubGetUserCopilotSpaceTool(server, octokit);
 registerGithubSetUserCopilotSpaceTool(server, octokit);
 registerGithubDeleteUserCopilotSpaceTool(server, octokit);
+registerGithubListOrgCopilotSpaceResourcesTool(server, octokit);
+registerGithubCreateOrgCopilotSpaceResourceTool(server, octokit);
+registerGithubGetOrgCopilotSpaceResourceTool(server, octokit);
+registerGithubSetOrgCopilotSpaceResourceTool(server, octokit);
+registerGithubDeleteOrgCopilotSpaceResourceTool(server, octokit);
+registerGithubListUserCopilotSpaceResourcesTool(server, octokit);
+registerGithubCreateUserCopilotSpaceResourceTool(server, octokit);
+registerGithubGetUserCopilotSpaceResourceTool(server, octokit);
+registerGithubSetUserCopilotSpaceResourceTool(server, octokit);
+registerGithubDeleteUserCopilotSpaceResourceTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

@@ -1202,6 +1202,26 @@ import type {
     SetUserCopilotSpaceFailure,
     DeleteUserCopilotSpaceSuccess,
     DeleteUserCopilotSpaceFailure,
+    ListOrgCopilotSpaceResourcesSuccess,
+    ListOrgCopilotSpaceResourcesFailure,
+    CreateOrgCopilotSpaceResourceSuccess,
+    CreateOrgCopilotSpaceResourceFailure,
+    GetOrgCopilotSpaceResourceSuccess,
+    GetOrgCopilotSpaceResourceFailure,
+    SetOrgCopilotSpaceResourceSuccess,
+    SetOrgCopilotSpaceResourceFailure,
+    DeleteOrgCopilotSpaceResourceSuccess,
+    DeleteOrgCopilotSpaceResourceFailure,
+    ListUserCopilotSpaceResourcesSuccess,
+    ListUserCopilotSpaceResourcesFailure,
+    CreateUserCopilotSpaceResourceSuccess,
+    CreateUserCopilotSpaceResourceFailure,
+    GetUserCopilotSpaceResourceSuccess,
+    GetUserCopilotSpaceResourceFailure,
+    SetUserCopilotSpaceResourceSuccess,
+    SetUserCopilotSpaceResourceFailure,
+    DeleteUserCopilotSpaceResourceSuccess,
+    DeleteUserCopilotSpaceResourceFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2779,6 +2799,26 @@ export function textAndData(
         | SetUserCopilotSpaceFailure
         | DeleteUserCopilotSpaceSuccess
         | DeleteUserCopilotSpaceFailure
+        | ListOrgCopilotSpaceResourcesSuccess
+        | ListOrgCopilotSpaceResourcesFailure
+        | CreateOrgCopilotSpaceResourceSuccess
+        | CreateOrgCopilotSpaceResourceFailure
+        | GetOrgCopilotSpaceResourceSuccess
+        | GetOrgCopilotSpaceResourceFailure
+        | SetOrgCopilotSpaceResourceSuccess
+        | SetOrgCopilotSpaceResourceFailure
+        | DeleteOrgCopilotSpaceResourceSuccess
+        | DeleteOrgCopilotSpaceResourceFailure
+        | ListUserCopilotSpaceResourcesSuccess
+        | ListUserCopilotSpaceResourcesFailure
+        | CreateUserCopilotSpaceResourceSuccess
+        | CreateUserCopilotSpaceResourceFailure
+        | GetUserCopilotSpaceResourceSuccess
+        | GetUserCopilotSpaceResourceFailure
+        | SetUserCopilotSpaceResourceSuccess
+        | SetUserCopilotSpaceResourceFailure
+        | DeleteUserCopilotSpaceResourceSuccess
+        | DeleteUserCopilotSpaceResourceFailure
         | SetEnterpriseCopilotCodingAgentPolicySuccess
         | SetEnterpriseCopilotCodingAgentPolicyFailure
         | AddEnterpriseCopilotCodingAgentOrganizationsSuccess

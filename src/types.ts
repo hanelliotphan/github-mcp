@@ -10310,3 +10310,125 @@ export type DeleteUserCopilotSpaceSuccess = {
     space_number: number;
 };
 export type DeleteUserCopilotSpaceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_copilot_space_resources`. */
+export type ListOrgCopilotSpaceResourcesSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    resources: Record<string, unknown>[];
+};
+export type ListOrgCopilotSpaceResourcesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_copilot_space_resource`. */
+export type CreateOrgCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    resource_type: "repository" | "github_file" | "free_text" | "github_issue" | "github_pull_request";
+    resource: Record<string, unknown>;
+};
+export type CreateOrgCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_copilot_space_resource`. */
+export type GetOrgCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    space_resource_id: number;
+    resource: Record<string, unknown>;
+};
+export type GetOrgCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_copilot_space_resource`. */
+export type SetOrgCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    space_resource_id: number;
+    resource: Record<string, unknown>;
+};
+export type SetOrgCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_copilot_space_resource`. */
+export type DeleteOrgCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    org: string;
+    space_number: number;
+    space_resource_id: number;
+};
+export type DeleteOrgCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_copilot_space_resources`. */
+export type ListUserCopilotSpaceResourcesSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    resources: Record<string, unknown>[];
+};
+export type ListUserCopilotSpaceResourcesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_user_copilot_space_resource`. */
+export type CreateUserCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    resource_type: "repository" | "github_file" | "free_text" | "github_issue" | "github_pull_request";
+    resource: Record<string, unknown>;
+};
+export type CreateUserCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_copilot_space_resource`. */
+export type GetUserCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    space_resource_id: number;
+    resource: Record<string, unknown>;
+};
+export type GetUserCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_user_copilot_space_resource`. */
+export type SetUserCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    space_resource_id: number;
+    resource: Record<string, unknown>;
+};
+export type SetUserCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_user_copilot_space_resource`. */
+export type DeleteUserCopilotSpaceResourceSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+    username: string;
+    space_number: number;
+    space_resource_id: number;
+};
+export type DeleteUserCopilotSpaceResourceFailure = CreateRepoFailure;

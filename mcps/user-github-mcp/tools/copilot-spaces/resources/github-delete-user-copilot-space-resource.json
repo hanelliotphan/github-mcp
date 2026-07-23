@@ -1,0 +1,10 @@
+{
+  "name": "github_delete_user_copilot_space_resource",
+  "description": "Delete a resource from a user Copilot Space (DELETE /users/{username}/copilot-spaces/{space_number}/resources/{space_resource_id}). Returns HTTP 204.",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
