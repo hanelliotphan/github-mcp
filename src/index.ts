@@ -838,6 +838,11 @@ import { registerGithubSetRepoInteractionLimitsTool } from "./tools/interactions
 import { registerGithubUpdateRepoPullRequestCreationCapTool } from "./tools/interactions/repos/github-update-repo-pull-request-creation-cap.js";
 import { registerGithubGetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-get-authenticated-user-interaction-limits.js";
 import { registerGithubRemoveAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-remove-authenticated-user-interaction-limits.js";
+import { registerGithubListRepoAssigneesTool } from "./tools/issues/assignees/github-list-repo-assignees.js";
+import { registerGithubCheckUserCanBeAssignedTool } from "./tools/issues/assignees/github-check-user-can-be-assigned.js";
+import { registerGithubAddIssueAssigneesTool } from "./tools/issues/assignees/github-add-issue-assignees.js";
+import { registerGithubRemoveIssueAssigneesTool } from "./tools/issues/assignees/github-remove-issue-assignees.js";
+import { registerGithubCheckUserCanBeAssignedToIssueTool } from "./tools/issues/assignees/github-check-user-can-be-assigned-to-issue.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1692,6 +1697,11 @@ registerGithubUpdateRepoPullRequestCreationCapTool(server, octokit);
 registerGithubGetAuthenticatedUserInteractionLimitsTool(server, octokit);
 registerGithubSetAuthenticatedUserInteractionLimitsTool(server, octokit);
 registerGithubRemoveAuthenticatedUserInteractionLimitsTool(server, octokit);
+registerGithubListRepoAssigneesTool(server, octokit);
+registerGithubCheckUserCanBeAssignedTool(server, octokit);
+registerGithubAddIssueAssigneesTool(server, octokit);
+registerGithubRemoveIssueAssigneesTool(server, octokit);
+registerGithubCheckUserCanBeAssignedToIssueTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

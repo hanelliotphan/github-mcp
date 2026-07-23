@@ -1428,6 +1428,16 @@ import type {
     SetAuthenticatedUserInteractionLimitsFailure,
     RemoveAuthenticatedUserInteractionLimitsSuccess,
     RemoveAuthenticatedUserInteractionLimitsFailure,
+    ListRepoAssigneesSuccess,
+    ListRepoAssigneesFailure,
+    CheckUserCanBeAssignedSuccess,
+    CheckUserCanBeAssignedFailure,
+    AddIssueAssigneesSuccess,
+    AddIssueAssigneesFailure,
+    RemoveIssueAssigneesSuccess,
+    RemoveIssueAssigneesFailure,
+    CheckUserCanBeAssignedToIssueSuccess,
+    CheckUserCanBeAssignedToIssueFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3322,7 +3332,17 @@ export function textAndData(
         | SetAuthenticatedUserInteractionLimitsSuccess
         | SetAuthenticatedUserInteractionLimitsFailure
         | RemoveAuthenticatedUserInteractionLimitsSuccess
-        | RemoveAuthenticatedUserInteractionLimitsFailure) {
+        | RemoveAuthenticatedUserInteractionLimitsFailure
+        | ListRepoAssigneesSuccess
+        | ListRepoAssigneesFailure
+        | CheckUserCanBeAssignedSuccess
+        | CheckUserCanBeAssignedFailure
+        | AddIssueAssigneesSuccess
+        | AddIssueAssigneesFailure
+        | RemoveIssueAssigneesSuccess
+        | RemoveIssueAssigneesFailure
+        | CheckUserCanBeAssignedToIssueSuccess
+        | CheckUserCanBeAssignedToIssueFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

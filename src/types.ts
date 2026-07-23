@@ -11575,3 +11575,73 @@ export type RemoveAuthenticatedUserInteractionLimitsSuccess = {
     request_id: string | null;
 };
 export type RemoveAuthenticatedUserInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_assignees`. */
+export type ListRepoAssigneesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    assignees: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoAssigneesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_check_user_can_be_assigned`. */
+export type CheckUserCanBeAssignedSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    assignee: string;
+    can_be_assigned: boolean;
+    http_status: number;
+    request_id: string | null;
+};
+export type CheckUserCanBeAssignedFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_issue_assignees`. */
+export type AddIssueAssigneesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddIssueAssigneesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_issue_assignees`. */
+export type RemoveIssueAssigneesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type RemoveIssueAssigneesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_check_user_can_be_assigned_to_issue`. */
+export type CheckUserCanBeAssignedToIssueSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    issue_number: number;
+    assignee: string;
+    can_be_assigned: boolean;
+    http_status: number;
+    request_id: string | null;
+};
+export type CheckUserCanBeAssignedToIssueFailure = CreateRepoFailure;
+

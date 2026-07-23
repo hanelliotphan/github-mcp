@@ -1,0 +1,37 @@
+{
+    "name": "github_remove_issue_assignees",
+    "description": "Remove assignees from an issue (DELETE /repos/{owner}/{repo}/issues/{issue_number}/assignees). See [Remove assignees from an issue](https://docs.github.com/en/rest/issues/assignees?apiVersion=2026-03-10#remove-assignees-from-an-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "assignees": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "minItems": 1
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number",
+            "assignees"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}
