@@ -1310,6 +1310,14 @@ import type {
     GetRepoDeploymentFailure,
     DeleteRepoDeploymentSuccess,
     DeleteRepoDeploymentFailure,
+    ListRepoEnvironmentsSuccess,
+    ListRepoEnvironmentsFailure,
+    GetRepoEnvironmentSuccess,
+    GetRepoEnvironmentFailure,
+    CreateOrUpdateRepoEnvironmentSuccess,
+    CreateOrUpdateRepoEnvironmentFailure,
+    DeleteRepoEnvironmentSuccess,
+    DeleteRepoEnvironmentFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3086,7 +3094,15 @@ export function textAndData(
         | GetRepoDeploymentSuccess
         | GetRepoDeploymentFailure
         | DeleteRepoDeploymentSuccess
-        | DeleteRepoDeploymentFailure) {
+        | DeleteRepoDeploymentFailure
+        | ListRepoEnvironmentsSuccess
+        | ListRepoEnvironmentsFailure
+        | GetRepoEnvironmentSuccess
+        | GetRepoEnvironmentFailure
+        | CreateOrUpdateRepoEnvironmentSuccess
+        | CreateOrUpdateRepoEnvironmentFailure
+        | DeleteRepoEnvironmentSuccess
+        | DeleteRepoEnvironmentFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

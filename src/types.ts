@@ -10830,3 +10830,58 @@ export type DeleteRepoDeploymentSuccess = {
 };
 export type DeleteRepoDeploymentFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_environments`. */
+export type ListRepoEnvironmentsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    total_count: number;
+    environments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoEnvironmentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_environment`. */
+export type GetRepoEnvironmentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+    environment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoEnvironmentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_or_update_repo_environment`. */
+export type CreateOrUpdateRepoEnvironmentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+    environment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrUpdateRepoEnvironmentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_environment`. */
+export type DeleteRepoEnvironmentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+    request_id: string | null;
+};
+export type DeleteRepoEnvironmentFailure = CreateRepoFailure;
+

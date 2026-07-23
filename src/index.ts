@@ -780,6 +780,10 @@ import { registerGithubListRepoDeploymentsTool } from "./tools/deployments/deplo
 import { registerGithubCreateRepoDeploymentTool } from "./tools/deployments/deployments/github-create-repo-deployment.js";
 import { registerGithubGetRepoDeploymentTool } from "./tools/deployments/deployments/github-get-repo-deployment.js";
 import { registerGithubDeleteRepoDeploymentTool } from "./tools/deployments/deployments/github-delete-repo-deployment.js";
+import { registerGithubListRepoEnvironmentsTool } from "./tools/deployments/environments/github-list-repo-environments.js";
+import { registerGithubGetRepoEnvironmentTool } from "./tools/deployments/environments/github-get-repo-environment.js";
+import { registerGithubCreateOrUpdateRepoEnvironmentTool } from "./tools/deployments/environments/github-create-or-update-repo-environment.js";
+import { registerGithubDeleteRepoEnvironmentTool } from "./tools/deployments/environments/github-delete-repo-environment.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1574,6 +1578,10 @@ registerGithubListRepoDeploymentsTool(server, octokit);
 registerGithubCreateRepoDeploymentTool(server, octokit);
 registerGithubGetRepoDeploymentTool(server, octokit);
 registerGithubDeleteRepoDeploymentTool(server, octokit);
+registerGithubListRepoEnvironmentsTool(server, octokit);
+registerGithubGetRepoEnvironmentTool(server, octokit);
+registerGithubCreateOrUpdateRepoEnvironmentTool(server, octokit);
+registerGithubDeleteRepoEnvironmentTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
