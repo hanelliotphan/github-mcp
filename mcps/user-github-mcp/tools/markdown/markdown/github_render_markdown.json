@@ -1,0 +1,28 @@
+{
+  "name": "github_render_markdown",
+  "description": "Render a Markdown document to HTML (POST /markdown).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "minLength": 1
+      },
+      "mode": {
+        "type": "string",
+        "enum": [
+          "markdown",
+          "gfm"
+        ]
+      },
+      "context": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "text"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

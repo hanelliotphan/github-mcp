@@ -896,6 +896,8 @@ import { registerGithubListIssueTimelineEventsTool } from "./tools/issues/timeli
 import { registerGithubListCommonlyUsedLicensesTool } from "./tools/licenses/licenses/github-list-commonly-used-licenses.js";
 import { registerGithubGetLicenseTool } from "./tools/licenses/licenses/github-get-license.js";
 import { registerGithubGetRepoLicenseTool } from "./tools/licenses/licenses/github-get-repo-license.js";
+import { registerGithubRenderMarkdownTool } from "./tools/markdown/markdown/github-render-markdown.js";
+import { registerGithubRenderMarkdownRawTool } from "./tools/markdown/markdown/github-render-markdown-raw.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1808,6 +1810,8 @@ registerGithubListIssueTimelineEventsTool(server, octokit);
 registerGithubListCommonlyUsedLicensesTool(server, octokit);
 registerGithubGetLicenseTool(server, octokit);
 registerGithubGetRepoLicenseTool(server, octokit);
+registerGithubRenderMarkdownTool(server, octokit);
+registerGithubRenderMarkdownRawTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

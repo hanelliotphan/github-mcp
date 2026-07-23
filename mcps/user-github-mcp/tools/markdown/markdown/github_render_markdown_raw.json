@@ -1,0 +1,17 @@
+{
+  "name": "github_render_markdown_raw",
+  "description": "Render Markdown as plain (non-GFM) HTML (POST /markdown/raw).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "text"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

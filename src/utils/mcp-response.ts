@@ -1544,6 +1544,10 @@ import type {
     GetLicenseFailure,
     GetRepoLicenseSuccess,
     GetRepoLicenseFailure,
+    RenderMarkdownSuccess,
+    RenderMarkdownFailure,
+    RenderMarkdownRawSuccess,
+    RenderMarkdownRawFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3554,7 +3558,11 @@ export function textAndData(
         | GetLicenseSuccess
         | GetLicenseFailure
         | GetRepoLicenseSuccess
-        | GetRepoLicenseFailure) {
+        | GetRepoLicenseFailure
+        | RenderMarkdownSuccess
+        | RenderMarkdownFailure
+        | RenderMarkdownRawSuccess
+        | RenderMarkdownRawFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

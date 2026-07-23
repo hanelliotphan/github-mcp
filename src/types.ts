@@ -12372,3 +12372,23 @@ export type GetRepoLicenseSuccess = {
     request_id: string | null;
 };
 export type GetRepoLicenseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_render_markdown`. */
+export type RenderMarkdownSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    html: string;
+    request_id: string | null;
+};
+export type RenderMarkdownFailure = CreateRepoFailure;
+
+/** MCP tool: `github_render_markdown_raw`. */
+export type RenderMarkdownRawSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    html: string;
+    request_id: string | null;
+};
+export type RenderMarkdownRawFailure = CreateRepoFailure;
