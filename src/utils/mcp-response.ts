@@ -1422,6 +1422,12 @@ import type {
     GetRepoPullRequestCreationCapFailure,
     UpdateRepoPullRequestCreationCapSuccess,
     UpdateRepoPullRequestCreationCapFailure,
+    GetAuthenticatedUserInteractionLimitsSuccess,
+    GetAuthenticatedUserInteractionLimitsFailure,
+    SetAuthenticatedUserInteractionLimitsSuccess,
+    SetAuthenticatedUserInteractionLimitsFailure,
+    RemoveAuthenticatedUserInteractionLimitsSuccess,
+    RemoveAuthenticatedUserInteractionLimitsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3310,7 +3316,13 @@ export function textAndData(
         | GetRepoPullRequestCreationCapSuccess
         | GetRepoPullRequestCreationCapFailure
         | UpdateRepoPullRequestCreationCapSuccess
-        | UpdateRepoPullRequestCreationCapFailure) {
+        | UpdateRepoPullRequestCreationCapFailure
+        | GetAuthenticatedUserInteractionLimitsSuccess
+        | GetAuthenticatedUserInteractionLimitsFailure
+        | SetAuthenticatedUserInteractionLimitsSuccess
+        | SetAuthenticatedUserInteractionLimitsFailure
+        | RemoveAuthenticatedUserInteractionLimitsSuccess
+        | RemoveAuthenticatedUserInteractionLimitsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

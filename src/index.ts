@@ -836,6 +836,9 @@ import { registerGithubRemoveRepoInteractionLimitsTool } from "./tools/interacti
 import { registerGithubRemoveRepoPullRequestCreationCapBypassUsersTool } from "./tools/interactions/repos/github-remove-repo-pull-request-creation-cap-bypass-users.js";
 import { registerGithubSetRepoInteractionLimitsTool } from "./tools/interactions/repos/github-set-repo-interaction-limits.js";
 import { registerGithubUpdateRepoPullRequestCreationCapTool } from "./tools/interactions/repos/github-update-repo-pull-request-creation-cap.js";
+import { registerGithubGetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-get-authenticated-user-interaction-limits.js";
+import { registerGithubRemoveAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-remove-authenticated-user-interaction-limits.js";
+import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1686,6 +1689,9 @@ registerGithubAddRepoPullRequestCreationCapBypassUsersTool(server, octokit);
 registerGithubRemoveRepoPullRequestCreationCapBypassUsersTool(server, octokit);
 registerGithubGetRepoPullRequestCreationCapTool(server, octokit);
 registerGithubUpdateRepoPullRequestCreationCapTool(server, octokit);
+registerGithubGetAuthenticatedUserInteractionLimitsTool(server, octokit);
+registerGithubSetAuthenticatedUserInteractionLimitsTool(server, octokit);
+registerGithubRemoveAuthenticatedUserInteractionLimitsTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

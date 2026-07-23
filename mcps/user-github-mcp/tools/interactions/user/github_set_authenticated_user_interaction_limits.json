@@ -1,0 +1,31 @@
+{
+  "name": "github_set_authenticated_user_interaction_limits",
+  "description": "Set interaction restrictions for the authenticated user's public repositories (PUT /user/interaction-limits).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "limit": {
+        "type": "string",
+        "enum": [
+          "existing_users",
+          "contributors_only",
+          "collaborators_only"
+        ]
+      },
+      "expiry": {
+        "type": "string",
+        "enum": [
+          "one_day",
+          "three_days",
+          "one_week",
+          "one_month",
+          "six_months"
+        ]
+      }
+    },
+    "required": [
+      "limit"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

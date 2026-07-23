@@ -1,0 +1,9 @@
+{
+  "name": "github_get_authenticated_user_interaction_limits",
+  "description": "Get interaction restrictions for the authenticated user's public repositories (GET /user/interaction-limits).",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

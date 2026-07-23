@@ -11547,3 +11547,31 @@ export type UpdateRepoPullRequestCreationCapSuccess = {
 };
 export type UpdateRepoPullRequestCreationCapFailure = CreateRepoFailure;
 
+/** MCP tool: `github_get_authenticated_user_interaction_limits`. */
+export type GetAuthenticatedUserInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    interaction_limits: Record<string, unknown> | null;
+    request_id: string | null;
+};
+export type GetAuthenticatedUserInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_authenticated_user_interaction_limits`. */
+export type SetAuthenticatedUserInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    interaction_limits: Record<string, unknown>;
+    request_id: string | null;
+};
+export type SetAuthenticatedUserInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_authenticated_user_interaction_limits`. */
+export type RemoveAuthenticatedUserInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+};
+export type RemoveAuthenticatedUserInteractionLimitsFailure = CreateRepoFailure;
