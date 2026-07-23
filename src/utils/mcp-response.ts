@@ -1222,6 +1222,8 @@ import type {
     SetUserCopilotSpaceResourceFailure,
     DeleteUserCopilotSpaceResourceSuccess,
     DeleteUserCopilotSpaceResourceFailure,
+    RevokeCredentialsSuccess,
+    RevokeCredentialsFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2886,7 +2888,9 @@ export function textAndData(
         | RemoveOrgCopilotSeatsForUsersSuccess
         | RemoveOrgCopilotSeatsForUsersFailure
         | GetOrgCopilotSeatDetailsForUserSuccess
-        | GetOrgCopilotSeatDetailsForUserFailure) {
+        | GetOrgCopilotSeatDetailsForUserFailure
+        | RevokeCredentialsSuccess
+        | RevokeCredentialsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

@@ -10432,3 +10432,14 @@ export type DeleteUserCopilotSpaceResourceSuccess = {
     space_resource_id: number;
 };
 export type DeleteUserCopilotSpaceResourceFailure = CreateRepoFailure;
+
+/** MCP tool: `github_revoke_credentials`. */
+export type RevokeCredentialsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    credentials_count: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type RevokeCredentialsFailure = CreateRepoFailure;
