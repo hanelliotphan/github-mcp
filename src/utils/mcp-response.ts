@@ -1516,6 +1516,16 @@ import type {
     DeleteRepoLabelFailure,
     ListMilestoneLabelsSuccess,
     ListMilestoneLabelsFailure,
+    ListRepoMilestonesSuccess,
+    ListRepoMilestonesFailure,
+    CreateRepoMilestoneSuccess,
+    CreateRepoMilestoneFailure,
+    GetRepoMilestoneSuccess,
+    GetRepoMilestoneFailure,
+    UpdateRepoMilestoneSuccess,
+    UpdateRepoMilestoneFailure,
+    DeleteRepoMilestoneSuccess,
+    DeleteRepoMilestoneFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3498,7 +3508,17 @@ export function textAndData(
         | DeleteRepoLabelSuccess
         | DeleteRepoLabelFailure
         | ListMilestoneLabelsSuccess
-        | ListMilestoneLabelsFailure) {
+        | ListMilestoneLabelsFailure
+        | ListRepoMilestonesSuccess
+        | ListRepoMilestonesFailure
+        | CreateRepoMilestoneSuccess
+        | CreateRepoMilestoneFailure
+        | GetRepoMilestoneSuccess
+        | GetRepoMilestoneFailure
+        | UpdateRepoMilestoneSuccess
+        | UpdateRepoMilestoneFailure
+        | DeleteRepoMilestoneSuccess
+        | DeleteRepoMilestoneFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

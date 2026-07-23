@@ -1,0 +1,63 @@
+{
+    "name": "github_list_repo_milestones",
+    "description": "List milestones (GET /repos/{owner}/{repo}/milestones). Optional state, sort, direction filters. Page pagination. See [List milestones](https://docs.github.com/en/rest/issues/milestones?apiVersion=2026-03-10#list-milestones).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "state": {
+                "type": "string",
+                "enum": [
+                    "open",
+                    "closed",
+                    "all"
+                ]
+            },
+            "sort": {
+                "type": "string",
+                "enum": [
+                    "due_on",
+                    "completeness"
+                ]
+            },
+            "direction": {
+                "type": "string",
+                "enum": [
+                    "asc",
+                    "desc"
+                ]
+            },
+            "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "all_pages": {
+                "type": "boolean"
+            },
+            "max_pages": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+            }
+        },
+        "required": [
+            "owner",
+            "name"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

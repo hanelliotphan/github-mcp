@@ -882,6 +882,11 @@ import { registerGithubGetRepoLabelTool } from "./tools/issues/labels/github-get
 import { registerGithubUpdateRepoLabelTool } from "./tools/issues/labels/github-update-repo-label.js";
 import { registerGithubDeleteRepoLabelTool } from "./tools/issues/labels/github-delete-repo-label.js";
 import { registerGithubListMilestoneLabelsTool } from "./tools/issues/labels/github-list-milestone-labels.js";
+import { registerGithubListRepoMilestonesTool } from "./tools/issues/milestones/github-list-repo-milestones.js";
+import { registerGithubCreateRepoMilestoneTool } from "./tools/issues/milestones/github-create-repo-milestone.js";
+import { registerGithubGetRepoMilestoneTool } from "./tools/issues/milestones/github-get-repo-milestone.js";
+import { registerGithubUpdateRepoMilestoneTool } from "./tools/issues/milestones/github-update-repo-milestone.js";
+import { registerGithubDeleteRepoMilestoneTool } from "./tools/issues/milestones/github-delete-repo-milestone.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1780,6 +1785,11 @@ registerGithubGetRepoLabelTool(server, octokit);
 registerGithubUpdateRepoLabelTool(server, octokit);
 registerGithubDeleteRepoLabelTool(server, octokit);
 registerGithubListMilestoneLabelsTool(server, octokit);
+registerGithubListRepoMilestonesTool(server, octokit);
+registerGithubCreateRepoMilestoneTool(server, octokit);
+registerGithubGetRepoMilestoneTool(server, octokit);
+registerGithubUpdateRepoMilestoneTool(server, octokit);
+registerGithubDeleteRepoMilestoneTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

@@ -1,0 +1,42 @@
+{
+    "name": "github_create_repo_milestone",
+    "description": "Create a milestone (POST /repos/{owner}/{repo}/milestones). Required title; optional state, description, due_on. Success is HTTP 201. See [Create a milestone](https://docs.github.com/en/rest/issues/milestones?apiVersion=2026-03-10#create-a-milestone).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "title": {
+                "type": "string",
+                "minLength": 1
+            },
+            "state": {
+                "type": "string",
+                "enum": [
+                    "open",
+                    "closed"
+                ]
+            },
+            "description": {
+                "type": "string"
+            },
+            "due_on": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "title"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

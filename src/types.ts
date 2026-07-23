@@ -12183,3 +12183,69 @@ export type ListMilestoneLabelsSuccess = {
 };
 export type ListMilestoneLabelsFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_milestones`. */
+export type ListRepoMilestonesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    milestones: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoMilestonesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_milestone`. */
+export type CreateRepoMilestoneSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    milestone: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoMilestoneFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_milestone`. */
+export type GetRepoMilestoneSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    milestone_number: number;
+    milestone: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoMilestoneFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_milestone`. */
+export type UpdateRepoMilestoneSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    milestone_number: number;
+    milestone: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoMilestoneFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_milestone`. */
+export type DeleteRepoMilestoneSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    milestone_number: number;
+    request_id: string | null;
+};
+export type DeleteRepoMilestoneFailure = CreateRepoFailure;
+
