@@ -1,0 +1,41 @@
+{
+    "name": "github_create_repo_environment_deployment_branch_policy",
+    "description": "Create a deployment branch policy for a repository environment.",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "environment_name": {
+                "type": "string",
+                "minLength": 1
+            },
+            "policy_name": {
+                "type": "string",
+                "minLength": 1
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "branch",
+                    "tag"
+                ]
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "environment_name",
+            "policy_name"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

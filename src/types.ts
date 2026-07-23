@@ -10705,4 +10705,75 @@ export type DeleteRepoDeployKeySuccess = {
 };
 export type DeleteRepoDeployKeyFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_environment_deployment_branch_policies`. */
+export type ListRepoEnvironmentDeploymentBranchPoliciesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    environment_name: string;
+    total_count: number;
+    branch_policies: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoEnvironmentDeploymentBranchPoliciesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_environment_deployment_branch_policy`. */
+export type CreateRepoEnvironmentDeploymentBranchPolicySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+    branch_policy: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoEnvironmentDeploymentBranchPolicyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_environment_deployment_branch_policy`. */
+export type GetRepoEnvironmentDeploymentBranchPolicySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+        branch_policy_id: number;
+    branch_policy: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoEnvironmentDeploymentBranchPolicyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_environment_deployment_branch_policy`. */
+export type UpdateRepoEnvironmentDeploymentBranchPolicySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+        branch_policy_id: number;
+    branch_policy: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoEnvironmentDeploymentBranchPolicyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_environment_deployment_branch_policy`. */
+export type DeleteRepoEnvironmentDeploymentBranchPolicySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    environment_name: string;
+        branch_policy_id: number;
+    request_id: string | null;
+};
+export type DeleteRepoEnvironmentDeploymentBranchPolicyFailure = CreateRepoFailure;
 

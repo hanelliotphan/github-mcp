@@ -1292,6 +1292,16 @@ import type {
     GetRepoDeployKeyFailure,
     DeleteRepoDeployKeySuccess,
     DeleteRepoDeployKeyFailure,
+    ListRepoEnvironmentDeploymentBranchPoliciesSuccess,
+    ListRepoEnvironmentDeploymentBranchPoliciesFailure,
+    CreateRepoEnvironmentDeploymentBranchPolicySuccess,
+    CreateRepoEnvironmentDeploymentBranchPolicyFailure,
+    GetRepoEnvironmentDeploymentBranchPolicySuccess,
+    GetRepoEnvironmentDeploymentBranchPolicyFailure,
+    UpdateRepoEnvironmentDeploymentBranchPolicySuccess,
+    UpdateRepoEnvironmentDeploymentBranchPolicyFailure,
+    DeleteRepoEnvironmentDeploymentBranchPolicySuccess,
+    DeleteRepoEnvironmentDeploymentBranchPolicyFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3050,7 +3060,17 @@ export function textAndData(
         | GetRepoDeployKeySuccess
         | GetRepoDeployKeyFailure
         | DeleteRepoDeployKeySuccess
-        | DeleteRepoDeployKeyFailure) {
+        | DeleteRepoDeployKeyFailure
+        | ListRepoEnvironmentDeploymentBranchPoliciesSuccess
+        | ListRepoEnvironmentDeploymentBranchPoliciesFailure
+        | CreateRepoEnvironmentDeploymentBranchPolicySuccess
+        | CreateRepoEnvironmentDeploymentBranchPolicyFailure
+        | GetRepoEnvironmentDeploymentBranchPolicySuccess
+        | GetRepoEnvironmentDeploymentBranchPolicyFailure
+        | UpdateRepoEnvironmentDeploymentBranchPolicySuccess
+        | UpdateRepoEnvironmentDeploymentBranchPolicyFailure
+        | DeleteRepoEnvironmentDeploymentBranchPolicySuccess
+        | DeleteRepoEnvironmentDeploymentBranchPolicyFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

@@ -771,6 +771,11 @@ import { registerGithubListRepoDeployKeysTool } from "./tools/deploy-keys/deploy
 import { registerGithubCreateRepoDeployKeyTool } from "./tools/deploy-keys/deploy-keys/github-create-repo-deploy-key.js";
 import { registerGithubGetRepoDeployKeyTool } from "./tools/deploy-keys/deploy-keys/github-get-repo-deploy-key.js";
 import { registerGithubDeleteRepoDeployKeyTool } from "./tools/deploy-keys/deploy-keys/github-delete-repo-deploy-key.js";
+import { registerGithubListRepoEnvironmentDeploymentBranchPoliciesTool } from "./tools/deployments/branch-policies/github-list-repo-environment-deployment-branch-policies.js";
+import { registerGithubCreateRepoEnvironmentDeploymentBranchPolicyTool } from "./tools/deployments/branch-policies/github-create-repo-environment-deployment-branch-policy.js";
+import { registerGithubGetRepoEnvironmentDeploymentBranchPolicyTool } from "./tools/deployments/branch-policies/github-get-repo-environment-deployment-branch-policy.js";
+import { registerGithubUpdateRepoEnvironmentDeploymentBranchPolicyTool } from "./tools/deployments/branch-policies/github-update-repo-environment-deployment-branch-policy.js";
+import { registerGithubDeleteRepoEnvironmentDeploymentBranchPolicyTool } from "./tools/deployments/branch-policies/github-delete-repo-environment-deployment-branch-policy.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1556,6 +1561,11 @@ registerGithubListRepoDeployKeysTool(server, octokit);
 registerGithubCreateRepoDeployKeyTool(server, octokit);
 registerGithubGetRepoDeployKeyTool(server, octokit);
 registerGithubDeleteRepoDeployKeyTool(server, octokit);
+registerGithubListRepoEnvironmentDeploymentBranchPoliciesTool(server, octokit);
+registerGithubCreateRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
+registerGithubGetRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
+registerGithubUpdateRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
+registerGithubDeleteRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
