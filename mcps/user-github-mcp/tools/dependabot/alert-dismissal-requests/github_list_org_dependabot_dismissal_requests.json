@@ -1,0 +1,18 @@
+{
+    "name": "github_list_org_dependabot_dismissal_requests",
+    "description": "github_list_org_dependabot_dismissal_requests",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "org": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            }
+        },
+        "required": [
+            "org"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

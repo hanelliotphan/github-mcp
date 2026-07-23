@@ -731,6 +731,12 @@ import { registerGithubCreateUserCopilotSpaceResourceTool } from "./tools/copilo
 import { registerGithubGetUserCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-get-user-copilot-space-resource.js";
 import { registerGithubSetUserCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-set-user-copilot-space-resource.js";
 import { registerGithubDeleteUserCopilotSpaceResourceTool } from "./tools/copilot-spaces/resources/github-delete-user-copilot-space-resource.js";
+import { registerGithubListOrgDependabotDismissalRequestsTool } from "./tools/dependabot/alert-dismissal-requests/github-list-org-dependabot-dismissal-requests.js";
+import { registerGithubListRepoDependabotDismissalRequestsTool } from "./tools/dependabot/alert-dismissal-requests/github-list-repo-dependabot-dismissal-requests.js";
+import { registerGithubGetRepoDependabotDismissalRequestTool } from "./tools/dependabot/alert-dismissal-requests/github-get-repo-dependabot-dismissal-request.js";
+import { registerGithubCreateRepoDependabotDismissalRequestTool } from "./tools/dependabot/alert-dismissal-requests/github-create-repo-dependabot-dismissal-request.js";
+import { registerGithubReviewRepoDependabotDismissalRequestTool } from "./tools/dependabot/alert-dismissal-requests/github-review-repo-dependabot-dismissal-request.js";
+import { registerGithubCancelRepoDependabotDismissalRequestTool } from "./tools/dependabot/alert-dismissal-requests/github-cancel-repo-dependabot-dismissal-request.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1476,6 +1482,12 @@ registerGithubGetUserCopilotSpaceResourceTool(server, octokit);
 registerGithubSetUserCopilotSpaceResourceTool(server, octokit);
 registerGithubDeleteUserCopilotSpaceResourceTool(server, octokit);
 registerGithubRevokeCredentialsTool(server, octokit);
+registerGithubListOrgDependabotDismissalRequestsTool(server, octokit);
+registerGithubListRepoDependabotDismissalRequestsTool(server, octokit);
+registerGithubGetRepoDependabotDismissalRequestTool(server, octokit);
+registerGithubCreateRepoDependabotDismissalRequestTool(server, octokit);
+registerGithubReviewRepoDependabotDismissalRequestTool(server, octokit);
+registerGithubCancelRepoDependabotDismissalRequestTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

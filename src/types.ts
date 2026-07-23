@@ -10443,3 +10443,86 @@ export type RevokeCredentialsSuccess = {
     request_id: string | null;
 };
 export type RevokeCredentialsFailure = CreateRepoFailure;
+
+/** GET /orgs/{org}/dismissal-requests/dependabot — HTTP 200. MCP tool: `github_list_org_dependabot_dismissal_requests`. */
+export type ListOrgDependabotDismissalRequestsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    dismissal_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgDependabotDismissalRequestsFailure = CreateRepoFailure;
+
+/** GET /repos/{owner}/{repo}/dismissal-requests/dependabot — HTTP 200. MCP tool: `github_list_repo_dependabot_dismissal_requests`. */
+export type ListRepoDependabotDismissalRequestsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    dismissal_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoDependabotDismissalRequestsFailure = CreateRepoFailure;
+
+/** GET .../dismissal-requests/dependabot/{alert_number} — HTTP 200. MCP tool: `github_get_repo_dependabot_dismissal_request`. */
+export type GetRepoDependabotDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    dismissal_request: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoDependabotDismissalRequestFailure = CreateRepoFailure;
+
+/** POST .../dismissal-requests/dependabot/{alert_number} — HTTP 201. MCP tool: `github_create_repo_dependabot_dismissal_request`. */
+export type CreateRepoDependabotDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    dismissal_request: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoDependabotDismissalRequestFailure = CreateRepoFailure;
+
+/** PATCH .../dismissal-requests/dependabot/{alert_number} — HTTP 200. MCP tool: `github_review_repo_dependabot_dismissal_request`. */
+export type ReviewRepoDependabotDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type ReviewRepoDependabotDismissalRequestFailure = CreateRepoFailure;
+
+/** DELETE .../dismissal-requests/dependabot/{alert_number} — HTTP 204. MCP tool: `github_cancel_repo_dependabot_dismissal_request`. */
+export type CancelRepoDependabotDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    request_id: string | null;
+};
+export type CancelRepoDependabotDismissalRequestFailure = CreateRepoFailure;
+

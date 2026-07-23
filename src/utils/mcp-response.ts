@@ -1224,6 +1224,18 @@ import type {
     DeleteUserCopilotSpaceResourceFailure,
     RevokeCredentialsSuccess,
     RevokeCredentialsFailure,
+    ListOrgDependabotDismissalRequestsSuccess,
+    ListOrgDependabotDismissalRequestsFailure,
+    ListRepoDependabotDismissalRequestsSuccess,
+    ListRepoDependabotDismissalRequestsFailure,
+    GetRepoDependabotDismissalRequestSuccess,
+    GetRepoDependabotDismissalRequestFailure,
+    CreateRepoDependabotDismissalRequestSuccess,
+    CreateRepoDependabotDismissalRequestFailure,
+    ReviewRepoDependabotDismissalRequestSuccess,
+    ReviewRepoDependabotDismissalRequestFailure,
+    CancelRepoDependabotDismissalRequestSuccess,
+    CancelRepoDependabotDismissalRequestFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2890,7 +2902,19 @@ export function textAndData(
         | GetOrgCopilotSeatDetailsForUserSuccess
         | GetOrgCopilotSeatDetailsForUserFailure
         | RevokeCredentialsSuccess
-        | RevokeCredentialsFailure) {
+        | RevokeCredentialsFailure
+        | ListOrgDependabotDismissalRequestsSuccess
+        | ListOrgDependabotDismissalRequestsFailure
+        | ListRepoDependabotDismissalRequestsSuccess
+        | ListRepoDependabotDismissalRequestsFailure
+        | GetRepoDependabotDismissalRequestSuccess
+        | GetRepoDependabotDismissalRequestFailure
+        | CreateRepoDependabotDismissalRequestSuccess
+        | CreateRepoDependabotDismissalRequestFailure
+        | ReviewRepoDependabotDismissalRequestSuccess
+        | ReviewRepoDependabotDismissalRequestFailure
+        | CancelRepoDependabotDismissalRequestSuccess
+        | CancelRepoDependabotDismissalRequestFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

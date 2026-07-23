@@ -1,0 +1,24 @@
+{
+    "name": "github_cancel_repo_dependabot_dismissal_request",
+    "description": "github_cancel_repo_dependabot_dismissal_request",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            }
+        },
+        "required": [
+            "owner",
+            "name"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}
