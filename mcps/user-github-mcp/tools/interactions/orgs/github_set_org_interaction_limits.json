@@ -1,0 +1,37 @@
+{
+  "name": "github_set_org_interaction_limits",
+  "description": "Set interaction restrictions for an organization (PUT /orgs/{org}/interaction-limits).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "limit": {
+        "type": "string",
+        "enum": [
+          "existing_users",
+          "contributors_only",
+          "collaborators_only"
+        ]
+      },
+      "expiry": {
+        "type": "string",
+        "enum": [
+          "one_day",
+          "three_days",
+          "one_week",
+          "one_month",
+          "six_months"
+        ]
+      }
+    },
+    "required": [
+      "org",
+      "limit"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

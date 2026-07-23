@@ -1,0 +1,18 @@
+{
+  "name": "github_remove_org_interaction_limits",
+  "description": "Remove interaction restrictions from an organization's public repositories (DELETE /orgs/{org}/interaction-limits).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

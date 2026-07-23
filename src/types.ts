@@ -11411,3 +11411,36 @@ export type GetGitignoreTemplateSuccess = {
     request_id: string | null;
 };
 export type GetGitignoreTemplateFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_interaction_limits`. */
+export type GetOrgInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    interaction_limits: Record<string, unknown> | null;
+    request_id: string | null;
+};
+export type GetOrgInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_set_org_interaction_limits`. */
+export type SetOrgInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    interaction_limits: Record<string, unknown>;
+    request_id: string | null;
+};
+export type SetOrgInteractionLimitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_org_interaction_limits`. */
+export type RemoveOrgInteractionLimitsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    request_id: string | null;
+};
+export type RemoveOrgInteractionLimitsFailure = CreateRepoFailure;
+

@@ -825,6 +825,9 @@ import { registerGithubCreateRepoGitTreeTool } from "./tools/git/trees/github-cr
 import { registerGithubGetRepoGitTreeTool } from "./tools/git/trees/github-get-repo-git-tree.js";
 import { registerGithubListGitignoreTemplatesTool } from "./tools/gitignore/gitignore/github-list-gitignore-templates.js";
 import { registerGithubGetGitignoreTemplateTool } from "./tools/gitignore/gitignore/github-get-gitignore-template.js";
+import { registerGithubGetOrgInteractionLimitsTool } from "./tools/interactions/orgs/github-get-org-interaction-limits.js";
+import { registerGithubRemoveOrgInteractionLimitsTool } from "./tools/interactions/orgs/github-remove-org-interaction-limits.js";
+import { registerGithubSetOrgInteractionLimitsTool } from "./tools/interactions/orgs/github-set-org-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1664,6 +1667,9 @@ registerGithubCreateRepoGitTreeTool(server, octokit);
 registerGithubGetRepoGitTreeTool(server, octokit);
 registerGithubListGitignoreTemplatesTool(server, octokit);
 registerGithubGetGitignoreTemplateTool(server, octokit);
+registerGithubGetOrgInteractionLimitsTool(server, octokit);
+registerGithubSetOrgInteractionLimitsTool(server, octokit);
+registerGithubRemoveOrgInteractionLimitsTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

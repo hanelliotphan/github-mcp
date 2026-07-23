@@ -1400,6 +1400,12 @@ import type {
     ListGitignoreTemplatesFailure,
     GetGitignoreTemplateSuccess,
     GetGitignoreTemplateFailure,
+    GetOrgInteractionLimitsSuccess,
+    GetOrgInteractionLimitsFailure,
+    SetOrgInteractionLimitsSuccess,
+    SetOrgInteractionLimitsFailure,
+    RemoveOrgInteractionLimitsSuccess,
+    RemoveOrgInteractionLimitsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3266,7 +3272,13 @@ export function textAndData(
         | ListGitignoreTemplatesSuccess
         | ListGitignoreTemplatesFailure
         | GetGitignoreTemplateSuccess
-        | GetGitignoreTemplateFailure) {
+        | GetGitignoreTemplateFailure
+        | GetOrgInteractionLimitsSuccess
+        | GetOrgInteractionLimitsFailure
+        | SetOrgInteractionLimitsSuccess
+        | SetOrgInteractionLimitsFailure
+        | RemoveOrgInteractionLimitsSuccess
+        | RemoveOrgInteractionLimitsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
