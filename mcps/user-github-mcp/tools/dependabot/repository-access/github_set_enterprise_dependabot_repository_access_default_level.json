@@ -1,0 +1,10 @@
+{
+    "name": "github_set_enterprise_dependabot_repository_access_default_level",
+    "description": "github_set_enterprise_dependabot_repository_access_default_level",
+    "arguments": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

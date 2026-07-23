@@ -10543,3 +10543,17 @@ export type GetRepoDependabotAlertFailure = CreateRepoFailure;
 export type UpdateRepoDependabotAlertSuccess = { success: true; message: string; http_status: number; owner: string; name: string; alert_number: number; alert: Record<string, unknown>; request_id: string | null; };
 export type UpdateRepoDependabotAlertFailure = CreateRepoFailure;
 
+
+export type ListEnterpriseDependabotRepositoryAccessSuccess = { success: true; message: string; http_status: number; enterprise: string; default_level: unknown; accessible_repositories: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; };
+export type ListEnterpriseDependabotRepositoryAccessFailure = CreateRepoFailure;
+export type UpdateEnterpriseDependabotRepositoryAccessSuccess = { success: true; message: string; http_status: number; enterprise: string; request_id: string | null; };
+export type UpdateEnterpriseDependabotRepositoryAccessFailure = CreateRepoFailure;
+export type SetEnterpriseDependabotRepositoryAccessDefaultLevelSuccess = { success: true; message: string; http_status: number; enterprise: string; default_level: string; request_id: string | null; };
+export type SetEnterpriseDependabotRepositoryAccessDefaultLevelFailure = CreateRepoFailure;
+export type ListOrgDependabotRepositoryAccessSuccess = { success: true; message: string; http_status: number; org: string; default_level: unknown; accessible_repositories: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; };
+export type ListOrgDependabotRepositoryAccessFailure = CreateRepoFailure;
+export type UpdateOrgDependabotRepositoryAccessSuccess = { success: true; message: string; http_status: number; org: string; request_id: string | null; };
+export type UpdateOrgDependabotRepositoryAccessFailure = CreateRepoFailure;
+export type SetOrgDependabotRepositoryAccessDefaultLevelSuccess = { success: true; message: string; http_status: number; org: string; default_level: string; request_id: string | null; };
+export type SetOrgDependabotRepositoryAccessDefaultLevelFailure = CreateRepoFailure;
+

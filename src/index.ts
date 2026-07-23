@@ -742,6 +742,12 @@ import { registerGithubListOrgDependabotAlertsTool } from "./tools/dependabot/al
 import { registerGithubListRepoDependabotAlertsTool } from "./tools/dependabot/alerts/github-list-repo-dependabot-alerts.js";
 import { registerGithubGetRepoDependabotAlertTool } from "./tools/dependabot/alerts/github-get-repo-dependabot-alert.js";
 import { registerGithubUpdateRepoDependabotAlertTool } from "./tools/dependabot/alerts/github-update-repo-dependabot-alert.js";
+import { registerGithubListEnterpriseDependabotRepositoryAccessTool } from "./tools/dependabot/repository-access/github-list-enterprise-dependabot-repository-access.js";
+import { registerGithubUpdateEnterpriseDependabotRepositoryAccessTool } from "./tools/dependabot/repository-access/github-update-enterprise-dependabot-repository-access.js";
+import { registerGithubSetEnterpriseDependabotRepositoryAccessDefaultLevelTool } from "./tools/dependabot/repository-access/github-set-enterprise-dependabot-repository-access-default-level.js";
+import { registerGithubListOrgDependabotRepositoryAccessTool } from "./tools/dependabot/repository-access/github-list-org-dependabot-repository-access.js";
+import { registerGithubUpdateOrgDependabotRepositoryAccessTool } from "./tools/dependabot/repository-access/github-update-org-dependabot-repository-access.js";
+import { registerGithubSetOrgDependabotRepositoryAccessDefaultLevelTool } from "./tools/dependabot/repository-access/github-set-org-dependabot-repository-access-default-level.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1487,6 +1493,12 @@ registerGithubGetUserCopilotSpaceResourceTool(server, octokit);
 registerGithubSetUserCopilotSpaceResourceTool(server, octokit);
 registerGithubDeleteUserCopilotSpaceResourceTool(server, octokit);
 registerGithubRevokeCredentialsTool(server, octokit);
+registerGithubListEnterpriseDependabotRepositoryAccessTool(server, octokit);
+registerGithubUpdateEnterpriseDependabotRepositoryAccessTool(server, octokit);
+registerGithubSetEnterpriseDependabotRepositoryAccessDefaultLevelTool(server, octokit);
+registerGithubListOrgDependabotRepositoryAccessTool(server, octokit);
+registerGithubUpdateOrgDependabotRepositoryAccessTool(server, octokit);
+registerGithubSetOrgDependabotRepositoryAccessDefaultLevelTool(server, octokit);
 registerGithubListEnterpriseDependabotAlertsTool(server, octokit);
 registerGithubListOrgDependabotAlertsTool(server, octokit);
 registerGithubListRepoDependabotAlertsTool(server, octokit);

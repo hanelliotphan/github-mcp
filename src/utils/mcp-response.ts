@@ -1246,6 +1246,18 @@ import type {
     GetRepoDependabotAlertFailure,
     UpdateRepoDependabotAlertSuccess,
     UpdateRepoDependabotAlertFailure,
+    ListEnterpriseDependabotRepositoryAccessSuccess,
+    ListEnterpriseDependabotRepositoryAccessFailure,
+    UpdateEnterpriseDependabotRepositoryAccessSuccess,
+    UpdateEnterpriseDependabotRepositoryAccessFailure,
+    SetEnterpriseDependabotRepositoryAccessDefaultLevelSuccess,
+    SetEnterpriseDependabotRepositoryAccessDefaultLevelFailure,
+    ListOrgDependabotRepositoryAccessSuccess,
+    ListOrgDependabotRepositoryAccessFailure,
+    UpdateOrgDependabotRepositoryAccessSuccess,
+    UpdateOrgDependabotRepositoryAccessFailure,
+    SetOrgDependabotRepositoryAccessDefaultLevelSuccess,
+    SetOrgDependabotRepositoryAccessDefaultLevelFailure,
     RemoveRepoFromUserCodespacesSecretSuccess,
     RemoveResourcesFromEnterpriseCostCenterFailure,
     RemoveResourcesFromEnterpriseCostCenterSuccess,
@@ -2934,7 +2946,19 @@ export function textAndData(
         | GetRepoDependabotAlertSuccess
         | GetRepoDependabotAlertFailure
         | UpdateRepoDependabotAlertSuccess
-        | UpdateRepoDependabotAlertFailure) {
+        | UpdateRepoDependabotAlertFailure
+        | ListEnterpriseDependabotRepositoryAccessSuccess
+        | ListEnterpriseDependabotRepositoryAccessFailure
+        | UpdateEnterpriseDependabotRepositoryAccessSuccess
+        | UpdateEnterpriseDependabotRepositoryAccessFailure
+        | SetEnterpriseDependabotRepositoryAccessDefaultLevelSuccess
+        | SetEnterpriseDependabotRepositoryAccessDefaultLevelFailure
+        | ListOrgDependabotRepositoryAccessSuccess
+        | ListOrgDependabotRepositoryAccessFailure
+        | UpdateOrgDependabotRepositoryAccessSuccess
+        | UpdateOrgDependabotRepositoryAccessFailure
+        | SetOrgDependabotRepositoryAccessDefaultLevelSuccess
+        | SetOrgDependabotRepositoryAccessDefaultLevelFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
