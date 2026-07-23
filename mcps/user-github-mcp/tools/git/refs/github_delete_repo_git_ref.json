@@ -1,0 +1,26 @@
+{
+  "name": "github_delete_repo_git_ref",
+  "description": "Delete a Git reference (DELETE /repos/{owner}/{repo}/git/refs/{ref}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    },
+    "required": ["owner", "name", "ref"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

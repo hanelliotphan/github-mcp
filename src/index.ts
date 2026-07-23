@@ -814,6 +814,11 @@ import { registerGithubCreateRepoGitBlobTool } from "./tools/git/blobs/github-cr
 import { registerGithubGetRepoGitBlobTool } from "./tools/git/blobs/github-get-repo-git-blob.js";
 import { registerGithubCreateRepoGitCommitTool } from "./tools/git/commits/github-create-repo-git-commit.js";
 import { registerGithubGetRepoGitCommitTool } from "./tools/git/commits/github-get-repo-git-commit.js";
+import { registerGithubListRepoGitMatchingRefsTool } from "./tools/git/refs/github-list-repo-git-matching-refs.js";
+import { registerGithubGetRepoGitRefTool } from "./tools/git/refs/github-get-repo-git-ref.js";
+import { registerGithubCreateRepoGitRefTool } from "./tools/git/refs/github-create-repo-git-ref.js";
+import { registerGithubUpdateRepoGitRefTool } from "./tools/git/refs/github-update-repo-git-ref.js";
+import { registerGithubDeleteRepoGitRefTool } from "./tools/git/refs/github-delete-repo-git-ref.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1642,6 +1647,11 @@ registerGithubCreateRepoGitBlobTool(server, octokit);
 registerGithubGetRepoGitBlobTool(server, octokit);
 registerGithubCreateRepoGitCommitTool(server, octokit);
 registerGithubGetRepoGitCommitTool(server, octokit);
+registerGithubListRepoGitMatchingRefsTool(server, octokit);
+registerGithubGetRepoGitRefTool(server, octokit);
+registerGithubCreateRepoGitRefTool(server, octokit);
+registerGithubUpdateRepoGitRefTool(server, octokit);
+registerGithubDeleteRepoGitRefTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

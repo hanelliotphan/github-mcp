@@ -1,0 +1,34 @@
+{
+  "name": "github_update_repo_git_ref",
+  "description": "Update a Git reference (PATCH /repos/{owner}/{repo}/git/refs/{ref}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "sha": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "force": {
+        "type": "boolean"
+      }
+    },
+    "required": ["owner", "name", "ref", "sha"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

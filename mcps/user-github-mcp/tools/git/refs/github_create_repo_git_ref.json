@@ -1,0 +1,31 @@
+{
+  "name": "github_create_repo_git_ref",
+  "description": "Create a Git reference (POST /repos/{owner}/{repo}/git/refs).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "sha": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 255
+      }
+    },
+    "required": ["owner", "name", "ref", "sha"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

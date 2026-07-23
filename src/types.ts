@@ -11280,3 +11280,66 @@ export type GetRepoGitCommitSuccess = {
 };
 export type GetRepoGitCommitFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_git_matching_refs`. */
+export type ListRepoGitMatchingRefsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ref: string;
+    refs: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListRepoGitMatchingRefsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_git_ref`. */
+export type GetRepoGitRefSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ref: string;
+    reference: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoGitRefFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_git_ref`. */
+export type CreateRepoGitRefSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    reference: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoGitRefFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_git_ref`. */
+export type UpdateRepoGitRefSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ref: string;
+    reference: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoGitRefFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_git_ref`. */
+export type DeleteRepoGitRefSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ref: string;
+    request_id: string | null;
+};
+export type DeleteRepoGitRefFailure = CreateRepoFailure;
+
