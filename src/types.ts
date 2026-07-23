@@ -10777,3 +10777,56 @@ export type DeleteRepoEnvironmentDeploymentBranchPolicySuccess = {
 };
 export type DeleteRepoEnvironmentDeploymentBranchPolicyFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_deployments`. */
+export type ListRepoDeploymentsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    deployments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoDeploymentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_deployment`. */
+export type CreateRepoDeploymentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    deployment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoDeploymentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_deployment`. */
+export type GetRepoDeploymentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    deployment_id: number;
+    deployment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoDeploymentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_deployment`. */
+export type DeleteRepoDeploymentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    deployment_id: number;
+    request_id: string | null;
+};
+export type DeleteRepoDeploymentFailure = CreateRepoFailure;
+

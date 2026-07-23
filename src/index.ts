@@ -776,6 +776,10 @@ import { registerGithubCreateRepoEnvironmentDeploymentBranchPolicyTool } from ".
 import { registerGithubGetRepoEnvironmentDeploymentBranchPolicyTool } from "./tools/deployments/branch-policies/github-get-repo-environment-deployment-branch-policy.js";
 import { registerGithubUpdateRepoEnvironmentDeploymentBranchPolicyTool } from "./tools/deployments/branch-policies/github-update-repo-environment-deployment-branch-policy.js";
 import { registerGithubDeleteRepoEnvironmentDeploymentBranchPolicyTool } from "./tools/deployments/branch-policies/github-delete-repo-environment-deployment-branch-policy.js";
+import { registerGithubListRepoDeploymentsTool } from "./tools/deployments/deployments/github-list-repo-deployments.js";
+import { registerGithubCreateRepoDeploymentTool } from "./tools/deployments/deployments/github-create-repo-deployment.js";
+import { registerGithubGetRepoDeploymentTool } from "./tools/deployments/deployments/github-get-repo-deployment.js";
+import { registerGithubDeleteRepoDeploymentTool } from "./tools/deployments/deployments/github-delete-repo-deployment.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
 const octokit = new Octokit({
@@ -1566,6 +1570,10 @@ registerGithubCreateRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
 registerGithubGetRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
 registerGithubUpdateRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
 registerGithubDeleteRepoEnvironmentDeploymentBranchPolicyTool(server, octokit);
+registerGithubListRepoDeploymentsTool(server, octokit);
+registerGithubCreateRepoDeploymentTool(server, octokit);
+registerGithubGetRepoDeploymentTool(server, octokit);
+registerGithubDeleteRepoDeploymentTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
