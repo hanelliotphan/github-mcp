@@ -843,6 +843,14 @@ import { registerGithubCheckUserCanBeAssignedTool } from "./tools/issues/assigne
 import { registerGithubAddIssueAssigneesTool } from "./tools/issues/assignees/github-add-issue-assignees.js";
 import { registerGithubRemoveIssueAssigneesTool } from "./tools/issues/assignees/github-remove-issue-assignees.js";
 import { registerGithubCheckUserCanBeAssignedToIssueTool } from "./tools/issues/assignees/github-check-user-can-be-assigned-to-issue.js";
+import { registerGithubListRepoIssueCommentsTool } from "./tools/issues/comments/github-list-repo-issue-comments.js";
+import { registerGithubGetIssueCommentTool } from "./tools/issues/comments/github-get-issue-comment.js";
+import { registerGithubUpdateIssueCommentTool } from "./tools/issues/comments/github-update-issue-comment.js";
+import { registerGithubDeleteIssueCommentTool } from "./tools/issues/comments/github-delete-issue-comment.js";
+import { registerGithubPinIssueCommentTool } from "./tools/issues/comments/github-pin-issue-comment.js";
+import { registerGithubUnpinIssueCommentTool } from "./tools/issues/comments/github-unpin-issue-comment.js";
+import { registerGithubListIssueCommentsTool } from "./tools/issues/comments/github-list-issue-comments.js";
+import { registerGithubCreateIssueCommentTool } from "./tools/issues/comments/github-create-issue-comment.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1702,6 +1710,14 @@ registerGithubCheckUserCanBeAssignedTool(server, octokit);
 registerGithubAddIssueAssigneesTool(server, octokit);
 registerGithubRemoveIssueAssigneesTool(server, octokit);
 registerGithubCheckUserCanBeAssignedToIssueTool(server, octokit);
+registerGithubListRepoIssueCommentsTool(server, octokit);
+registerGithubGetIssueCommentTool(server, octokit);
+registerGithubUpdateIssueCommentTool(server, octokit);
+registerGithubDeleteIssueCommentTool(server, octokit);
+registerGithubPinIssueCommentTool(server, octokit);
+registerGithubUnpinIssueCommentTool(server, octokit);
+registerGithubListIssueCommentsTool(server, octokit);
+registerGithubCreateIssueCommentTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

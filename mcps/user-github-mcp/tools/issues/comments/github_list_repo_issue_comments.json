@@ -1,0 +1,44 @@
+{
+    "name": "github_list_repo_issue_comments",
+    "description": "List issue comments for a repository (GET /repos/{owner}/{repo}/issues/comments). Optional since filter. Page pagination with per_page, page, all_pages, max_pages. See [List issue comments for a repository](https://docs.github.com/en/rest/issues/comments?apiVersion=2026-03-10#list-issue-comments-for-a-repository).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "since": {
+                "type": "string"
+            },
+            "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "all_pages": {
+                "type": "boolean"
+            },
+            "max_pages": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+            }
+        },
+        "required": [
+            "owner",
+            "name"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

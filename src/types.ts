@@ -11645,3 +11645,111 @@ export type CheckUserCanBeAssignedToIssueSuccess = {
 };
 export type CheckUserCanBeAssignedToIssueFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_issue_comments`. */
+export type ListRepoIssueCommentsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    comments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoIssueCommentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_issue_comment`. */
+export type GetIssueCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    comment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetIssueCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_issue_comment`. */
+export type UpdateIssueCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    comment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateIssueCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_issue_comment`. */
+export type DeleteIssueCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    request_id: string | null;
+};
+export type DeleteIssueCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_pin_issue_comment`. */
+export type PinIssueCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    comment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type PinIssueCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_unpin_issue_comment`. */
+export type UnpinIssueCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    request_id: string | null;
+};
+export type UnpinIssueCommentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_issue_comments`. */
+export type ListIssueCommentsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    comments: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueCommentsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_issue_comment`. */
+export type CreateIssueCommentSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    comment: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateIssueCommentFailure = CreateRepoFailure;
+

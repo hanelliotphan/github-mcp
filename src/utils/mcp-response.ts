@@ -1438,6 +1438,22 @@ import type {
     RemoveIssueAssigneesFailure,
     CheckUserCanBeAssignedToIssueSuccess,
     CheckUserCanBeAssignedToIssueFailure,
+    ListRepoIssueCommentsSuccess,
+    ListRepoIssueCommentsFailure,
+    GetIssueCommentSuccess,
+    GetIssueCommentFailure,
+    UpdateIssueCommentSuccess,
+    UpdateIssueCommentFailure,
+    DeleteIssueCommentSuccess,
+    DeleteIssueCommentFailure,
+    PinIssueCommentSuccess,
+    PinIssueCommentFailure,
+    UnpinIssueCommentSuccess,
+    UnpinIssueCommentFailure,
+    ListIssueCommentsSuccess,
+    ListIssueCommentsFailure,
+    CreateIssueCommentSuccess,
+    CreateIssueCommentFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3342,7 +3358,23 @@ export function textAndData(
         | RemoveIssueAssigneesSuccess
         | RemoveIssueAssigneesFailure
         | CheckUserCanBeAssignedToIssueSuccess
-        | CheckUserCanBeAssignedToIssueFailure) {
+        | CheckUserCanBeAssignedToIssueFailure
+        | ListRepoIssueCommentsSuccess
+        | ListRepoIssueCommentsFailure
+        | GetIssueCommentSuccess
+        | GetIssueCommentFailure
+        | UpdateIssueCommentSuccess
+        | UpdateIssueCommentFailure
+        | DeleteIssueCommentSuccess
+        | DeleteIssueCommentFailure
+        | PinIssueCommentSuccess
+        | PinIssueCommentFailure
+        | UnpinIssueCommentSuccess
+        | UnpinIssueCommentFailure
+        | ListIssueCommentsSuccess
+        | ListIssueCommentsFailure
+        | CreateIssueCommentSuccess
+        | CreateIssueCommentFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
