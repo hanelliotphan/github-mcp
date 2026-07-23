@@ -1246,6 +1246,34 @@ import type {
     GetRepoDependabotAlertFailure,
     UpdateRepoDependabotAlertSuccess,
     UpdateRepoDependabotAlertFailure,
+    ListOrgDependabotSecretsSuccess,
+    ListOrgDependabotSecretsFailure,
+    GetOrgDependabotPublicKeySuccess,
+    GetOrgDependabotPublicKeyFailure,
+    GetOrgDependabotSecretSuccess,
+    GetOrgDependabotSecretFailure,
+    CreateOrUpdateOrgDependabotSecretSuccess,
+    CreateOrUpdateOrgDependabotSecretFailure,
+    DeleteOrgDependabotSecretSuccess,
+    DeleteOrgDependabotSecretFailure,
+    ListSelectedReposForOrgDependabotSecretSuccess,
+    ListSelectedReposForOrgDependabotSecretFailure,
+    SetSelectedReposForOrgDependabotSecretSuccess,
+    SetSelectedReposForOrgDependabotSecretFailure,
+    AddSelectedRepoToOrgDependabotSecretSuccess,
+    AddSelectedRepoToOrgDependabotSecretFailure,
+    RemoveSelectedRepoFromOrgDependabotSecretSuccess,
+    RemoveSelectedRepoFromOrgDependabotSecretFailure,
+    ListRepoDependabotSecretsSuccess,
+    ListRepoDependabotSecretsFailure,
+    GetRepoDependabotPublicKeySuccess,
+    GetRepoDependabotPublicKeyFailure,
+    GetRepoDependabotSecretSuccess,
+    GetRepoDependabotSecretFailure,
+    CreateOrUpdateRepoDependabotSecretSuccess,
+    CreateOrUpdateRepoDependabotSecretFailure,
+    DeleteRepoDependabotSecretSuccess,
+    DeleteRepoDependabotSecretFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -2947,6 +2975,34 @@ export function textAndData(
         | GetRepoDependabotAlertFailure
         | UpdateRepoDependabotAlertSuccess
         | UpdateRepoDependabotAlertFailure
+        | ListOrgDependabotSecretsSuccess
+        | ListOrgDependabotSecretsFailure
+        | GetOrgDependabotPublicKeySuccess
+        | GetOrgDependabotPublicKeyFailure
+        | GetOrgDependabotSecretSuccess
+        | GetOrgDependabotSecretFailure
+        | CreateOrUpdateOrgDependabotSecretSuccess
+        | CreateOrUpdateOrgDependabotSecretFailure
+        | DeleteOrgDependabotSecretSuccess
+        | DeleteOrgDependabotSecretFailure
+        | ListSelectedReposForOrgDependabotSecretSuccess
+        | ListSelectedReposForOrgDependabotSecretFailure
+        | SetSelectedReposForOrgDependabotSecretSuccess
+        | SetSelectedReposForOrgDependabotSecretFailure
+        | AddSelectedRepoToOrgDependabotSecretSuccess
+        | AddSelectedRepoToOrgDependabotSecretFailure
+        | RemoveSelectedRepoFromOrgDependabotSecretSuccess
+        | RemoveSelectedRepoFromOrgDependabotSecretFailure
+        | ListRepoDependabotSecretsSuccess
+        | ListRepoDependabotSecretsFailure
+        | GetRepoDependabotPublicKeySuccess
+        | GetRepoDependabotPublicKeyFailure
+        | GetRepoDependabotSecretSuccess
+        | GetRepoDependabotSecretFailure
+        | CreateOrUpdateRepoDependabotSecretSuccess
+        | CreateOrUpdateRepoDependabotSecretFailure
+        | DeleteRepoDependabotSecretSuccess
+        | DeleteRepoDependabotSecretFailure
         | ListEnterpriseDependabotRepositoryAccessSuccess
         | ListEnterpriseDependabotRepositoryAccessFailure
         | UpdateEnterpriseDependabotRepositoryAccessSuccess
