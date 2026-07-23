@@ -1,0 +1,82 @@
+{
+    "name": "github_list_repo_issues",
+    "description": "List issues for a repository (GET /repos/{owner}/{repo}/issues). Page pagination with milestone, state, assignee, creator, mentioned, labels, sort, direction, since filters. See [List repository issues](https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#list-repository-issues).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "milestone": {
+                "type": "string"
+            },
+            "state": {
+                "type": "string",
+                "enum": [
+                    "open",
+                    "closed",
+                    "all"
+                ]
+            },
+            "assignee": {
+                "type": "string"
+            },
+            "creator": {
+                "type": "string"
+            },
+            "mentioned": {
+                "type": "string"
+            },
+            "labels": {
+                "type": "string"
+            },
+            "sort": {
+                "type": "string",
+                "enum": [
+                    "created",
+                    "updated",
+                    "comments"
+                ]
+            },
+            "direction": {
+                "type": "string",
+                "enum": [
+                    "asc",
+                    "desc"
+                ]
+            },
+            "since": {
+                "type": "string"
+            },
+            "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "all_pages": {
+                "type": "boolean"
+            },
+            "max_pages": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+            }
+        },
+        "required": [
+            "owner",
+            "name"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

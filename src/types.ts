@@ -11912,3 +11912,124 @@ export type DeleteIssueFieldValueSuccess = {
 };
 export type DeleteIssueFieldValueFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_issues`. */
+export type ListIssuesSuccess = {
+    success: true;
+    message: string;
+    issues: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_account_issues`. */
+export type ListUserAccountIssuesSuccess = {
+    success: true;
+    message: string;
+    issues: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListUserAccountIssuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_issues`. */
+export type ListOrgIssuesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    issues: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgIssuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_issues`. */
+export type ListRepoIssuesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    issues: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoIssuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_issue`. */
+export type CreateRepoIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoIssueFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_issue`. */
+export type GetRepoIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoIssueFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_issue`. */
+export type UpdateRepoIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    issue: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoIssueFailure = CreateRepoFailure;
+
+/** MCP tool: `github_lock_repo_issue`. */
+export type LockRepoIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    request_id: string | null;
+};
+export type LockRepoIssueFailure = CreateRepoFailure;
+
+/** MCP tool: `github_unlock_repo_issue`. */
+export type UnlockRepoIssueSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    request_id: string | null;
+};
+export type UnlockRepoIssueFailure = CreateRepoFailure;
+

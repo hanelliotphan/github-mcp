@@ -1,0 +1,90 @@
+{
+    "name": "github_update_repo_issue",
+    "description": "Update an issue (PATCH /repos/{owner}/{repo}/issues/{issue_number}). Optional title, body, state, state_reason, milestone, labels, assignees, type. See [Update an issue](https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#update-an-issue).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "owner": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+            },
+            "issue_number": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "title": {
+                "type": "string"
+            },
+            "body": {
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "null"
+                    }
+                ]
+            },
+            "state": {
+                "type": "string",
+                "enum": [
+                    "open",
+                    "closed"
+                ]
+            },
+            "state_reason": {
+                "type": "string",
+                "enum": [
+                    "completed",
+                    "not_planned",
+                    "reopened"
+                ]
+            },
+            "milestone": {
+                "oneOf": [
+                    {
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    {
+                        "type": "null"
+                    }
+                ]
+            },
+            "labels": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "assignees": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "type": {
+                "oneOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "null"
+                    }
+                ]
+            }
+        },
+        "required": [
+            "owner",
+            "name",
+            "issue_number"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

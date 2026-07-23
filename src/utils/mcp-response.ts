@@ -1476,6 +1476,24 @@ import type {
     SetIssueFieldValuesFailure,
     DeleteIssueFieldValueSuccess,
     DeleteIssueFieldValueFailure,
+    ListIssuesSuccess,
+    ListIssuesFailure,
+    ListUserAccountIssuesSuccess,
+    ListUserAccountIssuesFailure,
+    ListOrgIssuesSuccess,
+    ListOrgIssuesFailure,
+    ListRepoIssuesSuccess,
+    ListRepoIssuesFailure,
+    CreateRepoIssueSuccess,
+    CreateRepoIssueFailure,
+    GetRepoIssueSuccess,
+    GetRepoIssueFailure,
+    UpdateRepoIssueSuccess,
+    UpdateRepoIssueFailure,
+    LockRepoIssueSuccess,
+    LockRepoIssueFailure,
+    UnlockRepoIssueSuccess,
+    UnlockRepoIssueFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3418,7 +3436,25 @@ export function textAndData(
         | SetIssueFieldValuesSuccess
         | SetIssueFieldValuesFailure
         | DeleteIssueFieldValueSuccess
-        | DeleteIssueFieldValueFailure) {
+        | DeleteIssueFieldValueFailure
+        | ListIssuesSuccess
+        | ListIssuesFailure
+        | ListUserAccountIssuesSuccess
+        | ListUserAccountIssuesFailure
+        | ListOrgIssuesSuccess
+        | ListOrgIssuesFailure
+        | ListRepoIssuesSuccess
+        | ListRepoIssuesFailure
+        | CreateRepoIssueSuccess
+        | CreateRepoIssueFailure
+        | GetRepoIssueSuccess
+        | GetRepoIssueFailure
+        | UpdateRepoIssueSuccess
+        | UpdateRepoIssueFailure
+        | LockRepoIssueSuccess
+        | LockRepoIssueFailure
+        | UnlockRepoIssueSuccess
+        | UnlockRepoIssueFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

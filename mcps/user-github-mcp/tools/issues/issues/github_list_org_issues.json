@@ -1,0 +1,75 @@
+{
+    "name": "github_list_org_issues",
+    "description": "List issues for an organization (GET /orgs/{org}/issues). Page pagination. See [List organization issues assigned to the authenticated user](https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#list-organization-issues-assigned-to-the-authenticated-user).",
+    "arguments": {
+        "type": "object",
+        "properties": {
+            "org": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 39
+            },
+            "filter": {
+                "type": "string",
+                "enum": [
+                    "assigned",
+                    "created",
+                    "mentioned",
+                    "subscribed",
+                    "repos",
+                    "all"
+                ]
+            },
+            "state": {
+                "type": "string",
+                "enum": [
+                    "open",
+                    "closed",
+                    "all"
+                ]
+            },
+            "labels": {
+                "type": "string"
+            },
+            "sort": {
+                "type": "string",
+                "enum": [
+                    "created",
+                    "updated",
+                    "comments"
+                ]
+            },
+            "direction": {
+                "type": "string",
+                "enum": [
+                    "asc",
+                    "desc"
+                ]
+            },
+            "since": {
+                "type": "string"
+            },
+            "per_page": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "all_pages": {
+                "type": "boolean"
+            },
+            "max_pages": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+            }
+        },
+        "required": [
+            "org"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+    }
+}

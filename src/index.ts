@@ -862,6 +862,15 @@ import { registerGithubListIssueFieldValuesTool } from "./tools/issues/issue-fie
 import { registerGithubAddIssueFieldValuesTool } from "./tools/issues/issue-field-values/github-add-issue-field-values.js";
 import { registerGithubSetIssueFieldValuesTool } from "./tools/issues/issue-field-values/github-set-issue-field-values.js";
 import { registerGithubDeleteIssueFieldValueTool } from "./tools/issues/issue-field-values/github-delete-issue-field-value.js";
+import { registerGithubListIssuesTool } from "./tools/issues/issues/github-list-issues.js";
+import { registerGithubListUserAccountIssuesTool } from "./tools/issues/issues/github-list-user-account-issues.js";
+import { registerGithubListOrgIssuesTool } from "./tools/issues/issues/github-list-org-issues.js";
+import { registerGithubListRepoIssuesTool } from "./tools/issues/issues/github-list-repo-issues.js";
+import { registerGithubCreateRepoIssueTool } from "./tools/issues/issues/github-create-repo-issue.js";
+import { registerGithubGetRepoIssueTool } from "./tools/issues/issues/github-get-repo-issue.js";
+import { registerGithubUpdateRepoIssueTool } from "./tools/issues/issues/github-update-repo-issue.js";
+import { registerGithubLockRepoIssueTool } from "./tools/issues/issues/github-lock-repo-issue.js";
+import { registerGithubUnlockRepoIssueTool } from "./tools/issues/issues/github-unlock-repo-issue.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1740,6 +1749,15 @@ registerGithubListIssueFieldValuesTool(server, octokit);
 registerGithubAddIssueFieldValuesTool(server, octokit);
 registerGithubSetIssueFieldValuesTool(server, octokit);
 registerGithubDeleteIssueFieldValueTool(server, octokit);
+registerGithubListIssuesTool(server, octokit);
+registerGithubListUserAccountIssuesTool(server, octokit);
+registerGithubListOrgIssuesTool(server, octokit);
+registerGithubListRepoIssuesTool(server, octokit);
+registerGithubCreateRepoIssueTool(server, octokit);
+registerGithubGetRepoIssueTool(server, octokit);
+registerGithubUpdateRepoIssueTool(server, octokit);
+registerGithubLockRepoIssueTool(server, octokit);
+registerGithubUnlockRepoIssueTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
