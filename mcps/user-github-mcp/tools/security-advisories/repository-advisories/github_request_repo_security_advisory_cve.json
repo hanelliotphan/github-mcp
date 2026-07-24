@@ -1,0 +1,29 @@
+{
+  "name": "github_request_repo_security_advisory_cve",
+  "description": "Request a CVE for a repository security advisory (POST /repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "ghsa_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "ghsa_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

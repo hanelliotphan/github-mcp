@@ -14101,3 +14101,107 @@ export type GetGlobalSecurityAdvisorySuccess = {
 };
 export type GetGlobalSecurityAdvisoryFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_org_repository_security_advisories`. */
+export type ListOrgRepositorySecurityAdvisoriesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    advisories: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgRepositorySecurityAdvisoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_security_advisories`. */
+export type ListRepoSecurityAdvisoriesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    advisories: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoSecurityAdvisoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_security_advisory`. */
+export type CreateRepoSecurityAdvisorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    advisory: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoSecurityAdvisoryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_private_vulnerability_report`. */
+export type CreatePrivateVulnerabilityReportSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    advisory: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreatePrivateVulnerabilityReportFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_security_advisory`. */
+export type GetRepoSecurityAdvisorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ghsa_id: string;
+    advisory: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoSecurityAdvisoryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_security_advisory`. */
+export type UpdateRepoSecurityAdvisorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ghsa_id: string;
+    advisory: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoSecurityAdvisoryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_request_repo_security_advisory_cve`. */
+export type RequestRepoSecurityAdvisoryCveSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ghsa_id: string;
+    request_id: string | null;
+};
+export type RequestRepoSecurityAdvisoryCveFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_security_advisory_temporary_fork`. */
+export type CreateRepoSecurityAdvisoryTemporaryForkSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    ghsa_id: string;
+    fork: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoSecurityAdvisoryTemporaryForkFailure = CreateRepoFailure;
+

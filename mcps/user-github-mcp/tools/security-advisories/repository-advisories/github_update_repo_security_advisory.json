@@ -1,0 +1,114 @@
+{
+  "name": "github_update_repo_security_advisory",
+  "description": "Update a repository security advisory (PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "ghsa_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 65535
+      },
+      "vulnerabilities": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      },
+      "cve_id": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "cwe_ids": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "string"
+        }
+      },
+      "credits": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      },
+      "severity": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "enum": [
+          "critical",
+          "high",
+          "medium",
+          "low",
+          null
+        ]
+      },
+      "cvss_vector_string": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "published",
+          "closed",
+          "draft"
+        ]
+      },
+      "collaborating_users": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "string"
+        }
+      },
+      "collaborating_teams": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "ghsa_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

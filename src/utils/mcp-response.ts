@@ -1862,6 +1862,22 @@ import type {
     ListGlobalSecurityAdvisoriesFailure,
     GetGlobalSecurityAdvisorySuccess,
     GetGlobalSecurityAdvisoryFailure,
+    ListOrgRepositorySecurityAdvisoriesSuccess,
+    ListOrgRepositorySecurityAdvisoriesFailure,
+    ListRepoSecurityAdvisoriesSuccess,
+    ListRepoSecurityAdvisoriesFailure,
+    CreateRepoSecurityAdvisorySuccess,
+    CreateRepoSecurityAdvisoryFailure,
+    CreatePrivateVulnerabilityReportSuccess,
+    CreatePrivateVulnerabilityReportFailure,
+    GetRepoSecurityAdvisorySuccess,
+    GetRepoSecurityAdvisoryFailure,
+    UpdateRepoSecurityAdvisorySuccess,
+    UpdateRepoSecurityAdvisoryFailure,
+    RequestRepoSecurityAdvisoryCveSuccess,
+    RequestRepoSecurityAdvisoryCveFailure,
+    CreateRepoSecurityAdvisoryTemporaryForkSuccess,
+    CreateRepoSecurityAdvisoryTemporaryForkFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -4191,6 +4207,22 @@ export function textAndData(
         | ListGlobalSecurityAdvisoriesFailure
         | GetGlobalSecurityAdvisorySuccess
         | GetGlobalSecurityAdvisoryFailure
+        | ListOrgRepositorySecurityAdvisoriesSuccess
+        | ListOrgRepositorySecurityAdvisoriesFailure
+        | ListRepoSecurityAdvisoriesSuccess
+        | ListRepoSecurityAdvisoriesFailure
+        | CreateRepoSecurityAdvisorySuccess
+        | CreateRepoSecurityAdvisoryFailure
+        | CreatePrivateVulnerabilityReportSuccess
+        | CreatePrivateVulnerabilityReportFailure
+        | GetRepoSecurityAdvisorySuccess
+        | GetRepoSecurityAdvisoryFailure
+        | UpdateRepoSecurityAdvisorySuccess
+        | UpdateRepoSecurityAdvisoryFailure
+        | RequestRepoSecurityAdvisoryCveSuccess
+        | RequestRepoSecurityAdvisoryCveFailure
+        | CreateRepoSecurityAdvisoryTemporaryForkSuccess
+        | CreateRepoSecurityAdvisoryTemporaryForkFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
