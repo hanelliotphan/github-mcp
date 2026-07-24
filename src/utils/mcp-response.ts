@@ -1560,6 +1560,16 @@ import type {
     GetZenFailure,
     GetRepoCommunityProfileMetricsSuccess,
     GetRepoCommunityProfileMetricsFailure,
+    GetRepoCodeFrequencyStatsSuccess,
+    GetRepoCodeFrequencyStatsFailure,
+    GetRepoCommitActivityStatsSuccess,
+    GetRepoCommitActivityStatsFailure,
+    GetRepoContributorsStatsSuccess,
+    GetRepoContributorsStatsFailure,
+    GetRepoParticipationStatsSuccess,
+    GetRepoParticipationStatsFailure,
+    GetRepoPunchCardStatsSuccess,
+    GetRepoPunchCardStatsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3586,7 +3596,17 @@ export function textAndData(
         | GetZenSuccess
         | GetZenFailure
         | GetRepoCommunityProfileMetricsSuccess
-        | GetRepoCommunityProfileMetricsFailure) {
+        | GetRepoCommunityProfileMetricsFailure
+        | GetRepoCodeFrequencyStatsSuccess
+        | GetRepoCodeFrequencyStatsFailure
+        | GetRepoCommitActivityStatsSuccess
+        | GetRepoCommitActivityStatsFailure
+        | GetRepoContributorsStatsSuccess
+        | GetRepoContributorsStatsFailure
+        | GetRepoParticipationStatsSuccess
+        | GetRepoParticipationStatsFailure
+        | GetRepoPunchCardStatsSuccess
+        | GetRepoPunchCardStatsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

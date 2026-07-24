@@ -12454,3 +12454,63 @@ export type GetRepoCommunityProfileMetricsSuccess = {
     request_id: string | null;
 };
 export type GetRepoCommunityProfileMetricsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_code_frequency_stats`. */
+export type GetRepoCodeFrequencyStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    code_frequency: unknown;
+    request_id: string | null;
+};
+export type GetRepoCodeFrequencyStatsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_commit_activity_stats`. */
+export type GetRepoCommitActivityStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    commit_activity: Record<string, unknown>[] | null;
+    request_id: string | null;
+};
+export type GetRepoCommitActivityStatsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_contributors_stats`. */
+export type GetRepoContributorsStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    contributors: Record<string, unknown>[] | null;
+    request_id: string | null;
+};
+export type GetRepoContributorsStatsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_participation_stats`. */
+export type GetRepoParticipationStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    participation: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoParticipationStatsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_punch_card_stats`. */
+export type GetRepoPunchCardStatsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    punch_card: unknown;
+    request_id: string | null;
+};
+export type GetRepoPunchCardStatsFailure = CreateRepoFailure;
