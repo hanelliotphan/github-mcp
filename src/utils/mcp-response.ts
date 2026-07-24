@@ -1802,6 +1802,20 @@ import type {
     SearchTopicsFailure,
     SearchUsersSuccess,
     SearchUsersFailure,
+    ListOrgSecretScanningAlertsSuccess,
+    ListOrgSecretScanningAlertsFailure,
+    ListRepoSecretScanningAlertsSuccess,
+    ListRepoSecretScanningAlertsFailure,
+    GetSecretScanningAlertSuccess,
+    GetSecretScanningAlertFailure,
+    UpdateSecretScanningAlertSuccess,
+    UpdateSecretScanningAlertFailure,
+    ListSecretScanningAlertLocationsSuccess,
+    ListSecretScanningAlertLocationsFailure,
+    CreateSecretScanningPushProtectionBypassSuccess,
+    CreateSecretScanningPushProtectionBypassFailure,
+    GetRepoSecretScanningScanHistorySuccess,
+    GetRepoSecretScanningScanHistoryFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -4071,6 +4085,20 @@ export function textAndData(
         | SearchTopicsFailure
         | SearchUsersSuccess
         | SearchUsersFailure
+        | ListOrgSecretScanningAlertsSuccess
+        | ListOrgSecretScanningAlertsFailure
+        | ListRepoSecretScanningAlertsSuccess
+        | ListRepoSecretScanningAlertsFailure
+        | GetSecretScanningAlertSuccess
+        | GetSecretScanningAlertFailure
+        | UpdateSecretScanningAlertSuccess
+        | UpdateSecretScanningAlertFailure
+        | ListSecretScanningAlertLocationsSuccess
+        | ListSecretScanningAlertLocationsFailure
+        | CreateSecretScanningPushProtectionBypassSuccess
+        | CreateSecretScanningPushProtectionBypassFailure
+        | GetRepoSecretScanningScanHistorySuccess
+        | GetRepoSecretScanningScanHistoryFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

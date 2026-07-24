@@ -1024,6 +1024,13 @@ import { registerGithubSearchLabelsTool } from "./tools/search/search/github-sea
 import { registerGithubSearchRepositoriesTool } from "./tools/search/search/github-search-repositories.js";
 import { registerGithubSearchTopicsTool } from "./tools/search/search/github-search-topics.js";
 import { registerGithubSearchUsersTool } from "./tools/search/search/github-search-users.js";
+import { registerGithubCreateSecretScanningPushProtectionBypassTool } from "./tools/secret-scanning/secret-scanning/github-create-secret-scanning-push-protection-bypass.js";
+import { registerGithubGetRepoSecretScanningScanHistoryTool } from "./tools/secret-scanning/secret-scanning/github-get-repo-secret-scanning-scan-history.js";
+import { registerGithubGetSecretScanningAlertTool } from "./tools/secret-scanning/secret-scanning/github-get-secret-scanning-alert.js";
+import { registerGithubListOrgSecretScanningAlertsTool } from "./tools/secret-scanning/secret-scanning/github-list-org-secret-scanning-alerts.js";
+import { registerGithubListRepoSecretScanningAlertsTool } from "./tools/secret-scanning/secret-scanning/github-list-repo-secret-scanning-alerts.js";
+import { registerGithubListSecretScanningAlertLocationsTool } from "./tools/secret-scanning/secret-scanning/github-list-secret-scanning-alert-locations.js";
+import { registerGithubUpdateSecretScanningAlertTool } from "./tools/secret-scanning/secret-scanning/github-update-secret-scanning-alert.js";
 import { registerGithubUploadRepoReleaseAssetTool } from "./tools/releases/assets/github-upload-repo-release-asset.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
@@ -2065,6 +2072,13 @@ registerGithubSearchLabelsTool(server, octokit);
 registerGithubSearchRepositoriesTool(server, octokit);
 registerGithubSearchTopicsTool(server, octokit);
 registerGithubSearchUsersTool(server, octokit);
+registerGithubCreateSecretScanningPushProtectionBypassTool(server, octokit);
+registerGithubGetRepoSecretScanningScanHistoryTool(server, octokit);
+registerGithubGetSecretScanningAlertTool(server, octokit);
+registerGithubListOrgSecretScanningAlertsTool(server, octokit);
+registerGithubListRepoSecretScanningAlertsTool(server, octokit);
+registerGithubListSecretScanningAlertLocationsTool(server, octokit);
+registerGithubUpdateSecretScanningAlertTool(server, octokit);
 registerGithubUploadRepoReleaseAssetTool(server, octokit);
 
 installCompactToolsListHandler(server);

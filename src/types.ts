@@ -13701,3 +13701,101 @@ export type SearchUsersSuccess = {
 };
 export type SearchUsersFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_org_secret_scanning_alerts`. */
+export type ListOrgSecretScanningAlertsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    alerts: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgSecretScanningAlertsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_secret_scanning_alerts`. */
+export type ListRepoSecretScanningAlertsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    alerts: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoSecretScanningAlertsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_secret_scanning_alert`. */
+export type GetSecretScanningAlertSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    alert: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetSecretScanningAlertFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_secret_scanning_alert`. */
+export type UpdateSecretScanningAlertSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    alert: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateSecretScanningAlertFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_secret_scanning_alert_locations`. */
+export type ListSecretScanningAlertLocationsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    alert_number: number;
+    locations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListSecretScanningAlertLocationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_secret_scanning_push_protection_bypass`. */
+export type CreateSecretScanningPushProtectionBypassSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    bypass: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateSecretScanningPushProtectionBypassFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_secret_scanning_scan_history`. */
+export type GetRepoSecretScanningScanHistorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    scan_history: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoSecretScanningScanHistoryFailure = CreateRepoFailure;
+
