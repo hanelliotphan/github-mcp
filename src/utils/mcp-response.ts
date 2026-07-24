@@ -267,6 +267,8 @@ import type {
     DeleteOrgRulesetFailure,
     DeleteOrgRulesetSuccess,
     DeleteOrgSuccess,
+    DeleteOrgTeamExternalGroupsFailure,
+    DeleteOrgTeamExternalGroupsSuccess,
     DeleteOrgTeamFailure,
     DeleteOrgTeamSuccess,
     DeleteOrgUserCodespaceFailure,
@@ -515,6 +517,8 @@ import type {
     GetOrgCustomPropertySuccess,
     GetOrgCustomPropertyValuesFailure,
     GetOrgCustomPropertyValuesSuccess,
+    GetOrgExternalGroupFailure,
+    GetOrgExternalGroupSuccess,
     GetOrgFailure,
     GetOrgImmutableReleasesSettingsFailure,
     GetOrgImmutableReleasesSettingsSuccess,
@@ -817,6 +821,8 @@ import type {
     ListOrgCodespacesSuccess,
     ListOrgEventsForAuthenticatedUserFailure,
     ListOrgEventsForAuthenticatedUserSuccess,
+    ListOrgExternalGroupsFailure,
+    ListOrgExternalGroupsSuccess,
     ListOrgFailedInvitationsFailure,
     ListOrgFailedInvitationsSuccess,
     ListOrgInvitationTeamsFailure,
@@ -861,6 +867,8 @@ import type {
     ListOrgsForUserSuccess,
     ListOrgTeamChildTeamsFailure,
     ListOrgTeamChildTeamsSuccess,
+    ListOrgTeamExternalGroupsFailure,
+    ListOrgTeamExternalGroupsSuccess,
     ListOrgTeamMembersFailure,
     ListOrgTeamMembersSuccess,
     ListOrgTeamPendingInvitationsFailure,
@@ -1088,6 +1096,8 @@ import type {
     GetRepoCollaboratorPermissionFailure,
     ListRepoInvitationsSuccess,
     ListRepoInvitationsFailure,
+    UpdateOrgTeamExternalGroupsFailure,
+    UpdateOrgTeamExternalGroupsSuccess,
     UpdateOrgTeamFailure,
     UpdateOrgTeamSuccess,
     UpdateRepoInvitationSuccess,
@@ -2171,16 +2181,24 @@ export function textAndData(
         | CheckOrgPublicMembershipForUserFailure
         | CreateOrgTeamFailure
         | CreateOrgTeamSuccess
+        | DeleteOrgTeamExternalGroupsFailure
+        | DeleteOrgTeamExternalGroupsSuccess
         | DeleteOrgTeamFailure
         | DeleteOrgTeamSuccess
+        | GetOrgExternalGroupFailure
+        | GetOrgExternalGroupSuccess
         | GetOrgTeamFailure
         | GetOrgTeamMembershipForUserFailure
         | GetOrgTeamMembershipForUserSuccess
         | GetOrgTeamSuccess
         | ListAuthenticatedUserTeamsFailure
         | ListAuthenticatedUserTeamsSuccess
+        | ListOrgExternalGroupsFailure
+        | ListOrgExternalGroupsSuccess
         | ListOrgTeamChildTeamsFailure
         | ListOrgTeamChildTeamsSuccess
+        | ListOrgTeamExternalGroupsFailure
+        | ListOrgTeamExternalGroupsSuccess
         | ListOrgTeamMembersFailure
         | ListOrgTeamMembersSuccess
         | ListOrgTeamPendingInvitationsFailure
@@ -2397,6 +2415,8 @@ export function textAndData(
         | CreateSelfHostedRunnerGroupForOrgFailure
         | GetSelfHostedRunnerGroupForOrgSuccess
         | GetSelfHostedRunnerGroupForOrgFailure
+        | UpdateOrgTeamExternalGroupsFailure
+        | UpdateOrgTeamExternalGroupsSuccess
         | UpdateOrgTeamFailure
         | UpdateOrgTeamSuccess
         | UpdateSelfHostedRunnerGroupForOrgSuccess

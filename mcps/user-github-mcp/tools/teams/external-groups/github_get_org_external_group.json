@@ -1,0 +1,32 @@
+{
+  "name": "github_get_org_external_group",
+  "description": "github get org external group",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "group_id": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "org",
+      "group_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

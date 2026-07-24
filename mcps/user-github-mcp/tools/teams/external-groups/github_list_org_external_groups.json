@@ -1,0 +1,38 @@
+{
+  "name": "github_list_org_external_groups",
+  "description": "github list org external groups",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "display_name": {
+        "type": "string"
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "integer",
+            "minimum": 1
+          }
+        ]
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

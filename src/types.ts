@@ -14419,5 +14419,66 @@ export type RemoveOrgTeamMembershipForUserSuccess = {
     request_id: string | null;
 };
 export type RemoveOrgTeamMembershipForUserFailure = CreateRepoFailure;
+/** MCP tool: `github_delete_org_team_external_groups`. */
+export type DeleteOrgTeamExternalGroupsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    request_id: string | null;
+};
+export type DeleteOrgTeamExternalGroupsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_external_group`. */
+export type GetOrgExternalGroupSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    group_id: number;
+    external_group: Record<string, unknown>;
+    page: number;
+    per_page: number;
+    request_id: string | null;
+};
+export type GetOrgExternalGroupFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_external_groups`. */
+export type ListOrgExternalGroupsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    groups: Record<string, unknown>[];
+    per_page: number;
+    page: string | number | null;
+    request_id: string | null;
+};
+export type ListOrgExternalGroupsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_team_external_groups`. */
+export type ListOrgTeamExternalGroupsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    groups: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListOrgTeamExternalGroupsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_team_external_groups`. */
+export type UpdateOrgTeamExternalGroupsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    group_id: number;
+    external_group: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateOrgTeamExternalGroupsFailure = CreateRepoFailure;
 
 

@@ -1,0 +1,28 @@
+{
+  "name": "github_update_org_team_external_groups",
+  "description": "github update org team external groups",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "team_slug": {
+        "type": "string",
+        "minLength": 1
+      },
+      "group_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "org",
+      "team_slug",
+      "group_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
