@@ -1,0 +1,24 @@
+{
+  "name": "github_get_repo_top_referrers",
+  "description": "Get the top 10 referrers over the last 14 days (GET /repos/{owner}/{repo}/traffic/popular/referrers).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

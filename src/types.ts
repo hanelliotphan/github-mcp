@@ -12514,3 +12514,51 @@ export type GetRepoPunchCardStatsSuccess = {
     request_id: string | null;
 };
 export type GetRepoPunchCardStatsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_clones`. */
+export type GetRepoClonesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    clones: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoClonesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_top_paths`. */
+export type GetRepoTopPathsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    paths: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type GetRepoTopPathsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_top_referrers`. */
+export type GetRepoTopReferrersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    referrers: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type GetRepoTopReferrersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_views`. */
+export type GetRepoViewsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    views: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoViewsFailure = CreateRepoFailure;

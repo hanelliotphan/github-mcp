@@ -1,0 +1,31 @@
+{
+  "name": "github_get_repo_clones",
+  "description": "Get repository clone counts for the last 14 days (GET /repos/{owner}/{repo}/traffic/clones).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "per": {
+        "type": "string",
+        "enum": [
+          "day",
+          "week"
+        ]
+      }
+    },
+    "required": [
+      "owner",
+      "name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

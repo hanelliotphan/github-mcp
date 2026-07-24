@@ -909,6 +909,10 @@ import { registerGithubGetRepoCommitActivityStatsTool } from "./tools/metrics/st
 import { registerGithubGetRepoContributorsStatsTool } from "./tools/metrics/statistics/github-get-repo-contributors-stats.js";
 import { registerGithubGetRepoParticipationStatsTool } from "./tools/metrics/statistics/github-get-repo-participation-stats.js";
 import { registerGithubGetRepoPunchCardStatsTool } from "./tools/metrics/statistics/github-get-repo-punch-card-stats.js";
+import { registerGithubGetRepoClonesTool } from "./tools/metrics/traffic/github-get-repo-clones.js";
+import { registerGithubGetRepoTopPathsTool } from "./tools/metrics/traffic/github-get-repo-top-paths.js";
+import { registerGithubGetRepoTopReferrersTool } from "./tools/metrics/traffic/github-get-repo-top-referrers.js";
+import { registerGithubGetRepoViewsTool } from "./tools/metrics/traffic/github-get-repo-views.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1834,6 +1838,10 @@ registerGithubGetRepoCommitActivityStatsTool(server, octokit);
 registerGithubGetRepoContributorsStatsTool(server, octokit);
 registerGithubGetRepoParticipationStatsTool(server, octokit);
 registerGithubGetRepoPunchCardStatsTool(server, octokit);
+registerGithubGetRepoClonesTool(server, octokit);
+registerGithubGetRepoTopPathsTool(server, octokit);
+registerGithubGetRepoTopReferrersTool(server, octokit);
+registerGithubGetRepoViewsTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
