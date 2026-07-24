@@ -1013,6 +1013,11 @@ import { registerGithubGetRepoReleaseByTagTool } from "./tools/releases/releases
 import { registerGithubGetRepoReleaseTool } from "./tools/releases/releases/github-get-repo-release.js";
 import { registerGithubUpdateRepoReleaseTool } from "./tools/releases/releases/github-update-repo-release.js";
 import { registerGithubDeleteRepoReleaseTool } from "./tools/releases/releases/github-delete-repo-release.js";
+import { registerGithubListRepoReleaseAssetsTool } from "./tools/releases/assets/github-list-repo-release-assets.js";
+import { registerGithubGetRepoReleaseAssetTool } from "./tools/releases/assets/github-get-repo-release-asset.js";
+import { registerGithubUpdateRepoReleaseAssetTool } from "./tools/releases/assets/github-update-repo-release-asset.js";
+import { registerGithubDeleteRepoReleaseAssetTool } from "./tools/releases/assets/github-delete-repo-release-asset.js";
+import { registerGithubUploadRepoReleaseAssetTool } from "./tools/releases/assets/github-upload-repo-release-asset.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -2042,6 +2047,11 @@ registerGithubGetRepoReleaseByTagTool(server, octokit);
 registerGithubGetRepoReleaseTool(server, octokit);
 registerGithubUpdateRepoReleaseTool(server, octokit);
 registerGithubDeleteRepoReleaseTool(server, octokit);
+registerGithubListRepoReleaseAssetsTool(server, octokit);
+registerGithubGetRepoReleaseAssetTool(server, octokit);
+registerGithubUpdateRepoReleaseAssetTool(server, octokit);
+registerGithubDeleteRepoReleaseAssetTool(server, octokit);
+registerGithubUploadRepoReleaseAssetTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

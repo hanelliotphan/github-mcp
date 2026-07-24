@@ -1,0 +1,40 @@
+{
+  "name": "github_update_repo_release_asset",
+  "description": "Update a release asset (PATCH /repos/{owner}/{repo}/releases/assets/{asset_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "asset_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "asset_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "label": {
+        "type": "string"
+      },
+      "state": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "asset_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

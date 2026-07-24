@@ -13513,3 +13513,71 @@ export type DeleteRepoReleaseSuccess = {
 };
 export type DeleteRepoReleaseFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_release_assets`. */
+export type ListRepoReleaseAssetsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    release_id: number;
+    assets: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoReleaseAssetsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_release_asset`. */
+export type GetRepoReleaseAssetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    asset_id: number;
+    asset: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoReleaseAssetFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_release_asset`. */
+export type UpdateRepoReleaseAssetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    asset_id: number;
+    asset: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoReleaseAssetFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_release_asset`. */
+export type DeleteRepoReleaseAssetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    asset_id: number;
+    request_id: string | null;
+};
+export type DeleteRepoReleaseAssetFailure = CreateRepoFailure;
+
+/** MCP tool: `github_upload_repo_release_asset`. */
+export type UploadRepoReleaseAssetSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release_id: number;
+    asset: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UploadRepoReleaseAssetFailure = CreateRepoFailure;
+
