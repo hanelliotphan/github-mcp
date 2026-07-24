@@ -1578,6 +1578,8 @@ import type {
     GetRepoTopReferrersFailure,
     GetRepoViewsSuccess,
     GetRepoViewsFailure,
+    ListModelsSuccess,
+    ListModelsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3622,7 +3624,9 @@ export function textAndData(
         | GetRepoTopReferrersSuccess
         | GetRepoTopReferrersFailure
         | GetRepoViewsSuccess
-        | GetRepoViewsFailure) {
+        | GetRepoViewsFailure
+        | ListModelsSuccess
+        | ListModelsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

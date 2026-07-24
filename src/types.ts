@@ -12562,3 +12562,13 @@ export type GetRepoViewsSuccess = {
     request_id: string | null;
 };
 export type GetRepoViewsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_models`. */
+export type ListModelsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    models: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListModelsFailure = CreateRepoFailure;

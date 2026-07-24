@@ -1,0 +1,9 @@
+{
+  "name": "github_list_models",
+  "description": "List models available in the GitHub Models catalog (GET /catalog/models on models.github.ai).",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
