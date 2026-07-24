@@ -1726,6 +1726,10 @@ import type {
     GetOrgProjectFailure,
     GetUserProjectSuccess,
     GetUserProjectFailure,
+    CreateOrgProjectViewSuccess,
+    CreateOrgProjectViewFailure,
+    CreateUserProjectViewSuccess,
+    CreateUserProjectViewFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3919,6 +3923,10 @@ export function textAndData(
         | GetOrgProjectFailure
         | GetUserProjectSuccess
         | GetUserProjectFailure
+        | CreateOrgProjectViewSuccess
+        | CreateOrgProjectViewFailure
+        | CreateUserProjectViewSuccess
+        | CreateUserProjectViewFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

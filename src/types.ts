@@ -13161,3 +13161,27 @@ export type GetUserProjectSuccess = {
 };
 export type GetUserProjectFailure = CreateRepoFailure;
 
+/** MCP tool: `github_create_org_project_view`. */
+export type CreateOrgProjectViewSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    view: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgProjectViewFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_user_project_view`. */
+export type CreateUserProjectViewSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    user_id: string;
+    project_number: number;
+    view: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateUserProjectViewFailure = CreateRepoFailure;
+

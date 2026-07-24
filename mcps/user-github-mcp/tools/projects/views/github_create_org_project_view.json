@@ -1,0 +1,47 @@
+{
+  "name": "github_create_org_project_view",
+  "description": "Create a project view (POST /orgs/{org}/projectsV2/{project_number}/views).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "project_number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "layout": {
+        "type": "string",
+        "enum": [
+          "table",
+          "board",
+          "roadmap"
+        ]
+      },
+      "filter": {
+        "type": "string"
+      },
+      "visible_fields": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "required": [
+      "org",
+      "project_number",
+      "name",
+      "layout"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

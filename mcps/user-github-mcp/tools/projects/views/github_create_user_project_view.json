@@ -1,0 +1,46 @@
+{
+  "name": "github_create_user_project_view",
+  "description": "Create a project view (POST /users/{user_id}/projectsV2/{project_number}/views).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "project_number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "layout": {
+        "type": "string",
+        "enum": [
+          "table",
+          "board",
+          "roadmap"
+        ]
+      },
+      "filter": {
+        "type": "string"
+      },
+      "visible_fields": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "required": [
+      "user_id",
+      "project_number",
+      "name",
+      "layout"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
