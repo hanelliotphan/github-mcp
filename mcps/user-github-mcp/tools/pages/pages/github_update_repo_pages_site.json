@@ -1,0 +1,65 @@
+{
+  "name": "github_update_repo_pages_site",
+  "description": "Update a GitHub Pages site (PUT /repos/{owner}/{repo}/pages). Optional **cname** (null clears), **https_enforced**, **build_type**, and **source**. Success is HTTP **204**.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "cname": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "https_enforced": {
+        "type": "boolean"
+      },
+      "build_type": {
+        "type": "string",
+        "enum": [
+          "legacy",
+          "workflow"
+        ]
+      },
+      "source": {
+        "type": "object",
+        "properties": {
+          "branch": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "enum": [
+              "/",
+              "/docs"
+            ]
+          }
+        },
+        "required": [
+          "branch",
+          "path"
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "owner",
+      "name"
+    ]
+  }
+}

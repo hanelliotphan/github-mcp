@@ -1,0 +1,24 @@
+{
+  "name": "github_request_repo_pages_build",
+  "description": "Request a GitHub Pages build (POST /repos/{owner}/{repo}/pages/builds).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "owner",
+      "name"
+    ]
+  }
+}

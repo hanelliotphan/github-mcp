@@ -1,0 +1,24 @@
+{
+  "name": "github_get_latest_repo_pages_build",
+  "description": "Get the latest GitHub Pages build (GET /repos/{owner}/{repo}/pages/builds/latest).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "owner",
+      "name"
+    ]
+  }
+}

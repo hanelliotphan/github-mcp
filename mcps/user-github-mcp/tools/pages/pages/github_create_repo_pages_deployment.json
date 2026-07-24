@@ -1,0 +1,45 @@
+{
+  "name": "github_create_repo_pages_deployment",
+  "description": "Create a GitHub Pages deployment (POST /repos/{owner}/{repo}/pages/deployments). Requires **pages_build_version** and **oidc_token**, plus **artifact_id** or **artifact_url**.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "artifact_id": {
+        "type": "number"
+      },
+      "artifact_url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "environment": {
+        "type": "string",
+        "minLength": 1
+      },
+      "pages_build_version": {
+        "type": "string",
+        "minLength": 1
+      },
+      "oidc_token": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "owner",
+      "name",
+      "pages_build_version",
+      "oidc_token"
+    ]
+  }
+}

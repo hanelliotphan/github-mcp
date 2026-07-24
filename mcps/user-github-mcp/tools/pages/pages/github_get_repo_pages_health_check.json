@@ -1,0 +1,24 @@
+{
+  "name": "github_get_repo_pages_health_check",
+  "description": "Get a DNS health check for GitHub Pages (GET /repos/{owner}/{repo}/pages/health). **202** means the check is still computing; retry for **200**.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "owner",
+      "name"
+    ]
+  }
+}

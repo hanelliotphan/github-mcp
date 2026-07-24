@@ -12722,3 +12722,51 @@ export type DeleteUserPackageVersionFailure = CreateRepoFailure;
 /** MCP tool: `github_restore_user_package_version`. */
 export type RestoreUserPackageVersionSuccess = { success: true; message: string; http_status: number; username: string; package_type: string; package_name: string; package_version_id: number; request_id: string | null; };
 export type RestoreUserPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_pages`. */
+export type GetRepoPagesSuccess = { success: true; message: string; http_status: number; owner: string; name: string; pages: Record<string, unknown>; request_id: string | null; };
+export type GetRepoPagesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_pages_site`. */
+export type CreateRepoPagesSiteSuccess = { success: true; message: string; http_status: number; owner: string; name: string; pages: Record<string, unknown>; request_id: string | null; };
+export type CreateRepoPagesSiteFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_pages_site`. */
+export type UpdateRepoPagesSiteSuccess = { success: true; message: string; http_status: number; owner: string; name: string; request_id: string | null; };
+export type UpdateRepoPagesSiteFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_pages_site`. */
+export type DeleteRepoPagesSiteSuccess = { success: true; message: string; http_status: number; owner: string; name: string; request_id: string | null; };
+export type DeleteRepoPagesSiteFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_pages_builds`. */
+export type ListRepoPagesBuildsSuccess = { success: true; message: string; owner: string; name: string; builds: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListRepoPagesBuildsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_request_repo_pages_build`. */
+export type RequestRepoPagesBuildSuccess = { success: true; message: string; http_status: number; owner: string; name: string; build: Record<string, unknown>; request_id: string | null; };
+export type RequestRepoPagesBuildFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_latest_repo_pages_build`. */
+export type GetLatestRepoPagesBuildSuccess = { success: true; message: string; http_status: number; owner: string; name: string; build: Record<string, unknown>; request_id: string | null; };
+export type GetLatestRepoPagesBuildFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_pages_build`. */
+export type GetRepoPagesBuildSuccess = { success: true; message: string; http_status: number; owner: string; name: string; build_id: number; build: Record<string, unknown>; request_id: string | null; };
+export type GetRepoPagesBuildFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_pages_deployment`. */
+export type CreateRepoPagesDeploymentSuccess = { success: true; message: string; http_status: number; owner: string; name: string; deployment: Record<string, unknown>; request_id: string | null; };
+export type CreateRepoPagesDeploymentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_pages_deployment`. */
+export type GetRepoPagesDeploymentSuccess = { success: true; message: string; http_status: number; owner: string; name: string; pages_deployment_id: number | string; deployment: Record<string, unknown>; request_id: string | null; };
+export type GetRepoPagesDeploymentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_cancel_repo_pages_deployment`. */
+export type CancelRepoPagesDeploymentSuccess = { success: true; message: string; http_status: number; owner: string; name: string; pages_deployment_id: number | string; request_id: string | null; };
+export type CancelRepoPagesDeploymentFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_pages_health_check`. */
+export type GetRepoPagesHealthCheckSuccess = { success: true; message: string; http_status: number; owner: string; name: string; health: Record<string, unknown> | null; request_id: string | null; };
+export type GetRepoPagesHealthCheckFailure = CreateRepoFailure;

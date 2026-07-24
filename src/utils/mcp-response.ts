@@ -1642,6 +1642,30 @@ import type {
     DeleteUserPackageVersionFailure,
     RestoreUserPackageVersionSuccess,
     RestoreUserPackageVersionFailure,
+    GetRepoPagesSuccess,
+    GetRepoPagesFailure,
+    CreateRepoPagesSiteSuccess,
+    CreateRepoPagesSiteFailure,
+    UpdateRepoPagesSiteSuccess,
+    UpdateRepoPagesSiteFailure,
+    DeleteRepoPagesSiteSuccess,
+    DeleteRepoPagesSiteFailure,
+    ListRepoPagesBuildsSuccess,
+    ListRepoPagesBuildsFailure,
+    RequestRepoPagesBuildSuccess,
+    RequestRepoPagesBuildFailure,
+    GetLatestRepoPagesBuildSuccess,
+    GetLatestRepoPagesBuildFailure,
+    GetRepoPagesBuildSuccess,
+    GetRepoPagesBuildFailure,
+    CreateRepoPagesDeploymentSuccess,
+    CreateRepoPagesDeploymentFailure,
+    GetRepoPagesDeploymentSuccess,
+    GetRepoPagesDeploymentFailure,
+    CancelRepoPagesDeploymentSuccess,
+    CancelRepoPagesDeploymentFailure,
+    GetRepoPagesHealthCheckSuccess,
+    GetRepoPagesHealthCheckFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3751,6 +3775,30 @@ export function textAndData(
         | DeleteUserPackageVersionFailure
         | RestoreUserPackageVersionSuccess
         | RestoreUserPackageVersionFailure
+        | GetRepoPagesSuccess
+        | GetRepoPagesFailure
+        | CreateRepoPagesSiteSuccess
+        | CreateRepoPagesSiteFailure
+        | UpdateRepoPagesSiteSuccess
+        | UpdateRepoPagesSiteFailure
+        | DeleteRepoPagesSiteSuccess
+        | DeleteRepoPagesSiteFailure
+        | ListRepoPagesBuildsSuccess
+        | ListRepoPagesBuildsFailure
+        | RequestRepoPagesBuildSuccess
+        | RequestRepoPagesBuildFailure
+        | GetLatestRepoPagesBuildSuccess
+        | GetLatestRepoPagesBuildFailure
+        | GetRepoPagesBuildSuccess
+        | GetRepoPagesBuildFailure
+        | CreateRepoPagesDeploymentSuccess
+        | CreateRepoPagesDeploymentFailure
+        | GetRepoPagesDeploymentSuccess
+        | GetRepoPagesDeploymentFailure
+        | CancelRepoPagesDeploymentSuccess
+        | CancelRepoPagesDeploymentFailure
+        | GetRepoPagesHealthCheckSuccess
+        | GetRepoPagesHealthCheckFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

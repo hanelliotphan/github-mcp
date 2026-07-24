@@ -1,0 +1,37 @@
+{
+  "name": "github_get_repo_pages_deployment",
+  "description": "Get the status of a GitHub Pages deployment (GET /repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "pages_deployment_id": {
+        "anyOf": [
+          {
+            "type": "integer",
+            "exclusiveMinimum": 0
+          },
+          {
+            "type": "string",
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "owner",
+      "name",
+      "pages_deployment_id"
+    ]
+  }
+}

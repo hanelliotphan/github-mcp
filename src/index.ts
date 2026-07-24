@@ -945,6 +945,18 @@ import { registerGithubListUserPackageVersionsTool } from "./tools/packages/pack
 import { registerGithubGetUserPackageVersionTool } from "./tools/packages/packages/github-get-user-package-version.js";
 import { registerGithubDeleteUserPackageVersionTool } from "./tools/packages/packages/github-delete-user-package-version.js";
 import { registerGithubRestoreUserPackageVersionTool } from "./tools/packages/packages/github-restore-user-package-version.js";
+import { registerGithubGetRepoPagesTool } from "./tools/pages/pages/github-get-repo-pages.js";
+import { registerGithubCreateRepoPagesSiteTool } from "./tools/pages/pages/github-create-repo-pages-site.js";
+import { registerGithubUpdateRepoPagesSiteTool } from "./tools/pages/pages/github-update-repo-pages-site.js";
+import { registerGithubDeleteRepoPagesSiteTool } from "./tools/pages/pages/github-delete-repo-pages-site.js";
+import { registerGithubListRepoPagesBuildsTool } from "./tools/pages/pages/github-list-repo-pages-builds.js";
+import { registerGithubRequestRepoPagesBuildTool } from "./tools/pages/pages/github-request-repo-pages-build.js";
+import { registerGithubGetLatestRepoPagesBuildTool } from "./tools/pages/pages/github-get-latest-repo-pages-build.js";
+import { registerGithubGetRepoPagesBuildTool } from "./tools/pages/pages/github-get-repo-pages-build.js";
+import { registerGithubCreateRepoPagesDeploymentTool } from "./tools/pages/pages/github-create-repo-pages-deployment.js";
+import { registerGithubGetRepoPagesDeploymentTool } from "./tools/pages/pages/github-get-repo-pages-deployment.js";
+import { registerGithubCancelRepoPagesDeploymentTool } from "./tools/pages/pages/github-cancel-repo-pages-deployment.js";
+import { registerGithubGetRepoPagesHealthCheckTool } from "./tools/pages/pages/github-get-repo-pages-health-check.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1906,6 +1918,18 @@ registerGithubListUserPackageVersionsTool(server, octokit);
 registerGithubGetUserPackageVersionTool(server, octokit);
 registerGithubDeleteUserPackageVersionTool(server, octokit);
 registerGithubRestoreUserPackageVersionTool(server, octokit);
+registerGithubGetRepoPagesTool(server, octokit);
+registerGithubCreateRepoPagesSiteTool(server, octokit);
+registerGithubUpdateRepoPagesSiteTool(server, octokit);
+registerGithubDeleteRepoPagesSiteTool(server, octokit);
+registerGithubListRepoPagesBuildsTool(server, octokit);
+registerGithubRequestRepoPagesBuildTool(server, octokit);
+registerGithubGetLatestRepoPagesBuildTool(server, octokit);
+registerGithubGetRepoPagesBuildTool(server, octokit);
+registerGithubCreateRepoPagesDeploymentTool(server, octokit);
+registerGithubGetRepoPagesDeploymentTool(server, octokit);
+registerGithubCancelRepoPagesDeploymentTool(server, octokit);
+registerGithubGetRepoPagesHealthCheckTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
