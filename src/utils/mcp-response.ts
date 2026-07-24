@@ -157,6 +157,8 @@ import type {
     CreateAuthenticatedUserGpgKeySuccess,
     CreateAuthenticatedUserPublicSshKeyFailure,
     CreateAuthenticatedUserPublicSshKeySuccess,
+    CreateAuthenticatedUserSshSigningKeyFailure,
+    CreateAuthenticatedUserSshSigningKeySuccess,
     CreateCheckRunFailure,
     CreateCheckRunSuccess,
     CreateCheckSuiteFailure,
@@ -399,6 +401,8 @@ import type {
     DeleteAuthenticatedUserPublicSshKeySuccess,
     DeleteAuthenticatedUserSocialAccountsFailure,
     DeleteAuthenticatedUserSocialAccountsSuccess,
+    DeleteAuthenticatedUserSshSigningKeyFailure,
+    DeleteAuthenticatedUserSshSigningKeySuccess,
     DeleteCodeqlDatabaseFailure,
     DeleteCodeqlDatabaseSuccess,
     DeleteCodeScanningAnalysisFailure,
@@ -694,6 +698,8 @@ import type {
     GetAuthenticatedUserPackageVersionSuccess,
     GetAuthenticatedUserPublicSshKeyFailure,
     GetAuthenticatedUserPublicSshKeySuccess,
+    GetAuthenticatedUserSshSigningKeyFailure,
+    GetAuthenticatedUserSshSigningKeySuccess,
     GetAuthenticatedUserSuccess,
     GetCheckRunFailure,
     GetCheckRunSuccess,
@@ -1225,6 +1231,8 @@ import type {
     ListAuthenticatedUserReposSuccess,
     ListAuthenticatedUserSocialAccountsFailure,
     ListAuthenticatedUserSocialAccountsSuccess,
+    ListAuthenticatedUserSshSigningKeysFailure,
+    ListAuthenticatedUserSshSigningKeysSuccess,
     ListAuthenticatedUserTeamsFailure,
     ListAuthenticatedUserTeamsSuccess,
     ListBlockedUsersFailure,
@@ -1752,6 +1760,8 @@ import type {
     ListUsersFailure,
     ListUserSocialAccountsFailure,
     ListUserSocialAccountsSuccess,
+    ListUserSshSigningKeysFailure,
+    ListUserSshSigningKeysSuccess,
     ListUsersSuccess,
     ListWatchedReposForAuthenticatedUserFailure,
     ListWatchedReposForAuthenticatedUserSuccess,
@@ -4467,6 +4477,16 @@ export function textAndData(
         | ListAuthenticatedUserSocialAccountsSuccess
         | ListUserSocialAccountsFailure
         | ListUserSocialAccountsSuccess
+        | CreateAuthenticatedUserSshSigningKeyFailure
+        | CreateAuthenticatedUserSshSigningKeySuccess
+        | DeleteAuthenticatedUserSshSigningKeyFailure
+        | DeleteAuthenticatedUserSshSigningKeySuccess
+        | GetAuthenticatedUserSshSigningKeyFailure
+        | GetAuthenticatedUserSshSigningKeySuccess
+        | ListAuthenticatedUserSshSigningKeysFailure
+        | ListAuthenticatedUserSshSigningKeysSuccess
+        | ListUserSshSigningKeysFailure
+        | ListUserSshSigningKeysSuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

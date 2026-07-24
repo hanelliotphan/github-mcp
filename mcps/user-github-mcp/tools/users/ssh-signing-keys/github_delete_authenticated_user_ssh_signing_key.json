@@ -1,0 +1,17 @@
+{
+  "name": "github_delete_authenticated_user_ssh_signing_key",
+  "description": "DELETE /user/ssh_signing_keys/{id}",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "ssh_signing_key_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "ssh_signing_key_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
