@@ -9,6 +9,8 @@ import type {
     AddOrgCodespacesAccessUsersSuccess,
     AddOrgSecurityManagerTeamFailure,
     AddOrgSecurityManagerTeamSuccess,
+    AddOrUpdateOrgTeamMembershipForUserFailure,
+    AddOrUpdateOrgTeamMembershipForUserSuccess,
     AddOrUpdateOrgTeamRepoPermissionsFailure,
     AddOrUpdateOrgTeamRepoPermissionsSuccess,
     AddRepoAccessToSelfHostedRunnerGroupInOrgFailure,
@@ -540,6 +542,8 @@ import type {
     GetOrgRuleSuiteSuccess,
     GetOrgSuccess,
     GetOrgTeamFailure,
+    GetOrgTeamMembershipForUserFailure,
+    GetOrgTeamMembershipForUserSuccess,
     GetOrgTeamSuccess,
     GetOrgWebhookConfigFailure,
     GetOrgWebhookConfigSuccess,
@@ -857,6 +861,10 @@ import type {
     ListOrgsForUserSuccess,
     ListOrgTeamChildTeamsFailure,
     ListOrgTeamChildTeamsSuccess,
+    ListOrgTeamMembersFailure,
+    ListOrgTeamMembersSuccess,
+    ListOrgTeamPendingInvitationsFailure,
+    ListOrgTeamPendingInvitationsSuccess,
     ListOrgTeamReposFailure,
     ListOrgTeamReposSuccess,
     ListOrgTeamsFailure,
@@ -1057,6 +1065,8 @@ import type {
     RemoveOrgRoleFromUserSuccess,
     RemoveOrgSecurityManagerTeamFailure,
     RemoveOrgSecurityManagerTeamSuccess,
+    RemoveOrgTeamMembershipForUserFailure,
+    RemoveOrgTeamMembershipForUserSuccess,
     RemoveOrgTeamRepoFailure,
     RemoveOrgTeamRepoSuccess,
     RemovePublicOrgMembershipForAuthUserFailure,
@@ -2135,6 +2145,8 @@ import type {
 
 export function textAndData(
     payload:
+        | AddOrUpdateOrgTeamMembershipForUserFailure
+        | AddOrUpdateOrgTeamMembershipForUserSuccess
         | AddOrUpdateOrgTeamRepoPermissionsFailure
         | AddOrUpdateOrgTeamRepoPermissionsSuccess
         | BulkListOrgAttestationsSuccess
@@ -2162,11 +2174,17 @@ export function textAndData(
         | DeleteOrgTeamFailure
         | DeleteOrgTeamSuccess
         | GetOrgTeamFailure
+        | GetOrgTeamMembershipForUserFailure
+        | GetOrgTeamMembershipForUserSuccess
         | GetOrgTeamSuccess
         | ListAuthenticatedUserTeamsFailure
         | ListAuthenticatedUserTeamsSuccess
         | ListOrgTeamChildTeamsFailure
         | ListOrgTeamChildTeamsSuccess
+        | ListOrgTeamMembersFailure
+        | ListOrgTeamMembersSuccess
+        | ListOrgTeamPendingInvitationsFailure
+        | ListOrgTeamPendingInvitationsSuccess
         | ListOrgTeamReposFailure
         | ListOrgTeamReposSuccess
         | ListOrgTeamsFailure
@@ -2175,6 +2193,8 @@ export function textAndData(
         | RemoveOrgMemberFailure
         | RemoveOrgMembershipForUserSuccess
         | RemoveOrgMembershipForUserFailure
+        | RemoveOrgTeamMembershipForUserFailure
+        | RemoveOrgTeamMembershipForUserSuccess
         | RemoveOrgTeamRepoFailure
         | RemoveOrgTeamRepoSuccess
         | RemovePublicOrgMembershipForAuthUserSuccess

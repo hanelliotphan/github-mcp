@@ -14350,5 +14350,74 @@ export type UpdateOrgTeamSuccess = {
     request_id: string | null;
 };
 export type UpdateOrgTeamFailure = CreateRepoFailure;
+/** MCP tool: `github_add_or_update_org_team_membership_for_user`. */
+export type AddOrUpdateOrgTeamMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    username: string;
+    membership: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddOrUpdateOrgTeamMembershipForUserFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_team_membership_for_user`. */
+export type GetOrgTeamMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    username: string;
+    membership: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetOrgTeamMembershipForUserFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_team_members`. */
+export type ListOrgTeamMembersSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    team_slug: string;
+    members: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgTeamMembersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_team_pending_invitations`. */
+export type ListOrgTeamPendingInvitationsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    team_slug: string;
+    invitations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgTeamPendingInvitationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_org_team_membership_for_user`. */
+export type RemoveOrgTeamMembershipForUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    username: string;
+    request_id: string | null;
+};
+export type RemoveOrgTeamMembershipForUserFailure = CreateRepoFailure;
 
 

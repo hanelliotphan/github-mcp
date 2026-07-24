@@ -1,0 +1,36 @@
+{
+  "name": "github_add_or_update_org_team_membership_for_user",
+  "description": "Add or update team membership for a user (PUT /orgs/{org}/teams/{team_slug}/memberships/{username}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "team_slug": {
+        "type": "string",
+        "minLength": 1
+      },
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "member",
+          "maintainer"
+        ]
+      }
+    },
+    "required": [
+      "org",
+      "team_slug",
+      "username"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
