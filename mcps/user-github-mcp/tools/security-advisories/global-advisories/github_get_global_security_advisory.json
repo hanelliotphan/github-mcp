@@ -1,0 +1,17 @@
+{
+  "name": "github_get_global_security_advisory",
+  "description": "Get a global security advisory (GET /advisories/{ghsa_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "ghsa_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "ghsa_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

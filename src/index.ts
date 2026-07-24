@@ -1047,6 +1047,8 @@ import { registerGithubListOrgSecretScanningAlertDismissalRequestsTool } from ".
 import { registerGithubListRepoSecretScanningAlertDismissalRequestsTool } from "./tools/secret-scanning/alert-dismissal-requests/github-list-repo-secret-scanning-alert-dismissal-requests.js";
 import { registerGithubReviewSecretScanningAlertDismissalRequestTool } from "./tools/secret-scanning/alert-dismissal-requests/github-review-secret-scanning-alert-dismissal-request.js";
 import { registerGithubDismissSecretScanningBypassResponseTool } from "./tools/secret-scanning/delegated-bypass/github-dismiss-secret-scanning-bypass-response.js";
+import { registerGithubGetGlobalSecurityAdvisoryTool } from "./tools/security-advisories/global-advisories/github-get-global-security-advisory.js";
+import { registerGithubListGlobalSecurityAdvisoriesTool } from "./tools/security-advisories/global-advisories/github-list-global-security-advisories.js";
 import { registerGithubGetSecretScanningBypassRequestTool } from "./tools/secret-scanning/delegated-bypass/github-get-secret-scanning-bypass-request.js";
 import { registerGithubListEnterpriseSecretScanningBypassRequestsTool } from "./tools/secret-scanning/delegated-bypass/github-list-enterprise-secret-scanning-bypass-requests.js";
 import { registerGithubListOrgSecretScanningBypassRequestsTool } from "./tools/secret-scanning/delegated-bypass/github-list-org-secret-scanning-bypass-requests.js";
@@ -2116,6 +2118,8 @@ registerGithubListOrgSecretScanningAlertDismissalRequestsTool(server, octokit);
 registerGithubListRepoSecretScanningAlertDismissalRequestsTool(server, octokit);
 registerGithubReviewSecretScanningAlertDismissalRequestTool(server, octokit);
 registerGithubDismissSecretScanningBypassResponseTool(server, octokit);
+registerGithubGetGlobalSecurityAdvisoryTool(server, octokit);
+registerGithubListGlobalSecurityAdvisoriesTool(server, octokit);
 registerGithubGetSecretScanningBypassRequestTool(server, octokit);
 registerGithubListEnterpriseSecretScanningBypassRequestsTool(server, octokit);
 registerGithubListOrgSecretScanningBypassRequestsTool(server, octokit);

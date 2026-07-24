@@ -14077,3 +14077,27 @@ export type DismissSecretScanningBypassResponseSuccess = {
 };
 export type DismissSecretScanningBypassResponseFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_global_security_advisories`. */
+export type ListGlobalSecurityAdvisoriesSuccess = {
+    success: true;
+    message: string;
+    advisories: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListGlobalSecurityAdvisoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_global_security_advisory`. */
+export type GetGlobalSecurityAdvisorySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    ghsa_id: string;
+    advisory: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetGlobalSecurityAdvisoryFailure = CreateRepoFailure;
+

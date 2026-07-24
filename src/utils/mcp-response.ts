@@ -1858,6 +1858,10 @@ import type {
     ReviewSecretScanningBypassRequestFailure,
     DismissSecretScanningBypassResponseSuccess,
     DismissSecretScanningBypassResponseFailure,
+    ListGlobalSecurityAdvisoriesSuccess,
+    ListGlobalSecurityAdvisoriesFailure,
+    GetGlobalSecurityAdvisorySuccess,
+    GetGlobalSecurityAdvisoryFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -4183,6 +4187,10 @@ export function textAndData(
         | ReviewSecretScanningBypassRequestFailure
         | DismissSecretScanningBypassResponseSuccess
         | DismissSecretScanningBypassResponseFailure
+        | ListGlobalSecurityAdvisoriesSuccess
+        | ListGlobalSecurityAdvisoriesFailure
+        | GetGlobalSecurityAdvisorySuccess
+        | GetGlobalSecurityAdvisoryFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
