@@ -3,6 +3,8 @@ import type {
     AcceptRepositoryInvitationSuccess,
     AddAppAccessRestrictionsFailure,
     AddAppAccessRestrictionsSuccess,
+    AddAuthenticatedUserEmailsFailure,
+    AddAuthenticatedUserEmailsSuccess,
     AddCustomLabelsToSelfHostedRunnerForOrgFailure,
     AddCustomLabelsToSelfHostedRunnerForOrgSuccess,
     AddCustomLabelsToSelfHostedRunnerForRepoFailure,
@@ -377,6 +379,8 @@ import type {
     DeleteArtifactSuccess,
     DeleteAuthenticatedUserPackageFailure,
     DeleteAuthenticatedUserPackageSuccess,
+    DeleteAuthenticatedUserEmailsFailure,
+    DeleteAuthenticatedUserEmailsSuccess,
     DeleteAuthenticatedUserPackageVersionFailure,
     DeleteAuthenticatedUserPackageVersionSuccess,
     DeleteCodeqlDatabaseFailure,
@@ -1179,10 +1183,14 @@ import type {
     ListArtifactsForRepoSuccess,
     ListAuthenticatedUserDockerMigrationConflictsFailure,
     ListAuthenticatedUserDockerMigrationConflictsSuccess,
+    ListAuthenticatedUserEmailsFailure,
+    ListAuthenticatedUserEmailsSuccess,
     ListAuthenticatedUserPackagesFailure,
     ListAuthenticatedUserPackagesSuccess,
     ListAuthenticatedUserPackageVersionsFailure,
     ListAuthenticatedUserPackageVersionsSuccess,
+    ListAuthenticatedUserPublicEmailsFailure,
+    ListAuthenticatedUserPublicEmailsSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
     ListAuthenticatedUserTeamsFailure,
@@ -1915,6 +1923,8 @@ import type {
     SetAllowedActionsRepositorySuccess,
     SetAppAccessRestrictionsFailure,
     SetAppAccessRestrictionsSuccess,
+    SetAuthenticatedUserEmailVisibilityFailure,
+    SetAuthenticatedUserEmailVisibilitySuccess,
     SetAuthenticatedUserInteractionLimitsFailure,
     SetAuthenticatedUserInteractionLimitsSuccess,
     SetCheckSuitesPreferencesFailure,
@@ -4359,6 +4369,16 @@ export function textAndData(
         | ListBlockedUsersSuccess
         | UnblockUserFailure
         | UnblockUserSuccess
+        | AddAuthenticatedUserEmailsFailure
+        | AddAuthenticatedUserEmailsSuccess
+        | DeleteAuthenticatedUserEmailsFailure
+        | DeleteAuthenticatedUserEmailsSuccess
+        | ListAuthenticatedUserEmailsFailure
+        | ListAuthenticatedUserEmailsSuccess
+        | ListAuthenticatedUserPublicEmailsFailure
+        | ListAuthenticatedUserPublicEmailsSuccess
+        | SetAuthenticatedUserEmailVisibilityFailure
+        | SetAuthenticatedUserEmailVisibilitySuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

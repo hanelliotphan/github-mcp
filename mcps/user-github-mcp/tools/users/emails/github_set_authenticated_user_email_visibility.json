@@ -1,0 +1,12 @@
+{
+  "name": "github_set_authenticated_user_email_visibility",
+  "description": "PATCH /user/email/visibility — set primary email visibility (public or private).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "visibility": { "type": "string", "enum": ["public", "private"] }
+    },
+    "required": ["visibility"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

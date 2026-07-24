@@ -14641,3 +14641,71 @@ export type UnblockUserSuccess = {
 
 export type UnblockUserFailure = CreateRepoFailure;
 
+/** One row from user email endpoints (Email per GitHub). */
+export type UserEmailRow = Record<string, unknown>;
+
+/** PATCH /user/email/visibility — HTTP 200. */
+export type SetAuthenticatedUserEmailVisibilitySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    visibility: "public" | "private";
+    emails: UserEmailRow[];
+    request_id: string | null;
+};
+
+export type SetAuthenticatedUserEmailVisibilityFailure = CreateRepoFailure;
+
+/** GET /user/emails — HTTP 200. */
+export type ListAuthenticatedUserEmailsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    emails: UserEmailRow[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListAuthenticatedUserEmailsFailure = CreateRepoFailure;
+
+/** POST /user/emails — HTTP 201. */
+export type AddAuthenticatedUserEmailsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    emails: UserEmailRow[];
+    request_id: string | null;
+};
+
+export type AddAuthenticatedUserEmailsFailure = CreateRepoFailure;
+
+/** DELETE /user/emails — HTTP 204. */
+export type DeleteAuthenticatedUserEmailsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    request_id: string | null;
+};
+
+export type DeleteAuthenticatedUserEmailsFailure = CreateRepoFailure;
+
+/** GET /user/public_emails — HTTP 200. */
+export type ListAuthenticatedUserPublicEmailsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    emails: UserEmailRow[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListAuthenticatedUserPublicEmailsFailure = CreateRepoFailure;
+
