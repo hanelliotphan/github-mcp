@@ -9,6 +9,8 @@ import type {
     AddOrgCodespacesAccessUsersSuccess,
     AddOrgSecurityManagerTeamFailure,
     AddOrgSecurityManagerTeamSuccess,
+    AddOrUpdateOrgTeamRepoPermissionsFailure,
+    AddOrUpdateOrgTeamRepoPermissionsSuccess,
     AddRepoAccessToSelfHostedRunnerGroupInOrgFailure,
     AddRepoAccessToSelfHostedRunnerGroupInOrgSuccess,
     AddRepoToAppInstallationFailure,
@@ -65,6 +67,8 @@ import type {
     CheckOrgMembershipForUserSuccess,
     CheckOrgPublicMembershipForUserFailure,
     CheckOrgPublicMembershipForUserSuccess,
+    CheckOrgTeamRepoPermissionsFailure,
+    CheckOrgTeamRepoPermissionsSuccess,
     CheckPrivateVulnerabilityReportingFailure,
     CheckPrivateVulnerabilityReportingSuccess,
     CheckRepoCodespacePermissionsFailure,
@@ -125,6 +129,8 @@ import type {
     CreateOrgNetworkConfigurationSuccess,
     CreateOrgRulesetFailure,
     CreateOrgRulesetSuccess,
+    CreateOrgTeamFailure,
+    CreateOrgTeamSuccess,
     CreateOrgWebhookFailure,
     CreateOrgWebhookSuccess,
     CreateOrUpdateEnvironmentActionsSecretFailure,
@@ -259,6 +265,8 @@ import type {
     DeleteOrgRulesetFailure,
     DeleteOrgRulesetSuccess,
     DeleteOrgSuccess,
+    DeleteOrgTeamFailure,
+    DeleteOrgTeamSuccess,
     DeleteOrgUserCodespaceFailure,
     DeleteOrgUserCodespaceSuccess,
     DeleteOrgWebhookFailure,
@@ -531,6 +539,8 @@ import type {
     GetOrgRuleSuiteFailure,
     GetOrgRuleSuiteSuccess,
     GetOrgSuccess,
+    GetOrgTeamFailure,
+    GetOrgTeamSuccess,
     GetOrgWebhookConfigFailure,
     GetOrgWebhookConfigSuccess,
     GetOrgWebhookDeliveryFailure,
@@ -683,6 +693,8 @@ import type {
     ListArtifactsForRepoSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
+    ListAuthenticatedUserTeamsFailure,
+    ListAuthenticatedUserTeamsSuccess,
     ListCheckRunAnnotationsFailure,
     ListCheckRunAnnotationsSuccess,
     ListCheckRunsForRefFailure,
@@ -843,6 +855,12 @@ import type {
     ListOrgsForAuthenticatedUserSuccess,
     ListOrgsForUserFailure,
     ListOrgsForUserSuccess,
+    ListOrgTeamChildTeamsFailure,
+    ListOrgTeamChildTeamsSuccess,
+    ListOrgTeamReposFailure,
+    ListOrgTeamReposSuccess,
+    ListOrgTeamsFailure,
+    ListOrgTeamsSuccess,
     ListOrgUserCodespacesFailure,
     ListOrgUserCodespacesSuccess,
     ListOrgWebhookDeliveriesFailure,
@@ -1039,6 +1057,8 @@ import type {
     RemoveOrgRoleFromUserSuccess,
     RemoveOrgSecurityManagerTeamFailure,
     RemoveOrgSecurityManagerTeamSuccess,
+    RemoveOrgTeamRepoFailure,
+    RemoveOrgTeamRepoSuccess,
     RemovePublicOrgMembershipForAuthUserFailure,
     RemovePublicOrgMembershipForAuthUserSuccess,
     RemoveRepoAccessToSelfHostedRunnerGroupInOrgFailure,
@@ -1058,6 +1078,8 @@ import type {
     GetRepoCollaboratorPermissionFailure,
     ListRepoInvitationsSuccess,
     ListRepoInvitationsFailure,
+    UpdateOrgTeamFailure,
+    UpdateOrgTeamSuccess,
     UpdateRepoInvitationSuccess,
     UpdateRepoInvitationFailure,
     DeleteRepoInvitationSuccess,
@@ -2113,12 +2135,16 @@ import type {
 
 export function textAndData(
     payload:
+        | AddOrUpdateOrgTeamRepoPermissionsFailure
+        | AddOrUpdateOrgTeamRepoPermissionsSuccess
         | BulkListOrgAttestationsSuccess
         | BulkListOrgAttestationsFailure
         | BlockOrgUserSuccess
         | BlockOrgUserFailure
         | CheckDependabotSecurityUpdatesSuccess
         | CheckDependabotSecurityUpdatesFailure
+        | CheckOrgTeamRepoPermissionsFailure
+        | CheckOrgTeamRepoPermissionsSuccess
         | CheckPrivateVulnerabilityReportingSuccess
         | CheckPrivateVulnerabilityReportingFailure
         | CheckVulnerabilityAlertsSuccess
@@ -2131,10 +2157,26 @@ export function textAndData(
         | CheckOrgMembershipForUserFailure
         | CheckOrgPublicMembershipForUserSuccess
         | CheckOrgPublicMembershipForUserFailure
+        | CreateOrgTeamFailure
+        | CreateOrgTeamSuccess
+        | DeleteOrgTeamFailure
+        | DeleteOrgTeamSuccess
+        | GetOrgTeamFailure
+        | GetOrgTeamSuccess
+        | ListAuthenticatedUserTeamsFailure
+        | ListAuthenticatedUserTeamsSuccess
+        | ListOrgTeamChildTeamsFailure
+        | ListOrgTeamChildTeamsSuccess
+        | ListOrgTeamReposFailure
+        | ListOrgTeamReposSuccess
+        | ListOrgTeamsFailure
+        | ListOrgTeamsSuccess
         | RemoveOrgMemberSuccess
         | RemoveOrgMemberFailure
         | RemoveOrgMembershipForUserSuccess
         | RemoveOrgMembershipForUserFailure
+        | RemoveOrgTeamRepoFailure
+        | RemoveOrgTeamRepoSuccess
         | RemovePublicOrgMembershipForAuthUserSuccess
         | RemovePublicOrgMembershipForAuthUserFailure
         | CancelOrgInvitationSuccess
@@ -2335,6 +2377,8 @@ export function textAndData(
         | CreateSelfHostedRunnerGroupForOrgFailure
         | GetSelfHostedRunnerGroupForOrgSuccess
         | GetSelfHostedRunnerGroupForOrgFailure
+        | UpdateOrgTeamFailure
+        | UpdateOrgTeamSuccess
         | UpdateSelfHostedRunnerGroupForOrgSuccess
         | UpdateSelfHostedRunnerGroupForOrgFailure
         | DeleteSelfHostedRunnerGroupFromOrgSuccess

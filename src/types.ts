@@ -14204,4 +14204,151 @@ export type CreateRepoSecurityAdvisoryTemporaryForkSuccess = {
     request_id: string | null;
 };
 export type CreateRepoSecurityAdvisoryTemporaryForkFailure = CreateRepoFailure;
+/** MCP tool: `github_add_or_update_org_team_repo_permissions`. */
+export type AddOrUpdateOrgTeamRepoPermissionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    owner: string;
+    name: string;
+    request_id: string | null;
+};
+export type AddOrUpdateOrgTeamRepoPermissionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_check_org_team_repo_permissions`. */
+export type CheckOrgTeamRepoPermissionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    owner: string;
+    name: string;
+    repository: Record<string, unknown> | null;
+    request_id: string | null;
+};
+export type CheckOrgTeamRepoPermissionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_team`. */
+export type CreateOrgTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgTeamFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_team`. */
+export type DeleteOrgTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    request_id: string | null;
+};
+export type DeleteOrgTeamFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_team`. */
+export type GetOrgTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    team: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetOrgTeamFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_authenticated_user_teams`. */
+export type ListAuthenticatedUserTeamsSuccess = {
+    success: true;
+    message: string;
+    teams: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListAuthenticatedUserTeamsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_team_child_teams`. */
+export type ListOrgTeamChildTeamsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    team_slug: string;
+    teams: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgTeamChildTeamsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_team_repos`. */
+export type ListOrgTeamReposSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    team_slug: string;
+    repos: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgTeamReposFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_teams`. */
+export type ListOrgTeamsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    teams: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgTeamsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_remove_org_team_repo`. */
+export type RemoveOrgTeamRepoSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    owner: string;
+    name: string;
+    request_id: string | null;
+};
+export type RemoveOrgTeamRepoFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_team`. */
+export type UpdateOrgTeamSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    team: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateOrgTeamFailure = CreateRepoFailure;
+
 

@@ -1,0 +1,58 @@
+{
+  "name": "github_create_org_team",
+  "description": "Create a team in an organization (POST /orgs/{org}/teams).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "team_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string"
+      },
+      "maintainers": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "repo_names": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "privacy": {
+        "type": "string",
+        "enum": [
+          "secret",
+          "closed"
+        ]
+      },
+      "notification_setting": {
+        "type": "string",
+        "enum": [
+          "notifications_enabled",
+          "notifications_disabled"
+        ]
+      },
+      "parent_team_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "org",
+      "team_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

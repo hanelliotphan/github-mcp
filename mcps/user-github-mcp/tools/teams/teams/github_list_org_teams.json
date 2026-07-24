@@ -1,0 +1,43 @@
+{
+  "name": "github_list_org_teams",
+  "description": "List teams in an organization (GET /orgs/{org}/teams).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "team_type": {
+        "type": "string",
+        "enum": [
+          "all",
+          "enterprise",
+          "organization"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

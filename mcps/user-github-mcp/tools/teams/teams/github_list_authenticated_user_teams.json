@@ -1,0 +1,28 @@
+{
+  "name": "github_list_authenticated_user_teams",
+  "description": "List teams for the authenticated user (GET /user/teams).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
