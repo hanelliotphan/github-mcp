@@ -1,0 +1,30 @@
+{
+  "name": "github_list_org_team_sync_idp_groups",
+  "description": "List IdP groups for an organization (GET /orgs/{org}/team-sync/groups).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "q": {
+        "type": "string"
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "org"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -14480,5 +14480,40 @@ export type UpdateOrgTeamExternalGroupsSuccess = {
     request_id: string | null;
 };
 export type UpdateOrgTeamExternalGroupsFailure = CreateRepoFailure;
+/** MCP tool: `github_list_org_team_sync_group_mappings`. */
+export type ListOrgTeamSyncGroupMappingsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    groups: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type ListOrgTeamSyncGroupMappingsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_team_sync_idp_groups`. */
+export type ListOrgTeamSyncIdpGroupsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    groups: Record<string, unknown>[];
+    per_page: number;
+    page: string | null;
+    request_id: string | null;
+};
+export type ListOrgTeamSyncIdpGroupsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_team_sync_group_mappings`. */
+export type UpdateOrgTeamSyncGroupMappingsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    team_slug: string;
+    groups: Record<string, unknown>[];
+    request_id: string | null;
+};
+export type UpdateOrgTeamSyncGroupMappingsFailure = CreateRepoFailure;
 
 

@@ -877,6 +877,10 @@ import type {
     ListOrgTeamReposSuccess,
     ListOrgTeamsFailure,
     ListOrgTeamsSuccess,
+    ListOrgTeamSyncGroupMappingsFailure,
+    ListOrgTeamSyncGroupMappingsSuccess,
+    ListOrgTeamSyncIdpGroupsFailure,
+    ListOrgTeamSyncIdpGroupsSuccess,
     ListOrgUserCodespacesFailure,
     ListOrgUserCodespacesSuccess,
     ListOrgWebhookDeliveriesFailure,
@@ -1100,6 +1104,8 @@ import type {
     UpdateOrgTeamExternalGroupsSuccess,
     UpdateOrgTeamFailure,
     UpdateOrgTeamSuccess,
+    UpdateOrgTeamSyncGroupMappingsFailure,
+    UpdateOrgTeamSyncGroupMappingsSuccess,
     UpdateRepoInvitationSuccess,
     UpdateRepoInvitationFailure,
     DeleteRepoInvitationSuccess,
@@ -2207,6 +2213,10 @@ export function textAndData(
         | ListOrgTeamReposSuccess
         | ListOrgTeamsFailure
         | ListOrgTeamsSuccess
+        | ListOrgTeamSyncGroupMappingsFailure
+        | ListOrgTeamSyncGroupMappingsSuccess
+        | ListOrgTeamSyncIdpGroupsFailure
+        | ListOrgTeamSyncIdpGroupsSuccess
         | RemoveOrgMemberSuccess
         | RemoveOrgMemberFailure
         | RemoveOrgMembershipForUserSuccess
@@ -2419,6 +2429,8 @@ export function textAndData(
         | UpdateOrgTeamExternalGroupsSuccess
         | UpdateOrgTeamFailure
         | UpdateOrgTeamSuccess
+        | UpdateOrgTeamSyncGroupMappingsFailure
+        | UpdateOrgTeamSyncGroupMappingsSuccess
         | UpdateSelfHostedRunnerGroupForOrgSuccess
         | UpdateSelfHostedRunnerGroupForOrgFailure
         | DeleteSelfHostedRunnerGroupFromOrgSuccess
