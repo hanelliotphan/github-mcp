@@ -916,6 +916,8 @@ import { registerGithubGetRepoViewsTool } from "./tools/metrics/traffic/github-g
 import { registerGithubListModelsTool } from "./tools/models/catalog/github-list-models.js";
 import { registerGithubCreateModelEmbeddingsTool } from "./tools/models/embeddings/github-create-model-embeddings.js";
 import { registerGithubCreateOrgModelEmbeddingsTool } from "./tools/models/embeddings/github-create-org-model-embeddings.js";
+import { registerGithubCreateModelChatCompletionTool } from "./tools/models/inference/github-create-model-chat-completion.js";
+import { registerGithubCreateOrgModelChatCompletionTool } from "./tools/models/inference/github-create-org-model-chat-completion.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1848,6 +1850,8 @@ registerGithubGetRepoViewsTool(server, octokit);
 registerGithubListModelsTool(server, octokit);
 registerGithubCreateModelEmbeddingsTool(server, octokit);
 registerGithubCreateOrgModelEmbeddingsTool(server, octokit);
+registerGithubCreateModelChatCompletionTool(server, octokit);
+registerGithubCreateOrgModelChatCompletionTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

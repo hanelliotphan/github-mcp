@@ -12593,3 +12593,24 @@ export type CreateOrgModelEmbeddingsSuccess = {
     request_id: string | null;
 };
 export type CreateOrgModelEmbeddingsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_model_chat_completion`. */
+export type CreateModelChatCompletionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    completion: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateModelChatCompletionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_model_chat_completion`. */
+export type CreateOrgModelChatCompletionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    completion: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgModelChatCompletionFailure = CreateRepoFailure;

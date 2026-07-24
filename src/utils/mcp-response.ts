@@ -1584,6 +1584,10 @@ import type {
     CreateModelEmbeddingsFailure,
     CreateOrgModelEmbeddingsSuccess,
     CreateOrgModelEmbeddingsFailure,
+    CreateModelChatCompletionSuccess,
+    CreateModelChatCompletionFailure,
+    CreateOrgModelChatCompletionSuccess,
+    CreateOrgModelChatCompletionFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3634,7 +3638,11 @@ export function textAndData(
         | CreateModelEmbeddingsSuccess
         | CreateModelEmbeddingsFailure
         | CreateOrgModelEmbeddingsSuccess
-        | CreateOrgModelEmbeddingsFailure) {
+        | CreateOrgModelEmbeddingsFailure
+        | CreateModelChatCompletionSuccess
+        | CreateModelChatCompletionFailure
+        | CreateOrgModelChatCompletionSuccess
+        | CreateOrgModelChatCompletionFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
