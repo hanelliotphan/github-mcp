@@ -1,0 +1,17 @@
+{
+  "name": "github_delete_authenticated_user_gpg_key",
+  "description": "DELETE /user/gpg_keys/{gpg_key_id}",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "gpg_key_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "gpg_key_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "github_create_authenticated_user_gpg_key",
+  "description": "POST /user/gpg_keys",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "armored_public_key": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "armored_public_key"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

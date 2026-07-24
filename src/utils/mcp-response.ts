@@ -151,6 +151,8 @@ import type {
     CompareRepoDependencyGraphSuccess,
     ConvertOrgMemberToOutsideCollaboratorFailure,
     ConvertOrgMemberToOutsideCollaboratorSuccess,
+    CreateAuthenticatedUserGpgKeyFailure,
+    CreateAuthenticatedUserGpgKeySuccess,
     CreateCheckRunFailure,
     CreateCheckRunSuccess,
     CreateCheckSuiteFailure,
@@ -383,6 +385,8 @@ import type {
     DeleteArtifactSuccess,
     DeleteAuthenticatedUserEmailsFailure,
     DeleteAuthenticatedUserEmailsSuccess,
+    DeleteAuthenticatedUserGpgKeyFailure,
+    DeleteAuthenticatedUserGpgKeySuccess,
     DeleteAuthenticatedUserPackageFailure,
     DeleteAuthenticatedUserPackageSuccess,
     DeleteAuthenticatedUserPackageVersionFailure,
@@ -672,6 +676,8 @@ import type {
     GetAuthenticatedAppFailure,
     GetAuthenticatedAppSuccess,
     GetAuthenticatedUserFailure,
+    GetAuthenticatedUserGpgKeyFailure,
+    GetAuthenticatedUserGpgKeySuccess,
     GetAuthenticatedUserInteractionLimitsFailure,
     GetAuthenticatedUserInteractionLimitsSuccess,
     GetAuthenticatedUserPackageFailure,
@@ -1195,6 +1201,8 @@ import type {
     ListAuthenticatedUserFollowersSuccess,
     ListAuthenticatedUserFollowingFailure,
     ListAuthenticatedUserFollowingSuccess,
+    ListAuthenticatedUserGpgKeysFailure,
+    ListAuthenticatedUserGpgKeysSuccess,
     ListAuthenticatedUserPackagesFailure,
     ListAuthenticatedUserPackagesSuccess,
     ListAuthenticatedUserPackageVersionsFailure,
@@ -1705,6 +1713,8 @@ import type {
     ListUserFollowersSuccess,
     ListUserFollowingFailure,
     ListUserFollowingSuccess,
+    ListUserGpgKeysFailure,
+    ListUserGpgKeysSuccess,
     ListUserPackagesFailure,
     ListUserPackagesSuccess,
     ListUserPackageVersionsFailure,
@@ -4411,6 +4421,16 @@ export function textAndData(
         | ListUserFollowingSuccess
         | UnfollowUserFailure
         | UnfollowUserSuccess
+        | CreateAuthenticatedUserGpgKeyFailure
+        | CreateAuthenticatedUserGpgKeySuccess
+        | DeleteAuthenticatedUserGpgKeyFailure
+        | DeleteAuthenticatedUserGpgKeySuccess
+        | GetAuthenticatedUserGpgKeyFailure
+        | GetAuthenticatedUserGpgKeySuccess
+        | ListAuthenticatedUserGpgKeysFailure
+        | ListAuthenticatedUserGpgKeysSuccess
+        | ListUserGpgKeysFailure
+        | ListUserGpgKeysSuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
