@@ -1,0 +1,9 @@
+{
+  "name": "github_list_authenticated_user_docker_migration_conflicts",
+  "description": "List packages that conflict during Docker migration for the authenticated user (GET /user/docker/conflicts).",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

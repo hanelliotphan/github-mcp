@@ -1588,6 +1588,60 @@ import type {
     CreateModelChatCompletionFailure,
     CreateOrgModelChatCompletionSuccess,
     CreateOrgModelChatCompletionFailure,
+    ListOrgDockerMigrationConflictsSuccess,
+    ListOrgDockerMigrationConflictsFailure,
+    ListOrgPackagesSuccess,
+    ListOrgPackagesFailure,
+    GetOrgPackageSuccess,
+    GetOrgPackageFailure,
+    DeleteOrgPackageSuccess,
+    DeleteOrgPackageFailure,
+    RestoreOrgPackageSuccess,
+    RestoreOrgPackageFailure,
+    ListOrgPackageVersionsSuccess,
+    ListOrgPackageVersionsFailure,
+    GetOrgPackageVersionSuccess,
+    GetOrgPackageVersionFailure,
+    DeleteOrgPackageVersionSuccess,
+    DeleteOrgPackageVersionFailure,
+    RestoreOrgPackageVersionSuccess,
+    RestoreOrgPackageVersionFailure,
+    ListAuthenticatedUserDockerMigrationConflictsSuccess,
+    ListAuthenticatedUserDockerMigrationConflictsFailure,
+    ListAuthenticatedUserPackagesSuccess,
+    ListAuthenticatedUserPackagesFailure,
+    GetAuthenticatedUserPackageSuccess,
+    GetAuthenticatedUserPackageFailure,
+    DeleteAuthenticatedUserPackageSuccess,
+    DeleteAuthenticatedUserPackageFailure,
+    RestoreAuthenticatedUserPackageSuccess,
+    RestoreAuthenticatedUserPackageFailure,
+    ListAuthenticatedUserPackageVersionsSuccess,
+    ListAuthenticatedUserPackageVersionsFailure,
+    GetAuthenticatedUserPackageVersionSuccess,
+    GetAuthenticatedUserPackageVersionFailure,
+    DeleteAuthenticatedUserPackageVersionSuccess,
+    DeleteAuthenticatedUserPackageVersionFailure,
+    RestoreAuthenticatedUserPackageVersionSuccess,
+    RestoreAuthenticatedUserPackageVersionFailure,
+    ListUserDockerMigrationConflictsSuccess,
+    ListUserDockerMigrationConflictsFailure,
+    ListUserPackagesSuccess,
+    ListUserPackagesFailure,
+    GetUserPackageSuccess,
+    GetUserPackageFailure,
+    DeleteUserPackageSuccess,
+    DeleteUserPackageFailure,
+    RestoreUserPackageSuccess,
+    RestoreUserPackageFailure,
+    ListUserPackageVersionsSuccess,
+    ListUserPackageVersionsFailure,
+    GetUserPackageVersionSuccess,
+    GetUserPackageVersionFailure,
+    DeleteUserPackageVersionSuccess,
+    DeleteUserPackageVersionFailure,
+    RestoreUserPackageVersionSuccess,
+    RestoreUserPackageVersionFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3642,7 +3696,62 @@ export function textAndData(
         | CreateModelChatCompletionSuccess
         | CreateModelChatCompletionFailure
         | CreateOrgModelChatCompletionSuccess
-        | CreateOrgModelChatCompletionFailure) {
+        | CreateOrgModelChatCompletionFailure
+        | ListOrgDockerMigrationConflictsSuccess
+        | ListOrgDockerMigrationConflictsFailure
+        | ListOrgPackagesSuccess
+        | ListOrgPackagesFailure
+        | GetOrgPackageSuccess
+        | GetOrgPackageFailure
+        | DeleteOrgPackageSuccess
+        | DeleteOrgPackageFailure
+        | RestoreOrgPackageSuccess
+        | RestoreOrgPackageFailure
+        | ListOrgPackageVersionsSuccess
+        | ListOrgPackageVersionsFailure
+        | GetOrgPackageVersionSuccess
+        | GetOrgPackageVersionFailure
+        | DeleteOrgPackageVersionSuccess
+        | DeleteOrgPackageVersionFailure
+        | RestoreOrgPackageVersionSuccess
+        | RestoreOrgPackageVersionFailure
+        | ListAuthenticatedUserDockerMigrationConflictsSuccess
+        | ListAuthenticatedUserDockerMigrationConflictsFailure
+        | ListAuthenticatedUserPackagesSuccess
+        | ListAuthenticatedUserPackagesFailure
+        | GetAuthenticatedUserPackageSuccess
+        | GetAuthenticatedUserPackageFailure
+        | DeleteAuthenticatedUserPackageSuccess
+        | DeleteAuthenticatedUserPackageFailure
+        | RestoreAuthenticatedUserPackageSuccess
+        | RestoreAuthenticatedUserPackageFailure
+        | ListAuthenticatedUserPackageVersionsSuccess
+        | ListAuthenticatedUserPackageVersionsFailure
+        | GetAuthenticatedUserPackageVersionSuccess
+        | GetAuthenticatedUserPackageVersionFailure
+        | DeleteAuthenticatedUserPackageVersionSuccess
+        | DeleteAuthenticatedUserPackageVersionFailure
+        | RestoreAuthenticatedUserPackageVersionSuccess
+        | RestoreAuthenticatedUserPackageVersionFailure
+        | ListUserDockerMigrationConflictsSuccess
+        | ListUserDockerMigrationConflictsFailure
+        | ListUserPackagesSuccess
+        | ListUserPackagesFailure
+        | GetUserPackageSuccess
+        | GetUserPackageFailure
+        | DeleteUserPackageSuccess
+        | DeleteUserPackageFailure
+        | RestoreUserPackageSuccess
+        | RestoreUserPackageFailure
+        | ListUserPackageVersionsSuccess
+        | ListUserPackageVersionsFailure
+        | GetUserPackageVersionSuccess
+        | GetUserPackageVersionFailure
+        | DeleteUserPackageVersionSuccess
+        | DeleteUserPackageVersionFailure
+        | RestoreUserPackageVersionSuccess
+        | RestoreUserPackageVersionFailure
+) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

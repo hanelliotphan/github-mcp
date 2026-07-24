@@ -1,0 +1,53 @@
+{
+  "name": "github_list_authenticated_user_package_versions",
+  "description": "List package versions for an authenticated-user package (GET /user/packages/{package_type}/{package_name}/versions). Optional **state**. Page pagination with **per_page**, **page**, **all_pages**, and **max_pages**.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "package_type": {
+        "type": "string",
+        "enum": [
+          "npm",
+          "maven",
+          "rubygems",
+          "docker",
+          "nuget",
+          "container"
+        ]
+      },
+      "package_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "active",
+          "deleted"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "package_type",
+      "package_name"
+    ]
+  }
+}

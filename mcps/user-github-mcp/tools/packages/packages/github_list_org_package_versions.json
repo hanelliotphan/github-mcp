@@ -1,0 +1,59 @@
+{
+  "name": "github_list_org_package_versions",
+  "description": "List package versions for an organization package (GET /orgs/{org}/packages/{package_type}/{package_name}/versions). Optional **state**. Page pagination with **per_page**, **page**, **all_pages**, and **max_pages**.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "package_type": {
+        "type": "string",
+        "enum": [
+          "npm",
+          "maven",
+          "rubygems",
+          "docker",
+          "nuget",
+          "container"
+        ]
+      },
+      "package_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "state": {
+        "type": "string",
+        "enum": [
+          "active",
+          "deleted"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "package_type",
+      "package_name"
+    ]
+  }
+}

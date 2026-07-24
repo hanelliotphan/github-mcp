@@ -1,0 +1,34 @@
+{
+  "name": "github_delete_authenticated_user_package_version",
+  "description": "Delete a package version for the authenticated user (DELETE /user/packages/{package_type}/{package_name}/versions/{package_version_id}). Success is HTTP **204**.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "package_type": {
+        "type": "string",
+        "enum": [
+          "npm",
+          "maven",
+          "rubygems",
+          "docker",
+          "nuget",
+          "container"
+        ]
+      },
+      "package_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "package_version_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "package_type",
+      "package_name",
+      "package_version_id"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "github_get_org_package_version",
+  "description": "Get a package version in an organization (GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "package_type": {
+        "type": "string",
+        "enum": [
+          "npm",
+          "maven",
+          "rubygems",
+          "docker",
+          "nuget",
+          "container"
+        ]
+      },
+      "package_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "package_version_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "package_type",
+      "package_name",
+      "package_version_id"
+    ]
+  }
+}

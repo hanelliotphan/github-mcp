@@ -12614,3 +12614,111 @@ export type CreateOrgModelChatCompletionSuccess = {
     request_id: string | null;
 };
 export type CreateOrgModelChatCompletionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_docker_migration_conflicts`. */
+export type ListOrgDockerMigrationConflictsSuccess = { success: true; message: string; http_status: number; org: string; packages: Record<string, unknown>[]; request_id: string | null; };
+export type ListOrgDockerMigrationConflictsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_packages`. */
+export type ListOrgPackagesSuccess = { success: true; message: string; org: string; packages: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListOrgPackagesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_package`. */
+export type GetOrgPackageSuccess = { success: true; message: string; http_status: number; org: string; package_type: string; package_name: string; package: Record<string, unknown>; request_id: string | null; };
+export type GetOrgPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_package`. */
+export type DeleteOrgPackageSuccess = { success: true; message: string; http_status: number; org: string; package_type: string; package_name: string; request_id: string | null; };
+export type DeleteOrgPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_restore_org_package`. */
+export type RestoreOrgPackageSuccess = { success: true; message: string; http_status: number; org: string; package_type: string; package_name: string; request_id: string | null; };
+export type RestoreOrgPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_package_versions`. */
+export type ListOrgPackageVersionsSuccess = { success: true; message: string; org: string; package_type: string; package_name: string; versions: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListOrgPackageVersionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_package_version`. */
+export type GetOrgPackageVersionSuccess = { success: true; message: string; http_status: number; org: string; package_type: string; package_name: string; package_version_id: number; version: Record<string, unknown>; request_id: string | null; };
+export type GetOrgPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_package_version`. */
+export type DeleteOrgPackageVersionSuccess = { success: true; message: string; http_status: number; org: string; package_type: string; package_name: string; package_version_id: number; request_id: string | null; };
+export type DeleteOrgPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_restore_org_package_version`. */
+export type RestoreOrgPackageVersionSuccess = { success: true; message: string; http_status: number; org: string; package_type: string; package_name: string; package_version_id: number; request_id: string | null; };
+export type RestoreOrgPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_authenticated_user_docker_migration_conflicts`. */
+export type ListAuthenticatedUserDockerMigrationConflictsSuccess = { success: true; message: string; http_status: number; packages: Record<string, unknown>[]; request_id: string | null; };
+export type ListAuthenticatedUserDockerMigrationConflictsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_authenticated_user_packages`. */
+export type ListAuthenticatedUserPackagesSuccess = { success: true; message: string; packages: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserPackagesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_authenticated_user_package`. */
+export type GetAuthenticatedUserPackageSuccess = { success: true; message: string; http_status: number; package_type: string; package_name: string; package: Record<string, unknown>; request_id: string | null; };
+export type GetAuthenticatedUserPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_authenticated_user_package`. */
+export type DeleteAuthenticatedUserPackageSuccess = { success: true; message: string; http_status: number; package_type: string; package_name: string; request_id: string | null; };
+export type DeleteAuthenticatedUserPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_restore_authenticated_user_package`. */
+export type RestoreAuthenticatedUserPackageSuccess = { success: true; message: string; http_status: number; package_type: string; package_name: string; request_id: string | null; };
+export type RestoreAuthenticatedUserPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_authenticated_user_package_versions`. */
+export type ListAuthenticatedUserPackageVersionsSuccess = { success: true; message: string; package_type: string; package_name: string; versions: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserPackageVersionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_authenticated_user_package_version`. */
+export type GetAuthenticatedUserPackageVersionSuccess = { success: true; message: string; http_status: number; package_type: string; package_name: string; package_version_id: number; version: Record<string, unknown>; request_id: string | null; };
+export type GetAuthenticatedUserPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_authenticated_user_package_version`. */
+export type DeleteAuthenticatedUserPackageVersionSuccess = { success: true; message: string; http_status: number; package_type: string; package_name: string; package_version_id: number; request_id: string | null; };
+export type DeleteAuthenticatedUserPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_restore_authenticated_user_package_version`. */
+export type RestoreAuthenticatedUserPackageVersionSuccess = { success: true; message: string; http_status: number; package_type: string; package_name: string; package_version_id: number; request_id: string | null; };
+export type RestoreAuthenticatedUserPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_docker_migration_conflicts`. */
+export type ListUserDockerMigrationConflictsSuccess = { success: true; message: string; http_status: number; username: string; packages: Record<string, unknown>[]; request_id: string | null; };
+export type ListUserDockerMigrationConflictsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_packages`. */
+export type ListUserPackagesSuccess = { success: true; message: string; username: string; packages: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserPackagesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_package`. */
+export type GetUserPackageSuccess = { success: true; message: string; http_status: number; username: string; package_type: string; package_name: string; package: Record<string, unknown>; request_id: string | null; };
+export type GetUserPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_user_package`. */
+export type DeleteUserPackageSuccess = { success: true; message: string; http_status: number; username: string; package_type: string; package_name: string; request_id: string | null; };
+export type DeleteUserPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_restore_user_package`. */
+export type RestoreUserPackageSuccess = { success: true; message: string; http_status: number; username: string; package_type: string; package_name: string; request_id: string | null; };
+export type RestoreUserPackageFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_package_versions`. */
+export type ListUserPackageVersionsSuccess = { success: true; message: string; username: string; package_type: string; package_name: string; versions: Record<string, unknown>[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserPackageVersionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_package_version`. */
+export type GetUserPackageVersionSuccess = { success: true; message: string; http_status: number; username: string; package_type: string; package_name: string; package_version_id: number; version: Record<string, unknown>; request_id: string | null; };
+export type GetUserPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_user_package_version`. */
+export type DeleteUserPackageVersionSuccess = { success: true; message: string; http_status: number; username: string; package_type: string; package_name: string; package_version_id: number; request_id: string | null; };
+export type DeleteUserPackageVersionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_restore_user_package_version`. */
+export type RestoreUserPackageVersionSuccess = { success: true; message: string; http_status: number; username: string; package_type: string; package_name: string; package_version_id: number; request_id: string | null; };
+export type RestoreUserPackageVersionFailure = CreateRepoFailure;

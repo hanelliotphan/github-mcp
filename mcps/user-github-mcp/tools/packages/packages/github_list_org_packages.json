@@ -1,0 +1,55 @@
+{
+  "name": "github_list_org_packages",
+  "description": "List packages in an organization (GET /orgs/{org}/packages). Requires **package_type**. Optional **visibility**. Page pagination with **per_page**, **page**, **all_pages**, and **max_pages**.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "package_type": {
+        "type": "string",
+        "enum": [
+          "npm",
+          "maven",
+          "rubygems",
+          "docker",
+          "nuget",
+          "container"
+        ]
+      },
+      "visibility": {
+        "type": "string",
+        "enum": [
+          "public",
+          "private",
+          "internal"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "package_type"
+    ]
+  }
+}

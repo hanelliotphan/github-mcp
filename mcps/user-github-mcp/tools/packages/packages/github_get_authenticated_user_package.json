@@ -1,0 +1,29 @@
+{
+  "name": "github_get_authenticated_user_package",
+  "description": "Get a package for the authenticated user (GET /user/packages/{package_type}/{package_name}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "package_type": {
+        "type": "string",
+        "enum": [
+          "npm",
+          "maven",
+          "rubygems",
+          "docker",
+          "nuget",
+          "container"
+        ]
+      },
+      "package_name": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "package_type",
+      "package_name"
+    ]
+  }
+}
