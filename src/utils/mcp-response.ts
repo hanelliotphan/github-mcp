@@ -1762,6 +1762,22 @@ import type {
     CreateReleaseReactionFailure,
     DeleteReleaseReactionSuccess,
     DeleteReleaseReactionFailure,
+    ListRepoReleasesSuccess,
+    ListRepoReleasesFailure,
+    CreateRepoReleaseSuccess,
+    CreateRepoReleaseFailure,
+    GenerateRepoReleaseNotesSuccess,
+    GenerateRepoReleaseNotesFailure,
+    GetLatestRepoReleaseSuccess,
+    GetLatestRepoReleaseFailure,
+    GetRepoReleaseByTagSuccess,
+    GetRepoReleaseByTagFailure,
+    GetRepoReleaseSuccess,
+    GetRepoReleaseFailure,
+    UpdateRepoReleaseSuccess,
+    UpdateRepoReleaseFailure,
+    DeleteRepoReleaseSuccess,
+    DeleteRepoReleaseFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3991,6 +4007,22 @@ export function textAndData(
         | CreateReleaseReactionFailure
         | DeleteReleaseReactionSuccess
         | DeleteReleaseReactionFailure
+        | ListRepoReleasesSuccess
+        | ListRepoReleasesFailure
+        | CreateRepoReleaseSuccess
+        | CreateRepoReleaseFailure
+        | GenerateRepoReleaseNotesSuccess
+        | GenerateRepoReleaseNotesFailure
+        | GetLatestRepoReleaseSuccess
+        | GetLatestRepoReleaseFailure
+        | GetRepoReleaseByTagSuccess
+        | GetRepoReleaseByTagFailure
+        | GetRepoReleaseSuccess
+        | GetRepoReleaseFailure
+        | UpdateRepoReleaseSuccess
+        | UpdateRepoReleaseFailure
+        | DeleteRepoReleaseSuccess
+        | DeleteRepoReleaseFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

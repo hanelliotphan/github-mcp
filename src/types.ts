@@ -13410,3 +13410,106 @@ export type DeleteReleaseReactionSuccess = {
 };
 export type DeleteReleaseReactionFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_repo_releases`. */
+export type ListRepoReleasesSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    releases: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoReleasesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_release`. */
+export type CreateRepoReleaseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoReleaseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_generate_repo_release_notes`. */
+export type GenerateRepoReleaseNotesSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    notes: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GenerateRepoReleaseNotesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_latest_repo_release`. */
+export type GetLatestRepoReleaseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetLatestRepoReleaseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_release_by_tag`. */
+export type GetRepoReleaseByTagSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    tag: string;
+    release: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoReleaseByTagFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_release`. */
+export type GetRepoReleaseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release_id: number;
+    release: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoReleaseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_release`. */
+export type UpdateRepoReleaseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release_id: number;
+    release: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoReleaseFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_release`. */
+export type DeleteRepoReleaseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release_id: number;
+    request_id: string | null;
+};
+export type DeleteRepoReleaseFailure = CreateRepoFailure;
+

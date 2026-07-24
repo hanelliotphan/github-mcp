@@ -1,0 +1,29 @@
+{
+  "name": "github_delete_repo_release",
+  "description": "Delete a release (DELETE /repos/{owner}/{repo}/releases/{release_id}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "release_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "release_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -1005,6 +1005,14 @@ import { registerGithubDeletePullRequestReviewCommentReactionTool } from "./tool
 import { registerGithubListReleaseReactionsTool } from "./tools/reactions/reactions/github-list-release-reactions.js";
 import { registerGithubCreateReleaseReactionTool } from "./tools/reactions/reactions/github-create-release-reaction.js";
 import { registerGithubDeleteReleaseReactionTool } from "./tools/reactions/reactions/github-delete-release-reaction.js";
+import { registerGithubListRepoReleasesTool } from "./tools/releases/releases/github-list-repo-releases.js";
+import { registerGithubCreateRepoReleaseTool } from "./tools/releases/releases/github-create-repo-release.js";
+import { registerGithubGenerateRepoReleaseNotesTool } from "./tools/releases/releases/github-generate-repo-release-notes.js";
+import { registerGithubGetLatestRepoReleaseTool } from "./tools/releases/releases/github-get-latest-repo-release.js";
+import { registerGithubGetRepoReleaseByTagTool } from "./tools/releases/releases/github-get-repo-release-by-tag.js";
+import { registerGithubGetRepoReleaseTool } from "./tools/releases/releases/github-get-repo-release.js";
+import { registerGithubUpdateRepoReleaseTool } from "./tools/releases/releases/github-update-repo-release.js";
+import { registerGithubDeleteRepoReleaseTool } from "./tools/releases/releases/github-delete-repo-release.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -2026,6 +2034,14 @@ registerGithubDeletePullRequestReviewCommentReactionTool(server, octokit);
 registerGithubListReleaseReactionsTool(server, octokit);
 registerGithubCreateReleaseReactionTool(server, octokit);
 registerGithubDeleteReleaseReactionTool(server, octokit);
+registerGithubListRepoReleasesTool(server, octokit);
+registerGithubCreateRepoReleaseTool(server, octokit);
+registerGithubGenerateRepoReleaseNotesTool(server, octokit);
+registerGithubGetLatestRepoReleaseTool(server, octokit);
+registerGithubGetRepoReleaseByTagTool(server, octokit);
+registerGithubGetRepoReleaseTool(server, octokit);
+registerGithubUpdateRepoReleaseTool(server, octokit);
+registerGithubDeleteRepoReleaseTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

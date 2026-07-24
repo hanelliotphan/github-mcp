@@ -1,0 +1,61 @@
+{
+  "name": "github_create_repo_release",
+  "description": "Create a release (POST /repos/{owner}/{repo}/releases).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "tag_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "target_commitish": {
+        "type": "string",
+        "minLength": 1
+      },
+      "release_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "body": {
+        "type": "string"
+      },
+      "draft": {
+        "type": "boolean"
+      },
+      "prerelease": {
+        "type": "boolean"
+      },
+      "discussion_category_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "generate_release_notes": {
+        "type": "boolean"
+      },
+      "make_latest": {
+        "type": "string",
+        "enum": [
+          "true",
+          "false",
+          "legacy"
+        ]
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "tag_name"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
