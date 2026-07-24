@@ -1694,6 +1694,30 @@ import type {
     CreateOrgProjectFieldFailure,
     CreateUserProjectFieldSuccess,
     CreateUserProjectFieldFailure,
+    ListOrgProjectItemsSuccess,
+    ListOrgProjectItemsFailure,
+    ListUserProjectItemsSuccess,
+    ListUserProjectItemsFailure,
+    ListOrgProjectViewItemsSuccess,
+    ListOrgProjectViewItemsFailure,
+    ListUserProjectViewItemsSuccess,
+    ListUserProjectViewItemsFailure,
+    GetOrgProjectItemSuccess,
+    GetOrgProjectItemFailure,
+    GetUserProjectItemSuccess,
+    GetUserProjectItemFailure,
+    AddOrgProjectItemSuccess,
+    AddOrgProjectItemFailure,
+    AddUserProjectItemSuccess,
+    AddUserProjectItemFailure,
+    UpdateOrgProjectItemSuccess,
+    UpdateOrgProjectItemFailure,
+    UpdateUserProjectItemSuccess,
+    UpdateUserProjectItemFailure,
+    DeleteOrgProjectItemSuccess,
+    DeleteOrgProjectItemFailure,
+    DeleteUserProjectItemSuccess,
+    DeleteUserProjectItemFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3855,6 +3879,30 @@ export function textAndData(
         | CreateOrgProjectFieldFailure
         | CreateUserProjectFieldSuccess
         | CreateUserProjectFieldFailure
+        | ListOrgProjectItemsSuccess
+        | ListOrgProjectItemsFailure
+        | ListUserProjectItemsSuccess
+        | ListUserProjectItemsFailure
+        | ListOrgProjectViewItemsSuccess
+        | ListOrgProjectViewItemsFailure
+        | ListUserProjectViewItemsSuccess
+        | ListUserProjectViewItemsFailure
+        | GetOrgProjectItemSuccess
+        | GetOrgProjectItemFailure
+        | GetUserProjectItemSuccess
+        | GetUserProjectItemFailure
+        | AddOrgProjectItemSuccess
+        | AddOrgProjectItemFailure
+        | AddUserProjectItemSuccess
+        | AddUserProjectItemFailure
+        | UpdateOrgProjectItemSuccess
+        | UpdateOrgProjectItemFailure
+        | UpdateUserProjectItemSuccess
+        | UpdateUserProjectItemFailure
+        | DeleteOrgProjectItemSuccess
+        | DeleteOrgProjectItemFailure
+        | DeleteUserProjectItemSuccess
+        | DeleteUserProjectItemFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

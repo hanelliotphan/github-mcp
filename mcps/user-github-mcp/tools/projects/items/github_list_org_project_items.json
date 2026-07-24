@@ -1,0 +1,52 @@
+{
+  "name": "github_list_org_project_items",
+  "description": "List items for an organization owned project.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "project_number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "q": {
+        "type": "string"
+      },
+      "fields": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "before": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "org",
+      "project_number"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

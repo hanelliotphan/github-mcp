@@ -1,0 +1,47 @@
+{
+  "name": "github_add_user_project_item",
+  "description": "Add an issue or pull request to a project (POST /users/{username}/projectsV2/{project_number}/items).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "project_number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "Issue",
+          "PullRequest"
+        ]
+      },
+      "id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "owner": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "username",
+      "project_number",
+      "type"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -971,6 +971,18 @@ import { registerGithubGetOrgProjectFieldTool } from "./tools/projects/fields/gi
 import { registerGithubGetUserProjectFieldTool } from "./tools/projects/fields/github-get-user-project-field.js";
 import { registerGithubCreateOrgProjectFieldTool } from "./tools/projects/fields/github-create-org-project-field.js";
 import { registerGithubCreateUserProjectFieldTool } from "./tools/projects/fields/github-create-user-project-field.js";
+import { registerGithubListOrgProjectItemsTool } from "./tools/projects/items/github-list-org-project-items.js";
+import { registerGithubListUserProjectItemsTool } from "./tools/projects/items/github-list-user-project-items.js";
+import { registerGithubListOrgProjectViewItemsTool } from "./tools/projects/items/github-list-org-project-view-items.js";
+import { registerGithubListUserProjectViewItemsTool } from "./tools/projects/items/github-list-user-project-view-items.js";
+import { registerGithubGetOrgProjectItemTool } from "./tools/projects/items/github-get-org-project-item.js";
+import { registerGithubGetUserProjectItemTool } from "./tools/projects/items/github-get-user-project-item.js";
+import { registerGithubAddOrgProjectItemTool } from "./tools/projects/items/github-add-org-project-item.js";
+import { registerGithubAddUserProjectItemTool } from "./tools/projects/items/github-add-user-project-item.js";
+import { registerGithubUpdateOrgProjectItemTool } from "./tools/projects/items/github-update-org-project-item.js";
+import { registerGithubUpdateUserProjectItemTool } from "./tools/projects/items/github-update-user-project-item.js";
+import { registerGithubDeleteOrgProjectItemTool } from "./tools/projects/items/github-delete-org-project-item.js";
+import { registerGithubDeleteUserProjectItemTool } from "./tools/projects/items/github-delete-user-project-item.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1958,6 +1970,18 @@ registerGithubGetOrgProjectFieldTool(server, octokit);
 registerGithubGetUserProjectFieldTool(server, octokit);
 registerGithubCreateOrgProjectFieldTool(server, octokit);
 registerGithubCreateUserProjectFieldTool(server, octokit);
+registerGithubListOrgProjectItemsTool(server, octokit);
+registerGithubListUserProjectItemsTool(server, octokit);
+registerGithubListOrgProjectViewItemsTool(server, octokit);
+registerGithubListUserProjectViewItemsTool(server, octokit);
+registerGithubGetOrgProjectItemTool(server, octokit);
+registerGithubGetUserProjectItemTool(server, octokit);
+registerGithubAddOrgProjectItemTool(server, octokit);
+registerGithubAddUserProjectItemTool(server, octokit);
+registerGithubUpdateOrgProjectItemTool(server, octokit);
+registerGithubUpdateUserProjectItemTool(server, octokit);
+registerGithubDeleteOrgProjectItemTool(server, octokit);
+registerGithubDeleteUserProjectItemTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

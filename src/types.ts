@@ -12946,3 +12946,165 @@ export type CreateUserProjectFieldSuccess = {
     request_id: string | null;
 };
 export type CreateUserProjectFieldFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_project_items`. */
+export type ListOrgProjectItemsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    project_number: number;
+    items: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgProjectItemsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_project_items`. */
+export type ListUserProjectItemsSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    project_number: number;
+    items: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListUserProjectItemsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_project_view_items`. */
+export type ListOrgProjectViewItemsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    project_number: number;
+    view_number: number;
+    items: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgProjectViewItemsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_project_view_items`. */
+export type ListUserProjectViewItemsSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    project_number: number;
+    view_number: number;
+    items: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListUserProjectViewItemsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_project_item`. */
+export type GetOrgProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    item_id: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetOrgProjectItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_project_item`. */
+export type GetUserProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    project_number: number;
+    item_id: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetUserProjectItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_org_project_item`. */
+export type AddOrgProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddOrgProjectItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_add_user_project_item`. */
+export type AddUserProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    project_number: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type AddUserProjectItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_project_item`. */
+export type UpdateOrgProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    item_id: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateOrgProjectItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_user_project_item`. */
+export type UpdateUserProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    project_number: number;
+    item_id: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateUserProjectItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_project_item`. */
+export type DeleteOrgProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    item_id: number;
+    request_id: string | null;
+};
+export type DeleteOrgProjectItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_user_project_item`. */
+export type DeleteUserProjectItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    project_number: number;
+    item_id: number;
+    request_id: string | null;
+};
+export type DeleteUserProjectItemFailure = CreateRepoFailure;
