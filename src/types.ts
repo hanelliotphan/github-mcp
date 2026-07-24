@@ -12842,3 +12842,27 @@ export type DeleteOrgPrivateRegistrySuccess = {
     request_id: string | null;
 };
 export type DeleteOrgPrivateRegistryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_project_draft_item`. */
+export type CreateOrgProjectDraftItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgProjectDraftItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_user_project_draft_item`. */
+export type CreateUserProjectDraftItemSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    user_id: string;
+    project_number: number;
+    item: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateUserProjectDraftItemFailure = CreateRepoFailure;

@@ -1,0 +1,30 @@
+{
+  "name": "github_create_user_project_draft_item",
+  "description": "Create a draft issue item on a user-owned project (POST /user/{user_id}/projectsV2/{project_number}/drafts).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "project_number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "body": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "user_id",
+      "project_number",
+      "title"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

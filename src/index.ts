@@ -963,6 +963,8 @@ import { registerGithubGetOrgPrivateRegistriesPublicKeyTool } from "./tools/priv
 import { registerGithubGetOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-get-org-private-registry.js";
 import { registerGithubUpdateOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-update-org-private-registry.js";
 import { registerGithubDeleteOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-delete-org-private-registry.js";
+import { registerGithubCreateOrgProjectDraftItemTool } from "./tools/projects/drafts/github-create-org-project-draft-item.js";
+import { registerGithubCreateUserProjectDraftItemTool } from "./tools/projects/drafts/github-create-user-project-draft-item.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1942,6 +1944,8 @@ registerGithubGetOrgPrivateRegistriesPublicKeyTool(server, octokit);
 registerGithubGetOrgPrivateRegistryTool(server, octokit);
 registerGithubUpdateOrgPrivateRegistryTool(server, octokit);
 registerGithubDeleteOrgPrivateRegistryTool(server, octokit);
+registerGithubCreateOrgProjectDraftItemTool(server, octokit);
+registerGithubCreateUserProjectDraftItemTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

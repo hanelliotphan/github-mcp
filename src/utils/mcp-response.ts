@@ -1678,6 +1678,10 @@ import type {
     UpdateOrgPrivateRegistryFailure,
     DeleteOrgPrivateRegistrySuccess,
     DeleteOrgPrivateRegistryFailure,
+    CreateOrgProjectDraftItemSuccess,
+    CreateOrgProjectDraftItemFailure,
+    CreateUserProjectDraftItemSuccess,
+    CreateUserProjectDraftItemFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3823,6 +3827,10 @@ export function textAndData(
         | UpdateOrgPrivateRegistryFailure
         | DeleteOrgPrivateRegistrySuccess
         | DeleteOrgPrivateRegistryFailure
+        | CreateOrgProjectDraftItemSuccess
+        | CreateOrgProjectDraftItemFailure
+        | CreateUserProjectDraftItemSuccess
+        | CreateUserProjectDraftItemFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
