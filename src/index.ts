@@ -965,6 +965,12 @@ import { registerGithubUpdateOrgPrivateRegistryTool } from "./tools/private-regi
 import { registerGithubDeleteOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-delete-org-private-registry.js";
 import { registerGithubCreateOrgProjectDraftItemTool } from "./tools/projects/drafts/github-create-org-project-draft-item.js";
 import { registerGithubCreateUserProjectDraftItemTool } from "./tools/projects/drafts/github-create-user-project-draft-item.js";
+import { registerGithubListOrgProjectFieldsTool } from "./tools/projects/fields/github-list-org-project-fields.js";
+import { registerGithubListUserProjectFieldsTool } from "./tools/projects/fields/github-list-user-project-fields.js";
+import { registerGithubGetOrgProjectFieldTool } from "./tools/projects/fields/github-get-org-project-field.js";
+import { registerGithubGetUserProjectFieldTool } from "./tools/projects/fields/github-get-user-project-field.js";
+import { registerGithubCreateOrgProjectFieldTool } from "./tools/projects/fields/github-create-org-project-field.js";
+import { registerGithubCreateUserProjectFieldTool } from "./tools/projects/fields/github-create-user-project-field.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1946,6 +1952,12 @@ registerGithubUpdateOrgPrivateRegistryTool(server, octokit);
 registerGithubDeleteOrgPrivateRegistryTool(server, octokit);
 registerGithubCreateOrgProjectDraftItemTool(server, octokit);
 registerGithubCreateUserProjectDraftItemTool(server, octokit);
+registerGithubListOrgProjectFieldsTool(server, octokit);
+registerGithubListUserProjectFieldsTool(server, octokit);
+registerGithubGetOrgProjectFieldTool(server, octokit);
+registerGithubGetUserProjectFieldTool(server, octokit);
+registerGithubCreateOrgProjectFieldTool(server, octokit);
+registerGithubCreateUserProjectFieldTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

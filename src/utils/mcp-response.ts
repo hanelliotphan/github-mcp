@@ -1682,6 +1682,18 @@ import type {
     CreateOrgProjectDraftItemFailure,
     CreateUserProjectDraftItemSuccess,
     CreateUserProjectDraftItemFailure,
+    ListOrgProjectFieldsSuccess,
+    ListOrgProjectFieldsFailure,
+    ListUserProjectFieldsSuccess,
+    ListUserProjectFieldsFailure,
+    GetOrgProjectFieldSuccess,
+    GetOrgProjectFieldFailure,
+    GetUserProjectFieldSuccess,
+    GetUserProjectFieldFailure,
+    CreateOrgProjectFieldSuccess,
+    CreateOrgProjectFieldFailure,
+    CreateUserProjectFieldSuccess,
+    CreateUserProjectFieldFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3831,6 +3843,18 @@ export function textAndData(
         | CreateOrgProjectDraftItemFailure
         | CreateUserProjectDraftItemSuccess
         | CreateUserProjectDraftItemFailure
+        | ListOrgProjectFieldsSuccess
+        | ListOrgProjectFieldsFailure
+        | ListUserProjectFieldsSuccess
+        | ListUserProjectFieldsFailure
+        | GetOrgProjectFieldSuccess
+        | GetOrgProjectFieldFailure
+        | GetUserProjectFieldSuccess
+        | GetUserProjectFieldFailure
+        | CreateOrgProjectFieldSuccess
+        | CreateOrgProjectFieldFailure
+        | CreateUserProjectFieldSuccess
+        | CreateUserProjectFieldFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

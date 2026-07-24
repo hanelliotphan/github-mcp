@@ -12866,3 +12866,83 @@ export type CreateUserProjectDraftItemSuccess = {
     request_id: string | null;
 };
 export type CreateUserProjectDraftItemFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_project_fields`. */
+export type ListOrgProjectFieldsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    project_number: number;
+    fields: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgProjectFieldsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_user_project_fields`. */
+export type ListUserProjectFieldsSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    project_number: number;
+    fields: Record<string, unknown>[];
+    pagination: GitHubLinkPagination | null;
+    request_id: string | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListUserProjectFieldsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_project_field`. */
+export type GetOrgProjectFieldSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    field_id: number;
+    field: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetOrgProjectFieldFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_project_field`. */
+export type GetUserProjectFieldSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    project_number: number;
+    field_id: number;
+    field: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetUserProjectFieldFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_project_field`. */
+export type CreateOrgProjectFieldSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    project_number: number;
+    field: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgProjectFieldFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_user_project_field`. */
+export type CreateUserProjectFieldSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    project_number: number;
+    field: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateUserProjectFieldFailure = CreateRepoFailure;
