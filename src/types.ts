@@ -14708,4 +14708,82 @@ export type ListAuthenticatedUserPublicEmailsSuccess = {
 };
 
 export type ListAuthenticatedUserPublicEmailsFailure = CreateRepoFailure;
+/* users-followers-types */
+export type UserFollowerRow = Record<string, unknown>;
+export type ListAuthenticatedUserFollowersSuccess = { success: true; message: string; http_status: number; followers: UserFollowerRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserFollowersFailure = CreateRepoFailure;
+export type ListAuthenticatedUserFollowingSuccess = { success: true; message: string; http_status: number; following: UserFollowerRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserFollowingFailure = CreateRepoFailure;
+export type CheckAuthenticatedUserFollowsUserSuccess = { success: true; message: string; username: string; followed: boolean; http_status: number; request_id: string | null; };
+export type CheckAuthenticatedUserFollowsUserFailure = CreateRepoFailure;
+export type FollowUserSuccess = { success: true; message: string; http_status: number; username: string; request_id: string | null; };
+export type FollowUserFailure = CreateRepoFailure;
+export type UnfollowUserSuccess = { success: true; message: string; http_status: number; username: string; request_id: string | null; };
+export type UnfollowUserFailure = CreateRepoFailure;
+export type ListUserFollowersSuccess = { success: true; message: string; http_status: number; username: string; followers: UserFollowerRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserFollowersFailure = CreateRepoFailure;
+export type ListUserFollowingSuccess = { success: true; message: string; http_status: number; username: string; following: UserFollowerRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserFollowingFailure = CreateRepoFailure;
+export type CheckUserFollowsUserSuccess = { success: true; message: string; username: string; target_user: string; follows: boolean; http_status: number; request_id: string | null; };
+export type CheckUserFollowsUserFailure = CreateRepoFailure;
 
+
+/* users-gpg-keys-types */
+export type UserGpgKeyRow = Record<string, unknown>;
+export type ListAuthenticatedUserGpgKeysSuccess = { success: true; message: string; http_status: number; gpg_keys: UserGpgKeyRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserGpgKeysFailure = CreateRepoFailure;
+export type CreateAuthenticatedUserGpgKeySuccess = { success: true; message: string; http_status: number; gpg_key: UserGpgKeyRow; request_id: string | null; };
+export type CreateAuthenticatedUserGpgKeyFailure = CreateRepoFailure;
+export type GetAuthenticatedUserGpgKeySuccess = { success: true; message: string; http_status: number; gpg_key: UserGpgKeyRow; request_id: string | null; };
+export type GetAuthenticatedUserGpgKeyFailure = CreateRepoFailure;
+export type DeleteAuthenticatedUserGpgKeySuccess = { success: true; message: string; http_status: number; request_id: string | null; };
+export type DeleteAuthenticatedUserGpgKeyFailure = CreateRepoFailure;
+export type ListUserGpgKeysSuccess = { success: true; message: string; http_status: number; username: string; gpg_keys: UserGpgKeyRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserGpgKeysFailure = CreateRepoFailure;
+
+
+/* users-social-accounts-types */
+export type UserSocialAccountRow = Record<string, unknown>;
+export type ListAuthenticatedUserSocialAccountsSuccess = { success: true; message: string; http_status: number; social_accounts: UserSocialAccountRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserSocialAccountsFailure = CreateRepoFailure;
+export type AddAuthenticatedUserSocialAccountsSuccess = { success: true; message: string; http_status: number; social_accounts: UserSocialAccountRow[]; request_id: string | null; };
+export type AddAuthenticatedUserSocialAccountsFailure = CreateRepoFailure;
+export type DeleteAuthenticatedUserSocialAccountsSuccess = { success: true; message: string; http_status: number; request_id: string | null; };
+export type DeleteAuthenticatedUserSocialAccountsFailure = CreateRepoFailure;
+export type ListUserSocialAccountsSuccess = { success: true; message: string; http_status: number; username: string; social_accounts: UserSocialAccountRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserSocialAccountsFailure = CreateRepoFailure;
+
+
+/* users-ssh-signing-keys-types */
+export type UserSshSigningKeyRow = Record<string, unknown>;
+export type ListAuthenticatedUserSshSigningKeysSuccess = { success: true; message: string; http_status: number; ssh_signing_keys: UserSshSigningKeyRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserSshSigningKeysFailure = CreateRepoFailure;
+export type CreateAuthenticatedUserSshSigningKeySuccess = { success: true; message: string; http_status: number; ssh_signing_key: UserSshSigningKeyRow; request_id: string | null; };
+export type CreateAuthenticatedUserSshSigningKeyFailure = CreateRepoFailure;
+export type GetAuthenticatedUserSshSigningKeySuccess = { success: true; message: string; http_status: number; ssh_signing_key: UserSshSigningKeyRow; request_id: string | null; };
+export type GetAuthenticatedUserSshSigningKeyFailure = CreateRepoFailure;
+export type DeleteAuthenticatedUserSshSigningKeySuccess = { success: true; message: string; http_status: number; request_id: string | null; };
+export type DeleteAuthenticatedUserSshSigningKeyFailure = CreateRepoFailure;
+export type ListUserSshSigningKeysSuccess = { success: true; message: string; http_status: number; username: string; ssh_signing_keys: UserSshSigningKeyRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserSshSigningKeysFailure = CreateRepoFailure;
+/* users-keys-types */export type UserPublicSshKeyRow = Record<string, unknown>;
+export type ListAuthenticatedUserPublicSshKeysSuccess = { success: true; message: string; http_status: number; keys: UserPublicSshKeyRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListAuthenticatedUserPublicSshKeysFailure = CreateRepoFailure;
+export type CreateAuthenticatedUserPublicSshKeySuccess = { success: true; message: string; http_status: number; public_ssh_key: UserPublicSshKeyRow; request_id: string | null; };
+export type CreateAuthenticatedUserPublicSshKeyFailure = CreateRepoFailure;
+export type GetAuthenticatedUserPublicSshKeySuccess = { success: true; message: string; http_status: number; public_ssh_key: UserPublicSshKeyRow; request_id: string | null; };
+export type GetAuthenticatedUserPublicSshKeyFailure = CreateRepoFailure;
+export type DeleteAuthenticatedUserPublicSshKeySuccess = { success: true; message: string; http_status: number; request_id: string | null; };
+export type DeleteAuthenticatedUserPublicSshKeyFailure = CreateRepoFailure;
+export type ListUserPublicKeysSuccess = { success: true; message: string; http_status: number; username: string; keys: UserPublicSshKeyRow[]; pagination: GitHubPageLinkPagination | null; request_id: string | null; page: number; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserPublicKeysFailure = CreateRepoFailure;
+/* users-attestations-types */export type ListUserAttestationsSuccess = { success: true; message: string; username: string; subject_digest: string; attestations: RepoAttestationListItem[]; pagination: GitHubLinkPagination | null; request_id: string | null; per_page: number; pages_fetched: number; truncated?: boolean; };
+export type ListUserAttestationsFailure = CreateRepoFailure;
+export type BulkListUserAttestationsSuccess = { success: true; message: string; http_status: number; username: string; attestations_subject_digests: Record<string, unknown>; page_info: Record<string, unknown>; request_id: string | null; };
+export type BulkListUserAttestationsFailure = CreateRepoFailure;
+export type DeleteUserAttestationsBulkSuccess = { success: true; message: string; http_status: number; username: string; request_id: string | null; response_data: Record<string, unknown> | null; };
+export type DeleteUserAttestationsBulkFailure = CreateRepoFailure;
+export type DeleteUserAttestationBySubjectDigestSuccess = { success: true; message: string; http_status: number; username: string; subject_digest: string; request_id: string | null; response_data: Record<string, unknown> | null; };
+export type DeleteUserAttestationBySubjectDigestFailure = CreateRepoFailure;
+export type DeleteUserAttestationByIdSuccess = { success: true; message: string; http_status: number; username: string; attestation_id: number; request_id: string | null; response_data: Record<string, unknown> | null; };
+export type DeleteUserAttestationByIdFailure = CreateRepoFailure;

@@ -111,14 +111,14 @@ import type {
     CancelWorkflowRunSuccess,
     CheckAppTokenFailure,
     CheckAppTokenSuccess,
+    CheckAuthenticatedUserFollowsUserFailure,
+    CheckAuthenticatedUserFollowsUserSuccess,
     CheckDependabotSecurityUpdatesFailure,
     CheckDependabotSecurityUpdatesSuccess,
     CheckImmutableReleasesFailure,
     CheckImmutableReleasesSuccess,
     CheckOrgBlockedUserFailure,
     CheckOrgBlockedUserSuccess,
-    CheckUserBlockedFailure,
-    CheckUserBlockedSuccess,
     CheckOrgMembershipForUserFailure,
     CheckOrgMembershipForUserSuccess,
     CheckOrgPublicMembershipForUserFailure,
@@ -133,10 +133,14 @@ import type {
     CheckRepoCollaboratorSuccess,
     CheckRepoIsStarredByAuthenticatedUserFailure,
     CheckRepoIsStarredByAuthenticatedUserSuccess,
+    CheckUserBlockedFailure,
+    CheckUserBlockedSuccess,
     CheckUserCanBeAssignedFailure,
     CheckUserCanBeAssignedSuccess,
     CheckUserCanBeAssignedToIssueFailure,
     CheckUserCanBeAssignedToIssueSuccess,
+    CheckUserFollowsUserFailure,
+    CheckUserFollowsUserSuccess,
     CheckVulnerabilityAlertsFailure,
     CheckVulnerabilityAlertsSuccess,
     CommitCodeScanningAutofixFailure,
@@ -377,10 +381,10 @@ import type {
     DeleteAppTokenSuccess,
     DeleteArtifactFailure,
     DeleteArtifactSuccess,
-    DeleteAuthenticatedUserPackageFailure,
-    DeleteAuthenticatedUserPackageSuccess,
     DeleteAuthenticatedUserEmailsFailure,
     DeleteAuthenticatedUserEmailsSuccess,
+    DeleteAuthenticatedUserPackageFailure,
+    DeleteAuthenticatedUserPackageSuccess,
     DeleteAuthenticatedUserPackageVersionFailure,
     DeleteAuthenticatedUserPackageVersionSuccess,
     DeleteCodeqlDatabaseFailure,
@@ -621,6 +625,8 @@ import type {
     ExportUserCodespaceSuccess,
     FetchRepoSbomReportFailure,
     FetchRepoSbomReportSuccess,
+    FollowUserFailure,
+    FollowUserSuccess,
     ForceCancelWorkflowRunFailure,
     ForceCancelWorkflowRunSuccess,
     GenerateRepoReleaseNotesFailure,
@@ -1185,6 +1191,10 @@ import type {
     ListAuthenticatedUserDockerMigrationConflictsSuccess,
     ListAuthenticatedUserEmailsFailure,
     ListAuthenticatedUserEmailsSuccess,
+    ListAuthenticatedUserFollowersFailure,
+    ListAuthenticatedUserFollowersSuccess,
+    ListAuthenticatedUserFollowingFailure,
+    ListAuthenticatedUserFollowingSuccess,
     ListAuthenticatedUserPackagesFailure,
     ListAuthenticatedUserPackagesSuccess,
     ListAuthenticatedUserPackageVersionsFailure,
@@ -1691,6 +1701,10 @@ import type {
     ListUserCopilotSpacesSuccess,
     ListUserDockerMigrationConflictsFailure,
     ListUserDockerMigrationConflictsSuccess,
+    ListUserFollowersFailure,
+    ListUserFollowersSuccess,
+    ListUserFollowingFailure,
+    ListUserFollowingSuccess,
     ListUserPackagesFailure,
     ListUserPackagesSuccess,
     ListUserPackageVersionsFailure,
@@ -2047,6 +2061,8 @@ import type {
     UnblockOrgUserSuccess,
     UnblockUserFailure,
     UnblockUserSuccess,
+    UnfollowUserFailure,
+    UnfollowUserSuccess,
     UnlockRepoIssueFailure,
     UnlockRepoIssueSuccess,
     UnpinIssueCommentFailure,
@@ -4379,6 +4395,22 @@ export function textAndData(
         | ListAuthenticatedUserPublicEmailsSuccess
         | SetAuthenticatedUserEmailVisibilityFailure
         | SetAuthenticatedUserEmailVisibilitySuccess
+        | CheckAuthenticatedUserFollowsUserFailure
+        | CheckAuthenticatedUserFollowsUserSuccess
+        | CheckUserFollowsUserFailure
+        | CheckUserFollowsUserSuccess
+        | FollowUserFailure
+        | FollowUserSuccess
+        | ListAuthenticatedUserFollowersFailure
+        | ListAuthenticatedUserFollowersSuccess
+        | ListAuthenticatedUserFollowingFailure
+        | ListAuthenticatedUserFollowingSuccess
+        | ListUserFollowersFailure
+        | ListUserFollowersSuccess
+        | ListUserFollowingFailure
+        | ListUserFollowingSuccess
+        | UnfollowUserFailure
+        | UnfollowUserSuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
