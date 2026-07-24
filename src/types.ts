@@ -13581,3 +13581,123 @@ export type UploadRepoReleaseAssetSuccess = {
 };
 export type UploadRepoReleaseAssetFailure = CreateRepoFailure;
 
+/** MCP tool: `github_search_code`. */
+export type SearchCodeSuccess = {
+    success: true;
+    message: string;
+    q: string;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type SearchCodeFailure = CreateRepoFailure;
+
+/** MCP tool: `github_search_commits`. */
+export type SearchCommitsSuccess = {
+    success: true;
+    message: string;
+    q: string;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type SearchCommitsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_search_issues`. */
+export type SearchIssuesSuccess = {
+    success: true;
+    message: string;
+    q: string;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type SearchIssuesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_search_labels`. */
+export type SearchLabelsSuccess = {
+    success: true;
+    message: string;
+    q: string;
+    repository_id: number;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type SearchLabelsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_search_repositories`. */
+export type SearchRepositoriesSuccess = {
+    success: true;
+    message: string;
+    q: string;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type SearchRepositoriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_search_topics`. */
+export type SearchTopicsSuccess = {
+    success: true;
+    message: string;
+    q: string;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type SearchTopicsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_search_users`. */
+export type SearchUsersSuccess = {
+    success: true;
+    message: string;
+    q: string;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type SearchUsersFailure = CreateRepoFailure;
+

@@ -1788,6 +1788,20 @@ import type {
     DeleteRepoReleaseAssetFailure,
     UploadRepoReleaseAssetSuccess,
     UploadRepoReleaseAssetFailure,
+    SearchCodeSuccess,
+    SearchCodeFailure,
+    SearchCommitsSuccess,
+    SearchCommitsFailure,
+    SearchIssuesSuccess,
+    SearchIssuesFailure,
+    SearchLabelsSuccess,
+    SearchLabelsFailure,
+    SearchRepositoriesSuccess,
+    SearchRepositoriesFailure,
+    SearchTopicsSuccess,
+    SearchTopicsFailure,
+    SearchUsersSuccess,
+    SearchUsersFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -4043,6 +4057,20 @@ export function textAndData(
         | DeleteRepoReleaseAssetFailure
         | UploadRepoReleaseAssetSuccess
         | UploadRepoReleaseAssetFailure
+        | SearchCodeSuccess
+        | SearchCodeFailure
+        | SearchCommitsSuccess
+        | SearchCommitsFailure
+        | SearchIssuesSuccess
+        | SearchIssuesFailure
+        | SearchLabelsSuccess
+        | SearchLabelsFailure
+        | SearchRepositoriesSuccess
+        | SearchRepositoriesFailure
+        | SearchTopicsSuccess
+        | SearchTopicsFailure
+        | SearchUsersSuccess
+        | SearchUsersFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

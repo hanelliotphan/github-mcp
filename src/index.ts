@@ -1017,6 +1017,13 @@ import { registerGithubListRepoReleaseAssetsTool } from "./tools/releases/assets
 import { registerGithubGetRepoReleaseAssetTool } from "./tools/releases/assets/github-get-repo-release-asset.js";
 import { registerGithubUpdateRepoReleaseAssetTool } from "./tools/releases/assets/github-update-repo-release-asset.js";
 import { registerGithubDeleteRepoReleaseAssetTool } from "./tools/releases/assets/github-delete-repo-release-asset.js";
+import { registerGithubSearchCodeTool } from "./tools/search/search/github-search-code.js";
+import { registerGithubSearchCommitsTool } from "./tools/search/search/github-search-commits.js";
+import { registerGithubSearchIssuesTool } from "./tools/search/search/github-search-issues.js";
+import { registerGithubSearchLabelsTool } from "./tools/search/search/github-search-labels.js";
+import { registerGithubSearchRepositoriesTool } from "./tools/search/search/github-search-repositories.js";
+import { registerGithubSearchTopicsTool } from "./tools/search/search/github-search-topics.js";
+import { registerGithubSearchUsersTool } from "./tools/search/search/github-search-users.js";
 import { registerGithubUploadRepoReleaseAssetTool } from "./tools/releases/assets/github-upload-repo-release-asset.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
@@ -2051,6 +2058,13 @@ registerGithubListRepoReleaseAssetsTool(server, octokit);
 registerGithubGetRepoReleaseAssetTool(server, octokit);
 registerGithubUpdateRepoReleaseAssetTool(server, octokit);
 registerGithubDeleteRepoReleaseAssetTool(server, octokit);
+registerGithubSearchCodeTool(server, octokit);
+registerGithubSearchCommitsTool(server, octokit);
+registerGithubSearchIssuesTool(server, octokit);
+registerGithubSearchLabelsTool(server, octokit);
+registerGithubSearchRepositoriesTool(server, octokit);
+registerGithubSearchTopicsTool(server, octokit);
+registerGithubSearchUsersTool(server, octokit);
 registerGithubUploadRepoReleaseAssetTool(server, octokit);
 
 installCompactToolsListHandler(server);

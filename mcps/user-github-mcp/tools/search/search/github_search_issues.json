@@ -1,0 +1,70 @@
+{
+  "name": "github_search_issues",
+  "description": "Search issues and pull requests.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "sort": {
+        "type": "string",
+        "enum": [
+          "comments",
+          "reactions",
+          "reactions-+1",
+          "reactions--1",
+          "reactions-smile",
+          "reactions-thinking_face",
+          "reactions-heart",
+          "reactions-tada",
+          "interactions",
+          "created",
+          "updated"
+        ]
+      },
+      "order": {
+        "type": "string",
+        "enum": [
+          "desc",
+          "asc"
+        ]
+      },
+      "advanced_search": {
+        "type": "string"
+      },
+      "search_type": {
+        "type": "string",
+        "enum": [
+          "semantic",
+          "hybrid"
+        ]
+      },
+      "q": {
+        "type": "string",
+        "minLength": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      },
+      "text_match": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "q"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

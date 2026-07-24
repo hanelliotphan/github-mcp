@@ -1,0 +1,56 @@
+{
+  "name": "github_search_labels",
+  "description": "Search labels.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "repository_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "sort": {
+        "type": "string",
+        "enum": [
+          "created",
+          "updated"
+        ]
+      },
+      "order": {
+        "type": "string",
+        "enum": [
+          "desc",
+          "asc"
+        ]
+      },
+      "q": {
+        "type": "string",
+        "minLength": 1
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      },
+      "text_match": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "repository_id",
+      "q"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
