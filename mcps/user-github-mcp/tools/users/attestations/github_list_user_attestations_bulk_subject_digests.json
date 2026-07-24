@@ -1,0 +1,36 @@
+{
+  "name": "github_list_user_attestations_bulk_subject_digests",
+  "description": "github_list_user_attestations_bulk_subject_digests",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "subject_digests": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "per_page": {
+        "type": "integer"
+      },
+      "before": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "username",
+      "subject_digests"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

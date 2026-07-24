@@ -99,6 +99,8 @@ import type {
     BulkAddEnterpriseTeamOrganizationAssignmentsSuccess,
     BulkListOrgAttestationsFailure,
     BulkListOrgAttestationsSuccess,
+    BulkListUserAttestationsFailure,
+    BulkListUserAttestationsSuccess,
     BulkRemoveEnterpriseTeamMembersFailure,
     BulkRemoveEnterpriseTeamMembersSuccess,
     BulkRemoveEnterpriseTeamOrganizationAssignmentsFailure,
@@ -567,6 +569,12 @@ import type {
     DeleteSelfHostedRunnerGroupFromOrgSuccess,
     DeleteThreadSubscriptionFailure,
     DeleteThreadSubscriptionSuccess,
+    DeleteUserAttestationByIdFailure,
+    DeleteUserAttestationByIdSuccess,
+    DeleteUserAttestationBySubjectDigestFailure,
+    DeleteUserAttestationBySubjectDigestSuccess,
+    DeleteUserAttestationsBulkFailure,
+    DeleteUserAttestationsBulkSuccess,
     DeleteUserCodespaceFailure,
     DeleteUserCodespacesSecretFailure,
     DeleteUserCodespacesSecretSuccess,
@@ -1717,6 +1725,8 @@ import type {
     ListTeamsAssignedToOrgRoleSuccess,
     ListUserAccountIssuesFailure,
     ListUserAccountIssuesSuccess,
+    ListUserAttestationsFailure,
+    ListUserAttestationsSuccess,
     ListUserCodespaceMachinesFailure,
     ListUserCodespaceMachinesSuccess,
     ListUserCodespacesFailure,
@@ -4487,6 +4497,16 @@ export function textAndData(
         | ListAuthenticatedUserSshSigningKeysSuccess
         | ListUserSshSigningKeysFailure
         | ListUserSshSigningKeysSuccess
+        | BulkListUserAttestationsFailure
+        | BulkListUserAttestationsSuccess
+        | DeleteUserAttestationByIdFailure
+        | DeleteUserAttestationByIdSuccess
+        | DeleteUserAttestationBySubjectDigestFailure
+        | DeleteUserAttestationBySubjectDigestSuccess
+        | DeleteUserAttestationsBulkFailure
+        | DeleteUserAttestationsBulkSuccess
+        | ListUserAttestationsFailure
+        | ListUserAttestationsSuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

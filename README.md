@@ -373,6 +373,7 @@ Implementations live under `src/tools/`. Each link below has the full tool list 
 - **[Git SSH keys](src/tools/users/keys/README.md)**
 - **[Social accounts](src/tools/users/social-accounts/README.md)**
 - **[SSH signing keys](src/tools/users/ssh-signing-keys/README.md)**
+- **[Attestations](src/tools/users/attestations/README.md)**
 - **[Users](src/tools/users/users/README.md)**
 
 Static MCP tool descriptors (JSON: tool name, description, argument schema) live under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/) in the **same subfolders as** `src/tools`, with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. They mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.

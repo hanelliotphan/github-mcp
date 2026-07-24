@@ -1,0 +1,27 @@
+{
+  "name": "github_delete_user_attestations_bulk",
+  "description": "github_delete_user_attestations_bulk",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "subject_digests": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
+    "required": [
+      "username",
+      "subject_digests"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

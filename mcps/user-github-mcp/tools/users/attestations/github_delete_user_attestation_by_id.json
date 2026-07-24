@@ -1,0 +1,24 @@
+{
+  "name": "github_delete_user_attestation_by_id",
+  "description": "github_delete_user_attestation_by_id",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      },
+      "attestation_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "username",
+      "attestation_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
