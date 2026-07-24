@@ -898,6 +898,11 @@ import { registerGithubGetLicenseTool } from "./tools/licenses/licenses/github-g
 import { registerGithubGetRepoLicenseTool } from "./tools/licenses/licenses/github-get-repo-license.js";
 import { registerGithubRenderMarkdownTool } from "./tools/markdown/markdown/github-render-markdown.js";
 import { registerGithubRenderMarkdownRawTool } from "./tools/markdown/markdown/github-render-markdown-raw.js";
+import { registerGithubGetApiRootTool } from "./tools/meta/meta/github-get-api-root.js";
+import { registerGithubGetMetaTool } from "./tools/meta/meta/github-get-meta.js";
+import { registerGithubGetOctocatTool } from "./tools/meta/meta/github-get-octocat.js";
+import { registerGithubListApiVersionsTool } from "./tools/meta/meta/github-list-api-versions.js";
+import { registerGithubGetZenTool } from "./tools/meta/meta/github-get-zen.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1812,6 +1817,11 @@ registerGithubGetLicenseTool(server, octokit);
 registerGithubGetRepoLicenseTool(server, octokit);
 registerGithubRenderMarkdownTool(server, octokit);
 registerGithubRenderMarkdownRawTool(server, octokit);
+registerGithubGetApiRootTool(server, octokit);
+registerGithubGetMetaTool(server, octokit);
+registerGithubGetOctocatTool(server, octokit);
+registerGithubListApiVersionsTool(server, octokit);
+registerGithubGetZenTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

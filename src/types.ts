@@ -12392,3 +12392,53 @@ export type RenderMarkdownRawSuccess = {
     request_id: string | null;
 };
 export type RenderMarkdownRawFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_api_root`. */
+export type GetApiRootSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    root: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetApiRootFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_meta`. */
+export type GetMetaSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    meta: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetMetaFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_octocat`. */
+export type GetOctocatSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    octocat: string;
+    request_id: string | null;
+};
+export type GetOctocatFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_api_versions`. */
+export type ListApiVersionsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    versions: string[];
+    request_id: string | null;
+};
+export type ListApiVersionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_zen`. */
+export type GetZenSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    zen: string;
+    request_id: string | null;
+};
+export type GetZenFailure = CreateRepoFailure;

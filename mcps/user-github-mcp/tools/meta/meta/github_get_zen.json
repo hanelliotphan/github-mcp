@@ -1,0 +1,9 @@
+{
+  "name": "github_get_zen",
+  "description": "Get a random sentence from the Zen of GitHub (GET /zen).",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

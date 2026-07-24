@@ -1,0 +1,14 @@
+{
+  "name": "github_get_octocat",
+  "description": "Get the octocat as ASCII art (GET /octocat).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "s": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

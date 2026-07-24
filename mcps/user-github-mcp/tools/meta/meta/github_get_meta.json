@@ -1,0 +1,9 @@
+{
+  "name": "github_get_meta",
+  "description": "Get GitHub meta information including service IP ranges and domain names (GET /meta).",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

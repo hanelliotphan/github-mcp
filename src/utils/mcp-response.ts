@@ -1548,6 +1548,16 @@ import type {
     RenderMarkdownFailure,
     RenderMarkdownRawSuccess,
     RenderMarkdownRawFailure,
+    GetApiRootSuccess,
+    GetApiRootFailure,
+    GetMetaSuccess,
+    GetMetaFailure,
+    GetOctocatSuccess,
+    GetOctocatFailure,
+    ListApiVersionsSuccess,
+    ListApiVersionsFailure,
+    GetZenSuccess,
+    GetZenFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3562,7 +3572,17 @@ export function textAndData(
         | RenderMarkdownSuccess
         | RenderMarkdownFailure
         | RenderMarkdownRawSuccess
-        | RenderMarkdownRawFailure) {
+        | RenderMarkdownRawFailure
+        | GetApiRootSuccess
+        | GetApiRootFailure
+        | GetMetaSuccess
+        | GetMetaFailure
+        | GetOctocatSuccess
+        | GetOctocatFailure
+        | ListApiVersionsSuccess
+        | ListApiVersionsFailure
+        | GetZenSuccess
+        | GetZenFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
