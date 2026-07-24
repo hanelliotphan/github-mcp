@@ -5,6 +5,8 @@ import type {
     AddAppAccessRestrictionsSuccess,
     AddAuthenticatedUserEmailsFailure,
     AddAuthenticatedUserEmailsSuccess,
+    AddAuthenticatedUserSocialAccountsFailure,
+    AddAuthenticatedUserSocialAccountsSuccess,
     AddCustomLabelsToSelfHostedRunnerForOrgFailure,
     AddCustomLabelsToSelfHostedRunnerForOrgSuccess,
     AddCustomLabelsToSelfHostedRunnerForRepoFailure,
@@ -395,6 +397,8 @@ import type {
     DeleteAuthenticatedUserPackageVersionSuccess,
     DeleteAuthenticatedUserPublicSshKeyFailure,
     DeleteAuthenticatedUserPublicSshKeySuccess,
+    DeleteAuthenticatedUserSocialAccountsFailure,
+    DeleteAuthenticatedUserSocialAccountsSuccess,
     DeleteCodeqlDatabaseFailure,
     DeleteCodeqlDatabaseSuccess,
     DeleteCodeScanningAnalysisFailure,
@@ -1219,6 +1223,8 @@ import type {
     ListAuthenticatedUserPublicSshKeysSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
+    ListAuthenticatedUserSocialAccountsFailure,
+    ListAuthenticatedUserSocialAccountsSuccess,
     ListAuthenticatedUserTeamsFailure,
     ListAuthenticatedUserTeamsSuccess,
     ListBlockedUsersFailure,
@@ -1744,6 +1750,8 @@ import type {
     ListUsersAssignedToOrgRoleFailure,
     ListUsersAssignedToOrgRoleSuccess,
     ListUsersFailure,
+    ListUserSocialAccountsFailure,
+    ListUserSocialAccountsSuccess,
     ListUsersSuccess,
     ListWatchedReposForAuthenticatedUserFailure,
     ListWatchedReposForAuthenticatedUserSuccess,
@@ -4451,6 +4459,14 @@ export function textAndData(
         | ListAuthenticatedUserPublicSshKeysSuccess
         | ListUserPublicKeysFailure
         | ListUserPublicKeysSuccess
+        | AddAuthenticatedUserSocialAccountsFailure
+        | AddAuthenticatedUserSocialAccountsSuccess
+        | DeleteAuthenticatedUserSocialAccountsFailure
+        | DeleteAuthenticatedUserSocialAccountsSuccess
+        | ListAuthenticatedUserSocialAccountsFailure
+        | ListAuthenticatedUserSocialAccountsSuccess
+        | ListUserSocialAccountsFailure
+        | ListUserSocialAccountsSuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
