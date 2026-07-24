@@ -1,0 +1,158 @@
+{
+  "name": "github_create_org_private_registry",
+  "description": "Create an organization private registry configuration (POST /orgs/{org}/private-registries).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "registry_type": {
+        "type": "string",
+        "enum": [
+          "maven_repository",
+          "nuget_feed",
+          "goproxy_server",
+          "npm_registry",
+          "rubygems_server",
+          "cargo_registry",
+          "composer_repository",
+          "docker_registry",
+          "git_source",
+          "helm_registry",
+          "hex_organization",
+          "hex_repository",
+          "pub_repository",
+          "python_index",
+          "terraform_registry"
+        ]
+      },
+      "url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "visibility": {
+        "type": "string",
+        "enum": [
+          "all",
+          "private",
+          "selected"
+        ]
+      },
+      "username": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "replaces_base": {
+        "type": "boolean"
+      },
+      "value": {
+        "type": "string",
+        "minLength": 1
+      },
+      "encrypted_value": {
+        "type": "string",
+        "minLength": 1
+      },
+      "key_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "selected_repository_ids": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      },
+      "auth_type": {
+        "type": "string",
+        "enum": [
+          "token",
+          "username_password",
+          "oidc_azure",
+          "oidc_aws",
+          "oidc_jfrog",
+          "oidc_cloudsmith",
+          "oidc_gcp"
+        ]
+      },
+      "tenant_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "client_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "aws_region": {
+        "type": "string",
+        "minLength": 1
+      },
+      "account_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "role_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "domain": {
+        "type": "string",
+        "minLength": 1
+      },
+      "domain_owner": {
+        "type": "string",
+        "minLength": 1
+      },
+      "jfrog_oidc_provider_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "audience": {
+        "type": "string",
+        "minLength": 1
+      },
+      "identity_mapping_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "namespace": {
+        "type": "string",
+        "minLength": 1
+      },
+      "service_slug": {
+        "type": "string",
+        "minLength": 1
+      },
+      "api_host": {
+        "type": "string",
+        "minLength": 1
+      },
+      "workload_identity_provider": {
+        "type": "string",
+        "minLength": 1
+      },
+      "service_account": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "org",
+      "registry_type",
+      "url",
+      "visibility"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

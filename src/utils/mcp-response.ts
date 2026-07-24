@@ -1666,6 +1666,18 @@ import type {
     CancelRepoPagesDeploymentFailure,
     GetRepoPagesHealthCheckSuccess,
     GetRepoPagesHealthCheckFailure,
+    ListOrgPrivateRegistriesSuccess,
+    ListOrgPrivateRegistriesFailure,
+    CreateOrgPrivateRegistrySuccess,
+    CreateOrgPrivateRegistryFailure,
+    GetOrgPrivateRegistriesPublicKeySuccess,
+    GetOrgPrivateRegistriesPublicKeyFailure,
+    GetOrgPrivateRegistrySuccess,
+    GetOrgPrivateRegistryFailure,
+    UpdateOrgPrivateRegistrySuccess,
+    UpdateOrgPrivateRegistryFailure,
+    DeleteOrgPrivateRegistrySuccess,
+    DeleteOrgPrivateRegistryFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3799,6 +3811,18 @@ export function textAndData(
         | CancelRepoPagesDeploymentFailure
         | GetRepoPagesHealthCheckSuccess
         | GetRepoPagesHealthCheckFailure
+        | ListOrgPrivateRegistriesSuccess
+        | ListOrgPrivateRegistriesFailure
+        | CreateOrgPrivateRegistrySuccess
+        | CreateOrgPrivateRegistryFailure
+        | GetOrgPrivateRegistriesPublicKeySuccess
+        | GetOrgPrivateRegistriesPublicKeyFailure
+        | GetOrgPrivateRegistrySuccess
+        | GetOrgPrivateRegistryFailure
+        | UpdateOrgPrivateRegistrySuccess
+        | UpdateOrgPrivateRegistryFailure
+        | DeleteOrgPrivateRegistrySuccess
+        | DeleteOrgPrivateRegistryFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

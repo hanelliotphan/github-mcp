@@ -12770,3 +12770,75 @@ export type CancelRepoPagesDeploymentFailure = CreateRepoFailure;
 /** MCP tool: `github_get_repo_pages_health_check`. */
 export type GetRepoPagesHealthCheckSuccess = { success: true; message: string; http_status: number; owner: string; name: string; health: Record<string, unknown> | null; request_id: string | null; };
 export type GetRepoPagesHealthCheckFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_private_registries`. */
+export type ListOrgPrivateRegistriesSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    total_count: number;
+    configurations: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgPrivateRegistriesFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_private_registry`. */
+export type CreateOrgPrivateRegistrySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    registry: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgPrivateRegistryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_private_registries_public_key`. */
+export type GetOrgPrivateRegistriesPublicKeySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    public_key: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetOrgPrivateRegistriesPublicKeyFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_org_private_registry`. */
+export type GetOrgPrivateRegistrySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    registry: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetOrgPrivateRegistryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_private_registry`. */
+export type UpdateOrgPrivateRegistrySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    request_id: string | null;
+};
+export type UpdateOrgPrivateRegistryFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_private_registry`. */
+export type DeleteOrgPrivateRegistrySuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    secret_name: string;
+    request_id: string | null;
+};
+export type DeleteOrgPrivateRegistryFailure = CreateRepoFailure;

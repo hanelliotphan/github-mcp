@@ -957,6 +957,12 @@ import { registerGithubCreateRepoPagesDeploymentTool } from "./tools/pages/pages
 import { registerGithubGetRepoPagesDeploymentTool } from "./tools/pages/pages/github-get-repo-pages-deployment.js";
 import { registerGithubCancelRepoPagesDeploymentTool } from "./tools/pages/pages/github-cancel-repo-pages-deployment.js";
 import { registerGithubGetRepoPagesHealthCheckTool } from "./tools/pages/pages/github-get-repo-pages-health-check.js";
+import { registerGithubListOrgPrivateRegistriesTool } from "./tools/private-registries/organization-configurations/github-list-org-private-registries.js";
+import { registerGithubCreateOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-create-org-private-registry.js";
+import { registerGithubGetOrgPrivateRegistriesPublicKeyTool } from "./tools/private-registries/organization-configurations/github-get-org-private-registries-public-key.js";
+import { registerGithubGetOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-get-org-private-registry.js";
+import { registerGithubUpdateOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-update-org-private-registry.js";
+import { registerGithubDeleteOrgPrivateRegistryTool } from "./tools/private-registries/organization-configurations/github-delete-org-private-registry.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1930,6 +1936,12 @@ registerGithubCreateRepoPagesDeploymentTool(server, octokit);
 registerGithubGetRepoPagesDeploymentTool(server, octokit);
 registerGithubCancelRepoPagesDeploymentTool(server, octokit);
 registerGithubGetRepoPagesHealthCheckTool(server, octokit);
+registerGithubListOrgPrivateRegistriesTool(server, octokit);
+registerGithubCreateOrgPrivateRegistryTool(server, octokit);
+registerGithubGetOrgPrivateRegistriesPublicKeyTool(server, octokit);
+registerGithubGetOrgPrivateRegistryTool(server, octokit);
+registerGithubUpdateOrgPrivateRegistryTool(server, octokit);
+registerGithubDeleteOrgPrivateRegistryTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
