@@ -914,6 +914,8 @@ import { registerGithubGetRepoTopPathsTool } from "./tools/metrics/traffic/githu
 import { registerGithubGetRepoTopReferrersTool } from "./tools/metrics/traffic/github-get-repo-top-referrers.js";
 import { registerGithubGetRepoViewsTool } from "./tools/metrics/traffic/github-get-repo-views.js";
 import { registerGithubListModelsTool } from "./tools/models/catalog/github-list-models.js";
+import { registerGithubCreateModelEmbeddingsTool } from "./tools/models/embeddings/github-create-model-embeddings.js";
+import { registerGithubCreateOrgModelEmbeddingsTool } from "./tools/models/embeddings/github-create-org-model-embeddings.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1844,6 +1846,8 @@ registerGithubGetRepoTopPathsTool(server, octokit);
 registerGithubGetRepoTopReferrersTool(server, octokit);
 registerGithubGetRepoViewsTool(server, octokit);
 registerGithubListModelsTool(server, octokit);
+registerGithubCreateModelEmbeddingsTool(server, octokit);
+registerGithubCreateOrgModelEmbeddingsTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

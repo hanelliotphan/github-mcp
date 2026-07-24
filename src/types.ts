@@ -12572,3 +12572,24 @@ export type ListModelsSuccess = {
     request_id: string | null;
 };
 export type ListModelsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_model_embeddings`. */
+export type CreateModelEmbeddingsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    embeddings: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateModelEmbeddingsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_model_embeddings`. */
+export type CreateOrgModelEmbeddingsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    embeddings: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgModelEmbeddingsFailure = CreateRepoFailure;

@@ -1580,6 +1580,10 @@ import type {
     GetRepoViewsFailure,
     ListModelsSuccess,
     ListModelsFailure,
+    CreateModelEmbeddingsSuccess,
+    CreateModelEmbeddingsFailure,
+    CreateOrgModelEmbeddingsSuccess,
+    CreateOrgModelEmbeddingsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3626,7 +3630,11 @@ export function textAndData(
         | GetRepoViewsSuccess
         | GetRepoViewsFailure
         | ListModelsSuccess
-        | ListModelsFailure) {
+        | ListModelsFailure
+        | CreateModelEmbeddingsSuccess
+        | CreateModelEmbeddingsFailure
+        | CreateOrgModelEmbeddingsSuccess
+        | CreateOrgModelEmbeddingsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [

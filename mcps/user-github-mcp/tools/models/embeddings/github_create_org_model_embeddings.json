@@ -1,0 +1,60 @@
+{
+  "name": "github_create_org_model_embeddings",
+  "description": "Run an embedding request attributed to an organization (POST /orgs/{org}/inference/embeddings on models.github.ai).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "model": {
+        "type": "string",
+        "minLength": 1
+      },
+      "input": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 2048
+          }
+        ]
+      },
+      "encoding_format": {
+        "type": "string",
+        "enum": [
+          "float",
+          "base64"
+        ]
+      },
+      "dimensions": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "user": {
+        "type": "string",
+        "minLength": 1
+      },
+      "api_version": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "org",
+      "model",
+      "input"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

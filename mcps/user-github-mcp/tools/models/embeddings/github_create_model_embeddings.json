@@ -1,0 +1,54 @@
+{
+  "name": "github_create_model_embeddings",
+  "description": "Run an embedding request (POST /inference/embeddings on models.github.ai).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "model": {
+        "type": "string",
+        "minLength": 1
+      },
+      "input": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "maxItems": 2048
+          }
+        ]
+      },
+      "encoding_format": {
+        "type": "string",
+        "enum": [
+          "float",
+          "base64"
+        ]
+      },
+      "dimensions": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "user": {
+        "type": "string",
+        "minLength": 1
+      },
+      "api_version": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "model",
+      "input"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
