@@ -13921,3 +13921,75 @@ export type UpdateOrgSecretScanningPatternConfigurationsSuccess = {
 };
 export type UpdateOrgSecretScanningPatternConfigurationsFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_enterprise_secret_scanning_alert_dismissal_requests`. */
+export type ListEnterpriseSecretScanningAlertDismissalRequestsSuccess = {
+    success: true;
+    message: string;
+    enterprise: string;
+    dismissal_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseSecretScanningAlertDismissalRequestsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_secret_scanning_alert_dismissal_requests`. */
+export type ListOrgSecretScanningAlertDismissalRequestsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    dismissal_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgSecretScanningAlertDismissalRequestsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_secret_scanning_alert_dismissal_requests`. */
+export type ListRepoSecretScanningAlertDismissalRequestsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    dismissal_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoSecretScanningAlertDismissalRequestsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_secret_scanning_alert_dismissal_request`. */
+export type GetSecretScanningAlertDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    dismissal_request: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetSecretScanningAlertDismissalRequestFailure = CreateRepoFailure;
+
+/** MCP tool: `github_review_secret_scanning_alert_dismissal_request`. */
+export type ReviewSecretScanningAlertDismissalRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    alert_number: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type ReviewSecretScanningAlertDismissalRequestFailure = CreateRepoFailure;
+

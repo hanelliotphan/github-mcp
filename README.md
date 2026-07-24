@@ -349,6 +349,7 @@ Implementations live under `src/tools/`. Each link below has the full tool list 
 - **[Secret scanning](src/tools/secret-scanning/secret-scanning/README.md)**
 - **[Custom patterns](src/tools/secret-scanning/custom-patterns/README.md)**
 - **[Push protection](src/tools/secret-scanning/push-protection/README.md)**
+- **[Alert dismissal requests](src/tools/secret-scanning/alert-dismissal-requests/README.md)**
 
 
 Static MCP tool descriptors (JSON: tool name, description, argument schema) live under [`mcps/user-github-mcp/tools/`](mcps/user-github-mcp/tools/) in the **same subfolders as** `src/tools`, with [`mcps/user-github-mcp/SERVER_METADATA.json`](mcps/user-github-mcp/SERVER_METADATA.json) for server metadata. They mirror the registered tools in `src/index.ts` for clients that consume filesystem-based schemas.

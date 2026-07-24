@@ -1041,6 +1041,11 @@ import { registerGithubUpdateOrgSecretScanningCustomPatternTool } from "./tools/
 import { registerGithubUpdateRepoSecretScanningCustomPatternTool } from "./tools/secret-scanning/custom-patterns/github-update-repo-secret-scanning-custom-pattern.js";
 import { registerGithubListOrgSecretScanningPatternConfigurationsTool } from "./tools/secret-scanning/push-protection/github-list-org-secret-scanning-pattern-configurations.js";
 import { registerGithubUpdateOrgSecretScanningPatternConfigurationsTool } from "./tools/secret-scanning/push-protection/github-update-org-secret-scanning-pattern-configurations.js";
+import { registerGithubGetSecretScanningAlertDismissalRequestTool } from "./tools/secret-scanning/alert-dismissal-requests/github-get-secret-scanning-alert-dismissal-request.js";
+import { registerGithubListEnterpriseSecretScanningAlertDismissalRequestsTool } from "./tools/secret-scanning/alert-dismissal-requests/github-list-enterprise-secret-scanning-alert-dismissal-requests.js";
+import { registerGithubListOrgSecretScanningAlertDismissalRequestsTool } from "./tools/secret-scanning/alert-dismissal-requests/github-list-org-secret-scanning-alert-dismissal-requests.js";
+import { registerGithubListRepoSecretScanningAlertDismissalRequestsTool } from "./tools/secret-scanning/alert-dismissal-requests/github-list-repo-secret-scanning-alert-dismissal-requests.js";
+import { registerGithubReviewSecretScanningAlertDismissalRequestTool } from "./tools/secret-scanning/alert-dismissal-requests/github-review-secret-scanning-alert-dismissal-request.js";
 import { registerGithubUploadRepoReleaseAssetTool } from "./tools/releases/assets/github-upload-repo-release-asset.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
@@ -2099,6 +2104,11 @@ registerGithubUpdateOrgSecretScanningCustomPatternTool(server, octokit);
 registerGithubUpdateRepoSecretScanningCustomPatternTool(server, octokit);
 registerGithubListOrgSecretScanningPatternConfigurationsTool(server, octokit);
 registerGithubUpdateOrgSecretScanningPatternConfigurationsTool(server, octokit);
+registerGithubGetSecretScanningAlertDismissalRequestTool(server, octokit);
+registerGithubListEnterpriseSecretScanningAlertDismissalRequestsTool(server, octokit);
+registerGithubListOrgSecretScanningAlertDismissalRequestsTool(server, octokit);
+registerGithubListRepoSecretScanningAlertDismissalRequestsTool(server, octokit);
+registerGithubReviewSecretScanningAlertDismissalRequestTool(server, octokit);
 registerGithubUploadRepoReleaseAssetTool(server, octokit);
 
 installCompactToolsListHandler(server);
