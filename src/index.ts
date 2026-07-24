@@ -903,6 +903,7 @@ import { registerGithubGetMetaTool } from "./tools/meta/meta/github-get-meta.js"
 import { registerGithubGetOctocatTool } from "./tools/meta/meta/github-get-octocat.js";
 import { registerGithubListApiVersionsTool } from "./tools/meta/meta/github-list-api-versions.js";
 import { registerGithubGetZenTool } from "./tools/meta/meta/github-get-zen.js";
+import { registerGithubGetRepoCommunityProfileMetricsTool } from "./tools/metrics/community/github-get-repo-community-profile-metrics.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1822,6 +1823,7 @@ registerGithubGetMetaTool(server, octokit);
 registerGithubGetOctocatTool(server, octokit);
 registerGithubListApiVersionsTool(server, octokit);
 registerGithubGetZenTool(server, octokit);
+registerGithubGetRepoCommunityProfileMetricsTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

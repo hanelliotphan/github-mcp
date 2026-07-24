@@ -12442,3 +12442,15 @@ export type GetZenSuccess = {
     request_id: string | null;
 };
 export type GetZenFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_repo_community_profile_metrics`. */
+export type GetRepoCommunityProfileMetricsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    community_profile: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRepoCommunityProfileMetricsFailure = CreateRepoFailure;

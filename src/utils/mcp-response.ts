@@ -1558,6 +1558,8 @@ import type {
     ListApiVersionsFailure,
     GetZenSuccess,
     GetZenFailure,
+    GetRepoCommunityProfileMetricsSuccess,
+    GetRepoCommunityProfileMetricsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3582,7 +3584,9 @@ export function textAndData(
         | ListApiVersionsSuccess
         | ListApiVersionsFailure
         | GetZenSuccess
-        | GetZenFailure) {
+        | GetZenFailure
+        | GetRepoCommunityProfileMetricsSuccess
+        | GetRepoCommunityProfileMetricsFailure) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
         content: [
