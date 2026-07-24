@@ -1732,6 +1732,36 @@ import type {
     CreateUserProjectViewFailure,
     GetRateLimitSuccess,
     GetRateLimitFailure,
+    ListCommitCommentReactionsSuccess,
+    ListCommitCommentReactionsFailure,
+    CreateCommitCommentReactionSuccess,
+    CreateCommitCommentReactionFailure,
+    DeleteCommitCommentReactionSuccess,
+    DeleteCommitCommentReactionFailure,
+    ListIssueCommentReactionsSuccess,
+    ListIssueCommentReactionsFailure,
+    CreateIssueCommentReactionSuccess,
+    CreateIssueCommentReactionFailure,
+    DeleteIssueCommentReactionSuccess,
+    DeleteIssueCommentReactionFailure,
+    ListIssueReactionsSuccess,
+    ListIssueReactionsFailure,
+    CreateIssueReactionSuccess,
+    CreateIssueReactionFailure,
+    DeleteIssueReactionSuccess,
+    DeleteIssueReactionFailure,
+    ListPullRequestReviewCommentReactionsSuccess,
+    ListPullRequestReviewCommentReactionsFailure,
+    CreatePullRequestReviewCommentReactionSuccess,
+    CreatePullRequestReviewCommentReactionFailure,
+    DeletePullRequestReviewCommentReactionSuccess,
+    DeletePullRequestReviewCommentReactionFailure,
+    ListReleaseReactionsSuccess,
+    ListReleaseReactionsFailure,
+    CreateReleaseReactionSuccess,
+    CreateReleaseReactionFailure,
+    DeleteReleaseReactionSuccess,
+    DeleteReleaseReactionFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3931,6 +3961,36 @@ export function textAndData(
         | CreateUserProjectViewFailure
         | GetRateLimitSuccess
         | GetRateLimitFailure
+        | ListCommitCommentReactionsSuccess
+        | ListCommitCommentReactionsFailure
+        | CreateCommitCommentReactionSuccess
+        | CreateCommitCommentReactionFailure
+        | DeleteCommitCommentReactionSuccess
+        | DeleteCommitCommentReactionFailure
+        | ListIssueCommentReactionsSuccess
+        | ListIssueCommentReactionsFailure
+        | CreateIssueCommentReactionSuccess
+        | CreateIssueCommentReactionFailure
+        | DeleteIssueCommentReactionSuccess
+        | DeleteIssueCommentReactionFailure
+        | ListIssueReactionsSuccess
+        | ListIssueReactionsFailure
+        | CreateIssueReactionSuccess
+        | CreateIssueReactionFailure
+        | DeleteIssueReactionSuccess
+        | DeleteIssueReactionFailure
+        | ListPullRequestReviewCommentReactionsSuccess
+        | ListPullRequestReviewCommentReactionsFailure
+        | CreatePullRequestReviewCommentReactionSuccess
+        | CreatePullRequestReviewCommentReactionFailure
+        | DeletePullRequestReviewCommentReactionSuccess
+        | DeletePullRequestReviewCommentReactionFailure
+        | ListReleaseReactionsSuccess
+        | ListReleaseReactionsFailure
+        | CreateReleaseReactionSuccess
+        | CreateReleaseReactionFailure
+        | DeleteReleaseReactionSuccess
+        | DeleteReleaseReactionFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

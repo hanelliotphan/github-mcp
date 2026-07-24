@@ -1,0 +1,34 @@
+{
+  "name": "github_delete_issue_comment_reaction",
+  "description": "Delete an issue comment reaction.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "comment_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "reaction_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "comment_id",
+      "reaction_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -13195,3 +13195,218 @@ export type GetRateLimitSuccess = {
 };
 export type GetRateLimitFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_commit_comment_reactions`. */
+export type ListCommitCommentReactionsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reactions: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListCommitCommentReactionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_commit_comment_reaction`. */
+export type CreateCommitCommentReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reaction: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateCommitCommentReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_commit_comment_reaction`. */
+export type DeleteCommitCommentReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reaction_id: number;
+    request_id: string | null;
+};
+export type DeleteCommitCommentReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_issue_comment_reactions`. */
+export type ListIssueCommentReactionsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reactions: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueCommentReactionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_issue_comment_reaction`. */
+export type CreateIssueCommentReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reaction: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateIssueCommentReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_issue_comment_reaction`. */
+export type DeleteIssueCommentReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reaction_id: number;
+    request_id: string | null;
+};
+export type DeleteIssueCommentReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_issue_reactions`. */
+export type ListIssueReactionsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    issue_number: number;
+    reactions: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListIssueReactionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_issue_reaction`. */
+export type CreateIssueReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    reaction: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateIssueReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_issue_reaction`. */
+export type DeleteIssueReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    issue_number: number;
+    reaction_id: number;
+    request_id: string | null;
+};
+export type DeleteIssueReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_pull_request_review_comment_reactions`. */
+export type ListPullRequestReviewCommentReactionsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reactions: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListPullRequestReviewCommentReactionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_pull_request_review_comment_reaction`. */
+export type CreatePullRequestReviewCommentReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reaction: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreatePullRequestReviewCommentReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_pull_request_review_comment_reaction`. */
+export type DeletePullRequestReviewCommentReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    comment_id: number;
+    reaction_id: number;
+    request_id: string | null;
+};
+export type DeletePullRequestReviewCommentReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_release_reactions`. */
+export type ListReleaseReactionsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    release_id: number;
+    reactions: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListReleaseReactionsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_release_reaction`. */
+export type CreateReleaseReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release_id: number;
+    reaction: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateReleaseReactionFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_release_reaction`. */
+export type DeleteReleaseReactionSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    release_id: number;
+    reaction_id: number;
+    request_id: string | null;
+};
+export type DeleteReleaseReactionFailure = CreateRepoFailure;
+

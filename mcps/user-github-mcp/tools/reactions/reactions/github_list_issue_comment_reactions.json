@@ -1,0 +1,59 @@
+{
+  "name": "github_list_issue_comment_reactions",
+  "description": "List reactions for an issue comment (GET /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "comment_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      },
+      "content": {
+        "type": "string",
+        "enum": [
+          "+1",
+          "-1",
+          "laugh",
+          "confused",
+          "heart",
+          "hooray",
+          "rocket",
+          "eyes"
+        ]
+      },
+      "per_page": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      }
+    },
+    "required": [
+      "owner",
+      "name",
+      "comment_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
