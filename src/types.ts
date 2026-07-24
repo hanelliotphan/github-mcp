@@ -14516,4 +14516,70 @@ export type UpdateOrgTeamSyncGroupMappingsSuccess = {
 };
 export type UpdateOrgTeamSyncGroupMappingsFailure = CreateRepoFailure;
 
+/** MCP tool: `github_get_authenticated_user`. */
+export type GetAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    user: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetAuthenticatedUserFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_authenticated_user`. */
+export type UpdateAuthenticatedUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    user: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateAuthenticatedUserFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_by_id`. */
+export type GetUserByIdSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    account_id: number;
+    user: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetUserByIdFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_users`. */
+export type ListUsersSuccess = {
+    success: true;
+    message: string;
+    users: Record<string, unknown>[];
+    pagination: GitHubSinceLinkPagination | null;
+    since: number | null;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+    request_id: string | null;
+};
+export type ListUsersFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user`. */
+export type GetUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    user: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetUserFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_user_hovercard`. */
+export type GetUserHovercardSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    hovercard: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetUserHovercardFailure = CreateRepoFailure;
 

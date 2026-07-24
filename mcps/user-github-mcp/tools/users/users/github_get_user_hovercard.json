@@ -1,0 +1,31 @@
+{
+  "name": "github_get_user_hovercard",
+  "description": "get user hovercard",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "subject_type": {
+        "type": "string",
+        "enum": [
+          "organization",
+          "repository",
+          "issue",
+          "pull_request"
+        ]
+      },
+      "subject_id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "username"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

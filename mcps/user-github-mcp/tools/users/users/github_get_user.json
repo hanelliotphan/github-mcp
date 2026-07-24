@@ -1,0 +1,18 @@
+{
+  "name": "github_get_user",
+  "description": "get user",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      }
+    },
+    "required": [
+      "username"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

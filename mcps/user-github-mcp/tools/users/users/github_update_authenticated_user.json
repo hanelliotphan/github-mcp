@@ -1,0 +1,38 @@
+{
+  "name": "github_update_authenticated_user",
+  "description": "update authenticated user",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "blog": {
+        "type": "string"
+      },
+      "twitter_username": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "company": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "hireable": {
+        "type": "boolean"
+      },
+      "bio": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

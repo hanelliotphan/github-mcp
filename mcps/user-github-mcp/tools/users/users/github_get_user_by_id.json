@@ -1,0 +1,17 @@
+{
+  "name": "github_get_user_by_id",
+  "description": "get user by id",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "account_id": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "account_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
