@@ -1816,6 +1816,22 @@ import type {
     CreateSecretScanningPushProtectionBypassFailure,
     GetRepoSecretScanningScanHistorySuccess,
     GetRepoSecretScanningScanHistoryFailure,
+    ListOrgSecretScanningCustomPatternsSuccess,
+    ListOrgSecretScanningCustomPatternsFailure,
+    CreateOrgSecretScanningCustomPatternsSuccess,
+    CreateOrgSecretScanningCustomPatternsFailure,
+    DeleteOrgSecretScanningCustomPatternsSuccess,
+    DeleteOrgSecretScanningCustomPatternsFailure,
+    UpdateOrgSecretScanningCustomPatternSuccess,
+    UpdateOrgSecretScanningCustomPatternFailure,
+    ListRepoSecretScanningCustomPatternsSuccess,
+    ListRepoSecretScanningCustomPatternsFailure,
+    CreateRepoSecretScanningCustomPatternsSuccess,
+    CreateRepoSecretScanningCustomPatternsFailure,
+    DeleteRepoSecretScanningCustomPatternsSuccess,
+    DeleteRepoSecretScanningCustomPatternsFailure,
+    UpdateRepoSecretScanningCustomPatternSuccess,
+    UpdateRepoSecretScanningCustomPatternFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -4099,6 +4115,22 @@ export function textAndData(
         | CreateSecretScanningPushProtectionBypassFailure
         | GetRepoSecretScanningScanHistorySuccess
         | GetRepoSecretScanningScanHistoryFailure
+        | ListOrgSecretScanningCustomPatternsSuccess
+        | ListOrgSecretScanningCustomPatternsFailure
+        | CreateOrgSecretScanningCustomPatternsSuccess
+        | CreateOrgSecretScanningCustomPatternsFailure
+        | DeleteOrgSecretScanningCustomPatternsSuccess
+        | DeleteOrgSecretScanningCustomPatternsFailure
+        | UpdateOrgSecretScanningCustomPatternSuccess
+        | UpdateOrgSecretScanningCustomPatternFailure
+        | ListRepoSecretScanningCustomPatternsSuccess
+        | ListRepoSecretScanningCustomPatternsFailure
+        | CreateRepoSecretScanningCustomPatternsSuccess
+        | CreateRepoSecretScanningCustomPatternsFailure
+        | DeleteRepoSecretScanningCustomPatternsSuccess
+        | DeleteRepoSecretScanningCustomPatternsFailure
+        | UpdateRepoSecretScanningCustomPatternSuccess
+        | UpdateRepoSecretScanningCustomPatternFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

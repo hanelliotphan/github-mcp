@@ -13799,3 +13799,103 @@ export type GetRepoSecretScanningScanHistorySuccess = {
 };
 export type GetRepoSecretScanningScanHistoryFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_org_secret_scanning_custom_patterns`. */
+export type ListOrgSecretScanningCustomPatternsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    custom_patterns: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgSecretScanningCustomPatternsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_org_secret_scanning_custom_patterns`. */
+export type CreateOrgSecretScanningCustomPatternsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateOrgSecretScanningCustomPatternsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_org_secret_scanning_custom_patterns`. */
+export type DeleteOrgSecretScanningCustomPatternsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    request_id: string | null;
+};
+export type DeleteOrgSecretScanningCustomPatternsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_secret_scanning_custom_pattern`. */
+export type UpdateOrgSecretScanningCustomPatternSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    pattern_id: number;
+    custom_pattern: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateOrgSecretScanningCustomPatternFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_secret_scanning_custom_patterns`. */
+export type ListRepoSecretScanningCustomPatternsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    custom_patterns: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoSecretScanningCustomPatternsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_create_repo_secret_scanning_custom_patterns`. */
+export type CreateRepoSecretScanningCustomPatternsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type CreateRepoSecretScanningCustomPatternsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_delete_repo_secret_scanning_custom_patterns`. */
+export type DeleteRepoSecretScanningCustomPatternsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    request_id: string | null;
+};
+export type DeleteRepoSecretScanningCustomPatternsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_repo_secret_scanning_custom_pattern`. */
+export type UpdateRepoSecretScanningCustomPatternSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    pattern_id: number;
+    custom_pattern: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateRepoSecretScanningCustomPatternFailure = CreateRepoFailure;
+
