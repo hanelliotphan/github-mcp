@@ -1846,6 +1846,18 @@ import type {
     GetSecretScanningAlertDismissalRequestFailure,
     ReviewSecretScanningAlertDismissalRequestSuccess,
     ReviewSecretScanningAlertDismissalRequestFailure,
+    ListEnterpriseSecretScanningBypassRequestsSuccess,
+    ListEnterpriseSecretScanningBypassRequestsFailure,
+    ListOrgSecretScanningBypassRequestsSuccess,
+    ListOrgSecretScanningBypassRequestsFailure,
+    ListRepoSecretScanningBypassRequestsSuccess,
+    ListRepoSecretScanningBypassRequestsFailure,
+    GetSecretScanningBypassRequestSuccess,
+    GetSecretScanningBypassRequestFailure,
+    ReviewSecretScanningBypassRequestSuccess,
+    ReviewSecretScanningBypassRequestFailure,
+    DismissSecretScanningBypassResponseSuccess,
+    DismissSecretScanningBypassResponseFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -4159,6 +4171,18 @@ export function textAndData(
         | GetSecretScanningAlertDismissalRequestFailure
         | ReviewSecretScanningAlertDismissalRequestSuccess
         | ReviewSecretScanningAlertDismissalRequestFailure
+        | ListEnterpriseSecretScanningBypassRequestsSuccess
+        | ListEnterpriseSecretScanningBypassRequestsFailure
+        | ListOrgSecretScanningBypassRequestsSuccess
+        | ListOrgSecretScanningBypassRequestsFailure
+        | ListRepoSecretScanningBypassRequestsSuccess
+        | ListRepoSecretScanningBypassRequestsFailure
+        | GetSecretScanningBypassRequestSuccess
+        | GetSecretScanningBypassRequestFailure
+        | ReviewSecretScanningBypassRequestSuccess
+        | ReviewSecretScanningBypassRequestFailure
+        | DismissSecretScanningBypassResponseSuccess
+        | DismissSecretScanningBypassResponseFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

@@ -1046,6 +1046,12 @@ import { registerGithubListEnterpriseSecretScanningAlertDismissalRequestsTool } 
 import { registerGithubListOrgSecretScanningAlertDismissalRequestsTool } from "./tools/secret-scanning/alert-dismissal-requests/github-list-org-secret-scanning-alert-dismissal-requests.js";
 import { registerGithubListRepoSecretScanningAlertDismissalRequestsTool } from "./tools/secret-scanning/alert-dismissal-requests/github-list-repo-secret-scanning-alert-dismissal-requests.js";
 import { registerGithubReviewSecretScanningAlertDismissalRequestTool } from "./tools/secret-scanning/alert-dismissal-requests/github-review-secret-scanning-alert-dismissal-request.js";
+import { registerGithubDismissSecretScanningBypassResponseTool } from "./tools/secret-scanning/delegated-bypass/github-dismiss-secret-scanning-bypass-response.js";
+import { registerGithubGetSecretScanningBypassRequestTool } from "./tools/secret-scanning/delegated-bypass/github-get-secret-scanning-bypass-request.js";
+import { registerGithubListEnterpriseSecretScanningBypassRequestsTool } from "./tools/secret-scanning/delegated-bypass/github-list-enterprise-secret-scanning-bypass-requests.js";
+import { registerGithubListOrgSecretScanningBypassRequestsTool } from "./tools/secret-scanning/delegated-bypass/github-list-org-secret-scanning-bypass-requests.js";
+import { registerGithubListRepoSecretScanningBypassRequestsTool } from "./tools/secret-scanning/delegated-bypass/github-list-repo-secret-scanning-bypass-requests.js";
+import { registerGithubReviewSecretScanningBypassRequestTool } from "./tools/secret-scanning/delegated-bypass/github-review-secret-scanning-bypass-request.js";
 import { registerGithubUploadRepoReleaseAssetTool } from "./tools/releases/assets/github-upload-repo-release-asset.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
@@ -2109,6 +2115,12 @@ registerGithubListEnterpriseSecretScanningAlertDismissalRequestsTool(server, oct
 registerGithubListOrgSecretScanningAlertDismissalRequestsTool(server, octokit);
 registerGithubListRepoSecretScanningAlertDismissalRequestsTool(server, octokit);
 registerGithubReviewSecretScanningAlertDismissalRequestTool(server, octokit);
+registerGithubDismissSecretScanningBypassResponseTool(server, octokit);
+registerGithubGetSecretScanningBypassRequestTool(server, octokit);
+registerGithubListEnterpriseSecretScanningBypassRequestsTool(server, octokit);
+registerGithubListOrgSecretScanningBypassRequestsTool(server, octokit);
+registerGithubListRepoSecretScanningBypassRequestsTool(server, octokit);
+registerGithubReviewSecretScanningBypassRequestTool(server, octokit);
 registerGithubUploadRepoReleaseAssetTool(server, octokit);
 
 installCompactToolsListHandler(server);

@@ -13993,3 +13993,87 @@ export type ReviewSecretScanningAlertDismissalRequestSuccess = {
 };
 export type ReviewSecretScanningAlertDismissalRequestFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_enterprise_secret_scanning_bypass_requests`. */
+export type ListEnterpriseSecretScanningBypassRequestsSuccess = {
+    success: true;
+    message: string;
+    enterprise: string;
+    bypass_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListEnterpriseSecretScanningBypassRequestsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_org_secret_scanning_bypass_requests`. */
+export type ListOrgSecretScanningBypassRequestsSuccess = {
+    success: true;
+    message: string;
+    org: string;
+    bypass_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListOrgSecretScanningBypassRequestsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_list_repo_secret_scanning_bypass_requests`. */
+export type ListRepoSecretScanningBypassRequestsSuccess = {
+    success: true;
+    message: string;
+    owner: string;
+    name: string;
+    bypass_requests: Record<string, unknown>[];
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+export type ListRepoSecretScanningBypassRequestsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_get_secret_scanning_bypass_request`. */
+export type GetSecretScanningBypassRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    bypass_request_number: number;
+    bypass_request: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetSecretScanningBypassRequestFailure = CreateRepoFailure;
+
+/** MCP tool: `github_review_secret_scanning_bypass_request`. */
+export type ReviewSecretScanningBypassRequestSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    bypass_request_number: number;
+    result: Record<string, unknown>;
+    request_id: string | null;
+};
+export type ReviewSecretScanningBypassRequestFailure = CreateRepoFailure;
+
+/** MCP tool: `github_dismiss_secret_scanning_bypass_response`. */
+export type DismissSecretScanningBypassResponseSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    owner: string;
+    name: string;
+    bypass_response_id: number;
+    request_id: string | null;
+};
+export type DismissSecretScanningBypassResponseFailure = CreateRepoFailure;
+
