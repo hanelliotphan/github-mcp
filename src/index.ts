@@ -989,6 +989,7 @@ import { registerGithubGetOrgProjectTool } from "./tools/projects/projects/githu
 import { registerGithubGetUserProjectTool } from "./tools/projects/projects/github-get-user-project.js";
 import { registerGithubCreateOrgProjectViewTool } from "./tools/projects/views/github-create-org-project-view.js";
 import { registerGithubCreateUserProjectViewTool } from "./tools/projects/views/github-create-user-project-view.js";
+import { registerGithubGetRateLimitTool } from "./tools/rate-limit/rate-limit/github-get-rate-limit.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1994,6 +1995,7 @@ registerGithubGetOrgProjectTool(server, octokit);
 registerGithubGetUserProjectTool(server, octokit);
 registerGithubCreateOrgProjectViewTool(server, octokit);
 registerGithubCreateUserProjectViewTool(server, octokit);
+registerGithubGetRateLimitTool(server, octokit);
 
 installCompactToolsListHandler(server);
 

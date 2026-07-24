@@ -1730,6 +1730,8 @@ import type {
     CreateOrgProjectViewFailure,
     CreateUserProjectViewSuccess,
     CreateUserProjectViewFailure,
+    GetRateLimitSuccess,
+    GetRateLimitFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -3927,6 +3929,8 @@ export function textAndData(
         | CreateOrgProjectViewFailure
         | CreateUserProjectViewSuccess
         | CreateUserProjectViewFailure
+        | GetRateLimitSuccess
+        | GetRateLimitFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

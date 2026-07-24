@@ -1,0 +1,9 @@
+{
+  "name": "github_get_rate_limit",
+  "description": "Get rate limit status for the authenticated user (GET /rate_limit). Does not count against the REST API rate limit.",
+  "arguments": {
+    "type": "object",
+    "properties": {},
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

@@ -13185,3 +13185,13 @@ export type CreateUserProjectViewSuccess = {
 };
 export type CreateUserProjectViewFailure = CreateRepoFailure;
 
+/** MCP tool: `github_get_rate_limit`. */
+export type GetRateLimitSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    rate_limit: Record<string, unknown>;
+    request_id: string | null;
+};
+export type GetRateLimitFailure = CreateRepoFailure;
+
