@@ -1,0 +1,23 @@
+{
+  "name": "github_get_user_project",
+  "description": "Get a user-owned project (GET /users/{username}/projectsV2/{project_number}).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39
+      },
+      "project_number": {
+        "type": "integer",
+        "exclusiveMinimum": 0
+      }
+    },
+    "required": [
+      "username",
+      "project_number"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

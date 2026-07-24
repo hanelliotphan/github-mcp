@@ -983,6 +983,10 @@ import { registerGithubUpdateOrgProjectItemTool } from "./tools/projects/items/g
 import { registerGithubUpdateUserProjectItemTool } from "./tools/projects/items/github-update-user-project-item.js";
 import { registerGithubDeleteOrgProjectItemTool } from "./tools/projects/items/github-delete-org-project-item.js";
 import { registerGithubDeleteUserProjectItemTool } from "./tools/projects/items/github-delete-user-project-item.js";
+import { registerGithubListOrgProjectsTool } from "./tools/projects/projects/github-list-org-projects.js";
+import { registerGithubListUserProjectsTool } from "./tools/projects/projects/github-list-user-projects.js";
+import { registerGithubGetOrgProjectTool } from "./tools/projects/projects/github-get-org-project.js";
+import { registerGithubGetUserProjectTool } from "./tools/projects/projects/github-get-user-project.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
 const token = getRequiredEnv("GITHUB_TOKEN");
@@ -1982,6 +1986,10 @@ registerGithubUpdateOrgProjectItemTool(server, octokit);
 registerGithubUpdateUserProjectItemTool(server, octokit);
 registerGithubDeleteOrgProjectItemTool(server, octokit);
 registerGithubDeleteUserProjectItemTool(server, octokit);
+registerGithubListOrgProjectsTool(server, octokit);
+registerGithubListUserProjectsTool(server, octokit);
+registerGithubGetOrgProjectTool(server, octokit);
+registerGithubGetUserProjectTool(server, octokit);
 
 installCompactToolsListHandler(server);
 
