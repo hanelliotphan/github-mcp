@@ -1,0 +1,33 @@
+{
+  "name": "github_create_user_copilot_space",
+  "description": "Create a Copilot Space for a user (POST /users/{username}/copilot-spaces). name required; optional description, general_instructions, base_role (reader|no_access), resources_attributes. Returns HTTP 201. See [Create a Copilot Space for a user](https://docs.github.com/en/rest/copilot-spaces/copilot-s",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "general_instructions": {
+        "type": "string"
+      },
+      "base_role": {
+        "type": "string",
+        "enum": [
+          "reader",
+          "no_access"
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "username",
+      "name"
+    ]
+  }
+}

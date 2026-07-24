@@ -1,0 +1,42 @@
+{
+  "name": "github_set_user_copilot_space_collaborator_role",
+  "description": "Set a collaborator role for a user Copilot Space (PUT /users/{username}/copilot-spaces/{space_number}/collaborators/{actor_type}/{actor_identifier}). role may be reader, writer, admin, or no_access (204 when removed). See [Set a collaborator role for a Copilot Space for a user](https://docs.github.c",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      },
+      "actor_type": {
+        "type": "string",
+        "enum": [
+          "User",
+          "Team"
+        ]
+      },
+      "actor_identifier": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "reader",
+          "writer",
+          "admin",
+          "no_access"
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "username",
+      "space_number",
+      "actor_type",
+      "actor_identifier",
+      "role"
+    ]
+  }
+}

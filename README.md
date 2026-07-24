@@ -381,16 +381,30 @@ Static MCP tool descriptors (JSON: tool name, description, argument schema) live
 ## MCP Client Config (using `.env` only)
 
 This server reads `GITHUB_TOKEN` from `<your_home_directory>/github-mcp/.env`.
-Do not include an `env` block in MCP client configs for this project.
+Do not put the token in MCP client configs.
 
 ### Cursor
+
+Cursor’s MCP UI hard-caps around **607 tools per server**, so this repo’s full tool set (**1132**) is exposed as **two shards** of the same `dist/index.js` (566 tools each). Set `GITHUB_MCP_SHARD` / `GITHUB_MCP_SHARD_COUNT` as shown; keep the token in `.env` only.
 
 ```json
 {
   "mcpServers": {
-    "github-mcp": {
+    "github-mcp-1": {
       "command": "node",
-      "args": ["<your_home_directory>/github-mcp/dist/index.js"]
+      "args": ["<your_home_directory>/github-mcp/dist/index.js"],
+      "env": {
+        "GITHUB_MCP_SHARD": "0",
+        "GITHUB_MCP_SHARD_COUNT": "2"
+      }
+    },
+    "github-mcp-2": {
+      "command": "node",
+      "args": ["<your_home_directory>/github-mcp/dist/index.js"],
+      "env": {
+        "GITHUB_MCP_SHARD": "1",
+        "GITHUB_MCP_SHARD_COUNT": "2"
+      }
     }
   }
 }

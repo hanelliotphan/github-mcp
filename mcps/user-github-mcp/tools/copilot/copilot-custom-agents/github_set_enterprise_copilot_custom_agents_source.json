@@ -1,0 +1,23 @@
+{
+  "name": "github_set_enterprise_copilot_custom_agents_source",
+  "description": "Set the source organization for custom agents in an enterprise (PUT /enterprises/{enterprise}/copilot/custom-agents/source). organization_id required; create_ruleset optional (default true). See [Set the source organization for custom agents in an enterprise](https://docs.github.com/en/rest/copilot/",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string"
+      },
+      "organization_id": {
+        "type": "integer"
+      },
+      "create_ruleset": {
+        "type": "boolean"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "enterprise",
+      "organization_id"
+    ]
+  }
+}

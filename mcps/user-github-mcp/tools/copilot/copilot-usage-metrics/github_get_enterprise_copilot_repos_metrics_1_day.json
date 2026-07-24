@@ -1,0 +1,20 @@
+{
+  "name": "github_get_enterprise_copilot_repos_metrics_1_day",
+  "description": "Get Copilot enterprise repository metrics download links for a specific day (GET /enterprises/{enterprise}/copilot/metrics/reports/repos-1-day). day (YYYY-MM-DD) required. See [Get Copilot enterprise repository report for a specific day](https://docs.github.com/en/rest/copilot/copilot-usage-metrics?",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string"
+      },
+      "day": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "enterprise",
+      "day"
+    ]
+  }
+}

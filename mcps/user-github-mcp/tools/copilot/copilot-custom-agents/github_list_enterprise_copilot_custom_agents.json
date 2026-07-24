@@ -1,0 +1,28 @@
+{
+  "name": "github_list_enterprise_copilot_custom_agents",
+  "description": "List custom agents for an enterprise (GET /enterprises/{enterprise}/copilot/custom-agents). Returns custom_agents (may be null). Supports per_page/page and all_pages when Link headers are present. See [Get custom agents for an enterprise](https://docs.github.com/en/rest/copilot/copilot-custom-agents",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string"
+      },
+      "per_page": {
+        "type": "integer"
+      },
+      "page": {
+        "type": "integer"
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "enterprise"
+    ]
+  }
+}

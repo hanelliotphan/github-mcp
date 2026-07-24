@@ -1,0 +1,20 @@
+{
+  "name": "github_delete_org_copilot_space",
+  "description": "Delete an organization Copilot Space (DELETE /orgs/{org}/copilot-spaces/{space_number}). Returns HTTP 204. See [Delete an organization Copilot Space](https://docs.github.com/en/rest/copilot-spaces/copilot-spaces?apiVersion=2026-03-10#delete-an-organization-copilot-space).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "space_number"
+    ]
+  }
+}

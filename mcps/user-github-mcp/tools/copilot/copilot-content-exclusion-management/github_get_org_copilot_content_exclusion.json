@@ -1,0 +1,16 @@
+{
+  "name": "github_get_org_copilot_content_exclusion",
+  "description": "Get Copilot content exclusion rules for an organization (GET /orgs/{org}/copilot/content_exclusion). Public preview. Returns a map of repository names to path exclusion arrays. See [Get Copilot content exclusion rules for an organization](https://docs.github.com/en/rest/copilot/copilot-content-exclu",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org"
+    ]
+  }
+}

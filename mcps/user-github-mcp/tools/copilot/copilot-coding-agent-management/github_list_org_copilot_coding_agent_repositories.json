@@ -1,0 +1,28 @@
+{
+  "name": "github_list_org_copilot_coding_agent_repositories",
+  "description": "List repositories enabled for Copilot cloud agent in an organization (GET /orgs/{org}/copilot/coding-agent/permissions/repositories). Returns total_count and repositories. Use per_page/page; all_pages follows Link headers. See [List repositories enabled for Copilot cloud agent in an organization](ht",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "per_page": {
+        "type": "integer"
+      },
+      "page": {
+        "type": "integer"
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org"
+    ]
+  }
+}

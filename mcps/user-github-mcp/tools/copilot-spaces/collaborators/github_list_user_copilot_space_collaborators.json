@@ -1,0 +1,20 @@
+{
+  "name": "github_list_user_copilot_space_collaborators",
+  "description": "List collaborators for a user Copilot Space (GET /users/{username}/copilot-spaces/{space_number}/collaborators). Returns collaborators array. Classic tokens need user scope. See [List collaborators for a Copilot Space for a user](https://docs.github.com/en/rest/copilot-spaces/collaborators?apiVersio",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "username",
+      "space_number"
+    ]
+  }
+}

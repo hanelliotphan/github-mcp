@@ -1,0 +1,35 @@
+{
+  "name": "github_create_user_copilot_space_resource",
+  "description": "Create a resource for a user Copilot Space (POST /users/{username}/copilot-spaces/{space_number}/resources). Requires resource_type and metadata. Returns HTTP 201 or 200 for duplicate github_file. See [Create a resource for a Copilot Space for a user](https://docs.github.com/en/rest/copilot-spaces/r",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      },
+      "resource_type": {
+        "type": "string",
+        "enum": [
+          "repository",
+          "github_file",
+          "free_text",
+          "github_issue",
+          "github_pull_request"
+        ]
+      },
+      "metadata": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "username",
+      "space_number",
+      "resource_type",
+      "metadata"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "github_get_enterprise_copilot_users_metrics_28_day",
+  "description": "Get latest 28-day Copilot enterprise users metrics download links (GET /enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest). See [Get Copilot enterprise users metrics](https://docs.github.com/en/rest/copilot/copilot-usage-metrics?apiVersion=2026-03-10#get-copilot-enterprise-users-m",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "enterprise"
+    ]
+  }
+}

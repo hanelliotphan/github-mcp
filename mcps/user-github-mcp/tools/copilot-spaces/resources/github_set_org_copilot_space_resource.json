@@ -1,0 +1,27 @@
+{
+  "name": "github_set_org_copilot_space_resource",
+  "description": "Update a resource for an organization Copilot Space (PUT /orgs/{org}/copilot-spaces/{space_number}/resources/{space_resource_id}). Optional metadata. See [Set a resource for an organization Copilot Space](https://docs.github.com/en/rest/copilot-spaces/resources?apiVersion=2026-03-10#set-a-resource-f",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      },
+      "space_resource_id": {
+        "type": "integer"
+      },
+      "metadata": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "space_number",
+      "space_resource_id"
+    ]
+  }
+}

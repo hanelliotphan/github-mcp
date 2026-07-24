@@ -1,0 +1,22 @@
+{
+  "name": "github_remove_enterprise_copilot_coding_agent_organizations",
+  "description": "Remove organizations from the enterprise Copilot cloud agent policy (DELETE /enterprises/{enterprise}/copilot/policies/coding_agent/organizations). Enterprise policy must be enabled_for_selected_orgs. Optional organizations (logins) and/or custom_properties filters. Returns HTTP 204. See [Remove org",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string"
+      },
+      "organizations": {
+        "type": "string"
+      },
+      "custom_properties": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "enterprise"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "github_set_user_copilot_space",
+  "description": "Update a Copilot Space for a user (PUT /users/{username}/copilot-spaces/{space_number}). Optional name, description, general_instructions, base_role (reader|no_access), resources_attributes. See [Set a Copilot Space for a user](https://docs.github.com/en/rest/copilot-spaces/copilot-spaces?apiVersion",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "general_instructions": {
+        "type": "string"
+      },
+      "base_role": {
+        "type": "string",
+        "enum": [
+          "reader",
+          "no_access"
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "username",
+      "space_number",
+      "name"
+    ]
+  }
+}

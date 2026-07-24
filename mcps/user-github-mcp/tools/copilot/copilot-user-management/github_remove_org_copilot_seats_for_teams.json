@@ -1,0 +1,20 @@
+{
+  "name": "github_remove_org_copilot_seats_for_teams",
+  "description": "Remove teams from the Copilot subscription for an organization (DELETE /orgs/{org}/copilot/billing/selected_teams). selected_teams required. Returns seats_cancelled. See [Remove teams from the Copilot subscription for an organization](https://docs.github.com/en/rest/copilot/copilot-user-management?a",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "selected_teams": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "selected_teams"
+    ]
+  }
+}

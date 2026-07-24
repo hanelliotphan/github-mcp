@@ -1,0 +1,16 @@
+{
+  "name": "github_delete_enterprise_copilot_custom_agents_source",
+  "description": "Delete the custom agents source for an enterprise (DELETE /enterprises/{enterprise}/copilot/custom-agents/source). Returns HTTP 204. See [Delete the custom agents source for an enterprise](https://docs.github.com/en/rest/copilot/copilot-custom-agents?apiVersion=2026-03-10#delete-the-custom-agents-so",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "enterprise": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "enterprise"
+    ]
+  }
+}

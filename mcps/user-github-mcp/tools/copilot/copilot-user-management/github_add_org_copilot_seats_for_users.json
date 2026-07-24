@@ -1,0 +1,20 @@
+{
+  "name": "github_add_org_copilot_seats_for_users",
+  "description": "Add users to the Copilot subscription for an organization (POST /orgs/{org}/copilot/billing/selected_users). selected_usernames required. Returns HTTP 201 with seats_created. See [Add users to the Copilot subscription for an organization](https://docs.github.com/en/rest/copilot/copilot-user-manageme",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "selected_usernames": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "selected_usernames"
+    ]
+  }
+}

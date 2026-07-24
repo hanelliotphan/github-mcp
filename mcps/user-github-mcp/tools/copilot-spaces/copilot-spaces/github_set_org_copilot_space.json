@@ -1,0 +1,38 @@
+{
+  "name": "github_set_org_copilot_space",
+  "description": "Update an organization Copilot Space (PUT /orgs/{org}/copilot-spaces/{space_number}). Optional name, description, general_instructions, base_role, resources_attributes. See [Set an organization Copilot Space](https://docs.github.com/en/rest/copilot-spaces/copilot-spaces?apiVersion=2026-03-10#set-an-",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "general_instructions": {
+        "type": "string"
+      },
+      "base_role": {
+        "type": "string",
+        "enum": [
+          "reader",
+          "writer",
+          "admin",
+          "no_access"
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "space_number"
+    ]
+  }
+}

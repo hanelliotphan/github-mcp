@@ -1,0 +1,41 @@
+{
+  "name": "github_add_user_copilot_space_collaborator",
+  "description": "Add a collaborator to a user Copilot Space (POST /users/{username}/copilot-spaces/{space_number}/collaborators). Requires actor_type (User|Team), actor_identifier, and role (reader|writer|admin). Returns HTTP 201. See [Add a collaborator to a Copilot Space for a user](https://docs.github.com/en/rest",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      },
+      "actor_type": {
+        "type": "string",
+        "enum": [
+          "User",
+          "Team"
+        ]
+      },
+      "actor_identifier": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "reader",
+          "writer",
+          "admin"
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "username",
+      "space_number",
+      "actor_type",
+      "actor_identifier",
+      "role"
+    ]
+  }
+}

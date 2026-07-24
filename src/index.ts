@@ -2,7 +2,10 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { Octokit } from "@octokit/rest";
 import { getRequiredEnv } from "./config/env.js";
-import { installCompactToolsListHandler } from "./utils/mcp-list-tools-compact.js";
+import {
+    applyGithubMcpToolShard,
+    installCompactToolsListHandler
+} from "./utils/mcp-list-tools-compact.js";
 import { registerGithubCheckDependabotSecurityUpdatesTool } from "./tools/repositories/github-check-dependabot-security-updates.js";
 import { registerGithubCheckPrivateVulnerabilityReportingTool } from "./tools/repositories/github-check-private-vulnerability-reporting.js";
 import { registerGithubCheckImmutableReleasesTool } from "./tools/repositories/github-check-immutable-releases.js";
@@ -2285,6 +2288,7 @@ registerGithubListRepoSecretScanningBypassRequestsTool(server, octokit);
 registerGithubReviewSecretScanningBypassRequestTool(server, octokit);
 registerGithubUploadRepoReleaseAssetTool(server, octokit);
 
+applyGithubMcpToolShard(server);
 installCompactToolsListHandler(server);
 
 async function main() {

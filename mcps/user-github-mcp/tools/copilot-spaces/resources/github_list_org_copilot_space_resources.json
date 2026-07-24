@@ -1,0 +1,20 @@
+{
+  "name": "github_list_org_copilot_space_resources",
+  "description": "List resources for an organization Copilot Space (GET /orgs/{org}/copilot-spaces/{space_number}/resources). Returns resources array. See [List resources for an organization Copilot Space](https://docs.github.com/en/rest/copilot-spaces/resources?apiVersion=2026-03-10#list-resources-for-an-organizatio",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "space_number": {
+        "type": "integer"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org",
+      "space_number"
+    ]
+  }
+}

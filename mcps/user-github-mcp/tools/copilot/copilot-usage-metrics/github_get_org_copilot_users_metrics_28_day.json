@@ -1,0 +1,16 @@
+{
+  "name": "github_get_org_copilot_users_metrics_28_day",
+  "description": "Get latest 28-day Copilot organization users metrics download links (GET /orgs/{org}/copilot/metrics/reports/users-28-day/latest). See [Get Copilot organization users metrics](https://docs.github.com/en/rest/copilot/copilot-usage-metrics?apiVersion=2026-03-10#get-copilot-organization-users-metrics).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org"
+    ]
+  }
+}

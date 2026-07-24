@@ -1,0 +1,31 @@
+{
+  "name": "github_list_org_copilot_spaces",
+  "description": "List organization Copilot Spaces (GET /orgs/{org}/copilot-spaces). Cursor pagination via before/after/per_page; supports all_pages/max_pages. Returns spaces array. See [List organization Copilot Spaces](https://docs.github.com/en/rest/copilot-spaces/copilot-spaces?apiVersion=2026-03-10#list-organiza",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "org": {
+        "type": "string"
+      },
+      "per_page": {
+        "type": "integer"
+      },
+      "before": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      },
+      "all_pages": {
+        "type": "boolean"
+      },
+      "max_pages": {
+        "type": "integer"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "org"
+    ]
+  }
+}
