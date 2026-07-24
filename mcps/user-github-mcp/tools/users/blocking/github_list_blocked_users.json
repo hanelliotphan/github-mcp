@@ -1,0 +1,14 @@
+{
+  "name": "github_list_blocked_users",
+  "description": "GET /user/blocks — list users blocked by the authenticated user. page/per_page (default 100), all_pages + max_pages.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "per_page": { "type": "integer", "minimum": 1, "maximum": 100 },
+      "page": { "type": "integer", "minimum": 1 },
+      "all_pages": { "type": "boolean" },
+      "max_pages": { "type": "integer", "minimum": 1, "maximum": 500 }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

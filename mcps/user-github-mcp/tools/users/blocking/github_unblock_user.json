@@ -1,0 +1,17 @@
+{
+  "name": "github_unblock_user",
+  "description": "DELETE /user/blocks/{username} — unblock a user (204 on success).",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 39,
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9-]*[A-Za-z0-9])){0,38}$"
+      }
+    },
+    "required": ["username"],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}

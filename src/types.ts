@@ -14583,3 +14583,61 @@ export type GetUserHovercardSuccess = {
 };
 export type GetUserHovercardFailure = CreateRepoFailure;
 
+/** One row from GET /user/blocks (Simple User per GitHub). */
+export type BlockedUserRow = Record<string, unknown>;
+
+/** GET /user/blocks — HTTP 200. */
+export type ListBlockedUsersSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    blocked_users: BlockedUserRow[];
+    /**
+     * Parsed from the last response `Link` header. When `all_pages` completed fully, `null`.
+     * When `truncated` is true, use `next.page` / `next.per_page` to continue.
+     */
+    pagination: GitHubPageLinkPagination | null;
+    request_id: string | null;
+    page: number;
+    per_page: number;
+    pages_fetched: number;
+    truncated?: boolean;
+};
+
+export type ListBlockedUsersFailure = CreateRepoFailure;
+
+/** GET /user/blocks/{username} — GitHub returns 204 when blocked; 404 when not (or spam account). */
+export type CheckUserBlockedSuccess = {
+    success: true;
+    message: string;
+    username: string;
+    /** True when GitHub returned **204** (user is blocked). */
+    blocked: boolean;
+    http_status: number;
+    request_id: string | null;
+};
+
+export type CheckUserBlockedFailure = CreateRepoFailure;
+
+/** PUT /user/blocks/{username} — HTTP 204. */
+export type BlockUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    request_id: string | null;
+};
+
+export type BlockUserFailure = CreateRepoFailure;
+
+/** DELETE /user/blocks/{username} — HTTP 204. */
+export type UnblockUserSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    username: string;
+    request_id: string | null;
+};
+
+export type UnblockUserFailure = CreateRepoFailure;
+

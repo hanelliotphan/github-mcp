@@ -87,6 +87,8 @@ import type {
     AttachOrgCodeSecurityConfigurationSuccess,
     BlockOrgUserFailure,
     BlockOrgUserSuccess,
+    BlockUserFailure,
+    BlockUserSuccess,
     BulkAddEnterpriseTeamMembersFailure,
     BulkAddEnterpriseTeamMembersSuccess,
     BulkAddEnterpriseTeamOrganizationAssignmentsFailure,
@@ -113,6 +115,8 @@ import type {
     CheckImmutableReleasesSuccess,
     CheckOrgBlockedUserFailure,
     CheckOrgBlockedUserSuccess,
+    CheckUserBlockedFailure,
+    CheckUserBlockedSuccess,
     CheckOrgMembershipForUserFailure,
     CheckOrgMembershipForUserSuccess,
     CheckOrgPublicMembershipForUserFailure,
@@ -1183,6 +1187,8 @@ import type {
     ListAuthenticatedUserReposSuccess,
     ListAuthenticatedUserTeamsFailure,
     ListAuthenticatedUserTeamsSuccess,
+    ListBlockedUsersFailure,
+    ListBlockedUsersSuccess,
     ListBranchesForHeadCommitFailure,
     ListBranchesForHeadCommitSuccess,
     ListCheckRunAnnotationsFailure,
@@ -2029,6 +2035,8 @@ import type {
     TransferRepoSuccess,
     UnblockOrgUserFailure,
     UnblockOrgUserSuccess,
+    UnblockUserFailure,
+    UnblockUserSuccess,
     UnlockRepoIssueFailure,
     UnlockRepoIssueSuccess,
     UnpinIssueCommentFailure,
@@ -4343,6 +4351,14 @@ export function textAndData(
         | GetUserSuccess
         | GetUserHovercardFailure
         | GetUserHovercardSuccess
+        | BlockUserFailure
+        | BlockUserSuccess
+        | CheckUserBlockedFailure
+        | CheckUserBlockedSuccess
+        | ListBlockedUsersFailure
+        | ListBlockedUsersSuccess
+        | UnblockUserFailure
+        | UnblockUserSuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {
