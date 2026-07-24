@@ -1832,6 +1832,10 @@ import type {
     DeleteRepoSecretScanningCustomPatternsFailure,
     UpdateRepoSecretScanningCustomPatternSuccess,
     UpdateRepoSecretScanningCustomPatternFailure,
+    ListOrgSecretScanningPatternConfigurationsSuccess,
+    ListOrgSecretScanningPatternConfigurationsFailure,
+    UpdateOrgSecretScanningPatternConfigurationsSuccess,
+    UpdateOrgSecretScanningPatternConfigurationsFailure,
     ListEnterpriseDependabotRepositoryAccessSuccess,
     ListEnterpriseDependabotRepositoryAccessFailure,
     UpdateEnterpriseDependabotRepositoryAccessSuccess,
@@ -4131,6 +4135,10 @@ export function textAndData(
         | DeleteRepoSecretScanningCustomPatternsFailure
         | UpdateRepoSecretScanningCustomPatternSuccess
         | UpdateRepoSecretScanningCustomPatternFailure
+        | ListOrgSecretScanningPatternConfigurationsSuccess
+        | ListOrgSecretScanningPatternConfigurationsFailure
+        | UpdateOrgSecretScanningPatternConfigurationsSuccess
+        | UpdateOrgSecretScanningPatternConfigurationsFailure
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

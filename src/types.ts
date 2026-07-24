@@ -13899,3 +13899,25 @@ export type UpdateRepoSecretScanningCustomPatternSuccess = {
 };
 export type UpdateRepoSecretScanningCustomPatternFailure = CreateRepoFailure;
 
+/** MCP tool: `github_list_org_secret_scanning_pattern_configurations`. */
+export type ListOrgSecretScanningPatternConfigurationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    pattern_configurations: Record<string, unknown>;
+    request_id: string | null;
+};
+export type ListOrgSecretScanningPatternConfigurationsFailure = CreateRepoFailure;
+
+/** MCP tool: `github_update_org_secret_scanning_pattern_configurations`. */
+export type UpdateOrgSecretScanningPatternConfigurationsSuccess = {
+    success: true;
+    message: string;
+    http_status: number;
+    org: string;
+    pattern_configurations: Record<string, unknown>;
+    request_id: string | null;
+};
+export type UpdateOrgSecretScanningPatternConfigurationsFailure = CreateRepoFailure;
+

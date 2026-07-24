@@ -1039,6 +1039,8 @@ import { registerGithubListOrgSecretScanningCustomPatternsTool } from "./tools/s
 import { registerGithubListRepoSecretScanningCustomPatternsTool } from "./tools/secret-scanning/custom-patterns/github-list-repo-secret-scanning-custom-patterns.js";
 import { registerGithubUpdateOrgSecretScanningCustomPatternTool } from "./tools/secret-scanning/custom-patterns/github-update-org-secret-scanning-custom-pattern.js";
 import { registerGithubUpdateRepoSecretScanningCustomPatternTool } from "./tools/secret-scanning/custom-patterns/github-update-repo-secret-scanning-custom-pattern.js";
+import { registerGithubListOrgSecretScanningPatternConfigurationsTool } from "./tools/secret-scanning/push-protection/github-list-org-secret-scanning-pattern-configurations.js";
+import { registerGithubUpdateOrgSecretScanningPatternConfigurationsTool } from "./tools/secret-scanning/push-protection/github-update-org-secret-scanning-pattern-configurations.js";
 import { registerGithubUploadRepoReleaseAssetTool } from "./tools/releases/assets/github-upload-repo-release-asset.js";
 import { registerGithubSetAuthenticatedUserInteractionLimitsTool } from "./tools/interactions/user/github-set-authenticated-user-interaction-limits.js";
 import { registerGithubRevokeCredentialsTool } from "./tools/credentials/revoke/github-revoke-credentials.js";
@@ -2095,6 +2097,8 @@ registerGithubListOrgSecretScanningCustomPatternsTool(server, octokit);
 registerGithubListRepoSecretScanningCustomPatternsTool(server, octokit);
 registerGithubUpdateOrgSecretScanningCustomPatternTool(server, octokit);
 registerGithubUpdateRepoSecretScanningCustomPatternTool(server, octokit);
+registerGithubListOrgSecretScanningPatternConfigurationsTool(server, octokit);
+registerGithubUpdateOrgSecretScanningPatternConfigurationsTool(server, octokit);
 registerGithubUploadRepoReleaseAssetTool(server, octokit);
 
 installCompactToolsListHandler(server);
