@@ -153,6 +153,8 @@ import type {
     ConvertOrgMemberToOutsideCollaboratorSuccess,
     CreateAuthenticatedUserGpgKeyFailure,
     CreateAuthenticatedUserGpgKeySuccess,
+    CreateAuthenticatedUserPublicSshKeyFailure,
+    CreateAuthenticatedUserPublicSshKeySuccess,
     CreateCheckRunFailure,
     CreateCheckRunSuccess,
     CreateCheckSuiteFailure,
@@ -391,6 +393,8 @@ import type {
     DeleteAuthenticatedUserPackageSuccess,
     DeleteAuthenticatedUserPackageVersionFailure,
     DeleteAuthenticatedUserPackageVersionSuccess,
+    DeleteAuthenticatedUserPublicSshKeyFailure,
+    DeleteAuthenticatedUserPublicSshKeySuccess,
     DeleteCodeqlDatabaseFailure,
     DeleteCodeqlDatabaseSuccess,
     DeleteCodeScanningAnalysisFailure,
@@ -684,6 +688,8 @@ import type {
     GetAuthenticatedUserPackageSuccess,
     GetAuthenticatedUserPackageVersionFailure,
     GetAuthenticatedUserPackageVersionSuccess,
+    GetAuthenticatedUserPublicSshKeyFailure,
+    GetAuthenticatedUserPublicSshKeySuccess,
     GetAuthenticatedUserSuccess,
     GetCheckRunFailure,
     GetCheckRunSuccess,
@@ -1209,6 +1215,8 @@ import type {
     ListAuthenticatedUserPackageVersionsSuccess,
     ListAuthenticatedUserPublicEmailsFailure,
     ListAuthenticatedUserPublicEmailsSuccess,
+    ListAuthenticatedUserPublicSshKeysFailure,
+    ListAuthenticatedUserPublicSshKeysSuccess,
     ListAuthenticatedUserReposFailure,
     ListAuthenticatedUserReposSuccess,
     ListAuthenticatedUserTeamsFailure,
@@ -1727,6 +1735,8 @@ import type {
     ListUserProjectsSuccess,
     ListUserProjectViewItemsFailure,
     ListUserProjectViewItemsSuccess,
+    ListUserPublicKeysFailure,
+    ListUserPublicKeysSuccess,
     ListUserReposFailure,
     ListUserRepositoryInvitationsFailure,
     ListUserRepositoryInvitationsSuccess,
@@ -4431,6 +4441,16 @@ export function textAndData(
         | ListAuthenticatedUserGpgKeysSuccess
         | ListUserGpgKeysFailure
         | ListUserGpgKeysSuccess
+        | CreateAuthenticatedUserPublicSshKeyFailure
+        | CreateAuthenticatedUserPublicSshKeySuccess
+        | DeleteAuthenticatedUserPublicSshKeyFailure
+        | DeleteAuthenticatedUserPublicSshKeySuccess
+        | GetAuthenticatedUserPublicSshKeyFailure
+        | GetAuthenticatedUserPublicSshKeySuccess
+        | ListAuthenticatedUserPublicSshKeysFailure
+        | ListAuthenticatedUserPublicSshKeysSuccess
+        | ListUserPublicKeysFailure
+        | ListUserPublicKeysSuccess
 ) {
     // Provide both human-readable text and structured JSON for MCP consumers.
     return {

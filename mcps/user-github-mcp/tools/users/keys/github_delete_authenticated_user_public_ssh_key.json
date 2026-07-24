@@ -1,0 +1,17 @@
+{
+  "name": "github_delete_authenticated_user_public_ssh_key",
+  "description": "DELETE /user/keys/{key_id}",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "key_id": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "key_id"
+    ],
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  }
+}
